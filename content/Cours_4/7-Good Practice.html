@@ -164,8 +164,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Quelques IDEs en Python</li>
-        <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
     </ul>
   </li>
@@ -174,6 +172,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -181,6 +187,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPCwarming.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
  <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
@@ -203,6 +213,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1.html">
+ <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -349,26 +363,26 @@ Un exemple d'API RESTful est une API qui gère les utilisateurs. Les URIs sont s
 <ol type="1">
 <li><strong>Tableaux Multidimensionnels</strong>: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.</li>
 </ol>
-<div id="055f2cf8" class="cell" data-execution_count="1">
+<div id="7d01893a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li><strong>Opérations Mathématiques Rapides et Efficaces</strong>: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.</li>
 </ol>
-<div id="713a3f6e" class="cell" data-execution_count="2">
+<div id="8d7ae82d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> arr <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Ajoute 1 à chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li><strong>Fonctions Mathématiques Avancées</strong>: NumPy inclut des fonctions pour l’algèbre linéaire, la transformée de Fourier, et plus.</li>
 </ol>
-<div id="55e24603" class="cell" data-execution_count="3">
+<div id="e0608450" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>)  <span class="co"># Crée une matrice 3x3 de nombres aléatoires</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(matrix)  <span class="co"># Inversion d'une matrice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([[ 1.89057833, -0.11796079, -1.30784289],
-       [-0.40042984, -0.53282289,  1.6564795 ],
-       [-2.13890505,  1.44800189,  1.30577953]])</code></pre>
+<pre><code>array([[-0.54365185,  1.56023224, -0.87894726],
+       [-0.47511784, -2.57710203,  6.31536583],
+       [ 1.90606072,  2.00452491, -5.94725335]])</code></pre>
 </div>
 </div>
 </section>
@@ -383,7 +397,7 @@ Un exemple d'API RESTful est une API qui gère les utilisateurs. Les URIs sont s
 <ul>
 <li><strong>Optimisation</strong>: Trouver le minimum ou le maximum d’une fonction.</li>
 </ul>
-<div id="9bf059b0" class="cell" data-execution_count="4">
+<div id="c771ee56" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
@@ -399,7 +413,7 @@ Un exemple d'API RESTful est une API qui gère les utilisateurs. Les URIs sont s
 <li><strong>Énoncé</strong>: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="2411942e" class="cell" data-execution_count="5">
+<div id="01004742" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poly(x):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -449,7 +463,7 @@ Un exemple d'API RESTful est une API qui gère les utilisateurs. Les URIs sont s
 <li><strong>Énoncé</strong>: Créez un tableau 2D avec NumPy et utilisez l’indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.</li>
 <li><strong>Solution</strong>:</li>
 </ol>
-<div id="c11a430a" class="cell" data-execution_count="6">
+<div id="c195db80" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
