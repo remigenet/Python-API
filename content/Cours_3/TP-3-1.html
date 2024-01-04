@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
+<meta name="description" content="Mise en pratique simple des éléments vu aurparavant.">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - TP3 Option 1 Service gRPC pour indicateurs de marché</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,23 +75,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - TP3 Option 1 Service gRPC pour indicateurs de marché">
+<meta property="og:description" content="Mise en pratique simple des éléments vu aurparavant.">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_3/.img/api.png">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta property="og:image:height" content="173">
+<meta property="og:image:width" content="291">
+<meta name="citation_title" content="TP3 Option 1 Service gRPC pour indicateurs de marché">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_3/TP-3-1.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,70 +222,53 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#description-globale" id="toc-description-globale" class="nav-link active" data-scroll-target="#description-globale">Description globale</a>
+  <ul class="collapse">
+  <li><a href="#consignes-spécifiques-pour-ce-tp" id="toc-consignes-spécifiques-pour-ce-tp" class="nav-link" data-scroll-target="#consignes-spécifiques-pour-ce-tp">Consignes Spécifiques pour ce TP :</a></li>
+  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif">Objectif</a></li>
+  <li><a href="#prérequis" id="toc-prérequis" class="nav-link" data-scroll-target="#prérequis">Prérequis</a></li>
+  </ul></li>
+  <li><a href="#partie-1-création-du-service-grpc" id="toc-partie-1-création-du-service-grpc" class="nav-link" data-scroll-target="#partie-1-création-du-service-grpc">Partie 1: Création du Service gRPC</a>
+  <ul class="collapse">
+  <li><a href="#tâche-1-définition-du-service" id="toc-tâche-1-définition-du-service" class="nav-link" data-scroll-target="#tâche-1-définition-du-service">Tâche 1: Définition du Service</a></li>
+  <li><a href="#tâche-2-implémentation-du-serveur" id="toc-tâche-2-implémentation-du-serveur" class="nav-link" data-scroll-target="#tâche-2-implémentation-du-serveur">Tâche 2: Implémentation du Serveur</a></li>
+  <li><a href="#tâche-3-client-grpc" id="toc-tâche-3-client-grpc" class="nav-link" data-scroll-target="#tâche-3-client-grpc">Tâche 3: Client gRPC</a></li>
+  </ul></li>
+  <li><a href="#partie-2-gestion-du-caching-des-données-et-des-résultats-de-calcul" id="toc-partie-2-gestion-du-caching-des-données-et-des-résultats-de-calcul" class="nav-link" data-scroll-target="#partie-2-gestion-du-caching-des-données-et-des-résultats-de-calcul">Partie 2: Gestion du Caching des Données et des Résultats de Calcul</a>
+  <ul class="collapse">
+  <li><a href="#caching-des-données-de-marché-téléchargées" id="toc-caching-des-données-de-marché-téléchargées" class="nav-link" data-scroll-target="#caching-des-données-de-marché-téléchargées">Caching des Données de Marché Téléchargées</a></li>
+  <li><a href="#caching-des-résultats-des-calculs" id="toc-caching-des-résultats-des-calculs" class="nav-link" data-scroll-target="#caching-des-résultats-des-calculs">Caching des Résultats des Calculs</a></li>
+  <li><a href="#format-de-cache" id="toc-format-de-cache" class="nav-link" data-scroll-target="#format-de-cache">Format de Cache</a></li>
+  </ul></li>
+  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">TP3 Option 1 Service gRPC pour indicateurs de marché</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">TP</div>
+    <div class="quarto-category">Exercices</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
+    Mise en pratique simple des éléments vu aurparavant.
   </div>
 </div>
 
@@ -315,110 +297,121 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
+<section id="description-globale" class="level1">
+<h1>Description globale</h1>
+<section id="consignes-spécifiques-pour-ce-tp" class="level2">
+<h2 class="anchored" data-anchor-id="consignes-spécifiques-pour-ce-tp">Consignes Spécifiques pour ce TP :</h2>
+<p>Ce TP est à réaliser en binôme. Chaque groupe choisira une des deux options de travaux pratiques proposées pour cette session. Lors de la soumission de votre projet sur GitHub, assurez-vous que chaque membre du groupe est correctement ajouté en tant que collaborateur sur le dépôt du projet. Il est nécessaire de rendre seulement l’une des deux options de TP par binôme.</p>
+</section>
+<section id="objectif" class="level2">
+<h2 class="anchored" data-anchor-id="objectif">Objectif</h2>
+<p>Dans le cadre de ce TP, vous allez développer un service gRPC qui fournira des méthodes pour calculer et obtenir les indicateurs financiers suivants à partir des données de marché de Binance :</p>
 <ol type="1">
-<li><strong>Stratégies de Branching</strong> :
+<li><strong>Money Flow Classique</strong> :
 <ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
+<li><strong>Définition</strong> : Cet indicateur mesure la proportion du volume des ordres “taker” acheteurs par rapport aux vendeurs. Un “taker” est un participant au marché qui exécute des ordres au prix du marché, enlevant ainsi de la liquidité du carnet d’ordres.</li>
+<li><strong>Formule</strong> : <code>Money Flow Classique = Volume Taker Acheteur / Volume Taker Vendeur</code></li>
 </ul></li>
-<li><strong>Fusions Avancées</strong> :
+<li><strong>Money Flow Temporel</strong> :
 <ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
+<li><strong>Définition</strong> : Cet indicateur représente, sur la dernière heure, la proportion des minutes pendant lesquelles le volume des ordres “taker” acheteurs a été supérieur à celui des vendeurs.</li>
+<li><strong>Formule</strong> : <code>Money Flow Temporel = Nombre de Minutes avec Volume Taker Acheteur &gt; Volume Taker Vendeur / 60</code></li>
 </ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
+<li><strong>Rendement sur la Dernière Heure</strong> :
 <ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
+<li><strong>Définition</strong> : Le rendement est le pourcentage de variation du prix d’un actif sur une période donnée. Ici, vous calculerez le pourcentage de variation du prix sur la dernière heure.</li>
+<li><strong>Formule</strong> : <code>Rendement = (Prix de Clôture - Prix d'Ouverture) / Prix d'Ouverture * 100</code></li>
+</ul></li>
+<li><strong>VWAP (Volume Weighted Average Price) sur la Dernière Heure</strong> :
+<ul>
+<li><strong>Définition</strong> : Le VWAP est une moyenne du prix des transactions pondérée par le volume. Cet indicateur donne une idée du prix moyen auquel un actif a été échangé sur la période considérée, pondéré par le volume de chaque transaction.</li>
+<li><strong>Formule</strong> : <code>VWAP = Somme(Prix * Volume) / Somme(Volume) pour chaque minute de l'heure</code></li>
+</ul></li>
+<li><strong>TWAP (Time Weighted Average Price) sur la Dernière Heure</strong> :
+<ul>
+<li><strong>Définition</strong> : Le TWAP est la moyenne des prix de clôture de chaque minute sur une période donnée. Cela donne une moyenne du prix qui n’est pas influencée par les fluctuations de volume.</li>
+<li><strong>Formule</strong> : <code>TWAP = Somme(Prix de Clôture de chaque Minute) / Nombre de Minutes</code></li>
 </ul></li>
 </ol>
+<p>Ces indicateurs seront calculés à partir des données de marché de l’heure précédente et seront accessibles via des appels à des méthodes spécifiques du service gRPC que vous allez implémenter.</p>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
+<section id="prérequis" class="level2">
+<h2 class="anchored" data-anchor-id="prérequis">Prérequis</h2>
+<ul>
+<li>Connaissance de base de Python et de la programmation orientée objet.</li>
+<li>Compréhension des concepts de base de gRPC.</li>
+<li>Installation de l’environnement de développement Python, y compris <code>grpcio</code> et <code>grpcio-tools</code>.</li>
+<li>Accès à l’API Binance pour les données publiques.</li>
+</ul>
+</section>
+</section>
+<section id="partie-1-création-du-service-grpc" class="level1">
+<h1>Partie 1: Création du Service gRPC</h1>
+<section id="tâche-1-définition-du-service" class="level3">
+<h3 class="anchored" data-anchor-id="tâche-1-définition-du-service">Tâche 1: Définition du Service</h3>
 <ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
-<ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
+<li>Définir un service gRPC dans un fichier <code>.proto</code> qui contient des méthodes pour calculer et récupérer chacun des indicateurs financiers listés ci-dessus.</li>
+<li>Générer le code côté serveur et client à partir de ce fichier <code>.proto</code>.</li>
 </ol>
 </section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
+<section id="tâche-2-implémentation-du-serveur" class="level3">
+<h3 class="anchored" data-anchor-id="tâche-2-implémentation-du-serveur">Tâche 2: Implémentation du Serveur</h3>
 <ol type="1">
-<li><strong>Alias Git</strong> :
-<ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
+<li>Implémenter la logique du serveur pour interroger l’API Binance et récupérer les données de marché nécessaires.</li>
+<li>Calculer les indicateurs financiers en fonction des données récupérées et les rendre disponibles via les méthodes gRPC.</li>
 </ol>
 </section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
+<section id="tâche-3-client-grpc" class="level3">
+<h3 class="anchored" data-anchor-id="tâche-3-client-grpc">Tâche 3: Client gRPC</h3>
 <ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
-<ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
-<ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
+<li>Écrire un client gRPC qui envoie des demandes au serveur pour obtenir les indicateurs financiers.</li>
+<li>Traiter la réponse et afficher les résultats.</li>
 </ol>
 </section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
-<ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
 </section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+<section id="partie-2-gestion-du-caching-des-données-et-des-résultats-de-calcul" class="level1">
+<h1>Partie 2: Gestion du Caching des Données et des Résultats de Calcul</h1>
+<p>Dans le cadre de ce TP, il est crucial de mettre en place un système de caching efficace pour optimiser les performances de votre service gRPC. Voici les directives à suivre concernant la gestion du cache :</p>
+<section id="caching-des-données-de-marché-téléchargées" class="level2">
+<h2 class="anchored" data-anchor-id="caching-des-données-de-marché-téléchargées">Caching des Données de Marché Téléchargées</h2>
+<ul>
+<li><strong>Caching à la Première Demande</strong> :
+<ul>
+<li>Lorsqu’une méthode est appelée pour la première fois, les données de marché nécessaires doivent être téléchargées et mises en cache.</li>
+<li>Les appels subséquents à la même méthode utiliseront les données mises en cache jusqu’à ce qu’une nouvelle heure soit entamée.</li>
+</ul></li>
+<li><strong>Mise à Jour Automatique du Cache</strong> :
+<ul>
+<li>Optionnellement, vous pouvez implémenter un mécanisme qui met à jour automatiquement le cache des données de marché à chaque nouvelle heure, indépendamment des demandes des clients.</li>
+<li>Cela garantit que les données les plus récentes sont toujours prêtes à être utilisées dès qu’une demande est reçue.</li>
+</ul></li>
+</ul>
+</section>
+<section id="caching-des-résultats-des-calculs" class="level2">
+<h2 class="anchored" data-anchor-id="caching-des-résultats-des-calculs">Caching des Résultats des Calculs</h2>
+<ul>
+<li>Les résultats des calculs des indicateurs financiers doivent également être mis en cache mais uniquement calculé à la première demande.</li>
+</ul>
+</section>
+<section id="format-de-cache" class="level2">
+<h2 class="anchored" data-anchor-id="format-de-cache">Format de Cache</h2>
+<ul>
+<li>Utilisez un format de cache rapide et efficace pour stocker les données et les résultats des calculs. Les formats recommandés sont <code>pickle</code> pour la rapidité ou <code>parquet</code> pour l’efficacité avec de grands volumes de données.</li>
+<li>Assurez-vous que le système de cache est conçu pour minimiser le temps de chargement et de sauvegarde des données.</li>
+</ul>
+<p>En suivant ces directives, vous vous assurerez que votre service gRPC est réactif et efficace, en fournissant rapidement des données à jour et des résultats de calculs aux clients.</p>
+</section>
+</section>
+<section id="ressources" class="level1">
+<h1>Ressources</h1>
+<ul>
+<li><a href="https://binance-docs.github.io/apidocs/">Documentation de l’API Binance</a></li>
+<li><a href="https://github.com/binance/binance-spot-api-docs/tree/master">Documentation de l’API Binance sur GitHub</a></li>
+<li><a href="https://grpc.io/docs/languages/python/quickstart/">Guide de démarrage rapide gRPC Python</a></li>
+<li><a href="https://grpc.github.io/grpc/python/">Documentation Python <code>grpcio</code></a></li>
+</ul>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -804,15 +797,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

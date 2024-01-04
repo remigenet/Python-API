@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
+<meta name="description" content="Matplotlib, Plotly ou Seaborn ? Peut être Altair !">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - Visualiser et présenter ces données avec Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,23 +75,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - Visualiser et présenter ces données avec Python">
+<meta property="og:description" content="Matplotlib, Plotly ou Seaborn ? Peut être Altair !">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_3/.img/Untitled.png">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta property="og:image:height" content="147">
+<meta property="og:image:width" content="344">
+<meta name="citation_title" content="Visualiser et présenter ces données avec Python">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_3/7-AutresetCCl.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,70 +222,43 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#visualisation-de-données-avec-python" id="toc-visualisation-de-données-avec-python" class="nav-link active" data-scroll-target="#visualisation-de-données-avec-python">Visualisation de données avec Python</a></li>
+  <li><a href="#vii.-autres-méthodes-de-communication-interprocessus" id="toc-vii.-autres-méthodes-de-communication-interprocessus" class="nav-link" data-scroll-target="#vii.-autres-méthodes-de-communication-interprocessus">VII. Autres Méthodes de Communication Interprocessus</a>
+  <ul class="collapse">
+  <li><a href="#signaux" id="toc-signaux" class="nav-link" data-scroll-target="#signaux">1. Signaux</a></li>
+  <li><a href="#sémaphores" id="toc-sémaphores" class="nav-link" data-scroll-target="#sémaphores">2. Sémaphores</a></li>
+  <li><a href="#files-de-messages" id="toc-files-de-messages" class="nav-link" data-scroll-target="#files-de-messages">3. Files de Messages</a></li>
+  <li><a href="#rpc-classiques" id="toc-rpc-classiques" class="nav-link" data-scroll-target="#rpc-classiques">4. RPC Classiques</a></li>
+  </ul></li>
+  <li><a href="#conclusion-du-cours-sur-lipc" id="toc-conclusion-du-cours-sur-lipc" class="nav-link" data-scroll-target="#conclusion-du-cours-sur-lipc">Conclusion du Cours sur l’IPC</a></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">Visualiser et présenter ces données avec Python</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
+    Matplotlib, Plotly ou Seaborn ? Peut être Altair !
   </div>
 </div>
 
@@ -315,110 +287,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
-<ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
-<ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<section id="visualisation-de-données-avec-python" class="level1">
+<h1>Visualisation de données avec Python</h1>
+<hr>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
-<ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
+<section id="vii.-autres-méthodes-de-communication-interprocessus" class="level1">
+<h1>VII. Autres Méthodes de Communication Interprocessus</h1>
+<pre><code>Outre les sockets, les fichiers, la mémoire partagée, les pipes et gRPC, il existe d'autres techniques d'IPC qui peuvent être utilisées selon les besoins spécifiques de l'application. Ces méthodes incluent les signaux, les sémaphores, les files de messages et les RPC classiques.</code></pre>
+<section id="signaux" class="level2">
+<h2 class="anchored" data-anchor-id="signaux">1. Signaux</h2>
+<pre><code>Les signaux sont des notifications envoyées à un processus pour lui indiquer qu'un événement spécifique s'est produit. En Python, par exemple, le module signal permet aux développeurs de gérer les signaux de manière plus granulaire. Un exemple courant de signal est SIGINT, qui est généré lorsque l'utilisateur tape Ctrl+C dans le terminal. Ce signal peut être intercepté par un programme, permettant ainsi au développeur de nettoyer les ressources ou de sauvegarder l'état avant que le programme ne se termine.</code></pre>
 </section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
-<ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
+<section id="sémaphores" class="level2">
+<h2 class="anchored" data-anchor-id="sémaphores">2. Sémaphores</h2>
+<pre><code>Les sémaphores sont des variables ou des objets spéciaux utilisés pour contrôler l'accès à une ressource commune. Ils sont essentiels dans les situations où plusieurs processus doivent accéder à la même ressource mais ne doivent pas le faire simultanément pour éviter les conflits et les conditions de concurrence. En Python, le module threading contient une implémentation de sémaphore qui peut être utilisée pour synchroniser les threads, qui sont essentiellement des processus légers.</code></pre>
 </section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
-<ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
-<ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
-</ol>
+<section id="files-de-messages" class="level2">
+<h2 class="anchored" data-anchor-id="files-de-messages">3. Files de Messages</h2>
+<pre><code>Les files de messages sont des files d'attente qui stockent les messages jusqu'à ce qu'ils puissent être traités. Contrairement aux signaux, qui ne peuvent transmettre que des notifications très limitées, les files de messages peuvent transporter des données structurées plus complexes entre les processus. Cela permet une communication asynchrone où les processus n'ont pas besoin d'être actifs en même temps pour communiquer.</code></pre>
 </section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
-<ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
+<section id="rpc-classiques" class="level2">
+<h2 class="anchored" data-anchor-id="rpc-classiques">4. RPC Classiques</h2>
+<pre><code>Les appels de procédure à distance (RPC) permettent à un processus d'appeler une fonction ou une procédure sur un autre ordinateur comme s'il s'agissait d'un appel local. XML-RPC et JSON-RPC sont deux protocoles qui utilisent respectivement XML et JSON pour encoder les appels de procédure et les données. Ces protocoles sont souvent utilisés dans les architectures orientées services (SOA) et sont particulièrement utiles lorsque les processus sont distribués sur différents systèmes ou réseaux.
+
+Chacune de ces méthodes a ses propres avantages et inconvénients et peut être choisie en fonction des besoins spécifiques de l'application et de l'environnement dans lequel elle fonctionne. Par exemple, les signaux sont utiles pour les notifications simples et les contrôles de processus, tandis que les sémaphores sont essentiels pour la synchronisation. Les files de messages offrent une robustesse pour les communications asynchrones, et les RPC classiques sont idéaux pour les appels de fonctions à distance dans des environnements distribués.</code></pre>
 </section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+</section>
+<section id="conclusion-du-cours-sur-lipc" class="level1">
+<h1>Conclusion du Cours sur l’IPC</h1>
+<pre><code>La communication interprocessus est un domaine vaste et complexe, mais essentiel pour la conception de systèmes informatiques modernes et pour la création d'API efficaces et évolutives. Chaque méthode d'IPC a ses propres avantages et cas d'utilisation, et la compréhension de ces méthodes permet aux développeurs de choisir la meilleure stratégie de communication pour leurs applications.
+
+En intégrant ces concepts d'IPC dans la conception et l'implémentation des API, les développeurs peuvent créer des systèmes plus robustes, évolutifs et performants. Cela conclut notre exploration des méthodes de communication interprocessus, un composant fondamental de l'architecture des systèmes informatiques et des API.
+
+Avec la conclusion du cours sur l'IPC, nous avons couvert les principaux mécanismes qui permettent aux processus de communiquer et de coordonner leurs actions dans un système informatique. Ces mécanismes sont essentiels pour construire des applications distribuées et des services qui peuvent fonctionner de manière fiable et efficace à grande échelle.
 
 
-</section>
+
+## Importance de l'IPC dans le Développement d'API
+
+L'IPC n'est pas seulement une question de communication entre les processus locaux, mais aussi un élément fondamental dans le développement d'API robustes et évolutives. En comprenant et en appliquant correctement les principes de l'IPC, les développeurs peuvent :
+</code></pre>
+<ul>
+<li><code>Assurer que les composants d'une application peuvent travailler ensemble de manière fiable.</code></li>
+<li><code>Améliorer les performances en optimisant la manière dont les données sont échangées.</code></li>
+<li><code>Concevoir des systèmes qui sont capables de s'adapter et de monter en charge selon les besoins.</code></li>
+</ul>
+<pre><code>
+
+## Récapitulatif et Points Clés à Retenir
+</code></pre>
+<ul>
+<li><code>Sockets : Utilisés pour la communication réseau, ils sont essentiels pour les interactions client-serveur.</code></li>
+<li><code>Fichiers : Une méthode simple pour la persistance des données et la communication non temps réel.</code></li>
+<li><code>Mémoire Partagée : Offre un accès rapide aux données partagées, idéal pour les communications en temps réel.</code></li>
+<li><code>Pipes : Canaux de communication entre processus, utiles pour les petites quantités de données structurées.</code></li>
+<li><code>gRPC : Un framework moderne pour les communications interprocessus, utilisant HTTP/2 et Protobufs, parfait pour les microservices.</code></li>
+<li><code>Autres Méthodes : Signaux, sémaphores, files de messages, et RPC classiques complètent l'arsenal des méthodes d'IPC.</code></li>
+</ul>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -804,15 +731,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

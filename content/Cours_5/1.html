@@ -8,9 +8,8 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - L’arbre Syntaxique Abstrait ou AST</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,23 +74,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - L’arbre Syntaxique Abstrait ou AST">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_5/.img/numpy.png">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta name="citation_title" content="L&amp;amp;#039;arbre Syntaxique Abstrait ou AST">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_5/1.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,72 +218,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#introduction-au-déploiement-dapi" id="toc-introduction-au-déploiement-dapi" class="nav-link active" data-scroll-target="#introduction-au-déploiement-dapi">Introduction au Déploiement d’API</a></li>
+  <li><a href="#i.-introduction-au-déploiement-dapi" id="toc-i.-introduction-au-déploiement-dapi" class="nav-link" data-scroll-target="#i.-introduction-au-déploiement-dapi">I. Introduction au Déploiement d’API</a>
+  <ul class="collapse">
+  <li><a href="#quest-ce-que-le-déploiement-dune-api" id="toc-quest-ce-que-le-déploiement-dune-api" class="nav-link" data-scroll-target="#quest-ce-que-le-déploiement-dune-api"><strong>1. Qu’est-ce que le déploiement d’une API ?</strong></a></li>
+  <li><a href="#importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel" id="toc-importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel" class="nav-link" data-scroll-target="#importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel"><strong>2. Importance du déploiement dans le cycle de vie du développement logiciel</strong></a></li>
+  <li><a href="#vue-densemble-des-options-de-déploiement" id="toc-vue-densemble-des-options-de-déploiement" class="nav-link" data-scroll-target="#vue-densemble-des-options-de-déploiement"><strong>3. Vue d’ensemble des options de déploiement</strong></a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">L’arbre Syntaxique Abstrait ou AST</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -315,107 +276,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
-<ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
-<ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<section id="introduction-au-déploiement-dapi" class="level1">
+<h1>Introduction au Déploiement d’API</h1>
+<hr>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
-<ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
+<section id="i.-introduction-au-déploiement-dapi" class="level1">
+<h1>I. Introduction au Déploiement d’API</h1>
+<section id="quest-ce-que-le-déploiement-dune-api" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-que-le-déploiement-dune-api"><strong>1. Qu’est-ce que le déploiement d’une API ?</strong></h2>
+<pre><code>Le déploiement d'une API est le processus par lequel votre application est transférée de l'environnement de développement à un environnement de production, la rendant ainsi accessible aux utilisateurs finaux. C'est une étape critique qui nécessite une attention particulière pour garantir que l'API fonctionne comme prévu dans un contexte réel.
+
+
+### a. Définition et aperçu du processus de déploiement
+Le déploiement implique plusieurs étapes clés, allant de la préparation de l'environnement de production à la mise en ligne effective de l'API. Cela inclut la configuration des serveurs, la mise en place des bases de données, l'installation des dépendances nécessaires et la configuration des systèmes de surveillance et de journalisation.
+
+
+### b. Distinction entre développement, déploiement et mise en production
+Il est important de distinguer ces trois phases :
+- Développement : Phase où l'API est conçue, codée et testée.
+- Déploiement : Action de transférer l'API de l'environnement de développement vers l'environnement de production.
+- Mise en production : Phase où l'API est finalement rendue disponible pour être utilisée par les clients ou le public.
+
+Le déploiement peut être effectué manuellement ou automatiquement, ce dernier étant préférable pour des raisons de cohérence et d'efficacité. Des outils d'intégration continue et de déploiement continu (CI/CD) sont souvent utilisés pour automatiser ce processus.</code></pre>
 </section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
-<ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
+<section id="importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel" class="level2">
+<h2 class="anchored" data-anchor-id="importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel"><strong>2. Importance du déploiement dans le cycle de vie du développement logiciel</strong></h2>
+<pre><code>Le déploiement n'est pas simplement une étape finale dans le développement de logiciels ; il s'agit d'un processus continu qui a un impact significatif sur la performance et la disponibilité de l'API. Comprendre son importance est crucial pour garantir une transition en douceur de l'API du développement à la production.
+
+
+### a. Rôle du déploiement dans la livraison de logiciels
+Le déploiement est le moment où le produit logiciel devient réellement "vivant". Sans un déploiement réussi, même le code le plus parfaitement écrit reste inutilisable. Le déploiement effectif permet de :
+- Valider la fonctionnalité de l'API dans un environnement réel.
+- Assurer que l'API peut gérer la charge attendue et se comporter de manière prévisible.
+- Identifier et corriger les problèmes qui n'étaient pas apparents dans l'environnement de développement.
+
+
+### b. Impact sur la qualité et la fiabilité
+Un déploiement bien géré contribue directement à la qualité et à la fiabilité de l'API. Il permet de :
+- Mettre en œuvre des pratiques de déploiement qui réduisent les risques d'erreurs.
+- Utiliser des stratégies de déploiement qui facilitent les mises à jour et les correctifs sans interruption de service.
+- Surveiller la performance et la santé de l'API pour détecter et résoudre rapidement les problèmes.
+
+
+### c. Considérations de sécurité
+La sécurité est une considération primordiale lors du déploiement d'une API. Les étapes du déploiement doivent inclure :
+- La mise en place de certificats SSL/TLS pour sécuriser les communications.
+- La configuration de pare-feu et d'autres mécanismes de sécurité pour protéger l'API contre les accès non autorisés.
+- La révision des politiques d'authentification et d'autorisation pour s'assurer qu'elles sont correctement implémentées.</code></pre>
 </section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
+<section id="vue-densemble-des-options-de-déploiement" class="level2">
+<h2 class="anchored" data-anchor-id="vue-densemble-des-options-de-déploiement"><strong>3. Vue d’ensemble des options de déploiement</strong></h2>
+<pre><code>Le déploiement d'une API peut être réalisé de plusieurs manières, chacune avec ses propres avantages, inconvénients et cas d'utilisation. Voici une vue d'ensemble des principales options de déploiement disponibles.
+
+
+### a. Serveurs dédiés
+Les serveurs dédiés sont des serveurs physiques qui sont entièrement consacrés à l'hébergement de votre application ou API. Ils ne sont pas partagés avec d'autres clients, ce qui vous donne un contrôle complet sur l'environnement de serveur.
+</code></pre>
 <ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
+<li><code>Avantages : Contrôle total sur la configuration du serveur, performances constantes, isolation complète.</code></li>
+<li><code>Inconvénients : Coûts plus élevés, nécessité de gérer le matériel, moins d'élasticité pour gérer les fluctuations de trafic.</code></li>
+</ul>
+<pre><code>
+
+### b. Infrastructure en tant que service (IaaS)
+L'IaaS fournit des ressources informatiques virtualisées sur Internet. Avec l'IaaS, vous pouvez louer des serveurs, des réseaux, des systèmes de stockage et d'autres ressources de calcul.
+</code></pre>
 <ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
-</ol>
-</section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
+<li><code>Exemples populaires : Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).</code></li>
+<li><code>Avantages : Flexibilité pour configurer l'environnement, échelle facilement, paiement à l'utilisation.</code></li>
+<li><code>Inconvénients : Nécessite une certaine connaissance de la configuration et de la gestion des serveurs, des coûts potentiellement imprévisibles en fonction de l'utilisation.</code></li>
+</ul>
+<pre><code>
+
+### c. Plateforme en tant que service (PaaS)
+Le PaaS fournit une plateforme et un environnement pour permettre aux développeurs de construire des applications et des services sur Internet. Les fournisseurs de PaaS gèrent l'infrastructure matérielle et logicielle, permettant aux développeurs de se concentrer sur le développement de l'application.
+</code></pre>
 <ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
+<li><code>Exemples populaires : Heroku, OpenShift, Google App Engine.</code></li>
+<li><code>Avantages : Facilité de déploiement, gestion automatique de l'infrastructure, intégration facile avec divers services et outils de développement.</code></li>
+<li><code>Inconvénients : Moins de contrôle sur l'environnement sous-jacent, peut devenir coûteux à grande échelle.</code></li>
+</ul>
+<pre><code>
+
+### d. Fonctions en tant que service (FaaS)
+Le FaaS, également connu sous le nom de serverless computing, permet aux développeurs de déployer des morceaux de code qui s'exécutent en réponse à des événements, sans se soucier de la gestion de l'infrastructure.
+</code></pre>
 <ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
-</section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+<li><code>Exemples populaires : AWS Lambda, Azure Functions, Google Cloud Functions.</code></li>
+<li><code>Avantages : Grande élasticité, paiement uniquement pour le temps d'exécution du code, abstraction complète de la gestion des serveurs.</code></li>
+<li><code>Inconvénients : Limitations en termes de temps d'exécution et de ressources, peut être difficile à déboguer, les coûts peuvent s'accumuler avec un grand nombre d'exécutions.</code></li>
+</ul>
+<pre><code>Chaque option de déploiement a ses propres spécificités et doit être choisie en fonction des besoins spécifiques de l'API et de l'entreprise. Par exemple, les serveurs dédiés peuvent être préférables pour les applications nécessitant une conformité réglementaire stricte, tandis que le FaaS peut être idéal pour les microservices légers avec des charges de travail variables.</code></pre>
 
 
 </section>
@@ -804,15 +755,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
+<meta name="description" content="Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - Le PATH</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
+<link href="../../content/Cours_1/5-tester101.html" rel="next">
+<link href="../../content/Cours_1/3-Concepteur101.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,19 +77,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - Le PATH">
+<meta property="og:description" content="Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/path.png">
 <meta property="og:site_name" content="Introduction à Python">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta name="citation_title" content="Le PATH">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/4-guard101.html">
 <meta name="citation_language" content="en">
 </head>
 
@@ -228,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/4-guard101.html">Le PATH</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -241,23 +242,72 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/1-API101.qmd</span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  <a href="../../content/Cours_1/2-User101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Utiliser une API en tant qu’utilisateur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
+  <a href="../../content/Cours_1/3-Concepteur101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versions et Compilation de Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
+  <a href="../../content/Cours_1/4-guard101.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Le PATH</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/5-tester101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path.. et environnements virtuels!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/6-Postman_CGG.opy</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/7-TP-Postman_and_coingeko.qmd</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/IDEs/VsCode.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/IDEs/Spyder.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/IDEs/Pycharm.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/TP-ConstruireSonPython.qmd</span>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -268,7 +318,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#chapitre-4---sécurisation-et-authentification-dune-api" id="toc-chapitre-4---sécurisation-et-authentification-dune-api" class="nav-link active" data-scroll-target="#chapitre-4---sécurisation-et-authentification-dune-api">Chapitre 4 - Sécurisation et authentification d’une API</a></li>
+  <li><a href="#sécurisation-et-authentification-dune-api" id="toc-sécurisation-et-authentification-dune-api" class="nav-link" data-scroll-target="#sécurisation-et-authentification-dune-api">4. Sécurisation et authentification d’une API</a>
+  <ul class="collapse">
+  <li><a href="#pourquoi-sécuriser-une-api" id="toc-pourquoi-sécuriser-une-api" class="nav-link" data-scroll-target="#pourquoi-sécuriser-une-api">4.1 Pourquoi sécuriser une API ?</a></li>
+  <li><a href="#authentification-vs-autorisation" id="toc-authentification-vs-autorisation" class="nav-link" data-scroll-target="#authentification-vs-autorisation">4.2 Authentification vs Autorisation :</a></li>
+  <li><a href="#méthodes-dauthentification-courantes" id="toc-méthodes-dauthentification-courantes" class="nav-link" data-scroll-target="#méthodes-dauthentification-courantes">4.3 Méthodes d’authentification courantes :</a></li>
+  <li><a href="#limitation-et-quotas" id="toc-limitation-et-quotas" class="nav-link" data-scroll-target="#limitation-et-quotas">4.4 Limitation et quotas :</a></li>
+  <li><a href="#gestion-des-erreurs-et-des-violations" id="toc-gestion-des-erreurs-et-des-violations" class="nav-link" data-scroll-target="#gestion-des-erreurs-et-des-violations">4.5 Gestion des erreurs et des violations :</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -277,16 +335,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">Le PATH</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Introduction</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
+    Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.
   </div>
 </div>
 
@@ -315,107 +373,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
-<ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
-<ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<section id="chapitre-4---sécurisation-et-authentification-dune-api" class="level1">
+<h1>Chapitre 4 - Sécurisation et authentification d’une API</h1>
+<hr>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
+<section id="sécurisation-et-authentification-dune-api" class="level1">
+<h1>4. Sécurisation et authentification d’une API</h1>
+<section id="pourquoi-sécuriser-une-api" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-sécuriser-une-api">4.1 Pourquoi sécuriser une API ?</h2>
+<pre><code>Une API, en tant que porte d'accès à des données ou à des fonctionnalités, peut être une cible pour des acteurs malveillants. Les raisons de sécuriser une API incluent :
+</code></pre>
 <ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
+<li><code>Protection des données : Éviter que des données sensibles ne soient exposées ou compromises.</code></li>
+<li><code>Préservation de la réputation : Une faille de sécurité peut nuire à la confiance des utilisateurs ou des clients.</code></li>
+<li><code>Éviter les abus : Prévenir les utilisations excessives ou malveillantes qui peuvent entraîner des coûts ou des surcharges.</code></li>
+</ul>
 </section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
+<section id="authentification-vs-autorisation" class="level2">
+<h2 class="anchored" data-anchor-id="authentification-vs-autorisation">4.2 Authentification vs Autorisation :</h2>
 <ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
+<li><code>Authentification : Processus permettant de vérifier l'identité d'un utilisateur ou d'une application. C'est la réponse à la question : "Qui êtes-vous ?"</code></li>
+<li><code>Autorisation : Processus permettant de déterminer si l'utilisateur ou l'application authentifié(e) a le droit d'accéder à une ressource ou d'exécuter une action. C'est la réponse à la question : "Êtes-vous autorisé à le faire ?"</code></li>
+</ul>
 </section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
+<section id="méthodes-dauthentification-courantes" class="level2">
+<h2 class="anchored" data-anchor-id="méthodes-dauthentification-courantes">4.3 Méthodes d’authentification courantes :</h2>
 <ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
-<ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
-</ol>
+<li><code>Clés API : Une clé unique fournie aux utilisateurs ou aux applications pour accéder à l'API.</code></li>
+<li><code>Authentification basique : L'utilisation d'un nom d'utilisateur et d'un mot de passe pour accéder à l'API.</code></li>
+<li><code>Token JWT (JSON Web Token) : Un standard ouvert pour représenter des revendications entre deux parties. Les tokens sont générés après une authentification réussie et peuvent être vérifiés à chaque requête pour garantir la validité de la session.</code></li>
+</ul>
 </section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
+<section id="limitation-et-quotas" class="level2">
+<h2 class="anchored" data-anchor-id="limitation-et-quotas">4.4 Limitation et quotas :</h2>
+<pre><code>Afin de prévenir les abus ou la surcharge, il est courant d'appliquer des limites sur la fréquence ou le volume de requêtes qu'un utilisateur ou une application peut faire à l'API. Les limitations peuvent être basées sur :
+</code></pre>
 <ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
+<li><code>Le temps : Nombre de requêtes autorisées par minute ou par heure.</code></li>
+<li><code>La ressource : Nombre de requêtes autorisées pour une ressource spécifique.</code></li>
+<li><code>Le type d'utilisateur : Les utilisateurs gratuits pourraient avoir des quotas inférieurs à ceux qui paient pour un accès premium.</code></li>
+</ul>
 </section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+<section id="gestion-des-erreurs-et-des-violations" class="level2">
+<h2 class="anchored" data-anchor-id="gestion-des-erreurs-et-des-violations">4.5 Gestion des erreurs et des violations :</h2>
+<pre><code>Il est essentiel de fournir des messages d'erreur clairs et explicites lorsque les utilisateurs ou les applications violent les politiques de sécurité ou dépassent leurs quotas. Ceci permet de guider les utilisateurs sur la manière de corriger ou d'ajuster leurs requêtes.</code></pre>
 
 
 </section>
@@ -806,11 +807,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
+      <a href="../../content/Cours_1/3-Concepteur101.html" class="pagination-link  aria-label=" versions="" et="" compilation="" de="" python"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Versions et Compilation de Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_1/5-tester101.html" class="pagination-link" aria-label="Path.. et environnements virtuels!">
+        <span class="nav-page-text">Path.. et environnements virtuels!</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

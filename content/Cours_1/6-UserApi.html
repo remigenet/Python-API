@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
+<meta name="description" content="Choisir son IDE, une question de goûts mais un impact important sur la productivité.">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - Les IDEs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,23 +75,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - Les IDEs">
+<meta property="og:description" content="Choisir son IDE, une question de goûts mais un impact important sur la productivité.">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/IDEs.png">
 <meta property="og:site_name" content="Introduction à Python">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta name="citation_title" content="Les IDEs">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/6-UserApi.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,52 +222,21 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#concepts-élargis-et-cas-dutilisation-des-api" id="toc-concepts-élargis-et-cas-dutilisation-des-api" class="nav-link active" data-scroll-target="#concepts-élargis-et-cas-dutilisation-des-api">6. Concepts élargis et cas d’utilisation des API</a>
+  <ul class="collapse">
+  <li><a href="#api-utilisateur-ou-api-de-bibliothèque" id="toc-api-utilisateur-ou-api-de-bibliothèque" class="nav-link" data-scroll-target="#api-utilisateur-ou-api-de-bibliothèque">6.1 API utilisateur (ou API de bibliothèque)</a></li>
+  <li><a href="#api-hors-du-cloud" id="toc-api-hors-du-cloud" class="nav-link" data-scroll-target="#api-hors-du-cloud">6.2 API hors du cloud</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -277,16 +245,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">Les IDEs</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Introduction</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
+    Choisir son IDE, une question de goûts mais un impact important sur la productivité.
   </div>
 </div>
 
@@ -315,107 +283,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
+<section id="concepts-élargis-et-cas-dutilisation-des-api" class="level1">
+<h1>6. Concepts élargis et cas d’utilisation des API</h1>
+<section id="api-utilisateur-ou-api-de-bibliothèque" class="level2">
+<h2 class="anchored" data-anchor-id="api-utilisateur-ou-api-de-bibliothèque">6.1 API utilisateur (ou API de bibliothèque)</h2>
+<pre><code>Lorsque vous développez des bibliothèques ou des packages logiciels, vous fournissez également une interface, appelée API utilisateur ou API de bibliothèque, pour interagir avec ces outils. Cette interface, même si elle n'est pas une API au sens web du terme, est tout aussi importante. Elle doit être :
+</code></pre>
 <ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
+<li><code>Clair : Les méthodes, fonctions et classes doivent avoir des noms explicites.</code></li>
+<li><code>Documenté : Les utilisateurs doivent pouvoir comprendre rapidement comment utiliser l'API.</code></li>
+<li><code>Flexible : Elle doit permettre différentes manières d'atteindre un même résultat, selon les besoins de l'utilisateur.</code></li>
+<li><code>Robuste : Elle doit gérer correctement les erreurs et fournir des messages utiles.</code></li>
+</ul>
+<pre><code>Le design et la maintenance de telles API sont tout aussi cruciaux que pour les API web, car ils déterminent l'efficacité et la facilité d'utilisation de votre bibliothèque.
+Exemple : La bibliothèque pandas en Python
+La bibliothèque pandas est une bibliothèque logicielle populaire en Python destinée à la manipulation de données. Elle offre une API utilisateur riche pour créer, manipuler et analyser des données structurées.
+</code></pre>
 <ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<li><code>Quand vous créez un DataFrame en pandas, vous utilisez son API.</code></li>
+<li><code>Les fonctions comme read_csv pour lire un fichier CSV ou merge pour fusionner deux DataFrames sont des parties de son API utilisateur.</code></li>
+</ul>
+<pre><code>Le succès de pandas est en grande partie dû à la clarté et à la puissance de son API utilisateur.</code></pre>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
+<section id="api-hors-du-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="api-hors-du-cloud">6.2 API hors du cloud</h2>
+<pre><code>Tandis que beaucoup d'API sont hébergées dans le cloud et accessibles via Internet, une API peut exister n'importe où, y compris :
+</code></pre>
 <ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
-</section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
-<ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
-</section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
-<ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
-<ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
-</ol>
-</section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
-<ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
-</section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+<li><code>Sur un réseau local : Les entreprises peuvent avoir des API internes pour intégrer différents systèmes ou applications.</code></li>
+<li><code>Sur un même appareil : Une application sur votre ordinateur peut exposer une API pour interagir avec d'autres logiciels localement. Par exemple, un logiciel de gestion de base de données pourrait offrir une API pour que d'autres programmes sur le même ordinateur puissent demander des données.</code></li>
+</ul>
+<p>``` Ces types d’API peuvent être cruciaux pour automatiser et simplifier les tâches, surtout dans des environnements où la sécurité ou la rapidité d’accès est primordiale.</p>
+<p>Exemple 1 : Serveurs de jeux en réseau local Dans le monde du jeu vidéo, il est courant d’avoir des serveurs locaux pour des jeux multijoueurs. Un joueur peut créer un serveur sur son PC, et ses amis, connectés au même réseau local, peuvent rejoindre ce serveur via une API spécifique au jeu. Cela permet de jouer ensemble sans passer par Internet, ce qui peut améliorer la latence et la performance.</p>
+<p>Exemple 2 : Outils intégrés dans les systèmes d’exploitation Prenons l’exemple du “Gestionnaire des tâches” sur Windows ou “Moniteur d’activité” sur macOS. Ces outils fournissent une vision en temps réel des processus en cours d’exécution, de l’utilisation de la mémoire, etc. Ils interagissent avec une API locale du système d’exploitation pour obtenir ces informations. Un développeur pourrait écrire un script ou une application qui utilise cette même API pour, par exemple, surveiller un processus spécifique ou déclencher des alertes si l’utilisation de la mémoire dépasse un certain seuil.</p>
 
 
 </section>
@@ -804,15 +704,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

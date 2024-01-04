@@ -23,40 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -67,8 +33,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_3/3-MachineLearning.html" rel="next">
-<link href="../../content/Cours_3/1-Dataframes.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -149,150 +113,66 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-comprendre-et-installer-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Comprendre Et Installer Python</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-comprendre-et-installer-python">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/1-Histoire.html">
- <span class="dropdown-text">Histoire du Langage</span></a>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API en tant qu’utilisateur</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/2-Python_Execution.html">
- <span class="dropdown-text">Exécution d’un Programme Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/3-ManyPythons.html">
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
  <span class="dropdown-text">Versions et Compilation de Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/4-Path.html">
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
  <span class="dropdown-text">Le PATH</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/5-PathandVirtualEnv.html">
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
  <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/6-IDEs.html">
- <span class="dropdown-text">Les IDEs</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/7-Notebooks.html">
- <span class="dropdown-text">Les Notebooks</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Quelques IDEs en Python</li>
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/IDEs/VsCode.html">
- <span class="dropdown-text">VsCode - L’IDE Flexible et Polyvalent</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Spyder.html">
- <span class="dropdown-text">Spyder - Un IDE Orienté Science des Données</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/IDEs/Pycharm.html">
- <span class="dropdown-text">PyCharm - L’IDE orienté Python</span></a>
-  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/TP-ConstruireSonPython.html">
- <span class="dropdown-text">TP - Construire son python depuis la source</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-syntaxes-et-concepts-de-base" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Syntaxes et Concepts de Base</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-syntaxes-et-concepts-de-base">    
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
- <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1.1-Exercices.py">
- <span class="dropdown-text"></span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/1-FondamentauxSyntaxique.html">
- <span class="dropdown-text">Syntaxe et objets de Base Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/2-FonctionsEtModules.html">
- <span class="dropdown-text">Fonctions et Modules</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_2/3-IntroducingPOOConcept.html">
- <span class="dropdown-text">Introduction à la POO en Python</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-les-librairies-python" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Les Librairies Python</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-les-librairies-python">    
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/1-Dataframes.html">
- <span class="dropdown-text">Les DataFrames</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
  <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/3-MachineLearning.html">
- <span class="dropdown-text">Machine Learning</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/4-Access_Internet.html">
- <span class="dropdown-text">Recupérer des données du net</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/5-Feed_Internet.html">
- <span class="dropdown-text">Python - Aussi un language pour servir des données</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_3/6-Visualisation.html">
- <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bonne-pratiques-dangers-et-astuces" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Bonne pratiques, Dangers, et Astuces</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-bonne-pratiques-dangers-et-astuces">    
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_4/2-TypageEnPython.html">
- <span class="dropdown-text">Typage en Python</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_4/3-TournonsAutourduGIL.html">
- <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
- <span class="dropdown-text">TP - Requettes API avec Python</span></a>
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-concepts-avancés" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Concepts avancés</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-concepts-avancés">    
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_5/1-AST.html">
- <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_5/2-POO_le_retour.html">
- <span class="dropdown-text">POO - Python Orienté Objet</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -328,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Introduction-Python">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
             Code source
             </a>
           </li>
@@ -360,11 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/1-Dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les DataFrames</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/1-Dataframes.qmd</span>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html" class="sidebar-item-text sidebar-link active">
@@ -372,29 +249,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/3-MachineLearning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Machine Learning</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/3-MachineLearning.qmd</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/4-Access_Internet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Recupérer des données du net</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/4-Access_Internet.qmd</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/5-Feed_Internet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Python - Aussi un language pour servir des données</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/5-Feed_Internet.qmd</span>
+  </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/6-Visualisation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Visualiser et présenter ces données avec Python</span></a>
-  </div>
-</li>
+ <span class="menu-text">content/Cours_3/6-Visualisation.qmd</span>
+  </li>
         <li class="sidebar-item">
  <span class="menu-text">content/Cours_3/bonus-pandas_short_examplet.qmd</span>
   </li>
@@ -411,17 +276,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#calcul-scientifique-et-optimization" id="toc-calcul-scientifique-et-optimization" class="nav-link active" data-scroll-target="#calcul-scientifique-et-optimization">Calcul Scientifique et Optimization</a>
+  <li><a href="#calcul-scientifique-et-optimization" id="toc-calcul-scientifique-et-optimization" class="nav-link active" data-scroll-target="#calcul-scientifique-et-optimization">Calcul Scientifique et Optimization</a></li>
+  <li><a href="#ii.-sockets" id="toc-ii.-sockets" class="nav-link" data-scroll-target="#ii.-sockets">II. Sockets</a>
   <ul class="collapse">
-  <li><a href="#numpy-fondement-du-calcul-scientifique-en-python" id="toc-numpy-fondement-du-calcul-scientifique-en-python" class="nav-link" data-scroll-target="#numpy-fondement-du-calcul-scientifique-en-python">NumPy : Fondement du Calcul Scientifique en Python</a></li>
-  <li><a href="#fonctionnalités-clés-de-numpy" id="toc-fonctionnalités-clés-de-numpy" class="nav-link" data-scroll-target="#fonctionnalités-clés-de-numpy">Fonctionnalités Clés de NumPy</a></li>
-  <li><a href="#scipy-élargissement-des-capacités-de-calcul" id="toc-scipy-élargissement-des-capacités-de-calcul" class="nav-link" data-scroll-target="#scipy-élargissement-des-capacités-de-calcul">SciPy : Élargissement des Capacités de Calcul</a></li>
-  <li><a href="#exemple-dutilisation-de-scipy-pour-loptimisation" id="toc-exemple-dutilisation-de-scipy-pour-loptimisation" class="nav-link" data-scroll-target="#exemple-dutilisation-de-scipy-pour-loptimisation">Exemple d’Utilisation de SciPy pour l’Optimisation</a></li>
-  <li><a href="#exercice-pratique" id="toc-exercice-pratique" class="nav-link" data-scroll-target="#exercice-pratique">Exercice Pratique</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <li><a href="#définition-et-principes-de-base-des-sockets" id="toc-définition-et-principes-de-base-des-sockets" class="nav-link" data-scroll-target="#définition-et-principes-de-base-des-sockets">1. Définition et Principes de Base des Sockets</a></li>
+  <li><a href="#types-de-sockets-stream-vs-datagram" id="toc-types-de-sockets-stream-vs-datagram" class="nav-link" data-scroll-target="#types-de-sockets-stream-vs-datagram">2. Types de Sockets : Stream vs Datagram</a></li>
+  <li><a href="#sockets-en-réseau-tcpip-et-udp" id="toc-sockets-en-réseau-tcpip-et-udp" class="nav-link" data-scroll-target="#sockets-en-réseau-tcpip-et-udp">3. Sockets en Réseau : TCP/IP et UDP</a></li>
+  <li><a href="#fonctionnement-des-sockets" id="toc-fonctionnement-des-sockets" class="nav-link" data-scroll-target="#fonctionnement-des-sockets">4. Fonctionnement des Sockets</a></li>
+  <li><a href="#exemple-de-communication-socket-en-python" id="toc-exemple-de-communication-socket-en-python" class="nav-link" data-scroll-target="#exemple-de-communication-socket-en-python">5. Exemple de Communication Socket en Python</a></li>
+  </ul></li>
+  <li><a href="#création-dun-socket-tcpip" id="toc-création-dun-socket-tcpip" class="nav-link" data-scroll-target="#création-dun-socket-tcpip">Création d’un socket TCP/IP</a>
   <ul class="collapse">
-  <li><a href="#aspects-avancés-du-calcul-scientifique-et-de-loptimisation" id="toc-aspects-avancés-du-calcul-scientifique-et-de-loptimisation" class="nav-link" data-scroll-target="#aspects-avancés-du-calcul-scientifique-et-de-loptimisation">Aspects Avancés du Calcul Scientifique et de l’Optimisation</a></li>
-  <li><a href="#applications-pratiques-du-calcul-scientifique-et-de-loptimisation" id="toc-applications-pratiques-du-calcul-scientifique-et-de-loptimisation" class="nav-link" data-scroll-target="#applications-pratiques-du-calcul-scientifique-et-de-loptimisation">Applications Pratiques du Calcul Scientifique et de l’Optimisation</a></li>
+  <li><a href="#gérer-et-différencier-plusieurs-clients-en-python" id="toc-gérer-et-différencier-plusieurs-clients-en-python" class="nav-link" data-scroll-target="#gérer-et-différencier-plusieurs-clients-en-python">6. Gérer et Différencier Plusieurs Clients en python</a>
+  <ul class="collapse">
+  <li><a href="#a.-exemple-plus-complet" id="toc-a.-exemple-plus-complet" class="nav-link" data-scroll-target="#a.-exemple-plus-complet">a. Exemple plus complet</a></li>
+  <li><a href="#b.-exemple-avec-une-api-http" id="toc-b.-exemple-avec-une-api-http" class="nav-link" data-scroll-target="#b.-exemple-avec-une-api-http">b. Exemple avec une API HTTP</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -473,185 +342,308 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="calcul-scientifique-et-optimization" class="level1">
 <h1>Calcul Scientifique et Optimization</h1>
 <hr>
-<p>b Introduction au Calcul Scientifique Le calcul scientifique est une discipline essentielle dans de nombreux domaines de la recherche et de l’industrie. En Python, cela implique souvent l’utilisation de bibliothèques telles que NumPy, SciPy, et autres, qui fournissent des outils efficaces pour le calcul numérique.</p>
-<section id="numpy-fondement-du-calcul-scientifique-en-python" class="level2">
-<h2 class="anchored" data-anchor-id="numpy-fondement-du-calcul-scientifique-en-python">NumPy : Fondement du Calcul Scientifique en Python</h2>
-<ul>
-<li><strong>NumPy</strong> est une bibliothèque de base pour le calcul scientifique en Python. Elle offre des structures de données puissantes, optimisées pour les opérations mathématiques complexes et la manipulation de grands ensembles de données.</li>
-</ul>
 </section>
-<section id="fonctionnalités-clés-de-numpy" class="level2">
-<h2 class="anchored" data-anchor-id="fonctionnalités-clés-de-numpy">Fonctionnalités Clés de NumPy</h2>
+<section id="ii.-sockets" class="level1">
+<h1>II. Sockets</h1>
+<pre><code>Les sockets constituent l'une des méthodes d'IPC les plus directes et les plus répandues, en particulier pour la communication réseau. Les sockets sont des points de terminaison pour envoyer et recevoir des données entre des processus, soit sur le même ordinateur, soit sur des ordinateurs différents connectés par un réseau. Ils sont essentiels pour la communication réseau et sont utilisés par de nombreux protocoles de communication.</code></pre>
+<section id="définition-et-principes-de-base-des-sockets" class="level2">
+<h2 class="anchored" data-anchor-id="définition-et-principes-de-base-des-sockets">1. Définition et Principes de Base des Sockets</h2>
+<pre><code>Un socket est associé à un port spécifique sur un hôte, permettant aux applications de s'adresser à un service spécifique sur un ordinateur dans un réseau. Les sockets sont essentiels pour établir une communication client-serveur et sont utilisés par de nombreuses API pour gérer les requêtes et les réponses.</code></pre>
+</section>
+<section id="types-de-sockets-stream-vs-datagram" class="level2">
+<h2 class="anchored" data-anchor-id="types-de-sockets-stream-vs-datagram">2. Types de Sockets : Stream vs Datagram</h2>
+<pre><code>Il existe deux types principaux de sockets : les sockets de flux (stream sockets) et les sockets de datagramme (datagram sockets). Les sockets de flux utilisent le protocole TCP (Transmission Control Protocol) pour une communication orientée connexion, garantissant que les données arrivent dans l'ordre et sans erreur. Les sockets de datagramme, en utilisant UDP (User Datagram Protocol), sont orientés non-connexion et ne garantissent pas l'ordre ou la fiabilité des paquets.</code></pre>
+</section>
+<section id="sockets-en-réseau-tcpip-et-udp" class="level2">
+<h2 class="anchored" data-anchor-id="sockets-en-réseau-tcpip-et-udp">3. Sockets en Réseau : TCP/IP et UDP</h2>
+<pre><code>Les sockets TCP/IP sont largement utilisés pour les communications fiables et ordonnées, tandis que les sockets UDP sont utilisés pour des communications plus rapides mais potentiellement moins fiables. Le choix entre TCP et UDP dépend des exigences de l'application en termes de fiabilité, d'ordre et de performance.</code></pre>
+</section>
+<section id="fonctionnement-des-sockets" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnement-des-sockets">4. Fonctionnement des Sockets</h2>
 <ol type="1">
-<li><strong>Tableaux Multidimensionnels</strong>: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.</li>
+<li><code>Création d'un Socket : Un socket est créé en spécifiant un type de communication (TCP ou UDP, par exemple) et une adresse (IP et port).</code></li>
+<li><code>Écoute et Connexion : Un serveur écoute sur un port spécifique, tandis qu'un client se connecte à ce port. Pour TCP, le serveur doit accepter la connexion.</code></li>
+<li><code>Échange de Données : Une fois la connexion établie, les données peuvent être envoyées et reçues. Les données envoyées à travers un socket doivent être sérialisées (converties en un format pouvant être transmis sur le réseau) et désérialisées à l'autre bout.</code></li>
+<li><code>Fermeture du Socket : Après la communication, les sockets doivent être fermés proprement pour libérer les ressources réseau.</code></li>
 </ol>
-<div id="c56e169b" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li><strong>Opérations Mathématiques Rapides et Efficaces</strong>: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.</li>
-</ol>
-<div id="21c6ce36" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> arr <span class="op">+</span> <span class="dv">1</span>  <span class="co"># Ajoute 1 à chaque élément</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li><strong>Fonctions Mathématiques Avancées</strong>: NumPy inclut des fonctions pour l’algèbre linéaire, la transformée de Fourier, et plus.</li>
-</ol>
-<div id="b74e31bb" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.random.rand(<span class="dv">3</span>, <span class="dv">3</span>)  <span class="co"># Crée une matrice 3x3 de nombres aléatoires</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>np.linalg.inv(matrix)  <span class="co"># Inversion d'une matrice</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([[ 40.69629744, -20.39909403,   2.37705508],
-       [-43.64700214,  23.30049366,  -2.71675202],
-       [-39.65818793,  19.32076306,  -0.75550025]])</code></pre>
-</div>
-</div>
+<pre><code>Sérialisation des Objets
+
+La sérialisation est le processus de transformation d'un objet en un format qui peut être facilement stocké ou transmis. En Python, les objets peuvent être sérialisés en utilisant des modules comme pickle, qui permet de convertir un objet en une chaîne de bytes, ou json, pour une représentation en texte qui est également lisible par l'homme et interopérable avec d'autres langages.</code></pre>
 </section>
-<section id="scipy-élargissement-des-capacités-de-calcul" class="level2">
-<h2 class="anchored" data-anchor-id="scipy-élargissement-des-capacités-de-calcul">SciPy : Élargissement des Capacités de Calcul</h2>
-<ul>
-<li><strong>SciPy</strong> s’appuie sur NumPy pour offrir un ensemble plus large de fonctionnalités pour le calcul scientifique, notamment dans l’optimisation, l’intégration numérique, et la statistique.</li>
-</ul>
-</section>
-<section id="exemple-dutilisation-de-scipy-pour-loptimisation" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-dutilisation-de-scipy-pour-loptimisation">Exemple d’Utilisation de SciPy pour l’Optimisation</h2>
-<ul>
-<li><strong>Optimisation</strong>: Trouver le minimum ou le maximum d’une fonction.</li>
-</ul>
-<div id="45feaffb" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, <span class="dv">0</span>)  <span class="co"># Trouve le minimum de la fonction</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercice-pratique" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-pratique">Exercice Pratique</h2>
-<ol type="1">
-<li><strong>Objectif</strong>: Utiliser NumPy et SciPy pour résoudre un problème d’optimisation.</li>
-<li><strong>Énoncé</strong>: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.</li>
-<li><strong>Solution</strong>:</li>
-</ol>
-<div id="5609a211" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> poly(x):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(poly, <span class="dv">0</span>)  <span class="co"># Trouver le minimum du polynôme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Le calcul scientifique en Python, grâce à des bibliothèques comme NumPy et SciPy, est une composante essentielle pour les chercheurs et les ingénieurs. Ces outils offrent des capacités puissantes pour traiter des problèmes mathématiques complexes, de l’algèbre linéaire à l’optimisation numérique.</p>
-<section id="aspects-avancés-du-calcul-scientifique-et-de-loptimisation" class="level3">
-<h3 class="anchored" data-anchor-id="aspects-avancés-du-calcul-scientifique-et-de-loptimisation">Aspects Avancés du Calcul Scientifique et de l’Optimisation</h3>
-<section id="utilisation-avancée-de-numpy" class="level4">
-<h4 class="anchored" data-anchor-id="utilisation-avancée-de-numpy">Utilisation Avancée de NumPy</h4>
-<ol type="1">
-<li><p><strong>Indexation Sophistiquée</strong>: NumPy offre des méthodes d’indexation avancées qui permettent de manipuler et d’accéder aux données de manière très flexible.</p>
-<ul>
-<li><p><strong>Indexation Booléenne</strong>: Sélectionner des éléments basés sur des conditions.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>arr[arr <span class="op">&gt;</span> <span class="dv">2</span>]  <span class="co"># Sélectionne les éléments supérieurs à 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Indexation Fantaisie</strong>: Sélectionner des éléments en utilisant des listes d’indices.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>arr[[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>]]  <span class="co"># Sélectionne les éléments aux positions 1, 3, et 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><p><strong>Broadcasting</strong>: Une méthode puissante pour effectuer des opérations arithmétiques sur des tableaux de formes différentes.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">+</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])  <span class="co"># Ajoute [1, 2, 3] à chaque ligne de 'arr'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Manipulation de Formes</strong>: Reshaper les tableaux pour les adapter aux besoins de vos calculs.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>arr.reshape(<span class="dv">3</span>, <span class="dv">2</span>)  <span class="co"># Remodeler le tableau en 3 lignes et 2 colonnes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="optimisation-avec-scipy" class="level4">
-<h4 class="anchored" data-anchor-id="optimisation-avec-scipy">Optimisation avec SciPy</h4>
-<ol type="1">
-<li><p><strong>Optimisation Multivariable</strong>: SciPy n’est pas limité à l’optimisation de fonctions à une seule variable. Il peut également optimiser des fonctions avec plusieurs variables.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x[<span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x[<span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x[<span class="dv">2</span>]<span class="op">**</span><span class="dv">2</span>  <span class="co"># Fonction à 3 variables</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>])  <span class="co"># Point de départ : [0, 0, 0]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p><strong>Contraintes et Bornes</strong>: Vous pouvez ajouter des contraintes et des bornes à votre problème d’optimisation pour le rendre plus réaliste.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cons <span class="op">=</span> ({<span class="st">'type'</span>: <span class="st">'eq'</span>, <span class="st">'fun'</span>: <span class="kw">lambda</span> x: x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>})  <span class="co"># Contrainte d'égalité</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bnds <span class="op">=</span> ((<span class="dv">0</span>, <span class="va">None</span>), (<span class="dv">0</span>, <span class="va">None</span>))  <span class="co"># Bornes pour x[0] et x[1]</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, [<span class="dv">0</span>, <span class="dv">0</span>], constraints<span class="op">=</span>cons, bounds<span class="op">=</span>bnds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="exercice-pratique-avancé" class="level4">
-<h4 class="anchored" data-anchor-id="exercice-pratique-avancé">Exercice Pratique Avancé</h4>
-<ol type="1">
-<li><strong>Objectif</strong>: Approfondir l’utilisation de NumPy et SciPy pour des calculs complexes.</li>
-<li><strong>Énoncé</strong>: Créez un tableau 2D avec NumPy et utilisez l’indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.</li>
-<li><strong>Solution</strong>:</li>
-</ol>
-<div id="c391c02e" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># NumPy: Indexation fantaisie</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>arr2d <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr2d[[<span class="dv">0</span>, <span class="dv">2</span>], [<span class="dv">1</span>, <span class="dv">2</span>]])  <span class="co"># Sélectionne les éléments (0,1) et (2,2)</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># SciPy: Optimisation multivariable avec contraintes</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> func(x):</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x[<span class="dv">0</span>]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> x[<span class="dv">1</span>]<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>cons <span class="op">=</span> ({<span class="st">'type'</span>: <span class="st">'eq'</span>, <span class="st">'fun'</span>: <span class="kw">lambda</span> x: x[<span class="dv">0</span>] <span class="op">+</span> x[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>})  <span class="co"># x[0] + x[1] doit être égal à 1</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(func, [<span class="fl">0.5</span>, <span class="fl">0.5</span>], constraints<span class="op">=</span>cons)</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[2 9]
- message: Optimization terminated successfully
- success: True
-  status: 0
-     fun: 0.5
-       x: [ 5.000e-01  5.000e-01]
-     nit: 1
-     jac: [ 1.000e+00  1.000e+00]
-    nfev: 3
-    njev: 1</code></pre>
-</div>
-</div>
-</section>
-<section id="conclusion-1" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-1">Conclusion</h4>
-<p>Les fonctionnalités avancées de NumPy et SciPy ouvrent des possibilités presque illimitées pour le calcul scientifique en Python. L’indexation avancée, le broadcasting, l’optimisation multivariable, et les contraintes ne sont que quelques exemples des outils puissants à la disposition des scientifiques et ingénieurs. Maîtriser ces outils peut significativement accélérer et améliorer la qualité de la recherche et du développement.</p>
-</section>
-</section>
-<section id="applications-pratiques-du-calcul-scientifique-et-de-loptimisation" class="level3">
-<h3 class="anchored" data-anchor-id="applications-pratiques-du-calcul-scientifique-et-de-loptimisation">Applications Pratiques du Calcul Scientifique et de l’Optimisation</h3>
-<section id="cas-dutilisation-dans-divers-domaines" class="level4">
-<h4 class="anchored" data-anchor-id="cas-dutilisation-dans-divers-domaines">Cas d’Utilisation dans Divers Domaines</h4>
-<ol type="1">
-<li><strong>Ingénierie</strong>: L’utilisation de NumPy et SciPy en ingénierie est cruciale pour des tâches telles que l’analyse structurelle, la simulation de systèmes dynamiques, et la conception assistée par ordinateur (CAO).
-<ul>
-<li><strong>Exemple</strong>: Dans l’ingénierie mécanique, on utilise souvent ces outils pour résoudre des équations différentielles qui modélisent le comportement dynamique des systèmes.</li>
-</ul></li>
-<li><strong>Physique et Chimie</strong>: Les calculs complexes en physique et en chimie, comme la modélisation moléculaire ou la dynamique des fluides, peuvent être réalisés avec efficacité grâce à ces bibliothèques.
-<ul>
-<li><strong>Exemple</strong>: Les chercheurs en physique quantique peuvent utiliser SciPy pour résoudre des problèmes d’optimisation dans la recherche de l’état fondamental des systèmes quantiques.</li>
-</ul></li>
-<li><strong>Finance et Économétrie</strong>: NumPy et SciPy sont largement utilisés dans le domaine de la finance pour l’analyse de risques, la modélisation de marchés, et l’optimisation de portefeuilles.
-<ul>
-<li><strong>Exemple</strong>: En finance quantitative, ces outils aident à optimiser les portefeuilles en minimisant le risque pour un rendement donné.</li>
-</ul></li>
-</ol>
-</section>
-<section id="optimisation-des-performances-dans-le-calcul-scientifique" class="level4">
-<h4 class="anchored" data-anchor-id="optimisation-des-performances-dans-le-calcul-scientifique">Optimisation des Performances dans le Calcul Scientifique</h4>
-<ol type="1">
-<li><p><strong>Utilisation de Cython ou Numba</strong>: Pour des calculs intensifs, l’utilisation de Cython ou Numba pour compiler le code Python en code machine peut apporter une amélioration significative des performances.</p></li>
-<li><p><strong>Parallélisation des Calculs</strong>: L’utilisation de la parallélisation, par exemple avec Dask ou des opérations multithreading/multiprocessing, peut accélérer les calculs lourds.</p></li>
-<li><p><strong>Gestion Efficace de la Mémoire</strong>: Utiliser des techniques comme la vectorisation et éviter les copies inutiles de données pour réduire la consommation de mémoire.</p></li>
-</ol>
-</section>
-<section id="conclusion-2" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-2">Conclusion</h4>
-<p>Le calcul scientifique et l’optimisation en Python, grâce à des bibliothèques comme NumPy et SciPy, jouent un rôle clé dans une multitude de domaines. Que ce soit pour résoudre des problèmes complexes en ingénierie, en physique, en chimie, ou en finance, ces outils offrent les capacités nécessaires pour réaliser des analyses précises et des simulations efficaces. La maîtrise de ces outils est donc essentielle pour tout scientifique ou ingénieur souhaitant exploiter pleinement le potentiel du calcul numérique.</p>
+<section id="exemple-de-communication-socket-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-de-communication-socket-en-python">5. Exemple de Communication Socket en Python</h2>
+<pre><code>Voici un exemple simple de communication entre un serveur et un client en utilisant les sockets TCP en Python.
+
+Serveur (serveur.py)
 
 
+</code></pre>
+<p>import socket</p>
 </section>
+</section>
+<section id="création-dun-socket-tcpip" class="level1">
+<h1>Création d’un socket TCP/IP</h1>
+<p>with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: # Associe le socket à l’adresse du serveur et écoute les connexions entrantes s.bind((‘localhost’, 6789)) s.listen()</p>
+<pre><code>print("Le serveur écoute à l'adresse 'localhost' sur le port 6789")
+
+# Accepte une connexion
+conn, addr = s.accept()
+with conn:
+    print(f"Connecté à {addr}")
+    while True:
+        data = conn.recv(1024)
+        if not data:
+            break
+        conn.sendall(data)</code></pre>
+<pre><code>
+
+</code></pre>
+<p>Client (client.py)</p>
+<pre><code>import socket
+
+# Création d'un socket TCP/IP
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    # Connexion au serveur
+    s.connect(('localhost', 6789))
+
+    # Envoi de données
+    s.sendall(b'Hello, server')
+
+    # Réception de la réponse
+    data = s.recv(1024)
+    print(f"Reçu {data!r}")</code></pre>
+<pre><code>Dans cet exemple, le serveur écoute sur le port 6789 et attend une connexion. Le client se connecte au serveur et envoie un message "Hello, server". Le serveur reçoit ce message, l'échoit (le renvoie au client), et le client imprime la réponse. C'est un exemple de base de l'échange de données en utilisant les sockets TCP en Python.
+
+Dans les exemples de code fournis pour le serveur et le client, plusieurs éléments clés définissent le fonctionnement des sockets en Python. Voici une explication détaillée de chaque partie :
+
+Serveur (serveur.py)
+
+
+</code></pre>
+<p>import socket</p>
+<pre><code>
+
+
+
+* `import socket : Importe le module Python socket qui fournit les méthodes et les classes pour la communication réseau.`
+
+    ```
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:</code></pre>
+<ul>
+<li><p><code>socket.socket : Crée un nouvel objet socket.</code></p></li>
+<li><p><code>socket.AF_INET : Spécifie la famille d'adresses, AF_INET pour IPv4.</code></p></li>
+<li><p><code>socket.SOCK_STREAM : Spécifie le type de socket, SOCK_STREAM pour le protocole TCP, qui est orienté connexion.</code></p>
+<pre><code>s.bind(('localhost', 6789))</code></pre></li>
+<li><p><code>s.bind : Associe le socket à une adresse spécifique et à un port. Ici, 'localhost' indique que le serveur écoute sur l'interface réseau locale.</code></p>
+<pre><code>s.listen()</code></pre></li>
+<li><p><code>s.listen : Met le socket en mode écoute pour accepter les connexions entrantes. Sans argument, il utilise une file d'attente de taille raisonnable par défaut.</code></p>
+<pre><code>conn, addr = s.accept()</code></pre></li>
+<li><p><code>s.accept : Bloque et attend une connexion entrante. Quand un client se connecte, il retourne un nouveau socket conn représentant la connexion et l'adresse addr du client connecté.</code></p>
+<pre><code>data = conn.recv(1024)</code></pre></li>
+<li><p><code>conn.recv : Reçoit les données du client. Le nombre 1024 spécifie la taille maximale des données pouvant être reçues à la fois (en octets).</code></p>
+<pre><code>conn.sendall(data)</code></pre></li>
+<li><p><code>conn.sendall : Envoie les données reçues en retour au client. Cette méthode s'assure que toutes les données sont envoyées.</code></p></li>
+</ul>
+<pre><code>Client (client.py)
+
+
+</code></pre>
+<p>s.connect((‘localhost’, 6789))</p>
+<pre><code>
+
+
+
+* `s.connect : Établit une connexion avec le serveur. L'argument est un tuple contenant l'adresse du serveur et le numéro de port.`
+
+    ```
+s.sendall(b'Hello, server')</code></pre>
+<ul>
+<li><p><code>s.sendall : Envoie des données au serveur. Les données sont préfixées par b pour indiquer qu'il s'agit d'un objet bytes, nécessaire pour l'envoi sur le réseau.</code></p>
+<pre><code>data = s.recv(1024)</code></pre></li>
+<li><p><code>s.recv : Reçoit la réponse du serveur. Encore une fois, 1024 est la taille maximale du bloc de données à recevoir.</code></p></li>
+</ul>
+<pre><code>Dans ces exemples, le serveur et le client utilisent TCP, un protocole de communication fiable et orienté connexion. Le serveur attend passivement une connexion client, tandis que le client initie activement la connexion. Une fois la connexion établie, ils peuvent communiquer en envoyant et en recevant des données.</code></pre>
+<section id="gérer-et-différencier-plusieurs-clients-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="gérer-et-différencier-plusieurs-clients-en-python">6. Gérer et Différencier Plusieurs Clients en python</h2>
+<pre><code>Un serveur TCP peut gérer plusieurs clients simultanément en utilisant le multithreading ou l'asynchronisme. Lorsqu'un client se connecte et que le serveur accepte la connexion, il crée généralement un nouveau thread ou un processus pour gérer la communication avec ce client. Cela permet au serveur principal de continuer à écouter d'autres clients potentiels. Chaque thread gère un socket de connexion distinct, ce qui permet de différencier les clients.
+
+Voici un exemple simplifié de la façon dont un serveur peut gérer plusieurs clients en utilisant le multithreading en Python :
+
+
+</code></pre>
+<p>import socket import threading</p>
+<p>def handle_client(conn, addr): print(f”Connecté à {addr}“) try: while True: data = conn.recv(1024) if not data: break conn.sendall(data) finally: conn.close()</p>
+<p>def server(): with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.bind((‘localhost’, 6789)) s.listen() while True: conn, addr = s.accept() client_thread = threading.Thread(target=handle_client, args=(conn, addr)) client_thread.start()</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: server()</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, chaque fois qu’un client se connecte, le serveur crée un nouveau thread qui exécute la fonction handle_client, qui gère la communication avec ce client.</p>
+<p>Utiliser une Socket sur un Réseau</p>
+<p>Pour utiliser une socket sur un réseau et pas uniquement en local, vous devez lier votre socket à une adresse IP publique ou à une adresse IP locale accessible sur le réseau. Au lieu de lier votre socket à ‘localhost’, vous lieriez à l’adresse IP de l’interface réseau que vous souhaitez utiliser. Assurez-vous que les pare-feu et les routeurs sont configurés pour permettre le trafic sur le port que vous utilisez.</p>
+<p>Autres Paramètres pour les Sockets</p>
+<pre><code>
+
+
+* `socket.AF_INET : Utilisé pour IPv4. Pour IPv6, vous utiliseriez socket.AF_INET6.`
+* `socket.SOCK_STREAM : Utilisé pour les protocoles orientés connexion comme TCP. Pour les protocoles sans connexion comme UDP, vous utiliseriez socket.SOCK_DGRAM.`
+
+</code></pre>
+<p>Cas d’Usage :</p>
+<pre><code>
+
+
+* `socket.SOCK_STREAM : Idéal pour les applications nécessitant une connexion fiable, comme les transferts de fichiers, les communications client-serveur où l'ordre et l'intégrité des données sont importants.`
+* `socket.SOCK_DGRAM : Utilisé pour les applications où la rapidité est plus critique que la fiabilité, comme les jeux en temps réel ou la diffusion de vidéos en streaming, où la perte de quelques paquets n'est pas critique.`
+* `socket.AF_INET6 : Utilisé pour les applications qui doivent communiquer sur des réseaux IPv6, qui est la dernière version du protocole Internet et supporte un plus grand nombre d'adresses IP.`
+
+</code></pre>
+<p>En choisissant le bon type de socket et la bonne famille d’adresses, vous pouvez optimiser votre application pour le réseau et les exigences de communication spécifiques.</p>
+<pre><code>
+
+
+## 7. Différenciation des Messages de Plusieurs Clients en général
+
+</code></pre>
+<p>Lorsqu’un serveur TCP reçoit des connexions de plusieurs clients sur le même port, chaque connexion est unique et est représentée par un nouveau socket de connexion. Voici comment cela fonctionne :</p>
+<pre><code>
+
+
+1. `Socket d'Écoute : Le serveur a un "socket d'écoute" qui est lié à une adresse IP spécifique et à un numéro de port. Ce socket écoute les tentatives de connexion entrantes.`
+2. `Établissement de la Connexion : Lorsqu'un client tente de se connecter au serveur, le protocole TCP du serveur négocie une connexion avec le protocole TCP du client. Si la négociation réussit, le serveur accepte la connexion.`
+3. `Socket de Connexion : Une fois la connexion acceptée, le serveur crée un nouveau "socket de connexion" pour communiquer avec ce client. Ce socket de connexion a une paire d'adresses IP et de ports unique : l'adresse IP et le port du client, et l'adresse IP et le port du serveur. Cette paire unique permet au serveur de différencier les connexions clients, même si toutes les connexions utilisent le même port du serveur.`
+4. `Communication : Le serveur communique avec chaque client via son socket de connexion dédié. Même si les données de différents clients arrivent sur le même port d'écoute, elles sont routées vers le socket de connexion approprié grâce à cette paire d'adresses et de ports unique.`
+
+</code></pre>
+<p>Définition d’un Port</p>
+<p>Un port est un point de terminaison de communication dans le système d’exploitation d’un ordinateur. Les ports sont utilisés par les protocoles de la couche de transport, comme TCP et UDP, pour aider à acheminer les données de l’Internet vers le bon programme sur un ordinateur. Chaque connexion TCP ou UDP est identifiée de manière unique par une paire d’adresses IP et de ports : l’adresse IP et le port de l’expéditeur, et l’adresse IP et le port du destinataire.</p>
+<p>Les ports vont de 0 à 65535. Les ports bien connus (de 0 à 1023) sont attribués par l’IANA pour des services spécifiques (par exemple, le port 80 pour le trafic HTTP). Les ports enregistrés (de 1024 à 49151) sont destinés à des applications spécifiques, et les ports dynamiques ou privés (de 49152 à 65535) sont utilisés par les applications pour les connexions temporaires.</p>
+<p>En résumé, un port sert de porte d’entrée pour les communications réseau, permettant au système d’exploitation de savoir à quel programme livrer les paquets de données reçus.</p>
+<pre><code>
+
+
+## 8. Avantages et Limitations des Sockets
+
+</code></pre>
+<p>Les sockets sont extrêmement polyvalents et permettent une communication en temps réel entre les processus. Cependant, ils peuvent être complexes à gérer correctement, en particulier en ce qui concerne la gestion des erreurs et la synchronisation des communications.</p>
+<section id="a.-exemple-plus-complet" class="level3">
+<h3 class="anchored" data-anchor-id="a.-exemple-plus-complet">a. Exemple plus complet</h3>
+<p>Dans le contexte d’une API, les sockets peuvent être utilisés pour créer un serveur qui écoute les requêtes des clients et y répond. Voici un exemple concret d’un serveur d’API simple utilisant les sockets en Python. Cet exemple illustre un serveur qui accepte des requêtes JSON, traite une action simple (comme une addition), et renvoie une réponse JSON.</p>
+<p>Serveur d’API (api_server.py)</p>
+<pre><code>import socket
+import json
+import threading
+
+def process_request(request_data):
+    # Simule le traitement d'une requête, ici une simple addition
+    data = json.loads(request_data)
+    result = data['number1'] + data['number2']
+    return json.dumps({'result': result})
+
+def handle_client(conn, addr):
+    print(f"Connecté à {addr}")
+    try:
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            
+            # Traite la requête et envoie la réponse
+            response = process_request(data.decode('utf-8'))
+            conn.sendall(response.encode('utf-8'))
+    finally:
+        conn.close()
+
+def server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('localhost', 6789))
+        s.listen()
+        print("Serveur d'API démarré sur le port 6789...")
+        while True:
+            conn, addr = s.accept()
+            client_thread = threading.Thread(target=handle_client, args=(conn, addr))
+            client_thread.start()
+
+if __name__ == '__main__':
+    server()</code></pre>
+<pre><code>Client (api_client.py)
+
+
+</code></pre>
+<p>import socket import json</p>
+<p>def send_request(number1, number2): request_data = json.dumps({‘number1’: number1, ‘number2’: number2}) with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.connect((‘localhost’, 6789)) s.sendall(request_data.encode(‘utf-8’)) response = s.recv(1024) print(f”Réponse reçue: {response.decode(‘utf-8’)}“)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: # Envoie une requête d’addition au serveur d’API send_request(10, 20)</p>
+<pre><code>
+
+</code></pre>
+<p>Explication de l’Exemple :</p>
+<pre><code>
+
+
+* `Le serveur d'API (api_server.py) écoute les connexions entrantes sur le port 6789.`
+* `Lorsqu'un client se connecte et envoie une requête, le serveur crée un nouveau thread pour gérer la requête.`
+* `La fonction process_request prend les données de la requête, les décode de JSON, effectue une opération (dans cet exemple, une addition), et renvoie le résultat encodé en JSON.`
+* `Le client (api_client.py) envoie une requête JSON contenant deux nombres au serveur et attend la réponse.`
+* `Lorsque le serveur reçoit la requête, il renvoie le résultat de l'addition sous forme de réponse JSON.`
+
+</code></pre>
+</section>
+<section id="b.-exemple-avec-une-api-http" class="level3">
+<h3 class="anchored" data-anchor-id="b.-exemple-avec-une-api-http">b. Exemple avec une API HTTP</h3>
+<p>Dans une architecture d’API classique, il est courant d’avoir un serveur HTTP qui reçoit des requêtes de clients et qui, pour traiter ces requêtes, doit communiquer avec d’autres services ou processus en arrière-plan. Ces services en arrière-plan peuvent être des bases de données, des services de calcul, des systèmes de files d’attente, etc. Les sockets peuvent être utilisés pour cette communication interprocessus (IPC) en arrière-plan.</p>
+<p>Voici un exemple où une API HTTP reçoit des requêtes pour effectuer des opérations, et ces opérations sont déléguées à un processus en arrière-plan via un socket. Le serveur HTTP agit comme un frontal, tandis que le processus en arrière-plan effectue le traitement réel et renvoie le résultat au serveur HTTP, qui le transmet ensuite au client.</p>
+<p>Serveur HTTP (http_server.py)</p>
+<pre><code>from http.server import BaseHTTPRequestHandler, HTTPServer
+import json
+import socket
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        response = self.send_to_worker(post_data)
+        
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(response)
+
+    def send_to_worker(self, data):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect(('localhost', 6790))
+            s.sendall(data)
+            response = s.recv(1024)
+            return response
+
+if __name__ == '__main__':
+    server = HTTPServer(('localhost', 6789), RequestHandler)
+    print('Starting server at http://localhost:6789')
+    server.serve_forever()</code></pre>
+<pre><code>Processus de Travail (worker.py)
+
+
+</code></pre>
+<p>import socket import json</p>
+<p>def process_data(data): # Simule un traitement de données complexe result = sum(data) return json.dumps({‘result’: result}).encode(‘utf-8’)</p>
+<p>def worker(): with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.bind((‘localhost’, 6790)) s.listen() print(“Worker en écoute sur le port 6790…”) while True: conn, addr = s.accept() with conn: data = conn.recv(1024) response = process_data(json.loads(data)) conn.sendall(response)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: worker()</p>
+<pre><code>
+
+</code></pre>
+<p>Explication de l’Exemple :</p>
+<pre><code>
+
+
+* `Le serveur HTTP (http_server.py) écoute sur le port 6789 pour les requêtes HTTP POST.`
+* `Lorsqu'une requête est reçue, le serveur extrait les données et les envoie au processus de travail via un socket TCP.`
+* `Le processus de travail (worker.py) écoute sur le port 6790 pour les connexions du serveur HTTP.`
+* `Lorsque le processus de travail reçoit des données, il les traite (dans cet exemple, il calcule la somme d'une liste de nombres) et renvoie le résultat au serveur HTTP.`
+* `Le serveur HTTP reçoit la réponse du processus de travail et la renvoie au client HTTP.`
+
+</code></pre>
+<p>Dans cet exemple, le serveur HTTP et le processus de travail communiquent sur le réseau local, mais ils pourraient tout aussi bien être sur des machines distinctes. Cela illustre comment les sockets peuvent être utilisés pour la communication interprocessus derrière une façade HTTP, permettant une séparation des préoccupations et la possibilité de distribuer le traitement sur plusieurs processus ou serveurs. ```</p>
+
+
 </section>
 </section>
 </section>
@@ -1039,29 +1031,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_3/1-Dataframes.html" class="pagination-link  aria-label=" les="" dataframes"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les DataFrames</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_3/3-MachineLearning.html" class="pagination-link" aria-label="Machine Learning">
-        <span class="nav-page-text">Machine Learning</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Introduction-Python"><code>Github</code></a></p>
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Introduction-Python">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
 </div>
   </div>
 </footer>

@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-04">
+
+<title>Introduction à Python - Asynchronie, Multithreading et Multiprocessig en Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - Asynchronie, Multithreading et Multiprocessig en Python">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_2/.img/poo.png">
+<meta property="og:site_name" content="Introduction à Python">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+<meta name="citation_title" content="Asynchronie, Multithreading et Multiprocessig en Python">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-04">
+<meta name="citation_cover_date" content="2024-01-04">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-04">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_2/3-Conception-optimizations.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API en tant qu’utilisateur</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
+ <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#asynchronie-multithreading-et-multiprocessig-en-python" id="toc-asynchronie-multithreading-et-multiprocessig-en-python" class="nav-link active" data-scroll-target="#asynchronie-multithreading-et-multiprocessig-en-python">Asynchronie, Multithreading et Multiprocessig en Python</a></li>
+  <li><a href="#iii.-conception-et-optimisation-pour-la-performance-des-api" id="toc-iii.-conception-et-optimisation-pour-la-performance-des-api" class="nav-link" data-scroll-target="#iii.-conception-et-optimisation-pour-la-performance-des-api">III. Conception et Optimisation pour la Performance des API:</a>
+  <ul class="collapse">
+  <li><a href="#introduction-au-fonctionnement-séquentiel-du-code" id="toc-introduction-au-fonctionnement-séquentiel-du-code" class="nav-link" data-scroll-target="#introduction-au-fonctionnement-séquentiel-du-code">1. Introduction au Fonctionnement Séquentiel du Code</a>
+  <ul class="collapse">
+  <li><a href="#a.-processus-et-thread" id="toc-a.-processus-et-thread" class="nav-link" data-scroll-target="#a.-processus-et-thread">a. Processus et Thread :</a></li>
+  <li><a href="#b.-la-pile-dexécution" id="toc-b.-la-pile-dexécution" class="nav-link" data-scroll-target="#b.-la-pile-dexécution">b. La Pile d’Exécution :</a></li>
+  <li><a href="#c.-modèle-séquentiel" id="toc-c.-modèle-séquentiel" class="nav-link" data-scroll-target="#c.-modèle-séquentiel">c.&nbsp;Modèle Séquentiel :</a></li>
+  <li><a href="#d.-limitations" id="toc-d.-limitations" class="nav-link" data-scroll-target="#d.-limitations">d.&nbsp;Limitations :</a></li>
+  <li><a href="#e.-exemple-de-modèle-séquentiel" id="toc-e.-exemple-de-modèle-séquentiel" class="nav-link" data-scroll-target="#e.-exemple-de-modèle-séquentiel">e. Exemple de Modèle Séquentiel :</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exécution-séquentielle" id="toc-exécution-séquentielle" class="nav-link" data-scroll-target="#exécution-séquentielle">Exécution séquentielle</a></li>
+  <li><a href="#fonction-pour-télécharger-une-image" id="toc-fonction-pour-télécharger-une-image" class="nav-link" data-scroll-target="#fonction-pour-télécharger-une-image">Fonction pour télécharger une image</a></li>
+  <li><a href="#urls-des-images-à-télécharger" id="toc-urls-des-images-à-télécharger" class="nav-link" data-scroll-target="#urls-des-images-à-télécharger">URLs des images à télécharger</a></li>
+  <li><a href="#attendre-que-tous-les-threads-aient-fini" id="toc-attendre-que-tous-les-threads-aient-fini" class="nav-link" data-scroll-target="#attendre-que-tous-les-threads-aient-fini">Attendre que tous les threads aient fini</a></li>
+  <li><a href="#début-du-code-identique" id="toc-début-du-code-identique" class="nav-link" data-scroll-target="#début-du-code-identique">… [début du code identique]</a></li>
+  <li><a href="#suite-du-code-identique" id="toc-suite-du-code-identique" class="nav-link" data-scroll-target="#suite-du-code-identique">… [suite du code identique]</a>
+  <ul class="collapse">
+  <li><a href="#e.-problèmes-de-concurrence" id="toc-e.-problèmes-de-concurrence" class="nav-link" data-scroll-target="#e.-problèmes-de-concurrence">e. Problèmes de concurrence :</a></li>
+  <li><a href="#f.-gestion-de-loverhead" id="toc-f.-gestion-de-loverhead" class="nav-link" data-scroll-target="#f.-gestion-de-loverhead">f.&nbsp;Gestion de l’Overhead :</a></li>
+  <li><a href="#h.-gestion-de-la-mémoire" id="toc-h.-gestion-de-la-mémoire" class="nav-link" data-scroll-target="#h.-gestion-de-la-mémoire">h. Gestion de la Mémoire :</a></li>
+  <li><a href="#i.-communication-entre-les-processus" id="toc-i.-communication-entre-les-processus" class="nav-link" data-scroll-target="#i.-communication-entre-les-processus">i. Communication entre les Processus :</a></li>
+  <li><a href="#j.-terminaison-et-contrôle-des-processus" id="toc-j.-terminaison-et-contrôle-des-processus" class="nav-link" data-scroll-target="#j.-terminaison-et-contrôle-des-processus">j. Terminaison et Contrôle des Processus :</a></li>
+  <li><a href="#k.-exemples-concrets" id="toc-k.-exemples-concrets" class="nav-link" data-scroll-target="#k.-exemples-concrets">k. Exemples Concrets :</a></li>
+  <li><a href="#l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing" id="toc-l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing" class="nav-link" data-scroll-target="#l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing">l. Exemple Conceptuel en Python : Comparaison Séquentiel, Threading et Multiprocessing</a></li>
+  </ul></li>
+  <li><a href="#une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu" id="toc-une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu" class="nav-link" data-scroll-target="#une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu">Une fonction qui simule une tâche gourmande en ressources CPU</a></li>
+  <li><a href="#fonction-principale-pour-exécuter-les-tâches-séquentiellement" id="toc-fonction-principale-pour-exécuter-les-tâches-séquentiellement" class="nav-link" data-scroll-target="#fonction-principale-pour-exécuter-les-tâches-séquentiellement">Fonction principale pour exécuter les tâches séquentiellement</a></li>
+  <li><a href="#exécuter-la-fonction" id="toc-exécuter-la-fonction" class="nav-link" data-scroll-target="#exécuter-la-fonction">Exécuter la fonction</a></li>
+  <li><a href="#définition-de-la-tâche-gourmande-en-cpu" id="toc-définition-de-la-tâche-gourmande-en-cpu" class="nav-link" data-scroll-target="#définition-de-la-tâche-gourmande-en-cpu">Définition de la tâche gourmande en CPU</a></li>
+  <li><a href="#fonction-pour-lancer-les-processus" id="toc-fonction-pour-lancer-les-processus" class="nav-link" data-scroll-target="#fonction-pour-lancer-les-processus">Fonction pour lancer les processus</a></li>
+  <li><a href="#exécuter-la-fonction-1" id="toc-exécuter-la-fonction-1" class="nav-link" data-scroll-target="#exécuter-la-fonction-1">Exécuter la fonction</a>
+  <ul class="collapse">
+  <li><a href="#m.-sérialisation-des-objets" id="toc-m.-sérialisation-des-objets" class="nav-link" data-scroll-target="#m.-sérialisation-des-objets">m. Sérialisation des Objets</a></li>
+  </ul></li>
+  <li><a href="#exemple-dutilisation" id="toc-exemple-dutilisation" class="nav-link" data-scroll-target="#exemple-dutilisation">Exemple d’utilisation</a></li>
+  <li><a href="#sérialisation" id="toc-sérialisation" class="nav-link" data-scroll-target="#sérialisation">Sérialisation</a></li>
+  <li><a href="#désérialisation" id="toc-désérialisation" class="nav-link" data-scroll-target="#désérialisation">Désérialisation</a>
+  <ul class="collapse">
+  <li><a href="#récapitulatif" id="toc-récapitulatif" class="nav-link" data-scroll-target="#récapitulatif">5. Récapitulatif:</a>
+  <ul class="collapse">
+  <li><a href="#a.-quatres-façon-dont-peut-sexécuter-un-code" id="toc-a.-quatres-façon-dont-peut-sexécuter-un-code" class="nav-link" data-scroll-target="#a.-quatres-façon-dont-peut-sexécuter-un-code">a. Quatres façon dont peut s’exécuter un code</a></li>
+  <li><a href="#b.-des-avantages-pour-lutilisateur" id="toc-b.-des-avantages-pour-lutilisateur" class="nav-link" data-scroll-target="#b.-des-avantages-pour-lutilisateur">b. Des avantages pour l’utilisateur :</a></li>
+  <li><a href="#c.-des-responsabilités-de-lutilisateur" id="toc-c.-des-responsabilités-de-lutilisateur" class="nav-link" data-scroll-target="#c.-des-responsabilités-de-lutilisateur">c.&nbsp;Des responsabilités de l’utilisateur :</a></li>
+  <li><a href="#e.-des-avantages-pour-une-api-ou-un-service" id="toc-e.-des-avantages-pour-une-api-ou-un-service" class="nav-link" data-scroll-target="#e.-des-avantages-pour-une-api-ou-un-service">e. Des avantages pour une API ou un service :</a></li>
+  <li><a href="#f.-responsabilités-côté-apiservice" id="toc-f.-responsabilités-côté-apiservice" class="nav-link" data-scroll-target="#f.-responsabilités-côté-apiservice">f.&nbsp;Responsabilités côté API/Service :</a></li>
+  <li><a href="#f.-conclusion" id="toc-f.-conclusion" class="nav-link" data-scroll-target="#f.-conclusion">f.&nbsp;Conclusion :</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Asynchronie, Multithreading et Multiprocessig en Python</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-04</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="asynchronie-multithreading-et-multiprocessig-en-python" class="level1">
+<h1>Asynchronie, Multithreading et Multiprocessig en Python</h1>
+<hr>
+</section>
+<section id="iii.-conception-et-optimisation-pour-la-performance-des-api" class="level1">
+<h1>III. Conception et Optimisation pour la Performance des API:</h1>
+<section id="introduction-au-fonctionnement-séquentiel-du-code" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-au-fonctionnement-séquentiel-du-code">1. Introduction au Fonctionnement Séquentiel du Code</h2>
+<pre><code>Le fonctionnement séquentiel du code est le modèle de base de l'exécution d'un programme informatique. Dans ce modèle, chaque ligne de code est exécutée l'une après l'autre, en suivant un ordre précis défini par la séquence du programme. Ce modèle est intuitif et reflète la manière dont les programmes étaient traditionnellement écrits et compris.</code></pre>
+<section id="a.-processus-et-thread" class="level3">
+<h3 class="anchored" data-anchor-id="a.-processus-et-thread">a. Processus et Thread :</h3>
+<ul>
+<li><code>Un processus est une instance d'un programme en cours d'exécution. Il s'agit de l'unité de base que le système d'exploitation utilise pour gérer l'exécution des programmes. Chaque processus dispose de son propre espace mémoire isolé.</code></li>
+<li><code>Un thread, quant à lui, est le plus petit séquence d'instructions programmées qui peut être gérée par un planificateur de système d'exploitation, qui fait partie d'un processus. Un processus peut contenir plusieurs threads (multithreading), chacun pouvant exécuter différentes parties du programme en parallèle.</code></li>
+</ul>
+</section>
+<section id="b.-la-pile-dexécution" class="level3">
+<h3 class="anchored" data-anchor-id="b.-la-pile-dexécution">b. La Pile d’Exécution :</h3>
+<pre><code>Chaque thread a sa propre pile d'exécution, également appelée stack, qui stocke des informations telles que les appels de fonction, les variables locales, et permet de suivre l'endroit où se trouve le programme dans son exécution. Lorsqu'une fonction est appelée, un cadre de pile (stack frame) est ajouté au sommet de la pile, contenant les informations nécessaires à l'exécution de cette fonction. Lorsque la fonction se termine, son cadre de pile est retiré.</code></pre>
+</section>
+<section id="c.-modèle-séquentiel" class="level3">
+<h3 class="anchored" data-anchor-id="c.-modèle-séquentiel">c.&nbsp;Modèle Séquentiel :</h3>
+<pre><code>Dans un modèle séquentiel, bien que les processus puissent s'exécuter en parallèle, chaque thread à l'intérieur d'un processus exécute les instructions l'une après l'autre, de manière séquentielle. Cela signifie qu'une instruction doit être terminée avant que la suivante ne commence.</code></pre>
+</section>
+<section id="d.-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="d.-limitations">d.&nbsp;Limitations :</h3>
+<ul>
+<li><code>Utilisation du CPU : L'inconvénient d'une exécution séquentielle est qu'elle ne tire pas toujours pleinement parti des processeurs modernes multi-cœurs. Si un thread est bloqué ou en attente d'une ressource, comme une opération d'entrée/sortie, son cœur CPU respectif peut rester inactif, ce qui peut entraîner une sous-utilisation des ressources.</code></li>
+<li><code>Scalabilité : Les programmes séquentiels peuvent également être moins évolutifs car ils ne sont pas conçus pour exécuter des tâches en parallèle, ce qui limite leur capacité à traiter de grandes quantités de données ou à répondre rapidement à un grand nombre de requêtes simultanées.</code></li>
+</ul>
+</section>
+<section id="e.-exemple-de-modèle-séquentiel" class="level3">
+<h3 class="anchored" data-anchor-id="e.-exemple-de-modèle-séquentiel">e. Exemple de Modèle Séquentiel :</h3>
+<pre><code>Voici un exemple simple de code séquentiel en Python qui montre l'exécution linéaire d'une tâche :
+
+
+</code></pre>
+<p>def task1(): # Fait quelque chose pass</p>
+<p>def task2(): # Fait quelque chose d’autre pass</p>
+</section>
+</section>
+</section>
+<section id="exécution-séquentielle" class="level1">
+<h1>Exécution séquentielle</h1>
+<p>task1() task2()</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, task1() doit terminer son exécution avant que task2() ne commence. Ce modèle est simple à comprendre et à déboguer, mais il peut ne pas être le plus efficace en termes d’utilisation des ressources du système, en particulier pour des tâches pouvant être exécutées en parallèle.</p>
+<pre><code>
+
+
+### f. Gestion Concurrente des Ressources :
+
+</code></pre>
+<p>Alors que le modèle séquentiel est le fondement du traitement des instructions, il ne capitalise pas toujours efficacement sur les capacités des systèmes modernes. Pour aller au-delà des limitations du séquentiel, les développeurs peuvent se tourner vers trois méthodes complémentaires : la programmation asynchrone, le multithreading et le multiprocessing. La programmation asynchrone est idéale pour améliorer la réactivité des applications en permettant la gestion efficace des opérations d’entrée/sortie sans parallélisme réel, tandis que le multithreading et le multiprocessing exploitent directement les architectures multi-cœurs pour exécuter plusieurs instructions en parallèle, augmentant ainsi la performance pour des calculs intensifs ou des tâches multiples simultanées.</p>
+<pre><code>
+
+
+## 1. Asynchronie :
+
+
+### a. Qu'est-ce que c'est ?
+
+</code></pre>
+<p>L’asynchronie est une manière de programmer où certaines opérations sont initiées et autorisées à se dérouler en arrière-plan, tandis que d’autres parties du programme continuent à s’exécuter, sans attendre la fin de ces opérations. C’est très efficace lorsque certaines opérations sont lentes, comme les requêtes de réseau.</p>
+<pre><code>
+
+
+### b. Comment ça marche ?
+
+</code></pre>
+<p>Prenons l’exemple de préparer le petit déjeuner. Imaginons que vous ayez une bouilloire qui met 5 minutes à bouillir de l’eau. Au lieu de simplement attendre que l’eau bouille, vous commencez à préparer votre tartine. Pendant que vous étalez la confiture, la bouilloire continue de chauffer l’eau. Vous avez ainsi effectué deux tâches sans attendre que l’une soit terminée pour commencer l’autre.</p>
+<p>Dans le développement, c’est similaire. Si une partie de votre code demande des données à une base de données (ce qui peut prendre quelques secondes), au lieu d’attendre que les données soient reçues, le code peut continuer à exécuter d’autres tâches. Lorsque les données sont prêtes, le programme revient pour les traiter.</p>
+<pre><code>
+
+
+### c. Pourquoi c'est important ?
+
+</code></pre>
+<p>L’asynchronie permet d’améliorer les performances et la réactivité, surtout dans les environnements où vous avez beaucoup d’opérations d’entrée/sortie, comme les requêtes web.</p>
+<pre><code>
+
+
+### d. Exemple :
+
+</code></pre>
+<p>Lors de la création d’une application web, vous pourriez vouloir afficher des informations provenant de différentes sources (base de données, services externes, fichiers). Au lieu de demander ces informations séquentiellement, ce qui prendrait beaucoup de temps, vous pouvez les demander simultanément de manière asynchrone.</p>
+<p>Vous avez raison, il serait plus approprié de concentrer l’explication sur la façon dont l’asynchronie améliore l’utilisation des ressources disponibles sans nécessairement augmenter la capacité matérielle. Voici une révision qui reflète cet angle :</p>
+<pre><code>
+
+
+### e. Asynchronie : Maximiser l'Efficacité sans Ajouter de Ressources
+
+</code></pre>
+<p>L’asynchronie est une technique puissante pour améliorer l’utilisation des ressources d’un système, en particulier quand les opérations sont limitées par les entrées/sorties (IO-bound). Elle ne cherche pas à augmenter les ressources matérielles, comme le multithreading ou le multiprocessing pourraient le faire en exploitant plusieurs cœurs CPU. Au contraire, l’asynchronie optimise ce que l’on peut faire avec une seule unité de traitement.</p>
+<p>Dans les environnements IO-bound, où les programmes passent la majorité de leur temps à attendre des opérations d’entrées/sorties (comme l’accès au réseau ou la lecture de fichiers), l’asynchronie permet d’initier plusieurs opérations en parallèle sans attendre que chacune se termine. Cela permet d’exécuter d’autres tâches pendant que certaines parties du programme sont en attente de réponse, conduisant à une meilleure réactivité et à des performances accrues sans nécessiter de ressources CPU supplémentaires.</p>
+<p>En simplifiant, imaginez une situation où vous gérez un restaurant avec un seul chef. L’asynchronie serait comme si ce chef savait commencer à cuisiner un plat, le laisser mijoter, et pendant ce temps, préparer les ingrédients pour la prochaine commande. Le chef utilise son temps de façon optimale, en veillant à ce qu’il y ait toujours quelque chose en cours de préparation, même s’il doit attendre que certaines parties de la préparation cuisent.</p>
+<p>L’objectif est donc de minimiser le temps d’inactivité et d’augmenter le travail effectué sans ajouter de chefs supplémentaires (cœurs CPU). C’est ainsi que l’asynchronie permet de tirer le meilleur parti d’un serveur API monothreadé, en gérant les requêtes et les réponses avec une efficacité maximale sans nécessiter d’investissement dans du matériel plus performant.</p>
+<pre><code>
+
+
+### f. Exemple Python Asynchrone :
+
+</code></pre>
+<p>Pensez à une situation où vous devez interroger trois serveurs de données différents pour récupérer des informations. De manière séquentielle, vous attendriez que chaque requête se termine avant de démarrer la suivante. De façon asynchrone, vous pouvez lancer les trois requêtes pratiquement en même temps et faire d’autres tâches pendant que les données sont en cours de récupération.</p>
+<p>Voici un exemple en Python qui utilise l’asynchronie pour interroger trois “serveurs” simulés. Nous allons simuler un délai pour chaque requête de serveur en utilisant asyncio.sleep.</p>
+<pre><code>import asyncio
+
+async def requete_serveur(numero):
+    print(f"Début de la requête serveur {numero}")
+    # Simuler un temps de réponse du serveur avec asyncio.sleep
+    await asyncio.sleep(numero)
+    print(f"Réponse du serveur {numero} reçue!")
+
+async def main():
+    # Lancer trois requêtes serveur en même temps
+    await asyncio.gather(
+        requete_serveur(1),
+        requete_serveur(2),
+        requete_serveur(3)
+    )
+    print("Toutes les requêtes serveur sont terminées.")
+
+asyncio.run(main())</code></pre>
+<pre><code>Les prints simuleraient ce qui se passerait lors de l'exécution :
+
+
+</code></pre>
+<p>Début de la requête serveur 1 Début de la requête serveur 2 Début de la requête serveur 3 Réponse du serveur 1 reçue! Réponse du serveur 2 reçue! Réponse du serveur 3 reçue! Toutes les requêtes serveur sont terminées.</p>
+<pre><code>
+
+</code></pre>
+<p>Dans un contexte séquentiel, les requêtes auraient été traitées l’une après l’autre, ce qui aurait pris 6 secondes au total. Avec l’asynchronie, toutes les requêtes commencent presque simultanément, et le total ne prend que 3 secondes, car elles sont traitées en “parallèle”.</p>
+<pre><code>
+
+
+### g. Pourquoi c'est important en API :
+
+</code></pre>
+<p>Lorsqu’un serveur API gère plusieurs requêtes clients, l’asynchronie permet de démarrer la traitement de chaque requête sans attendre la fin des opérations IO-bound des requêtes précédentes. Cela est particulièrement utile pour les APIs qui s’appuient sur des services externes ou des bases de données où la latence des requêtes peut varier considérablement. En utilisant l’asynchronie, un serveur API peut offrir des temps de réponse plus rapides et traiter un plus grand nombre de requêtes simultanément, améliorant la scalabilité et l’efficacité de l’application.</p>
+<pre><code>
+
+
+### h. Exemple d'API asynchrone avec WebSocket en Python :
+
+</code></pre>
+<p>Côté serveur (avec websockets et asyncio):</p>
+<pre><code>import asyncio
+import websockets
+
+async def echo(websocket, path):
+    async for message in websocket:
+        await websocket.send(f"Echo: {message}")
+
+start_server = websockets.serve(echo, "localhost", 8765)
+
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()</code></pre>
+<pre><code>Côté client :
+
+
+</code></pre>
+<p>import asyncio import websockets</p>
+<p>async def hello(): uri = “ws://localhost:8765” async with websockets.connect(uri) as websocket: await websocket.send(“Bonjour”) print(f”&gt; {await websocket.recv()}“)</p>
+<p>asyncio.run(hello())</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, le serveur WebSocket est capable de gérer plusieurs connexions clients simultanément de manière asynchrone. Pendant que le serveur attend que l’un des clients envoie un message, il peut toujours écouter d’autres clients et répondre dès que des messages sont reçus. Cela permet une utilisation optimisée des ressources et une réponse rapide aux clients, essentiel pour des performances élevées dans les systèmes modernes d’API.</p>
+<pre><code>
+
+
+## 2. Multithreading :
+
+
+### a. Qu'est-ce que le multithreading ?
+
+</code></pre>
+<p>Le multithreading est un concept dans lequel un programme peut exécuter plusieurs threads, ou “fils d’exécution”, simultanément. Chaque thread est une séquence distincte d’instructions qui peut être exécutée de manière indépendante, permettant à plusieurs opérations de se dérouler en parallèle.</p>
+<pre><code>
+
+
+### b. Comment ça marche ?
+
+</code></pre>
+<p>Chaque thread possède sa propre “pile” et son propre “registre”. La “pile” est une zone de la mémoire utilisée pour stocker des informations temporaires, comme les variables d’une fonction. Le “registre”, quant à lui, conserve l’état actuel de l’exécution du thread, notamment l’endroit où le thread en est dans son exécution.</p>
+<pre><code>
+
+
+### c. L'analogie du petit-déjeuner
+
+</code></pre>
+<p>Pour mieux comprendre, imaginons que vous préparez un petit-déjeuner. La préparation du café et la cuisson des œufs sont deux tâches distinctes que vous pouvez effectuer simultanément, comme deux threads. Bien que vous utilisiez la même cuisine (le même espace mémoire), chaque tâche a ses propres outils et ingrédients (la pile) et sa propre séquence d’étapes à suivre (le registre).</p>
+<p>Contrairement à l’asynchronie où vous lanceriez une tâche (par exemple, faire bouillir de l’eau) et continueriez d’autres tâches en attendant qu’elle se termine, avec le multithreading, vous avez plusieurs tâches qui se déroulent réellement en parallèle, comme si une autre personne vous aidait à préparer le petit-déjeuner.</p>
+<p>Problème spécifique à Python : le GIL (Global Interpreter Lock) La version standard de Python que vous utilisez probablement est appelée CPython. CPython a une particularité : le GIL. Le GIL est un verrou qui empêche l’exécution simultanée de plusieurs threads. C’est comme si, dans votre cuisine, vous aviez une règle selon laquelle une seule tâche (par exemple, préparer du café) peut être effectuée à la fois.</p>
+<p>Le Global Interpreter Lock (GIL) est une caractéristique controversée de l’interpréteur standard de Python, CPython. Le GIL est un mécanisme de verrouillage qui empêche plusieurs threads natifs de manipuler des objets Python en même temps. Cela garantit que seul un thread s’exécute dans l’interpréteur à un moment donné, évitant les conditions de concurrence et les problèmes liés à la gestion de la mémoire qui pourraient survenir dans un environnement multi-thread sans verrouillage.</p>
+<pre><code>
+
+
+### d. Pourquoi le GIL est-il conservé ?
+
+</code></pre>
+<p>CPython conserve le GIL pour plusieurs raisons :</p>
+<pre><code>
+
+
+1. `Simplicité de l'implémentation : Le GIL simplifie l'implémentation des objets Python et la gestion de la mémoire en éliminant la nécessité de verrouiller les structures de données internes individuellement.`
+2. `Compatibilité avec les extensions C : Beaucoup de bibliothèques d'extension Python sont écrites en C et ne sont pas conçues pour être thread-safe. Le GIL protège ces extensions contre les problèmes de concurrence.`
+3. `Performance dans les programmes mono-thread : Dans certains cas, notamment pour les programmes mono-thread, le GIL peut en fait améliorer les performances en réduisant l'overhead lié au verrouillage.`
+
+</code></pre>
+<p>Pourquoi différentes versions de Python ? Il existe plusieurs implémentations de Python, chacune développée pour répondre à des besoins spécifiques. CPython est le plus courant et est développé par la Python Software Foundation. D’autres versions comme Jython ou IronPython sont développées pour fonctionner respectivement avec Java et .NET. Ces versions n’ont pas de GIL et peuvent donc tirer pleinement parti du multithreading.</p>
+<p>Chaque version a ses propres avantages. Par exemple, Jython peut utiliser des bibliothèques Java, tandis qu’IronPython peut interagir avec des codes .NET. Choisir l’une ou l’autre dépendra de vos besoins spécifiques en matière de développement.</p>
+<pre><code>
+
+
+### e. Exemples de multithreading en Python
+
+</code></pre>
+<section id="exemple-conceptuel-avec-gil---oscillation-dune-valeur-globale" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-conceptuel-avec-gil---oscillation-dune-valeur-globale">Exemple conceptuel avec GIL - Oscillation d’une valeur globale</h4>
+<p>Cet exemple utilise deux fonctions qui modifient une variable globale : l’une la multiplie par 2, l’autre la divise par 2. Normalement, on pourrait s’attendre à ce que la valeur oscille si les threads étaient vraiment parallèles, mais avec le GIL, les modifications devraient se produire de manière plus séquentielle.</p>
+<pre><code>import threading
+import time
+
+# Variable globale.
+valeur = 1
+
+# Fonctions pour modifier la variable globale.
+def double():
+    global valeur
+    for _ in range(100000):
+        valeur *= 2
+
+def divise():
+    global valeur
+    for _ in range(100000):
+        valeur /= 2
+
+# Création des threads.
+thread_double = threading.Thread(target=double)
+thread_divise = threading.Thread(target=divise)
+
+# Enregistrement du temps de départ.
+start_time = time.time()
+
+# Démarrage des threads.
+thread_double.start()
+thread_divise.start()
+
+# Attente de la fin des threads.
+thread_double.join()
+thread_divise.join()
+
+# Enregistrement du temps de fin.
+end_time = time.time()
+
+print(f'Valeur finale: {valeur}')
+print(f'Temps écoulé: {end_time - start_time} secondes')</code></pre>
+<pre><code>Output attendu :
+
+Sans le GIL et avec une parfaite synchronisation, la valeur devrait osciller et terminer proche de 1. Cependant, à cause du GIL, vous verrez que les opérations seront effectuées de façon plus séquentielle, la valeur pourrait donc s'éloigner significativement de 1 avant de potentiellement y revenir. Le temps écoulé sera probablement proche du double de ce qui serait attendu si les opérations étaient exécutées en parallèle.
+
+
+#### Exemple pratique : Téléchargement de fichiers en parallèle
+
+
+</code></pre>
+<p>import threading import requests</p>
+</section>
+</section>
+<section id="fonction-pour-télécharger-une-image" class="level1">
+<h1>Fonction pour télécharger une image</h1>
+<p>def download_image(url, filename): response = requests.get(url) with open(filename, ‘wb’) as file: file.write(response.content) print(f”Téléchargement de {filename} terminé”)</p>
+</section>
+<section id="urls-des-images-à-télécharger" class="level1">
+<h1>URLs des images à télécharger</h1>
+<p>images_to_download = [ (“https://example.com/image1.jpg”, “image1.jpg”), (“https://example.com/image2.jpg”, “image2.jpg”), # Ajoutez plus si nécessaire]</p>
+<p>threads = [] for url, filename in images_to_download: thread = threading.Thread(target=download_image, args=(url, filename)) thread.start() threads.append(thread)</p>
+</section>
+<section id="attendre-que-tous-les-threads-aient-fini" class="level1">
+<h1>Attendre que tous les threads aient fini</h1>
+<p>for thread in threads: thread.join()</p>
+<p>print(“Tous les téléchargements sont terminés.”)</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, le multithreading est utile car il s’agit d’une opération IO-bound. Même si le GIL limite l’exécution simultanée de certains types de tâches dans CPython, les opérations IO-bound peuvent toujours bénéficier du multithreading, car pendant qu’un thread attend une réponse IO, un autre thread peut commencer ou continuer son exécution.</p>
+<pre><code>
+
+
+### Pourquoi utiliser des Locks malgré le GIL :
+
+</code></pre>
+<p>Même si le GIL empêche l’exécution simultanée de threads, il ne protège pas contre les corruptions de mémoire lorsque des threads alternent rapidement sur le même cœur de processeur. Voici pourquoi :</p>
+<pre><code>
+
+
+1. `Commutations de contexte : Le système d'exploitation peut interrompre un thread pour donner du temps CPU à un autre. Si cela se produit au milieu d'une série d'opérations qui doivent être exécutées atomiquement, un autre thread pourrait commencer à travailler avec un état intermédiaire corrompu.`
+2. `Opérations de haut niveau : Une seule ligne de code Python peut se traduire par de multiples opérations au niveau du bytecode, qui ne sont pas exécutées atomiquement. Par exemple, l'ajout d'un élément à une liste est une opération Python de haut niveau, mais elle peut impliquer plusieurs étapes au niveau de l'interpréteur.`
+3. `Ressources partagées : Si deux threads travaillent avec des ressources qui doivent être cohérentes, comme des fichiers ou des connexions réseau, des verrous peuvent être nécessaires pour s'assurer qu'un thread a terminé sa tâche avant qu'un autre ne commence.`
+
+
+### Exemple pratique avec Lock - Corruption de données
+
+</code></pre>
+<p>Dans cet exemple, nous simulerons une situation où plusieurs threads essayent d’ajouter des éléments à une liste sans synchronisation, ce qui peut causer une corruption de données.</p>
+<pre><code>import threading
+
+# Liste partagée sans verrou.
+liste_partagee = []
+
+def ajoute_a_la_liste(index):
+    print(f'Thread {index} : ajout à la liste')
+    for i in range(1000):
+        liste_partagee.append(index * 1000 + i)
+
+threads = [threading.Thread(target=ajoute_a_la_liste, args=(i,)) for i in range(10)]
+
+for thread in threads:
+    thread.start()
+
+for thread in threads:
+    thread.join()
+
+print(f'Taille attendue de la liste: {10000}')
+print(f'Taille réelle de la liste: {len(liste_partagee)}')</code></pre>
+<pre><code>Output attendu :
+
+On s'attend à ce que la taille de la liste soit de 10 000, mais sans synchronisation, il est possible que des appels à append() se chevauchent et que certains éléments ne soient pas ajoutés correctement, résultant en une liste de taille inférieure à celle attendue. Cela montre la corruption de données due à l'accès concurrent sans verrouillage (Lock).
+
+Si vous souhaitez voir le code avec Lock pour comparer, voici comment il pourrait être modifié pour empêcher la corruption:
+
+
+</code></pre>
+</section>
+<section id="début-du-code-identique" class="level1">
+<h1>… [début du code identique]</h1>
+<p>lock = threading.Lock()</p>
+<p>def ajoute_a_la_liste(index): for i in range(1000): with lock: liste_partagee.append(index * 1000 + i) print(f’Thread {index} : ajout à la liste’)</p>
+</section>
+<section id="suite-du-code-identique" class="level1">
+<h1>… [suite du code identique]</h1>
+<pre><code>
+
+</code></pre>
+<p>Dans cette version avec Lock, on garantit que chaque appel à append() est effectué de manière atomique, empêchant ainsi la corruption de la liste partagée.</p>
+<pre><code>
+
+
+### f. Conclusion:
+
+</code></pre>
+<p>En Python, à cause du Global Interpreter Lock (GIL), le multithreading et l’asynchronie peuvent parfois se ressembler en termes de performance pour les tâches IO-bound, c’est-à-dire les tâches qui sont limitées par les entrées/sorties comme les requêtes réseau ou les opérations sur disque. Cela est dû au fait que le GIL empêche les threads d’exécuter du code bytecode Python en parallèle. Cependant, les deux approches ont des utilisations et des comportements différents :</p>
+<pre><code>
+
+
+* `Le multithreading crée de véritables threads au niveau du système d'exploitation. Même avec le GIL en place, il peut être utile pour les opérations IO-bound, car pendant qu'un thread attend une opération d'entrée/sortie, un autre thread peut prendre la main. Mais cela a un coût, car chaque thread nécessite des ressources système, comme de la mémoire pour sa pile d'exécution.`
+* `L'asynchronie, quant à elle, est gérée au niveau du langage de programmation avec une seule boucle d'événements et une seule pile d'exécution. Elle est généralement plus légère en termes de ressources système car elle ne nécessite pas de créer de multiples contextes de threads. Les coroutines asynchrones cèdent la main volontairement pour attendre les opérations IO-bound, ce qui les rend très efficaces pour ce type de tâches.`
+
+</code></pre>
+<p>L’overhead, ou surcharge, fait référence à l’utilisation supplémentaire des ressources système qui n’est pas directement liée à l’exécution des tâches utiles du programme. En contexte de multithreading, l’overhead comprend la gestion de la mémoire pour les différentes piles de threads, le changement de contexte entre les threads par le système d’exploitation, et la gestion des verrous et de la synchronisation pour éviter les problèmes de concurrence. Tout cela peut ajouter une latence et réduire l’efficacité du programme.</p>
+<p>Dans le cas de Python et de tâches IO-bound, il est généralement recommandé de préférer l’asynchronie au multithreading pour les raisons suivantes :</p>
+<pre><code>
+
+
+1. `Moins de surcharge : La programmation asynchrone en Python utilise une seule boucle d'événements et les coroutines, qui sont plus légères que les threads en termes de surcharge mémoire et de contexte.`
+2. `Évite le GIL : Puisque l'exécution asynchrone se fait dans un seul thread, elle n'est pas directement affectée par le GIL, ce qui rend la gestion des tâches IO-bound plus efficace.`
+3. `Plus facile à comprendre et à déboguer : Avec une seule boucle d'événements, le flux de contrôle est généralement plus simple à suivre que dans un environnement multithread où la concurrence et les effets de bord peuvent compliquer la compréhension du programme.`
+
+</code></pre>
+<p>En résumé, bien que le multithreading puisse être pertinent dans certains cas, notamment pour les tâches CPU-bound ou lorsqu’on utilise des extensions qui libèrent le GIL, l’asynchronie est souvent privilégiée pour les applications IO-bound en raison de sa légèreté et de sa simplicité relative.</p>
+<pre><code>
+
+
+## 3. Multiprocessing :
+
+
+### a. Qu'est-ce que le multiprocessing ?
+
+</code></pre>
+<p>Le multiprocessing permet l’exécution simultanée de plusieurs processus par un ordinateur. Cela se distingue du multithreading où les threads partagent la même mémoire ; ici, chaque processus opère dans son propre espace mémoire, avec des ressources dédiées.</p>
+<pre><code>
+
+
+### b. Comment ça marche ?
+
+</code></pre>
+<p>Dans le multiprocessing, chaque processus est un programme indépendant avec son propre espace d’adressage mémoire. Cela signifie qu’il possède une pile distincte pour les appels de fonction, un tas pour la gestion dynamique de la mémoire, et des copies des registres du processeur pour son état. La communication entre les processus doit se faire via des mécanismes de communication inter-processus (IPC) comme les tubes (pipes), les files de message, ou les sockets car il n’y a pas de partage direct de la mémoire.</p>
+<pre><code>
+
+
+### c. L'analogie du petit-déjeuner :
+
+</code></pre>
+<p>Imaginez que vous ayez plusieurs cuisines isolées les unes des autres, chacune avec son propre chef préparant un plat différent du petit-déjeuner. Ils ne peuvent pas se passer les ustensiles ou les ingrédients directement et doivent utiliser une fenêtre de service pour échanger des articles. Cette disposition illustre la façon dont les processus interagissent entre eux.</p>
+<pre><code>
+
+
+### d. Quand utiliser le multiprocessing ?
+
+</code></pre>
+<p>Utilisez le multiprocessing lorsque les tâches sont gourmandes en ressources de calcul et que vous souhaitez répartir la charge sur plusieurs cœurs de processeur. Avec des espaces mémoire isolés, il n’y a pas de risque de conflit de ressources, ce qui est avantageux par rapport au multithreading. Cela permet également d’éviter le Global Interpreter Lock (GIL) présent dans les implémentations standards de Python.</p>
+<pre><code></code></pre>
+<section id="e.-problèmes-de-concurrence" class="level3">
+<h3 class="anchored" data-anchor-id="e.-problèmes-de-concurrence">e. Problèmes de concurrence :</h3>
+<pre><code>Quand plusieurs processus accèdent à des ressources partagées, comme des fichiers ou des bases de données, ils peuvent interférer les uns avec les autres s'ils ne sont pas coordonnés. Prenons l'exemple de deux chefs qui essaient d'utiliser la même poêle au même moment : sans une coordination appropriée, ils risquent de se gêner.
+
+Pour prévenir ces conflits, on utilise des mécanismes de synchronisation comme les verrous (locks), qui garantissent qu'une seule entité à la fois puisse accéder à la ressource contestée.</code></pre>
+</section>
+<section id="f.-gestion-de-loverhead" class="level3">
+<h3 class="anchored" data-anchor-id="f.-gestion-de-loverhead">f.&nbsp;Gestion de l’Overhead :</h3>
+<ul>
+<li><code>Overhead de Création de Processus : Créer un processus est plus coûteux en termes de ressources système que de créer un thread. Il faut donc considérer cet overhead lors de la conception de l'application, pour ne pas pénaliser les performances avec un trop grand nombre de processus.</code></li>
+</ul>
+</section>
+<section id="h.-gestion-de-la-mémoire" class="level3">
+<h3 class="anchored" data-anchor-id="h.-gestion-de-la-mémoire">h. Gestion de la Mémoire :</h3>
+<ul>
+<li><code>Espace Mémoire Séparé : Le fait que chaque processus ait son propre espace mémoire protège contre les erreurs de corruption de la mémoire partagée, mais cela peut aussi compliquer le partage d'informations. Il faut gérer soigneusement les transferts de données entre les processus pour éviter la perte d'efficacité.</code></li>
+</ul>
+</section>
+<section id="i.-communication-entre-les-processus" class="level3">
+<h3 class="anchored" data-anchor-id="i.-communication-entre-les-processus">i. Communication entre les Processus :</h3>
+<ul>
+<li><code>Mécanismes IPC : Il faut choisir le bon outil IPC adapté au problème : tubes pour les échanges simples, mémoire partagée pour les grandes quantités de données, ou sockets pour la communication réseau. Chaque méthode a ses avantages et ses inconvénients.</code></li>
+</ul>
+</section>
+<section id="j.-terminaison-et-contrôle-des-processus" class="level3">
+<h3 class="anchored" data-anchor-id="j.-terminaison-et-contrôle-des-processus">j. Terminaison et Contrôle des Processus :</h3>
+<ul>
+<li><code>Gestion des Processus Orphelins : Il est crucial de s'assurer que les processus sont correctement terminés pour ne pas laisser de processus orphelins qui consommeraient des ressources inutilement.</code></li>
+</ul>
+</section>
+<section id="k.-exemples-concrets" class="level3">
+<h3 class="anchored" data-anchor-id="k.-exemples-concrets">k. Exemples Concrets :</h3>
+<ul>
+<li><code>Traitement de Données Volumineux : Un script qui traite de grands ensembles de données peut utiliser le multiprocessing pour diviser la charge de travail entre plusieurs processus, réduisant ainsi le temps de traitement global.</code></li>
+<li><code>Serveurs Web à Haute Performance : Des serveurs comme Apache peuvent utiliser un modèle de multiprocessing pour traiter un grand nombre de requêtes simultanément, en attribuant chaque requête à un processus distinct.</code></li>
+</ul>
+</section>
+<section id="l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing">l. Exemple Conceptuel en Python : Comparaison Séquentiel, Threading et Multiprocessing</h3>
+<pre><code>
+
+#### Séquentiel
+
+
+</code></pre>
+<p>import time</p>
+</section>
+</section>
+<section id="une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu" class="level1">
+<h1>Une fonction qui simule une tâche gourmande en ressources CPU</h1>
+<p>def cpu_bound_task(number): print(f”Traitement du numéro {number}…“) # Un calcul gourmand en CPU, par exemple trouver des nombres premiers return sum(i*i for i in range(number))</p>
+</section>
+<section id="fonction-principale-pour-exécuter-les-tâches-séquentiellement" class="level1">
+<h1>Fonction principale pour exécuter les tâches séquentiellement</h1>
+<p>def run_sequentially(): numbers = [50000 + x for x in range(20)] start_time = time.time() results = [cpu_bound_task(number) for number in numbers] duration = time.time() - start_time print(f”Durée totale d’exécution en mode séquentiel : {duration} secondes”)</p>
+</section>
+<section id="exécuter-la-fonction" class="level1">
+<h1>Exécuter la fonction</h1>
+<p>run_sequentially()</p>
+<pre><code>
+
+</code></pre>
+<section id="multiprocessing-avec-pool" class="level4">
+<h4 class="anchored" data-anchor-id="multiprocessing-avec-pool">Multiprocessing avec Pool</h4>
+<pre><code>from multiprocessing import Pool
+import time
+
+# La fonction reste la même
+def cpu_bound_task(number):
+    print(f"Traitement du numéro {number}...")
+    return sum(i*i for i in range(number))
+
+# Fonction principale pour exécuter les tâches en utilisant le multiprocessing
+def run_with_multiprocessing():
+    numbers = [50000 + x for x in range(20)]
+    start_time = time.time()
+    with Pool(processes=4) as pool:  # Démarre un pool avec 4 processus
+        results = pool.map(cpu_bound_task, numbers)
+    duration = time.time() - start_time
+    print(f"Durée totale d'exécution avec multiprocessing : {duration} secondes")
+
+# Exécuter la fonction
+run_with_multiprocessing()</code></pre>
+<pre><code>Dans l'exemple avec le multiprocessing, la tâche cpu_bound_task est distribuée entre plusieurs processus. Cela permet de mieux utiliser les ressources multi-cœurs car chaque processus peut s'exécuter sur un cœur différent simultanément.
+
+
+#### Exemple Classique de Multiprocessing sans Pool
+
+
+</code></pre>
+<p>import multiprocessing import time</p>
+</section>
+</section>
+<section id="définition-de-la-tâche-gourmande-en-cpu" class="level1">
+<h1>Définition de la tâche gourmande en CPU</h1>
+<p>def cpu_bound_task(number): print(f”Début du traitement du numéro {number}“) result = sum(i*i for i in range(number)) print(f”Fin du traitement du numéro {number}“) return result</p>
+</section>
+<section id="fonction-pour-lancer-les-processus" class="level1">
+<h1>Fonction pour lancer les processus</h1>
+<p>def run_tasks(): numbers = [50000 + x for x in range(20)] processes = []</p>
+<pre><code>start_time = time.time()
+
+for number in numbers:
+    process = multiprocessing.Process(target=cpu_bound_task, args=(number,))
+    processes.append(process)
+    process.start()
+
+for process in processes:
+    process.join()  # Attend que tous les processus se terminent
+
+duration = time.time() - start_time
+print(f"Durée totale d'exécution sans Pool : {duration} secondes")</code></pre>
+</section>
+<section id="exécuter-la-fonction-1" class="level1">
+<h1>Exécuter la fonction</h1>
+<p>run_tasks()</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, au lieu d’utiliser un Pool pour gérer les processus, nous créons et démarrons manuellement chaque processus en utilisant la classe Process du module multiprocessing. Chaque processus exécute la fonction cpu_bound_task avec un nombre différent en paramètre. L’appel à join assure que le programme principal attend la fin de chaque processus avant de mesurer le temps total d’exécution.</p>
+<p>L’utilisation de start et join pour la gestion manuelle des processus offre un contrôle plus granulaire sur chaque processus mais vient aussi avec la responsabilité de gérer le nombre de processus en cours d’exécution à un instant donné. Voici quelques notes à ce sujet :</p>
+<pre><code>
+
+
+1. `Contrôle des Processus : \
+Quand vous utilisez start et join, vous devez créer et gérer chaque processus individuellement. Vous contrôlez explicitement quand un processus démarre et quand attendre qu'il finisse. Ce niveau de contrôle peut être nécessaire lorsque vous avez des exigences spécifiques pour l'ordre d'exécution ou la gestion de la durée de vie des processus.`
+2. `Gestion du nombre de processus : \
+Avec Pool, le nombre de processus simultanés est géré automatiquement, vous n'avez donc pas besoin de vous inquiéter de lancer trop de processus qui pourraient saturer le CPU. En revanche, en lançant les processus un par un avec start, il vous appartient de vous assurer que vous ne démarrez pas plus de processus que votre système ne peut en gérer efficacement à la fois.`
+3. `Surcharger le système : \
+Lancer trop de processus simultanément peut entraîner un context switching fréquent et augmenter l'overhead du système, réduisant ainsi l'efficacité globale. Vous devriez idéalement limiter le nombre de processus concurrents à un nombre proche du nombre de cœurs de CPU disponibles.`
+4. `Conseil pratique : \
+Vous pouvez utiliser multiprocessing.cpu_count() pour obtenir le nombre de cœurs disponibles sur votre machine et utiliser cette information pour limiter le nombre de processus que vous lancez.`
+5. `Exemple de gestion manuelle : \
+Voici un exemple simple montrant comment vous pourriez gérer manuellement le nombre de processus simultanés:`
+
+    ```
+   import multiprocessing
+   import time
+
+   def worker(num):
+       """thread worker function"""
+       print(f'Worker: {num}')
+       time.sleep(2)
+
+   if __name__ == '__main__':
+       max_processes = multiprocessing.cpu_count()
+       processes = []
+       for i in range(10):  # Supposons que nous avons 10 tâches à exécuter
+           if len(processes) &lt; max_processes:
+               p = multiprocessing.Process(target=worker, args=(i,))
+               processes.append(p)
+               p.start()
+           else:
+               # Attendre la fin d'un processus avant d'en lancer un autre
+               processes.pop(0).join()
+               p = multiprocessing.Process(target=worker, args=(i,))
+               processes.append(p)
+               p.start()
+
+       for p in processes:
+           p.join()</code></pre>
+<pre><code>Dans cet exemple, nous limitons le nombre de processus en fonction du nombre de cœurs de CPU. Nous attendons qu'un processus se termine (join) avant d'en commencer un nouveau si nous avons atteint la limite de processus simultanés. Cela assure que nous ne surchargerons pas le système avec trop de processus en même temps.</code></pre>
+<section id="m.-sérialisation-des-objets" class="level3">
+<h3 class="anchored" data-anchor-id="m.-sérialisation-des-objets">m. Sérialisation des Objets</h3>
+<pre><code>Pour le multiprocessing en Python, la sérialisation est nécessaire car il faut passer des objets entre les processus. Python utilise le module pickle pour sérialiser et désérialiser les objets. Les objets que l'on souhaite partager entre les processus doivent être "pickleable".
+
+
+#### Rendre sérialisable un objet:
+Pour la sérialisation en Python, vous pouvez définir comment sérialiser un objet personnalisé en redéfinissant les méthodes __getstate__ et __setstate__, qui sont appelées respectivement lors de la sérialisation (pickle) et de la désérialisation (unpickle) de l'objet.
+
+
+</code></pre>
+<p>import pickle</p>
+<p>class MonObjet: def <strong>init</strong>(self, data): self.data = data</p>
+<pre><code># Méthode appelée lors de la sérialisation
+def __getstate__(self):
+    return self.data
+
+# Méthode appelée lors de la désérialisation
+def __setstate__(self, state):
+    self.data = state</code></pre>
+</section>
+</section>
+<section id="exemple-dutilisation" class="level1">
+<h1>Exemple d’utilisation</h1>
+<p>mon_obj = MonObjet(“des données importantes”)</p>
+</section>
+<section id="sérialisation" class="level1">
+<h1>Sérialisation</h1>
+<p>serialized_obj = pickle.dumps(mon_obj)</p>
+</section>
+<section id="désérialisation" class="level1">
+<h1>Désérialisation</h1>
+<p>deserialized_obj = pickle.loads(serialized_obj)</p>
+<pre><code>
+
+</code></pre>
+<p>Ces méthodes vous permettent de contrôler précisément ce qui est sérialisé et comment l’objet est restauré par la suite. C’est particulièrement utile pour les objets qui peuvent contenir des types non sérialisables ou pour optimiser la sérialisation pour les besoins en performance.</p>
+<pre><code>
+
+
+### n. Exemple Concret d'Usage Réel en Python
+
+</code></pre>
+<section id="traitement-dimages-en-parallèle" class="level4">
+<h4 class="anchored" data-anchor-id="traitement-dimages-en-parallèle">Traitement d’Images en Parallèle</h4>
+<pre><code>from multiprocessing import Pool
+import cv2  # Bibliothèque de traitement d'image
+
+def process_image(file_path):
+    # Charge une image
+    img = cv2.imread(file_path)
+    # Applique un traitement, par exemple un flou Gaussien
+    img = cv2.GaussianBlur(img, (5, 5), 0)
+    # Sauvegarde l'image traitée
+    cv2.imwrite(f"processed_{file_path}", img)
+
+def run_image_processing():
+    images = ['image1.jpg', 'image2.jpg', 'image3.jpg']  # Liste des images à traiter
+    with Pool(processes=4) as pool:
+        pool.map(process_image, images)
+
+run_image_processing()</code></pre>
+<pre><code>Dans cet exemple concret, une liste d'images est traitée en parallèle en utilisant le multiprocessing. Chaque image est traitée dans un processus distinct, ce qui accélère le traitement d'un grand nombre d'images, surtout lorsqu'il est exécuté sur une machine avec plusieurs cœurs de CPU.</code></pre>
+</section>
+<section id="récapitulatif" class="level2">
+<h2 class="anchored" data-anchor-id="récapitulatif">5. Récapitulatif:</h2>
+<section id="a.-quatres-façon-dont-peut-sexécuter-un-code" class="level3">
+<h3 class="anchored" data-anchor-id="a.-quatres-façon-dont-peut-sexécuter-un-code">a. Quatres façon dont peut s’exécuter un code</h3>
+<ol type="1">
+<li><code>Exécution séquentielle : C'est la méthode la plus simple où les tâches sont exécutées l'une après l'autre. Cette approche est intuitive mais n'est pas efficace en termes d'utilisation des ressources, surtout lorsque le système a des tâches indépendantes pouvant être exécutées en parallèle.</code></li>
+<li><code>Threading (multithreading) : Permet plusieurs fils d'exécution dans le même espace mémoire. C'est efficace pour les tâches qui sont I/O-bound mais peut être compliqué à cause des problèmes de concurrence et est limité par le GIL (Global Interpreter Lock) dans CPython.</code></li>
+<li><code>Asynchronous programming : Permet de gérer les tâches I/O-bound d'une manière plus fluide sans bloquer le thread principal. C'est un excellent choix pour les applications de réseau mais nécessite une conception de programme différente, avec l'utilisation de coroutines et d'événements.</code></li>
+<li><code>Multiprocessing : Utilise plusieurs processus avec leurs propres espaces mémoire, ce qui est utile pour les tâches CPU-bound et contourne le GIL. Cela permet de tirer pleinement parti des systèmes multicœurs mais peut comporter un overhead important en termes de mémoire et de temps de démarrage des processus.</code></li>
+</ol>
+</section>
+<section id="b.-des-avantages-pour-lutilisateur" class="level3">
+<h3 class="anchored" data-anchor-id="b.-des-avantages-pour-lutilisateur">b. Des avantages pour l’utilisateur :</h3>
+<ul>
+<li><code>Efficacité accrue : L'adoption de méthodes de parallélisme peut entraîner des gains substantiels en termes de performance. Dans des domaines tels que le trading, où chaque milliseconde compte, ces gains peuvent avoir un impact significatif.</code></li>
+</ul>
+</section>
+<section id="c.-des-responsabilités-de-lutilisateur" class="level3">
+<h3 class="anchored" data-anchor-id="c.-des-responsabilités-de-lutilisateur">c.&nbsp;Des responsabilités de l’utilisateur :</h3>
+<ul>
+<li><code>Gestion des ressources : Il est essentiel de bien comprendre les besoins en ressources de chaque méthode de parallélisme pour éviter des problèmes tels que l'épuisement de la mémoire ou un thrashing du CPU.</code></li>
+<li><code>Vigilance accrue : L'utilisation de parallélisme ou de concurrence exige une grande attention aux limites des ressources système pour éviter leur surutilisation, qui pourrait nuire aux performances plutôt que de les améliorer.</code></li>
+<li><code>Rate Limiting : La mise en place d'un contrôle rigoureux du nombre de tâches exécutées simultanément est nécessaire pour prévenir la surcharge du système, évitant ainsi la saturation des ressources comme la bande passante, la mémoire ou le CPU.</code></li>
+</ul>
+</section>
+<section id="e.-des-avantages-pour-une-api-ou-un-service" class="level3">
+<h3 class="anchored" data-anchor-id="e.-des-avantages-pour-une-api-ou-un-service">e. Des avantages pour une API ou un service :</h3>
+<ul>
+<li><code>Optimisation des ressources : Une utilisation stratégique de la concurrence et du parallélisme peut améliorer grandement l'efficacité avec laquelle une API gère les ressources, en répartissant la charge de manière optimale.</code></li>
+<li><code>Réduction des coûts : Une gestion plus efficace des ressources peut diminuer les besoins en infrastructure pour la même charge de travail, ce qui réduit les coûts d'exploitation liés aux serveurs et à la maintenance.</code></li>
+<li><code>Amélioration de la réactivité : Le gain en performance peut être un argument commercial fort pour attirer et retenir les clients grâce à une meilleure réactivité des services.</code></li>
+</ul>
+<pre><code>Côté API ou service, les responsabilités liées à l'implémentation de la concurrence et du parallélisme peuvent inclure les aspects suivants :</code></pre>
+</section>
+<section id="f.-responsabilités-côté-apiservice" class="level3">
+<h3 class="anchored" data-anchor-id="f.-responsabilités-côté-apiservice">f.&nbsp;Responsabilités côté API/Service :</h3>
+<ul>
+<li><code>Contrôle de la montée en charge : Les services doivent gérer l'augmentation de la charge de travail en conséquence, en ajustant dynamiquement le nombre de processus ou de threads pour maintenir une performance optimale sans gaspiller de ressources.</code></li>
+<li><code>Gestion des états : Assurer une gestion cohérente des états dans un environnement distribué où plusieurs processus ou threads peuvent accéder et modifier des données simultanément.</code></li>
+<li><code>Sécurité des données : Mettre en place des mécanismes de verrouillage ou d'autres stratégies de synchronisation pour éviter les conditions de concurrence et assurer l'intégrité des données.</code></li>
+<li><code>Tolérance aux pannes : Concevoir des systèmes qui peuvent se remettre d'un processus ou d'un thread défaillant sans perdre de données critiques et en minimisant l'interruption du service.</code></li>
+<li><code>Surveillance et logging : Mettre en place un système de surveillance robuste pour suivre la santé du système et les performances en temps réel, ainsi que pour enregistrer les incidents pour une analyse ultérieure.</code></li>
+<li><code>Rétrocompatibilité et mises à jour : Garantir que les mises à jour du système prennent en compte les modèles de concurrence existants et ne compromettent pas la stabilité des opérations en cours.</code></li>
+<li><code>Scalabilité : Concevoir l'architecture de manière à ce qu'elle puisse s'adapter facilement à une augmentation de la demande, par exemple en utilisant des services cloud qui peuvent allouer dynamiquement des ressources supplémentaires.</code></li>
+<li><code>Rate Limiting et Quotas : Établir des politiques claires pour limiter le taux de requêtes et la consommation de ressources par les clients pour éviter l'abus et garantir un service équitable pour tous les utilisateurs.</code></li>
+</ul>
+<pre><code>En résumé, les API et les services doivent non seulement tirer parti des avantages du parallélisme et de la concurrence mais aussi gérer avec prudence les complexités qui en découlent pour assurer la stabilité, la sécurité et l'efficacité de l'environnement de service.</code></pre>
+</section>
+<section id="f.-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="f.-conclusion">f.&nbsp;Conclusion :</h3>
+<p>``` Que ce soit pour un usage individuel ou pour optimiser les performances d’une API, la compréhension et la mise en œuvre adéquate des modèles de parallélisme et de concurrence sont primordiales. Elles offrent une amélioration de l’efficacité et de la réactivité des applications et peuvent conduire à des économies significatives à long terme.</p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

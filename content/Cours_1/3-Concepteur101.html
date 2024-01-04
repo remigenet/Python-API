@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
+<meta name="description" content="Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - Versions et Compilation de Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
+<link href="../../content/Cours_1/4-guard101.html" rel="next">
+<link href="../../content/Cours_1/2-User101.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,19 +77,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - Versions et Compilation de Python">
+<meta property="og:description" content="Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/python_versions.png">
 <meta property="og:site_name" content="Introduction à Python">
 <meta property="og:image:height" content="1024">
 <meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta name="citation_title" content="Versions et Compilation de Python">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/3-Concepteur101.html">
 <meta name="citation_language" content="en">
 </head>
 
@@ -228,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/3-Concepteur101.html">Versions et Compilation de Python</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -241,23 +242,72 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/1-API101.qmd</span>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  <a href="../../content/Cours_1/2-User101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Utiliser une API en tant qu’utilisateur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
+  <a href="../../content/Cours_1/3-Concepteur101.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Versions et Compilation de Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
+  <a href="../../content/Cours_1/4-guard101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Le PATH</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/5-tester101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Path.. et environnements virtuels!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/6-Postman_CGG.opy</span>
+  </li>
+        <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/7-TP-Postman_and_coingeko.qmd</span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Quelques IDEs en Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/IDEs/VsCode.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/IDEs/Spyder.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/IDEs/Pycharm.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_1/TP-ConstruireSonPython.qmd</span>
+  </li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -268,7 +318,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#chapitre-3---créer-une-api-en-tant-que-concepteur" id="toc-chapitre-3---créer-une-api-en-tant-que-concepteur" class="nav-link active" data-scroll-target="#chapitre-3---créer-une-api-en-tant-que-concepteur">Chapitre 3 - Créer une API en tant que concepteur</a></li>
+  <li><a href="#créer-une-api-en-tant-que-concepteur" id="toc-créer-une-api-en-tant-que-concepteur" class="nav-link" data-scroll-target="#créer-une-api-en-tant-que-concepteur">3. Créer une API en tant que concepteur</a>
+  <ul class="collapse">
+  <li><a href="#pourquoi-créer-une-api" id="toc-pourquoi-créer-une-api" class="nav-link" data-scroll-target="#pourquoi-créer-une-api">3.1 Pourquoi créer une API ?</a></li>
+  <li><a href="#principes-de-base-de-la-conception-dune-api" id="toc-principes-de-base-de-la-conception-dune-api" class="nav-link" data-scroll-target="#principes-de-base-de-la-conception-dune-api">3.2 Principes de base de la conception d’une API :</a></li>
+  <li><a href="#routes-méthodes-et-conventions" id="toc-routes-méthodes-et-conventions" class="nav-link" data-scroll-target="#routes-méthodes-et-conventions">3.3 Routes, méthodes et conventions :</a></li>
+  <li><a href="#gestion-des-versions" id="toc-gestion-des-versions" class="nav-link" data-scroll-target="#gestion-des-versions">3.4 Gestion des versions :</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">3.5 Documentation :</a></li>
+  <li><a href="#étude-de-cas-coingecko-et-coinmarketcap" id="toc-étude-de-cas-coingecko-et-coinmarketcap" class="nav-link" data-scroll-target="#étude-de-cas-coingecko-et-coinmarketcap">3.6 Étude de cas : CoinGecko et CoinMarketCap</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -277,16 +336,16 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">Versions et Compilation de Python</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Introduction</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
+    Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.
   </div>
 </div>
 
@@ -315,107 +374,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
-<ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
-<ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<section id="chapitre-3---créer-une-api-en-tant-que-concepteur" class="level1">
+<h1>Chapitre 3 - Créer une API en tant que concepteur</h1>
+<hr>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
+<section id="créer-une-api-en-tant-que-concepteur" class="level1">
+<h1>3. Créer une API en tant que concepteur</h1>
+<section id="pourquoi-créer-une-api" class="level2">
+<h2 class="anchored" data-anchor-id="pourquoi-créer-une-api">3.1 Pourquoi créer une API ?</h2>
 <ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
+<li><code>Interopérabilité : Les API permettent à différentes applications de travailler ensemble, créant un écosystème d'applications connectées.</code></li>
+<li><code>Évolutivité : Vous pouvez mettre à jour ou modifier votre application backend sans perturber les utilisateurs de l'API, tant que l'interface reste consistante.</code></li>
+<li><code>Monétisation : De nombreuses entreprises offrent des API en tant que produits, soit en facturant directement pour l'accès, soit en utilisant des modèles freemium.</code></li>
+<li><code>Automatisation : Avec les API, les processus peuvent être automatisés et intégrés dans d'autres applications ou workflows.</code></li>
+<li></li>
+</ul>
 </section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
+<section id="principes-de-base-de-la-conception-dune-api" class="level2">
+<h2 class="anchored" data-anchor-id="principes-de-base-de-la-conception-dune-api">3.2 Principes de base de la conception d’une API :</h2>
 <ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
+<li><code>Simplicité : Une API doit être intuitive et facile à utiliser.</code></li>
+<li><code>Consistance : Les méthodes, les endpoints et les réponses doivent suivre une structure cohérente.</code></li>
+<li><code>Sécurité : Assurez-vous que seules les personnes ou applications autorisées peuvent accéder à votre API.</code></li>
+<li><code>Fiabilité : Une API doit être stable et fiable, avec un minimum de temps d'arrêt.</code></li>
+</ul>
 </section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
+<section id="routes-méthodes-et-conventions" class="level2">
+<h2 class="anchored" data-anchor-id="routes-méthodes-et-conventions">3.3 Routes, méthodes et conventions :</h2>
+<pre><code>Lors de la conception de votre API, vous devrez définir des routes (ou endpoints) qui déterminent les actions ou les données disponibles. Voici quelques conventions courantes :
+</code></pre>
 <ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
+<li><code>CRUD (Create, Read, Update, Delete) : Ces opérations représentent les actions de base pour gérer les ressources. Par exemple :</code>
 <ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
+<li><code>POST /items pour créer un nouvel item.</code></li>
+<li><code>GET /items pour lire une liste d'items.</code></li>
+<li><code>PUT /items/{id} pour mettre à jour un item spécifique.</code></li>
+<li><code>DELETE /items/{id} pour supprimer un item spécifique.</code></li>
 </ul></li>
-</ol>
+<li><code>Utilisation des verbes HTTP : Utilisez les méthodes HTTP (GET, POST, PUT, DELETE) pour représenter les actions.</code></li>
+<li><code>Nommage : Les routes doivent être nommées de manière intuitive. Par exemple, utilisez des noms au pluriel pour les collections (/items) et des noms au singulier pour une ressource spécifique (/item/{id}).</code></li>
+</ul>
 </section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
-<ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
+<section id="gestion-des-versions" class="level2">
+<h2 class="anchored" data-anchor-id="gestion-des-versions">3.4 Gestion des versions :</h2>
+<pre><code>Avec le temps, votre API pourrait nécessiter des modifications ou des améliorations. Gérer les versions de votre API permet aux développeurs d'adapter leurs applications aux changements sans interruption. Une pratique courante est d'inclure le numéro de version dans l'URL, comme dans /v1/items.</code></pre>
 </section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">3.5 Documentation :</h2>
+<pre><code>Un élément clé de toute API réussie est une documentation complète et claire. Elle doit fournir :
+</code></pre>
+<ul>
+<li><code>Une liste de tous les endpoints avec des descriptions.</code></li>
+<li><code>Des exemples de requêtes et de réponses.</code></li>
+<li><code>Des détails sur les codes d'erreur et leur signification.</code></li>
+<li><code>Des informations sur les limitations, les quotas ou les tarifs.</code></li>
+</ul>
+</section>
+<section id="étude-de-cas-coingecko-et-coinmarketcap" class="level2">
+<h2 class="anchored" data-anchor-id="étude-de-cas-coingecko-et-coinmarketcap">3.6 Étude de cas : CoinGecko et CoinMarketCap</h2>
+<pre><code>Ces deux plateformes sont des exemples parfaits pour illustrer le potentiel et la valeur ajoutée d'une API bien conçue.
+</code></pre>
+<ul>
+<li><code>Agrégation de Données : CoinGecko et CoinMarketCap rassemblent des données de nombreux échanges de cryptomonnaie à travers le monde. Ces données peuvent inclure les prix actuels, les volumes d'échange, les données historiques, et bien d'autres informations pertinentes.</code></li>
+<li><code>Traitement et Modélisation : Une fois les données récupérées, elles sont traitées, modélisées et souvent normalisées pour fournir des informations cohérentes aux utilisateurs. Par exemple, le calcul du prix moyen d'une cryptomonnaie sur différents échanges ou la prise en compte de la liquidité pour pondérer ces moyennes.</code></li>
+<li><code>Accessibilité via l'API : Ces plateformes rendent ensuite ces données accessibles via leurs API. Les développeurs, les entreprises ou même les amateurs peuvent accéder à ces données pour leurs propres analyses, applications ou sites web.</code></li>
+<li><code>Modèle Freemium : Tandis que l'accès de base à l'API peut être gratuit, avec certaines limitations (par exemple, un nombre limité de requêtes par minute ou par jour), les utilisateurs qui ont besoin de capacités supplémentaires ou d'accès à des données plus spécialisées peuvent opter pour des plans payants. Cela crée une source de revenus pour ces plateformes tout en offrant un service précieux à la communauté.</code></li>
+</ul>
 
 
 </section>
@@ -806,11 +830,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
+      <a href="../../content/Cours_1/2-User101.html" class="pagination-link  aria-label=" utiliser="" une="" api="" en="" tant="" qu&#39;utilisateur"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Utiliser une API en tant qu’utilisateur</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_1/4-guard101.html" class="pagination-link" aria-label="Le PATH">
+        <span class="nav-page-text">Le PATH</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

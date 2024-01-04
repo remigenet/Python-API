@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-04">
+
+<title>Introduction à Python - Asynchronie et Multiprocessing</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - Asynchronie et Multiprocessing">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_4/.img/numpy.png">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="Asynchronie et Multiprocessing">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-04">
+<meta name="citation_cover_date" content="2024-01-04">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-04">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_4/5-DjangoRest.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API en tant qu’utilisateur</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
+ <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" id="toc-asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="nav-link active" data-scroll-target="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil">Asynchronie et Multiprocessing - comment donner le tournis au GIL</a></li>
+  <li><a href="#v.-développement-dapi-avec-django-rest-framework" id="toc-v.-développement-dapi-avec-django-rest-framework" class="nav-link" data-scroll-target="#v.-développement-dapi-avec-django-rest-framework">V. Développement d’API avec Django REST Framework</a>
+  <ul class="collapse">
+  <li><a href="#introduction-à-django" id="toc-introduction-à-django" class="nav-link" data-scroll-target="#introduction-à-django">1. Introduction à Django</a>
+  <ul class="collapse">
+  <li><a href="#a.-caractéristiques-clés-de-django" id="toc-a.-caractéristiques-clés-de-django" class="nav-link" data-scroll-target="#a.-caractéristiques-clés-de-django">a. Caractéristiques Clés de Django</a></li>
+  <li><a href="#b.-composants-de-django" id="toc-b.-composants-de-django" class="nav-link" data-scroll-target="#b.-composants-de-django">b. Composants de Django</a></li>
+  <li><a href="#c.-installation-de-django" id="toc-c.-installation-de-django" class="nav-link" data-scroll-target="#c.-installation-de-django">c.&nbsp;Installation de Django</a></li>
+  <li><a href="#e.-structure-dun-projet-django" id="toc-e.-structure-dun-projet-django" class="nav-link" data-scroll-target="#e.-structure-dun-projet-django">e. Structure d’un Projet Django</a></li>
+  <li><a href="#f.-développement-avec-django" id="toc-f.-développement-avec-django" class="nav-link" data-scroll-target="#f.-développement-avec-django">f.&nbsp;Développement avec Django</a></li>
+  <li><a href="#g.-vue-formulaire-administration-template" id="toc-g.-vue-formulaire-administration-template" class="nav-link" data-scroll-target="#g.-vue-formulaire-administration-template">g. Vue, formulaire, administration, template ?</a></li>
+  <li><a href="#templates" id="toc-templates" class="nav-link" data-scroll-target="#templates">Templates</a></li>
+  <li><a href="#h.-exécution-du-serveur-de-développement" id="toc-h.-exécution-du-serveur-de-développement" class="nav-link" data-scroll-target="#h.-exécution-du-serveur-de-développement">h. Exécution du Serveur de Développement</a></li>
+  </ul></li>
+  <li><a href="#présentation-de-django-rest-framework" id="toc-présentation-de-django-rest-framework" class="nav-link" data-scroll-target="#présentation-de-django-rest-framework">2. Présentation de Django REST Framework</a>
+  <ul class="collapse">
+  <li><a href="#a.-positionnement-de-drf-par-rapport-à-django" id="toc-a.-positionnement-de-drf-par-rapport-à-django" class="nav-link" data-scroll-target="#a.-positionnement-de-drf-par-rapport-à-django">a. Positionnement de DRF par rapport à Django</a></li>
+  <li><a href="#b.-prérequis-à-lutilisation-de-django-rest-framework" id="toc-b.-prérequis-à-lutilisation-de-django-rest-framework" class="nav-link" data-scroll-target="#b.-prérequis-à-lutilisation-de-django-rest-framework">b. Prérequis à l’utilisation de Django REST Framework</a></li>
+  <li><a href="#c.-installation-de-django-rest-framework" id="toc-c.-installation-de-django-rest-framework" class="nav-link" data-scroll-target="#c.-installation-de-django-rest-framework">c.&nbsp;Installation de Django REST Framework</a></li>
+  </ul></li>
+  <li><a href="#création-de-modèles-et-de-sérialiseurs" id="toc-création-de-modèles-et-de-sérialiseurs" class="nav-link" data-scroll-target="#création-de-modèles-et-de-sérialiseurs">3. Création de Modèles et de Sérialiseurs</a></li>
+  </ul></li>
+  <li><a href="#models.py" id="toc-models.py" class="nav-link" data-scroll-target="#models.py">models.py</a></li>
+  <li><a href="#serializers.py" id="toc-serializers.py" class="nav-link" data-scroll-target="#serializers.py">serializers.py</a>
+  <ul class="collapse">
+  <li><a href="#permissions-et-authentification" id="toc-permissions-et-authentification" class="nav-link" data-scroll-target="#permissions-et-authentification">5. Permissions et Authentification</a></li>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">7. Exemples</a>
+  <ul class="collapse">
+  <li><a href="#a.-exemple-de-la-todo-list" id="toc-a.-exemple-de-la-todo-list" class="nav-link" data-scroll-target="#a.-exemple-de-la-todo-list">a. Exemple de la Todo List</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#models.py-1" id="toc-models.py-1" class="nav-link" data-scroll-target="#models.py-1">models.py</a></li>
+  <li><a href="#serializers.py-1" id="toc-serializers.py-1" class="nav-link" data-scroll-target="#serializers.py-1">serializers.py</a></li>
+  <li><a href="#views.py" id="toc-views.py" class="nav-link" data-scroll-target="#views.py">views.py</a></li>
+  <li><a href="#urls.py" id="toc-urls.py" class="nav-link" data-scroll-target="#urls.py">urls.py</a></li>
+  <li><a href="#settings.py" id="toc-settings.py" class="nav-link" data-scroll-target="#settings.py">settings.py</a></li>
+  <li><a href="#urls.py-1" id="toc-urls.py-1" class="nav-link" data-scroll-target="#urls.py-1">urls.py</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Asynchronie et Multiprocessing</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-04</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="level1">
+<h1>Asynchronie et Multiprocessing - comment donner le tournis au GIL</h1>
+<hr>
+</section>
+<section id="v.-développement-dapi-avec-django-rest-framework" class="level1">
+<h1>V. Développement d’API avec Django REST Framework</h1>
+<pre><code>Django REST Framework (DRF) est une boîte à outils puissante et flexible pour construire des APIs Web avec le framework Django. Il est particulièrement adapté aux projets plus importants grâce à sa capacité à gérer des modèles de données complexes et à fournir une interface d'administration robuste.</code></pre>
+<section id="introduction-à-django" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-à-django">1. Introduction à Django</h2>
+<pre><code>Notez que cette section vise à fournir une introduction générale au framework Django. Bien qu'elle ne soit pas centrée sur la conception d'APIs, elle établit les bases nécessaires pour comprendre le Django REST Framework. Cette partie n'est pas essentielle au programme du cours sur les APIs et peut être omise si vous êtes limité par le temps.
+
+Avant de se lancer dans l'utilisation de Django REST Framework, il est essentiel de maîtriser le framework de base sur lequel il repose : Django. Django est un framework web de haut niveau écrit en Python qui permet un développement rapide de sites web sécurisés et maintenables. Django est conçu pour aider les développeurs à prendre des applications web du concept à la réalisation aussi rapidement que possible.</code></pre>
+<section id="a.-caractéristiques-clés-de-django" class="level3">
+<h3 class="anchored" data-anchor-id="a.-caractéristiques-clés-de-django">a. Caractéristiques Clés de Django</h3>
+<ul>
+<li><code>Batteries incluses : Django suit la philosophie "batteries incluses" et fournit presque tout ce dont les développeurs ont besoin dans le cadre standard.</code></li>
+<li><code>Sécurisé : Django aide les développeurs à éviter de nombreuses erreurs de sécurité courantes en fournissant un framework qui est sécurisé par défaut.</code></li>
+<li><code>Scalable : Django utilise une architecture "partagée-rien" qui permet de gérer de gros volumes de trafic.</code></li>
+<li><code>Polyvalent : Il est utilisé par des entreprises de toutes tailles et pour toutes sortes de sites web, des réseaux sociaux aux sites de gestion de contenu.</code></li>
+</ul>
+</section>
+<section id="b.-composants-de-django" class="level3">
+<h3 class="anchored" data-anchor-id="b.-composants-de-django">b. Composants de Django</h3>
+<pre><code>Django est composé de plusieurs composants qui facilitent le développement web :
+</code></pre>
+<ul>
+<li><code>Le modèle ORM (Object-Relational Mapping) : Permet de définir la structure de la base de données en Python et de faire des requêtes à la base de données sans écrire de SQL brut.</code></li>
+<li><code>Les vues : La logique de traitement des requêtes HTTP. Les vues récupèrent les données nécessaires pour répondre à une requête et renvoient une réponse, souvent sous forme de page web.</code></li>
+<li><code>Les templates : Système de templates qui permet de générer du HTML dynamiquement. Les templates définissent la structure d'une page web et permettent d'insérer ou de calculer des valeurs à certains endroits.</code></li>
+<li><code>Les formulaires : Gèrent la logique de présentation et de validation des données de formulaire.</code></li>
+<li><code>L'administration : Interface générée automatiquement pour les modèles Django qui permet une gestion facile des contenus du site.</code></li>
+<li><code>Les URL dispatcher : Un système pour gérer les URL du site et appeler la vue correspondante.</code></li>
+</ul>
+</section>
+<section id="c.-installation-de-django" class="level3">
+<h3 class="anchored" data-anchor-id="c.-installation-de-django">c.&nbsp;Installation de Django</h3>
+<pre><code>Pour installer Django, vous devez d'abord vous assurer que Python est installé sur votre système. Django est compatible avec Python 3.6 et les versions ultérieures. Vous pouvez installer Django en utilisant pip, le système de gestion de paquets pour Python :
+
+
+</code></pre>
+<p>pip install django</p>
+<pre><code>
+
+
+### d. Création d'un Projet Django
+
+</code></pre>
+<p>Une fois Django installé, vous pouvez créer un nouveau projet en utilisant la commande suivante :</p>
+<pre><code>django-admin startproject monprojet</code></pre>
+<pre><code>Cette commande crée un nouveau dossier monprojet avec la structure de base d'un projet Django.</code></pre>
+</section>
+<section id="e.-structure-dun-projet-django" class="level3">
+<h3 class="anchored" data-anchor-id="e.-structure-dun-projet-django">e. Structure d’un Projet Django</h3>
+<pre><code>Un projet Django est composé de plusieurs éléments clés :
+</code></pre>
+<ul>
+<li><code>manage.py : Un outil en ligne de commande qui vous permet d'interagir avec votre projet Django de diverses manières.</code></li>
+<li><code>Le dossier du projet : Contient le fichier settings.py (configuration de votre projet Django), urls.py (déclarations des URL pour votre projet), et wsgi.py (point d'entrée pour les serveurs web compatibles WSGI).</code></li>
+<li><code>Les applications : Un projet Django est divisé en applications, qui sont des modules Python qui contiennent un aspect spécifique de la fonctionnalité de votre site web (par exemple, un blog, un forum, etc.).</code></li>
+</ul>
+</section>
+<section id="f.-développement-avec-django" class="level3">
+<h3 class="anchored" data-anchor-id="f.-développement-avec-django">f.&nbsp;Développement avec Django</h3>
+<pre><code>Le développement avec Django implique généralement les étapes suivantes :
+</code></pre>
+<ol type="1">
+<li><code>Définir les modèles : Créez des classes Python qui définissent la structure de votre base de données.</code></li>
+<li><code>Créer des vues : Écrivez des fonctions ou des classes qui gèrent ce qui se passe lorsqu'un utilisateur fait une requête à votre site.</code></li>
+<li><code>Configurer les URL : Liez vos vues à des URL spécifiques pour que Django sache quoi faire lorsqu'une URL est demandée.</code></li>
+<li><code>Écrire des templates : Créez des fichiers HTML qui définissent la structure de la page web que l'utilisateur verra.</code></li>
+<li><code>Gérer les formulaires : Utilisez les classes de formulaires de Django pour créer et traiter des formulaires HTML.</code></li>
+<li><code>Administrer le site : Utilisez l'interface d'administration de Django pour gérer le contenu de votre site.</code></li>
+</ol>
+</section>
+<section id="g.-vue-formulaire-administration-template" class="level3">
+<h3 class="anchored" data-anchor-id="g.-vue-formulaire-administration-template">g. Vue, formulaire, administration, template ?</h3>
+<pre><code>
+
+#### Vue (View)
+Dans le contexte de Django, une "vue" est un composant qui gère la logique de traitement d'une requête HTTP. Elle prend une requête web et renvoie une réponse web. Cette réponse peut être le rendu d'une page HTML, une redirection, un document XML, une image, des données JSON, ou tout autre format de réponse que le serveur est censé renvoyer.
+
+Les vues dans Django sont représentées par des fonctions Python simples (ou des classes pour les vues basées sur des classes), qui reçoivent des informations sur la requête HTTP entrante et sont chargées de retourner un objet HttpResponse.
+
+Voici un exemple simple d'une vue qui renvoie une réponse avec une chaîne de caractères :
+
+
+</code></pre>
+<p>from django.http import HttpResponse</p>
+<p>def index(request): return HttpResponse(“Hello, world!”)</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, la fonction index est une vue qui renvoie simplement le texte “Hello, world!” en réponse à une requête HTTP.</p>
+<section id="gérer-les-formulaires" class="level4">
+<h4 class="anchored" data-anchor-id="gérer-les-formulaires">Gérer les formulaires</h4>
+<p>Django fournit un système de formulaires robuste qui permet de créer des formulaires HTML et de gérer leur soumission de manière sécurisée et pratique. Les formulaires sont utilisés pour collecter des données de l’utilisateur, et Django offre des outils pour valider et nettoyer ces données avant de les utiliser dans une application.</p>
+<p>Les formulaires dans Django sont représentés par des classes qui définissent la structure d’un formulaire et le type de données attendues. Voici un exemple de base d’un formulaire Django :</p>
+<pre><code>from django import forms
+
+class ContactForm(forms.Form):
+    name = forms.CharField(label='Your name', max_length=100)
+    message = forms.CharField(widget=forms.Textarea)</code></pre>
+<pre><code>Dans cet exemple, ContactForm est une classe de formulaire qui définit un formulaire avec deux champs : name et message. Lorsque le formulaire est soumis, Django s'occupe de valider les données et de les convertir en types Python appropriés. Ensuite, vous pouvez utiliser ces données de manière sécurisée dans votre vue :
+
+
+</code></pre>
+<p>def contact(request): if request.method == ‘POST’: form = ContactForm(request.POST) if form.is_valid(): name = form.cleaned_data[‘name’] message = form.cleaned_data[‘message’] # Ici, vous pouvez traiter les données du formulaire return HttpResponse(‘Thank you for your message.’) else: form = ContactForm()</p>
+<pre><code>return render(request, 'contact.html', {'form': form})</code></pre>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, la vue contact crée une instance de ContactForm lorsqu’elle reçoit une requête GET, ce qui affiche le formulaire à l’utilisateur. Lorsque le formulaire est soumis (requête POST), la vue crée à nouveau une instance de ContactForm, mais cette fois avec les données soumises (request.POST). Si les données sont valides, elles sont nettoyées et peuvent être utilisées en toute sécurité.</p>
+<pre><code>
+
+
+### Administration
+
+</code></pre>
+<p>Django est réputé pour son interface d’administration générée automatiquement, un outil puissant qui facilite la gestion des contenus de votre site. Cette interface est l’une des caractéristiques les plus appréciées de Django, car elle permet aux développeurs de créer rapidement des interfaces CRUD (Create, Read, Update, Delete) pour les modèles Django sans avoir à écrire de code supplémentaire.</p>
+</section>
+<section id="fonctionnalités-de-linterface-dadministration" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-de-linterface-dadministration">Fonctionnalités de l’interface d’administration :</h4>
+<pre><code>
+
+
+* `Interface utilisateur intuitive : L'interface d'administration de Django est conçue pour être conviviale et facile à naviguer.`
+* `Gestion des utilisateurs et des groupes : Vous pouvez ajouter et gérer des utilisateurs et des groupes, ainsi que définir leurs permissions.`
+* `Gestion des contenus : Elle permet aux administrateurs de créer, modifier et supprimer des contenus directement à partir de l'interface web.`
+* `Personnalisation : Bien que l'interface d'administration soit prête à l'emploi, elle peut être entièrement personnalisée pour répondre aux besoins spécifiques de votre projet.`
+* `Sécurité : L'accès à l'interface d'administration est sécurisé et peut être contrôlé par des permissions d'utilisateur détaillées.`
+
+</code></pre>
+</section>
+<section id="comment-ça-fonctionne" class="level4">
+<h4 class="anchored" data-anchor-id="comment-ça-fonctionne">Comment ça fonctionne ?</h4>
+<p>Pour activer l’interface d’administration, vous devez d’abord vous assurer que django.contrib.admin est inclus dans votre paramètre INSTALLED_APPS dans le fichier settings.py. Ensuite, vous devez exécuter la commande python manage.py createsuperuser pour créer un utilisateur administrateur.</p>
+<p>Une fois que vous avez un super utilisateur, vous pouvez démarrer votre serveur avec python manage.py runserver et accéder à /admin sur votre navigateur local. Vous serez invité à vous connecter avec les identifiants de l’utilisateur administrateur que vous avez créés.</p>
+</section>
+<section id="exemple-de-configuration-de-ladministration" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-configuration-de-ladministration">Exemple de configuration de l’administration :</h4>
+<p>Voici un exemple de la façon dont vous pourriez enregistrer un modèle dans l’interface d’administration :</p>
+<pre><code>from django.contrib import admin
+from .models import MyModel
+
+@admin.register(MyModel)
+class MyModelAdmin(admin.ModelAdmin):
+    list_display = ('field1', 'field2', 'field3')
+    search_fields = ['field1', 'field2']</code></pre>
+<pre><code>Dans cet exemple, MyModel est le modèle que vous souhaitez gérer via l'interface d'administration. En utilisant le décorateur @admin.register, vous indiquez à Django d'inclure MyModel dans l'interface d'administration. La classe MyModelAdmin personnalise l'affichage en listant les champs spécifiques et en ajoutant une fonctionnalité de recherche sur certains champs.
+
+L'interface d'administration est un excellent exemple de la philosophie "batteries incluses" de Django, qui vise à fournir un ensemble complet de fonctionnalités pour le développement web, directement hors de la boîte.</code></pre>
+</section>
+</section>
+<section id="templates" class="level3">
+<h3 class="anchored" data-anchor-id="templates">Templates</h3>
+<pre><code>Dans le développement web avec Django, les templates jouent un rôle crucial en permettant la séparation entre la logique de l'application et la présentation. Les templates sont des fichiers qui contiennent le HTML statique de votre site ainsi que des balises de template spéciales de Django qui permettent d'insérer du contenu dynamique.
+
+
+#### Fonctionnalités des templates Django :
+</code></pre>
+<ul>
+<li><code>Système de template puissant : Django utilise son propre langage de template, qui est à la fois simple et puissant.</code></li>
+<li><code>Héritage de templates : Vous pouvez créer une base "squelette" pour votre site que d'autres templates peuvent étendre et surcharger, ce qui favorise la réutilisation et la cohérence du code.</code></li>
+<li><code>Filtres et balises : Les templates Django offrent une variété de filtres et de balises pour formater des données et exécuter des tâches courantes comme des boucles ou des conditions.</code></li>
+<li><code>Sécurité : Le système de template gère automatiquement l'échappement des données pour prévenir les injections XSS (Cross-Site Scripting).</code></li>
+</ul>
+<pre><code>
+
+#### Comment ça fonctionne ?
+Les templates sont généralement des fichiers HTML avec l'extension .html, mais ils peuvent également être configurés pour utiliser d'autres types de fichiers. Ils sont stockés dans un répertoire templates que vous spécifiez dans votre configuration Django.
+
+Lorsque vous rendez une vue, vous spécifiez le nom du template et le contexte (un dictionnaire de valeurs à utiliser dans le template). Django remplit le template avec les données du contexte et renvoie le HTML résultant au navigateur de l'utilisateur.
+
+
+#### Exemple d'utilisation des templates :
+Voici un exemple simple de template Django :
+
+
+</code></pre>
+<!-- templates/my_template.html -->
+
+
+<title>
+{{ title }}
+</title>
+
+
+<h1>
+{{ heading }}
+</h1>
+{% if items %}
+<ul>
+{% for item in items %}
+<li>
+{{ item }}
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>
+No items found.
+</p>
+{% endif %}
+
+
+<pre><code>
+
+</code></pre>
+<p>Et voici comment vous pourriez rendre ce template depuis une vue :</p>
+<pre><code>from django.shortcuts import render
+
+def my_view(request):
+    context = {
+        'title': 'My Page',
+        'heading': 'Welcome to My Page',
+        'items': ['Item 1', 'Item 2', 'Item 3'],
+    }
+    return render(request, 'my_template.html', context)</code></pre>
+<pre><code>Dans cet exemple, my_template.html est le fichier de template qui utilise des variables comme {{ title }} et {{ heading }}, ainsi que des balises de contrôle de flux comme {% if %} et {% for %} pour afficher le contenu dynamiquement en fonction du contexte passé à la vue.
+
+L'utilisation de templates est fondamentale dans Django et permet de construire des applications web complexes avec des interfaces utilisateur riches et personnalisables.</code></pre>
+</section>
+<section id="h.-exécution-du-serveur-de-développement" class="level3">
+<h3 class="anchored" data-anchor-id="h.-exécution-du-serveur-de-développement">h. Exécution du Serveur de Développement</h3>
+<pre><code>Pour voir votre projet en action, Django fournit un serveur de développement intégré. Exécutez la commande suivante à partir du répertoire de votre projet :
+
+
+</code></pre>
+<p>python manage.py runserver</p>
+<pre><code>
+
+</code></pre>
+<p>Cela démarrera le serveur de développement et rendra votre projet accessible localement dans votre navigateur à l’adresse http://127.0.0.1:8000/.</p>
+<p>Créons un projet Django simple qui affiche “Hello, World!” sur la page d’accueil. Ce projet comprendra une seule application avec une vue et une URL.</p>
+<pre><code>
+
+
+### i. Exemple Complet d'un projet Django
+
+</code></pre>
+<section id="étape-1-installation-de-django" class="level4">
+<h4 class="anchored" data-anchor-id="étape-1-installation-de-django">Étape 1: Installation de Django</h4>
+<p>Si vous ne l’avez pas déjà fait, installez Django avec pip :</p>
+<pre><code>pip install django</code></pre>
+<pre><code>
+
+#### Étape 2: Création d'un Nouveau Projet Django
+Créez un nouveau projet Django en exécutant :
+
+
+</code></pre>
+<p>django-admin startproject helloworld_project</p>
+<pre><code>
+
+</code></pre>
+<p>Naviguez dans le dossier du projet :</p>
+<pre><code>cd helloworld_project</code></pre>
+<pre><code>
+
+#### Étape 3: Création d'une Application Django
+Créez une application Django dans votre projet :
+
+
+</code></pre>
+<p>python manage.py startapp hello</p>
+<pre><code>
+
+</code></pre>
+</section>
+<section id="étape-4-écrire-une-vue" class="level4">
+<h4 class="anchored" data-anchor-id="étape-4-écrire-une-vue">Étape 4: Écrire une Vue</h4>
+<p>Ouvrez le fichier views.py dans le dossier de l’application hello et ajoutez :</p>
+<pre><code>from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Hello, World!")</code></pre>
+<pre><code>
+
+#### Étape 5: Configurer les URL
+Créez un fichier urls.py dans le dossier de l'application hello et ajoutez :
+
+
+</code></pre>
+<p>from django.urls import path from .views import home</p>
+<p>urlpatterns = [ path(’‘, home, name=’home’),]</p>
+<pre><code>
+
+</code></pre>
+<p>Ensuite, incluez les URL de l’application hello dans le fichier urls.py du projet helloworld_project :</p>
+<pre><code>from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('hello.urls')),  # Inclure les URL de l'application hello
+]</code></pre>
+<pre><code>
+
+#### Étape 6: Ajouter l'Application à votre Projet
+Ouvrez le fichier settings.py dans le dossier helloworld_project et ajoutez l'application hello à la liste INSTALLED_APPS :
+
+
+</code></pre>
+<p>INSTALLED_APPS = [ # … ‘hello’,]</p>
+<pre><code>
+
+</code></pre>
+</section>
+<section id="étape-7-exécuter-le-serveur-de-développement" class="level4">
+<h4 class="anchored" data-anchor-id="étape-7-exécuter-le-serveur-de-développement">Étape 7: Exécuter le Serveur de Développement</h4>
+<p>Lancez le serveur de développement :</p>
+<pre><code>python manage.py runserver</code></pre>
+<pre><code>Ouvrez votre navigateur et allez à http://127.0.0.1:8000/. Vous devriez voir "Hello, World!" affiché.
+
+
+#### Récapitulatif du Projet
+Votre projet Django minimaliste est maintenant configuré. Voici ce que vous avez fait :
+</code></pre>
+<ul>
+<li><code>Installé Django et créé un nouveau projet.</code></li>
+<li><code>Ajouté une nouvelle application à ce projet.</code></li>
+<li><code>Écrit une vue simple qui renvoie "Hello, World!".</code></li>
+<li><code>Configuré les URL pour diriger la racine du site vers votre vue.</code></li>
+<li><code>Inclus l'application dans les paramètres de votre projet.</code></li>
+<li><code>Lancé le serveur de développement pour voir le résultat.</code></li>
+</ul>
+<pre><code>Ce projet de base peut être étendu avec des modèles, des templates, des formulaires, et plus encore, selon les besoins de votre application web.</code></pre>
+</section>
+</section>
+</section>
+<section id="présentation-de-django-rest-framework" class="level2">
+<h2 class="anchored" data-anchor-id="présentation-de-django-rest-framework">2. Présentation de Django REST Framework</h2>
+<pre><code>Django REST Framework (DRF) est une extension puissante pour le framework web Django, qui facilite la création d'interfaces de programmation d'applications (APIs) Web. DRF est conçu pour travailler avec la structure de Django et étend ses capacités pour mieux gérer les requêtes et réponses API, tout en offrant une interface conviviale pour les développeurs et une intégration transparente avec les modèles de données de Django.</code></pre>
+<section id="a.-positionnement-de-drf-par-rapport-à-django" class="level3">
+<h3 class="anchored" data-anchor-id="a.-positionnement-de-drf-par-rapport-à-django">a. Positionnement de DRF par rapport à Django</h3>
+<pre><code>Alors que Django est un framework web complet qui fournit des outils pour construire des sites web avec des bases de données, des formulaires, une authentification, etc., DRF se concentre spécifiquement sur la création d'APIs. Il complète Django en ajoutant des fonctionnalités telles que la sérialisation pour convertir les modèles de données en formats JSON ou XML, des mécanismes d'authentification adaptés aux APIs, et des vues et routeurs spécialement conçus pour le développement d'API.</code></pre>
+</section>
+<section id="b.-prérequis-à-lutilisation-de-django-rest-framework" class="level3">
+<h3 class="anchored" data-anchor-id="b.-prérequis-à-lutilisation-de-django-rest-framework">b. Prérequis à l’utilisation de Django REST Framework</h3>
+<pre><code>Pour commencer à utiliser DRF, vous devez avoir une installation fonctionnelle de Django. DRF s'installe ensuite comme une application Django supplémentaire.</code></pre>
+</section>
+<section id="c.-installation-de-django-rest-framework" class="level3">
+<h3 class="anchored" data-anchor-id="c.-installation-de-django-rest-framework">c.&nbsp;Installation de Django REST Framework</h3>
+<ol type="1">
+<li><p><code>Installez DRF en utilisant pip : \</code></p>
+<pre><code>pip install djangorestframework</code></pre></li>
+<li></li>
+<li><p><code>Ajoutez 'rest_framework' à la liste INSTALLED_APPS dans votre fichier settings.py de Django pour l'activer. \</code></p>
+<pre><code>INSTALLED_APPS = [
+...
+'rest_framework',
+]</code></pre></li>
+<li></li>
+</ol>
+</section>
+</section>
+<section id="création-de-modèles-et-de-sérialiseurs" class="level2">
+<h2 class="anchored" data-anchor-id="création-de-modèles-et-de-sérialiseurs">3. Création de Modèles et de Sérialiseurs</h2>
+<pre><code>Avec DRF, vous utilisez les modèles Django standard, mais vous les exposez via l'API en utilisant des sérialiseurs. Les sérialiseurs transforment les données des modèles en formats JSON ou XML et vice versa.
+
+
+</code></pre>
+</section>
+</section>
+<section id="models.py" class="level1">
+<h1>models.py</h1>
+<p>from django.db import models</p>
+<p>class User(models.Model): username = models.CharField(max_length=100) email = models.EmailField()</p>
+</section>
+<section id="serializers.py" class="level1">
+<h1>serializers.py</h1>
+<p>from rest_framework import serializers from .models import User</p>
+<p>class UserSerializer(serializers.ModelSerializer): class Meta: model = User fields = [‘id’, ‘username’, ‘email’]</p>
+<pre><code>
+
+
+## 4. Vues et Routeurs
+
+</code></pre>
+<p>DRF introduit des concepts tels que les ViewSet et les routeurs pour connecter vos modèles et sérialiseurs aux URL de manière efficace.</p>
+<pre><code># views.py
+from rest_framework import viewsets
+from .models import User
+from .serializers import UserSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+# urls.py
+from rest_framework.routers import DefaultRouter
+from .views import UserViewSet
+
+router = DefaultRouter()
+router.register(r'users', UserViewSet)
+
+urlpatterns = [
+    path('', include(router.urls)),
+]</code></pre>
+<pre><code>Dans cet exemple, UserViewSet gère automatiquement les opérations CRUD pour le modèle User.</code></pre>
+<section id="permissions-et-authentification" class="level2">
+<h2 class="anchored" data-anchor-id="permissions-et-authentification">5. Permissions et Authentification</h2>
+<pre><code>DRF offre un système de permissions sophistiqué qui vous permet de contrôler finement l'accès à l'API.
+
+
+</code></pre>
+<p>from rest_framework import permissions</p>
+<p>class IsOwnerOrReadOnly(permissions.BasePermission): def has_object_permission(self, request, view, obj): if request.method in permissions.SAFE_METHODS: return True return obj.owner == request.user</p>
+<pre><code>
+
+</code></pre>
+<p>Cette classe de permission personnalisée permet aux utilisateurs de lire n’importe quel objet mais de modifier ou de supprimer uniquement leurs propres objets.</p>
+<pre><code>
+
+
+## 6. Tests et Documentation
+
+</code></pre>
+<p>DRF facilite les tests de vos APIs avec le APIClient et génère automatiquement une documentation pour votre API.</p>
+<pre><code>from rest_framework.test import APIClient
+from django.test import TestCase
+
+class UserTests(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+
+    def test_create_user(self):
+        response = self.client.post('/users/', {'username': 'testuser', 'email': 'test@example.com'})
+        self.assertEqual(response.status_code, 201)</code></pre>
+<pre><code>Ce test utilise APIClient pour tester la création d'un nouvel utilisateur.</code></pre>
+</section>
+<section id="exemples" class="level2">
+<h2 class="anchored" data-anchor-id="exemples">7. Exemples</h2>
+<section id="a.-exemple-de-la-todo-list" class="level3">
+<h3 class="anchored" data-anchor-id="a.-exemple-de-la-todo-list">a. Exemple de la Todo List</h3>
+<pre><code>Pour DRF, nous devons d'abord configurer un projet Django, créer un modèle pour nos tâches, puis utiliser DRF pour créer les vues et les routeurs.
+
+
+</code></pre>
+</section>
+</section>
+</section>
+<section id="models.py-1" class="level1">
+<h1>models.py</h1>
+<p>from django.db import models</p>
+<p>class Task(models.Model): title = models.CharField(max_length=100) completed = models.BooleanField(default=False)</p>
+</section>
+<section id="serializers.py-1" class="level1">
+<h1>serializers.py</h1>
+<p>from rest_framework import serializers from .models import Task</p>
+<p>class TaskSerializer(serializers.ModelSerializer): class Meta: model = Task fields = [‘id’, ‘title’, ‘completed’]</p>
+</section>
+<section id="views.py" class="level1">
+<h1>views.py</h1>
+<p>from rest_framework import viewsets from .models import Task from .serializers import TaskSerializer</p>
+<p>class TaskViewSet(viewsets.ModelViewSet): queryset = Task.objects.all() serializer_class = TaskSerializer</p>
+</section>
+<section id="urls.py" class="level1">
+<h1>urls.py</h1>
+<p>from django.urls import path, include from rest_framework.routers import DefaultRouter from .views import TaskViewSet</p>
+<p>router = DefaultRouter() router.register(r’tasks’, TaskViewSet)</p>
+<p>urlpatterns = [ path(’’, include(router.urls)),]</p>
+<pre><code>
+
+
+### b. Exemple de l'authentification
+
+</code></pre>
+<p>Côté serveur :</p>
+<p>Vous devez d’abord installer le package djangorestframework-simplejwt qui fournit une intégration JWT pour DRF.</p>
+<pre><code>pip install djangorestframework-simplejwt</code></pre>
+<pre><code>Ensuite, ajoutez la configuration nécessaire dans votre settings.py :
+
+
+</code></pre>
+</section>
+<section id="settings.py" class="level1">
+<h1>settings.py</h1>
+<p>INSTALLED_APPS = [ … ‘rest_framework’, …]</p>
+<p>REST_FRAMEWORK = { ‘DEFAULT_AUTHENTICATION_CLASSES’: ( ‘rest_framework_simplejwt.authentication.JWTAuthentication’, ), }</p>
+<p>from datetime import timedelta</p>
+<p>SIMPLE_JWT = { ‘ACCESS_TOKEN_LIFETIME’: timedelta(minutes=30), ‘SLIDING_TOKEN_LIFETIME’: timedelta(minutes=30), ‘SLIDING_TOKEN_REFRESH_LIFETIME’: timedelta(days=1), }</p>
+<pre><code>
+
+</code></pre>
+<p>Maintenant, vous pouvez créer les vues pour l’authentification et les routes protégées :</p>
+<pre><code># views.py
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+
+@api_view(['POST'])
+def login(request):
+    username = request.data.get('username')
+    password = request.data.get('password')
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        refresh = RefreshToken.for_user(user)
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        })
+    return Response({"error": "Wrong Credentials"}, status=400)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def protected_route(request):
+    return Response({"message": "Protected content", "user": str(request.user)})</code></pre>
+<pre><code>Enfin, configurez vos URL pour utiliser ces vues :
+
+
+</code></pre>
+</section>
+<section id="urls.py-1" class="level1">
+<h1>urls.py</h1>
+<p>from django.urls import path from .views import login, protected_route</p>
+<p>urlpatterns = [ path(‘api/token/’, login, name=‘token_obtain_pair’), path(‘api/protected/’, protected_route, name=‘protected’),]</p>
+<pre><code>
+
+</code></pre>
+<p>Côté client :</p>
+<p>Pour le client, vous pouvez utiliser la bibliothèque requests pour interagir avec l’API.</p>
+<pre><code>import requests
+
+# Remplacer par l'URL de votre API
+url = "http://127.0.0.1:8000"
+
+# Demande d'authentification
+auth_response = requests.post(url + "/api/token/", data={'username': 'john', 'password': 'hello'})
+
+# Si authentification réussie, utiliser le token pour accéder à une route protégée
+if auth_response.ok:
+    access_token = auth_response.json()['access']
+    protected_response = requests.get(url + "/api/protected/", headers={'Authorization': f'Bearer {access_token}'})
+    print(protected_response.json())
+else:
+    print("Failed to authenticate")</code></pre>
+<pre><code>Dans cet exemple, le serveur DRF utilise djangorestframework-simplejwt pour gérer l'authentification JWT. Lorsqu'un utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token d'accès est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.</code></pre>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

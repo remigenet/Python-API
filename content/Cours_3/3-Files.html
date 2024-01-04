@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
+<meta name="description" content="Python, où le ML à deux cliques de souris">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - Machine Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,23 +75,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - Machine Learning">
+<meta property="og:description" content="Python, où le ML à deux cliques de souris">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_3/.img/sklearn.png">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta property="og:image:height" content="165">
+<meta property="og:image:width" content="306">
+<meta name="citation_title" content="Machine Learning">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_3/3-Files.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,70 +222,50 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link active" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#iii.-fichiers-en-tant-que-méthode-de-communication-interprocessus-ipc" id="toc-iii.-fichiers-en-tant-que-méthode-de-communication-interprocessus-ipc" class="nav-link" data-scroll-target="#iii.-fichiers-en-tant-que-méthode-de-communication-interprocessus-ipc">III. Fichiers en tant que Méthode de Communication Interprocessus (IPC)</a>
+  <ul class="collapse">
+  <li><a href="#définition-technique-dun-fichier" id="toc-définition-technique-dun-fichier" class="nav-link" data-scroll-target="#définition-technique-dun-fichier">1. Définition Technique d’un Fichier</a></li>
+  <li><a href="#avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc" id="toc-avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc" class="nav-link" data-scroll-target="#avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc">2. Avantages et Inconvénients de l’Utilisation des Fichiers pour l’IPC</a></li>
+  <li><a href="#cas-dusage-standard" id="toc-cas-dusage-standard" class="nav-link" data-scroll-target="#cas-dusage-standard">3. Cas d’Usage Standard</a></li>
+  <li><a href="#exemple-1-logging" id="toc-exemple-1-logging" class="nav-link" data-scroll-target="#exemple-1-logging">4. Exemple 1: Logging</a>
+  <ul class="collapse">
+  <li><a href="#b.-simplification-avec-le-module-logging" id="toc-b.-simplification-avec-le-module-logging" class="nav-link" data-scroll-target="#b.-simplification-avec-le-module-logging">b. Simplification avec le module logging</a></li>
+  </ul></li>
+  <li><a href="#exemple-2-caching" id="toc-exemple-2-caching" class="nav-link" data-scroll-target="#exemple-2-caching">5. Exemple 2: Caching</a></li>
+  </ul></li>
+  <li><a href="#exemple-dutilisation" id="toc-exemple-dutilisation" class="nav-link" data-scroll-target="#exemple-dutilisation">Exemple d’utilisation</a>
+  <ul class="collapse">
+  <li><a href="#exemple-4-mise-à-jour-et-lecture-de-données-financières" id="toc-exemple-4-mise-à-jour-et-lecture-de-données-financières" class="nav-link" data-scroll-target="#exemple-4-mise-à-jour-et-lecture-de-données-financières">7. Exemple 4: Mise à jour et Lecture de Données Financières</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">Machine Learning</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
+    Python, où le ML à deux cliques de souris
   </div>
 </div>
 
@@ -315,107 +294,226 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
-<ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
-<ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<section id="machine-learning" class="level1">
+<h1>Machine Learning</h1>
+<hr>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
-<ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
+<section id="iii.-fichiers-en-tant-que-méthode-de-communication-interprocessus-ipc" class="level1">
+<h1>III. Fichiers en tant que Méthode de Communication Interprocessus (IPC)</h1>
+<section id="définition-technique-dun-fichier" class="level2">
+<h2 class="anchored" data-anchor-id="définition-technique-dun-fichier">1. Définition Technique d’un Fichier</h2>
+<pre><code>Techniquement, un fichier est une collection de données stockées sur un support de stockage persistant, comme un disque dur, un SSD, ou tout autre type de mémoire non volatile. Pour la machine, un fichier est représenté par une série de bits organisés de manière structurée, souvent dans un système de fichiers qui gère l'emplacement des données, les métadonnées (comme les permissions, les dates de création et de modification), et les relations entre les fichiers et les répertoires.
+
+Écriture et Lecture de Fichiers
+
+Lorsqu'un fichier est écrit sur un disque, le système d'exploitation traduit les données en une série de commandes pour le contrôleur de disque, qui détermine où les données doivent être physiquement stockées. Les données sont ensuite écrites sur le support de stockage en modifiant l'état magnétique ou électrique des cellules de stockage.
+
+La lecture d'un fichier implique le processus inverse, où le contrôleur de disque lit les états des cellules de stockage et les transmet au système d'exploitation, qui les reconstitue en données utilisables par les programmes.</code></pre>
 </section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
-<ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
+<section id="avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc" class="level2">
+<h2 class="anchored" data-anchor-id="avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc">2. Avantages et Inconvénients de l’Utilisation des Fichiers pour l’IPC</h2>
+<pre><code>Avantages :
+- Persistant : Les fichiers restent sur le disque même après le redémarrage de la machine, ce qui est utile pour la récupération de données et la persistance à long terme.
+- Simplicité : Les fichiers sont une méthode d'IPC facile à comprendre et à utiliser, avec des opérations de base bien définies (ouvrir, lire, écrire, fermer).
+- Compatibilité : Les fichiers peuvent être accessibles et modifiés par différents processus, voire différents systèmes d'exploitation, si le fichier est partagé via un réseau.
+
+Inconvénients :
+- Performance : L'accès aux fichiers est généralement plus lent que les autres méthodes d'IPC, en raison de la latence du disque et du surcoût des opérations d'entrée/sortie.
+- Synchronisation : Lorsque plusieurs processus accèdent au même fichier, il faut gérer la synchronisation pour éviter les conflits et les corruptions de données.
+- Verrouillage : Les mécanismes de verrouillage de fichiers sont nécessaires pour coordonner l'accès concurrent, mais ils peuvent être complexes à implémenter correctement.</code></pre>
 </section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
-<ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
-<ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
-</ol>
+<section id="cas-dusage-standard" class="level2">
+<h2 class="anchored" data-anchor-id="cas-dusage-standard">3. Cas d’Usage Standard</h2>
+<pre><code>Les fichiers sont couramment utilisés pour :
+- Journalisation (Logging) : Enregistrer les événements et les erreurs dans un fichier de journal.
+- Configuration : Stocker des paramètres de configuration que différents processus ou utilisateurs peuvent lire.
+- Échange de Données : Transférer des données entre processus, notamment lorsque ces processus ne sont pas exécutés simultanément.
+
+
+### a. Synchronisation et Conflits
+Imaginons deux processus qui écrivent dans le même fichier de journalisation. Si les deux processus tentent d'écrire en même temps, leurs sorties peuvent s'entremêler, rendant le fichier de journalisation difficile à lire ou corrompu.
+
+
+### b. Mécanismes de Synchronisation
+Pour éviter cela, on peut utiliser des mécanismes de verrouillage de fichiers :
+- Verrouillage Exclusif : Un processus verrouille le fichier pour l'écriture, empêchant les autres processus d'écrire jusqu'à ce que le verrou soit libéré.
+- Verrouillage Partagé : Plusieurs processus peuvent lire le fichier en même temps, mais l'écriture est exclusive.
+
+
+### c. Utilisation Derrière une API
+Dans le contexte d'une API, les fichiers peuvent être utilisés pour :
+- Caching : Stocker des réponses fréquemment demandées pour réduire la charge sur les serveurs et accélérer les temps de réponse.
+- État de Session : Conserver les informations sur l'état de la session utilisateur entre différentes requêtes.
+- Queueing : Utiliser des fichiers comme une file d'attente simple pour gérer les tâches en arrière-plan ou les requêtes asynchrones.</code></pre>
 </section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
-<ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
+<section id="exemple-1-logging" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-1-logging">4. Exemple 1: Logging</h2>
+<pre><code>
+
+### a. Sans utiliser le module logging
+Dans cet exemple, deux processus écrivent dans le même fichier de log. Un verrou (Lock) est utilisé pour synchroniser l'accès au fichier de log pour éviter que les messages ne se mélangent.
+
+
+</code></pre>
+<p>from multiprocessing import Process, Lock</p>
+<p>def log_message(lock, file_path, message): with lock: with open(file_path, ‘a’) as log_file: log_file.write(f’{message}’)</p>
+<p>def process_function(lock, file_path, process_id): for i in range(5): log_message(lock, file_path, f”Message from process {process_id}: {i}“)</p>
+<p>if <strong>name</strong> == “<strong>main</strong>”: lock = Lock() log_file_path = ‘mylog.log’</p>
+<pre><code>processes = [Process(target=process_function, args=(lock, log_file_path, i)) for i in range(2)]
+
+for p in processes:
+    p.start()
+
+for p in processes:
+    p.join()</code></pre>
+<pre><code>
+
+</code></pre>
+<p>Ce scénario illustre l’utilisation d’un verrou pour synchroniser l’accès à une ressource partagée - en l’occurrence, un fichier de log. Dans les applications multi-processus, il est crucial de s’assurer que les processus n’écrivent pas en même temps dans le même fichier, ce qui pourrait entraîner des données corrompues ou entremêlées. L’utilisation d’un Lock garantit que chaque processus attend son tour pour écrire dans le fichier, préservant ainsi l’intégrité des logs.</p>
+<section id="b.-simplification-avec-le-module-logging" class="level3">
+<h3 class="anchored" data-anchor-id="b.-simplification-avec-le-module-logging">b. Simplification avec le module logging</h3>
+<p>Le module logging de Python offre une solution intégrée pour la journalisation qui gère la synchronisation des threads sous le capot. Voici comment l’Exemple 1 peut être simplifié en utilisant logging:</p>
+<pre><code>import logging
+from multiprocessing import Process, Lock
+from logging.handlers import RotatingFileHandler
+
+def setup_logger():
+    logger = logging.getLogger('MyLogger')
+    logger.setLevel(logging.INFO)
+    handler = RotatingFileHandler('mylog.log', maxBytes=2000, backupCount=5)
+    logger.addHandler(handler)
+    return logger
+
+def log_message(logger, message):
+    logger.info(message)
+
+def process_function(logger, process_id):
+    for i in range(5):
+        log_message(logger, f"Message from process {process_id}: {i}")
+
+if __name__ == "__main__":
+    logger = setup_logger()
+
+    processes = [Process(target=process_function, args=(logger, i)) for i in range(2)]
+
+    for p in processes:
+        p.start()
+
+    for p in processes:
+        p.join()</code></pre>
+<pre><code>Dans ce code, nous configurons un RotatingFileHandler qui s'occupe de la rotation des fichiers de log lorsque le fichier actuel atteint une certaine taille. Cela permet de s'assurer que les fichiers de log ne deviennent pas trop volumineux et que les données de log sont conservées sur plusieurs fichiers. Le RotatingFileHandler est également conçu pour être utilisé dans des environnements multi-processus, ce qui simplifie la gestion des logs sans avoir besoin de gérer explicitement les verrous.</code></pre>
 </section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+</section>
+<section id="exemple-2-caching" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-2-caching">5. Exemple 2: Caching</h2>
+<pre><code>Dans cet exemple, un processus d'API stocke des réponses dans un fichier pour éviter de recalculer des données fréquemment demandées, et plusieurs processus peuvent lire ces données mises en cache.
+
+
+</code></pre>
+<p>import json import os</p>
+<p>cache_file_path = ‘api_cache.json’</p>
+<p>def get_data_from_cache(key): if os.path.exists(cache_file_path): with open(cache_file_path, ‘r’) as cache_file: cache = json.load(cache_file) return cache.get(key, None) return None</p>
+<p>def save_data_to_cache(key, data): cache = {} if os.path.exists(cache_file_path): with open(cache_file_path, ‘r’) as cache_file: cache = json.load(cache_file) cache[key] = data with open(cache_file_path, ‘w’) as cache_file: json.dump(cache, cache_file)</p>
+</section>
+</section>
+<section id="exemple-dutilisation" class="level1">
+<h1>Exemple d’utilisation</h1>
+<p>data = get_data_from_cache(‘some_key’) if data is None: # Simule le calcul ou la récupération de données data = ‘some_new_data’ save_data_to_cache(‘some_key’, data)</p>
+<pre><code>
+
+</code></pre>
+<p>L’utilisation de fichiers pour le caching est un moyen simple et efficace de stocker des données qui ne changent pas fréquemment ou qui sont coûteuses à générer. Cela permet d’économiser des ressources en évitant les calculs redondants et en fournissant un accès rapide aux données pour les processus qui en ont besoin.</p>
+<pre><code>
+
+
+## 6. Exemple 3: Queueing
+
+</code></pre>
+<p>Les fichiers peuvent être utilisés pour implémenter une file d’attente simple pour le traitement asynchrone des tâches.</p>
+<pre><code># Ceci est un exemple très simplifié et ne doit pas être utilisé en production.
+import json
+import time
+
+queue_file_path = 'task_queue.json'
+
+def add_task_to_queue(task):
+    queue = []
+    if os.path.exists(queue_file_path):
+        with open(queue_file_path, 'r') as queue_file:
+            queue = json.load(queue_file)
+    queue.append(task)
+    with open(queue_file_path, 'w') as queue_file:
+        json.dump(queue, queue_file)
+
+def process_tasks_from_queue():
+    while True:
+        if os.path.exists(queue_file_path):
+            with open(queue_file_path, 'r') as queue_file:
+                queue = json.load(queue_file)
+            if queue:
+                task = queue.pop(0)
+                print(f"Processing task: {task}")
+                with open(queue_file_path, 'w') as queue_file:
+                    json.dump(queue, queue_file)
+            else:
+                print("No tasks in queue.")
+        time.sleep(5)
+
+# Exemple d'ajout d'une tâche à la file d'attente
+add_task_to_queue({'task_id': 1, 'details': 'Do something important'})
+
+# Ceci serait normalement exécuté dans un processus séparé
+process_tasks_from_queue()</code></pre>
+<pre><code>Les files d'attente basées sur des fichiers sont une méthode d'IPC qui permet de gérer les tâches de manière asynchrone. Les tâches peuvent être ajoutées à la file d'attente par un processus et traitées par un autre, permettant ainsi une séparation claire entre la soumission des tâches et leur traitement. Cela est particulièrement utile dans les systèmes où les tâches peuvent être lourdes et où l'on souhaite éviter de bloquer les processus principaux.</code></pre>
+<section id="exemple-4-mise-à-jour-et-lecture-de-données-financières" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-4-mise-à-jour-et-lecture-de-données-financières">7. Exemple 4: Mise à jour et Lecture de Données Financières</h2>
+<pre><code>Dans cet exemple, un processus (data_writer.py) met à jour périodiquement un fichier avec des informations financières, et plusieurs processus (data_reader.py) lisent ces données pour répondre aux requêtes d'une API HTTP.
+
+data_writer.py:
+
+
+</code></pre>
+<p>import json import time import random</p>
+<p>data_file = ‘financial_data.json’</p>
+<p>def update_financial_data(): while True: # Mise à jour des données financières data = { ‘last_price’: round(random.uniform(100, 200), 2), ‘last_volume’: random.randint(1000, 10000), ‘analytic_1’: round(random.uniform(0, 1), 2), ‘analytic_2’: round(random.uniform(0, 1), 2), } with open(data_file, ‘w’) as f: json.dump(data, f) time.sleep(10)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: update_financial_data()</p>
+<pre><code>
+
+</code></pre>
+<p>data_reader.py:</p>
+<pre><code>import json
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+data_file = 'financial_data.json'
+
+@app.route('/last_price')
+def get_last_price():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(last_price=data['last_price'])
+
+@app.route('/last_volume')
+def get_last_volume():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(last_volume=data['last_volume'])
+
+@app.route('/analytic_1')
+def get_analytic_1():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(analytic_1=data['analytic_1'])
+
+@app.route('/analytic_2')
+def get_analytic_2():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(analytic_2=data['analytic_2'])
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+<pre><code>Dans cet exemple, data_writer.py simule la mise à jour des données financières dans un fichier JSON, et data_reader.py expose ces données via différentes routes d'une API Flask. Chaque route lit la donnée pertinente du fichier et la retourne au client. Cela illustre comment les fichiers peuvent être utilisés pour partager des données entre un processus de mise à jour et plusieurs processus de lecture dans un contexte d'API.</code></pre>
 
 
 </section>
@@ -804,15 +902,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

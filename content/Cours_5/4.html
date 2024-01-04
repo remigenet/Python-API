@@ -8,9 +8,8 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
 
-<title>Introduction à Python - Git - Pour aller plus loin</title>
+<title>Introduction à Python - POO - Python Orienté Objet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Annexes/git_basics.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,23 +74,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Git - Pour aller plus loin">
-<meta property="og:description" content="Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Annexes/.img/gitadvanced.png">
+<meta property="og:title" content="Introduction à Python - POO - Python Orienté Objet">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_5/.img/numpy.png">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:width" content="1024">
-<meta name="citation_title" content="Git - Pour aller plus loin">
+<meta name="citation_title" content="POO - Python Orienté Objet">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Annexes/git_advanced.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_5/4.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -223,72 +218,48 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Annexes/git_advanced.html">Git - Pour aller plus loin</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/LinuxTerminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Git Basics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Annexes/git_advanced.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Git - Pour aller plus loin</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" id="toc-document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="nav-link active" data-scroll-target="#document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</a></li>
+  <li><a href="#poo---python-orienté-objet" id="toc-poo---python-orienté-objet" class="nav-link active" data-scroll-target="#poo---python-orienté-objet">POO - Python Orienté Objet”</a></li>
+  <li><a href="#iv.-déploiement-dune-api-sur-heroku" id="toc-iv.-déploiement-dune-api-sur-heroku" class="nav-link" data-scroll-target="#iv.-déploiement-dune-api-sur-heroku">IV. Déploiement d’une API sur Heroku</a>
+  <ul class="collapse">
+  <li><a href="#configuration-de-lenvironnement-heroku" id="toc-configuration-de-lenvironnement-heroku" class="nav-link" data-scroll-target="#configuration-de-lenvironnement-heroku"><strong>1. Configuration de l’environnement Heroku</strong></a></li>
+  <li><a href="#préparation-de-lapplication-pour-heroku" id="toc-préparation-de-lapplication-pour-heroku" class="nav-link" data-scroll-target="#préparation-de-lapplication-pour-heroku"><strong>2. Préparation de l’application pour Heroku</strong></a>
+  <ul class="collapse">
+  <li><a href="#c.-requirements.txt" id="toc-c.-requirements.txt" class="nav-link" data-scroll-target="#c.-requirements.txt">c.&nbsp;requirements.txt</a></li>
+  <li><a href="#e.-autres-fichiers-et-configurations" id="toc-e.-autres-fichiers-et-configurations" class="nav-link" data-scroll-target="#e.-autres-fichiers-et-configurations">e. Autres fichiers et configurations</a></li>
+  <li><a href="#f.-structure-du-code-de-lapplication" id="toc-f.-structure-du-code-de-lapplication" class="nav-link" data-scroll-target="#f.-structure-du-code-de-lapplication">f.&nbsp;Structure du code de l’application</a></li>
+  <li><a href="#g.-utilisation-de-bases-de-données" id="toc-g.-utilisation-de-bases-de-données" class="nav-link" data-scroll-target="#g.-utilisation-de-bases-de-données">g. Utilisation de bases de données</a></li>
+  <li><a href="#h.-celery" id="toc-h.-celery" class="nav-link" data-scroll-target="#h.-celery">h. Celery ?</a></li>
+  <li><a href="#a.-structure-de-base-dune-application-fastapi" id="toc-a.-structure-de-base-dune-application-fastapi" class="nav-link" data-scroll-target="#a.-structure-de-base-dune-application-fastapi">a. Structure de base d’une application FastAPI</a></li>
+  <li><a href="#b.-préparation-pour-heroku" id="toc-b.-préparation-pour-heroku" class="nav-link" data-scroll-target="#b.-préparation-pour-heroku">b. Préparation pour Heroku</a></li>
+  <li><a href="#d.-création-dune-nouvelle-application-heroku" id="toc-d.-création-dune-nouvelle-application-heroku" class="nav-link" data-scroll-target="#d.-création-dune-nouvelle-application-heroku">d.&nbsp;Création d’une nouvelle application Heroku</a></li>
+  <li><a href="#f.-déployez-votre-application-avec-git-push-heroku-master" id="toc-f.-déployez-votre-application-avec-git-push-heroku-master" class="nav-link" data-scroll-target="#f.-déployez-votre-application-avec-git-push-heroku-master">f.&nbsp;Déployez votre application avec git push heroku master</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Git - Pour aller plus loin</h1>
+<h1 class="title">POO - Python Orienté Objet</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Annexes</div>
-    <div class="quarto-category">Git</div>
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Git a su s’imposer car il permet de nombreuse options qui lui permettent de convenir à des organisations vastes et diverses. Cela est du à une vaste quantité d’option avancé.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -315,109 +286,332 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="partie-1-gestion-avancée-des-branches-et-fusion" class="level4">
-<h4 class="anchored" data-anchor-id="partie-1-gestion-avancée-des-branches-et-fusion">Partie 1 : Gestion Avancée des Branches et Fusion</h4>
-<p>La maîtrise des branches et des techniques de fusion est essentielle pour une gestion efficace des projets complexes. Dans cette partie, nous allons explorer des stratégies de branching avancées et des méthodes de fusion.</p>
-<ol type="1">
-<li><strong>Stratégies de Branching</strong> :
-<ul>
-<li><strong>Git Flow</strong> : Une approche populaire qui utilise des branches dédiées pour le développement, les fonctionnalités, les releases, et la maintenance.</li>
-<li><strong>GitHub Flow</strong> : Une stratégie simplifiée, plus adaptée aux déploiements continus et aux projets qui évoluent rapidement.</li>
-</ul></li>
-<li><strong>Fusions Avancées</strong> :
-<ul>
-<li><strong>Rebase</strong> : Utilisez <code>git rebase</code> pour appliquer les changements d’une branche sur une autre. Cela peut aider à maintenir un historique de projet propre.</li>
-<li><strong>Cherry-Pick</strong> : Permet de sélectionner et d’appliquer des commits spécifiques d’une branche à une autre.</li>
-</ul></li>
-<li><strong>Gestion des Conflits Avancée</strong> :
-<ul>
-<li>Utilisez des outils de merge comme Meld ou KDiff3 pour résoudre visuellement les conflits.</li>
-<li>Comprenez comment les conflits sont générés et apprenez à les prévenir en planifiant soigneusement les merges et les rebases.</li>
-</ul></li>
-</ol>
+<section id="poo---python-orienté-objet" class="level1">
+<h1>POO - Python Orienté Objet”</h1>
+<hr>
 </section>
-<section id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash" class="level4">
-<h4 class="anchored" data-anchor-id="partie-2-utilisation-avancée-de-git---sous-modules-hooks-stash">Partie 2 : Utilisation Avancée de Git - Sous modules, hooks, stash</h4>
-<p>Cette partie se concentre sur les techniques avancées de Git pour optimiser la gestion du code et le workflow.</p>
-<ol type="1">
-<li><strong>Sous-modules et Sous-arbres</strong> :
-<ul>
-<li><strong>Sous-modules</strong> : Utilisez <code>git submodule</code> pour intégrer et gérer des dépendances de projets externes.</li>
-<li><strong>Sous-arbres</strong> : Une alternative aux sous-modules, les sous-arbres permettent d’intégrer des dépôts externes tout en conservant la capacité de contribuer en retour.</li>
-</ul></li>
-<li><strong>Hooks Git</strong> :
-<ul>
-<li>Les hooks Git sont des scripts qui s’exécutent avant ou après des événements dans un dépôt Git, comme les commits ou les merges.</li>
-<li>Utilisez les hooks pour automatiser des tâches comme les tests, la vérification du style de code ou les builds.</li>
-</ul></li>
-<li><strong>Stash Avancé</strong> :
-<ul>
-<li>Utilisez <code>git stash</code> pour sauvegarder temporairement des modifications sans les committer.</li>
-<li>Explorez des options avancées comme le stash multiple et l’application sélective de stashs.</li>
-</ul></li>
-</ol>
-</section>
-<section id="partie-3-optimisation-du-workflow-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-3-optimisation-du-workflow-avec-git">Partie 3 : Optimisation du Workflow avec Git</h4>
-<p>Améliorez votre efficacité et votre gestion de projet avec des pratiques avancées de Git.</p>
-<ol type="1">
-<li><strong>Alias Git</strong> :
-<ul>
-<li>Créez des alias pour les commandes Git fréquemment utilisées. Par exemple, configurez un alias pour une sortie de log détaillée ou pour des opérations complexes de rebase.</li>
-</ul></li>
-<li><strong>Bisect pour la Détection de Bugs</strong> :
-<ul>
-<li>Utilisez <code>git bisect</code> pour trouver rapidement le commit qui a introduit un bug. Cette commande utilise un algorithme de recherche binaire pour parcourir l’historique des commits.</li>
-</ul></li>
-<li><strong>Reflog pour la Récupération de Données</strong> :
-<ul>
-<li><code>git reflog</code> est un outil puissant pour récupérer des données perdues, telles que des branches supprimées ou des commits égarés.</li>
-</ul></li>
-</ol>
-</section>
-<section id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite" class="level3">
-<h3 class="anchored" data-anchor-id="document-avancé-sur-git-pour-utilisateurs-expérimentés-suite">Document Avancé sur Git pour Utilisateurs Expérimentés (Suite)</h3>
-<section id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-4-intégration-continue-et-workflows-personnalisés-avec-git">Partie 4 : Intégration Continue et Workflows Personnalisés avec Git</h4>
-<p>L’intégration de Git avec des systèmes d’intégration continue (CI) et l’adaptation de Git à des workflows personnalisés peuvent considérablement améliorer l’efficacité et la qualité du développement logiciel.</p>
-<ol type="1">
-<li><strong>Intégration Continue (CI) avec Git</strong> :
-<ul>
-<li><strong>CI/CD Pipelines</strong> : Utilisez Git en conjonction avec des outils comme Jenkins, Travis CI, ou GitLab CI pour automatiser les tests et le déploiement de votre code.</li>
-<li><strong>Automatisation des Tests</strong> : Configurez des pipelines pour exécuter des suites de tests à chaque push ou pull request, assurant ainsi que le code intégré est toujours testé.</li>
-</ul></li>
-<li><strong>Workflows Personnalisés</strong> :
-<ul>
-<li><strong>Scripts et Automatisations</strong> : Créez des scripts personnalisés qui s’exécutent avec des commandes Git pour adapter le système à vos besoins spécifiques.</li>
-<li><strong>Workflows de Collaboration</strong> : Développez des pratiques de collaboration qui s’alignent avec la culture et les processus de votre équipe, comme les revues de code et les stratégies de branching.</li>
-</ul></li>
-</ol>
-</section>
-<section id="partie-5-gestion-de-grandes-bases-de-code-avec-git" class="level4">
-<h4 class="anchored" data-anchor-id="partie-5-gestion-de-grandes-bases-de-code-avec-git">Partie 5 : Gestion de Grandes Bases de Code avec Git</h4>
-<p>Gérer de grandes bases de code nécessite une approche stratégique pour maintenir l’efficacité et la maintenabilité.</p>
-<ol type="1">
-<li><strong>Git LFS (Large File Storage)</strong> :
-<ul>
-<li>Utilisez Git LFS pour gérer efficacement de gros fichiers binaires sans alourdir le dépôt principal.</li>
-<li>Git LFS stocke les références aux gros fichiers dans le dépôt Git, tandis que les fichiers eux-mêmes sont stockés sur un serveur distant.</li>
-</ul></li>
-<li><strong>Techniques de Partitionnement</strong> :
-<ul>
-<li>Envisagez de partitionner votre base de code en plusieurs dépôts plus petits si cela est logique pour votre projet. Cela peut rendre la gestion plus facile et plus agile.</li>
-</ul></li>
-<li><strong>Optimisations de Performance</strong> :
-<ul>
-<li>Utilisez des techniques comme le clonage superficiel (<code>git clone --depth</code>) pour réduire le temps et l’espace nécessaires pour cloner de grands dépôts.</li>
-<li>Apprenez à gérer efficacement les branches et les tags pour éviter la surcharge du dépôt.</li>
-</ul></li>
-</ol>
-</section>
-<section id="conclusion-et-ressources-additionnelles" class="level4">
-<h4 class="anchored" data-anchor-id="conclusion-et-ressources-additionnelles">Conclusion et Ressources Additionnelles</h4>
-<p>Maîtriser Git à un niveau avancé nécessite de la pratique, de l’expérience et une volonté d’expérimenter. N’hésitez pas à explorer les nombreuses ressources disponibles en ligne, telles que la documentation officielle de Git, les tutoriels avancés, et les forums de discussion.</p>
+<section id="iv.-déploiement-dune-api-sur-heroku" class="level1">
+<h1>IV. Déploiement d’une API sur Heroku</h1>
+<section id="configuration-de-lenvironnement-heroku" class="level2">
+<h2 class="anchored" data-anchor-id="configuration-de-lenvironnement-heroku"><strong>1. Configuration de l’environnement Heroku</strong></h2>
+<pre><code>Avant de déployer une API sur Heroku, il est essentiel de configurer correctement l'environnement Heroku. Cela implique la création d'un compte Heroku, l'installation de l'interface en ligne de commande Heroku (CLI), et la préparation de votre application avec les fichiers de configuration nécessaires.
 
 
+### a. Création d'un compte Heroku
+Pour commencer avec Heroku, vous devez d'abord créer un compte. Rendez-vous sur le site de Heroku et inscrivez-vous en fournissant une adresse e-mail et un mot de passe. En tant qu'étudiant, vous pouvez bénéficier d'avantages supplémentaires grâce au GitHub Student Developer Pack, qui inclut des crédits gratuits sur Heroku.
+
+
+### b. Installation de Heroku CLI
+Heroku CLI, ou Heroku Command Line Interface, est un outil en ligne de commande qui permet de gérer vos applications Heroku directement depuis le terminal. CLI signifie "Interface de Ligne de Commande", et c'est un moyen puissant pour exécuter des commandes spécifiques à Heroku, telles que la création d'applications, la gestion des processus, la consultation des logs, et le déploiement de votre code.
+
+Pour installer Heroku CLI, suivez les instructions sur le site officiel de Heroku. En général, l'installation se fait via un gestionnaire de paquets pour votre système d'exploitation ou en téléchargeant et en exécutant un programme d'installation.
+
+
+### c. Avantages pour les étudiants
+En tant qu'étudiant, vous avez accès à des ressources supplémentaires grâce au GitHub Student Developer Pack. Ce pack offre des crédits mensuels de 13 $ sur Heroku, ce qui vous permet de tester et de déployer vos applications sans frais supplémentaires. Pour en bénéficier, inscrivez-vous sur Heroku for GitHub Students avec votre compte GitHub éligible au Student Developer Pack.</code></pre>
+</section>
+<section id="préparation-de-lapplication-pour-heroku" class="level2">
+<h2 class="anchored" data-anchor-id="préparation-de-lapplication-pour-heroku"><strong>2. Préparation de l’application pour Heroku</strong></h2>
+<pre><code>
+
+### a. Adaptation de l'application aux exigences Heroku
+Pour que votre application soit prête pour un déploiement sur Heroku, elle doit répondre à certains critères structurels et de configuration. Voici les éléments essentiels à vérifier et à mettre en place :
+</code></pre>
+<ul>
+<li><code>requirements.txt : Ce fichier doit être présent à la racine de votre projet. Il contient la liste des dépendances Python nécessaires à votre application, permettant à Heroku de les installer automatiquement lors du déploiement.</code></li>
+<li><code>Procfile : Ce fichier, également à la racine de votre projet, indique à Heroku comment démarrer votre application. Il définit les différents types de processus et les commandes associées à votre application.</code></li>
+<li><code>runtime.txt : Si vous avez besoin d'une version spécifique de Python, ce fichier permet de l'indiquer à Heroku.</code></li>
+<li><code>Dépôt Git : Heroku utilise Git pour le déploiement. Assurez-vous que votre code source est bien versionné dans un dépôt Git.</code></li>
+</ul>
+<pre><code>
+
+### b.  Le Procfile: Spécificité et Fonctionnalités
+
+
+#### Est-ce propre à Heroku?
+Le Procfile est une convention utilisée par Heroku, mais le concept n'est pas exclusif à cette plateforme. D'autres systèmes de déploiement et PaaS (Platform as a Service) peuvent utiliser des mécanismes similaires, bien que le terme "Procfile" soit spécifiquement associé à Heroku.
+
+
+#### Fonctionnalités du Procfile
+Le Procfile permet de déclarer différents types de processus et de commandes qui sont nécessaires pour exécuter une application. Voici une liste des fonctionnalités et des types de processus que vous pouvez définir dans un Procfile:
+</code></pre>
+<ol type="1">
+<li><code>Types de processus:</code>
+<ol type="1">
+<li><code>web: Un processus pour exécuter le serveur web. Heroku rend ce processus accessible via HTTP et lui attribue un nom de domaine.</code></li>
+<li><code>worker: Un type de processus pour les tâches en arrière-plan. Ces processus peuvent être des tâches de file d'attente, des tâches planifiées, etc.</code></li>
+<li><code>release: Utilisé pour exécuter des tâches avant un nouveau déploiement, comme des migrations de base de données.</code></li>
+<li><code>clock: Un processus qui s'exécute à intervalles réguliers, souvent utilisé pour la planification de tâches (similaire à cron).</code></li>
+</ol></li>
+<li><code>Exécution de scripts:</code>
+<ol start="5" type="1">
+<li><code>Vous pouvez exécuter des scripts personnalisés ou des commandes shell directement dans le Procfile.</code></li>
+</ol></li>
+<li><code>Gestion des ressources:</code>
+<ol start="6" type="1">
+<li><code>Vous pouvez spécifier la quantité de ressources (comme la mémoire) que chaque processus doit utiliser, bien que cela se fasse généralement via la CLI ou le tableau de bord Heroku plutôt que dans le Procfile lui-même.</code></li>
+</ol></li>
+<li><code>Déclaration de ports:</code>
+<ol start="7" type="1">
+<li><code>Pour les processus web, Heroku assigne automatiquement un port que votre application doit écouter. Vous n'avez pas besoin de le déclarer dans le Procfile, mais votre application doit être configurée pour écouter sur le port spécifié par la variable d'environnement PORT.</code></li>
+</ol></li>
+<li><code>Processus multiples:</code>
+<ol start="8" type="1">
+<li><code>Vous pouvez déclarer plusieurs processus du même type avec des commandes différentes si nécessaire.</code></li>
+</ol></li>
+<li><code>Scaling:</code>
+<ol start="9" type="1">
+<li><code>Bien que le Procfile ne gère pas directement le scaling horizontal (l'ajout de plus de dynos), il définit les types de processus que vous pouvez ensuite scaler via la CLI ou le tableau de bord.</code></li>
+</ol></li>
+</ol>
+<pre><code>
+
+#### Exemples de Procfile
+Voici un exemple plus avancé de Procfile qui illustre certaines de ces fonctionnalités:
+
+
+</code></pre>
+<p>web: gunicorn app:app –workers 3 worker: celery -A app.celery worker release: python manage.py migrate clock: python clock.py</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple:</p>
+<pre><code>
+
+
+* `Le processus web démarre l'application avec 3 workers de gunicorn.`
+* `Le processus worker démarre un worker Celery pour les tâches en arrière-plan.`
+* `Le processus release exécute les migrations de base de données avant chaque déploiement.`
+* `Le processus clock exécute un script Python qui pourrait être utilisé pour la planification de tâches.`
+
+</code></pre>
+<p>Le Procfile est donc un outil puissant pour déclarer comment votre application doit être exécutée sur Heroku, et il offre une flexibilité pour définir une variété de processus nécessaires à l’exécution de votre application.</p>
+<section id="c.-requirements.txt" class="level3">
+<h3 class="anchored" data-anchor-id="c.-requirements.txt">c.&nbsp;requirements.txt</h3>
+<p>Le fichier requirements.txt liste toutes les bibliothèques Python dont votre application a besoin. Lorsque vous déployez votre application, Heroku utilise ce fichier pour installer automatiquement ces dépendances. Voici un exemple de ce à quoi pourrait ressembler un requirements.txt :</p>
+<pre><code>flask==1.1.2
+gunicorn==20.0.4
+requests==2.24.0</code></pre>
+<pre><code>Chaque ligne spécifie une bibliothèque et sa version. Vous pouvez générer ce fichier en exécutant pip freeze &gt; requirements.txt dans votre environnement de développement local.
+
+
+### d. runtime.txt
+Le fichier runtime.txt spécifie la version de Python que votre application utilise. Heroku supporte plusieurs versions de Python, et il est important de spécifier la version pour éviter tout problème de compatibilité. Voici un exemple de contenu pour un runtime.txt :
+
+
+</code></pre>
+<p>python-3.8.5</p>
+<pre><code>
+
+</code></pre>
+<p>Cela indique à Heroku d’utiliser Python 3.8.5 pour exécuter votre application.</p>
+</section>
+<section id="e.-autres-fichiers-et-configurations" class="level3">
+<h3 class="anchored" data-anchor-id="e.-autres-fichiers-et-configurations">e. Autres fichiers et configurations</h3>
+<p>Selon la complexité de votre application, d’autres fichiers de configuration peuvent être nécessaires. Par exemple, si vous utilisez une base de données, vous devrez peut-être ajouter un fichier de configuration pour celle-ci. De plus, si votre application dépend de variables d’environnement, vous devrez les configurer dans Heroku via le tableau de bord ou la CLI.</p>
+</section>
+<section id="f.-structure-du-code-de-lapplication" class="level3">
+<h3 class="anchored" data-anchor-id="f.-structure-du-code-de-lapplication">f.&nbsp;Structure du code de l’application</h3>
+<p>Votre application doit être structurée de manière à ce que Heroku puisse la construire et l’exécuter sans erreurs. Cela implique :</p>
+<pre><code>
+
+
+* `Une application web doit écouter sur le port défini par la variable d'environnement PORT.`
+* `Les fichiers statiques doivent être correctement configurés pour être servis par le serveur web.`
+* `Les variables d'environnement doivent être utilisées pour les configurations sensibles, telles que les clés API ou les chaînes de connexion à la base de données.`
+
+</code></pre>
+</section>
+<section id="g.-utilisation-de-bases-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="g.-utilisation-de-bases-de-données">g. Utilisation de bases de données</h3>
+<p>Si votre application utilise une base de données, vous devrez configurer celle-ci pour fonctionner avec Heroku :</p>
+<pre><code>
+
+
+* `Migrations : Les migrations de base de données sont des modifications ou des mises à jour de la structure de votre base de données. Sur Heroku, ces migrations peuvent être exécutées automatiquement via le processus release dans le Procfile.`
+* `Add-ons : Heroku propose des add-ons pour les bases de données, comme Heroku Postgres, qui peuvent être ajoutés à votre application. Ces services sont gérés et maintenus par Heroku, simplifiant la configuration et la maintenance.`
+* `Variables d'environnement : Les chaînes de connexion et autres configurations de base de données doivent être stockées dans des variables d'environnement pour sécuriser les informations sensibles et permettre la portabilité de l'application.`
+
+</code></pre>
+<p>Dans la prochaine section, nous allons créer une API simple avec FastAPI et préparer sa structure pour le déploiement sur Heroku, en mettant en pratique les éléments abordés ci-dessus.</p>
+</section>
+<section id="h.-celery" class="level3">
+<h3 class="anchored" data-anchor-id="h.-celery">h. Celery ?</h3>
+<p>Avant de plonger dans l’exemple avec FastAPI, clarifions d’abord ce qu’est Celery et son rôle dans le contexte d’une application déployée sur Heroku.</p>
+<p>Celery est un système de file d’attente de tâches asynchrones, basé sur la distribution de messages. Il est utilisé pour exécuter des tâches en arrière-plan de manière asynchrone. Lorsque vous avez des opérations ou des tâches qui sont longues ou qui n’ont pas besoin d’être exécutées dans le flux de traitement principal de votre application web (comme l’envoi d’emails, le traitement d’images, ou les opérations batch), Celery vous permet de les gérer en dehors de la requête HTTP principale.</p>
+<p>Dans le Procfile, le processus worker qui utilise Celery serait responsable de gérer ces tâches en arrière-plan. Cela permet à l’application web de répondre rapidement aux requêtes des utilisateurs sans être ralentie par ces opérations longues.</p>
+<pre><code>
+
+
+## **3. Exemple Basique avec FastAPI**
+
+</code></pre>
+<p>Maintenant, créons une API simple avec FastAPI et préparons-la pour le déploiement sur Heroku. FastAPI est un framework moderne et rapide (haute performance) pour la construction d’APIs avec Python 3.7+, basé sur des standards Python type hints.</p>
+</section>
+<section id="a.-structure-de-base-dune-application-fastapi" class="level3">
+<h3 class="anchored" data-anchor-id="a.-structure-de-base-dune-application-fastapi">a. Structure de base d’une application FastAPI</h3>
+<p>Voici une structure de base pour une application FastAPI :</p>
+<pre><code># main.py
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: str = None):
+    return {"item_id": item_id, "q": q}</code></pre>
+<pre><code>Pour exécuter cette application localement, vous utiliseriez une commande comme celle-ci :
+
+
+</code></pre>
+<p>uvicorn main:app –reload</p>
+<pre><code>
+
+</code></pre>
+</section>
+<section id="b.-préparation-pour-heroku" class="level3">
+<h3 class="anchored" data-anchor-id="b.-préparation-pour-heroku">b. Préparation pour Heroku</h3>
+<p>Pour déployer cette application sur Heroku, vous devez effectuer les étapes suivantes :</p>
+<pre><code>
+
+
+1. `Créer un fichier Procfile : \
+`
+
+    ```
+web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}</code></pre>
+<ol start="2" type="1">
+<li><code>Ici, web est le processus qui sera accessible via HTTP et Heroku fournira la variable d'environnement PORT que votre application doit écouter.</code></li>
+<li><code>Créer un fichier requirements.txt : \ Vous pouvez générer ce fichier en exécutant pip freeze &gt; requirements.txt dans votre environnement de développement local. Assurez-vous d'inclure fastapi et uvicorn dans ce fichier.</code></li>
+<li><code>Optionnel : Créer un fichier runtime.txt : \ Si vous avez besoin d'une version spécifique de Python, spécifiez-la ici.</code></li>
+<li><code>Initialiser un dépôt Git et pousser votre code : \ Heroku utilise Git pour le déploiement, donc votre code doit être dans un dépôt Git.</code></li>
+</ol>
+<pre><code>
+
+### c. Connexion à Heroku via le CLI
+Après avoir installé le Heroku CLI, vous devez vous connecter à votre compte Heroku. Voici comment procéder :
+</code></pre>
+<ol type="1">
+<li><p><code>Ouvrez votre terminal ou invite de commande.</code></p></li>
+<li><p><code>Tapez la commande suivante : \</code></p>
+<p>```</p></li>
+</ol>
+<p>heroku login</p>
+<pre><code>
+
+3. 
+4. `Appuyez sur la touche Enter. Le Heroku CLI ouvrira votre navigateur web par défaut pour se connecter.`
+5. `Dans le navigateur qui s'ouvre, connectez-vous avec vos identifiants Heroku. Si vous n'êtes pas déjà inscrit sur Heroku, vous devrez créer un compte.`
+6. `Une fois connecté dans le navigateur, vous pouvez retourner à votre terminal et vous serez connecté.`
+
+</code></pre>
+<p>Cette étape est nécessaire pour associer les actions que vous effectuez via le CLI avec votre compte Heroku, ce qui permet de gérer vos applications et autres services Heroku.</p>
+</section>
+<section id="d.-création-dune-nouvelle-application-heroku" class="level3">
+<h3 class="anchored" data-anchor-id="d.-création-dune-nouvelle-application-heroku">d.&nbsp;Création d’une nouvelle application Heroku</h3>
+<p>Vous pouvez créer une nouvelle application Heroku soit via le CLI, soit via le tableau de bord Heroku sur le web. Voici comment faire avec le CLI :</p>
+<pre><code>
+
+
+1. `Dans votre terminal, naviguez vers le répertoire de votre projet.`
+2. `Tapez la commande suivante : \
+`
+
+    ```
+
+heroku create your-app-name</code></pre>
+<ol start="3" type="1">
+<li><code>\ Remplacez your-app-name par le nom que vous souhaitez donner à votre application. Ce nom doit être unique sur Heroku.</code></li>
+<li><code>Si le nom est disponible, Heroku créera l'application et vous donnera l'URL de celle-ci ainsi qu'un remote Git.</code></li>
+</ol>
+<pre><code>Si vous ne spécifiez pas de nom, Heroku en générera un aléatoirement pour vous. Vous pouvez également créer une application via le tableau de bord Heroku en cliquant sur "New" puis "Create new app".
+
+
+### e. Lier votre dépôt Git à Heroku
+Après avoir créé votre application sur Heroku, vous devez lier votre dépôt Git local à Heroku. Cela permettra de pousser votre code vers Heroku pour le déploiement. Voici comment faire :
+</code></pre>
+<ol type="1">
+<li><p><code>Dans le terminal, assurez-vous que vous êtes dans le répertoire de votre projet qui est également un dépôt Git.</code></p></li>
+<li><p><code>Tapez la commande suivante : \</code></p>
+<p>```</p></li>
+</ol>
+<p>heroku git:remote -a your-app-name</p>
+<pre><code>
+
+3. ` \
+Cela ajoutera un nouveau remote appelé heroku à votre dépôt Git local.`
+
+</code></pre>
+</section>
+<section id="f.-déployez-votre-application-avec-git-push-heroku-master" class="level3">
+<h3 class="anchored" data-anchor-id="f.-déployez-votre-application-avec-git-push-heroku-master">f.&nbsp;Déployez votre application avec git push heroku master</h3>
+<p>Pour déployer votre application, vous devez pousser votre code depuis votre dépôt Git local vers le remote Heroku. Voici les étapes :</p>
+<pre><code>
+
+
+1. `Assurez-vous que toutes vos modifications sont commitées dans Git.`
+2. `Tapez la commande suivante dans votre terminal : \
+`
+
+    ```
+git push heroku master</code></pre>
+<ol start="3" type="1">
+<li><code>Cette commande envoie votre code sur la branche master de votre dépôt local vers Heroku. Si vous utilisez une branche différente, remplacez master par le nom de votre branche.</code></li>
+<li><code>Heroku recevra le code, exécutera le build en installant les dépendances spécifiées dans requirements.txt, et exécutera les commandes dans votre Procfile.</code></li>
+<li><code>Si le déploiement est réussi, Heroku vous donnera l'URL de votre application déployée que vous pourrez visiter avec un navigateur web.</code></li>
+</ol>
+<pre><code>Ces étapes finalisent le processus de déploiement de votre application FastAPI sur Heroku. Vous pouvez maintenant accéder à votre application via l'URL fournie par Heroku et commencer à utiliser votre API.
+
+
+### g. Tester votre application
+Une fois déployée, votre application est accessible depuis n'importe quel ordinateur. Pour la tester, voici plusieurs outils que vous pouvez utiliser :
+
+
+#### cURL
+cURL est un outil en ligne de commande disponible sur la plupart des systèmes d'exploitation, utilisé pour envoyer des requêtes HTTP. Voici un exemple de commande cURL pour tester un point de terminaison de votre API :
+
+
+</code></pre>
+<p>curl -X GET https://your-app-name.herokuapp.com/endpoint</p>
+<pre><code>
+
+</code></pre>
+<p>Remplacez https://your-app-name.herokuapp.com/endpoint par l’URL de votre API et le point de terminaison spécifique que vous souhaitez tester.</p>
+<section id="postman" class="level4">
+<h4 class="anchored" data-anchor-id="postman">Postman</h4>
+<p>Comme abordé lors du TP 1, Postman est un outil GUI robuste pour tester les API. Vous pouvez configurer et envoyer des requêtes, et examiner les réponses de manière interactive.</p>
+</section>
+<section id="insomnia" class="level4">
+<h4 class="anchored" data-anchor-id="insomnia">Insomnia</h4>
+<p>Insomnia est une application GUI, alternative à Postman, qui se distingue par son interface épurée. Vous pouvez la télécharger sur leur site officiel et l’utiliser pour construire, envoyer et analyser les requêtes HTTP à votre API.</p>
+</section>
+<section id="httpie" class="level4">
+<h4 class="anchored" data-anchor-id="httpie">HTTPie</h4>
+<p>HTTPie est un client HTTP en ligne de commande qui offre une syntaxe intuitive, se présentant comme une alternative moderne à cURL. Installez-le avec pip :</p>
+<pre><code>pip install httpie</code></pre>
+<pre><code>Puis envoyez des requêtes comme suit :
+
+
+</code></pre>
+<p>http GET https://your-app-name.herokuapp.com/endpoint</p>
+<pre><code>
+
+</code></pre>
+</section>
+<section id="navigateur-web" class="level4">
+<h4 class="anchored" data-anchor-id="navigateur-web">Navigateur Web</h4>
+<p>Pour les requêtes GET simples, votre navigateur web suffit. Entrez l’URL de votre API dans la barre d’adresse pour envoyer une requête GET et visualiser la réponse.</p>
+</section>
+<section id="requests-en-python" class="level4">
+<h4 class="anchored" data-anchor-id="requests-en-python">Requests en Python</h4>
+<p>Enfin, le package requests en Python, que nous avons utilisé tout au long de ce cours, reste une option fiable pour interagir avec votre API déployée. Vous pouvez écrire des scripts pour automatiser les tests et manipuler les réponses de l’API. ```</p>
+
+
+</section>
+</section>
 </section>
 </section>
 
@@ -804,15 +998,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Annexes/git_basics.html" class="pagination-link  aria-label=" git="" basics"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Git Basics</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
