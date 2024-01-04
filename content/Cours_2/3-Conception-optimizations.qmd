@@ -14,7 +14,7 @@ categories:
   - Fondamentaux
 type: book
 description: ""
-image: .img/poo.png
+image: .img/asyncthreadproc2.webp
 code-links: binder
 ---
 

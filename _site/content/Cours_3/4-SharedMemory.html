@@ -8,7 +8,6 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-04">
-<meta name="description" content="Requête HTTP, Webscrapping, websockets, API, JSON, XML, CSV, HTML, SQL, NoSQL, FTP, SSH, …">
 
 <title>Introduction à Python - Recupérer des données du net</title>
 <style>
@@ -33,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_3/5-Pipes.html" rel="next">
+<link href="../../content/Cours_3/3-Files.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,22 +77,19 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Introduction à Python - Recupérer des données du net">
-<meta property="og:description" content="Requête HTTP, Webscrapping, websockets, API, JSON, XML, CSV, HTML, SQL, NoSQL, FTP, SSH, …">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_3/.img/EventLoopPythonAsyncio-5.png">
+<meta property="og:description" content="">
+<meta property="og:image" content=".img/SharedMemory.webp">
 <meta property="og:site_name" content="Introduction à Python">
-<meta property="og:image:height" content="1221">
-<meta property="og:image:width" content="2000">
 <meta name="citation_title" content="Recupérer des données du net">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-04">
 <meta name="citation_cover_date" content="2024-01-04">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-04">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_3/4-SharedMemory.html">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -133,8 +131,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
  <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
   </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
+ <span class="dropdown-text">Les IDEs</span></a>
+  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
     </ul>
@@ -144,6 +144,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -152,9 +162,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
         <li>
-    <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
- <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Sockets.html">
+ <span class="dropdown-text">Sockets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-Files.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-SharedMemory.html">
+ <span class="dropdown-text">Recupérer des données du net</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Pipes.html">
+ <span class="dropdown-text">Python - Aussi un language pour servir des données</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-gRPC.html">
+ <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/7-OtherIPCend.html">
+ <span class="dropdown-text">Visualiser et présenter ces données avec Python</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -162,6 +198,36 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
+ <span class="dropdown-text">1-IntroConception</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-Frameworks.html">
+ <span class="dropdown-text">Typage en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/4-FastAPI.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/5-DjangoRest.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/6-testanddocs.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/7-Good Practice.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/8.Conclusion.html">
+ <span class="dropdown-text">Asynchronie et Multiprocessing</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
  <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
@@ -173,6 +239,34 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
+ <span class="dropdown-text">L’arbre Syntaxique Abstrait ou AST</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-heroku.html">
+ <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-Best Practice.html">
+ <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/4-herodepl.html">
+ <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/5-moreexample.html">
+ <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/6-domain.html">
+ <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/7-end.html">
+ <span class="dropdown-text">POO - Python Orienté Objet</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -222,10 +316,86 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_3/4-SharedMemory.html">Recupérer des données du net</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction à l’IPC</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/2-Sockets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sockets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/3-Files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/4-SharedMemory.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Recupérer des données du net</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/5-Pipes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python - Aussi un language pour servir des données</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/6-gRPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualiser et présenter ces données avec Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/7-OtherIPCend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualiser et présenter ces données avec Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_3/TP-3-1-qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">content/Cours_3/TP-3-2-qmd</span>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -274,11 +444,6 @@ ul.task-list li input[type="checkbox"] {
   </div>
   </div>
 
-<div>
-  <div class="description">
-    Requête HTTP, Webscrapping, websockets, API, JSON, XML, CSV, HTML, SQL, NoSQL, FTP, SSH, …
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -1065,6 +1230,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_3/3-Files.html" class="pagination-link  aria-label=" machine="" learning"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Machine Learning</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_3/5-Pipes.html" class="pagination-link" aria-label="Python - Aussi un language pour servir des données">
+        <span class="nav-page-text">Python - Aussi un language pour servir des données</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

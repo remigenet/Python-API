@@ -12,7 +12,7 @@ categories:
   - Exercices
 type: book
 description: "Mise  en pratique simple des éléments vu aurparavant."
-image: .img/api.png
+image: .img/tp32.webp
 code-links: binder
 ---
 

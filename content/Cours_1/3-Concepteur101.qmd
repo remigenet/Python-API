@@ -12,7 +12,7 @@ categories:
   - Introduction
 type: book
 description: Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.
-image: .img/python_versions.png
+image: .img/Maker101.webp
 ---
 
 

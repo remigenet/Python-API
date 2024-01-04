@@ -1,0 +1,522 @@
+---
+title: "Sockets"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/socket.webp
+code-links: binder
+---
+
+# II. Sockets
+
+---
+
+
+
+
+```
+Les sockets constituent l'une des méthodes d'IPC les plus directes et les plus répandues, en particulier pour la communication réseau. Les sockets sont des points de terminaison pour envoyer et recevoir des données entre des processus, soit sur le même ordinateur, soit sur des ordinateurs différents connectés par un réseau. Ils sont essentiels pour la communication réseau et sont utilisés par de nombreux protocoles de communication.
+```
+
+
+
+## 1. Définition et Principes de Base des Sockets
+
+
+```
+Un socket est associé à un port spécifique sur un hôte, permettant aux applications de s'adresser à un service spécifique sur un ordinateur dans un réseau. Les sockets sont essentiels pour établir une communication client-serveur et sont utilisés par de nombreuses API pour gérer les requêtes et les réponses.
+```
+
+
+
+## 2. Types de Sockets : Stream vs Datagram
+
+
+```
+Il existe deux types principaux de sockets : les sockets de flux (stream sockets) et les sockets de datagramme (datagram sockets). Les sockets de flux utilisent le protocole TCP (Transmission Control Protocol) pour une communication orientée connexion, garantissant que les données arrivent dans l'ordre et sans erreur. Les sockets de datagramme, en utilisant UDP (User Datagram Protocol), sont orientés non-connexion et ne garantissent pas l'ordre ou la fiabilité des paquets.
+```
+
+
+
+## 3. Sockets en Réseau : TCP/IP et UDP
+
+
+```
+Les sockets TCP/IP sont largement utilisés pour les communications fiables et ordonnées, tandis que les sockets UDP sont utilisés pour des communications plus rapides mais potentiellement moins fiables. Le choix entre TCP et UDP dépend des exigences de l'application en termes de fiabilité, d'ordre et de performance.
+```
+
+
+
+## 4. Fonctionnement des Sockets
+
+
+
+1. `Création d'un Socket : Un socket est créé en spécifiant un type de communication (TCP ou UDP, par exemple) et une adresse (IP et port).`
+2. `Écoute et Connexion : Un serveur écoute sur un port spécifique, tandis qu'un client se connecte à ce port. Pour TCP, le serveur doit accepter la connexion.`
+3. `Échange de Données : Une fois la connexion établie, les données peuvent être envoyées et reçues. Les données envoyées à travers un socket doivent être sérialisées (converties en un format pouvant être transmis sur le réseau) et désérialisées à l'autre bout.`
+4. `Fermeture du Socket : Après la communication, les sockets doivent être fermés proprement pour libérer les ressources réseau.`
+
+
+```
+Sérialisation des Objets
+
+La sérialisation est le processus de transformation d'un objet en un format qui peut être facilement stocké ou transmis. En Python, les objets peuvent être sérialisés en utilisant des modules comme pickle, qui permet de convertir un objet en une chaîne de bytes, ou json, pour une représentation en texte qui est également lisible par l'homme et interopérable avec d'autres langages.
+```
+
+
+
+## 5. Exemple de Communication Socket en Python
+
+
+```
+Voici un exemple simple de communication entre un serveur et un client en utilisant les sockets TCP en Python.
+
+Serveur (serveur.py)
+
+
+
+```
+import socket
+
+# Création d'un socket TCP/IP
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    # Associe le socket à l'adresse du serveur et écoute les connexions entrantes
+    s.bind(('localhost', 6789))
+    s.listen()
+
+    print("Le serveur écoute à l'adresse 'localhost' sur le port 6789")
+
+    # Accepte une connexion
+    conn, addr = s.accept()
+    with conn:
+        print(f"Connecté à {addr}")
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            conn.sendall(data)
+```
+
+
+
+```
+Client (client.py)
+
+
+
+```
+import socket
+
+# Création d'un socket TCP/IP
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    # Connexion au serveur
+    s.connect(('localhost', 6789))
+
+    # Envoi de données
+    s.sendall(b'Hello, server')
+
+    # Réception de la réponse
+    data = s.recv(1024)
+    print(f"Reçu {data!r}")
+```
+
+
+
+```
+Dans cet exemple, le serveur écoute sur le port 6789 et attend une connexion. Le client se connecte au serveur et envoie un message "Hello, server". Le serveur reçoit ce message, l'échoit (le renvoie au client), et le client imprime la réponse. C'est un exemple de base de l'échange de données en utilisant les sockets TCP en Python.
+
+Dans les exemples de code fournis pour le serveur et le client, plusieurs éléments clés définissent le fonctionnement des sockets en Python. Voici une explication détaillée de chaque partie :
+
+Serveur (serveur.py)
+
+
+
+```
+import socket
+```
+
+
+
+
+* `import socket : Importe le module Python socket qui fournit les méthodes et les classes pour la communication réseau.`
+
+    ```
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+```
+
+
+* `socket.socket : Crée un nouvel objet socket.`
+* `socket.AF_INET : Spécifie la famille d'adresses, AF_INET pour IPv4.`
+* `socket.SOCK_STREAM : Spécifie le type de socket, SOCK_STREAM pour le protocole TCP, qui est orienté connexion.`
+
+    ```
+s.bind(('localhost', 6789))
+```
+
+
+* `s.bind : Associe le socket à une adresse spécifique et à un port. Ici, 'localhost' indique que le serveur écoute sur l'interface réseau locale.`
+
+    ```
+s.listen()
+```
+
+
+* `s.listen : Met le socket en mode écoute pour accepter les connexions entrantes. Sans argument, il utilise une file d'attente de taille raisonnable par défaut.`
+
+    ```
+conn, addr = s.accept()
+```
+
+
+* `s.accept : Bloque et attend une connexion entrante. Quand un client se connecte, il retourne un nouveau socket conn représentant la connexion et l'adresse addr du client connecté.`
+
+    ```
+data = conn.recv(1024)
+```
+
+
+* `conn.recv : Reçoit les données du client. Le nombre 1024 spécifie la taille maximale des données pouvant être reçues à la fois (en octets).`
+
+    ```
+conn.sendall(data)
+```
+
+
+* `conn.sendall : Envoie les données reçues en retour au client. Cette méthode s'assure que toutes les données sont envoyées.`
+
+
+```
+Client (client.py)
+
+
+
+```
+s.connect(('localhost', 6789))
+```
+
+
+
+
+* `s.connect : Établit une connexion avec le serveur. L'argument est un tuple contenant l'adresse du serveur et le numéro de port.`
+
+    ```
+s.sendall(b'Hello, server')
+```
+
+
+* `s.sendall : Envoie des données au serveur. Les données sont préfixées par b pour indiquer qu'il s'agit d'un objet bytes, nécessaire pour l'envoi sur le réseau.`
+
+    ```
+data = s.recv(1024)
+```
+
+
+* `s.recv : Reçoit la réponse du serveur. Encore une fois, 1024 est la taille maximale du bloc de données à recevoir.`
+
+
+```
+Dans ces exemples, le serveur et le client utilisent TCP, un protocole de communication fiable et orienté connexion. Le serveur attend passivement une connexion client, tandis que le client initie activement la connexion. Une fois la connexion établie, ils peuvent communiquer en envoyant et en recevant des données.
+```
+
+
+
+## 6. Gérer et Différencier Plusieurs Clients en python
+
+
+```
+Un serveur TCP peut gérer plusieurs clients simultanément en utilisant le multithreading ou l'asynchronisme. Lorsqu'un client se connecte et que le serveur accepte la connexion, il crée généralement un nouveau thread ou un processus pour gérer la communication avec ce client. Cela permet au serveur principal de continuer à écouter d'autres clients potentiels. Chaque thread gère un socket de connexion distinct, ce qui permet de différencier les clients.
+
+Voici un exemple simplifié de la façon dont un serveur peut gérer plusieurs clients en utilisant le multithreading en Python :
+
+
+
+```
+import socket
+import threading
+
+def handle_client(conn, addr):
+    print(f"Connecté à {addr}")
+    try:
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            conn.sendall(data)
+    finally:
+        conn.close()
+
+def server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('localhost', 6789))
+        s.listen()
+        while True:
+            conn, addr = s.accept()
+            client_thread = threading.Thread(target=handle_client, args=(conn, addr))
+            client_thread.start()
+
+if __name__ == '__main__':
+    server()
+```
+
+
+
+```
+Dans cet exemple, chaque fois qu'un client se connecte, le serveur crée un nouveau thread qui exécute la fonction handle_client, qui gère la communication avec ce client.
+
+Utiliser une Socket sur un Réseau
+
+Pour utiliser une socket sur un réseau et pas uniquement en local, vous devez lier votre socket à une adresse IP publique ou à une adresse IP locale accessible sur le réseau. Au lieu de lier votre socket à 'localhost', vous lieriez à l'adresse IP de l'interface réseau que vous souhaitez utiliser. Assurez-vous que les pare-feu et les routeurs sont configurés pour permettre le trafic sur le port que vous utilisez.
+
+Autres Paramètres pour les Sockets
+
+```
+
+
+
+* `socket.AF_INET : Utilisé pour IPv4. Pour IPv6, vous utiliseriez socket.AF_INET6.`
+* `socket.SOCK_STREAM : Utilisé pour les protocoles orientés connexion comme TCP. Pour les protocoles sans connexion comme UDP, vous utiliseriez socket.SOCK_DGRAM.`
+
+
+```
+Cas d'Usage :
+
+```
+
+
+
+* `socket.SOCK_STREAM : Idéal pour les applications nécessitant une connexion fiable, comme les transferts de fichiers, les communications client-serveur où l'ordre et l'intégrité des données sont importants.`
+* `socket.SOCK_DGRAM : Utilisé pour les applications où la rapidité est plus critique que la fiabilité, comme les jeux en temps réel ou la diffusion de vidéos en streaming, où la perte de quelques paquets n'est pas critique.`
+* `socket.AF_INET6 : Utilisé pour les applications qui doivent communiquer sur des réseaux IPv6, qui est la dernière version du protocole Internet et supporte un plus grand nombre d'adresses IP.`
+
+
+```
+En choisissant le bon type de socket et la bonne famille d'adresses, vous pouvez optimiser votre application pour le réseau et les exigences de communication spécifiques.
+```
+
+
+
+## 7. Différenciation des Messages de Plusieurs Clients en général
+
+
+```
+Lorsqu'un serveur TCP reçoit des connexions de plusieurs clients sur le même port, chaque connexion est unique et est représentée par un nouveau socket de connexion. Voici comment cela fonctionne :
+
+```
+
+
+
+1. `Socket d'Écoute : Le serveur a un "socket d'écoute" qui est lié à une adresse IP spécifique et à un numéro de port. Ce socket écoute les tentatives de connexion entrantes.`
+2. `Établissement de la Connexion : Lorsqu'un client tente de se connecter au serveur, le protocole TCP du serveur négocie une connexion avec le protocole TCP du client. Si la négociation réussit, le serveur accepte la connexion.`
+3. `Socket de Connexion : Une fois la connexion acceptée, le serveur crée un nouveau "socket de connexion" pour communiquer avec ce client. Ce socket de connexion a une paire d'adresses IP et de ports unique : l'adresse IP et le port du client, et l'adresse IP et le port du serveur. Cette paire unique permet au serveur de différencier les connexions clients, même si toutes les connexions utilisent le même port du serveur.`
+4. `Communication : Le serveur communique avec chaque client via son socket de connexion dédié. Même si les données de différents clients arrivent sur le même port d'écoute, elles sont routées vers le socket de connexion approprié grâce à cette paire d'adresses et de ports unique.`
+
+
+```
+Définition d'un Port
+
+Un port est un point de terminaison de communication dans le système d'exploitation d'un ordinateur. Les ports sont utilisés par les protocoles de la couche de transport, comme TCP et UDP, pour aider à acheminer les données de l'Internet vers le bon programme sur un ordinateur. Chaque connexion TCP ou UDP est identifiée de manière unique par une paire d'adresses IP et de ports : l'adresse IP et le port de l'expéditeur, et l'adresse IP et le port du destinataire.
+
+Les ports vont de 0 à 65535. Les ports bien connus (de 0 à 1023) sont attribués par l'IANA pour des services spécifiques (par exemple, le port 80 pour le trafic HTTP). Les ports enregistrés (de 1024 à 49151) sont destinés à des applications spécifiques, et les ports dynamiques ou privés (de 49152 à 65535) sont utilisés par les applications pour les connexions temporaires.
+
+En résumé, un port sert de porte d'entrée pour les communications réseau, permettant au système d'exploitation de savoir à quel programme livrer les paquets de données reçus.
+```
+
+
+
+## 8. Avantages et Limitations des Sockets
+
+
+```
+Les sockets sont extrêmement polyvalents et permettent une communication en temps réel entre les processus. Cependant, ils peuvent être complexes à gérer correctement, en particulier en ce qui concerne la gestion des erreurs et la synchronisation des communications.
+
+
+
+### a. Exemple plus complet
+
+Dans le contexte d'une API, les sockets peuvent être utilisés pour créer un serveur qui écoute les requêtes des clients et y répond. Voici un exemple concret d'un serveur d'API simple utilisant les sockets en Python. Cet exemple illustre un serveur qui accepte des requêtes JSON, traite une action simple (comme une addition), et renvoie une réponse JSON.
+
+Serveur d'API (api_server.py)
+
+
+
+```
+import socket
+import json
+import threading
+
+def process_request(request_data):
+    # Simule le traitement d'une requête, ici une simple addition
+    data = json.loads(request_data)
+    result = data['number1'] + data['number2']
+    return json.dumps({'result': result})
+
+def handle_client(conn, addr):
+    print(f"Connecté à {addr}")
+    try:
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            
+            # Traite la requête et envoie la réponse
+            response = process_request(data.decode('utf-8'))
+            conn.sendall(response.encode('utf-8'))
+    finally:
+        conn.close()
+
+def server():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('localhost', 6789))
+        s.listen()
+        print("Serveur d'API démarré sur le port 6789...")
+        while True:
+            conn, addr = s.accept()
+            client_thread = threading.Thread(target=handle_client, args=(conn, addr))
+            client_thread.start()
+
+if __name__ == '__main__':
+    server()
+```
+
+
+
+```
+Client (api_client.py)
+
+
+
+```
+import socket
+import json
+
+def send_request(number1, number2):
+    request_data = json.dumps({'number1': number1, 'number2': number2})
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.connect(('localhost', 6789))
+        s.sendall(request_data.encode('utf-8'))
+        response = s.recv(1024)
+        print(f"Réponse reçue: {response.decode('utf-8')}")
+
+if __name__ == '__main__':
+    # Envoie une requête d'addition au serveur d'API
+    send_request(10, 20)
+```
+
+
+
+```
+Explication de l'Exemple :
+
+```
+
+
+
+* `Le serveur d'API (api_server.py) écoute les connexions entrantes sur le port 6789.`
+* `Lorsqu'un client se connecte et envoie une requête, le serveur crée un nouveau thread pour gérer la requête.`
+* `La fonction process_request prend les données de la requête, les décode de JSON, effectue une opération (dans cet exemple, une addition), et renvoie le résultat encodé en JSON.`
+* `Le client (api_client.py) envoie une requête JSON contenant deux nombres au serveur et attend la réponse.`
+* `Lorsque le serveur reçoit la requête, il renvoie le résultat de l'addition sous forme de réponse JSON.`
+
+
+```
+
+
+### b. Exemple avec une API HTTP
+Dans une architecture d'API classique, il est courant d'avoir un serveur HTTP qui reçoit des requêtes de clients et qui, pour traiter ces requêtes, doit communiquer avec d'autres services ou processus en arrière-plan. Ces services en arrière-plan peuvent être des bases de données, des services de calcul, des systèmes de files d'attente, etc. Les sockets peuvent être utilisés pour cette communication interprocessus (IPC) en arrière-plan.
+
+Voici un exemple où une API HTTP reçoit des requêtes pour effectuer des opérations, et ces opérations sont déléguées à un processus en arrière-plan via un socket. Le serveur HTTP agit comme un frontal, tandis que le processus en arrière-plan effectue le traitement réel et renvoie le résultat au serveur HTTP, qui le transmet ensuite au client.
+
+Serveur HTTP (http_server.py)
+
+
+
+```
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import json
+import socket
+
+class RequestHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length'])
+        post_data = self.rfile.read(content_length)
+        response = self.send_to_worker(post_data)
+        
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(response)
+
+    def send_to_worker(self, data):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect(('localhost', 6790))
+            s.sendall(data)
+            response = s.recv(1024)
+            return response
+
+if __name__ == '__main__':
+    server = HTTPServer(('localhost', 6789), RequestHandler)
+    print('Starting server at http://localhost:6789')
+    server.serve_forever()
+```
+
+
+
+```
+Processus de Travail (worker.py)
+
+
+
+```
+import socket
+import json
+
+def process_data(data):
+    # Simule un traitement de données complexe
+    result = sum(data)
+    return json.dumps({'result': result}).encode('utf-8')
+
+def worker():
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind(('localhost', 6790))
+        s.listen()
+        print("Worker en écoute sur le port 6790...")
+        while True:
+            conn, addr = s.accept()
+            with conn:
+                data = conn.recv(1024)
+                response = process_data(json.loads(data))
+                conn.sendall(response)
+
+if __name__ == '__main__':
+    worker()
+```
+
+
+
+```
+Explication de l'Exemple :
+
+```
+
+
+
+* `Le serveur HTTP (http_server.py) écoute sur le port 6789 pour les requêtes HTTP POST.`
+* `Lorsqu'une requête est reçue, le serveur extrait les données et les envoie au processus de travail via un socket TCP.`
+* `Le processus de travail (worker.py) écoute sur le port 6790 pour les connexions du serveur HTTP.`
+* `Lorsque le processus de travail reçoit des données, il les traite (dans cet exemple, il calcule la somme d'une liste de nombres) et renvoie le résultat au serveur HTTP.`
+* `Le serveur HTTP reçoit la réponse du processus de travail et la renvoie au client HTTP.`
+
+
+```
+Dans cet exemple, le serveur HTTP et le processus de travail communiquent sur le réseau local, mais ils pourraient tout aussi bien être sur des machines distinctes. Cela illustre comment les sockets peuvent être utilisés pour la communication interprocessus derrière une façade HTTP, permettant une séparation des préoccupations et la possibilité de distribuer le traitement sur plusieurs processus ou serveurs.
+```
+
+

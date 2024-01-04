@@ -7,7 +7,7 @@ categories:
   - Cours
 type: book
 description: ""
-image: .img/history.png
+image: .img/API101.webp
 ---
 
 # 1. Qu'est-ce qu'une API?

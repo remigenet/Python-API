@@ -13,7 +13,7 @@ categories:
   - Introduction
 type: book
 description: Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.
-image: .img/path.png
+image: .img/guard101.webp
 ---
 
 

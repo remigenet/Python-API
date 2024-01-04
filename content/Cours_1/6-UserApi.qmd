@@ -13,7 +13,7 @@ categories:
   - Introduction
 type: book
 description: Choisir son IDE, une question de goûts mais un impact important sur la productivité.
-image: .img/IDEs.png
+image: .img/tester102.webp
 ---
 
 

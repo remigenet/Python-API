@@ -14,7 +14,7 @@ categories:
   - Fondamentaux
 type: book
 description: "Ce chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la manipulation des arguments, l'utilisation des expressions lambda, ainsi que l'importation et l'organisation des modules. Des exemples pratiques illustrent comment ces éléments peuvent être utilisés pour structurer efficacement un projet Python et simplifier la gestion des dépendances."
-image: .img/functionsandmodules.png
+image: .img/authenticate.webp
 code-links: binder
 ---
 

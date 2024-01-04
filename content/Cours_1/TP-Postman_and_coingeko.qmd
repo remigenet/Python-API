@@ -12,7 +12,7 @@ categories:
   - Introduction
 type: book
 # description: 
-image: .img/tpcompile.png
+image: .img/TP.webp
 ---
 
 ## Objectif : Apprendre à connaître l'outil Postman, ses origines, ses différentes fonctionnalités et comment il peut être utilisé pour travailler avec des API.

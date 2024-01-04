@@ -10,8 +10,8 @@ categories:
   - Cours
   - Fondamentaux
 type: book
-description: "Requête HTTP, Webscrapping, websockets, API, JSON, XML, CSV, HTML, SQL, NoSQL, FTP, SSH, ..."
-image: .img/EventLoopPythonAsyncio-5.png
+description: ""
+image: .img/SharedMemory.webp
 code-links: binder
 ---
 

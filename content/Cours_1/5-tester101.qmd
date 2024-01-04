@@ -16,7 +16,7 @@ categories:
   - Introduction
 type: book
 description: Les outils pour gerer plusieurs versions de python facilement, et le concept d'environnements virtuels - 
-image: .img/virtualenv.png
+image: .img/tester101.webp
 ---
 
 

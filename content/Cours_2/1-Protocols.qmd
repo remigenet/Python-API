@@ -11,7 +11,7 @@ categories:
   - Fondamentaux
 type: book
 description: "Ce chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant tout, des variables et opérateurs aux structures de données essentielles comme les listes, les dictionnaires, et les tuples. Chaque section est enrichie d'exemples concrets et d'explications détaillées pour faciliter la compréhension et l'application pratique des concepts."
-image: .img/basesyntax.png
+image: .img/protocols.webp
 code-links: binder
 ---
 

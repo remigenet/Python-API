@@ -16,10 +16,10 @@ website:
       - file: index.qmd
         text: Home 
       - sidebar:introduction
-      - sidebar:discover
-      - sidebar:libraries
-      - sidebar:advanced_mix
-      - sidebar:advanced_mix_2
+      - sidebar:async
+      - sidebar:ipc
+      - sidebar:conceive
+      - sidebar:deploy
       - sidebar:projects
       - sidebar:annexes
     tools:
@@ -39,46 +39,62 @@ website:
       - content/Cours_1/3-Concepteur101.qmd
       - content/Cours_1/4-guard101.qmd
       - content/Cours_1/5-tester101.qmd
-      - content/Cours_1/6-Postman_CGG.opy
+      - content/Cours_1/6-UserApi.qmd
       - section: Travaux Pratiques
         expanded: false
         contents:
         - content/Cours_1/7-TP-Postman_and_coingeko.qmd
       icon: book
-    - id: discover 
+    - id: async 
       title: "Consommation avancée d'API"
       contents: 
        - content/Cours_2/1-Protocols.qmd
        - content/Cours_2/2-Authenticate.qmd
        - content/Cours_2/3-Conception-optimizations.py
-       - content/Cours_2/1-FondamentauxSyntaxique.qmd
-       - content/Cours_2/2-FonctionsEtModules.qmd
-       - content/Cours_2/3-IntroducingPOOConcept.qmd
-    - id: libraries 
+       - section: Travaux Pratiques
+         expanded: false
+         contents:
+         - content/Cours_2/TP-2-compare-run
+    - id: ipc 
       title: "Communication entre Processus (IPC)"
       contents: 
-       - content/Cours_3/1-IPCwarming.qmd
-       - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
-       - content/Cours_3/3-MachineLearning.qmd
-       - content/Cours_3/4-Access_Internet.qmd
-       - content/Cours_3/5-Feed_Internet.qmd
-       - content/Cours_3/6-Visualisation.qmd
-       - content/Cours_3/bonus-pandas_short_examplet.qmd
-       - content/Cours_3/TP-pandas_and_geography.ipynb
-    - id: advanced_mix 
+       - content/Cours_3/1-IPC101.qmd
+       - content/Cours_3/2-Sockets.qmd
+       - content/Cours_3/3-Files.qmd
+       - content/Cours_3/4-SharedMemory.qmd
+       - content/Cours_3/5-Pipes.qmd
+       - content/Cours_3/6-gRPC.qmd
+       - content/Cours_3/7-OtherIPCend.qmd
+       - section: Travaux Pratiques
+         expanded: false
+         contents:
+         - content/Cours_3/TP-3-1-qmd
+         - content/Cours_3/TP-3-2-qmd
+    - id: conceive 
       title: "Conception d'APIs"
       contents: 
-       - content/Cours_4/1-IntroConception
-       - content/Cours_4/2-TypageEnPython.qmd
-       - content/Cours_4//3-TournonsAutourduGIL.qmd
-       - content/Cours_4/TP-RequetteruneAPI.qmd
-    - id: advanced_mix_2 
+       - content/Cours_4/1-IntroConception.qmd
+       - content/Cours_4/2-Frameworks.qmd
+       - content/Cours_4//3-Falsk.qmd
+       - content/Cours_4/4-FastAPI.qmd
+       - content/Cours_4/5-DjangoRest.qmd
+       - content/Cours_4/6-testanddocs.qmd
+       - content/Cours_4/7-Good Practice.qmd
+       - content/Cours_4/8.Conclusion.qmd
+       - section: Travaux Pratiques
+         expanded: false
+         contents:
+         - content/Cours_4/TP-RequetteruneAPI.qmd
+    - id: deploy 
       title: "Déploiement d'API - Principes Généraux et Mise en Pratique avec Heroku"
       contents: 
-       - content/Cours_5/1.qmd
-       - content/Cours_5/2-POO_le_retour.qmd
-       - content/Cours_5/3-patterndesign.qmd
-       - content/Cours_5/TP-POO.qmd
+       - content/Cours_5/1-Introdepl.qmd
+       - content/Cours_5/2-heroku.qmd
+       - content/Cours_5/3-Best Practice.qmd
+       - content/Cours_5/4-herodepl.qmd
+       - content/Cours_5/5-moreexample.qmd
+       - content/Cours_5/6-domain.qmd
+       - content/Cours_5/7-end.qmd
     - id: projects 
       title: "Sujets de Projets possibles"
     - id: annexes 
@@ -121,3 +137,4 @@ commentable: true
 validate-yaml: false
 crossref:
   chapters: true
+lightbox: auto
