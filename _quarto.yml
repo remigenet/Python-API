@@ -33,38 +33,31 @@ website:
       href: index.qmd
     - id: introduction
       title: "Introduction aux API"
-      contents: 
+      contents:
       - content/Cours_1/1-API101.qmd
       - content/Cours_1/2-User101.qmd
       - content/Cours_1/3-Concepteur101.qmd
       - content/Cours_1/4-guard101.qmd
       - content/Cours_1/5-tester101.qmd
       - content/Cours_1/6-Postman_CGG.opy
-      - content/Cours_1/7-TP-Postman_and_coingeko.qmd
-      - section: Quelques IDEs en Python
-        expanded: false
-        contents:
-        - content/Cours_1/IDEs/VsCode.qmd
-        - content/Cours_1/IDEs/Spyder.qmd
-        - content/Cours_1/IDEs/Pycharm.qmd
       - section: Travaux Pratiques
         expanded: false
         contents:
-        - content/Cours_1/TP-ConstruireSonPython.qmd
+        - content/Cours_1/7-TP-Postman_and_coingeko.qmd
       icon: book
     - id: discover 
       title: "Consommation avancée d'API"
       contents: 
-       - content/Cours_2/1-FondamentauxSyntaxique.qmd
-       - content/Cours_2/1.1-Exercices.py
-       - content/Cours_2/1.2-Exercices.py
+       - content/Cours_2/1-Protocols.qmd
+       - content/Cours_2/2-Authenticate.qmd
+       - content/Cours_2/3-Conception-optimizations.py
        - content/Cours_2/1-FondamentauxSyntaxique.qmd
        - content/Cours_2/2-FonctionsEtModules.qmd
        - content/Cours_2/3-IntroducingPOOConcept.qmd
     - id: libraries 
       title: "Communication entre Processus (IPC)"
       contents: 
-       - content/Cours_3/1-Dataframes.qmd
+       - content/Cours_3/1-IPCwarming.qmd
        - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
        - content/Cours_3/3-MachineLearning.qmd
        - content/Cours_3/4-Access_Internet.qmd
@@ -75,14 +68,14 @@ website:
     - id: advanced_mix 
       title: "Conception d'APIs"
       contents: 
-       - content/Cours_4/1-MutabilitéEtScopes
+       - content/Cours_4/1-IntroConception
        - content/Cours_4/2-TypageEnPython.qmd
        - content/Cours_4//3-TournonsAutourduGIL.qmd
        - content/Cours_4/TP-RequetteruneAPI.qmd
     - id: advanced_mix_2 
       title: "Déploiement d'API - Principes Généraux et Mise en Pratique avec Heroku"
       contents: 
-       - content/Cours_5/1-AST.qmd
+       - content/Cours_5/1.qmd
        - content/Cours_5/2-POO_le_retour.qmd
        - content/Cours_5/3-patterndesign.qmd
        - content/Cours_5/TP-POO.qmd
