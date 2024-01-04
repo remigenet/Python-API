@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-04">
+<meta name="description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue">
+
+<title>Introduction à Python - Python - Aussi un language pour servir des données</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - Python - Aussi un language pour servir des données">
+<meta property="og:description" content="Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue">
+<meta property="og:image" content=".img/api.png">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="Python - Aussi un language pour servir des données">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-04">
+<meta name="citation_cover_date" content="2024-01-04">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-04">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API en tant qu’utilisateur</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Versions et Compilation de Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Le PATH</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
+ <span class="dropdown-text">Path.. et environnements virtuels!</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Quelques IDEs en Python</li>
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Calcul_Scientifique_et_Optimization.html">
+ <span class="dropdown-text">Calcul Scientifique et Optimization</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Annexes</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
+ <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
+ <span class="dropdown-text">Git Basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
+ <span class="dropdown-text">Git - Pour aller plus loin</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#python---aussi-un-language-pour-le-développement-web-backend" id="toc-python---aussi-un-language-pour-le-développement-web-backend" class="nav-link active" data-scroll-target="#python---aussi-un-language-pour-le-développement-web-backend">Python - Aussi un language pour le Développement Web Backend</a></li>
+  <li><a href="#v.-pipes-en-communication-interprocessus" id="toc-v.-pipes-en-communication-interprocessus" class="nav-link" data-scroll-target="#v.-pipes-en-communication-interprocessus">V. Pipes en Communication Interprocessus</a>
+  <ul class="collapse">
+  <li><a href="#définition-et-concepts-de-base" id="toc-définition-et-concepts-de-base" class="nav-link" data-scroll-target="#définition-et-concepts-de-base">1. Définition et Concepts de Base</a></li>
+  <li><a href="#pipes-au-niveau-système" id="toc-pipes-au-niveau-système" class="nav-link" data-scroll-target="#pipes-au-niveau-système">2. Pipes au Niveau Système</a></li>
+  <li><a href="#fonctionnement-des-pipes" id="toc-fonctionnement-des-pipes" class="nav-link" data-scroll-target="#fonctionnement-des-pipes">3. Fonctionnement des Pipes</a></li>
+  <li><a href="#pipes-en-python" id="toc-pipes-en-python" class="nav-link" data-scroll-target="#pipes-en-python">4. Pipes en Python</a></li>
+  <li><a href="#avantages-et-limitations-des-pipes" id="toc-avantages-et-limitations-des-pipes" class="nav-link" data-scroll-target="#avantages-et-limitations-des-pipes">5. Avantages et Limitations des Pipes</a></li>
+  <li><a href="#comparaison-avec-dautres-méthodes-dipc" id="toc-comparaison-avec-dautres-méthodes-dipc" class="nav-link" data-scroll-target="#comparaison-avec-dautres-méthodes-dipc">6. Comparaison avec d’autres Méthodes d’IPC</a></li>
+  <li><a href="#pipes-et-système-de-fichiers" id="toc-pipes-et-système-de-fichiers" class="nav-link" data-scroll-target="#pipes-et-système-de-fichiers">7. Pipes et Système de Fichiers</a></li>
+  <li><a href="#exemples-dimplémentation-de-pipes-en-python" id="toc-exemples-dimplémentation-de-pipes-en-python" class="nav-link" data-scroll-target="#exemples-dimplémentation-de-pipes-en-python">8. Exemples d’Implémentation de Pipes en Python</a>
+  <ul class="collapse">
+  <li><a href="#b.-communication-bidirectionnelle-avec-un-pipe-anonyme" id="toc-b.-communication-bidirectionnelle-avec-un-pipe-anonyme" class="nav-link" data-scroll-target="#b.-communication-bidirectionnelle-avec-un-pipe-anonyme">b. Communication Bidirectionnelle avec un Pipe Anonyme</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Python - Aussi un language pour servir des données</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Django, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-04</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="python---aussi-un-language-pour-le-développement-web-backend" class="level1">
+<h1>Python - Aussi un language pour le Développement Web Backend</h1>
+<hr>
+</section>
+<section id="v.-pipes-en-communication-interprocessus" class="level1">
+<h1>V. Pipes en Communication Interprocessus</h1>
+<pre><code>Les pipes sont des mécanismes essentiels en communication interprocessus (IPC), permettant le transfert de données entre processus. Ils sont particulièrement adaptés aux architectures où les données doivent être transmises séquentiellement d'un processus à un autre.</code></pre>
+<section id="définition-et-concepts-de-base" class="level2">
+<h2 class="anchored" data-anchor-id="définition-et-concepts-de-base">1. Définition et Concepts de Base</h2>
+<pre><code>Un pipe est une section de mémoire utilisée pour le stockage temporaire de données en transit entre deux processus. En termes de programmation système, un pipe est un tampon de données, généralement de taille fixe, qui est géré par le système d'exploitation. Les pipes peuvent être anonymes, c'est-à-dire utilisés pour la communication entre processus parent-enfant ou entre processus frères, ou nommés, également connus sous le nom de FIFO (First In, First Out), qui peuvent être utilisés par n'importe quel processus connaissant le nom du pipe.</code></pre>
+</section>
+<section id="pipes-au-niveau-système" class="level2">
+<h2 class="anchored" data-anchor-id="pipes-au-niveau-système">2. Pipes au Niveau Système</h2>
+<pre><code>
+
+### a. Pipes Anonymes
+Les pipes anonymes sont des canaux de communication temporaires qui ne sont pas persistants et qui existent uniquement tant que les processus les utilisant sont en vie. Ils sont souvent utilisés pour la communication entre processus parent-enfant ou entre processus frères.
+
+
+### b. Pipes Només (FIFOs)
+Les pipes només sont des canaux de communication persistants qui existent indépendamment des processus et sont représentés par un nom dans le système de fichiers. Ils sont utilisés pour la communication entre processus qui n'ont pas nécessairement de relation directe.</code></pre>
+</section>
+<section id="fonctionnement-des-pipes" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnement-des-pipes">3. Fonctionnement des Pipes</h2>
+<pre><code>Lorsqu'un pipe est créé, le système d'exploitation alloue un tampon de mémoire et retourne deux descripteurs de fichiers : un pour la fin en écriture et un pour la fin en lecture. Les processus interagissent avec le pipe en utilisant ces descripteurs, tout comme ils le feraient avec des fichiers ordinaires. Les données écrites dans le pipe par un processus sont stockées dans le tampon jusqu'à ce qu'elles soient lues par un autre processus.</code></pre>
+</section>
+<section id="pipes-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="pipes-en-python">4. Pipes en Python</h2>
+<pre><code>En Python, les pipes sont accessibles via le module multiprocessing. Ce module fournit une abstraction de haut niveau pour la création et la gestion des pipes, permettant aux développeurs de se concentrer sur la logique de leur application plutôt que sur les détails de bas niveau de la communication interprocessus.
+
+
+### a. Pipes Anonymes
+Python simplifie l'utilisation des pipes anonymes avec la classe Pipe du module multiprocessing. Lorsqu'un objet Pipe est créé, il retourne deux objets de connexion, chacun agissant comme une extrémité du pipe.
+
+
+### b. Pipes Només
+Pour les pipes només, Python offre le module os qui permet de créer des FIFOs via la fonction mkfifo. Une fois le FIFO créé, il peut être ouvert et utilisé comme un fichier ordinaire pour la lecture et l'écriture de données.</code></pre>
+</section>
+<section id="avantages-et-limitations-des-pipes" class="level2">
+<h2 class="anchored" data-anchor-id="avantages-et-limitations-des-pipes">5. Avantages et Limitations des Pipes</h2>
+<pre><code>
+
+### a. Avantages
+</code></pre>
+<ul>
+<li><code>Simplicité d'utilisation : Les pipes sont faciles à utiliser, en particulier en Python grâce aux abstractions fournies par le module multiprocessing.</code></li>
+<li><code>Efficacité : Pour les communications séquentielles et les petites quantités de données, les pipes sont très efficaces.</code></li>
+</ul>
+<pre><code>
+
+### b. Limitations
+</code></pre>
+<ul>
+<li><code>Communication unidirectionnelle : Par défaut, un pipe est unidirectionnel. Pour une communication bidirectionnelle, il faut créer deux pipes.</code></li>
+<li><code>Capacité limitée : Les pipes ont une capacité limitée, déterminée par le système d'exploitation, et ne sont pas conçus pour de grandes quantités de données.</code></li>
+<li><code>Dépendance au système d'exploitation : Les détails d'implémentation des pipes peuvent varier selon les systèmes d'exploitation.</code></li>
+</ul>
+</section>
+<section id="comparaison-avec-dautres-méthodes-dipc" class="level2">
+<h2 class="anchored" data-anchor-id="comparaison-avec-dautres-méthodes-dipc">6. Comparaison avec d’autres Méthodes d’IPC</h2>
+<pre><code>Les pipes se distinguent des autres méthodes d'IPC par leur simplicité et leur efficacité pour les flux de données séquentiels. Contrairement aux sockets, ils ne sont pas conçus pour la communication réseau. Par rapport aux fichiers, ils offrent une communication en temps réel sans persistance des données. Enfin, à la différence de la mémoire partagée, ils ne nécessitent pas de mécanismes de synchronisation complexes, mais ils ne sont pas non plus adaptés pour le partage d'états ou de structures de données complexes entre processus.</code></pre>
+</section>
+<section id="pipes-et-système-de-fichiers" class="level2">
+<h2 class="anchored" data-anchor-id="pipes-et-système-de-fichiers">7. Pipes et Système de Fichiers</h2>
+<pre><code>Les pipes només sont étroitement liés au système de fichiers car ils y sont représentés par un nom. Ce lien avec le système de fichiers permet aux pipes només de persister au-delà de la vie des processus et d'être accessibles par des processus qui n'ont pas de lien de parenté direct, à condition qu'ils aient les permissions nécessaires pour accéder au fichier représentant le pipe.
+
+Mécanisme de Fonctionnement :
+</code></pre>
+<ol type="1">
+<li><code>Création : Un pipe nomé est créé dans le système de fichiers avec un appel système spécifique.</code></li>
+<li><code>Ouverture : Les processus ouvrent le pipe nomé en utilisant les appels système standard pour l'ouverture de fichiers.</code></li>
+<li><code>Communication : Les données sont écrites dans le pipe et lues par un autre processus, en respectant l'ordre FIFO.</code></li>
+<li><code>Fermeture et Suppression : Comme pour les fichiers, les processus doivent fermer les descripteurs de fichiers lorsqu'ils ont terminé et, pour les pipes només, les supprimer du système de fichiers pour libérer l'espace de noms.</code></li>
+</ol>
+<pre><code>Ces concepts forment la base de la compréhension des pipes en IPC et sont essentiels pour les développeurs qui souhaitent implémenter une communication efficace et structurée entre processus dans leurs applications.</code></pre>
+</section>
+<section id="exemples-dimplémentation-de-pipes-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-dimplémentation-de-pipes-en-python">8. Exemples d’Implémentation de Pipes en Python</h2>
+<pre><code>Les exemples suivants illustrent comment utiliser les pipes pour la communication interprocessus en Python en utilisant le module multiprocessing.
+
+
+### a. Communication Simple avec un Pipe Anonyme
+Dans cet exemple, nous allons créer un pipe anonyme pour une communication unidirectionnelle entre deux processus : un émetteur (sender) et un récepteur (receiver).
+
+
+</code></pre>
+<p>from multiprocessing import Process, Pipe</p>
+<p>def sender(conn): for i in range(5): conn.send(f’Message {i}‘) print(f’Sent: Message {i}’) conn.close()</p>
+<p>def receiver(conn): while True: message = conn.recv() if message == ‘END’: break print(f’Received: {message}’)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: parent_conn, child_conn = Pipe() p1 = Process(target=sender, args=(parent_conn,)) p2 = Process(target=receiver, args=(child_conn,))</p>
+<pre><code>p1.start()
+p2.start()
+
+p1.join()
+parent_conn.send('END')  # Envoyer un signal de fin au récepteur
+p2.join()</code></pre>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, le processus sender envoie une série de messages au processus receiver via le pipe. Le receiver continue de lire les messages jusqu’à ce qu’il reçoive un message spécial ‘END’ qui signale la fin de la communication.</p>
+<section id="b.-communication-bidirectionnelle-avec-un-pipe-anonyme" class="level3">
+<h3 class="anchored" data-anchor-id="b.-communication-bidirectionnelle-avec-un-pipe-anonyme">b. Communication Bidirectionnelle avec un Pipe Anonyme</h3>
+<p>Ici, nous allons étendre l’exemple précédent pour permettre une communication bidirectionnelle entre les processus.</p>
+<pre><code>from multiprocessing import Process, Pipe
+
+def process_one(conn):
+    conn.send('Bonjour du Processus 1')
+    print(f'Processus 1 a reçu: {conn.recv()}')
+    conn.close()
+
+def process_two(conn):
+    conn.send('Bonjour du Processus 2')
+    print(f'Processus 2 a reçu: {conn.recv()}')
+    conn.close()
+
+if __name__ == '__main__':
+    conn1, conn2 = Pipe()
+    
+    p1 = Process(target=process_one, args=(conn1,))
+    p2 = Process(target=process_two, args=(conn2,))
+    
+    p1.start()
+    p2.start()
+    
+    p1.join()
+    p2.join()</code></pre>
+<pre><code>Dans cet exemple, chaque processus envoie un message à l'autre et reçoit une réponse. La communication est bidirectionnelle car chaque extrémité du pipe peut être utilisée à la fois pour envoyer et recevoir des données.
+
+
+### c. Exemple 3: Utilisation d'un Pipe Nomé (FIFO)
+Pour cet exemple, nous utiliserons le module os pour créer un pipe nomé et communiquer entre processus indépendants.
+
+
+</code></pre>
+<p>import os import time</p>
+<p>fifo_path = ‘/tmp/my_fifo’</p>
+<p>def writer(): os.mkfifo(fifo_path) # Créer un FIFO with open(fifo_path, ‘w’) as fifo: for i in range(5): fifo.write(f’Données {i}‘) fifo.flush() # Assurer l’envoi des données print(f’Écrit: Données {i}’) time.sleep(1) os.remove(fifo_path) # Nettoyer en supprimant le FIFO</p>
+<p>def reader(): while not os.path.exists(fifo_path): time.sleep(1) # Attendre que le FIFO soit créé with open(fifo_path, ‘r’) as fifo: for line in fifo: print(f’Lu: {line.strip()}’)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: p1 = Process(target=writer) p2 = Process(target=reader)</p>
+<pre><code>p2.start()
+p1.start()
+
+p1.join()
+p2.join()</code></pre>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, le processus writer crée un pipe nomé (FIFO) et écrit des données dedans. Le processus reader ouvre le même FIFO pour lire les données. Le FIFO persiste dans le système de fichiers et est accessible par son chemin. ```</p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

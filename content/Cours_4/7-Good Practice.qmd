@@ -1,0 +1,409 @@
+---
+title: "Asynchronie et Multiprocessing"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/numpy.png
+code-links: binder
+---
+
+# Asynchronie et Multiprocessing - comment donner le tournis au GIL
+
+---
+
+
+
+
+# VII. Bonnes Pratiques de Conception d'APIs
+
+
+```
+La conception d'une API est un élément fondamental qui détermine sa facilité d'utilisation, sa performance et sa maintenabilité. Voici quelques bonnes pratiques à considérer lors de la conception d'une API.
+```
+
+
+
+## 1. Conception RESTful
+
+
+```
+RESTful fait référence à une API qui suit les contraintes de l'architecture REST (Representational State Transfer). Cela signifie que l'API utilise des méthodes HTTP standard sans maintenir l'état du client entre les requêtes, ce qui la rend sans état. Les données sont représentées de manière standard (comme JSON ou XML), et les opérations sur les données sont effectuées à l'aide de méthodes HTTP (comme GET, POST, PUT, DELETE).
+
+Un exemple d'API RESTful est une API qui gère les utilisateurs. Les URIs sont structurées de manière logique, par exemple :
+
+```
+
+
+
+* `GET /users pour récupérer une liste d'utilisateurs.`
+* `POST /users pour créer un nouvel utilisateur.`
+b Introduction au Calcul Scientifique
+Le calcul scientifique est une discipline essentielle dans de nombreux domaines de la recherche et de l'industrie. En Python, cela implique souvent l'utilisation de bibliothèques telles que NumPy, SciPy, et autres, qui fournissent des outils efficaces pour le calcul numérique.
+
+## NumPy : Fondement du Calcul Scientifique en Python
+- **NumPy** est une bibliothèque de base pour le calcul scientifique en Python. Elle offre des structures de données puissantes, optimisées pour les opérations mathématiques complexes et la manipulation de grands ensembles de données.
+
+## Fonctionnalités Clés de NumPy
+1. **Tableaux Multidimensionnels**: Les ndarray de NumPy sont plus performants que les listes Python pour les opérations mathématiques.
+```{python}
+import numpy as np
+arr = np.array([1, 2, 3, 4, 5])
+```
+
+2. **Opérations Mathématiques Rapides et Efficaces**: NumPy permet des calculs vectorisés, ce qui est plus rapide que les boucles traditionnelles.
+```{python}
+arr = arr + 1  # Ajoute 1 à chaque élément
+```
+
+3. **Fonctions Mathématiques Avancées**: NumPy inclut des fonctions pour l'algèbre linéaire, la transformée de Fourier, et plus.
+```{python}
+matrix = np.random.rand(3, 3)  # Crée une matrice 3x3 de nombres aléatoires
+np.linalg.inv(matrix)  # Inversion d'une matrice
+```
+
+## SciPy : Élargissement des Capacités de Calcul
+- **SciPy** s'appuie sur NumPy pour offrir un ensemble plus large de fonctionnalités pour le calcul scientifique, notamment dans l'optimisation, l'intégration numérique, et la statistique.
+
+## Exemple d'Utilisation de SciPy pour l'Optimisation
+- **Optimisation**: Trouver le minimum ou le maximum d'une fonction.
+```{python}
+from scipy.optimize import minimize
+
+def func(x):
+    return x**2 + 5
+
+result = minimize(func, 0)  # Trouve le minimum de la fonction
+```
+
+## Exercice Pratique
+1. **Objectif**: Utiliser NumPy et SciPy pour résoudre un problème d'optimisation.
+2. **Énoncé**: Définissez une fonction mathématique simple (par exemple, un polynôme) et utilisez SciPy pour trouver son minimum.
+3. **Solution**:
+```{python}
+def poly(x):
+    return x**2 - 5*x + 4
+
+result = minimize(poly, 0)  # Trouver le minimum du polynôme
+```
+
+## Conclusion
+Le calcul scientifique en Python, grâce à des bibliothèques comme NumPy et SciPy, est une composante essentielle pour les chercheurs et les ingénieurs. Ces outils offrent des capacités puissantes pour traiter des problèmes mathématiques complexes, de l'algèbre linéaire à l'optimisation numérique.
+
+### Aspects Avancés du Calcul Scientifique et de l'Optimisation
+
+#### Utilisation Avancée de NumPy
+
+1. **Indexation Sophistiquée**: NumPy offre des méthodes d'indexation avancées qui permettent de manipuler et d'accéder aux données de manière très flexible.
+   - **Indexation Booléenne**: Sélectionner des éléments basés sur des conditions.
+     ```python
+     arr[arr > 2]  # Sélectionne les éléments supérieurs à 2
+     ```
+   - **Indexation Fantaisie**: Sélectionner des éléments en utilisant des listes d'indices.
+     ```python
+     arr[[1, 3, 4]]  # Sélectionne les éléments aux positions 1, 3, et 4
+     ```
+
+2. **Broadcasting**: Une méthode puissante pour effectuer des opérations arithmétiques sur des tableaux de formes différentes.
+   ```python
+   arr + np.array([1, 2, 3])  # Ajoute [1, 2, 3] à chaque ligne de 'arr'
+   ```
+
+3. **Manipulation de Formes**: Reshaper les tableaux pour les adapter aux besoins de vos calculs.
+   ```python
+   arr.reshape(3, 2)  # Remodeler le tableau en 3 lignes et 2 colonnes
+   ```
+
+#### Optimisation avec SciPy
+
+1. **Optimisation Multivariable**: SciPy n'est pas limité à l'optimisation de fonctions à une seule variable. Il peut également optimiser des fonctions avec plusieurs variables.
+   ```python
+   def func(x):
+       return x[0]**2 + x[1]**2 + x[2]**2  # Fonction à 3 variables
+
+   result = minimize(func, [0, 0, 0])  # Point de départ : [0, 0, 0]
+   ```
+
+2. **Contraintes et Bornes**: Vous pouvez ajouter des contraintes et des bornes à votre problème d'optimisation pour le rendre plus réaliste.
+   ```python
+   cons = ({'type': 'eq', 'fun': lambda x: x[0] + x[1] - 1})  # Contrainte d'égalité
+   bnds = ((0, None), (0, None))  # Bornes pour x[0] et x[1]
+
+   result = minimize(func, [0, 0], constraints=cons, bounds=bnds)
+   ```
+
+#### Exercice Pratique Avancé
+
+1. **Objectif**: Approfondir l'utilisation de NumPy et SciPy pour des calculs complexes.
+2. **Énoncé**: Créez un tableau 2D avec NumPy et utilisez l'indexation fantaisie pour sélectionner des éléments spécifiques. Ensuite, définissez une fonction multivariable et utilisez SciPy pour la minimiser avec des contraintes.
+3. **Solution**:
+```{python}
+import numpy as np
+from scipy.optimize import minimize
+
+# NumPy: Indexation fantaisie
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr2d[[0, 2], [1, 2]])  # Sélectionne les éléments (0,1) et (2,2)
+
+# SciPy: Optimisation multivariable avec contraintes
+def func(x):
+    return x[0]**2 + x[1]**2
+
+cons = ({'type': 'eq', 'fun': lambda x: x[0] + x[1] - 1})  # x[0] + x[1] doit être égal à 1
+result = minimize(func, [0.5, 0.5], constraints=cons)
+print(result)
+```
+
+#### Conclusion
+Les fonctionnalités avancées de NumPy et SciPy ouvrent des possibilités presque illimitées pour le calcul scientifique en Python. L'indexation avancée, le broadcasting, l'optimisation multivariable, et les contraintes ne sont que quelques exemples des outils puissants à la disposition des scientifiques et ingénieurs. Maîtriser ces outils peut significativement accélérer et améliorer la qualité de la recherche et du développement.
+
+### Applications Pratiques du Calcul Scientifique et de l'Optimisation
+
+#### Cas d'Utilisation dans Divers Domaines
+
+1. **Ingénierie**: L'utilisation de NumPy et SciPy en ingénierie est cruciale pour des tâches telles que l'analyse structurelle, la simulation de systèmes dynamiques, et la conception assistée par ordinateur (CAO).
+   - **Exemple**: Dans l'ingénierie mécanique, on utilise souvent ces outils pour résoudre des équations différentielles qui modélisent le comportement dynamique des systèmes.
+
+2. **Physique et Chimie**: Les calculs complexes en physique et en chimie, comme la modélisation moléculaire ou la dynamique des fluides, peuvent être réalisés avec efficacité grâce à ces bibliothèques.
+   - **Exemple**: Les chercheurs en physique quantique peuvent utiliser SciPy pour résoudre des problèmes d'optimisation dans la recherche de l'état fondamental des systèmes quantiques.
+
+3. **Finance et Économétrie**: NumPy et SciPy sont largement utilisés dans le domaine de la finance pour l'analyse de risques, la modélisation de marchés, et l'optimisation de portefeuilles.
+   - **Exemple**: En finance quantitative, ces outils aident à optimiser les portefeuilles en minimisant le risque pour un rendement donné.
+
+#### Optimisation des Performances dans le Calcul Scientifique
+
+1. **Utilisation de Cython ou Numba**: Pour des calculs intensifs, l'utilisation de Cython ou Numba pour compiler le code Python en code machine peut apporter une amélioration significative des performances.
+
+2. **Parallélisation des Calculs**: L'utilisation de la parallélisation, par exemple avec Dask ou des opérations multithreading/multiprocessing, peut accélérer les calculs lourds.
+
+3. **Gestion Efficace de la Mémoire**: Utiliser des techniques comme la vectorisation et éviter les copies inutiles de données pour réduire la consommation de mémoire.
+
+#### Conclusion
+Le calcul scientifique et l'optimisation en Python, grâce à des bibliothèques comme NumPy et SciPy, jouent un rôle clé dans une multitude de domaines. Que ce soit pour résoudre des problèmes complexes en ingénierie, en physique, en chimie, ou en finance, ces outils offrent les capacités nécessaires pour réaliser des analyses précises et des simulations efficaces. La maîtrise de ces outils est donc essentielle pour tout scientifique ou ingénieur souhaitant exploiter pleinement le potentiel du calcul numérique.
+
+
+1. `Utilisation correcte des méthodes HTTP : GET pour récupérer des données, POST pour créer des données, PUT/PATCH pour mettre à jour et DELETE pour supprimer.`
+2. `Des URIs bien structurées : Les URIs doivent être intuitives et hiérarchiques, reflétant les relations entre les ressources.`
+3. `Sans état : Chaque requête doit contenir toutes les informations nécessaires pour être traitée, sans dépendre d'un état stocké sur le serveur.`
+4. `Cacheable : Les réponses doivent être définies comme cacheables ou non, pour améliorer les performances.`
+5. `Système de couche : L'API doit être structurée en couches, chaque couche ayant une fonction spécifique.`
+
+
+## 2. Gestion des erreurs
+
+
+```
+Une bonne gestion des erreurs est essentielle pour aider les développeurs à comprendre ce qui ne va pas lorsqu'une requête échoue. Voici quelques recommandations :
+
+```
+
+
+
+1. `Utiliser des codes d'état HTTP appropriés : Par exemple, 404 pour "Non trouvé", 400 pour "Mauvaise requête", 500 pour "Erreur interne du serveur".`
+2. `Fournir des messages d'erreur descriptifs : Inclure des messages d'erreur clairs et, si possible, des indications sur la façon de résoudre le problème.`
+3. `Standardiser les réponses d'erreur : Utiliser un format cohérent pour toutes les réponses d'erreur.`
+
+
+```
+Voici un exemple de gestion des erreurs dans Flask :
+
+
+
+```
+from flask import Flask, jsonify, make_response
+
+app = Flask(__name__)
+
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
+
+@app.route('/users/<int:user_id>', methods=['GET'])
+def get_user(user_id):
+    user = find_user_by_id(user_id)
+    if user is None:
+        return not_found('Not found')
+    return jsonify({'user': user})
+```
+
+
+
+```
+Dans cet exemple, @app.errorhandler(404) est un décorateur qui définit une fonction personnalisée pour gérer les erreurs 404, renvoyant un message JSON et le code d'état approprié.
+```
+
+
+
+## 3. Pagination, Filtrage et Tri des données
+
+
+```
+Lorsque vous travaillez avec de grandes collections de données, il est important de fournir des mécanismes pour la pagination, le filtrage et le tri :
+
+```
+
+
+
+1. `Pagination : Limiter le nombre d'éléments renvoyés dans une seule réponse et fournir des liens pour accéder aux pages suivantes.`
+2. `Filtrage : Permettre aux utilisateurs de spécifier des critères pour limiter les données renvoyées.`
+3. `Tri : Offrir la possibilité de trier les données selon différents attributs.`
+
+
+### a. Exemple de pagination dans Django Rest Framework
+
+
+```
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import User
+from .serializers import UserSerializer
+
+class UserListView(APIView):
+    pagination_class = PageNumberPagination
+
+    def get(self, request, format=None):
+        users = User.objects.all()
+        paginator = self.pagination_class()
+        page = paginator.paginate_queryset(users, request)
+        
+        if page is not None:
+            serializer = UserSerializer(page, many=True)
+            return paginator.get_paginated_response(serializer.data)
+        
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+```
+
+
+
+```
+Ce code montre comment implémenter la pagination dans une vue qui renvoie une liste d'utilisateurs. Le PageNumberPagination est utilisé pour diviser les résultats en pages.
+```
+
+
+
+### b. Exemple de filtrage et de tri pour une API utilisant Django Rest Framework
+
+
+```
+Nous allons utiliser le modèle User et le serializer UserSerializer pour illustrer comment filtrer et trier les données renvoyées par une requête GET.
+
+
+
+```
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import generics
+from .models import User
+from .serializers import UserSerializer
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['username', 'email']  # Fields to filter by
+    ordering_fields = ['username', 'date_joined']  # Fields to order by
+
+    def get_queryset(self):
+        """
+        Optionally restricts the returned users to a given user,
+        by filtering against a `username` query parameter in the URL.
+        """
+        queryset = User.objects.all()
+        username = self.request.query_params.get('username')
+        if username is not None:
+            queryset = queryset.filter(username=username)
+        return queryset
+```
+
+
+
+```
+Dans cet exemple, DjangoFilterBackend est utilisé pour ajouter des capacités de filtrage à la vue. Les utilisateurs peuvent filtrer les résultats en ajoutant des paramètres de requête à l'URL, comme ?username=johndoe pour filtrer par nom d'utilisateur, ou ?email=johndoe@example.com pour filtrer par e-mail.
+
+Le tri est géré par ordering_fields, qui spécifie les champs sur lesquels les utilisateurs peuvent trier les résultats. Les utilisateurs peuvent ajouter un paramètre de requête ordering à l'URL, comme ?ordering=username pour trier par nom d'utilisateur ou ?ordering=-date_joined pour trier par date d'inscription en ordre décroissant (le signe moins indique un tri décroissant).
+
+Ces fonctionnalités permettent aux utilisateurs de l'API de récupérer des données de manière plus précise et organisée, améliorant ainsi l'expérience utilisateur et la performance de l'API.
+```
+
+
+
+## 4. Rate Limiting et Caching
+
+
+```
+Pour protéger votre API contre les abus et gérer les ressources serveur de manière efficace :
+
+```
+
+
+
+1. `Rate Limiting : Imposer des limites sur le nombre de requêtes qu'un utilisateur peut faire dans un certain intervalle de temps.`
+2. `Caching : Utiliser des caches pour stocker les réponses des requêtes fréquemment faites afin de réduire la charge sur le serveur et d'améliorer les temps de réponse.`
+
+
+```
+Pour le rate limiting dans FastAPI, vous pourriez utiliser un middleware personnalisé :
+
+
+
+```
+from fastapi import FastAPI, Request, HTTPException
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
+
+limiter = Limiter(key_func=get_remote_address)
+app = FastAPI()
+
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+@app.middleware("http")
+async def rate_limit_middleware(request: Request, call_next):
+    response = await call_next(request)
+    return response
+
+@app.get("/users")
+@limiter.limit("5/minute")
+async def get_users():
+    return [{"user": "user1"}, {"user": "user2"}]
+```
+
+
+
+```
+Dans cet exemple, le décorateur @limiter.limit("5/minute") est utilisé pour limiter les requêtes à 5 par minute pour l'endpoint /users.
+
+Pour le caching, vous pourriez utiliser Flask-Caching dans une application Flask :
+
+
+
+```
+from flask import Flask
+from flask_caching import Cache
+
+app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+
+@app.route('/')
+@cache.cached(timeout=50)
+def index():
+    return "Ceci est une page mise en cache"
+```
+
+
+
+```
+Ici, @cache.cached(timeout=50) est utilisé pour mettre en cache la réponse de l'endpoint racine pendant 50 secondes.
+
+Ces bonnes pratiques sont essentielles pour créer une API robuste, performante et sécurisée. Elles contribuent également à une meilleure expérience pour les développeurs qui utilisent votre API, en leur fournissant des mécanismes clairs et des directives pour intégrer l'API dans leurs applications.
+```
+

@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../website"
+		},
+		{
+			"path": "../../../Introduction-Python"
+		}
+	],
+	"settings": {
+		"notebook.output.scrolling": true
+	}
+}

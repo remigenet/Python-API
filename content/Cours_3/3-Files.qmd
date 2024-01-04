@@ -1,0 +1,354 @@
+---
+title: "Machine Learning"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: "Python, où le ML à deux cliques de souris"
+image: .img/sklearn.png
+code-links: binder
+---
+
+# Machine Learning
+
+---
+
+
+# III. Fichiers en tant que Méthode de Communication Interprocessus (IPC)
+
+
+## 1. Définition Technique d'un Fichier
+
+
+```
+Techniquement, un fichier est une collection de données stockées sur un support de stockage persistant, comme un disque dur, un SSD, ou tout autre type de mémoire non volatile. Pour la machine, un fichier est représenté par une série de bits organisés de manière structurée, souvent dans un système de fichiers qui gère l'emplacement des données, les métadonnées (comme les permissions, les dates de création et de modification), et les relations entre les fichiers et les répertoires.
+
+Écriture et Lecture de Fichiers
+
+Lorsqu'un fichier est écrit sur un disque, le système d'exploitation traduit les données en une série de commandes pour le contrôleur de disque, qui détermine où les données doivent être physiquement stockées. Les données sont ensuite écrites sur le support de stockage en modifiant l'état magnétique ou électrique des cellules de stockage.
+
+La lecture d'un fichier implique le processus inverse, où le contrôleur de disque lit les états des cellules de stockage et les transmet au système d'exploitation, qui les reconstitue en données utilisables par les programmes.
+```
+
+
+
+## 2. Avantages et Inconvénients de l'Utilisation des Fichiers pour l'IPC
+
+
+```
+Avantages :
+- Persistant : Les fichiers restent sur le disque même après le redémarrage de la machine, ce qui est utile pour la récupération de données et la persistance à long terme.
+- Simplicité : Les fichiers sont une méthode d'IPC facile à comprendre et à utiliser, avec des opérations de base bien définies (ouvrir, lire, écrire, fermer).
+- Compatibilité : Les fichiers peuvent être accessibles et modifiés par différents processus, voire différents systèmes d'exploitation, si le fichier est partagé via un réseau.
+
+Inconvénients :
+- Performance : L'accès aux fichiers est généralement plus lent que les autres méthodes d'IPC, en raison de la latence du disque et du surcoût des opérations d'entrée/sortie.
+- Synchronisation : Lorsque plusieurs processus accèdent au même fichier, il faut gérer la synchronisation pour éviter les conflits et les corruptions de données.
+- Verrouillage : Les mécanismes de verrouillage de fichiers sont nécessaires pour coordonner l'accès concurrent, mais ils peuvent être complexes à implémenter correctement.
+```
+
+
+
+## 3. Cas d'Usage Standard
+
+
+```
+Les fichiers sont couramment utilisés pour :
+- Journalisation (Logging) : Enregistrer les événements et les erreurs dans un fichier de journal.
+- Configuration : Stocker des paramètres de configuration que différents processus ou utilisateurs peuvent lire.
+- Échange de Données : Transférer des données entre processus, notamment lorsque ces processus ne sont pas exécutés simultanément.
+
+
+### a. Synchronisation et Conflits
+Imaginons deux processus qui écrivent dans le même fichier de journalisation. Si les deux processus tentent d'écrire en même temps, leurs sorties peuvent s'entremêler, rendant le fichier de journalisation difficile à lire ou corrompu.
+
+
+### b. Mécanismes de Synchronisation
+Pour éviter cela, on peut utiliser des mécanismes de verrouillage de fichiers :
+- Verrouillage Exclusif : Un processus verrouille le fichier pour l'écriture, empêchant les autres processus d'écrire jusqu'à ce que le verrou soit libéré.
+- Verrouillage Partagé : Plusieurs processus peuvent lire le fichier en même temps, mais l'écriture est exclusive.
+
+
+### c. Utilisation Derrière une API
+Dans le contexte d'une API, les fichiers peuvent être utilisés pour :
+- Caching : Stocker des réponses fréquemment demandées pour réduire la charge sur les serveurs et accélérer les temps de réponse.
+- État de Session : Conserver les informations sur l'état de la session utilisateur entre différentes requêtes.
+- Queueing : Utiliser des fichiers comme une file d'attente simple pour gérer les tâches en arrière-plan ou les requêtes asynchrones.
+```
+
+
+
+## 4. Exemple 1: Logging
+
+
+```
+
+
+### a. Sans utiliser le module logging
+Dans cet exemple, deux processus écrivent dans le même fichier de log. Un verrou (Lock) est utilisé pour synchroniser l'accès au fichier de log pour éviter que les messages ne se mélangent.
+
+
+
+```
+from multiprocessing import Process, Lock
+
+def log_message(lock, file_path, message):
+    with lock:
+        with open(file_path, 'a') as log_file:
+            log_file.write(f'{message}\n')
+
+def process_function(lock, file_path, process_id):
+    for i in range(5):
+        log_message(lock, file_path, f"Message from process {process_id}: {i}")
+
+if __name__ == "__main__":
+    lock = Lock()
+    log_file_path = 'mylog.log'
+
+    processes = [Process(target=process_function, args=(lock, log_file_path, i)) for i in range(2)]
+
+    for p in processes:
+        p.start()
+
+    for p in processes:
+        p.join()
+```
+
+
+
+```
+Ce scénario illustre l'utilisation d'un verrou pour synchroniser l'accès à une ressource partagée - en l'occurrence, un fichier de log. Dans les applications multi-processus, il est crucial de s'assurer que les processus n'écrivent pas en même temps dans le même fichier, ce qui pourrait entraîner des données corrompues ou entremêlées. L'utilisation d'un Lock garantit que chaque processus attend son tour pour écrire dans le fichier, préservant ainsi l'intégrité des logs.
+
+
+### b. Simplification avec le module logging
+Le module logging de Python offre une solution intégrée pour la journalisation qui gère la synchronisation des threads sous le capot. Voici comment l'Exemple 1 peut être simplifié en utilisant logging:
+
+
+
+```
+import logging
+from multiprocessing import Process, Lock
+from logging.handlers import RotatingFileHandler
+
+def setup_logger():
+    logger = logging.getLogger('MyLogger')
+    logger.setLevel(logging.INFO)
+    handler = RotatingFileHandler('mylog.log', maxBytes=2000, backupCount=5)
+    logger.addHandler(handler)
+    return logger
+
+def log_message(logger, message):
+    logger.info(message)
+
+def process_function(logger, process_id):
+    for i in range(5):
+        log_message(logger, f"Message from process {process_id}: {i}")
+
+if __name__ == "__main__":
+    logger = setup_logger()
+
+    processes = [Process(target=process_function, args=(logger, i)) for i in range(2)]
+
+    for p in processes:
+        p.start()
+
+    for p in processes:
+        p.join()
+```
+
+
+
+```
+Dans ce code, nous configurons un RotatingFileHandler qui s'occupe de la rotation des fichiers de log lorsque le fichier actuel atteint une certaine taille. Cela permet de s'assurer que les fichiers de log ne deviennent pas trop volumineux et que les données de log sont conservées sur plusieurs fichiers. Le RotatingFileHandler est également conçu pour être utilisé dans des environnements multi-processus, ce qui simplifie la gestion des logs sans avoir besoin de gérer explicitement les verrous.
+```
+
+
+
+## 5. Exemple 2: Caching
+
+
+```
+Dans cet exemple, un processus d'API stocke des réponses dans un fichier pour éviter de recalculer des données fréquemment demandées, et plusieurs processus peuvent lire ces données mises en cache.
+
+
+
+```
+import json
+import os
+
+cache_file_path = 'api_cache.json'
+
+def get_data_from_cache(key):
+    if os.path.exists(cache_file_path):
+        with open(cache_file_path, 'r') as cache_file:
+            cache = json.load(cache_file)
+            return cache.get(key, None)
+    return None
+
+def save_data_to_cache(key, data):
+    cache = {}
+    if os.path.exists(cache_file_path):
+        with open(cache_file_path, 'r') as cache_file:
+            cache = json.load(cache_file)
+    cache[key] = data
+    with open(cache_file_path, 'w') as cache_file:
+        json.dump(cache, cache_file)
+
+# Exemple d'utilisation
+data = get_data_from_cache('some_key')
+if data is None:
+    # Simule le calcul ou la récupération de données
+    data = 'some_new_data'
+    save_data_to_cache('some_key', data)
+```
+
+
+
+```
+L'utilisation de fichiers pour le caching est un moyen simple et efficace de stocker des données qui ne changent pas fréquemment ou qui sont coûteuses à générer. Cela permet d'économiser des ressources en évitant les calculs redondants et en fournissant un accès rapide aux données pour les processus qui en ont besoin.
+```
+
+
+
+## 6. Exemple 3: Queueing
+
+
+```
+Les fichiers peuvent être utilisés pour implémenter une file d'attente simple pour le traitement asynchrone des tâches.
+
+
+
+```
+# Ceci est un exemple très simplifié et ne doit pas être utilisé en production.
+import json
+import time
+
+queue_file_path = 'task_queue.json'
+
+def add_task_to_queue(task):
+    queue = []
+    if os.path.exists(queue_file_path):
+        with open(queue_file_path, 'r') as queue_file:
+            queue = json.load(queue_file)
+    queue.append(task)
+    with open(queue_file_path, 'w') as queue_file:
+        json.dump(queue, queue_file)
+
+def process_tasks_from_queue():
+    while True:
+        if os.path.exists(queue_file_path):
+            with open(queue_file_path, 'r') as queue_file:
+                queue = json.load(queue_file)
+            if queue:
+                task = queue.pop(0)
+                print(f"Processing task: {task}")
+                with open(queue_file_path, 'w') as queue_file:
+                    json.dump(queue, queue_file)
+            else:
+                print("No tasks in queue.")
+        time.sleep(5)
+
+# Exemple d'ajout d'une tâche à la file d'attente
+add_task_to_queue({'task_id': 1, 'details': 'Do something important'})
+
+# Ceci serait normalement exécuté dans un processus séparé
+process_tasks_from_queue()
+```
+
+
+
+```
+Les files d'attente basées sur des fichiers sont une méthode d'IPC qui permet de gérer les tâches de manière asynchrone. Les tâches peuvent être ajoutées à la file d'attente par un processus et traitées par un autre, permettant ainsi une séparation claire entre la soumission des tâches et leur traitement. Cela est particulièrement utile dans les systèmes où les tâches peuvent être lourdes et où l'on souhaite éviter de bloquer les processus principaux.
+```
+
+
+
+## 7. Exemple 4: Mise à jour et Lecture de Données Financières
+
+
+```
+Dans cet exemple, un processus (data_writer.py) met à jour périodiquement un fichier avec des informations financières, et plusieurs processus (data_reader.py) lisent ces données pour répondre aux requêtes d'une API HTTP.
+
+data_writer.py:
+
+
+
+```
+import json
+import time
+import random
+
+data_file = 'financial_data.json'
+
+def update_financial_data():
+    while True:
+        # Mise à jour des données financières
+        data = {
+            'last_price': round(random.uniform(100, 200), 2),
+            'last_volume': random.randint(1000, 10000),
+            'analytic_1': round(random.uniform(0, 1), 2),
+            'analytic_2': round(random.uniform(0, 1), 2),
+        }
+        with open(data_file, 'w') as f:
+            json.dump(data, f)
+        time.sleep(10)
+
+if __name__ == '__main__':
+    update_financial_data()
+```
+
+
+
+```
+data_reader.py:
+
+
+
+```
+import json
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+data_file = 'financial_data.json'
+
+@app.route('/last_price')
+def get_last_price():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(last_price=data['last_price'])
+
+@app.route('/last_volume')
+def get_last_volume():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(last_volume=data['last_volume'])
+
+@app.route('/analytic_1')
+def get_analytic_1():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(analytic_1=data['analytic_1'])
+
+@app.route('/analytic_2')
+def get_analytic_2():
+    with open(data_file, 'r') as f:
+        data = json.load(f)
+    return jsonify(analytic_2=data['analytic_2'])
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+
+
+```
+Dans cet exemple, data_writer.py simule la mise à jour des données financières dans un fichier JSON, et data_reader.py expose ces données via différentes routes d'une API Flask. Chaque route lit la donnée pertinente du fichier et la retourne au client. Cela illustre comment les fichiers peuvent être utilisés pour partager des données entre un processus de mise à jour et plusieurs processus de lecture dans un contexte d'API.
+```
+
+

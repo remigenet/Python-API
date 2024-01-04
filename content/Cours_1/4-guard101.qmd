@@ -1,0 +1,81 @@
+---
+title: "Le PATH"
+weight: 10
+tags:
+  - Basics
+  - OS
+  - PATH
+  - virtual environment
+  - Introduction
+  - Cours
+categories:
+  - Cours
+  - Introduction
+type: book
+description: Explorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.
+image: .img/path.png
+---
+
+
+# Chapitre 4 - Sécurisation et authentification d'une API
+
+---
+
+
+# 4. Sécurisation et authentification d'une API
+
+
+## 4.1 Pourquoi sécuriser une API ?
+
+
+```
+Une API, en tant que porte d'accès à des données ou à des fonctionnalités, peut être une cible pour des acteurs malveillants. Les raisons de sécuriser une API incluent :
+
+```
+
+
+
+* `Protection des données : Éviter que des données sensibles ne soient exposées ou compromises.`
+* `Préservation de la réputation : Une faille de sécurité peut nuire à la confiance des utilisateurs ou des clients.`
+* `Éviter les abus : Prévenir les utilisations excessives ou malveillantes qui peuvent entraîner des coûts ou des surcharges.`
+
+
+## 4.2 Authentification vs Autorisation :
+
+
+
+* `Authentification : Processus permettant de vérifier l'identité d'un utilisateur ou d'une application. C'est la réponse à la question : "Qui êtes-vous ?"`
+* `Autorisation : Processus permettant de déterminer si l'utilisateur ou l'application authentifié(e) a le droit d'accéder à une ressource ou d'exécuter une action. C'est la réponse à la question : "Êtes-vous autorisé à le faire ?"`
+
+
+## 4.3 Méthodes d'authentification courantes :
+
+
+
+* `Clés API : Une clé unique fournie aux utilisateurs ou aux applications pour accéder à l'API.`
+* `Authentification basique : L'utilisation d'un nom d'utilisateur et d'un mot de passe pour accéder à l'API.`
+* `Token JWT (JSON Web Token) : Un standard ouvert pour représenter des revendications entre deux parties. Les tokens sont générés après une authentification réussie et peuvent être vérifiés à chaque requête pour garantir la validité de la session.`
+
+
+## 4.4 Limitation et quotas :
+
+
+```
+Afin de prévenir les abus ou la surcharge, il est courant d'appliquer des limites sur la fréquence ou le volume de requêtes qu'un utilisateur ou une application peut faire à l'API. Les limitations peuvent être basées sur :
+
+```
+
+
+
+* `Le temps : Nombre de requêtes autorisées par minute ou par heure.`
+* `La ressource : Nombre de requêtes autorisées pour une ressource spécifique.`
+* `Le type d'utilisateur : Les utilisateurs gratuits pourraient avoir des quotas inférieurs à ceux qui paient pour un accès premium.`
+
+
+## 4.5 Gestion des erreurs et des violations :
+
+
+```
+Il est essentiel de fournir des messages d'erreur clairs et explicites lorsque les utilisateurs ou les applications violent les politiques de sécurité ou dépassent leurs quotas. Ceci permet de guider les utilisateurs sur la manière de corriger ou d'ajuster leurs requêtes.
+```
+

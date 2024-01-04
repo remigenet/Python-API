@@ -1,0 +1,130 @@
+project:
+  type: website
+
+
+website:
+  title: "Introduction à Python"
+  open-graph: true
+  favicon: content/.img/favicon.png
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
+  navbar:
+    background: "white"
+    search: true
+    left:
+      - file: index.qmd
+        text: Home 
+      - sidebar:introduction
+      - sidebar:discover
+      - sidebar:libraries
+      - sidebar:advanced_mix
+      - sidebar:advanced_mix_2
+      - sidebar:projects
+      - sidebar:annexes
+    tools:
+      - icon: github
+        menu:
+          - text: Code source
+            url:  https://github.com/remigenet/Python-API
+  sidebar: 
+    - id: home
+      title: "Homepage"
+      href: index.qmd
+    - id: introduction
+      title: "Introduction aux API"
+      contents: 
+      - content/Cours_1/1-API101.qmd
+      - content/Cours_1/2-User101.qmd
+      - content/Cours_1/3-Concepteur101.qmd
+      - content/Cours_1/4-guard101.qmd
+      - content/Cours_1/5-tester101.qmd
+      - content/Cours_1/6-Postman_CGG.opy
+      - content/Cours_1/7-TP-Postman_and_coingeko.qmd
+      - section: Quelques IDEs en Python
+        expanded: false
+        contents:
+        - content/Cours_1/IDEs/VsCode.qmd
+        - content/Cours_1/IDEs/Spyder.qmd
+        - content/Cours_1/IDEs/Pycharm.qmd
+      - section: Travaux Pratiques
+        expanded: false
+        contents:
+        - content/Cours_1/TP-ConstruireSonPython.qmd
+      icon: book
+    - id: discover 
+      title: "Consommation avancée d'API"
+      contents: 
+       - content/Cours_2/1-FondamentauxSyntaxique.qmd
+       - content/Cours_2/1.1-Exercices.py
+       - content/Cours_2/1.2-Exercices.py
+       - content/Cours_2/1-FondamentauxSyntaxique.qmd
+       - content/Cours_2/2-FonctionsEtModules.qmd
+       - content/Cours_2/3-IntroducingPOOConcept.qmd
+    - id: libraries 
+      title: "Communication entre Processus (IPC)"
+      contents: 
+       - content/Cours_3/1-Dataframes.qmd
+       - content/Cours_3/2-Calcul_Scientifique_et_Optimization.qmd
+       - content/Cours_3/3-MachineLearning.qmd
+       - content/Cours_3/4-Access_Internet.qmd
+       - content/Cours_3/5-Feed_Internet.qmd
+       - content/Cours_3/6-Visualisation.qmd
+       - content/Cours_3/bonus-pandas_short_examplet.qmd
+       - content/Cours_3/TP-pandas_and_geography.ipynb
+    - id: advanced_mix 
+      title: "Conception d'APIs"
+      contents: 
+       - content/Cours_4/1-MutabilitéEtScopes
+       - content/Cours_4/2-TypageEnPython.qmd
+       - content/Cours_4//3-TournonsAutourduGIL.qmd
+       - content/Cours_4/TP-RequetteruneAPI.qmd
+    - id: advanced_mix_2 
+      title: "Déploiement d'API - Principes Généraux et Mise en Pratique avec Heroku"
+      contents: 
+       - content/Cours_5/1-AST.qmd
+       - content/Cours_5/2-POO_le_retour.qmd
+       - content/Cours_5/3-patterndesign.qmd
+       - content/Cours_5/TP-POO.qmd
+    - id: projects 
+      title: "Sujets de Projets possibles"
+    - id: annexes 
+      title: "Annexes"
+      contents: 
+      - content/Annexes/LinuxTerminal.qmd
+      - content/Annexes/git_basics.qmd
+      - content/Annexes/git_advanced.qmd
+        
+  repo-url: https://github.com/remigenet/Python-API
+  repo-branch: main
+  page-footer:
+    left: |
+      Introduction à Python, Rémi Genet.<br>
+      Licence {{< fa brands creative-commons >}}<br>
+      Code source disponible sur [`Github`](https://github.com/remigenet/Python-API)
+    right: |
+      Site construit avec {{< fa brands python >}} et [`Quarto`](https://quarto.org/)<br>
+      Inspiration pour la mise en forme du site [ici](https://github.com/linogaliana/python-datascientist)<br>
+      [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Python-API)
+
+
+
+format:
+  html:
+    light: sandstone
+    dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-overflow: wrap
+
+format-links: true
+author: Remi Genet
+date: today
+date-format: iso
+page-layout: article
+google-scholar: true
+commentable: true
+validate-yaml: false
+crossref:
+  chapters: true

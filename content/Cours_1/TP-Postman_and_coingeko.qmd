@@ -1,0 +1,217 @@
+---
+title: "TP - Construire son python depuis la source"
+weight: 10
+tags:
+  - Basics
+  - Compilation
+  - Cpython
+  - Versions
+  - Introduction
+categories:
+  - TP
+  - Introduction
+type: book
+# description: 
+image: .img/tpcompile.png
+---
+
+## Objectif : Apprendre à connaître l'outil Postman, ses origines, ses différentes fonctionnalités et comment il peut être utilisé pour travailler avec des API.
+
+# 1: Postman: Présentation
+## 1.1 : Présentation de Postman
+- Historique et Contexte : Postman a été créé en 2012 par Abhinav Asthana pour simplifier le processus de création, de test et de documentation des API. À l'origine, c'était une simple extension de navigateur pour Chrome, mais devant son succès grandissant, il s'est rapidement transformé en une solution complète dédiée aux API.
+- À propos de l'entreprise : Postman, Inc., la société derrière l'outil, a son siège à San Francisco, en Californie. Elle s'est engagée à aider les développeurs dans leurs tâches liées aux API.
+- Licence : Postman est un produit commercial avec une version gratuite disponible. Il propose également des versions payantes offrant des fonctionnalités supplémentaires pour les équipes et les entreprises.
+- Plateforme communautaire : Postman n'est pas seulement un outil ; c'est aussi une plateforme sur laquelle les développeurs, les entreprises et même les géants technologiques publient leurs collections. Ces collections sont des ensembles préconfigurés de requêtes API qui facilitent l'interaction avec ces services.
+	- **Entreprises renommées :**
+	- Des entreprises telles que PayPal, Microsoft, Twitter et bien d'autres ont publié officiellement leurs collections sur Postman. Cela permet aux développeurs d'interagir facilement avec leurs services sans avoir à configurer manuellement chaque requête.
+	- **Communauté :**
+	- En plus des entreprises, la vaste communauté de développeurs contribue activement en partageant des collections pour diverses API, qu'il s'agisse d'API populaires ou de services moins connus. Cette approche collaborative rend l'apprentissage et le test des API plus accessibles à tous.
+
+## 1.2 : Les différentes versions de Postman
+- Postman Web : Il s'agit de la version en ligne de Postman qui peut être utilisée directement dans un navigateur. Elle est idéale pour ceux qui ne souhaitent pas installer de logiciel supplémentaire sur leur machine.
+- Postman Desktop App : Cette version est une application de bureau disponible pour Windows, macOS et Linux. Elle offre une expérience plus fluide et est généralement préférée par les développeurs qui l'utilisent fréquemment.
+- Postman CLI (Command-Line Interface) : Connue sous le nom de "Newman", c'est l'interface en ligne de commande de Postman. Elle permet d'exécuter des collections Postman depuis la ligne de commande, ce qui est utile pour l'intégration avec d'autres outils et pour l'automatisation.
+- Comparaison : Alors que la version Web est pratique et accessible de partout, l'application de bureau offre une meilleure performance et une intégration plus étroite avec le système d'exploitation. Newman, quant à lui, est préféré pour les scénarios d'automatisation et d'intégration continue.
+
+Pour la suite du TP nous utiliserons simplement postman en version web, disponible en suivant: https://www.postman.com/
+Rendez vous sur le site et créez vous un compte (gratuit évidemment).
+
+## 1.3 : Les éléments principaux de postman
+### a. Workspaces:
+Un Workspace dans Postman est essentiellement un espace de travail où les utilisateurs peuvent collaborer et organiser leur travail autour des API. Chaque espace de travail contient des collections, environnements, intégrations et d'autres ressources liées à un projet ou à une équipe spécifique.
+En explorant les workspaces, vous pourriez trouver:
+- Collections: Groupes de requêtes associées, souvent organisées autour d'une API ou d'une fonctionnalité spécifique.
+- Environnements: Des ensembles de variables qui peuvent être utilisés dans les requêtes. Par exemple, vous pourriez avoir un environnement de "production" et un autre de "développement".
+- Mocks: Simulations d'API pour tester sans avoir à accéder à l'API réelle.
+- Monitors: Des tests automatisés pour surveiller la performance et la disponibilité d'une API.
+- Integrations: Liens avec d'autres outils et services, permettant par exemple de synchroniser votre collection Postman avec un dépôt GitHub.
+- History: Un journal des requêtes exécutées dans cet espace de travail.
+
+### b. Collections:
+Une Collection dans Postman est un groupe organisé de requêtes individuelles. Une collection peut être considérée comme une bibliothèque d'API, où chaque requête est une fonction ou un endpoint spécifique de cette API. Les collections permettent aux développeurs de regrouper, documenter, tester et partager des requêtes.
+Lors de l'exploration des collections, vous pourriez trouver:
+- Requests: Les requêtes HTTP individuelles, comme GET, POST, PUT, DELETE, etc.
+- Documentation: Des descriptions et des notes sur chaque requête, expliquant comment elle fonctionne et ce qu'elle fait.
+- Tests: Des scripts automatisés qui peuvent être exécutés après une requête pour s'assurer qu'elle renvoie les résultats attendus.
+- Variables: Des variables spécifiques à la collection qui peuvent être utilisées dans les requêtes ou les tests.
+
+### c. Flows:
+- Flows dans Postman est une fonctionnalité récente qui permet aux utilisateurs de créer des workflows automatisés en connectant différentes API et services ensemble. C'est comme un outil d'orchestration pour vos API.
+- Lors de l'exploration des flows, vous pourriez trouver:
+- Triggers: Événements qui déclenchent l'exécution d'un flow.
+- Actions: Les étapes individuelles ou les opérations exécutées dans un flow, comme l'envoi d'une requête API ou la manipulation de données.
+- Conditions: Des tests logiques qui déterminent le déroulement du flow, permettant des décisions conditionnelles.
+- Integrations: Connexions à d'autres services ou outils, pour permettre des actions comme l'envoi d'une notification Slack ou la mise à jour d'une base de données.
+- 
+# 2 Explorations
+## 2.1 Exploration de la collection "Tremendous API"
+**Objectif:** Se familiariser avec l'utilisation des requêtes à travers une collection spécifique.
+Instructions:
+- Accéder à la collection "Tremendous API":
+	- Rendez-vous dans la section "Explore" de Postman.
+	- Cherchez et sélectionnez la collection "Tremendous API".
+- Navigation dans la collection:
+	- Parcourez la liste de requêtes disponibles au sein de la collection.
+- Exécution de la requête "List Products":
+	- Sélectionnez la requête "List Products" au sein de la collection.
+	- Cliquez sur le bouton "Send" pour exécuter cette requête.
+	- Observez la réponse retournée par le serveur dans le volet inférieur.
+- Exécution de la requête "Retrieve Product":
+	- Sélectionnez la requête "Retrieve Product".
+	- Remplissez le paramètre nécessaire (par exemple, ID de produit) et envoyez la requête.
+	- Observez la réponse et comparez-la à la précédente.
+
+Questions:
+Quelle est la principale différence entre les réponses des deux requêtes?
+Quels détails pouvez-vous obtenir sur un produit en utilisant la requête "Retrieve Product"?
+
+## 2.2  Création et structuration de votre premier Workspace
+**Objectif:**  Apprendre à créer, structurer un workspace, effectuer des requêtes et partager vos résultats.
+
+**Instructions:**
+- 	Création d'un nouveau Workspace:
+	- 	Dans le volet de navigation à gauche, cliquez sur "+ New Workspace".
+	- 	Nommez votre workspace "Mon Premier Workspace" et ajoutez une brève description.
+- 	Ajout d'une collection:
+	- 	Cliquez sur "+ New Collection" dans votre workspace.
+	- 	Nommez la collection "Test API".
+- 	Création d'une requête simple:
+	- 	Dans "Test API", cliquez sur "+ Add request".
+	- 	Créez une requête GET vers https://api.publicapis.org/entries.
+	- 	Nommez cette requête "Lister toutes les APIs".
+	- 	Envoyez la requête et observez la réponse.
+- 	Analyse de la réponse:
+	- 	Explorez la structure JSON de la réponse.
+	- 	Identifiez quelques catégories d'API intéressantes (par exemple, santé, finance, musique).
+- 	Filtrage des résultats:
+	- 	Créez une nouvelle requête GET avec des paramètres pour filtrer les résultats selon une catégorie (par exemple, "finance").
+	- 	Nommez cette requête "APIs Finance".
+	- 	Envoyez la requête et observez les résultats filtrés.
+- 	Documentation de votre collection:
+	- 	Pour chaque requête, ajoutez une brève description de ce qu'elle fait et de ce qu'elle retourne.
+	- 	Documentez également la structure de la réponse JSON, en notant les champs clés et leur signification.
+- 	Exportation de votre collection:
+	- 	Sélectionnez votre collection "Test API".
+	- 	Cliquez sur les trois points (...) à côté du nom de la collection.
+	- 	Choisissez "Export" et sauvegardez le fichier JSON sur votre machine.
+
+# 3. Faire une requête API en utilisant Python
+
+## 3.1 Exemple de base
+
+**Objectif:** Utiliser Python pour effectuer des requêtes API et exploiter les données reçues.
+
+**Instructions:**
+
+1. **Installation de `requests`:**
+   Si vous ne l'avez pas encore installé, `requests` est un module Python permettant d'envoyer des requêtes HTTP facilement. Installez-le via pip :
+   ```bash
+   pip install requests
+   ```
+
+2. **Effectuer une requête simple en Python:**
+   Utilisons la bibliothèque `requests` pour effectuer une requête GET, comme nous l'avons fait dans Postman.
+   ```python
+   import requests
+
+   response = requests.get("https://api.publicapis.org/entries")
+   data = response.json()
+
+   # Imprimer les premiers 10 entrées
+   for entry in data['entries'][:10]:
+       print(entry['API'], "-", entry['Description'])
+   ```
+
+3. **Utilisation d'une requête précédente:**
+   Réutilisez une des requêtes que vous avez effectuées dans Postman. Par exemple, si vous avez filtré les APIs de la catégorie "finance", faites la même chose en Python :
+   ```python
+   response = requests.get("https://api.publicapis.org/entries?category=finance")
+   finance_data = response.json()
+
+   for entry in finance_data['entries']:
+       print(entry['API'], "-", entry['Description'])
+   ```
+
+---
+
+## 3.2 . Exercice pratique: Accéder à des informations via une requête intermédiaire
+
+**Objectif:** Apprendre à utiliser une réponse d'API comme entrée pour une autre requête et lire une doc API
+
+**Contexte:** Nous allons utiliser l'API CoinGecko. La première requête nous permettra de récupérer une liste d'identifiants de cryptomonnaies, puis nous utiliserons ces identifiants pour obtenir des informations détaillées sur une cryptomonnaie spécifique.
+
+**Instructions:**
+
+1. **Récupération des identifiants de cryptomonnaies:**
+   Effectuez une requête pour obtenir une liste d'identifiants de cryptomonnaies.
+   ```python
+   url = "https://api.coingecko.com/api/v3/coins/list"
+   response = requests.get(url)
+   coins = response.json()
+
+   # Imprimer les premiers 10 noms de cryptomonnaies et leurs identifiants
+   for coin in coins[:10]:
+       print(coin['id'], "-", coin['name'])
+   ```
+
+2. **Obtenir des informations détaillées sur une cryptomonnaie:**
+   En utilisant un identifiant précédemment obtenu, effectuez une autre requête pour obtenir des informations détaillées sur cette cryptomonnaie.
+   ```python
+   coin_id = "bitcoin"  # Remplacez ceci par un autre identifiant si vous le souhaitez
+   detailed_url = f"https://api.coingecko.com/api/v3/coins/{coin_id}"
+   detailed_response = requests.get(detailed_url)
+   coin_details = detailed_response.json()
+
+
+   # Imprimer des informations clés
+   print(coin_details['name'])
+   print("Valeur actuelle:", coin_details['market_data']['current_price']['usd'], "USD")
+   ```
+
+## 3.3 Exercice d'application avant le prochain cours :
+En utilisant la documentation se trouvant ici https://www.coingecko.com/api/documentation, répondez aux questions suivante : 
+
+1. **Volume quotidien moyen du BTC et de l'ETH en USDT, USDC, USD et EUR**
+   
+    *Objectif*: Calculez et présentez le volume quotidien moyen des transactions pour le BTC et l'ETH dans les devises suivantes : USDT, USDC, USD et EUR.
+  
+2. **Même donnée pour les 10 cryptomonnaies les plus liquides après BTC et ETH**
+    
+    *Objectif*: Sélectionnez les 10 cryptomonnaies suivantes en importance après le BTC et l'ETH. Calculez et présentez leur volume quotidien moyen dans les devises : USDT, USDC, USD et EUR.
+
+3. **Top 3 des cryptomonnaies les plus liquides contre BTC et ETH comme devises de cotation, avec volume**
+
+    *Objectif*: Identifiez les trois cryptomonnaies qui ont le plus grand volume de transaction lorsqu'elles sont cotées en BTC ou ETH (par exemple: ADA/BTC, XRP/ETH). Présentez le volume pour chaque paire.
+
+4. **Top 3 des stablecoins les plus liquides comme devises de cotation, avec volume**
+
+    *Objectif*: Identifiez les trois stablecoins qui ont le plus grand volume de transaction lorsqu'ils sont utilisés comme devises de cotation (par exemple: xxx/USDT, xxx/USDC, xxx/TUSD). Présentez le volume pour chaque paire.
+
+5. **Période de référence pour l'analyse**
+
+    Veuillez préciser la période sur laquelle vous basez votre analyse (par exemple, un mois, trois mois, un an, etc.) selon ce que vous jugez pertinent pour l'exercice.
+
+Aides : 
+-	La Librairie Pandas pourra grandement vous aider pour traiter les données facilement
+

@@ -1,0 +1,103 @@
+---
+title: "TP3 Option 1 Service gRPC pour indicateurs de marché"
+weight: 10
+tags:
+  - Pandas
+  - YahooFinance
+  - Libraries
+  - TP
+  - Exercices
+categories:
+  - TP
+  - Exercices
+type: book
+description: "Mise  en pratique simple des éléments vu aurparavant."
+image: .img/api.png
+code-links: binder
+---
+
+
+# Description globale
+
+## Consignes Spécifiques pour ce TP :
+Ce TP est à réaliser en binôme. Chaque groupe choisira une des deux options de travaux pratiques proposées pour cette session. Lors de la soumission de votre projet sur GitHub, assurez-vous que chaque membre du groupe est correctement ajouté en tant que collaborateur sur le dépôt du projet. Il est nécessaire de rendre seulement l'une des deux options de TP par binôme.
+
+## Objectif
+
+Dans le cadre de ce TP, vous allez développer un service gRPC qui fournira des méthodes pour calculer et obtenir les indicateurs financiers suivants à partir des données de marché de Binance :
+
+1. **Money Flow Classique** :
+   - **Définition** : Cet indicateur mesure la proportion du volume des ordres "taker" acheteurs par rapport aux vendeurs. Un "taker" est un participant au marché qui exécute des ordres au prix du marché, enlevant ainsi de la liquidité du carnet d'ordres.
+   - **Formule** : `Money Flow Classique = Volume Taker Acheteur / Volume Taker Vendeur`
+
+2. **Money Flow Temporel** :
+   - **Définition** : Cet indicateur représente, sur la dernière heure, la proportion des minutes pendant lesquelles le volume des ordres "taker" acheteurs a été supérieur à celui des vendeurs.
+   - **Formule** : `Money Flow Temporel = Nombre de Minutes avec Volume Taker Acheteur > Volume Taker Vendeur / 60`
+
+3. **Rendement sur la Dernière Heure** :
+   - **Définition** : Le rendement est le pourcentage de variation du prix d'un actif sur une période donnée. Ici, vous calculerez le pourcentage de variation du prix sur la dernière heure.
+   - **Formule** : `Rendement = (Prix de Clôture - Prix d'Ouverture) / Prix d'Ouverture * 100`
+
+4. **VWAP (Volume Weighted Average Price) sur la Dernière Heure** :
+   - **Définition** : Le VWAP est une moyenne du prix des transactions pondérée par le volume. Cet indicateur donne une idée du prix moyen auquel un actif a été échangé sur la période considérée, pondéré par le volume de chaque transaction.
+   - **Formule** : `VWAP = Somme(Prix * Volume) / Somme(Volume) pour chaque minute de l'heure`
+
+5. **TWAP (Time Weighted Average Price) sur la Dernière Heure** :
+   - **Définition** : Le TWAP est la moyenne des prix de clôture de chaque minute sur une période donnée. Cela donne une moyenne du prix qui n'est pas influencée par les fluctuations de volume.
+   - **Formule** : `TWAP = Somme(Prix de Clôture de chaque Minute) / Nombre de Minutes`
+
+Ces indicateurs seront calculés à partir des données de marché de l'heure précédente et seront accessibles via des appels à des méthodes spécifiques du service gRPC que vous allez implémenter.
+
+## Prérequis
+- Connaissance de base de Python et de la programmation orientée objet.
+- Compréhension des concepts de base de gRPC.
+- Installation de l'environnement de développement Python, y compris `grpcio` et `grpcio-tools`.
+- Accès à l'API Binance pour les données publiques.
+
+# Partie 1: Création du Service gRPC
+
+### Tâche 1: Définition du Service
+1. Définir un service gRPC dans un fichier `.proto` qui contient des méthodes pour calculer et récupérer chacun des indicateurs financiers listés ci-dessus.
+2. Générer le code côté serveur et client à partir de ce fichier `.proto`.
+
+### Tâche 2: Implémentation du Serveur
+1. Implémenter la logique du serveur pour interroger l'API Binance et récupérer les données de marché nécessaires.
+2. Calculer les indicateurs financiers en fonction des données récupérées et les rendre disponibles via les méthodes gRPC.
+
+### Tâche 3: Client gRPC
+1. Écrire un client gRPC qui envoie des demandes au serveur pour obtenir les indicateurs financiers.
+2. Traiter la réponse et afficher les résultats.
+
+# Partie 2: Gestion du Caching des Données et des Résultats de Calcul
+
+Dans le cadre de ce TP, il est crucial de mettre en place un système de caching efficace pour optimiser les performances de votre service gRPC. Voici les directives à suivre concernant la gestion du cache :
+
+## Caching des Données de Marché Téléchargées
+
+- **Caching à la Première Demande** :
+  - Lorsqu'une méthode est appelée pour la première fois, les données de marché nécessaires doivent être téléchargées et mises en cache.
+  - Les appels subséquents à la même méthode utiliseront les données mises en cache jusqu'à ce qu'une nouvelle heure soit entamée.
+
+- **Mise à Jour Automatique du Cache** :
+  - Optionnellement, vous pouvez implémenter un mécanisme qui met à jour automatiquement le cache des données de marché à chaque nouvelle heure, indépendamment des demandes des clients.
+  - Cela garantit que les données les plus récentes sont toujours prêtes à être utilisées dès qu'une demande est reçue.
+
+## Caching des Résultats des Calculs
+
+- Les résultats des calculs des indicateurs financiers doivent également être mis en cache mais uniquement calculé à la première demande.
+
+## Format de Cache
+
+- Utilisez un format de cache rapide et efficace pour stocker les données et les résultats des calculs. Les formats recommandés sont `pickle` pour la rapidité ou `parquet` pour l'efficacité avec de grands volumes de données.
+- Assurez-vous que le système de cache est conçu pour minimiser le temps de chargement et de sauvegarde des données.
+
+
+En suivant ces directives, vous vous assurerez que votre service gRPC est réactif et efficace, en fournissant rapidement des données à jour et des résultats de calculs aux clients.
+
+
+# Ressources
+- [Documentation de l'API Binance](https://binance-docs.github.io/apidocs/)
+- [Documentation de l'API Binance sur GitHub](https://github.com/binance/binance-spot-api-docs/tree/master)
+- [Guide de démarrage rapide gRPC Python](https://grpc.io/docs/languages/python/quickstart/)
+- [Documentation Python `grpcio`](https://grpc.github.io/grpc/python/)
+

@@ -1,0 +1,231 @@
+---
+title: "Asynchronie et Multiprocessing"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/numpy.png
+code-links: binder
+---
+
+# Asynchronie et Multiprocessing - comment donner le tournis au GIL
+
+---
+
+
+
+# VI. Tests et Documentation d'APIs
+
+
+```
+La phase de test est cruciale dans le développement d'APIs pour s'assurer de la fiabilité, de la sécurité et de la performance de l'interface. La documentation joue également un rôle essentiel en fournissant aux utilisateurs les informations nécessaires pour intégrer et utiliser l'API correctement.
+```
+
+
+
+## 1. Importance des tests dans la conception d'APIs
+
+
+```
+Les tests permettent de vérifier que l'API se comporte comme prévu face à diverses requêtes et scénarios d'utilisation. Ils aident à identifier les bugs, les failles de sécurité et les goulets d'étranglement de performance avant que l'API ne soit mise en production.
+```
+
+
+
+## 2. Outils de test pour APIs en Python
+
+
+```
+Il existe plusieurs outils et frameworks pour tester les APIs en Python, parmi lesquels :
+```
+
+
+
+### a. unittest
+
+
+```
+unittest est un framework de tests intégré à Python qui utilise une approche orientée objet pour construire des tests. Voici un exemple de test pour une API Flask :
+
+
+
+```
+import unittest
+import my_flask_app
+
+class FlaskApiTests(unittest.TestCase):
+
+    def setUp(self):
+        self.app = my_flask_app.app.test_client()
+
+    def test_home_endpoint(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, b'Hello, World!')
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+
+
+```
+Dans cet exemple, setUp est utilisé pour initialiser le client de test avant chaque méthode de test. test_home_endpoint vérifie que la réponse à une requête GET sur l'endpoint racine est 200 OK et que le corps de la réponse est correct.
+```
+
+
+
+### b. pytest
+
+
+```
+pytest est un framework de test populaire qui supporte les fixtures et les tests paramétrés. Voici un exemple de test pour une API avec pytest :
+
+
+
+```
+import pytest
+import my_flask_app
+
+@pytest.fixture
+def client():
+    my_flask_app.app.config['TESTING'] = True
+    with my_flask_app.app.test_client() as client:
+        yield client
+
+def test_home_endpoint(client):
+    response = client.get('/')
+    assert response.status_code == 200
+    assert response.data == b'Hello, World!'
+```
+
+
+
+```
+Ici, pytest.fixture est utilisé pour créer un client de test qui peut être réutilisé dans plusieurs fonctions de test.
+```
+
+
+
+### c. Postman
+
+
+```
+Bien que Postman ne soit pas un outil spécifique à Python, il est largement utilisé pour tester les APIs. Vous pouvez créer des requêtes, les exécuter et vérifier les réponses directement dans l'interface utilisateur de Postman. Il est également possible d'écrire des tests en JavaScript pour automatiser le processus de test.
+```
+
+
+
+## 3. Documentation des APIs
+
+
+```
+Une bonne documentation d'API est essentielle pour que les développeurs comprennent rapidement comment l'utiliser. Elle doit inclure :
+
+```
+
+
+
+* `Un aperçu de l'API : Description, authentification, et termes d'utilisation.`
+* `Des détails sur les endpoints : Méthodes HTTP supportées, paramètres, exemples de requêtes et de réponses.`
+* `Des guides d'utilisation : Tutoriels et guides pas à pas pour aider les développeurs à démarrer.`
+* `Un changelog : Informations sur les différentes versions de l'API et les modifications apportées.`
+* a. Documentation des APIs avec Swagger
+
+
+```
+Swagger (OpenAPI) est un outil puissant pour documenter les APIs. Il permet de décrire les endpoints de votre API, les méthodes HTTP, les paramètres attendus, les réponses et bien plus encore. Voici comment vous pouvez utiliser Swagger pour documenter votre API :
+```
+
+
+
+### b. Installation de Swagger
+
+
+```
+Pour les applications Flask, vous pouvez utiliser des extensions comme flask-swagger-ui pour intégrer Swagger à votre API.
+
+
+
+```
+pip install flask-swagger-ui
+```
+
+
+
+### c. Configuration de Swagger
+
+
+```
+Vous devez créer un fichier de spécification Swagger (souvent au format YAML ou JSON) qui décrit votre API. Voici un exemple de base :
+
+
+
+```
+swagger: '2.0'
+info:
+  title: My API
+  description: API description
+  version: "1.0.0"
+host: 'localhost:5000'
+basePath: '/'
+schemes:
+  - http
+paths:
+  /users:
+    get:
+      summary: Returns a list of users
+      responses:
+        200:
+          description: A list of users
+```
+
+
+
+### d. Intégration de Swagger UI
+
+
+```
+Une fois que vous avez votre fichier de spécification, vous pouvez l'intégrer dans votre application Flask :
+
+
+
+```
+from flask import Flask
+from flask_swagger_ui import get_swaggerui_blueprint
+
+app = Flask(__name__)
+
+SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
+API_URL = '/static/swagger.yaml'  # Our API url (can of course be a local resource)
+
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={  # Swagger UI config overrides
+        'app_name': "Test application"
+    }
+)
+
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
+
+if __name__ == "__main__":
+    app.run()
+```
+
+
+
+```
+Avec ce code, vous pouvez accéder à Swagger UI en naviguant vers /api/docs sur votre serveur local. Swagger UI lira votre fichier de spécification et fournira une interface utilisateur interactive pour explorer votre API.
+
+Ces étapes fournissent un aperçu de base de l'utilisation de Swagger pour documenter une API. Il existe de nombreuses autres options et configurations possibles pour personnaliser davantage la documentation de votre API et la rendre plus utile pour les développeurs qui l'utilisent.
+
+Les tests et la documentation sont des composants essentiels de la conception d'APIs. Ils garantissent non seulement que l'API fonctionne correctement, mais aussi qu'elle est facile à comprendre et à utiliser par les développeurs. Des outils comme Postman et Swagger simplifient ces processus et améliorent l'expérience globale de développement.
+```

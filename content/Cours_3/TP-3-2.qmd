@@ -1,0 +1,59 @@
+---
+title: "TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée"
+weight: 10
+tags:
+  - Pandas
+  - YahooFinance
+  - Libraries
+  - TP
+  - Exercices
+categories:
+  - TP
+  - Exercices
+type: book
+description: "Mise  en pratique simple des éléments vu aurparavant."
+image: .img/api.png
+code-links: binder
+---
+
+# Description globale
+
+## Consignes Spécifiques pour ce TP :
+Ce TP est à réaliser en binôme. Chaque groupe choisira une des deux options de travaux pratiques proposées pour cette session. Lors de la soumission de votre projet sur GitHub, assurez-vous que chaque membre du groupe est correctement ajouté en tant que collaborateur sur le dépôt du projet. Il est nécessaire de rendre seulement l'une des deux options de TP par binôme.
+
+## Objectif
+Construire un système de récupération et de distribution de données de marché en temps réel en utilisant les sockets pour la communication et la mémoire partagée pour le stockage des données. Ce TP implémentera un serveur socket qui répond aux requêtes des clients en accédant à des données de marché mises à jour et stockées dans la mémoire partagée par un autre processus.
+
+## Prérequis
+- Connaissance de base de Python et de la programmation réseau.
+- Compréhension des concepts de base des sockets et de la mémoire partagée.
+- Installation de l'environnement de développement Python, y compris les bibliothèques nécessaires pour la gestion des sockets, de la mémoire partagée et des requêtes API (par exemple, `requests` ou `ccxt` pour Binance).
+
+# Partie 1: Script de Récupération des Données de Marché
+
+### Tâche 1: Récupération des Données
+1. Créer un script Python qui s'exécute en continu et récupère les données de marché pour les paires de cryptomonnaies spécifiées (BTC/USDT, ETH/USDT, ADA/USDT, BNB/USDT, XRP/USDT) à chaque minute.
+2. Utiliser l'API Binance pour obtenir les données de bars (OHLCV) pour les dernières 24 heures.
+
+### Tâche 2: Stockage dans la Mémoire Partagée
+1. Stocker les données récupérées dans un segment de mémoire partagée.
+2. Mettre à jour les données dans la mémoire partagée à chaque nouvelle récupération de données.
+
+# Partie 2: Serveur Socket pour la Distribution des Données
+
+### Tâche 3: Mise en Place du Serveur Socket
+1. Développer un serveur socket qui écoute les connexions entrantes sur un port spécifié.
+2. Gérer les requêtes des clients qui demandent des données pour une paire de cryptomonnaies spécifique.
+
+### Tâche 4: Traitement des Requêtes et Renvoi des Données
+1. Interpréter les requêtes des clients reçues en format JSON, qui spécifient la paire de cryptomonnaies pour laquelle les données sont demandées.
+2. Récupérer les données correspondantes de la mémoire partagée et les renvoyer au client.
+
+
+## Ressources
+- [Documentation de l'API Binance](https://binance-docs.github.io/apidocs/spot/en/)
+- [Documentation de l'API Binance sur GitHub](https://github.com/binance/binance-spot-api-docs/tree/master)
+- [Documentation Python `socket`](https://docs.python.org/3/library/socket.html)
+- [Documentation Python `multiprocessing`](https://docs.python.org/3/library/multiprocessing.html)
+
+

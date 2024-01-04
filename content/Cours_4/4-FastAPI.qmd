@@ -1,0 +1,590 @@
+---
+title: "Asynchronie et Multiprocessing"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/numpy.png
+code-links: binder
+---
+
+# Asynchronie et Multiprocessing - comment donner le tournis au GIL
+
+---
+
+
+
+
+# IV. Conception Avancée avec FastAPI
+
+
+```
+FastAPI est un framework moderne et rapide (haute performance) pour la construction d'APIs avec Python 3.7+, basé sur des standards Python type hints. L'un des principaux avantages de FastAPI est qu'il est conçu pour être facile et rapide à coder et qu'il réduit les erreurs de développement.
+```
+
+
+
+## 1. Avantages de Performance et de Conception
+
+
+```
+FastAPI est construit sur Starlette pour le routage web et Pydantic pour la validation des données, ce qui le rend rapide. Il est asynchrone nativement et est donc idéal pour les opérations IO-bound et les requêtes simultanées à grande échelle.
+```
+
+
+
+### a. Starlette ?
+
+
+```
+Starlette est un framework web léger et de haute performance pour Python, conçu pour créer des applications asynchrones. Il est souvent utilisé comme fondation pour construire des frameworks plus grands comme FastAPI, mais il peut également être utilisé seul pour créer des applications web simples et des microservices.
+
+Voici quelques points clés sur Starlette :
+
+```
+
+
+
+1. `Asynchronicité : Starlette est construit sur une base asynchrone, ce qui le rend particulièrement adapté pour les opérations I/O-bound, telles que les services qui font beaucoup d'appels de bases de données ou de requêtes HTTP externes.`
+2. `Flexibilité : Starlette est flexible et permet de construire des applications web avec seulement les composants nécessaires, ce qui le rend très léger et rapide.`
+3. `Modularité : Il est conçu pour être modulaire et facile à personnaliser. Vous pouvez utiliser les composants de Starlette avec d'autres frameworks asynchrones comme Sanic ou Quart, ou dans n'importe quelle application ASGI.`
+4. `Fonctionnalités : Malgré sa simplicité, Starlette offre un large éventail de fonctionnalités telles que le routage des requêtes, les middlewares, les websockets, les graphiques de dépendances, et plus encore.`
+5. `Compatibilité ASGI : Starlette est entièrement compatible avec l'interface de serveur web asynchrone (ASGI), qui est la norme émergente pour les applications web Python asynchrones et remplace WSGI pour les applications qui nécessitent de l'asynchronicité.`
+6. `Performances : Starlette est conçu pour être rapide. Il est l'un des frameworks Python les plus rapides disponibles, en partie grâce à sa nature asynchrone et à son architecture légère.`
+7. `Tests : Starlette facilite les tests avec un client de test qui permet de simuler des requêtes et des réponses sans avoir besoin d'un serveur en cours d'exécution.`
+
+
+```
+En résumé, Starlette est un excellent choix pour les développeurs qui ont besoin d'un framework web asynchrone qui est à la fois rapide et facile à utiliser, tout en offrant les fonctionnalités essentielles nécessaires pour construire des applications web modernes.
+```
+
+
+
+### b. Pydantic ?
+
+
+```
+Pydantic est une bibliothèque de validation et de gestion des données pour Python qui est fortement basée sur les annotations de type Python (Python type hints). Elle est conçue pour permettre une validation de données rapide et simple, et est particulièrement utile pour la construction d'APIs et de modèles de données.
+
+Voici quelques caractéristiques clés de Pydantic :
+
+```
+
+
+
+1. `Validation de données : Pydantic utilise les annotations de type Python pour valider que les données entrantes correspondent à un schéma attendu. Si les données ne correspondent pas, Pydantic lève des erreurs de validation explicites.`
+2. `Modèles de données : Avec Pydantic, vous pouvez définir des modèles de données, qui sont des classes Python avec des attributs typés. Ces modèles sont utilisés pour la validation mais peuvent également être utilisés comme une abstraction pour manipuler des données complexes.`
+3. `Conversion de types automatique : Pydantic tente de convertir les types de données entrants dans les types attendus, si possible. Par exemple, si un modèle attend un entier et qu'une chaîne de caractères numérique est fournie, Pydantic convertira la chaîne en entier.`
+4. `Annotations de type avancées : Pydantic supporte les annotations de type avancées de Python, y compris Optional, List, Dict, et les types personnalisés.`
+5. `Intégration avec les frameworks : Pydantic s'intègre bien avec de nombreux frameworks web modernes, notamment FastAPI, qui l'utilise pour la validation des données et la génération automatique de documentation pour les APIs.`
+6. `Génération de documentation : Les modèles Pydantic peuvent être utilisés pour générer automatiquement de la documentation pour une API, y compris les schémas JSON Schema.`
+7. `Plugins et extensions : Pydantic peut être étendu avec des plugins et est compatible avec de nombreux plugins existants qui ajoutent des fonctionnalités supplémentaires, comme la sérialisation en ORM, la validation par des expressions régulières, etc.`
+8. `Performances : Pydantic est conçu pour être rapide et efficace, ce qui est crucial pour les performances des applications web et des APIs.`
+
+
+```
+En résumé, Pydantic est un outil puissant pour la validation des données et la définition de modèles de données en Python, offrant une syntaxe claire et concise et une intégration facile avec d'autres frameworks et outils.
+```
+
+
+
+## 2. Typage Fort et Validation des Données
+
+
+```
+Grâce aux Python type hints, FastAPI peut valider les types de données entrantes, ce qui simplifie la validation des données et l'auto-documentation de l'API.
+
+
+
+```
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    description: str = None
+    price: float
+    tax: float = None
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
+```
+
+
+
+```
+Dans cet exemple, un modèle Item est défini avec Pydantic, et une route est créée où FastAPI s'attend à recevoir des données correspondant à ce modèle, les valide, et les rend directement.
+```
+
+
+
+## 3. Sécurité et Authentification
+
+
+```
+FastAPI fournit plusieurs outils pour gérer l'authentification et la sécurité, y compris le support intégré pour OAuth2 avec JWT.
+
+
+
+```
+from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.get("/users/me")
+async def read_users_me(token: str = Depends(oauth2_scheme)):
+    if token != "fake-super-secret-token":
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication credentials",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return {"token": token}
+```
+
+
+
+```
+Dans cet exemple, OAuth2PasswordBearer est utilisé pour définir un schéma de sécurité OAuth2 qui attend un token dans les en-têtes de la requête.
+```
+
+
+
+## 4. Dépendances
+
+
+```
+FastAPI permet d'utiliser des "dépendances" pour créer des dépendances réutilisables que vous pouvez injecter dans vos routes.
+
+
+#### Exemple basique de dépendance
+
+
+
+```
+from fastapi import Depends, FastAPI
+
+def common_parameters(q: str = None, skip: int = 0, limit: int = 100):
+    return {"q": q, "skip": skip, "limit": limit}
+
+@app.get("/items/")
+async def read_items(commons: dict = Depends(common_parameters)):
+    return commons
+```
+
+
+
+```
+
+
+#### Exemple de dépendance avancée
+
+
+
+```
+from fastapi import Depends, FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class User(BaseModel):
+    username: str
+    is_admin: bool = False
+
+def get_current_user():
+    # Ici, vous pourriez récupérer l'utilisateur actuel de la base de données ou d'un token
+    return User(username="johndoe", is_admin=True)
+
+def require_admin(user: User = Depends(get_current_user)):
+    if not user.is_admin:
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+@app.post("/admin/")
+async def admin_dashboard(user: User = Depends(require_admin)):
+    return {"message": "Admin dashboard access granted"}
+```
+
+
+
+```
+Dans cet exemple, get_current_user est une dépendance qui récupère l'utilisateur actuel, et require_admin est une dépendance qui dépend de get_current_user et vérifie si l'utilisateur est administrateur. La route /admin/ utilise require_admin pour s'assurer que seuls les administrateurs peuvent y accéder.
+```
+
+
+
+## 5. Middleware
+
+
+```
+Un middleware est une fonction qui est exécutée pour chaque requête avant qu'elle n'atteigne la route effective et après que la réponse a été générée par la route. Cela permet d'ajouter des fonctionnalités à votre application qui s'appliquent à toutes les requêtes, comme la gestion des erreurs, la journalisation, la gestion des CORS, etc.
+```
+
+
+
+### a. Ajout de middleware avec le décorateur @app.middleware
+
+
+```
+
+
+#### Exemple de middleware
+
+
+
+```
+from fastapi import FastAPI
+import time
+
+app = FastAPI()
+
+@app.middleware("http")
+async def add_process_time_header(request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = time.time() - start_time
+    response.headers["X-Process-Time"] = str(process_time)
+    return response
+```
+
+
+
+```
+Dans cet exemple, le middleware mesure le temps de traitement de chaque requête et ajoute cet information dans les en-têtes de la réponse.
+
+
+#### Options de middleware
+FastAPI vous permet d'ajouter des middlewares pour différentes couches de la requête HTTP. Par défaut, "http" est utilisé pour les middlewares qui agissent sur chaque requête HTTP. Vous pouvez également créer des middlewares personnalisés pour des tâches spécifiques, mais cela nécessite une connaissance plus approfondie de Starlette (le toolkit asynchrone sur lequel FastAPI est construit) et des ASGI (Asynchronous Server Gateway Interface), qui est le standard utilisé pour les applications Python asynchrones.
+
+Voici les types de middlewares que vous pouvez ajouter :
+
+```
+
+
+
+* `"http" : Pour les requêtes HTTP standard.`
+* `Middleware personnalisé : Vous pouvez créer des middlewares personnalisés en suivant la spécification ASGI, ce qui vous permet d'interagir avec les requêtes et les réponses à un niveau plus bas.`
+
+
+### b. Création de middleware personnalisé
+
+
+```
+Pour créer un middleware personnalisé, vous devez créer une classe ou une fonction qui respecte la signature ASGI et l'ajouter à votre application FastAPI avec app.add_middleware(). Cela peut être utile pour des cas d'utilisation avancés où vous avez besoin d'un contrôle plus fin sur le traitement des requêtes et des réponses.
+
+
+
+```
+from fastapi import FastAPI
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+from starlette.responses import Response
+
+app = FastAPI()
+
+class CustomHeaderMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        # Vous pouvez effectuer des actions avant la requête ici
+        response = await call_next(request)
+        # Vous pouvez effectuer des actions après la requête ici
+        response.headers['X-Custom-Header'] = 'Custom value'
+        return response
+
+# Ajout du middleware personnalisé à l'application FastAPI
+app.add_middleware(CustomHeaderMiddleware)
+
+@app.get("/")
+async def read_root():
+    return {"message": "Hello World"}
+```
+
+
+
+```
+Dans cet exemple, CustomHeaderMiddleware est une classe qui hérite de BaseHTTPMiddleware. La méthode dispatch est redéfinie pour ajouter un en-tête personnalisé X-Custom-Header à toutes les réponses.
+
+La méthode dispatch prend deux arguments :
+
+```
+
+
+
+* `request: l'objet de requête Starlette, qui contient toutes les informations sur la requête entrante.`
+* `call_next: une fonction qui prend l'objet de requête et renvoie une réponse. C'est ce qui permet d'appeler le reste de l'application FastAPI.`
+
+
+```
+En ajoutant CustomHeaderMiddleware avec app.add_middleware(), vous vous assurez que chaque requête passant par votre application FastAPI sera traitée par ce middleware.
+
+Ce type de middleware personnalisé peut être utilisé pour une variété de cas d'utilisation avancés, comme la journalisation personnalisée, la gestion des sessions, la modification des requêtes ou des réponses avant qu'elles n'atteignent l'application ou après qu'elles en sortent, etc.
+```
+
+
+
+### c. Pourquoi un middleware personnalisé plutôt que le décorateur standard ?
+
+
+```
+L'utilisation du décorateur @app.middleware("http") est une manière pratique et rapide d'ajouter un middleware à une application FastAPI pour des cas d'utilisation simples. Cependant, créer une classe middleware comme dans l'exemple précédent avec CustomHeaderMiddleware offre plusieurs avantages pour des cas plus complexes :
+
+```
+
+
+
+1. `Réutilisabilité : En définissant un middleware comme une classe, vous pouvez facilement le réutiliser dans différentes applications FastAPI ou même le partager en tant que package.`
+2. `Testabilité : Les classes middleware peuvent être plus faciles à tester car vous pouvez les instancier et les appeler indépendamment de l'application FastAPI.`
+3. `Extensibilité : Avec une classe, vous avez la possibilité d'étendre les fonctionnalités d'un middleware existant en utilisant l'héritage. Vous pouvez également surcharger des méthodes pour modifier leur comportement.`
+4. `Clarté : Pour des comportements complexes, avoir une classe dédiée peut rendre le code plus clair et plus facile à maintenir, en séparant la logique du middleware de celle des routes de l'application.`
+5. `Contrôle Fin : En utilisant une classe, vous avez un contrôle plus fin sur le cycle de vie de la requête et de la réponse. Vous pouvez exécuter du code avant et après que la requête ait été traitée par l'application, et même manipuler la requête avant de la passer à l'application.`
+
+
+```
+Le décorateur @app.middleware("http") est une abstraction qui simplifie l'ajout de middleware pour la plupart des besoins courants. Cependant, si vous avez besoin de plus de contrôle ou si vous souhaitez créer un middleware qui est plus complexe ou qui doit être réutilisé à travers plusieurs projets, alors définir une classe middleware est une meilleure approche.
+```
+
+
+
+## 5. Tests Automatisés
+
+
+```
+FastAPI est conçu pour faciliter les tests, avec une structure qui s'adapte bien aux tests unitaires et d'intégration.
+
+
+
+```
+from fastapi.testclient import TestClient
+
+client = TestClient(app)
+
+def test_read_main():
+    response = client.get("/items/")
+    assert response.status_code == 200
+    assert response.json() == {"q": None, "skip": 0, "limit": 100}
+```
+
+
+
+```
+Dans cet exemple, TestClient est utilisé pour tester la route /items/.
+```
+
+
+
+## 6. Exemples
+
+
+### a. Exemple de la Todo List
+
+
+```
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import List
+
+app = FastAPI()
+
+class Task(BaseModel):
+    id: int
+    title: str
+    completed: bool
+
+tasks: List[Task] = [
+    Task(id=1, title="Do laundry", completed=False),
+    Task(id=2, title="Write code", completed=False),
+]
+
+@app.get("/tasks", response_model=List[Task])
+async def get_tasks():
+    return tasks
+
+@app.post("/tasks", response_model=Task)
+async def add_task(task: Task):
+    tasks.append(task)
+    return task
+
+@app.put("/tasks/{task_id}", response_model=Task)
+async def update_task(task_id: int, task_update: Task):
+    task = next((t for t in tasks if t.id == task_id), None)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    task.title = task_update.title
+    task.completed = task_update.completed
+    return task
+
+@app.delete("/tasks/{task_id}", response_model=Task)
+async def delete_task(task_id: int):
+    global tasks
+    task = next((t for t in tasks if t.id == task_id), None)
+    if not task:
+        raise HTTPException(status_code=404, detail="Task not found")
+    tasks = [t for t in tasks if t.id != task_id]
+    return task
+```
+
+
+
+### b. Exemple de l'authentification
+
+
+```
+Côté serveur :
+
+Vous devez d'abord installer les packages nécessaires :
+
+
+
+```
+pip install fastapi[all] pyjwt
+```
+
+
+
+```
+Ensuite, vous pouvez créer un fichier main.py pour votre application FastAPI :
+
+
+
+```
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from pydantic import BaseModel
+from datetime import datetime, timedelta
+import jwt
+
+# Configuration
+SECRET_KEY = "your_secret_key"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+app = FastAPI()
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+# Simuler une base de données d'utilisateurs
+fake_users_db = {
+    "john": {
+        "username": "john",
+        "full_name": "John Doe",
+        "email": "johndoe@example.com",
+        "hashed_password": "fakehashedhello",
+        "disabled": False,
+    }
+}
+
+def fake_hash_password(password: str):
+    return "fakehashed" + password
+
+class User(BaseModel):
+    username: str
+    email: str = None
+    full_name: str = None
+    disabled: bool = None
+
+class UserInDB(User):
+    hashed_password: str
+
+def get_user(db, username: str):
+    if username in db:
+        user_dict = db[username]
+        return UserInDB(**user_dict)
+
+def authenticate_user(fake_db, username: str, password: str):
+    user = get_user(fake_db, username)
+    if not user or not fake_hash_password(password) == user.hashed_password:
+        return False
+    return user
+
+def create_access_token(data: dict, expires_delta: timedelta = None):
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(minutes=15)
+    to_encode.update({"exp": expire})
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    return encoded_jwt
+
+@app.post("/token")
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = authenticate_user(fake_users_db, form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(
+        data={"sub": user.username}, expires_delta=access_token_expires
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
+
+@app.get("/users/me", dependencies=[Depends(oauth2_scheme)])
+async def read_users_me(current_user: User = Depends(authenticate_user)):
+    return current_user
+
+# Utilisez cette fonction de dépendance pour obtenir l'utilisateur actuel
+async def get_current_user(token: str = Depends(oauth2_scheme)):
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+        token_data = username
+    except jwt.PyJWTError:
+        raise credentials_exception
+    user = get_user(fake_users_db, username=token_data)
+    if user is None:
+        raise credentials_exception
+    return user
+```
+
+
+
+```
+Côté client :
+
+Pour le client, vous pouvez utiliser la bibliothèque httpx pour interagir avec l'API FastAPI.
+
+
+
+```
+import httpx
+
+# Remplacer par l'URL de votre API
+url = "http://127.0.0.1:8000"
+
+# Demande d'authentification
+auth_response = httpx.post(url + "/token", data={'username': 'john', 'password': 'hello'})
+
+# Si authentification réussie, utiliser le token pour accéder à une route protégée
+if auth_response.is_success:
+    access_token = auth_response.json()['access_token']
+    headers = {'Authorization': f'Bearer {access_token}'}
+    protected_response = httpx.get(url + "/users/me", headers=headers)
+    print(protected_response.json())
+else:
+    print("Failed to authenticate")
+```
+
+
+
+```
+Dans cet exemple, FastAPI utilise des dépendances pour gérer l'authentification et la sécurité. Lorsqu'un utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token d'accès est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.
+```

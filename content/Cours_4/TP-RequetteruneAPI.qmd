@@ -1,0 +1,52 @@
+---
+title: "TP 4 : API d'Indicateurs Financiers avec Gestion des Niveaux d'Accès "
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: "Asynchronie vs synchronie"
+image: .img/Untitled.png
+code-links: binder
+---
+
+# Visualisation de données avec Python
+
+---
+
+TP 4 : API d'Indicateurs Financiers avec Gestion des Niveaux d'Accès 
+Description 
+Consignes Spécifiques pour ce TP : 
+Ce TP est à réaliser en trinôme. Lors de la soumission de votre projet sur GitHub, assurez-vous que chaque membre du groupe est correctement ajouté en tant que collaborateur sur le dépôt du projet. 
+Objectif 
+Construire une API qui fournit des indicateurs financiers pour les cryptomonnaies et les actions. L'API doit gérer l'authentification des utilisateurs et offrir différents niveaux d'accès en fonction de l'abonnement de l'utilisateur. 
+Fonctionnalités attendues 
+Fonctionnalités de base 
+1. Authentification des utilisateurs : 
+Implémenter l'authentification JWT pour sécuriser l'API. 
+Permettre aux utilisateurs de s'inscrire et de se connecter pour accéder à l'API. 2. Niveaux d'accès : 
+Définir différents niveaux d'accès (par exemple, gratuit, premium, entreprise) avec des taux de requêtes et des fonctionnalités variés. 
+Implémenter un système de gestion des droits d'accès en fonction du niveau d'abonnement de l'utilisateur. 
+3. Endpoints des indicateurs financiers : 
+Fournir des endpoints pour calculer et récupérer différents indicateurs financiers (par exemple, RSI, MACD, SMA, EMA). 
+Limiter l'accès à certains indicateurs en fonction du niveau d'abonnement de l'utilisateur. 4. Rate limiting : 
+Mettre en place un rate limiting pour limiter le nombre de requêtes que les utilisateurs non authentifiés et ceux avec un abonnement gratuit peuvent faire. 
+Fonctionnalités avancées (optionnelles - points bonus projet final)
+1. Amélioration des niveaux d'accès : 
+Permettre aux utilisateurs de mettre à niveau leur abonnement pour accéder à des taux de requêtes plus élevés et à des indicateurs supplémentaires. 
+2. Cache des données : 
+Implémenter un système de cache pour améliorer les performances de l'API en stockant les résultats des calculs des indicateurs. 
+3. Webhooks et notifications : 
+Offrir la possibilité de configurer des webhooks pour recevoir des notifications lorsque certains indicateurs atteignent des seuils spécifiques. 
+Etapes 
+Choisissez un des frameworks (Flask, FastAPI, Django REST Framework) pour implémenter l'API. 
+Concevez votre modèle de données pour gérer les utilisateurs, les niveaux d'abonnement et les indicateurs financiers. 
+Développez les endpoints nécessaires pour chaque fonctionnalité en vous assurant de bien gérer les erreurs et les cas d'usage. 
+Mettez en place un système de rate limiting pour gérer la fréquence des requêtes. Écrivez des tests pour vos endpoints pour garantir leur bon fonctionnement. 
+Documentez votre API pour que les utilisateurs et les développeurs puissent facilement comprendre comment l'utiliser. 
+Créer un exemple de client qui utilise votre API

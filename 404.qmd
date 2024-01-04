@@ -1,0 +1,21 @@
+---
+title: Page Not Found
+toc: false
+sidebar: false
+title-block-style: none
+listing:
+   contents: content/**/*.qmd
+   type: grid
+   sort: "random"
+   categories: true
+---
+
+# 404 - {{< animate hinge "it seems you lost yourself !" >}}
+
+La page demandée n'existe pas ou n'existe plus {{< animate bounce "🙃" >}}. 
+
+Essayez d'accéder à la page en navigant 
+sur le site grâce aux tables de matières ou
+en cherchant la page voulue depuis la mosaïque
+suivante :
+

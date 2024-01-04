@@ -1,0 +1,345 @@
+---
+title: "POO - Python Orienté Objet"
+weight: 10
+tags:
+  - Pandas
+  - Bases
+  - Libraries
+  - Cours
+categories:
+  - Cours
+  - Fondamentaux
+type: book
+description: ""
+image: .img/numpy.png
+code-links: binder
+---
+
+# POO - Python Orienté Objet"
+
+---
+
+
+
+# V. Exemple avancé avec Heroku, Flask et Binance API
+
+
+```
+Dans cet exemple, nous allons créer une application Flask qui récupère et stocke les données de prix des cryptomonnaies de Binance dans une base de données Heroku Postgres. L'application permettra également l'authentification des utilisateurs et offrira différents niveaux d'accès pour consulter des analyses de données.
+```
+
+
+
+## **1: Configuration de la Base de Données sur Heroku**
+
+
+```
+
+
+### Ajouter un Add-on de Base de Données
+
+```
+
+
+
+* `Connectez-vous au tableau de bord Heroku.`
+* `Sélectionnez votre application.`
+* `Allez dans "Resources".`
+* `Ajoutez "Heroku Postgres" à votre application.`
+
+
+```
+
+
+### Configurer les Variables d'Environnement
+
+```
+
+
+
+* `Heroku définit DATABASE_URL pour l'add-on de base de données.`
+* `Gérez vos variables d'environnement dans "Settings" > "Config Vars".`
+
+
+## **2: Préparation de l'Authentification**
+
+
+```
+
+
+### Installation de Flask-JWT-Extended
+
+```
+
+
+
+* `Ajoutez Flask-JWT-Extended dans requirements.txt.`
+* `Heroku installera cette dépendance lors du déploiement.`
+
+
+```
+
+
+### Configuration de Flask-JWT-Extended
+
+```
+
+
+
+* `Configurez Flask-JWT-Extended avec une clé secrète dans votre application Flask.`
+* `Utilisez une variable d'environnement pour la clé secrète JWT.`
+
+
+## **3: Configuration du Processus Clock avec Heroku Scheduler**
+
+
+```
+
+
+### Ajouter Heroku Scheduler
+
+```
+
+
+
+* `Dans "Resources", ajoutez "Heroku Scheduler".`
+
+
+```
+
+
+### Configurer les Tâches Planifiées
+
+```
+
+
+
+* `Configurez des tâches pour exécuter python -m scripts.update_db à une fréquence définie.`
+
+
+## **4: Déploiement de l'Application**
+
+
+```
+
+
+### Créer un Procfile
+
+```
+
+
+
+* `Indiquez à Heroku de démarrer votre application avec web: gunicorn app:app.`
+
+
+```
+
+
+### Déployer sur Heroku
+
+```
+
+
+
+* `Poussez votre code sur Heroku avec git push heroku master.`
+
+
+## **5: Initialisation de la Base de Données**
+
+
+```
+
+
+### Exécuter les Migrations
+
+```
+
+
+
+* `Utilisez heroku run python your_script.py pour initialiser la base de données.`
+
+
+## **6. Script d'Initialisation de la Base de Données avec les Données de Binance**
+
+
+```
+
+
+### init_db.py
+
+
+
+```
+# init_db.py
+import requests
+from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Float
+from datetime import datetime
+
+# Configuration de la connexion à la base de données
+DATABASE_URL = "postgres://user:password@localhost/dbname"
+engine = create_engine(DATABASE_URL)
+metadata = MetaData()
+
+# Définition de la table pour les données de Binance
+binance_data = Table('binance_data', metadata,
+                     Column('id', Integer, primary_key=True),
+                     Column('symbol', String),
+                     Column('price', Float),
+                     Column('timestamp', String)
+                     )
+
+# Création de la table dans la base de données
+metadata.create_all(engine)
+
+# Fonction pour récupérer les données historiques de Binance
+def fetch_binance_historical_data(symbol='BTCUSDT', start_date='2023-01-01'):
+    # URL de l'API Binance pour les données historiques
+    url = f"https://api.binance.com/api/v3/klines?symbol={symbol}&interval=1h&startTime={start_date}"
+    response = requests.get(url)
+    data = response.json()
+    return data
+
+# Fonction pour insérer les données dans la base de données
+def insert_data_to_db(data, symbol):
+    # Convertir les données en format approprié pour l'insertion dans la base de données
+    formatted_data = [
+        {'symbol': symbol, 'price': float(entry[1]), 'timestamp': datetime.fromtimestamp(entry[0]/1000).strftime('%Y-%m-%d %H:%M:%S')}
+        for entry in data
+    ]
+    # Insérer les données
+    with engine.connect() as conn:
+        conn.execute(binance_data.insert(), formatted_data)
+
+# Exécution du script
+if __name__ == "__main__":
+    historical_data = fetch_binance_historical_data()
+    insert_data_to_db(historical_data, 'BTCUSDT')
+```
+
+
+
+## **7. Script de Mise à Jour Régulière de la Base de Données**
+
+
+```
+
+
+### update_db.py
+
+
+
+```
+# update_db.py
+import requests
+from sqlalchemy import create_engine
+from datetime import datetime
+
+# Configuration de la connexion à la base de données
+DATABASE_URL = "postgres://user:password@localhost/dbname"
+engine = create_engine(DATABASE_URL)
+
+# Fonction pour récupérer les dernières données de Binance
+def fetch_latest_binance_data(symbol='BTCUSDT'):
+    # URL de l'API Binance pour les dernières données
+    url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
+    response = requests.get(url)
+    data = response.json()
+    return data
+
+# Fonction pour mettre à jour la base de données
+def update_database(data, symbol):
+    # Convertir les données en format approprié pour l'insertion dans la base de données
+    formatted_data = {
+        'symbol': symbol,
+        'price': float(data['price']),
+        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    }
+    # Insérer les données
+    with engine.connect() as conn:
+        conn.execute(binance_data.insert(), formatted_data)
+
+# Exécution du script
+if __name__ == "__main__":
+    latest_data = fetch_latest_binance_data()
+    update_database(latest_data, 'BTCUSDT')
+```
+
+
+
+## **8. Configuration de l'Authentification et des Niveaux d'Accès**
+
+
+```
+
+
+### app.py
+
+
+
+```
+# app.py
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+db = SQLAlchemy(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+# Modèle utilisateur
+class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    level = db.Column(db.Integer, default=1)  # Niveau d'accès par défaut
+
+# Routes d'authentification (à compléter avec la logique de vérification, etc.)
+@app.route('/login', methods=['POST'])
+def login():
+    # Logique de connexion
+    pass
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return jsonify({"message": "Logged out"}), 200
+
+# Route d'analytique nécessitant un niveau d'accès
+@app.route('/analytics_1')
+@login_required
+def analytics_1():
+    user = ...  # Obtenir l'utilisateur actuel
+    if user.level >= 1:
+        # Logique d'analytique pour le niveau 1
+        pass
+    else:
+        return jsonify({"error": "Unauthorized"}), 403
+
+# ... Autres routes d'analytique ...
+
+if __name__ == "__main__":
+    app.run()
+```
+
+
+
+## **9. Exemple de **Procfile** pour Heroku**
+
+
+```
+web: gunicorn app:app
+clock: python -m scripts.update_db
+```
+
+
+
+## **10. Conclusion**
+
+
+```
+Cet exemple illustre comment déployer une application Flask sur Heroku qui interagit avec une base de données et une API externe. L'application gère l'authentification des utilisateurs et offre des services basés sur différents niveaux d'accès. Les utilisateurs authentifiés peuvent accéder à des analyses de données spécifiques en fonction de leur niveau d'accès.
+```
+
