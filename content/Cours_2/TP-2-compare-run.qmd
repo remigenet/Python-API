@@ -1,5 +1,5 @@
 ---
-title: "Introduction à la POO en Python"
+title: "TP : Comparaison des performances des appels en tant qu'utilisateur"
 weight: 10
 tags:
   - Syntaxe

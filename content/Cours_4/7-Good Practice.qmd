@@ -1,5 +1,5 @@
 ---
-title: "Asynchronie et Multiprocessing"
+title: "Bonne pratique générale"
 weight: 10
 tags:
   - Pandas

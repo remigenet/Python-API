@@ -1,5 +1,5 @@
 ---
-title: "Asynchronie et Multiprocessing"
+title: "Conclusion"
 weight: 10
 tags:
   - Pandas

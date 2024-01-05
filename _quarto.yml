@@ -13,6 +13,8 @@ website:
     background: "white"
     search: true
     left:
+      - text: Back to Main Website
+        url: https://remigenet.github.io/website/
       - file: index.qmd
         text: Home 
       - sidebar:introduction

@@ -1,5 +1,5 @@
 ---
-title: "Typage en Python"
+title: "Les principaux Frameworks d'APIs en Python"
 weight: 10
 tags:
   - Pandas

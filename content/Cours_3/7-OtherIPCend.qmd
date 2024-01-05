@@ -1,5 +1,5 @@
 ---
-title: "Visualiser et présenter ces données avec Python"
+title: "Conclusions"
 weight: 10
 tags:
   - Pandas

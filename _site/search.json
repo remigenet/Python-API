@@ -1737,5 +1737,40 @@
     "title": "Introduction à Python",
     "section": "",
     "text": "Back to top"
+  },
+  {
+    "objectID": "content/Cours_1/index.html",
+    "href": "content/Cours_1/index.html",
+    "title": "Introduction aux API",
+    "section": "",
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAPIs 101\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLe PATH\n\n\nExplorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes IDEs\n\n\nChoisir son IDE, une question de goûts mais un impact important sur la productivité.\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPath.. et environnements virtuels!\n\n\nLes outils pour gerer plusieurs versions de python facilement, et le concept d’environnements virtuels -\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP - Construire son python depuis la source\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUtiliser une API en tant qu’utilisateur\n\n\nExplorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVersions et Compilation de Python\n\n\nExplorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "content/Cours_2/index.html",
+    "href": "content/Cours_2/index.html",
+    "title": "Consommation avancée d’API",
+    "section": "",
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie, Multithreading et Multiprocessig en Python\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuthentification et sécurité des API\n\n\nCe chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la…\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction à la POO en Python\n\n\nDans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les…\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProtocols de communication\n\n\nCe chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant…\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "content/Cours_4/index.html",
+    "href": "content/Cours_4/index.html",
+    "title": "Conception d’APIs",
+    "section": "",
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1-IntroConception\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie et Multiprocessing\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie et Multiprocessing\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie et Multiprocessing\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie et Multiprocessing\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie et Multiprocessing\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAsynchronie et Multiprocessing\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès\n\n\nAsynchronie vs synchronie\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTypage en Python\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "content/Cours_3/index.html",
+    "href": "content/Cours_3/index.html",
+    "title": "Communication entre Processus (IPC)",
+    "section": "",
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction à l’IPC\n\n\nLes DataFrames\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning\n\n\nPython, où le ML à deux cliques de souris\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPython - Aussi un language pour servir des données\n\n\nDjango, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRecupérer des données du net\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSockets\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP3 Option 1 Service gRPC pour indicateurs de marché\n\n\nMise en pratique simple des éléments vu aurparavant.\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée\n\n\nMise en pratique simple des éléments vu aurparavant.\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisualiser et présenter ces données avec Python\n\n\nMatplotlib, Plotly ou Seaborn ? Peut être Altair !\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVisualiser et présenter ces données avec Python\n\n\nMatplotlib, Plotly ou Seaborn ? Peut être Altair !\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "content/Cours_5/index.html",
+    "href": "content/Cours_5/index.html",
+    "title": "Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku",
+    "section": "",
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’arbre Syntaxique Abstrait ou AST\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPOO - Python Orienté Objet\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPOO - Python Orienté Objet\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPOO - Python Orienté Objet\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPOO - Python Orienté Objet\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPOO - Python Orienté Objet\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPOO - Python Orienté Objet\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-05\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]

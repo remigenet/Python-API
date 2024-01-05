@@ -1,5 +1,5 @@
 ---
-title: "Python - Aussi un language pour servir des données"
+title: "Pipes"
 weight: 10
 tags:
   - Pandas

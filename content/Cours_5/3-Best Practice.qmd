@@ -1,5 +1,5 @@
 ---
-title: "POO - Python Orienté Objet"
+title: "Meilleurs Pratiques avant un déploiement"
 weight: 10
 tags:
   - Pandas
