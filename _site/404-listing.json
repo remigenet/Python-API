@@ -1,10 +1,6 @@
 {
   "listing": "/404.html",
   "items": [
-    "/content/Annexes/LinuxTerminal.html",
-    "/content/Annexes/git_advanced.html",
-    "/content/Annexes/git_basics.html",
-    "/content/Annexes/use_poetry.html",
     "/content/Cours_1/1-API101.html",
     "/content/Cours_1/2-User101.html",
     "/content/Cours_1/3-Concepteur101.html",

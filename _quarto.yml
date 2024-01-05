@@ -112,8 +112,9 @@ website:
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Python-API)
 
 theme:
-  light: sandstone
-  dark: darkly
+  light: zephir
+  dark: vapor
+
 
 format:
   html:
@@ -133,3 +134,5 @@ validate-yaml: false
 crossref:
   chapters: true
 lightbox: auto
+
+

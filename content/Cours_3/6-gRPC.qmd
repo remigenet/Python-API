@@ -25,9 +25,9 @@ code-links: binder
 # VI. gRPC  (Google Remote Procedure Call):
 
 
-```
+
 Cette section reprend celle présente dans le cours 2, et vient de la completer.
-```
+
 
 
 
@@ -35,53 +35,53 @@ Cette section reprend celle présente dans le cours 2, et vient de la completer.
 
 
 
-* `gRPC est un système de RPC (Remote Procedure Call) moderne et de haute performance qui utilise HTTP/2 pour le transport, et Protocol Buffers comme mécanisme d'interface de description de langage (IDL). RPC permet à un programme d'exécuter une procédure (une routine de sous-programme) sur un autre ordinateur distant, qui peut être sur le même réseau ou situé à travers Internet.`
-* `Conçu pour supporter une multitude de langages, cela signifie qu'un service gRPC écrit en Java pourrait être appelé par un client en Go, et vice versa.`
+* gRPC est un système de RPC (Remote Procedure Call) moderne et de haute performance qui utilise HTTP/2 pour le transport, et Protocol Buffers comme mécanisme d'interface de description de langage (IDL). RPC permet à un programme d'exécuter une procédure (une routine de sous-programme) sur un autre ordinateur distant, qui peut être sur le même réseau ou situé à travers Internet.
+* Conçu pour supporter une multitude de langages, cela signifie qu'un service gRPC écrit en Java pourrait être appelé par un client en Go, et vice versa.
 
 
 ## 2. Traduction de l'acronyme gRPC :
 
 
 
-* `g : initialement pour Google, car le framework a été développé par Google, mais il n'est pas un acronyme officiel.`
-* `RPC : Remote Procedure Call, qui est un protocole permettant l'exécution d'une procédure dans un autre espace d'adresse (comme sur un autre ordinateur sur un réseau).`
+* g : initialement pour Google, car le framework a été développé par Google, mais il n'est pas un acronyme officiel.
+* RPC : Remote Procedure Call, qui est un protocole permettant l'exécution d'une procédure dans un autre espace d'adresse (comme sur un autre ordinateur sur un réseau).
 
 
 ## 3. Avantages de gRPC :
 
 
 
-1. `Communication bidirectionnelle : Grâce à HTTP/2, il prend en charge la communication bidirectionnelle en streaming.`
-2. `Performant : Les Protocol Buffers, souvent appelés protobufs, sont beaucoup plus efficaces que JSON pour la sérialisation et la désérialisation des données.`
-3. `Outils et langages : Il supporte de nombreux langages, avec des outils pour générer automatiquement des codes client et serveur dans de multiples langages.`
-4. `Deadline/Timeouts : gRPC vous permet de définir combien de temps un client est prêt à attendre pour une RPC à compléter. Le serveur peut vérifier cette et décider de compléter l'opération au lieu de traiter la demande.`
-5. `Annulation : Si un client n'a pas besoin du résultat d'un appel, il peut l'annuler. Le serveur est informé de l'annulation et peut économiser des ressources en arrêtant le traitement de l'appel.`
+1. Communication bidirectionnelle : Grâce à HTTP/2, il prend en charge la communication bidirectionnelle en streaming.
+2. Performant : Les Protocol Buffers, souvent appelés protobufs, sont beaucoup plus efficaces que JSON pour la sérialisation et la désérialisation des données.
+3. Outils et langages : Il supporte de nombreux langages, avec des outils pour générer automatiquement des codes client et serveur dans de multiples langages.
+4. Deadline/Timeouts : gRPC vous permet de définir combien de temps un client est prêt à attendre pour une RPC à compléter. Le serveur peut vérifier cette et décider de compléter l'opération au lieu de traiter la demande.
+5. Annulation : Si un client n'a pas besoin du résultat d'un appel, il peut l'annuler. Le serveur est informé de l'annulation et peut économiser des ressources en arrêtant le traitement de l'appel.
 
 
-```
+
 Définitions utiles:
 
-```
+
 
 
 
 * 
 
-    ```
+    
 **HTTP/2 :** HTTP/2 est la deuxième version majeure du protocole HTTP, utilisée par le World Wide Web. Par rapport à HTTP/1.x, HTTP/2:
-```
+
 
 
 * 
-    * `Est binaire, au lieu de textuel, ce qui est plus efficace et moins sujet à des erreurs.`
-    * `Permet une multiplexage des requêtes pour éviter le blocage de la connexion.`
-    * `Utilise la compression des headers pour réduire la surcharge.`
-    * `Permet des priorités de requêtes et des contrôles de flux.`
+    * Est binaire, au lieu de textuel, ce qui est plus efficace et moins sujet à des erreurs.
+    * Permet une multiplexage des requêtes pour éviter le blocage de la connexion.
+    * Utilise la compression des headers pour réduire la surcharge.
+    * Permet des priorités de requêtes et des contrôles de flux.
 * 
 
-    ```
+    
 **Sérialisation et Désérialisation :** La sérialisation est le processus de transformation d'objets en une forme qui peut être facilement stockée ou transmise, et la désérialisation est l'inverse, transformant les données sérialisées en objets utilisables par le programme. Dans le contexte de gRPC et Protocol Buffers, la sérialisation transforme les données structurées en une suite de bytes compacte et efficace, tandis que la désérialisation reconvertit cette suite de bytes en une structure de données utilisable par les applications.
-```
+
 
 
 * 
@@ -91,23 +91,23 @@ Définitions utiles:
 
 
 
-* `Ce sont un mécanisme de sérialisation compact et efficace, à la fois en termes d'espace et de vitesse. Ils sont plus efficaces que XML ou JSON.`
-* `Ils nécessitent une étape de compilation, où l'interface de description du service est transformée en code dans le langage de votre choix.`
+* Ce sont un mécanisme de sérialisation compact et efficace, à la fois en termes d'espace et de vitesse. Ils sont plus efficaces que XML ou JSON.
+* Ils nécessitent une étape de compilation, où l'interface de description du service est transformée en code dans le langage de votre choix.
 
 
 ## 5. Fonctionnement :
 
 
 
-1. `Définir le service : Commencez par définir le service dans un fichier .proto. Cela décrit les méthodes pouvant être appelées et leurs types de messages.`
-2. `Générer le code : Utilisez le compilateur`
+1. Définir le service : Commencez par définir le service dans un fichier .proto. Cela décrit les méthodes pouvant être appelées et leurs types de messages.
+2. Générer le code : Utilisez le compilateur
 
 
-```
+
 Protocol Buffers pour générer le code client et serveur.
 3. Implémenter le serveur : Créez un serveur qui implémente les méthodes décrites dans le fichier .proto.
 4. Appeler depuis le client : Le client peut appeler le serveur en utilisant le code généré.
-```
+
 
 
 
@@ -115,66 +115,66 @@ Protocol Buffers pour générer le code client et serveur.
 
 
 
-* `Les microservices : grâce à sa rapidité et à sa capacité à créer des clients et des serveurs dans différents langages.`
-* `Applications temps réel nécessitant une faible latence.`
-* `Lorsque la taille des données est critique, car protobuf est plus efficace que JSON ou XML.`
-* `Quand vous avez besoin de communication bidirectionnelle, comme les chats ou les notifications en temps réel.`
+* Les microservices : grâce à sa rapidité et à sa capacité à créer des clients et des serveurs dans différents langages.
+* Applications temps réel nécessitant une faible latence.
+* Lorsque la taille des données est critique, car protobuf est plus efficace que JSON ou XML.
+* Quand vous avez besoin de communication bidirectionnelle, comme les chats ou les notifications en temps réel.
 
 
 ## 7. Différences entre gRPC et d'autres formes d'IPC
 
 
-```
+
 
 
 #### Sockets :
 
-```
 
 
 
-* `Différence : gRPC encapsule la complexité des sockets, fournissant une abstraction de haut niveau avec des fonctionnalités supplémentaires. Les sockets nécessitent une gestion manuelle des connexions, des données et des protocoles, tandis que gRPC gère ces aspects automatiquement.`
+
+* Différence : gRPC encapsule la complexité des sockets, fournissant une abstraction de haut niveau avec des fonctionnalités supplémentaires. Les sockets nécessitent une gestion manuelle des connexions, des données et des protocoles, tandis que gRPC gère ces aspects automatiquement.
 
 
-```
+
 
 
 #### Files d'attente de messages :
 
-```
 
 
 
-* `Différence : gRPC est principalement synchronisé et permet une communication structurée et bidirectionnelle, contrairement aux files d'attente de messages qui sont asynchrones et souvent unidirectionnelles. gRPC facilite également la génération de code pour différents langages, ce qui n'est pas une fonctionnalité native des files d'attente de messages.`
+
+* Différence : gRPC est principalement synchronisé et permet une communication structurée et bidirectionnelle, contrairement aux files d'attente de messages qui sont asynchrones et souvent unidirectionnelles. gRPC facilite également la génération de code pour différents langages, ce qui n'est pas une fonctionnalité native des files d'attente de messages.
 
 
-```
+
 
 
 #### Pipes :
 
-```
 
 
 
-* `Différence : Les pipes sont généralement limités à la communication unidirectionnelle et ne sont pas conçus pour les communications en réseau, tandis que gRPC utilise HTTP/2 pour une communication bidirectionnelle en streaming sur des réseaux. gRPC offre également une meilleure structure et définition des services par rapport aux pipes.`
+
+* Différence : Les pipes sont généralement limités à la communication unidirectionnelle et ne sont pas conçus pour les communications en réseau, tandis que gRPC utilise HTTP/2 pour une communication bidirectionnelle en streaming sur des réseaux. gRPC offre également une meilleure structure et définition des services par rapport aux pipes.
 
 
-```
+
 
 
 #### Mémoire partagée :
 
-```
 
 
 
-* `Différence : La mémoire partagée est optimale pour les communications rapides au sein d'un même système, mais elle nécessite une gestion explicite de la synchronisation. gRPC, en revanche, fournit une solution clé en main pour la communication entre services, y compris la gestion des erreurs et la synchronisation, ce qui est plus adapté pour les systèmes distribués.`
+
+* Différence : La mémoire partagée est optimale pour les communications rapides au sein d'un même système, mais elle nécessite une gestion explicite de la synchronisation. gRPC, en revanche, fournit une solution clé en main pour la communication entre services, y compris la gestion des erreurs et la synchronisation, ce qui est plus adapté pour les systèmes distribués.
 
 
-```
+
 En se concentrant sur ces différences, on peut voir que gRPC offre une solution plus complète et intégrée pour l'IPC dans des environnements distribués, avec des avantages en termes de performance, d'interopérabilité et de facilité d'utilisation grâce à ses capacités de génération de code et de définition de service.
-```
+
 
 
 
@@ -182,30 +182,30 @@ En se concentrant sur ces différences, on peut voir que gRPC offre une solution
 
 
 
-* `Confidentialité et intégrité des données : gRPC utilise TLS/SSL pour crypter les données en transit, ce qui empêche les interceptions non autorisées et garantit que les données ne sont pas altérées.`
-* `Authentification au niveau du service : Avec des jetons JWT ou OAuth2, gRPC permet de s'assurer que seuls les clients authentifiés peuvent appeler certaines méthodes RPC.`
-* `Contrôle d'accès basé sur les rôles : gRPC peut être intégré avec des systèmes de gestion des identités pour implémenter des contrôles d'accès basés sur les rôles (RBAC), permettant de définir précisément qui peut faire quoi.`
+* Confidentialité et intégrité des données : gRPC utilise TLS/SSL pour crypter les données en transit, ce qui empêche les interceptions non autorisées et garantit que les données ne sont pas altérées.
+* Authentification au niveau du service : Avec des jetons JWT ou OAuth2, gRPC permet de s'assurer que seuls les clients authentifiés peuvent appeler certaines méthodes RPC.
+* Contrôle d'accès basé sur les rôles : gRPC peut être intégré avec des systèmes de gestion des identités pour implémenter des contrôles d'accès basés sur les rôles (RBAC), permettant de définir précisément qui peut faire quoi.
 
 
 ## 9. Avantages de gRPC pour le Déploiement et l'Échelle
 
 
 
-* `Gestion efficace des ressources : Les connexions persistantes et le multiplexage dans HTTP/2 permettent à gRPC de gérer les ressources de manière plus efficace, réduisant ainsi les coûts opérationnels.`
-* `Mise à l'échelle automatique : L'intégration avec des outils d'orchestration de conteneurs comme Kubernetes permet à gRPC de s'adapter automatiquement à la demande en ajustant le nombre d'instances de service.`
-* `Équilibrage de charge intégré : gRPC prend en charge l'équilibrage de charge côté client, permettant aux clients de répartir les appels RPC de manière équilibrée entre les instances de serveur.`
+* Gestion efficace des ressources : Les connexions persistantes et le multiplexage dans HTTP/2 permettent à gRPC de gérer les ressources de manière plus efficace, réduisant ainsi les coûts opérationnels.
+* Mise à l'échelle automatique : L'intégration avec des outils d'orchestration de conteneurs comme Kubernetes permet à gRPC de s'adapter automatiquement à la demande en ajustant le nombre d'instances de service.
+* Équilibrage de charge intégré : gRPC prend en charge l'équilibrage de charge côté client, permettant aux clients de répartir les appels RPC de manière équilibrée entre les instances de serveur.
 
 
-```
+
 En résumé, gRPC est bien adapté aux applications modernes où la sécurité, l'authentification et la capacité à opérer à grande échelle sont essentielles. Sa conception permet non seulement une communication inter-services efficace mais aussi une intégration aisée avec les infrastructures de sécurité et de déploiement existantes.
-```
+
 
 
 
 ## 10. Étapes de mise en place d'un service gRPC
 
 
-```
+
 
 
 ### a. Définir le service et les messages dans un fichier .proto
@@ -226,14 +226,14 @@ De manière similaire, vous utilisez les stubs générés pour construire un cli
 
 ### e. Démarrer le serveur et appeler le service depuis le client
 Enfin, vous démarrez le serveur gRPC pour qu'il écoute les appels entrants, et vous utilisez le client pour appeler les méthodes du service.
-```
+
 
 
 
 ## 11. Exemple de mise en place d'un service gRPC
 
 
-```
+
 Imaginons que nous voulons créer un service gRPC simple pour un système de gestion de tâches. Le service permettra aux clients d'ajouter des tâches et de les lister.
 
 
@@ -241,7 +241,7 @@ Imaginons que nous voulons créer un service gRPC simple pour un système de ges
 
 
 
-```
+
 syntax = "proto3";
 
 package taskmanager;
@@ -280,11 +280,11 @@ message Task {
   string description = 2;
   bool completed = 3;
 }
-```
 
 
 
-```
+
+
 
 
 ### b. Génération du code source
@@ -292,20 +292,20 @@ Utilisez le compilateur protoc pour générer le code source à partir du fichie
 
 
 
-```
+
 protoc -I=. --python_out=. --grpc_python_out=. taskmanager.proto
-```
 
 
 
-```
+
+
 
 
 ### c. Implémentation du serveur en Python
 
 
 
-```
+
 from concurrent import futures
 import grpc
 import taskmanager_pb2
@@ -341,18 +341,18 @@ def serve():
 
 if __name__ == '__main__':
     serve()
-```
 
 
 
-```
+
+
 
 
 ### d. Implémentation du client en Python
 
 
 
-```
+
 import grpc
 import taskmanager_pb2
 import taskmanager
@@ -371,20 +371,20 @@ def run():
 
 if __name__ == '__main__':
     run()
-```
 
 
 
-```
+
+
 Dans cet exemple, le serveur gRPC gère un dictionnaire simple de tâches et expose deux méthodes RPC : AddTask pour ajouter une nouvelle tâche et ListTasks pour lister toutes les tâches. Le client crée une connexion au serveur, ajoute une tâche et liste ensuite toutes les tâches disponibles.
-```
+
 
 
 
 ## 12. Comprendre la différence entre gRPC et une API HTTP classique
 
 
-```
+
 Comprendre la différence entre les services gRPC et les API HTTP classiques est essentiel pour choisir la bonne technologie en fonction des besoins de votre application. Voici une explication structurée pour clarifier ces différences et aider à décider quand utiliser l'un ou l'autre.
 
 
@@ -438,28 +438,28 @@ API HTTP:
 ### f. Cas d'Utilisation
 gRPC est souvent considéré comme plus "intégré" dans les systèmes pour plusieurs raisons :
 
-```
 
 
 
-1. `Couplage Fort : gRPC nécessite que les clients et les serveurs soient construits à partir de la même définition de service (le fichier .proto). Cela crée un couplage fort entre le client et le serveur, ce qui est idéal pour les systèmes internes où vous contrôlez les deux extrémités de la communication.`
-2. `Optimisation Interne : Avec ses caractéristiques de performance et son efficacité de sérialisation, gRPC est souvent utilisé pour la communication interne entre les services dans une architecture de microservices. Cela permet une communication rapide et efficace entre les services qui font partie du même écosystème.`
-3. `Non-Browser Friendly : gRPC n'est pas directement supporté par les navigateurs web sans l'utilisation d'un proxy pour convertir les appels gRPC en quelque chose que les navigateurs peuvent comprendre. Cela le rend moins adapté pour les systèmes qui nécessitent une interaction directe avec les clients via le navigateur.`
+
+1. Couplage Fort : gRPC nécessite que les clients et les serveurs soient construits à partir de la même définition de service (le fichier .proto). Cela crée un couplage fort entre le client et le serveur, ce qui est idéal pour les systèmes internes où vous contrôlez les deux extrémités de la communication.
+2. Optimisation Interne : Avec ses caractéristiques de performance et son efficacité de sérialisation, gRPC est souvent utilisé pour la communication interne entre les services dans une architecture de microservices. Cela permet une communication rapide et efficace entre les services qui font partie du même écosystème.
+3. Non-Browser Friendly : gRPC n'est pas directement supporté par les navigateurs web sans l'utilisation d'un proxy pour convertir les appels gRPC en quelque chose que les navigateurs peuvent comprendre. Cela le rend moins adapté pour les systèmes qui nécessitent une interaction directe avec les clients via le navigateur.
 
 
-```
+
 D'autre part, les API HTTP sont souvent vues comme plus "ouvertes" :
 
-```
 
 
 
-1. `Couplage Faible : Les API HTTP, en particulier celles qui suivent le style REST, sont conçues pour avoir un couplage faible et une interface contractuelle stable. Cela permet aux clients de différentes natures (y compris les navigateurs web) d'interagir avec le serveur sans avoir besoin de partager la même base de code.`
-2. `Accessibilité : Les API HTTP sont accessibles via des URL standard et peuvent être consommées par une grande variété de clients, y compris les navigateurs web, les outils de ligne de commande comme curl, et pratiquement n'importe quelle langue de programmation.`
-3. `Interopérabilité : Les API HTTP sont basées sur des standards web largement adoptés, ce qui les rend idéales pour l'exposition de services à un public externe, comme les développeurs tiers ou les applications partenaires.`
+
+1. Couplage Faible : Les API HTTP, en particulier celles qui suivent le style REST, sont conçues pour avoir un couplage faible et une interface contractuelle stable. Cela permet aux clients de différentes natures (y compris les navigateurs web) d'interagir avec le serveur sans avoir besoin de partager la même base de code.
+2. Accessibilité : Les API HTTP sont accessibles via des URL standard et peuvent être consommées par une grande variété de clients, y compris les navigateurs web, les outils de ligne de commande comme curl, et pratiquement n'importe quelle langue de programmation.
+3. Interopérabilité : Les API HTTP sont basées sur des standards web largement adoptés, ce qui les rend idéales pour l'exposition de services à un public externe, comme les développeurs tiers ou les applications partenaires.
 
 
-```
+
 En résumé, gRPC est souvent préféré pour les communications internes au sein d'un système où la performance et la cohérence sont critiques, tandis que les API HTTP sont la norme pour les interfaces publiques et les interactions avec le monde extérieur. Cette distinction n'est pas absolue, et il y a des cas où gRPC est utilisé pour des API publiques (souvent avec un proxy HTTP) ou où les API HTTP sont utilisées pour la communication interne, mais ces tendances générales peuvent servir de guide lors de la conception de l'architecture de votre système.
-```
+
 

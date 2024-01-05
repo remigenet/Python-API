@@ -23,7 +23,7 @@ code-links: binder
 # V. Pipes en Communication Interprocessus
 
 
-```
+
 Les pipes sont des mécanismes essentiels en communication interprocessus (IPC), permettant le transfert de données entre processus. Ils sont particulièrement adaptés aux architectures où les données doivent être transmises séquentiellement d'un processus à un autre.
 ```
 

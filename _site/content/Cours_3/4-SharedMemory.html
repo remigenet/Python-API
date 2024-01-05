@@ -298,25 +298,6 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Annexes</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
- <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
- <span class="dropdown-text">Git Basics</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
- <span class="dropdown-text">Git - Pour aller plus loin</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools tools-wide">
@@ -428,18 +409,62 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#recupérer-des-données-du-net" id="toc-recupérer-des-données-du-net" class="nav-link active" data-scroll-target="#recupérer-des-données-du-net">Recupérer des données du net</a></li>
   <li><a href="#iv.-mémoire-partagée-shared-memory" id="toc-iv.-mémoire-partagée-shared-memory" class="nav-link" data-scroll-target="#iv.-mémoire-partagée-shared-memory">IV. Mémoire Partagée (Shared Memory)</a>
   <ul class="collapse">
-  <li><a href="#comprendre-la-mémoire-ram-vs-stockage-persistant" id="toc-comprendre-la-mémoire-ram-vs-stockage-persistant" class="nav-link" data-scroll-target="#comprendre-la-mémoire-ram-vs-stockage-persistant">1. Comprendre la Mémoire: RAM vs Stockage Persistant</a></li>
-  <li><a href="#espace-mémoire-des-processus" id="toc-espace-mémoire-des-processus" class="nav-link" data-scroll-target="#espace-mémoire-des-processus">2. Espace Mémoire des Processus</a></li>
-  <li><a href="#outils-de-mémoire-partagée-en-python" id="toc-outils-de-mémoire-partagée-en-python" class="nav-link" data-scroll-target="#outils-de-mémoire-partagée-en-python">3. Outils de Mémoire Partagée en Python</a></li>
-  <li><a href="#types-de-mémoire-partagée-système" id="toc-types-de-mémoire-partagée-système" class="nav-link" data-scroll-target="#types-de-mémoire-partagée-système">4. Types de Mémoire Partagée Système</a></li>
-  <li><a href="#synchronisation-et-intégrité-des-données" id="toc-synchronisation-et-intégrité-des-données" class="nav-link" data-scroll-target="#synchronisation-et-intégrité-des-données">5. Synchronisation et Intégrité des Données</a></li>
-  <li><a href="#gestion-des-ressources-et-nettoyage" id="toc-gestion-des-ressources-et-nettoyage" class="nav-link" data-scroll-target="#gestion-des-ressources-et-nettoyage">6. Gestion des Ressources et Nettoyage</a></li>
-  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">7. Exemples</a></li>
+  <li><a href="#comprendre-la-mémoire-ram-vs-stockage-persistant" id="toc-comprendre-la-mémoire-ram-vs-stockage-persistant" class="nav-link" data-scroll-target="#comprendre-la-mémoire-ram-vs-stockage-persistant">1. Comprendre la Mémoire: RAM vs Stockage Persistant</a>
+  <ul class="collapse">
+  <li><a href="#a.-la-ram-vitesse-et-volatilité" id="toc-a.-la-ram-vitesse-et-volatilité" class="nav-link" data-scroll-target="#a.-la-ram-vitesse-et-volatilité">a. La RAM: Vitesse et Volatilité</a></li>
+  <li><a href="#b.-stockage-persistant-durabilité-et-latence" id="toc-b.-stockage-persistant-durabilité-et-latence" class="nav-link" data-scroll-target="#b.-stockage-persistant-durabilité-et-latence">b. Stockage Persistant: Durabilité et Latence</a></li>
+  </ul></li>
+  <li><a href="#espace-mémoire-des-processus" id="toc-espace-mémoire-des-processus" class="nav-link" data-scroll-target="#espace-mémoire-des-processus">2. Espace Mémoire des Processus</a>
+  <ul class="collapse">
+  <li><a href="#a.-isolation-de-lespace-dadressage" id="toc-a.-isolation-de-lespace-dadressage" class="nav-link" data-scroll-target="#a.-isolation-de-lespace-dadressage">a. Isolation de l’Espace d’Adressage</a></li>
+  <li><a href="#b.-création-dun-espace-partagé" id="toc-b.-création-dun-espace-partagé" class="nav-link" data-scroll-target="#b.-création-dun-espace-partagé">b. Création d’un Espace Partagé</a></li>
+  <li><a href="#c.-avantages-de-lespace-mémoire-partagé" id="toc-c.-avantages-de-lespace-mémoire-partagé" class="nav-link" data-scroll-target="#c.-avantages-de-lespace-mémoire-partagé">c.&nbsp;Avantages de l’Espace Mémoire Partagé</a></li>
+  <li><a href="#d.-considérations-de-sécurité-et-de-stabilité" id="toc-d.-considérations-de-sécurité-et-de-stabilité" class="nav-link" data-scroll-target="#d.-considérations-de-sécurité-et-de-stabilité">d.&nbsp;Considérations de Sécurité et de Stabilité</a></li>
+  </ul></li>
+  <li><a href="#outils-de-mémoire-partagée-en-python" id="toc-outils-de-mémoire-partagée-en-python" class="nav-link" data-scroll-target="#outils-de-mémoire-partagée-en-python">3. Outils de Mémoire Partagée en Python</a>
+  <ul class="collapse">
+  <li><a href="#a.-primitives-de-synchronisation-value-et-array" id="toc-a.-primitives-de-synchronisation-value-et-array" class="nav-link" data-scroll-target="#a.-primitives-de-synchronisation-value-et-array">a. Primitives de Synchronisation: Value et Array</a></li>
+  <li><a href="#b.-performance-avec-multiprocessing.shared_memory" id="toc-b.-performance-avec-multiprocessing.shared_memory" class="nav-link" data-scroll-target="#b.-performance-avec-multiprocessing.shared_memory">b. Performance avec multiprocessing.shared_memory</a></li>
+  <li><a href="#c.-gestion-de-la-synchronisation" id="toc-c.-gestion-de-la-synchronisation" class="nav-link" data-scroll-target="#c.-gestion-de-la-synchronisation">c.&nbsp;Gestion de la Synchronisation</a></li>
+  <li><a href="#d.-nettoyage-et-durabilité" id="toc-d.-nettoyage-et-durabilité" class="nav-link" data-scroll-target="#d.-nettoyage-et-durabilité">d.&nbsp;Nettoyage et Durabilité</a></li>
+  </ul></li>
+  <li><a href="#types-de-mémoire-partagée-système" id="toc-types-de-mémoire-partagée-système" class="nav-link" data-scroll-target="#types-de-mémoire-partagée-système">4. Types de Mémoire Partagée Système</a>
+  <ul class="collapse">
+  <li><a href="#a.-mémoire-partagée-posix" id="toc-a.-mémoire-partagée-posix" class="nav-link" data-scroll-target="#a.-mémoire-partagée-posix">a. Mémoire Partagée POSIX</a></li>
+  <li><a href="#b.-mémoire-partagée-system-v" id="toc-b.-mémoire-partagée-system-v" class="nav-link" data-scroll-target="#b.-mémoire-partagée-system-v">b. Mémoire Partagée System V</a></li>
+  <li><a href="#c.-windows-memory-mapped-files" id="toc-c.-windows-memory-mapped-files" class="nav-link" data-scroll-target="#c.-windows-memory-mapped-files">c.&nbsp;Windows Memory-Mapped Files</a></li>
+  </ul></li>
+  <li><a href="#synchronisation-et-intégrité-des-données" id="toc-synchronisation-et-intégrité-des-données" class="nav-link" data-scroll-target="#synchronisation-et-intégrité-des-données">5. Synchronisation et Intégrité des Données</a>
+  <ul class="collapse">
+  <li><a href="#a.-primitives-de-synchronisation" id="toc-a.-primitives-de-synchronisation" class="nav-link" data-scroll-target="#a.-primitives-de-synchronisation">a. Primitives de Synchronisation</a></li>
+  <li><a href="#b.-techniques-de-synchronisation" id="toc-b.-techniques-de-synchronisation" class="nav-link" data-scroll-target="#b.-techniques-de-synchronisation">b. Techniques de Synchronisation</a></li>
+  <li><a href="#c.-gestion-de-la-concurrence" id="toc-c.-gestion-de-la-concurrence" class="nav-link" data-scroll-target="#c.-gestion-de-la-concurrence">c.&nbsp;Gestion de la Concurrence</a></li>
+  <li><a href="#d.-considérations-de-conception" id="toc-d.-considérations-de-conception" class="nav-link" data-scroll-target="#d.-considérations-de-conception">d.&nbsp;Considérations de Conception</a></li>
+  </ul></li>
+  <li><a href="#gestion-des-ressources-et-nettoyage" id="toc-gestion-des-ressources-et-nettoyage" class="nav-link" data-scroll-target="#gestion-des-ressources-et-nettoyage">6. Gestion des Ressources et Nettoyage</a>
+  <ul class="collapse">
+  <li><a href="#a.-libération-de-mémoire-partagée" id="toc-a.-libération-de-mémoire-partagée" class="nav-link" data-scroll-target="#a.-libération-de-mémoire-partagée">a. Libération de Mémoire Partagée**</a></li>
+  <li><a href="#b.-libération-de-primitives-de-synchronisation" id="toc-b.-libération-de-primitives-de-synchronisation" class="nav-link" data-scroll-target="#b.-libération-de-primitives-de-synchronisation">b. Libération de Primitives de Synchronisation</a></li>
+  <li><a href="#c.-gestion-automatisée-des-ressources" id="toc-c.-gestion-automatisée-des-ressources" class="nav-link" data-scroll-target="#c.-gestion-automatisée-des-ressources">c.&nbsp;Gestion Automatisée des Ressources</a></li>
+  <li><a href="#d.-surveillance-des-ressources" id="toc-d.-surveillance-des-ressources" class="nav-link" data-scroll-target="#d.-surveillance-des-ressources">d.&nbsp;Surveillance des Ressources</a></li>
+  <li><a href="#e.-nettoyage-à-la-terminaison-du-processus" id="toc-e.-nettoyage-à-la-terminaison-du-processus" class="nav-link" data-scroll-target="#e.-nettoyage-à-la-terminaison-du-processus">e. Nettoyage à la Terminaison du Processus</a></li>
+  <li><a href="#f.-bonnes-pratiques-de-conception" id="toc-f.-bonnes-pratiques-de-conception" class="nav-link" data-scroll-target="#f.-bonnes-pratiques-de-conception">f.&nbsp;Bonnes Pratiques de Conception</a></li>
+  </ul></li>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">7. Exemples</a>
+  <ul class="collapse">
+  <li><a href="#a.-lancement-de-processus-par-un-parent-commun" id="toc-a.-lancement-de-processus-par-un-parent-commun" class="nav-link" data-scroll-target="#a.-lancement-de-processus-par-un-parent-commun">a. Lancement de processus par un parent commun</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#processus-producteur-qui-écrit-dans-la-mémoire-partagée" id="toc-processus-producteur-qui-écrit-dans-la-mémoire-partagée" class="nav-link" data-scroll-target="#processus-producteur-qui-écrit-dans-la-mémoire-partagée">Processus producteur qui écrit dans la mémoire partagée</a></li>
   <li><a href="#processus-consommateur-qui-lit-la-mémoire-partagée" id="toc-processus-consommateur-qui-lit-la-mémoire-partagée" class="nav-link" data-scroll-target="#processus-consommateur-qui-lit-la-mémoire-partagée">Processus consommateur qui lit la mémoire partagée</a>
   <ul class="collapse">
   <li><a href="#b.-processus-indépendants-utilisant-la-mémoire-partagée" id="toc-b.-processus-indépendants-utilisant-la-mémoire-partagée" class="nav-link" data-scroll-target="#b.-processus-indépendants-utilisant-la-mémoire-partagée">b. Processus indépendants utilisant la mémoire partagée</a></li>
+  </ul></li>
+  <li><a href="#nom-unique-pour-le-bloc-de-mémoire-partagée" id="toc-nom-unique-pour-le-bloc-de-mémoire-partagée" class="nav-link" data-scroll-target="#nom-unique-pour-le-bloc-de-mémoire-partagée">Nom unique pour le bloc de mémoire partagée</a></li>
+  <li><a href="#processus-producteur-qui-écrit-dans-la-mémoire-partagée-1" id="toc-processus-producteur-qui-écrit-dans-la-mémoire-partagée-1" class="nav-link" data-scroll-target="#processus-producteur-qui-écrit-dans-la-mémoire-partagée-1">Processus producteur qui écrit dans la mémoire partagée</a></li>
+  <li><a href="#processus-consommateur-qui-lit-la-mémoire-partagée-1" id="toc-processus-consommateur-qui-lit-la-mémoire-partagée-1" class="nav-link" data-scroll-target="#processus-consommateur-qui-lit-la-mémoire-partagée-1">Processus consommateur qui lit la mémoire partagée</a>
+  <ul class="collapse">
+  <li><a href="#c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" id="toc-c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" class="nav-link" data-scroll-target="#c.-exemple-avec-la-mémoire-partagée-posix-et-system-v">c.&nbsp;Exemple avec la mémoire partagée POSIX et System V</a></li>
   </ul></li>
   <li><a href="#exemple-de-mémoire-partagée-system-v" id="toc-exemple-de-mémoire-partagée-system-v" class="nav-link" data-scroll-target="#exemple-de-mémoire-partagée-system-v">Exemple de mémoire partagée System V</a></li>
   <li><a href="#créer-un-objet-de-mémoire-partagée" id="toc-créer-un-objet-de-mémoire-partagée" class="nav-link" data-scroll-target="#créer-un-objet-de-mémoire-partagée">Créer un objet de mémoire partagée</a></li>
@@ -451,7 +476,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#mapper-la-mémoire-partagée" id="toc-mapper-la-mémoire-partagée" class="nav-link" data-scroll-target="#mapper-la-mémoire-partagée">Mapper la mémoire partagée</a></li>
   <li><a href="#écrire-dans-la-zone-mappée-en-mémoire" id="toc-écrire-dans-la-zone-mappée-en-mémoire" class="nav-link" data-scroll-target="#écrire-dans-la-zone-mappée-en-mémoire">Écrire dans la zone mappée en mémoire</a></li>
   <li><a href="#lire-dans-la-zone-mappée-en-mémoire" id="toc-lire-dans-la-zone-mappée-en-mémoire" class="nav-link" data-scroll-target="#lire-dans-la-zone-mappée-en-mémoire">Lire dans la zone mappée en mémoire</a></li>
-  <li><a href="#démapper-et-désassocier-la-mémoire-partagée" id="toc-démapper-et-désassocier-la-mémoire-partagée" class="nav-link" data-scroll-target="#démapper-et-désassocier-la-mémoire-partagée">Démapper et désassocier la mémoire partagée</a></li>
+  <li><a href="#démapper-et-désassocier-la-mémoire-partagée" id="toc-démapper-et-désassocier-la-mémoire-partagée" class="nav-link" data-scroll-target="#démapper-et-désassocier-la-mémoire-partagée">Démapper et désassocier la mémoire partagée</a>
+  <ul class="collapse">
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -499,204 +527,182 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="iv.-mémoire-partagée-shared-memory" class="level1">
 <h1>IV. Mémoire Partagée (Shared Memory)</h1>
-<pre><code>La mémoire partagée est un espace de mémoire qui peut être simultanément accédé par plusieurs programmes avec l'intention de fournir une communication entre eux ou d'éviter des copies redondantes de données. Cette section explore les concepts clés et les considérations pratiques lors de l'utilisation de la mémoire partagée dans le contexte de la communication interprocessus (IPC).</code></pre>
+<p>La mémoire partagée est un espace de mémoire qui peut être simultanément accédé par plusieurs programmes avec l’intention de fournir une communication entre eux ou d’éviter des copies redondantes de données. Cette section explore les concepts clés et les considérations pratiques lors de l’utilisation de la mémoire partagée dans le contexte de la communication interprocessus (IPC).</p>
 <section id="comprendre-la-mémoire-ram-vs-stockage-persistant" class="level2">
 <h2 class="anchored" data-anchor-id="comprendre-la-mémoire-ram-vs-stockage-persistant">1. Comprendre la Mémoire: RAM vs Stockage Persistant</h2>
-<pre><code>La mémoire joue un rôle crucial dans le fonctionnement des ordinateurs et, par extension, dans la communication interprocessus. Pour comprendre l'importance de la mémoire partagée, il est essentiel de distinguer deux types principaux de mémoire utilisés dans les ordinateurs : la mémoire vive (RAM) et le stockage persistant (comme les disques durs ou les SSD).
-
-
-### a. La RAM: Vitesse et Volatilité
-La mémoire vive, ou Random Access Memory (RAM), est le lieu où l'ordinateur stocke les données qu'il utilise activement. Cela inclut le système d'exploitation, les programmes en cours d'exécution et les données sur lesquelles ces programmes travaillent. La RAM est incroyablement rapide, permettant au processeur d'accéder presque instantanément à n'importe quelle partie des données stockées. Cette vitesse est mesurée en nanosecondes (ns), avec des temps d'accès typiques autour de 10 ns.
-
-Cependant, la RAM est volatile, ce qui signifie que toutes les données qu'elle contient sont perdues lorsque l'ordinateur est éteint ou redémarré. Cette caractéristique est à la fois un avantage et un inconvénient : elle permet un accès rapide aux données, mais ne peut pas être utilisée pour le stockage à long terme.
-
-
-### b. Stockage Persistant: Durabilité et Latence
-En contraste, le stockage persistant, tel que les disques durs (HDD) et les disques à circuits intégrés (SSD), conserve les données même lorsque l'ordinateur est éteint. Ces formes de stockage sont beaucoup plus lentes que la RAM, avec des temps d'accès mesurés en millisecondes (ms) pour les HDD et en microsecondes (µs) pour les SSD. Par exemple, un HDD typique peut avoir un temps d'accès d'environ 5-10 ms, tandis qu'un SSD peut offrir des temps d'accès de l'ordre de 50-150 µs.
-
-La différence de vitesse entre la RAM et le stockage persistant est significative et a un impact direct sur la manière dont les données sont manipulées dans le cadre de l'IPC. Lorsque la performance est critique, il est préférable d'utiliser la RAM pour partager des informations entre les processus, car cela minimise la latence et maximise la vitesse de traitement.
-
-En résumé, la RAM est utilisée pour un accès rapide et temporaire aux données, tandis que le stockage persistant est utilisé pour conserver des données de manière durable. La compréhension de ces deux types de mémoire est fondamentale pour choisir la bonne stratégie de communication interprocessus et pour optimiser les performances des applications.</code></pre>
+<p>La mémoire joue un rôle crucial dans le fonctionnement des ordinateurs et, par extension, dans la communication interprocessus. Pour comprendre l’importance de la mémoire partagée, il est essentiel de distinguer deux types principaux de mémoire utilisés dans les ordinateurs : la mémoire vive (RAM) et le stockage persistant (comme les disques durs ou les SSD).</p>
+<section id="a.-la-ram-vitesse-et-volatilité" class="level3">
+<h3 class="anchored" data-anchor-id="a.-la-ram-vitesse-et-volatilité">a. La RAM: Vitesse et Volatilité</h3>
+<p>La mémoire vive, ou Random Access Memory (RAM), est le lieu où l’ordinateur stocke les données qu’il utilise activement. Cela inclut le système d’exploitation, les programmes en cours d’exécution et les données sur lesquelles ces programmes travaillent. La RAM est incroyablement rapide, permettant au processeur d’accéder presque instantanément à n’importe quelle partie des données stockées. Cette vitesse est mesurée en nanosecondes (ns), avec des temps d’accès typiques autour de 10 ns.</p>
+<p>Cependant, la RAM est volatile, ce qui signifie que toutes les données qu’elle contient sont perdues lorsque l’ordinateur est éteint ou redémarré. Cette caractéristique est à la fois un avantage et un inconvénient : elle permet un accès rapide aux données, mais ne peut pas être utilisée pour le stockage à long terme.</p>
+</section>
+<section id="b.-stockage-persistant-durabilité-et-latence" class="level3">
+<h3 class="anchored" data-anchor-id="b.-stockage-persistant-durabilité-et-latence">b. Stockage Persistant: Durabilité et Latence</h3>
+<p>En contraste, le stockage persistant, tel que les disques durs (HDD) et les disques à circuits intégrés (SSD), conserve les données même lorsque l’ordinateur est éteint. Ces formes de stockage sont beaucoup plus lentes que la RAM, avec des temps d’accès mesurés en millisecondes (ms) pour les HDD et en microsecondes (µs) pour les SSD. Par exemple, un HDD typique peut avoir un temps d’accès d’environ 5-10 ms, tandis qu’un SSD peut offrir des temps d’accès de l’ordre de 50-150 µs.</p>
+<p>La différence de vitesse entre la RAM et le stockage persistant est significative et a un impact direct sur la manière dont les données sont manipulées dans le cadre de l’IPC. Lorsque la performance est critique, il est préférable d’utiliser la RAM pour partager des informations entre les processus, car cela minimise la latence et maximise la vitesse de traitement.</p>
+<p>En résumé, la RAM est utilisée pour un accès rapide et temporaire aux données, tandis que le stockage persistant est utilisé pour conserver des données de manière durable. La compréhension de ces deux types de mémoire est fondamentale pour choisir la bonne stratégie de communication interprocessus et pour optimiser les performances des applications.</p>
+</section>
 </section>
 <section id="espace-mémoire-des-processus" class="level2">
 <h2 class="anchored" data-anchor-id="espace-mémoire-des-processus">2. Espace Mémoire des Processus</h2>
-<pre><code>Lorsqu'un programme est exécuté sur un ordinateur, le système d'exploitation lui alloue un espace mémoire isolé, connu sous le nom d'espace d'adressage virtuel. Cette allocation de mémoire est cruciale pour la sécurité et la stabilité du système, car elle empêche les processus d'interférer les uns avec les autres.
-
-
-### a. Isolation de l'Espace d'Adressage
-Chaque processus reçoit son propre espace d'adressage virtuel, qui est isolé des espaces d'adressage des autres processus. Cela signifie qu'un processus ne peut pas lire ou écrire dans la mémoire allouée à un autre processus sans des mécanismes de communication interprocessus spécifiques. Cette isolation protège les processus contre les interférences accidentelles ou malveillantes et aide à prévenir les erreurs de programme qui pourraient autrement se propager d'un processus à l'autre.
-
-
-### b. Création d'un Espace Partagé
-Bien que l'isolation soit importante, il y a des moments où les processus doivent communiquer et partager des données. Pour ce faire, ils peuvent utiliser un espace de mémoire partagée, qui est une portion de mémoire que plusieurs processus peuvent lire et écrire. Cet espace partagé est créé et géré par le système d'exploitation, qui fournit des mécanismes pour s'assurer que les processus ne se marchent pas sur les pieds en accédant à la mémoire simultanément.
-
-La mémoire partagée est particulièrement utile pour les applications où la performance est critique, car elle permet aux processus de communiquer sans avoir à copier des données d'un espace d'adressage à un autre, ce qui peut être coûteux en termes de temps et de ressources système. Cela est souvent utilisé dans des systèmes où les processus doivent travailler sur le même ensemble de données ou où les données doivent être transférées rapidement d'un processus à l'autre.
-
-
-### c. Avantages de l'Espace Mémoire Partagé
-L'utilisation de la mémoire partagée offre plusieurs avantages par rapport à d'autres méthodes d'IPC, comme les sockets ou les fichiers. Les accès à la mémoire partagée sont extrêmement rapides car ils se produisent directement dans la RAM, et il n'y a pas de surcharge liée à la sérialisation des données, comme c'est le cas avec les sockets, ou à la latence d'écriture/lecture sur un support de stockage persistant, comme avec les fichiers.
-
-
-### d. Considérations de Sécurité et de Stabilité
-Toutefois, la mémoire partagée nécessite une gestion prudente. Les erreurs dans la gestion de la mémoire partagée peuvent entraîner des conditions de concurrence, des blocages et des corruptions de données. Pour cette raison, des mécanismes de synchronisation tels que les verrous, les mutex ou les sémaphores sont souvent utilisés pour coordonner l'accès à la mémoire partagée.
-
-En conclusion, l'espace mémoire des processus est un concept fondamental dans la compréhension de l'IPC. L'isolation de l'espace d'adressage assure la sécurité et la stabilité, tandis que la mémoire partagée offre une méthode efficace pour la communication entre processus, avec des considérations importantes en matière de gestion et de synchronisation.</code></pre>
+<p>Lorsqu’un programme est exécuté sur un ordinateur, le système d’exploitation lui alloue un espace mémoire isolé, connu sous le nom d’espace d’adressage virtuel. Cette allocation de mémoire est cruciale pour la sécurité et la stabilité du système, car elle empêche les processus d’interférer les uns avec les autres.</p>
+<section id="a.-isolation-de-lespace-dadressage" class="level3">
+<h3 class="anchored" data-anchor-id="a.-isolation-de-lespace-dadressage">a. Isolation de l’Espace d’Adressage</h3>
+<p>Chaque processus reçoit son propre espace d’adressage virtuel, qui est isolé des espaces d’adressage des autres processus. Cela signifie qu’un processus ne peut pas lire ou écrire dans la mémoire allouée à un autre processus sans des mécanismes de communication interprocessus spécifiques. Cette isolation protège les processus contre les interférences accidentelles ou malveillantes et aide à prévenir les erreurs de programme qui pourraient autrement se propager d’un processus à l’autre.</p>
+</section>
+<section id="b.-création-dun-espace-partagé" class="level3">
+<h3 class="anchored" data-anchor-id="b.-création-dun-espace-partagé">b. Création d’un Espace Partagé</h3>
+<p>Bien que l’isolation soit importante, il y a des moments où les processus doivent communiquer et partager des données. Pour ce faire, ils peuvent utiliser un espace de mémoire partagée, qui est une portion de mémoire que plusieurs processus peuvent lire et écrire. Cet espace partagé est créé et géré par le système d’exploitation, qui fournit des mécanismes pour s’assurer que les processus ne se marchent pas sur les pieds en accédant à la mémoire simultanément.</p>
+<p>La mémoire partagée est particulièrement utile pour les applications où la performance est critique, car elle permet aux processus de communiquer sans avoir à copier des données d’un espace d’adressage à un autre, ce qui peut être coûteux en termes de temps et de ressources système. Cela est souvent utilisé dans des systèmes où les processus doivent travailler sur le même ensemble de données ou où les données doivent être transférées rapidement d’un processus à l’autre.</p>
+</section>
+<section id="c.-avantages-de-lespace-mémoire-partagé" class="level3">
+<h3 class="anchored" data-anchor-id="c.-avantages-de-lespace-mémoire-partagé">c.&nbsp;Avantages de l’Espace Mémoire Partagé</h3>
+<p>L’utilisation de la mémoire partagée offre plusieurs avantages par rapport à d’autres méthodes d’IPC, comme les sockets ou les fichiers. Les accès à la mémoire partagée sont extrêmement rapides car ils se produisent directement dans la RAM, et il n’y a pas de surcharge liée à la sérialisation des données, comme c’est le cas avec les sockets, ou à la latence d’écriture/lecture sur un support de stockage persistant, comme avec les fichiers.</p>
+</section>
+<section id="d.-considérations-de-sécurité-et-de-stabilité" class="level3">
+<h3 class="anchored" data-anchor-id="d.-considérations-de-sécurité-et-de-stabilité">d.&nbsp;Considérations de Sécurité et de Stabilité</h3>
+<p>Toutefois, la mémoire partagée nécessite une gestion prudente. Les erreurs dans la gestion de la mémoire partagée peuvent entraîner des conditions de concurrence, des blocages et des corruptions de données. Pour cette raison, des mécanismes de synchronisation tels que les verrous, les mutex ou les sémaphores sont souvent utilisés pour coordonner l’accès à la mémoire partagée.</p>
+<p>En conclusion, l’espace mémoire des processus est un concept fondamental dans la compréhension de l’IPC. L’isolation de l’espace d’adressage assure la sécurité et la stabilité, tandis que la mémoire partagée offre une méthode efficace pour la communication entre processus, avec des considérations importantes en matière de gestion et de synchronisation.</p>
+</section>
 </section>
 <section id="outils-de-mémoire-partagée-en-python" class="level2">
 <h2 class="anchored" data-anchor-id="outils-de-mémoire-partagée-en-python">3. Outils de Mémoire Partagée en Python</h2>
-<pre><code>Python offre plusieurs outils dans son module multiprocessing pour gérer la mémoire partagée et la synchronisation entre processus. Ces outils sont conçus pour faciliter la communication interprocessus tout en minimisant les risques de corruption des données et les problèmes de concurrence.
-
-
-### a. Primitives de Synchronisation: Value et Array
-Les objets Value et Array du module multiprocessing permettent de partager des données entre processus. Ces objets sont conçus pour stocker des données simples comme des nombres (Value) ou des séquences de nombres (Array), et ils gèrent automatiquement la synchronisation pour éviter les accès concurrents non coordonnés.
-</code></pre>
+<p>Python offre plusieurs outils dans son module multiprocessing pour gérer la mémoire partagée et la synchronisation entre processus. Ces outils sont conçus pour faciliter la communication interprocessus tout en minimisant les risques de corruption des données et les problèmes de concurrence.</p>
+<section id="a.-primitives-de-synchronisation-value-et-array" class="level3">
+<h3 class="anchored" data-anchor-id="a.-primitives-de-synchronisation-value-et-array">a. Primitives de Synchronisation: Value et Array</h3>
+<p>Les objets Value et Array du module multiprocessing permettent de partager des données entre processus. Ces objets sont conçus pour stocker des données simples comme des nombres (Value) ou des séquences de nombres (Array), et ils gèrent automatiquement la synchronisation pour éviter les accès concurrents non coordonnés.</p>
 <ul>
-<li><code>Value est utilisé pour partager une donnée unique de types primitifs comme un entier ou un flottant.</code></li>
-<li><code>Array peut être utilisé pour partager un ensemble de données, comme une liste de nombres.</code></li>
+<li>Value est utilisé pour partager une donnée unique de types primitifs comme un entier ou un flottant.</li>
+<li>Array peut être utilisé pour partager un ensemble de données, comme une liste de nombres.</li>
 </ul>
-<pre><code>Ces deux objets utilisent des verrous (Lock ou RLock) pour s'assurer que seul un processus à la fois peut modifier les données. Cela empêche les conditions de course et garantit que les données ne sont pas corrompues par des écritures concurrentes.
-
-
-### b. Performance avec multiprocessing.shared_memory
-Pour des besoins de performance plus élevés, Python 3.8 a introduit multiprocessing.shared_memory, qui offre un moyen plus rapide et plus flexible de partager des données entre processus. Cette fonctionnalité permet aux processus de partager des blocs de mémoire sans les contraintes de type imposées par Value et Array.
-
-shared_memory fournit un espace de mémoire qui peut être mappé dans l'espace d'adressage de plusieurs processus. Les processus peuvent alors lire et écrire directement dans cet espace comme s'il s'agissait de leur propre mémoire. Cela permet des opérations de lecture et d'écriture très rapides, mais il incombe au développeur de gérer correctement la synchronisation et l'intégrité des données.
-
-
-### c. Gestion de la Synchronisation
-La gestion de la synchronisation est cruciale lors de l'utilisation de shared_memory. Bien que cette fonctionnalité offre une grande vitesse, elle ne fournit pas de mécanismes de verrouillage intrinsèques. Les développeurs doivent donc utiliser des primitives de synchronisation telles que des verrous (Lock), des sémaphores (Semaphore), ou d'autres mécanismes de verrouillage pour coordonner l'accès à la mémoire partagée.
-
-
-### d. Nettoyage et Durabilité
-Un aspect important de l'utilisation de la mémoire partagée est le nettoyage après utilisation. Contrairement aux variables normales qui sont nettoyées automatiquement par le ramasse-miettes de Python, la mémoire partagée doit être explicitement libérée par le programme. Cela implique généralement de fermer et de désallouer la mémoire partagée une fois qu'elle n'est plus nécessaire.
-
-En résumé, les outils de mémoire partagée de Python offrent une gamme d'options pour la communication interprocessus, allant de la facilité d'utilisation avec Value et Array à la performance élevée avec shared_memory. Chaque outil a ses propres avantages et responsabilités en termes de gestion de la synchronisation et du nettoyage, permettant aux développeurs de choisir la solution la mieux adaptée à leurs besoins spécifiques.</code></pre>
+<p>Ces deux objets utilisent des verrous (Lock ou RLock) pour s’assurer que seul un processus à la fois peut modifier les données. Cela empêche les conditions de course et garantit que les données ne sont pas corrompues par des écritures concurrentes.</p>
+</section>
+<section id="b.-performance-avec-multiprocessing.shared_memory" class="level3">
+<h3 class="anchored" data-anchor-id="b.-performance-avec-multiprocessing.shared_memory">b. Performance avec multiprocessing.shared_memory</h3>
+<p>Pour des besoins de performance plus élevés, Python 3.8 a introduit multiprocessing.shared_memory, qui offre un moyen plus rapide et plus flexible de partager des données entre processus. Cette fonctionnalité permet aux processus de partager des blocs de mémoire sans les contraintes de type imposées par Value et Array.</p>
+<p>shared_memory fournit un espace de mémoire qui peut être mappé dans l’espace d’adressage de plusieurs processus. Les processus peuvent alors lire et écrire directement dans cet espace comme s’il s’agissait de leur propre mémoire. Cela permet des opérations de lecture et d’écriture très rapides, mais il incombe au développeur de gérer correctement la synchronisation et l’intégrité des données.</p>
+</section>
+<section id="c.-gestion-de-la-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-de-la-synchronisation">c.&nbsp;Gestion de la Synchronisation</h3>
+<p>La gestion de la synchronisation est cruciale lors de l’utilisation de shared_memory. Bien que cette fonctionnalité offre une grande vitesse, elle ne fournit pas de mécanismes de verrouillage intrinsèques. Les développeurs doivent donc utiliser des primitives de synchronisation telles que des verrous (Lock), des sémaphores (Semaphore), ou d’autres mécanismes de verrouillage pour coordonner l’accès à la mémoire partagée.</p>
+</section>
+<section id="d.-nettoyage-et-durabilité" class="level3">
+<h3 class="anchored" data-anchor-id="d.-nettoyage-et-durabilité">d.&nbsp;Nettoyage et Durabilité</h3>
+<p>Un aspect important de l’utilisation de la mémoire partagée est le nettoyage après utilisation. Contrairement aux variables normales qui sont nettoyées automatiquement par le ramasse-miettes de Python, la mémoire partagée doit être explicitement libérée par le programme. Cela implique généralement de fermer et de désallouer la mémoire partagée une fois qu’elle n’est plus nécessaire.</p>
+<p>En résumé, les outils de mémoire partagée de Python offrent une gamme d’options pour la communication interprocessus, allant de la facilité d’utilisation avec Value et Array à la performance élevée avec shared_memory. Chaque outil a ses propres avantages et responsabilités en termes de gestion de la synchronisation et du nettoyage, permettant aux développeurs de choisir la solution la mieux adaptée à leurs besoins spécifiques.</p>
+</section>
 </section>
 <section id="types-de-mémoire-partagée-système" class="level2">
 <h2 class="anchored" data-anchor-id="types-de-mémoire-partagée-système">4. Types de Mémoire Partagée Système</h2>
-<pre><code>Dans les systèmes d'exploitation modernes, il existe différents types de mémoire partagée système qui permettent aux processus de communiquer et de partager des données. Ces mécanismes sont souvent utilisés pour des applications à haute performance où l'accès direct à la mémoire est nécessaire.
-
-
-### a. Mémoire Partagée POSIX
-La mémoire partagée POSIX (Portable Operating System Interface) est un standard dans les systèmes de type UNIX qui permet à plusieurs processus de partager un espace mémoire. Cette mémoire est typiquement utilisée pour des échanges de données à haute vitesse et est accessible par un nom unique dans le système de fichiers virtuel, souvent sous /dev/shm dans les systèmes Linux.
-
-
-### b. Mémoire Partagée System V
-La mémoire partagée System V est un autre type de mémoire partagée disponible sur les systèmes UNIX et UNIX-like. Elle diffère de la mémoire partagée POSIX par sa manière de gérer les clés et les identifiants de segment de mémoire, ainsi que par ses capacités de contrôle d'accès plus détaillées. Bien que plus ancienne, la mémoire partagée System V est toujours utilisée pour des raisons de compatibilité et de performance dans certaines applications.
-
-
-### c. Windows Memory-Mapped Files
-Dans les systèmes d'exploitation Windows, les fichiers mappés en mémoire sont utilisés pour réaliser des opérations similaires à la mémoire partagée POSIX et System V. Ces fichiers mappés permettent aux processus de partager des données en mappant un fichier dans leur espace d'adressage virtuel. Les modifications apportées à la mémoire mappée sont reflétées dans le fichier sous-jacent, et vice versa.</code></pre>
+<p>Dans les systèmes d’exploitation modernes, il existe différents types de mémoire partagée système qui permettent aux processus de communiquer et de partager des données. Ces mécanismes sont souvent utilisés pour des applications à haute performance où l’accès direct à la mémoire est nécessaire.</p>
+<section id="a.-mémoire-partagée-posix" class="level3">
+<h3 class="anchored" data-anchor-id="a.-mémoire-partagée-posix">a. Mémoire Partagée POSIX</h3>
+<p>La mémoire partagée POSIX (Portable Operating System Interface) est un standard dans les systèmes de type UNIX qui permet à plusieurs processus de partager un espace mémoire. Cette mémoire est typiquement utilisée pour des échanges de données à haute vitesse et est accessible par un nom unique dans le système de fichiers virtuel, souvent sous /dev/shm dans les systèmes Linux.</p>
+</section>
+<section id="b.-mémoire-partagée-system-v" class="level3">
+<h3 class="anchored" data-anchor-id="b.-mémoire-partagée-system-v">b. Mémoire Partagée System V</h3>
+<p>La mémoire partagée System V est un autre type de mémoire partagée disponible sur les systèmes UNIX et UNIX-like. Elle diffère de la mémoire partagée POSIX par sa manière de gérer les clés et les identifiants de segment de mémoire, ainsi que par ses capacités de contrôle d’accès plus détaillées. Bien que plus ancienne, la mémoire partagée System V est toujours utilisée pour des raisons de compatibilité et de performance dans certaines applications.</p>
+</section>
+<section id="c.-windows-memory-mapped-files" class="level3">
+<h3 class="anchored" data-anchor-id="c.-windows-memory-mapped-files">c.&nbsp;Windows Memory-Mapped Files</h3>
+<p>Dans les systèmes d’exploitation Windows, les fichiers mappés en mémoire sont utilisés pour réaliser des opérations similaires à la mémoire partagée POSIX et System V. Ces fichiers mappés permettent aux processus de partager des données en mappant un fichier dans leur espace d’adressage virtuel. Les modifications apportées à la mémoire mappée sont reflétées dans le fichier sous-jacent, et vice versa.</p>
+</section>
 </section>
 <section id="synchronisation-et-intégrité-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="synchronisation-et-intégrité-des-données">5. Synchronisation et Intégrité des Données</h2>
-<pre><code>Lorsqu'il s'agit de mémoire partagée, la synchronisation et l'intégrité des données sont des préoccupations majeures. Sans une gestion appropriée, les données peuvent facilement devenir incohérentes ou corrompues en raison d'accès concurrents. Voici comment ces problèmes sont abordés :
-
-
-### a. Primitives de Synchronisation
-Pour maintenir l'intégrité des données, des primitives de synchronisation sont utilisées. Ces mécanismes assurent qu'un seul processus peut accéder à une portion de mémoire à un moment donné, empêchant ainsi les conflits d'écriture.
-</code></pre>
+<p>Lorsqu’il s’agit de mémoire partagée, la synchronisation et l’intégrité des données sont des préoccupations majeures. Sans une gestion appropriée, les données peuvent facilement devenir incohérentes ou corrompues en raison d’accès concurrents. Voici comment ces problèmes sont abordés :</p>
+<section id="a.-primitives-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="a.-primitives-de-synchronisation">a. Primitives de Synchronisation</h3>
+<p>Pour maintenir l’intégrité des données, des primitives de synchronisation sont utilisées. Ces mécanismes assurent qu’un seul processus peut accéder à une portion de mémoire à un moment donné, empêchant ainsi les conflits d’écriture.</p>
 <ul>
-<li><code>Verrous (Locks): Les verrous sont les outils de synchronisation les plus basiques. Un verrou peut être acquis par un processus, bloquant ainsi les autres processus jusqu'à ce qu'il soit libéré.</code></li>
-<li><code>Sémaphores: Les sémaphores sont similaires aux verrous mais permettent à un nombre défini de processus d'accéder à une ressource simultanément.</code></li>
-<li><code>Conditions (Condition Variables): Ces variables sont utilisées pour bloquer un processus jusqu'à ce qu'une certaine condition soit remplie, souvent en combinaison avec un verrou.</code></li>
-<li><code>Barrières: Les barrières permettent à un groupe de processus d'attendre que tous atteignent un point donné avant de continuer.</code></li>
+<li>Verrous (Locks): Les verrous sont les outils de synchronisation les plus basiques. Un verrou peut être acquis par un processus, bloquant ainsi les autres processus jusqu’à ce qu’il soit libéré.</li>
+<li>Sémaphores: Les sémaphores sont similaires aux verrous mais permettent à un nombre défini de processus d’accéder à une ressource simultanément.</li>
+<li>Conditions (Condition Variables): Ces variables sont utilisées pour bloquer un processus jusqu’à ce qu’une certaine condition soit remplie, souvent en combinaison avec un verrou.</li>
+<li>Barrières: Les barrières permettent à un groupe de processus d’attendre que tous atteignent un point donné avant de continuer.</li>
 </ul>
-<pre><code>
-
-### b. Techniques de Synchronisation
-</code></pre>
+</section>
+<section id="b.-techniques-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-techniques-de-synchronisation">b. Techniques de Synchronisation</h3>
 <ul>
-<li><code>Verrouillage Mutuel (Mutex): Un mutex est un verrou qui est utilisé pour garantir l'exclusivité mutuelle, c'est-à-dire qu'un seul thread ou processus peut accéder à la ressource à la fois.</code></li>
-<li><code>Verrouillage Optimiste vs Pessimiste: Le verrouillage optimiste suppose qu'il y a peu de chances de conflit et vérifie l'intégrité des données après l'accès. Le verrouillage pessimiste suppose qu'un conflit est probable et verrouille les ressources avant l'accès.</code></li>
-<li><code>Transactions Mémoire: Certaines architectures modernes offrent des transactions mémoire qui permettent de grouper une série d'opérations en mémoire en une seule transaction atomique.</code></li>
+<li>Verrouillage Mutuel (Mutex): Un mutex est un verrou qui est utilisé pour garantir l’exclusivité mutuelle, c’est-à-dire qu’un seul thread ou processus peut accéder à la ressource à la fois.</li>
+<li>Verrouillage Optimiste vs Pessimiste: Le verrouillage optimiste suppose qu’il y a peu de chances de conflit et vérifie l’intégrité des données après l’accès. Le verrouillage pessimiste suppose qu’un conflit est probable et verrouille les ressources avant l’accès.</li>
+<li>Transactions Mémoire: Certaines architectures modernes offrent des transactions mémoire qui permettent de grouper une série d’opérations en mémoire en une seule transaction atomique.</li>
 </ul>
-<pre><code>
-
-### c. Gestion de la Concurrence
-La gestion de la concurrence est essentielle pour éviter les conditions de course, où plusieurs processus ou threads tentent d'accéder ou de modifier les données simultanément. Des stratégies comme le verrouillage au niveau des lignes (dans les bases de données) ou le découpage en granules fins (dans les applications) peuvent être utilisées pour minimiser les blocages et améliorer la concurrence.
-
-
-### d. Considérations de Conception
-Lors de la conception d'applications utilisant la mémoire partagée, il est crucial de considérer les aspects suivants :
-</code></pre>
+</section>
+<section id="c.-gestion-de-la-concurrence" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-de-la-concurrence">c.&nbsp;Gestion de la Concurrence</h3>
+<p>La gestion de la concurrence est essentielle pour éviter les conditions de course, où plusieurs processus ou threads tentent d’accéder ou de modifier les données simultanément. Des stratégies comme le verrouillage au niveau des lignes (dans les bases de données) ou le découpage en granules fins (dans les applications) peuvent être utilisées pour minimiser les blocages et améliorer la concurrence.</p>
+</section>
+<section id="d.-considérations-de-conception" class="level3">
+<h3 class="anchored" data-anchor-id="d.-considérations-de-conception">d.&nbsp;Considérations de Conception</h3>
+<p>Lors de la conception d’applications utilisant la mémoire partagée, il est crucial de considérer les aspects suivants :</p>
 <ul>
-<li><code>Déterminisme: S'assurer que l'ordre d'exécution est prévisible et que les résultats sont reproductibles.</code></li>
-<li><code>Éviter les Deadlocks: Concevoir des stratégies pour éviter les situations où plusieurs processus sont bloqués indéfiniment, attendant les ressources détenues par l'autre.</code></li>
-<li><code>Éviter les Starvations: S'assurer que tous les processus ont un accès équitable aux ressources.</code></li>
+<li>Déterminisme: S’assurer que l’ordre d’exécution est prévisible et que les résultats sont reproductibles.</li>
+<li>Éviter les Deadlocks: Concevoir des stratégies pour éviter les situations où plusieurs processus sont bloqués indéfiniment, attendant les ressources détenues par l’autre.</li>
+<li>Éviter les Starvations: S’assurer que tous les processus ont un accès équitable aux ressources.</li>
 </ul>
+</section>
 </section>
 <section id="gestion-des-ressources-et-nettoyage" class="level2">
 <h2 class="anchored" data-anchor-id="gestion-des-ressources-et-nettoyage">6. Gestion des Ressources et Nettoyage</h2>
-<pre><code>La gestion des ressources et le nettoyage sont des aspects critiques de l'utilisation de la mémoire partagée dans la communication interprocessus. Une gestion inadéquate peut entraîner des fuites de mémoire, des processus orphelins et des ressources système bloquées, ce qui peut affecter la stabilité et les performances du système. Voici les meilleures pratiques pour la gestion des ressources et le nettoyage dans les environnements IPC :
-
-
-### a. Libération de Mémoire Partagée**
-Après qu'un processus a terminé d'utiliser la mémoire partagée, il est essentiel de la libérer correctement. Cela implique généralement deux étapes :
-</code></pre>
+<p>La gestion des ressources et le nettoyage sont des aspects critiques de l’utilisation de la mémoire partagée dans la communication interprocessus. Une gestion inadéquate peut entraîner des fuites de mémoire, des processus orphelins et des ressources système bloquées, ce qui peut affecter la stabilité et les performances du système. Voici les meilleures pratiques pour la gestion des ressources et le nettoyage dans les environnements IPC :</p>
+<section id="a.-libération-de-mémoire-partagée" class="level3">
+<h3 class="anchored" data-anchor-id="a.-libération-de-mémoire-partagée">a. Libération de Mémoire Partagée**</h3>
+<p>Après qu’un processus a terminé d’utiliser la mémoire partagée, il est essentiel de la libérer correctement. Cela implique généralement deux étapes :</p>
 <ul>
-<li><code>Détachement: Chaque processus qui a attaché un segment de mémoire partagée doit le détacher de son espace d'adressage une fois qu'il n'est plus nécessaire.</code></li>
-<li><code>Suppression: Une fois que tous les processus ont détaché le segment de mémoire, il doit être supprimé pour libérer l'espace mémoire.</code></li>
+<li>Détachement: Chaque processus qui a attaché un segment de mémoire partagée doit le détacher de son espace d’adressage une fois qu’il n’est plus nécessaire.</li>
+<li>Suppression: Une fois que tous les processus ont détaché le segment de mémoire, il doit être supprimé pour libérer l’espace mémoire.</li>
 </ul>
-<pre><code>
-
-### b. Libération de Primitives de Synchronisation
-Les verrous, sémaphores et autres primitives de synchronisation doivent également être libérés après utilisation :
-</code></pre>
+</section>
+<section id="b.-libération-de-primitives-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-libération-de-primitives-de-synchronisation">b. Libération de Primitives de Synchronisation</h3>
+<p>Les verrous, sémaphores et autres primitives de synchronisation doivent également être libérés après utilisation :</p>
 <ul>
-<li><code>Libération de Verrous: S'assurer que tous les verrous sont libérés après l'accès aux ressources pour éviter les deadlocks.</code></li>
-<li><code>Suppression de Sémaphores: Les sémaphores doivent être supprimés du système une fois qu'ils ne sont plus nécessaires pour éviter l'épuisement des ressources système.</code></li>
+<li>Libération de Verrous: S’assurer que tous les verrous sont libérés après l’accès aux ressources pour éviter les deadlocks.</li>
+<li>Suppression de Sémaphores: Les sémaphores doivent être supprimés du système une fois qu’ils ne sont plus nécessaires pour éviter l’épuisement des ressources système.</li>
 </ul>
-<pre><code>
-
-### c. Gestion Automatisée des Ressources
-Dans certains langages de programmation, comme Python, des mécanismes tels que les gestionnaires de contexte (with statement) peuvent être utilisés pour automatiser la gestion des ressources :
-</code></pre>
+</section>
+<section id="c.-gestion-automatisée-des-ressources" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-automatisée-des-ressources">c.&nbsp;Gestion Automatisée des Ressources</h3>
+<p>Dans certains langages de programmation, comme Python, des mécanismes tels que les gestionnaires de contexte (with statement) peuvent être utilisés pour automatiser la gestion des ressources :</p>
 <ul>
-<li><code>Gestionnaires de Contexte: Ils peuvent s'assurer que les ressources sont automatiquement libérées à la fin d'un bloc de code, même en cas d'exception.</code></li>
+<li>Gestionnaires de Contexte: Ils peuvent s’assurer que les ressources sont automatiquement libérées à la fin d’un bloc de code, même en cas d’exception.</li>
 </ul>
-<pre><code>
-
-### d. Surveillance des Ressources
-Les outils de surveillance des systèmes peuvent aider à identifier les fuites de mémoire et les ressources non libérées :
-</code></pre>
+</section>
+<section id="d.-surveillance-des-ressources" class="level3">
+<h3 class="anchored" data-anchor-id="d.-surveillance-des-ressources">d.&nbsp;Surveillance des Ressources</h3>
+<p>Les outils de surveillance des systèmes peuvent aider à identifier les fuites de mémoire et les ressources non libérées :</p>
 <ul>
-<li><code>Outils de Profilage: Utiliser des profileurs de mémoire pour suivre l'utilisation de la mémoire et identifier les fuites potentielles.</code></li>
-<li><code>Journalisation: La journalisation des actions de création et de libération de ressources peut aider à diagnostiquer les problèmes de gestion des ressources.</code></li>
+<li>Outils de Profilage: Utiliser des profileurs de mémoire pour suivre l’utilisation de la mémoire et identifier les fuites potentielles.</li>
+<li>Journalisation: La journalisation des actions de création et de libération de ressources peut aider à diagnostiquer les problèmes de gestion des ressources.</li>
 </ul>
-<pre><code>
-
-### e. Nettoyage à la Terminaison du Processus
-Il est important de concevoir des applications de manière à ce que la mémoire partagée et les primitives de synchronisation soient nettoyées lors de la terminaison normale ou anormale du processus :
-</code></pre>
+</section>
+<section id="e.-nettoyage-à-la-terminaison-du-processus" class="level3">
+<h3 class="anchored" data-anchor-id="e.-nettoyage-à-la-terminaison-du-processus">e. Nettoyage à la Terminaison du Processus</h3>
+<p>Il est important de concevoir des applications de manière à ce que la mémoire partagée et les primitives de synchronisation soient nettoyées lors de la terminaison normale ou anormale du processus :</p>
 <ul>
-<li><code>Gestionnaires de Signaux: Intercepter les signaux de terminaison pour effectuer un nettoyage avant que le processus ne se termine.</code></li>
-<li><code>Destructeurs: Utiliser des destructeurs dans les classes pour nettoyer les ressources lorsqu'une instance est détruite.</code></li>
+<li>Gestionnaires de Signaux: Intercepter les signaux de terminaison pour effectuer un nettoyage avant que le processus ne se termine.</li>
+<li>Destructeurs: Utiliser des destructeurs dans les classes pour nettoyer les ressources lorsqu’une instance est détruite.</li>
 </ul>
-<pre><code>
-
-### f. Bonnes Pratiques de Conception
-</code></pre>
+</section>
+<section id="f.-bonnes-pratiques-de-conception" class="level3">
+<h3 class="anchored" data-anchor-id="f.-bonnes-pratiques-de-conception">f.&nbsp;Bonnes Pratiques de Conception</h3>
 <ul>
-<li><code>Minimiser l'Utilisation de Ressources Partagées: Concevoir des applications pour minimiser la dépendance aux ressources partagées peut réduire la complexité de la gestion des ressources.</code></li>
-<li><code>Isolation des Ressources: Autant que possible, isoler les ressources partagées dans des processus ou des services dédiés pour simplifier la gestion.</code></li>
+<li>Minimiser l’Utilisation de Ressources Partagées: Concevoir des applications pour minimiser la dépendance aux ressources partagées peut réduire la complexité de la gestion des ressources.</li>
+<li>Isolation des Ressources: Autant que possible, isoler les ressources partagées dans des processus ou des services dédiés pour simplifier la gestion.</li>
 </ul>
-<pre><code>En conclusion, une gestion rigoureuse des ressources et un nettoyage minutieux sont essentiels pour maintenir la santé et la performance des systèmes utilisant la mémoire partagée pour l'IPC. Les développeurs doivent intégrer des stratégies de gestion des ressources tout au long du cycle de vie de l'application pour assurer une exécution fiable et efficace.</code></pre>
+<p>En conclusion, une gestion rigoureuse des ressources et un nettoyage minutieux sont essentiels pour maintenir la santé et la performance des systèmes utilisant la mémoire partagée pour l’IPC. Les développeurs doivent intégrer des stratégies de gestion des ressources tout au long du cycle de vie de l’application pour assurer une exécution fiable et efficace.</p>
+</section>
 </section>
 <section id="exemples" class="level2">
 <h2 class="anchored" data-anchor-id="exemples">7. Exemples</h2>
-<pre><code>
-
-### a. Lancement de processus par un parent commun
-Dans cet exemple, nous allons explorer l'utilisation de la mémoire partagée en Python pour la communication interprocessus (IPC). La mémoire partagée est un moyen puissant d'échanger des informations entre les processus sans avoir besoin de passer des messages, ce qui peut être plus efficace, en particulier pour les transferts de données volumineux.
-
-Nous allons créer deux processus : un producteur et un consommateur. Le producteur écrira une série de nombres et leurs carrés dans la mémoire partagée, tandis que le consommateur lira ces valeurs et les imprimera. Pour coordonner les processus, nous utiliserons une valeur sentinelle. Lorsque le producteur aura terminé, il écrira cette valeur sentinelle dans la mémoire partagée pour signaler au consommateur de s'arrêter.
-
-Cet exemple est particulièrement utile lorsque les deux processus sont lancés par un processus parent commun, car ils peuvent facilement hériter de l'accès aux objets de mémoire partagée. Cependant, cette approche nécessite que les processus aient une relation prédéterminée et soient conscients de l'existence de l'autre.
-
-
-</code></pre>
+<section id="a.-lancement-de-processus-par-un-parent-commun" class="level3">
+<h3 class="anchored" data-anchor-id="a.-lancement-de-processus-par-un-parent-commun">a. Lancement de processus par un parent commun</h3>
+<p>Dans cet exemple, nous allons explorer l’utilisation de la mémoire partagée en Python pour la communication interprocessus (IPC). La mémoire partagée est un moyen puissant d’échanger des informations entre les processus sans avoir besoin de passer des messages, ce qui peut être plus efficace, en particulier pour les transferts de données volumineux.</p>
+<p>Nous allons créer deux processus : un producteur et un consommateur. Le producteur écrira une série de nombres et leurs carrés dans la mémoire partagée, tandis que le consommateur lira ces valeurs et les imprimera. Pour coordonner les processus, nous utiliserons une valeur sentinelle. Lorsque le producteur aura terminé, il écrira cette valeur sentinelle dans la mémoire partagée pour signaler au consommateur de s’arrêter.</p>
+<p>Cet exemple est particulièrement utile lorsque les deux processus sont lancés par un processus parent commun, car ils peuvent facilement hériter de l’accès aux objets de mémoire partagée. Cependant, cette approche nécessite que les processus aient une relation prédéterminée et soient conscients de l’existence de l’autre.</p>
 <p>from multiprocessing import Process, Value, Array, shared_memory import time import random</p>
+</section>
 </section>
 </section>
 <section id="processus-producteur-qui-écrit-dans-la-mémoire-partagée" class="level1">
@@ -730,79 +736,36 @@ processus_consommateur.join()
 # Nettoyer la mémoire partagée
 shm.close()
 shm.unlink()</code></pre>
-<pre><code>
-
-</code></pre>
 <p>Comme vous pouvez le voir, le processus producteur génère des nombres et leurs carrés, les écrivant dans la mémoire partagée, tandis que le processus consommateur lit ces valeurs jusqu’à ce qu’il rencontre la valeur sentinelle signalant la fin du flux de données. Cette méthode est efficace et rapide mais présente des limitations. Par exemple, elle suppose que les processus ont un moyen de démarrer et de s’arrêter de manière coordonnée, ce qui est facilité ici par le processus parent contrôlant à la fois le producteur et le consommateur.</p>
 <p>Dans des scénarios où les processus sont entièrement indépendants et non lancés par un parent commun, nous avons besoin d’une approche différente pour établir une communication de mémoire partagée. Dans de tels cas, nous pouvons utiliser le module shared_memory directement pour créer un bloc de mémoire partagée qui peut être accédé en utilisant un nom connu à la fois du producteur et du consommateur. Examinons un exemple de la manière dont cela peut être mis en œuvre.</p>
 <section id="b.-processus-indépendants-utilisant-la-mémoire-partagée" class="level3">
 <h3 class="anchored" data-anchor-id="b.-processus-indépendants-utilisant-la-mémoire-partagée">b. Processus indépendants utilisant la mémoire partagée</h3>
 <p>Dans l’exemple suivant, nous allons créer un bloc de mémoire partagée qui ne dépend pas d’un processus parent pour lancer le producteur et le consommateur. Au lieu de cela, le bloc de mémoire partagée sera créé avec un nom unique, auquel les processus producteur et consommateur pourront accéder indépendamment.</p>
-<pre><code>from multiprocessing import shared_memory
-import time
-import random
-
-# Nom unique pour le bloc de mémoire partagée
-NOM_SHM = 'ma_memoire_partagee'
-
-# Processus producteur qui écrit dans la mémoire partagée
-def producteur_independant():
-    # Créer un nouveau bloc de mémoire partagée
-    shm_existante = shared_memory.SharedMemory(name=NOM_SHM, create=True, size=128)
-    try:
-        # Simuler la production de données
-        for i in range(5):
-            time.sleep(random.uniform(0.1, 0.5))  # Simuler un travail
-            # Écrire des données dans la mémoire partagée
-            shm_existante.buf[i] = i
-            print(f'Le producteur indépendant vient de produire {i}')
-    finally:
-        # Nettoyage
-        shm_existante.close()
-
-# Processus consommateur qui lit la mémoire partagée
-def consommateur_independant():
-    # Ouvrir le bloc de mémoire partagée existant
-    shm_existante = shared_memory.SharedMemory(name=NOM_SHM)
-    try:
-        while True:
-            time.sleep(0.1)
-            valeur = shm_existante.buf[0]  # Lire à partir du premier octet
-            if valeur == -1:  # Valeur sentinelle pour l'arrêt
-                break
-            print(f'Le consommateur indépendant vient de consommer {valeur}')
-    finally:
-        # Nettoyage
-        shm_existante.close()
-        shm_existante.unlink()  # Seulement désassocier dans le consommateur pour cet exemple
-
-if __name__ == '__main__':
-    # Démarrer le producteur
-    producteur_independant()
-    # Donner un peu de temps pour que le product
-
-eur démarre et produise des éléments
-    time.sleep(2)
-    # Démarrer le consommateur
-    consommateur_independant()</code></pre>
-<pre><code>Dans cet exemple, le producteur crée un bloc de mémoire partagée avec un nom prédéfini et écrit des données dedans. Le consommateur, connaissant le nom du bloc de mémoire partagée, peut y accéder indépendamment et lire les données. La valeur sentinelle (-1) est utilisée ici également pour signaler au consommateur d'arrêter la lecture et de sortir. Cette approche permet une plus grande flexibilité et convient aux situations où les processus peuvent démarrer et s'arrêter indépendamment les uns des autres.
-
-
-### c. Exemple avec la mémoire partagée POSIX et System V
-Voici un exemple qui montre comment utiliser les segments de mémoire partagée POSIX et System V en Python sans s'appuyer sur la fonctionnalité de mémoire partagée de la bibliothèque multiprocessing. Nous utiliserons le module sysv_ipc pour la mémoire partagée System V et le module posix_ipc pour la mémoire partagée POSIX.
-
-Mémoire partagée POSIX :
-
-La mémoire partagée POSIX fournit un mécanisme permettant aux processus de communiquer des informations en partageant une région de mémoire. Elle est identifiée par un nom dans l'espace de noms du système de fichiers et persiste jusqu'à ce qu'elle soit explicitement supprimée.
-
-Mémoire partagée System V :
-
-La mémoire partagée System V est un mécanisme IPC plus ancien qui permet aux processus de communiquer en s'attachant à un segment de mémoire partagée identifié par une clé numérique. Contrairement à la mémoire partagée POSIX, elle n'a pas de nom dans l'espace de noms du système de fichiers.
-
-Voici l'exemple de code :
-
-
-</code></pre>
+<p>from multiprocessing import shared_memory import time import random</p>
+</section>
+</section>
+<section id="nom-unique-pour-le-bloc-de-mémoire-partagée" class="level1">
+<h1>Nom unique pour le bloc de mémoire partagée</h1>
+<p>NOM_SHM = ‘ma_memoire_partagee’</p>
+</section>
+<section id="processus-producteur-qui-écrit-dans-la-mémoire-partagée-1" class="level1">
+<h1>Processus producteur qui écrit dans la mémoire partagée</h1>
+<p>def producteur_independant(): # Créer un nouveau bloc de mémoire partagée shm_existante = shared_memory.SharedMemory(name=NOM_SHM, create=True, size=128) try: # Simuler la production de données for i in range(5): time.sleep(random.uniform(0.1, 0.5)) # Simuler un travail # Écrire des données dans la mémoire partagée shm_existante.buf[i] = i print(f’Le producteur indépendant vient de produire {i}’) finally: # Nettoyage shm_existante.close()</p>
+</section>
+<section id="processus-consommateur-qui-lit-la-mémoire-partagée-1" class="level1">
+<h1>Processus consommateur qui lit la mémoire partagée</h1>
+<p>def consommateur_independant(): # Ouvrir le bloc de mémoire partagée existant shm_existante = shared_memory.SharedMemory(name=NOM_SHM) try: while True: time.sleep(0.1) valeur = shm_existante.buf[0] # Lire à partir du premier octet if valeur == -1: # Valeur sentinelle pour l’arrêt break print(f’Le consommateur indépendant vient de consommer {valeur}’) finally: # Nettoyage shm_existante.close() shm_existante.unlink() # Seulement désassocier dans le consommateur pour cet exemple</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: # Démarrer le producteur producteur_independant() # Donner un peu de temps pour que le product</p>
+<p>eur démarre et produise des éléments time.sleep(2) # Démarrer le consommateur consommateur_independant()</p>
+<p>Dans cet exemple, le producteur crée un bloc de mémoire partagée avec un nom prédéfini et écrit des données dedans. Le consommateur, connaissant le nom du bloc de mémoire partagée, peut y accéder indépendamment et lire les données. La valeur sentinelle (-1) est utilisée ici également pour signaler au consommateur d’arrêter la lecture et de sortir. Cette approche permet une plus grande flexibilité et convient aux situations où les processus peuvent démarrer et s’arrêter indépendamment les uns des autres.</p>
+<section id="c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" class="level3">
+<h3 class="anchored" data-anchor-id="c.-exemple-avec-la-mémoire-partagée-posix-et-system-v">c.&nbsp;Exemple avec la mémoire partagée POSIX et System V</h3>
+<p>Voici un exemple qui montre comment utiliser les segments de mémoire partagée POSIX et System V en Python sans s’appuyer sur la fonctionnalité de mémoire partagée de la bibliothèque multiprocessing. Nous utiliserons le module sysv_ipc pour la mémoire partagée System V et le module posix_ipc pour la mémoire partagée POSIX.</p>
+<p>Mémoire partagée POSIX :</p>
+<p>La mémoire partagée POSIX fournit un mécanisme permettant aux processus de communiquer des informations en partageant une région de mémoire. Elle est identifiée par un nom dans l’espace de noms du système de fichiers et persiste jusqu’à ce qu’elle soit explicitement supprimée.</p>
+<p>Mémoire partagée System V :</p>
+<p>La mémoire partagée System V est un mécanisme IPC plus ancien qui permet aux processus de communiquer en s’attachant à un segment de mémoire partagée identifié par une clé numérique. Contrairement à la mémoire partagée POSIX, elle n’a pas de nom dans l’espace de noms du système de fichiers.</p>
+<p>Voici l’exemple de code :</p>
 <p>import sysv_ipc import posix_ipc import mmap import os import time</p>
 </section>
 </section>
@@ -847,27 +810,18 @@ Voici l'exemple de code :
 <section id="démapper-et-désassocier-la-mémoire-partagée" class="level1">
 <h1>Démapper et désassocier la mémoire partagée</h1>
 <p>mm.close() posix_ipc.unlink_shared_memory(‘/mon_posix_shm’)</p>
-<pre><code>
-
-</code></pre>
 <p>Dans ce code :</p>
-<pre><code>
-
-
-* `Pour System V, nous créons un segment de mémoire partagée avec une clé spécifique et écrivons un message dedans. Ensuite, nous lisons le message et nettoyons en détachant et en supprimant le segment de mémoire partagée.`
-* `Pour POSIX, nous créons un objet de mémoire partagée nommé, le mappons dans l'espace d'adressage du processus, puis écrivons et lisons un message. Enfin, nous démappons et désassocions l'objet de mémoire partagée.`
-
-</code></pre>
+<ul>
+<li>Pour System V, nous créons un segment de mémoire partagée avec une clé spécifique et écrivons un message dedans. Ensuite, nous lisons le message et nettoyons en détachant et en supprimant le segment de mémoire partagée.</li>
+<li>Pour POSIX, nous créons un objet de mémoire partagée nommé, le mappons dans l’espace d’adressage du processus, puis écrivons et lisons un message. Enfin, nous démappons et désassocions l’objet de mémoire partagée.</li>
+</ul>
 <p>Cet exemple est une simple démonstration de l’utilisation de la mémoire partagée POSIX et System V en Python. Ces mécanismes sont de plus bas niveau que la mémoire partagée de la bibliothèque multiprocessing et nécessitent une gestion plus manuelle.</p>
-<pre><code>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">8. Conclusion</h2>
+<p>En intégrant ces concepts dans la conception de systèmes IPC, les développeurs peuvent tirer parti de la vitesse de la RAM pour une communication interprocessus efficace tout en gérant soigneusement les ressources pour maintenir l’intégrité et la performance du système.</p>
 
 
-## 8. Conclusion
-
-</code></pre>
-<p>En intégrant ces concepts dans la conception de systèmes IPC, les développeurs peuvent tirer parti de la vitesse de la RAM pour une communication interprocessus efficace tout en gérant soigneusement les ressources pour maintenir l’intégrité et la performance du système. ```</p>
-
-
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

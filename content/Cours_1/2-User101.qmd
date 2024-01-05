@@ -26,78 +26,78 @@ image: .img/Use101.webp
 ## 2.1 Les bases de l'interaction avec une API :
 
 
-```
+
 Chaque fois que vous interagissez avec une API, vous réalisez généralement une série d'étapes :
 
-```
 
 
 
-* `Établissement de la connexion : Avant d'envoyer ou de recevoir des données, une connexion doit être établie, généralement via HTTP ou WebSocket.`
-* `Envoi d'une requête : Vous spécifiez ce que vous voulez que l'API fasse en lui envoyant une requête. Cette requête inclut généralement une méthode (par exemple, GET pour récupérer des données ou POST pour en envoyer) et des données si nécessaire.`
-* `Réception et traitement de la réponse : Après avoir envoyé la requête, l'API vous renvoie une réponse. Cette réponse doit être traitée, souvent en la convertissant d'un format comme JSON en une structure utilisable dans votre programme.`
+
+* Établissement de la connexion : Avant d'envoyer ou de recevoir des données, une connexion doit être établie, généralement via HTTP ou WebSocket.
+* Envoi d'une requête : Vous spécifiez ce que vous voulez que l'API fasse en lui envoyant une requête. Cette requête inclut généralement une méthode (par exemple, GET pour récupérer des données ou POST pour en envoyer) et des données si nécessaire.
+* Réception et traitement de la réponse : Après avoir envoyé la requête, l'API vous renvoie une réponse. Cette réponse doit être traitée, souvent en la convertissant d'un format comme JSON en une structure utilisable dans votre programme.
 * 
 
 
 ## 2.2 Utiliser les endpoints :
 
 
-```
+
 Les API sont généralement structurées autour d'endpoints, qui sont des points d'accès spécifiques où l'API peut recevoir des requêtes et renvoyer des réponses.
 Par exemple, pour une API qui fournit des données boursières :
 
-```
 
 
 
-* `/stocks pourrait renvoyer une liste de toutes les actions.`
-* `/stocks/AAPL pourrait renvoyer des informations sur l'action Apple.`
-* `/stocks/AAPL/history pourrait renvoyer l'historique des prix de l'action Apple.`
+
+* /stocks pourrait renvoyer une liste de toutes les actions.
+* /stocks/AAPL pourrait renvoyer des informations sur l'action Apple.
+* /stocks/AAPL/history pourrait renvoyer l'historique des prix de l'action Apple.
 * 
 
 
 ## 2.3 Gestion des erreurs et codes de réponse HTTP :
 
 
-```
+
 Lorsque vous interagissez avec une API via HTTP, la réponse contient un code d'état qui vous indique le résultat de votre requête. Comprendre ces codes est essentiel pour gérer les erreurs et les réponses avec succès. Voici quelques codes de réponse HTTP courants :
 
-```
 
 
 
-* `200 OK : La requête a réussi. C'est la réponse standard pour les requêtes réussies.`
-* `201 Created : La requête a été traitée et a abouti à la création d'une ressource.`
-* `204 No Content : La requête a été traitée avec succès, mais il n'y a pas de contenu à renvoyer en réponse.`
-* `400 Bad Request : La requête n'a pas été traitée car le serveur n'a pas pu comprendre la demande, souvent en raison d'une syntaxe incorrecte.`
-* `401 Unauthorized : La requête nécessite une authentification utilisateur.`
-* `403 Forbidden : Le serveur a compris la requête, mais refuse de la traiter. Contrairement à l'erreur 401, s'authentifier ne résoudra pas le problème.`
-* `404 Not Found : La ressource demandée n'a pas été trouvée.`
-* `429 Too Many Requests : L'utilisateur a envoyé trop de requêtes dans un laps de temps donné (rate limiting).`
-* `500 Internal Server Error : Une erreur générique qui indique qu'une situation inattendue a été rencontrée et qu'aucune solution plus spécifique n'est disponible.`
+
+* 200 OK : La requête a réussi. C'est la réponse standard pour les requêtes réussies.
+* 201 Created : La requête a été traitée et a abouti à la création d'une ressource.
+* 204 No Content : La requête a été traitée avec succès, mais il n'y a pas de contenu à renvoyer en réponse.
+* 400 Bad Request : La requête n'a pas été traitée car le serveur n'a pas pu comprendre la demande, souvent en raison d'une syntaxe incorrecte.
+* 401 Unauthorized : La requête nécessite une authentification utilisateur.
+* 403 Forbidden : Le serveur a compris la requête, mais refuse de la traiter. Contrairement à l'erreur 401, s'authentifier ne résoudra pas le problème.
+* 404 Not Found : La ressource demandée n'a pas été trouvée.
+* 429 Too Many Requests : L'utilisateur a envoyé trop de requêtes dans un laps de temps donné (rate limiting).
+* 500 Internal Server Error : Une erreur générique qui indique qu'une situation inattendue a été rencontrée et qu'aucune solution plus spécifique n'est disponible.
 
 
-```
+
 Lorsque vous développez une application qui consomme une API, il est essentiel de gérer ces réponses de manière appropriée. Par exemple, si vous recevez un code 429, vous pourriez mettre en place une logique pour attendre un certain temps avant d'essayer à nouveau, plutôt que de bombarder continuellement l'API avec des requêtes.
-```
+
 
 
 
 ## 2.4 Limitations courantes des API :
 
 
-```
+
 La plupart des API ont des limites pour garantir une utilisation équitable et éviter les abus :
 
-```
 
 
 
-* `Rate Limiting : Nombre maximal de requêtes autorisées dans un intervalle de temps donné.`
-* `Quotas : Nombre total de requêtes autorisées sur une période plus longue (par exemple, par jour).`
-* `Limitations de données : Certaines API peuvent limiter la quantité de données renvoyées en une seule requête.`
+
+* Rate Limiting : Nombre maximal de requêtes autorisées dans un intervalle de temps donné.
+* Quotas : Nombre total de requêtes autorisées sur une période plus longue (par exemple, par jour).
+* Limitations de données : Certaines API peuvent limiter la quantité de données renvoyées en une seule requête.
 
 
-```
+
 Il est crucial de comprendre et de respecter ces limitations pour éviter d'être bloqué ou pénalisé.
-```
+

@@ -3,8 +3,10 @@ title: "API - Définition"
 weight: 10
 tags:
   - Introduction
+  - API
 categories:
   - Cours
+  - API
 type: book
 description: ""
 image: .img/API101.webp
@@ -24,36 +26,36 @@ Une API, ou Interface de Programmation d'Application, est un ensemble de protoco
 
 
 
-* `Automatisation : Les API permettent aux machines d'effectuer des tâches automatisées, libérant l'homme pour des activités à plus forte valeur ajoutée.`
-* `Intégration : Les API facilitent la communication entre différents logiciels ou services, leur permettant de travailler en synergie.`
-* `Modularité : Les API offrent une structure où les fonctions sont isolées, facilitant le développement, la mise à jour, et la maintenance.`
+* Automatisation : Les API permettent aux machines d'effectuer des tâches automatisées, libérant l'homme pour des activités à plus forte valeur ajoutée.
+* Intégration : Les API facilitent la communication entre différents logiciels ou services, leur permettant de travailler en synergie.
+* Modularité : Les API offrent une structure où les fonctions sont isolées, facilitant le développement, la mise à jour, et la maintenance.
 
 
 ## 1.3 Avantages de l'API vs. Scrapping ou autres méthodes :
 
 
 
-* `Fiabilité : Contrairement au scraping qui extrait des données en se basant sur la structure d'une page web (souvent sujette à des changements), une API fournit une manière standardisée d'accéder aux données, garantissant une plus grande fiabilité.`
-* `Notifications en cas de changement : Les fournisseurs d'API annoncent généralement les changements à venir, permettant aux utilisateurs de s'adapter en avance. Avec le scraping, les changements ne sont détectés qu'après qu'ils aient eu lieu.`
-* `Efficacité : Les API sont conçues pour être optimales et offrent souvent des réponses plus rapides et structurées que les autres méthodes.`
+* Fiabilité : Contrairement au scraping qui extrait des données en se basant sur la structure d'une page web (souvent sujette à des changements), une API fournit une manière standardisée d'accéder aux données, garantissant une plus grande fiabilité.
+* Notifications en cas de changement : Les fournisseurs d'API annoncent généralement les changements à venir, permettant aux utilisateurs de s'adapter en avance. Avec le scraping, les changements ne sont détectés qu'après qu'ils aient eu lieu.
+* Efficacité : Les API sont conçues pour être optimales et offrent souvent des réponses plus rapides et structurées que les autres méthodes.
 
 
 ## 1.4 Technologies sous-jacentes des API :
 
 
 
-* `HTTP/HTTPS (Protocole de transfert hypertexte) : C'est le protocole le plus courant pour les API. Il est basé sur une architecture client-serveur où le client envoie une requête et attend une réponse du serveur.`
-* `WebSocket : Contrairement à HTTP où le client doit initier la requête, WebSocket permet une communication bidirectionnelle. C'est-à-dire que le serveur peut aussi envoyer des données au client sans requête préalable. Très utilisé pour les applications nécessitant des données en temps réel.`
-* `gRPC : Développé par Google, il permet une communication efficace entre applications via des procédures distantes, souvent utilisé pour les microservices.`
-* `Protocoles de messagerie comme MQTT : Utile pour les appareils IoT, où la consommation d'énergie et la bande passante sont critiques.`
+* HTTP/HTTPS (Protocole de transfert hypertexte) : C'est le protocole le plus courant pour les API. Il est basé sur une architecture client-serveur où le client envoie une requête et attend une réponse du serveur.
+* WebSocket : Contrairement à HTTP où le client doit initier la requête, WebSocket permet une communication bidirectionnelle. C'est-à-dire que le serveur peut aussi envoyer des données au client sans requête préalable. Très utilisé pour les applications nécessitant des données en temps réel.
+* gRPC : Développé par Google, il permet une communication efficace entre applications via des procédures distantes, souvent utilisé pour les microservices.
+* Protocoles de messagerie comme MQTT : Utile pour les appareils IoT, où la consommation d'énergie et la bande passante sont critiques.
 
 
 ## 1.5 Comment fonctionne une API (avec une analogie simplifiée) :
 
 
-```
+
 Imaginons une bibliothèque. Vous souhaitez emprunter un livre (obtenir des données). Au lieu de chercher vous-même parmi des milliers de livres, vous demandez à un bibliothécaire (API) de le faire pour vous. Vous lui donnez un titre précis (requête), il consulte le système informatique pour localiser le livre (traitement de la requête), puis vous apporte le livre demandé (réponse).
-```
+
 
 
 
@@ -61,36 +63,36 @@ Imaginons une bibliothèque. Vous souhaitez emprunter un livre (obtenir des donn
 
 
 
-* `Accès aux données de marché : Les API peuvent fournir des données en temps réel sur les cours d'actions, les taux de change, les indices, etc.`
-* `Opérations automatisées : Les transactions, telles que l'achat ou la vente d'actions, peuvent être exécutées automatiquement via des API.`
-* `Intégration avec d'autres systèmes : Les API permettent à différentes plateformes financières de communiquer entre elles, assurant une meilleure synergie entre les outils.`
-* `Innovations et services personnalisés : Grâce aux API, les entreprises financières peuvent proposer des solutions personnalisées à leurs clients, en intégrant différentes fonctionnalités et données.`
+* Accès aux données de marché : Les API peuvent fournir des données en temps réel sur les cours d'actions, les taux de change, les indices, etc.
+* Opérations automatisées : Les transactions, telles que l'achat ou la vente d'actions, peuvent être exécutées automatiquement via des API.
+* Intégration avec d'autres systèmes : Les API permettent à différentes plateformes financières de communiquer entre elles, assurant une meilleure synergie entre les outils.
+* Innovations et services personnalisés : Grâce aux API, les entreprises financières peuvent proposer des solutions personnalisées à leurs clients, en intégrant différentes fonctionnalités et données.
 
 
 ## 1.7 API REST vs. SOAP :
 
 
-```
+
 Il existe plusieurs styles d'architecture pour les API, mais les plus courants dans l'industrie sont REST et SOAP.
 
-```
 
 
 
-* `REST (Representational State Transfer) :`
-    * `Basé sur le protocole HTTP.`
-    * `Utilise des méthodes standards comme GET, POST, PUT et DELETE.`
-    * `Peut utiliser JSON, XML ou d'autres formats pour les données.`
-    * `Généralement considéré comme plus simple et flexible que SOAP.`
-* `SOAP (Simple Object Access Protocol) :`
-    * `Protocole plus ancien, largement adopté dans les entreprises.`
-    * `Utilise XML pour le format des messages.`
-    * `Comprend des fonctionnalités intégrées pour la sécurité et les transactions.`
+
+* REST (Representational State Transfer) :
+    * Basé sur le protocole HTTP.
+    * Utilise des méthodes standards comme GET, POST, PUT et DELETE.
+    * Peut utiliser JSON, XML ou d'autres formats pour les données.
+    * Généralement considéré comme plus simple et flexible que SOAP.
+* SOAP (Simple Object Access Protocol) :
+    * Protocole plus ancien, largement adopté dans les entreprises.
+    * Utilise XML pour le format des messages.
+    * Comprend des fonctionnalités intégrées pour la sécurité et les transactions.
 
 
-```
+
 Pour choisir entre REST et SOAP, cela dépend souvent des besoins spécifiques du projet et des préférences de l'équipe de développement.
-```
+
 
 
 
@@ -102,9 +104,9 @@ Avec la croissance des API, en particulier dans des domaines sensibles comme la 
 
 
 
-* `Clé API : Une clé unique est générée pour chaque utilisateur ou application. Elle doit être incluse dans chaque requête.`
-* `Authentification basique : Utilise un nom d'utilisateur et un mot de passe pour accéder à l'API.`
-* `OAuth : Un protocole qui permet à une application d'accéder à des ressources spécifiques d'un utilisateur sans avoir besoin de son mot de passe. Très utilisé pour les intégrations avec des plateformes sociales ou des services en ligne.`
+* Clé API : Une clé unique est générée pour chaque utilisateur ou application. Elle doit être incluse dans chaque requête.
+* Authentification basique : Utilise un nom d'utilisateur et un mot de passe pour accéder à l'API.
+* OAuth : Un protocole qui permet à une application d'accéder à des ressources spécifiques d'un utilisateur sans avoir besoin de son mot de passe. Très utilisé pour les intégrations avec des plateformes sociales ou des services en ligne.
 
 
 

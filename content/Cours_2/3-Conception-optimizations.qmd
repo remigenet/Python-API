@@ -29,9 +29,9 @@ code-links: binder
 ## 1. Introduction au Fonctionnement Séquentiel du Code
 
 
-```
+
 Le fonctionnement séquentiel du code est le modèle de base de l'exécution d'un programme informatique. Dans ce modèle, chaque ligne de code est exécutée l'une après l'autre, en suivant un ordre précis défini par la séquence du programme. Ce modèle est intuitif et reflète la manière dont les programmes étaient traditionnellement écrits et compris.
-```
+
 
 
 
@@ -39,25 +39,25 @@ Le fonctionnement séquentiel du code est le modèle de base de l'exécution d'u
 
 
 
-* `Un processus est une instance d'un programme en cours d'exécution. Il s'agit de l'unité de base que le système d'exploitation utilise pour gérer l'exécution des programmes. Chaque processus dispose de son propre espace mémoire isolé.`
-* `Un thread, quant à lui, est le plus petit séquence d'instructions programmées qui peut être gérée par un planificateur de système d'exploitation, qui fait partie d'un processus. Un processus peut contenir plusieurs threads (multithreading), chacun pouvant exécuter différentes parties du programme en parallèle.`
+* Un processus est une instance d'un programme en cours d'exécution. Il s'agit de l'unité de base que le système d'exploitation utilise pour gérer l'exécution des programmes. Chaque processus dispose de son propre espace mémoire isolé.
+* Un thread, quant à lui, est le plus petit séquence d'instructions programmées qui peut être gérée par un planificateur de système d'exploitation, qui fait partie d'un processus. Un processus peut contenir plusieurs threads (multithreading), chacun pouvant exécuter différentes parties du programme en parallèle.
 
 
 ### b. La Pile d'Exécution :
 
 
-```
+
 Chaque thread a sa propre pile d'exécution, également appelée stack, qui stocke des informations telles que les appels de fonction, les variables locales, et permet de suivre l'endroit où se trouve le programme dans son exécution. Lorsqu'une fonction est appelée, un cadre de pile (stack frame) est ajouté au sommet de la pile, contenant les informations nécessaires à l'exécution de cette fonction. Lorsque la fonction se termine, son cadre de pile est retiré.
-```
+
 
 
 
 ### c. Modèle Séquentiel :
 
 
-```
+
 Dans un modèle séquentiel, bien que les processus puissent s'exécuter en parallèle, chaque thread à l'intérieur d'un processus exécute les instructions l'une après l'autre, de manière séquentielle. Cela signifie qu'une instruction doit être terminée avant que la suivante ne commence.
-```
+
 
 
 
@@ -65,19 +65,19 @@ Dans un modèle séquentiel, bien que les processus puissent s'exécuter en para
 
 
 
-* `Utilisation du CPU : L'inconvénient d'une exécution séquentielle est qu'elle ne tire pas toujours pleinement parti des processeurs modernes multi-cœurs. Si un thread est bloqué ou en attente d'une ressource, comme une opération d'entrée/sortie, son cœur CPU respectif peut rester inactif, ce qui peut entraîner une sous-utilisation des ressources.`
-* `Scalabilité : Les programmes séquentiels peuvent également être moins évolutifs car ils ne sont pas conçus pour exécuter des tâches en parallèle, ce qui limite leur capacité à traiter de grandes quantités de données ou à répondre rapidement à un grand nombre de requêtes simultanées.`
+* Utilisation du CPU : L'inconvénient d'une exécution séquentielle est qu'elle ne tire pas toujours pleinement parti des processeurs modernes multi-cœurs. Si un thread est bloqué ou en attente d'une ressource, comme une opération d'entrée/sortie, son cœur CPU respectif peut rester inactif, ce qui peut entraîner une sous-utilisation des ressources.
+* Scalabilité : Les programmes séquentiels peuvent également être moins évolutifs car ils ne sont pas conçus pour exécuter des tâches en parallèle, ce qui limite leur capacité à traiter de grandes quantités de données ou à répondre rapidement à un grand nombre de requêtes simultanées.
 
 
 ### e. Exemple de Modèle Séquentiel :
 
 
-```
+
 Voici un exemple simple de code séquentiel en Python qui montre l'exécution linéaire d'une tâche :
 
 
 
-```
+
 def task1():
     # Fait quelque chose
     pass
@@ -89,22 +89,22 @@ def task2():
 # Exécution séquentielle
 task1()
 task2()
-```
 
 
 
-```
+
+
 Dans cet exemple, task1() doit terminer son exécution avant que task2() ne commence. Ce modèle est simple à comprendre et à déboguer, mais il peut ne pas être le plus efficace en termes d'utilisation des ressources du système, en particulier pour des tâches pouvant être exécutées en parallèle.
-```
+
 
 
 
 ### f. Gestion Concurrente des Ressources :
 
 
-```
+
 Alors que le modèle séquentiel est le fondement du traitement des instructions, il ne capitalise pas toujours efficacement sur les capacités des systèmes modernes. Pour aller au-delà des limitations du séquentiel, les développeurs peuvent se tourner vers trois méthodes complémentaires : la programmation asynchrone, le multithreading et le multiprocessing. La programmation asynchrone est idéale pour améliorer la réactivité des applications en permettant la gestion efficace des opérations d'entrée/sortie sans parallélisme réel, tandis que le multithreading et le multiprocessing exploitent directement les architectures multi-cœurs pour exécuter plusieurs instructions en parallèle, augmentant ainsi la performance pour des calculs intensifs ou des tâches multiples simultanées.
-```
+
 
 
 
@@ -114,47 +114,47 @@ Alors que le modèle séquentiel est le fondement du traitement des instructions
 ### a. Qu'est-ce que c'est ?
 
 
-```
+
 L'asynchronie est une manière de programmer où certaines opérations sont initiées et autorisées à se dérouler en arrière-plan, tandis que d'autres parties du programme continuent à s'exécuter, sans attendre la fin de ces opérations. C'est très efficace lorsque certaines opérations sont lentes, comme les requêtes de réseau.
-```
+
 
 
 
 ### b. Comment ça marche ?
 
 
-```
+
 Prenons l'exemple de préparer le petit déjeuner. Imaginons que vous ayez une bouilloire qui met 5 minutes à bouillir de l'eau. Au lieu de simplement attendre que l'eau bouille, vous commencez à préparer votre tartine. Pendant que vous étalez la confiture, la bouilloire continue de chauffer l'eau. Vous avez ainsi effectué deux tâches sans attendre que l'une soit terminée pour commencer l'autre.
 
 Dans le développement, c'est similaire. Si une partie de votre code demande des données à une base de données (ce qui peut prendre quelques secondes), au lieu d'attendre que les données soient reçues, le code peut continuer à exécuter d'autres tâches. Lorsque les données sont prêtes, le programme revient pour les traiter.
-```
+
 
 
 
 ### c. Pourquoi c'est important ?
 
 
-```
+
 L'asynchronie permet d'améliorer les performances et la réactivité, surtout dans les environnements où vous avez beaucoup d'opérations d'entrée/sortie, comme les requêtes web.
-```
+
 
 
 
 ### d. Exemple :
 
 
-```
+
 Lors de la création d'une application web, vous pourriez vouloir afficher des informations provenant de différentes sources (base de données, services externes, fichiers). Au lieu de demander ces informations séquentiellement, ce qui prendrait beaucoup de temps, vous pouvez les demander simultanément de manière asynchrone.
 
 Vous avez raison, il serait plus approprié de concentrer l'explication sur la façon dont l'asynchronie améliore l'utilisation des ressources disponibles sans nécessairement augmenter la capacité matérielle. Voici une révision qui reflète cet angle :
-```
+
 
 
 
 ### e. Asynchronie : Maximiser l'Efficacité sans Ajouter de Ressources
 
 
-```
+
 L'asynchronie est une technique puissante pour améliorer l'utilisation des ressources d'un système, en particulier quand les opérations sont limitées par les entrées/sorties (IO-bound). Elle ne cherche pas à augmenter les ressources matérielles, comme le multithreading ou le multiprocessing pourraient le faire en exploitant plusieurs cœurs CPU. Au contraire, l'asynchronie optimise ce que l'on peut faire avec une seule unité de traitement.
 
 Dans les environnements IO-bound, où les programmes passent la majorité de leur temps à attendre des opérations d'entrées/sorties (comme l'accès au réseau ou la lecture de fichiers), l'asynchronie permet d'initier plusieurs opérations en parallèle sans attendre que chacune se termine. Cela permet d'exécuter d'autres tâches pendant que certaines parties du programme sont en attente de réponse, conduisant à une meilleure réactivité et à des performances accrues sans nécessiter de ressources CPU supplémentaires.
@@ -162,21 +162,21 @@ Dans les environnements IO-bound, où les programmes passent la majorité de leu
 En simplifiant, imaginez une situation où vous gérez un restaurant avec un seul chef. L'asynchronie serait comme si ce chef savait commencer à cuisiner un plat, le laisser mijoter, et pendant ce temps, préparer les ingrédients pour la prochaine commande. Le chef utilise son temps de façon optimale, en veillant à ce qu'il y ait toujours quelque chose en cours de préparation, même s'il doit attendre que certaines parties de la préparation cuisent.
 
 L'objectif est donc de minimiser le temps d'inactivité et d'augmenter le travail effectué sans ajouter de chefs supplémentaires (cœurs CPU). C'est ainsi que l'asynchronie permet de tirer le meilleur parti d'un serveur API monothreadé, en gérant les requêtes et les réponses avec une efficacité maximale sans nécessiter d'investissement dans du matériel plus performant.
-```
+
 
 
 
 ### f. Exemple Python Asynchrone :
 
 
-```
+
 Pensez à une situation où vous devez interroger trois serveurs de données différents pour récupérer des informations. De manière séquentielle, vous attendriez que chaque requête se termine avant de démarrer la suivante. De façon asynchrone, vous pouvez lancer les trois requêtes pratiquement en même temps et faire d'autres tâches pendant que les données sont en cours de récupération.
 
 Voici un exemple en Python qui utilise l'asynchronie pour interroger trois "serveurs" simulés. Nous allons simuler un délai pour chaque requête de serveur en utilisant asyncio.sleep.
 
 
 
-```
+
 import asyncio
 
 async def requete_serveur(numero):
@@ -195,16 +195,16 @@ async def main():
     print("Toutes les requêtes serveur sont terminées.")
 
 asyncio.run(main())
-```
 
 
 
-```
+
+
 Les prints simuleraient ce qui se passerait lors de l'exécution :
 
 
 
-```
+
 Début de la requête serveur 1
 Début de la requête serveur 2
 Début de la requête serveur 3
@@ -212,34 +212,34 @@ Réponse du serveur 1 reçue!
 Réponse du serveur 2 reçue!
 Réponse du serveur 3 reçue!
 Toutes les requêtes serveur sont terminées.
-```
 
 
 
-```
+
+
 Dans un contexte séquentiel, les requêtes auraient été traitées l'une après l'autre, ce qui aurait pris 6 secondes au total. Avec l'asynchronie, toutes les requêtes commencent presque simultanément, et le total ne prend que 3 secondes, car elles sont traitées en "parallèle".
-```
+
 
 
 
 ### g. Pourquoi c'est important en API :
 
 
-```
+
 Lorsqu'un serveur API gère plusieurs requêtes clients, l'asynchronie permet de démarrer la traitement de chaque requête sans attendre la fin des opérations IO-bound des requêtes précédentes. Cela est particulièrement utile pour les APIs qui s'appuient sur des services externes ou des bases de données où la latence des requêtes peut varier considérablement. En utilisant l'asynchronie, un serveur API peut offrir des temps de réponse plus rapides et traiter un plus grand nombre de requêtes simultanément, améliorant la scalabilité et l'efficacité de l'application.
-```
+
 
 
 
 ### h. Exemple d'API asynchrone avec WebSocket en Python :
 
 
-```
+
 Côté serveur (avec websockets et asyncio):
 
 
 
-```
+
 import asyncio
 import websockets
 
@@ -251,16 +251,16 @@ start_server = websockets.serve(echo, "localhost", 8765)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
-```
 
 
 
-```
+
+
 Côté client :
 
 
 
-```
+
 import asyncio
 import websockets
 
@@ -271,13 +271,13 @@ async def hello():
         print(f"> {await websocket.recv()}")
 
 asyncio.run(hello())
-```
 
 
 
-```
+
+
 Dans cet exemple, le serveur WebSocket est capable de gérer plusieurs connexions clients simultanément de manière asynchrone. Pendant que le serveur attend que l'un des clients envoie un message, il peut toujours écouter d'autres clients et répondre dès que des messages sont reçus. Cela permet une utilisation optimisée des ressources et une réponse rapide aux clients, essentiel pour des performances élevées dans les systèmes modernes d'API.
-```
+
 
 
 
@@ -287,25 +287,25 @@ Dans cet exemple, le serveur WebSocket est capable de gérer plusieurs connexion
 ### a. Qu'est-ce que le multithreading ?
 
 
-```
+
 Le multithreading est un concept dans lequel un programme peut exécuter plusieurs threads, ou "fils d'exécution", simultanément. Chaque thread est une séquence distincte d'instructions qui peut être exécutée de manière indépendante, permettant à plusieurs opérations de se dérouler en parallèle.
-```
+
 
 
 
 ### b. Comment ça marche ?
 
 
-```
+
 Chaque thread possède sa propre "pile" et son propre "registre". La "pile" est une zone de la mémoire utilisée pour stocker des informations temporaires, comme les variables d'une fonction. Le "registre", quant à lui, conserve l'état actuel de l'exécution du thread, notamment l'endroit où le thread en est dans son exécution.
-```
+
 
 
 
 ### c. L'analogie du petit-déjeuner
 
 
-```
+
 Pour mieux comprendre, imaginons que vous préparez un petit-déjeuner. La préparation du café et la cuisson des œufs sont deux tâches distinctes que vous pouvez effectuer simultanément, comme deux threads. Bien que vous utilisiez la même cuisine (le même espace mémoire), chaque tâche a ses propres outils et ingrédients (la pile) et sa propre séquence d'étapes à suivre (le registre).
 
 Contrairement à l'asynchronie où vous lanceriez une tâche (par exemple, faire bouillir de l'eau) et continueriez d'autres tâches en attendant qu'elle se termine, avec le multithreading, vous avez plusieurs tâches qui se déroulent réellement en parallèle, comme si une autre personne vous aidait à préparer le petit-déjeuner.
@@ -314,38 +314,38 @@ Problème spécifique à Python : le GIL (Global Interpreter Lock)
 La version standard de Python que vous utilisez probablement est appelée CPython. CPython a une particularité : le GIL. Le GIL est un verrou qui empêche l'exécution simultanée de plusieurs threads. C'est comme si, dans votre cuisine, vous aviez une règle selon laquelle une seule tâche (par exemple, préparer du café) peut être effectuée à la fois.
 
 Le Global Interpreter Lock (GIL) est une caractéristique controversée de l'interpréteur standard de Python, CPython. Le GIL est un mécanisme de verrouillage qui empêche plusieurs threads natifs de manipuler des objets Python en même temps. Cela garantit que seul un thread s'exécute dans l'interpréteur à un moment donné, évitant les conditions de concurrence et les problèmes liés à la gestion de la mémoire qui pourraient survenir dans un environnement multi-thread sans verrouillage.
-```
+
 
 
 
 ### d. Pourquoi le GIL est-il conservé ?
 
 
-```
+
 CPython conserve le GIL pour plusieurs raisons :
 
-```
 
 
 
-1. `Simplicité de l'implémentation : Le GIL simplifie l'implémentation des objets Python et la gestion de la mémoire en éliminant la nécessité de verrouiller les structures de données internes individuellement.`
-2. `Compatibilité avec les extensions C : Beaucoup de bibliothèques d'extension Python sont écrites en C et ne sont pas conçues pour être thread-safe. Le GIL protège ces extensions contre les problèmes de concurrence.`
-3. `Performance dans les programmes mono-thread : Dans certains cas, notamment pour les programmes mono-thread, le GIL peut en fait améliorer les performances en réduisant l'overhead lié au verrouillage.`
+
+1. Simplicité de l'implémentation : Le GIL simplifie l'implémentation des objets Python et la gestion de la mémoire en éliminant la nécessité de verrouiller les structures de données internes individuellement.
+2. Compatibilité avec les extensions C : Beaucoup de bibliothèques d'extension Python sont écrites en C et ne sont pas conçues pour être thread-safe. Le GIL protège ces extensions contre les problèmes de concurrence.
+3. Performance dans les programmes mono-thread : Dans certains cas, notamment pour les programmes mono-thread, le GIL peut en fait améliorer les performances en réduisant l'overhead lié au verrouillage.
 
 
-```
+
 Pourquoi différentes versions de Python ?
 Il existe plusieurs implémentations de Python, chacune développée pour répondre à des besoins spécifiques. CPython est le plus courant et est développé par la Python Software Foundation. D'autres versions comme Jython ou IronPython sont développées pour fonctionner respectivement avec Java et .NET. Ces versions n'ont pas de GIL et peuvent donc tirer pleinement parti du multithreading.
 
 Chaque version a ses propres avantages. Par exemple, Jython peut utiliser des bibliothèques Java, tandis qu'IronPython peut interagir avec des codes .NET. Choisir l'une ou l'autre dépendra de vos besoins spécifiques en matière de développement.
-```
+
 
 
 
 ### e. Exemples de multithreading en Python
 
 
-```
+
 
 
 #### Exemple conceptuel avec GIL - Oscillation d'une valeur globale
@@ -353,7 +353,7 @@ Cet exemple utilise deux fonctions qui modifient une variable globale : l'une la
 
 
 
-```
+
 import threading
 import time
 
@@ -391,11 +391,11 @@ end_time = time.time()
 
 print(f'Valeur finale: {valeur}')
 print(f'Temps écoulé: {end_time - start_time} secondes')
-```
 
 
 
-```
+
+
 Output attendu :
 
 Sans le GIL et avec une parfaite synchronisation, la valeur devrait osciller et terminer proche de 1. Cependant, à cause du GIL, vous verrez que les opérations seront effectuées de façon plus séquentielle, la valeur pourrait donc s'éloigner significativement de 1 avant de potentiellement y revenir. Le temps écoulé sera probablement proche du double de ce qui serait attendu si les opérations étaient exécutées en parallèle.
@@ -405,7 +405,7 @@ Sans le GIL et avec une parfaite synchronisation, la valeur devrait osciller et 
 
 
 
-```
+
 import threading
 import requests
 
@@ -434,40 +434,40 @@ for thread in threads:
     thread.join()
 
 print("Tous les téléchargements sont terminés.")
-```
 
 
 
-```
+
+
 Dans cet exemple, le multithreading est utile car il s'agit d'une opération IO-bound. Même si le GIL limite l'exécution simultanée de certains types de tâches dans CPython, les opérations IO-bound peuvent toujours bénéficier du multithreading, car pendant qu'un thread attend une réponse IO, un autre thread peut commencer ou continuer son exécution.
-```
+
 
 
 
 ### Pourquoi utiliser des Locks malgré le GIL :
 
 
-```
+
 Même si le GIL empêche l'exécution simultanée de threads, il ne protège pas contre les corruptions de mémoire lorsque des threads alternent rapidement sur le même cœur de processeur. Voici pourquoi :
 
-```
 
 
 
-1. `Commutations de contexte : Le système d'exploitation peut interrompre un thread pour donner du temps CPU à un autre. Si cela se produit au milieu d'une série d'opérations qui doivent être exécutées atomiquement, un autre thread pourrait commencer à travailler avec un état intermédiaire corrompu.`
-2. `Opérations de haut niveau : Une seule ligne de code Python peut se traduire par de multiples opérations au niveau du bytecode, qui ne sont pas exécutées atomiquement. Par exemple, l'ajout d'un élément à une liste est une opération Python de haut niveau, mais elle peut impliquer plusieurs étapes au niveau de l'interpréteur.`
-3. `Ressources partagées : Si deux threads travaillent avec des ressources qui doivent être cohérentes, comme des fichiers ou des connexions réseau, des verrous peuvent être nécessaires pour s'assurer qu'un thread a terminé sa tâche avant qu'un autre ne commence.`
+
+1. Commutations de contexte : Le système d'exploitation peut interrompre un thread pour donner du temps CPU à un autre. Si cela se produit au milieu d'une série d'opérations qui doivent être exécutées atomiquement, un autre thread pourrait commencer à travailler avec un état intermédiaire corrompu.
+2. Opérations de haut niveau : Une seule ligne de code Python peut se traduire par de multiples opérations au niveau du bytecode, qui ne sont pas exécutées atomiquement. Par exemple, l'ajout d'un élément à une liste est une opération Python de haut niveau, mais elle peut impliquer plusieurs étapes au niveau de l'interpréteur.
+3. Ressources partagées : Si deux threads travaillent avec des ressources qui doivent être cohérentes, comme des fichiers ou des connexions réseau, des verrous peuvent être nécessaires pour s'assurer qu'un thread a terminé sa tâche avant qu'un autre ne commence.
 
 
 ### Exemple pratique avec Lock - Corruption de données
 
 
-```
+
 Dans cet exemple, nous simulerons une situation où plusieurs threads essayent d'ajouter des éléments à une liste sans synchronisation, ce qui peut causer une corruption de données.
 
 
 
-```
+
 import threading
 
 # Liste partagée sans verrou.
@@ -488,11 +488,11 @@ for thread in threads:
 
 print(f'Taille attendue de la liste: {10000}')
 print(f'Taille réelle de la liste: {len(liste_partagee)}')
-```
 
 
 
-```
+
+
 Output attendu :
 
 On s'attend à ce que la taille de la liste soit de 10 000, mais sans synchronisation, il est possible que des appels à append() se chevauchent et que certains éléments ne soient pas ajoutés correctement, résultant en une liste de taille inférieure à celle attendue. Cela montre la corruption de données due à l'accès concurrent sans verrouillage (Lock).
@@ -501,7 +501,7 @@ Si vous souhaitez voir le code avec Lock pour comparer, voici comment il pourrai
 
 
 
-```
+
 # ... [début du code identique]
 
 lock = threading.Lock()
@@ -513,47 +513,47 @@ def ajoute_a_la_liste(index):
             print(f'Thread {index} : ajout à la liste')
 
 # ... [suite du code identique]
-```
 
 
 
-```
+
+
 Dans cette version avec Lock, on garantit que chaque appel à append() est effectué de manière atomique, empêchant ainsi la corruption de la liste partagée.
-```
+
 
 
 
 ### f. Conclusion:
 
 
-```
+
 En Python, à cause du Global Interpreter Lock (GIL), le multithreading et l'asynchronie peuvent parfois se ressembler en termes de performance pour les tâches IO-bound, c'est-à-dire les tâches qui sont limitées par les entrées/sorties comme les requêtes réseau ou les opérations sur disque. Cela est dû au fait que le GIL empêche les threads d'exécuter du code bytecode Python en parallèle. Cependant, les deux approches ont des utilisations et des comportements différents :
 
-```
 
 
 
-* `Le multithreading crée de véritables threads au niveau du système d'exploitation. Même avec le GIL en place, il peut être utile pour les opérations IO-bound, car pendant qu'un thread attend une opération d'entrée/sortie, un autre thread peut prendre la main. Mais cela a un coût, car chaque thread nécessite des ressources système, comme de la mémoire pour sa pile d'exécution.`
-* `L'asynchronie, quant à elle, est gérée au niveau du langage de programmation avec une seule boucle d'événements et une seule pile d'exécution. Elle est généralement plus légère en termes de ressources système car elle ne nécessite pas de créer de multiples contextes de threads. Les coroutines asynchrones cèdent la main volontairement pour attendre les opérations IO-bound, ce qui les rend très efficaces pour ce type de tâches.`
+
+* Le multithreading crée de véritables threads au niveau du système d'exploitation. Même avec le GIL en place, il peut être utile pour les opérations IO-bound, car pendant qu'un thread attend une opération d'entrée/sortie, un autre thread peut prendre la main. Mais cela a un coût, car chaque thread nécessite des ressources système, comme de la mémoire pour sa pile d'exécution.
+* L'asynchronie, quant à elle, est gérée au niveau du langage de programmation avec une seule boucle d'événements et une seule pile d'exécution. Elle est généralement plus légère en termes de ressources système car elle ne nécessite pas de créer de multiples contextes de threads. Les coroutines asynchrones cèdent la main volontairement pour attendre les opérations IO-bound, ce qui les rend très efficaces pour ce type de tâches.
 
 
-```
+
 L'overhead, ou surcharge, fait référence à l'utilisation supplémentaire des ressources système qui n'est pas directement liée à l'exécution des tâches utiles du programme. En contexte de multithreading, l'overhead comprend la gestion de la mémoire pour les différentes piles de threads, le changement de contexte entre les threads par le système d'exploitation, et la gestion des verrous et de la synchronisation pour éviter les problèmes de concurrence. Tout cela peut ajouter une latence et réduire l'efficacité du programme.
 
 Dans le cas de Python et de tâches IO-bound, il est généralement recommandé de préférer l'asynchronie au multithreading pour les raisons suivantes :
 
-```
 
 
 
-1. `Moins de surcharge : La programmation asynchrone en Python utilise une seule boucle d'événements et les coroutines, qui sont plus légères que les threads en termes de surcharge mémoire et de contexte.`
-2. `Évite le GIL : Puisque l'exécution asynchrone se fait dans un seul thread, elle n'est pas directement affectée par le GIL, ce qui rend la gestion des tâches IO-bound plus efficace.`
-3. `Plus facile à comprendre et à déboguer : Avec une seule boucle d'événements, le flux de contrôle est généralement plus simple à suivre que dans un environnement multithread où la concurrence et les effets de bord peuvent compliquer la compréhension du programme.`
+
+1. Moins de surcharge : La programmation asynchrone en Python utilise une seule boucle d'événements et les coroutines, qui sont plus légères que les threads en termes de surcharge mémoire et de contexte.
+2. Évite le GIL : Puisque l'exécution asynchrone se fait dans un seul thread, elle n'est pas directement affectée par le GIL, ce qui rend la gestion des tâches IO-bound plus efficace.
+3. Plus facile à comprendre et à déboguer : Avec une seule boucle d'événements, le flux de contrôle est généralement plus simple à suivre que dans un environnement multithread où la concurrence et les effets de bord peuvent compliquer la compréhension du programme.
 
 
-```
+
 En résumé, bien que le multithreading puisse être pertinent dans certains cas, notamment pour les tâches CPU-bound ou lorsqu'on utilise des extensions qui libèrent le GIL, l'asynchronie est souvent privilégiée pour les applications IO-bound en raison de sa légèreté et de sa simplicité relative.
-```
+
 
 
 
@@ -563,51 +563,51 @@ En résumé, bien que le multithreading puisse être pertinent dans certains cas
 ### a. Qu'est-ce que le multiprocessing ?
 
 
-```
+
 Le multiprocessing permet l'exécution simultanée de plusieurs processus par un ordinateur. Cela se distingue du multithreading où les threads partagent la même mémoire ; ici, chaque processus opère dans son propre espace mémoire, avec des ressources dédiées.
-```
+
 
 
 
 ### b. Comment ça marche ?
 
 
-```
+
 Dans le multiprocessing, chaque processus est un programme indépendant avec son propre espace d'adressage mémoire. Cela signifie qu'il possède une pile distincte pour les appels de fonction, un tas pour la gestion dynamique de la mémoire, et des copies des registres du processeur pour son état. La communication entre les processus doit se faire via des mécanismes de communication inter-processus (IPC) comme les tubes (pipes), les files de message, ou les sockets car il n'y a pas de partage direct de la mémoire.
-```
+
 
 
 
 ### c. L'analogie du petit-déjeuner :
 
 
-```
+
 Imaginez que vous ayez plusieurs cuisines isolées les unes des autres, chacune avec son propre chef préparant un plat différent du petit-déjeuner. Ils ne peuvent pas se passer les ustensiles ou les ingrédients directement et doivent utiliser une fenêtre de service pour échanger des articles. Cette disposition illustre la façon dont les processus interagissent entre eux.
-```
+
 
 
 
 ### d. Quand utiliser le multiprocessing ?
 
 
-```
+
 Utilisez le multiprocessing lorsque les tâches sont gourmandes en ressources de calcul et que vous souhaitez répartir la charge sur plusieurs cœurs de processeur. Avec des espaces mémoire isolés, il n'y a pas de risque de conflit de ressources, ce qui est avantageux par rapport au multithreading. Cela permet également d'éviter le Global Interpreter Lock (GIL) présent dans les implémentations standards de Python.
 
 
-```
 
-```
+
+
 
 
 
 ### e. Problèmes de concurrence :
 
 
-```
+
 Quand plusieurs processus accèdent à des ressources partagées, comme des fichiers ou des bases de données, ils peuvent interférer les uns avec les autres s'ils ne sont pas coordonnés. Prenons l'exemple de deux chefs qui essaient d'utiliser la même poêle au même moment : sans une coordination appropriée, ils risquent de se gêner.
 
 Pour prévenir ces conflits, on utilise des mécanismes de synchronisation comme les verrous (locks), qui garantissent qu'une seule entité à la fois puisse accéder à la ressource contestée.
-```
+
 
 
 
@@ -615,49 +615,49 @@ Pour prévenir ces conflits, on utilise des mécanismes de synchronisation comme
 
 
 
-* `Overhead de Création de Processus : Créer un processus est plus coûteux en termes de ressources système que de créer un thread. Il faut donc considérer cet overhead lors de la conception de l'application, pour ne pas pénaliser les performances avec un trop grand nombre de processus.`
+* Overhead de Création de Processus : Créer un processus est plus coûteux en termes de ressources système que de créer un thread. Il faut donc considérer cet overhead lors de la conception de l'application, pour ne pas pénaliser les performances avec un trop grand nombre de processus.
 
 
 ### h. Gestion de la Mémoire :
 
 
 
-* `Espace Mémoire Séparé : Le fait que chaque processus ait son propre espace mémoire protège contre les erreurs de corruption de la mémoire partagée, mais cela peut aussi compliquer le partage d'informations. Il faut gérer soigneusement les transferts de données entre les processus pour éviter la perte d'efficacité.`
+* Espace Mémoire Séparé : Le fait que chaque processus ait son propre espace mémoire protège contre les erreurs de corruption de la mémoire partagée, mais cela peut aussi compliquer le partage d'informations. Il faut gérer soigneusement les transferts de données entre les processus pour éviter la perte d'efficacité.
 
 
 ### i. Communication entre les Processus :
 
 
 
-* `Mécanismes IPC : Il faut choisir le bon outil IPC adapté au problème : tubes pour les échanges simples, mémoire partagée pour les grandes quantités de données, ou sockets pour la communication réseau. Chaque méthode a ses avantages et ses inconvénients.`
+* Mécanismes IPC : Il faut choisir le bon outil IPC adapté au problème : tubes pour les échanges simples, mémoire partagée pour les grandes quantités de données, ou sockets pour la communication réseau. Chaque méthode a ses avantages et ses inconvénients.
 
 
 ### j. Terminaison et Contrôle des Processus :
 
 
 
-* `Gestion des Processus Orphelins : Il est crucial de s'assurer que les processus sont correctement terminés pour ne pas laisser de processus orphelins qui consommeraient des ressources inutilement.`
+* Gestion des Processus Orphelins : Il est crucial de s'assurer que les processus sont correctement terminés pour ne pas laisser de processus orphelins qui consommeraient des ressources inutilement.
 
 
 ### k. Exemples Concrets :
 
 
 
-* `Traitement de Données Volumineux : Un script qui traite de grands ensembles de données peut utiliser le multiprocessing pour diviser la charge de travail entre plusieurs processus, réduisant ainsi le temps de traitement global.`
-* `Serveurs Web à Haute Performance : Des serveurs comme Apache peuvent utiliser un modèle de multiprocessing pour traiter un grand nombre de requêtes simultanément, en attribuant chaque requête à un processus distinct.`
+* Traitement de Données Volumineux : Un script qui traite de grands ensembles de données peut utiliser le multiprocessing pour diviser la charge de travail entre plusieurs processus, réduisant ainsi le temps de traitement global.
+* Serveurs Web à Haute Performance : Des serveurs comme Apache peuvent utiliser un modèle de multiprocessing pour traiter un grand nombre de requêtes simultanément, en attribuant chaque requête à un processus distinct.
 
 
 ### l. Exemple Conceptuel en Python : Comparaison Séquentiel, Threading et Multiprocessing
 
 
-```
+
 
 
 #### Séquentiel
 
 
 
-```
+
 import time
 
 # Une fonction qui simule une tâche gourmande en ressources CPU
@@ -676,18 +676,18 @@ def run_sequentially():
 
 # Exécuter la fonction
 run_sequentially()
-```
 
 
 
-```
+
+
 
 
 #### Multiprocessing avec Pool
 
 
 
-```
+
 from multiprocessing import Pool
 import time
 
@@ -707,11 +707,11 @@ def run_with_multiprocessing():
 
 # Exécuter la fonction
 run_with_multiprocessing()
-```
 
 
 
-```
+
+
 Dans l'exemple avec le multiprocessing, la tâche cpu_bound_task est distribuée entre plusieurs processus. Cela permet de mieux utiliser les ressources multi-cœurs car chaque processus peut s'exécuter sur un cœur différent simultanément.
 
 
@@ -719,7 +719,7 @@ Dans l'exemple avec le multiprocessing, la tâche cpu_bound_task est distribuée
 
 
 
-```
+
 import multiprocessing
 import time
 
@@ -750,31 +750,31 @@ def run_tasks():
 
 # Exécuter la fonction
 run_tasks()
-```
 
 
 
-```
+
+
 Dans cet exemple, au lieu d'utiliser un Pool pour gérer les processus, nous créons et démarrons manuellement chaque processus en utilisant la classe Process du module multiprocessing. Chaque processus exécute la fonction cpu_bound_task avec un nombre différent en paramètre. L'appel à join assure que le programme principal attend la fin de chaque processus avant de mesurer le temps total d'exécution.
 
 L'utilisation de start et join pour la gestion manuelle des processus offre un contrôle plus granulaire sur chaque processus mais vient aussi avec la responsabilité de gérer le nombre de processus en cours d'exécution à un instant donné. Voici quelques notes à ce sujet :
 
-```
 
 
 
-1. `Contrôle des Processus : \
-Quand vous utilisez start et join, vous devez créer et gérer chaque processus individuellement. Vous contrôlez explicitement quand un processus démarre et quand attendre qu'il finisse. Ce niveau de contrôle peut être nécessaire lorsque vous avez des exigences spécifiques pour l'ordre d'exécution ou la gestion de la durée de vie des processus.`
-2. `Gestion du nombre de processus : \
-Avec Pool, le nombre de processus simultanés est géré automatiquement, vous n'avez donc pas besoin de vous inquiéter de lancer trop de processus qui pourraient saturer le CPU. En revanche, en lançant les processus un par un avec start, il vous appartient de vous assurer que vous ne démarrez pas plus de processus que votre système ne peut en gérer efficacement à la fois.`
-3. `Surcharger le système : \
-Lancer trop de processus simultanément peut entraîner un context switching fréquent et augmenter l'overhead du système, réduisant ainsi l'efficacité globale. Vous devriez idéalement limiter le nombre de processus concurrents à un nombre proche du nombre de cœurs de CPU disponibles.`
-4. `Conseil pratique : \
-Vous pouvez utiliser multiprocessing.cpu_count() pour obtenir le nombre de cœurs disponibles sur votre machine et utiliser cette information pour limiter le nombre de processus que vous lancez.`
-5. `Exemple de gestion manuelle : \
-Voici un exemple simple montrant comment vous pourriez gérer manuellement le nombre de processus simultanés:`
 
-    ```
+1. Contrôle des Processus : \
+Quand vous utilisez start et join, vous devez créer et gérer chaque processus individuellement. Vous contrôlez explicitement quand un processus démarre et quand attendre qu'il finisse. Ce niveau de contrôle peut être nécessaire lorsque vous avez des exigences spécifiques pour l'ordre d'exécution ou la gestion de la durée de vie des processus.
+2. Gestion du nombre de processus : \
+Avec Pool, le nombre de processus simultanés est géré automatiquement, vous n'avez donc pas besoin de vous inquiéter de lancer trop de processus qui pourraient saturer le CPU. En revanche, en lançant les processus un par un avec start, il vous appartient de vous assurer que vous ne démarrez pas plus de processus que votre système ne peut en gérer efficacement à la fois.
+3. Surcharger le système : \
+Lancer trop de processus simultanément peut entraîner un context switching fréquent et augmenter l'overhead du système, réduisant ainsi l'efficacité globale. Vous devriez idéalement limiter le nombre de processus concurrents à un nombre proche du nombre de cœurs de CPU disponibles.
+4. Conseil pratique : \
+Vous pouvez utiliser multiprocessing.cpu_count() pour obtenir le nombre de cœurs disponibles sur votre machine et utiliser cette information pour limiter le nombre de processus que vous lancez.
+5. Exemple de gestion manuelle : \
+Voici un exemple simple montrant comment vous pourriez gérer manuellement le nombre de processus simultanés:
+
+    
    import multiprocessing
    import time
 
@@ -800,21 +800,21 @@ Voici un exemple simple montrant comment vous pourriez gérer manuellement le no
 
        for p in processes:
            p.join()
-```
 
 
 
 
-```
+
+
 Dans cet exemple, nous limitons le nombre de processus en fonction du nombre de cœurs de CPU. Nous attendons qu'un processus se termine (join) avant d'en commencer un nouveau si nous avons atteint la limite de processus simultanés. Cela assure que nous ne surchargerons pas le système avec trop de processus en même temps.
-```
+
 
 
 
 ### m. Sérialisation des Objets
 
 
-```
+
 Pour le multiprocessing en Python, la sérialisation est nécessaire car il faut passer des objets entre les processus. Python utilise le module pickle pour sérialiser et désérialiser les objets. Les objets que l'on souhaite partager entre les processus doivent être "pickleable".
 
 
@@ -823,7 +823,7 @@ Pour la sérialisation en Python, vous pouvez définir comment sérialiser un ob
 
 
 
-```
+
 import pickle
 
 class MonObjet:
@@ -846,27 +846,27 @@ serialized_obj = pickle.dumps(mon_obj)
 
 # Désérialisation
 deserialized_obj = pickle.loads(serialized_obj)
-```
 
 
 
-```
+
+
 Ces méthodes vous permettent de contrôler précisément ce qui est sérialisé et comment l'objet est restauré par la suite. C'est particulièrement utile pour les objets qui peuvent contenir des types non sérialisables ou pour optimiser la sérialisation pour les besoins en performance.
-```
+
 
 
 
 ### n. Exemple Concret d'Usage Réel en Python
 
 
-```
+
 
 
 #### Traitement d'Images en Parallèle
 
 
 
-```
+
 from multiprocessing import Pool
 import cv2  # Bibliothèque de traitement d'image
 
@@ -884,13 +884,13 @@ def run_image_processing():
         pool.map(process_image, images)
 
 run_image_processing()
-```
 
 
 
-```
+
+
 Dans cet exemple concret, une liste d'images est traitée en parallèle en utilisant le multiprocessing. Chaque image est traitée dans un processus distinct, ce qui accélère le traitement d'un grand nombre d'images, surtout lorsqu'il est exécuté sur une machine avec plusieurs cœurs de CPU.
-```
+
 
 
 
@@ -901,40 +901,40 @@ Dans cet exemple concret, une liste d'images est traitée en parallèle en utili
 
 
 
-1. `Exécution séquentielle : C'est la méthode la plus simple où les tâches sont exécutées l'une après l'autre. Cette approche est intuitive mais n'est pas efficace en termes d'utilisation des ressources, surtout lorsque le système a des tâches indépendantes pouvant être exécutées en parallèle.`
-2. `Threading (multithreading) : Permet plusieurs fils d'exécution dans le même espace mémoire. C'est efficace pour les tâches qui sont I/O-bound mais peut être compliqué à cause des problèmes de concurrence et est limité par le GIL (Global Interpreter Lock) dans CPython.`
-3. `Asynchronous programming : Permet de gérer les tâches I/O-bound d'une manière plus fluide sans bloquer le thread principal. C'est un excellent choix pour les applications de réseau mais nécessite une conception de programme différente, avec l'utilisation de coroutines et d'événements.`
-4. `Multiprocessing : Utilise plusieurs processus avec leurs propres espaces mémoire, ce qui est utile pour les tâches CPU-bound et contourne le GIL. Cela permet de tirer pleinement parti des systèmes multicœurs mais peut comporter un overhead important en termes de mémoire et de temps de démarrage des processus.`
+1. Exécution séquentielle : C'est la méthode la plus simple où les tâches sont exécutées l'une après l'autre. Cette approche est intuitive mais n'est pas efficace en termes d'utilisation des ressources, surtout lorsque le système a des tâches indépendantes pouvant être exécutées en parallèle.
+2. Threading (multithreading) : Permet plusieurs fils d'exécution dans le même espace mémoire. C'est efficace pour les tâches qui sont I/O-bound mais peut être compliqué à cause des problèmes de concurrence et est limité par le GIL (Global Interpreter Lock) dans CPython.
+3. Asynchronous programming : Permet de gérer les tâches I/O-bound d'une manière plus fluide sans bloquer le thread principal. C'est un excellent choix pour les applications de réseau mais nécessite une conception de programme différente, avec l'utilisation de coroutines et d'événements.
+4. Multiprocessing : Utilise plusieurs processus avec leurs propres espaces mémoire, ce qui est utile pour les tâches CPU-bound et contourne le GIL. Cela permet de tirer pleinement parti des systèmes multicœurs mais peut comporter un overhead important en termes de mémoire et de temps de démarrage des processus.
 
 
 ### b. Des avantages pour l'utilisateur :
 
 
 
-* `Efficacité accrue : L'adoption de méthodes de parallélisme peut entraîner des gains substantiels en termes de performance. Dans des domaines tels que le trading, où chaque milliseconde compte, ces gains peuvent avoir un impact significatif.`
+* Efficacité accrue : L'adoption de méthodes de parallélisme peut entraîner des gains substantiels en termes de performance. Dans des domaines tels que le trading, où chaque milliseconde compte, ces gains peuvent avoir un impact significatif.
 
 
 ### c. Des responsabilités de l'utilisateur :
 
 
 
-* `Gestion des ressources : Il est essentiel de bien comprendre les besoins en ressources de chaque méthode de parallélisme pour éviter des problèmes tels que l'épuisement de la mémoire ou un thrashing du CPU.`
-* `Vigilance accrue : L'utilisation de parallélisme ou de concurrence exige une grande attention aux limites des ressources système pour éviter leur surutilisation, qui pourrait nuire aux performances plutôt que de les améliorer.`
-* `Rate Limiting : La mise en place d'un contrôle rigoureux du nombre de tâches exécutées simultanément est nécessaire pour prévenir la surcharge du système, évitant ainsi la saturation des ressources comme la bande passante, la mémoire ou le CPU.`
+* Gestion des ressources : Il est essentiel de bien comprendre les besoins en ressources de chaque méthode de parallélisme pour éviter des problèmes tels que l'épuisement de la mémoire ou un thrashing du CPU.
+* Vigilance accrue : L'utilisation de parallélisme ou de concurrence exige une grande attention aux limites des ressources système pour éviter leur surutilisation, qui pourrait nuire aux performances plutôt que de les améliorer.
+* Rate Limiting : La mise en place d'un contrôle rigoureux du nombre de tâches exécutées simultanément est nécessaire pour prévenir la surcharge du système, évitant ainsi la saturation des ressources comme la bande passante, la mémoire ou le CPU.
 
 
 ### e. Des avantages pour une API ou un service :
 
 
 
-* `Optimisation des ressources : Une utilisation stratégique de la concurrence et du parallélisme peut améliorer grandement l'efficacité avec laquelle une API gère les ressources, en répartissant la charge de manière optimale.`
-* `Réduction des coûts : Une gestion plus efficace des ressources peut diminuer les besoins en infrastructure pour la même charge de travail, ce qui réduit les coûts d'exploitation liés aux serveurs et à la maintenance.`
-* `Amélioration de la réactivité : Le gain en performance peut être un argument commercial fort pour attirer et retenir les clients grâce à une meilleure réactivité des services.`
+* Optimisation des ressources : Une utilisation stratégique de la concurrence et du parallélisme peut améliorer grandement l'efficacité avec laquelle une API gère les ressources, en répartissant la charge de manière optimale.
+* Réduction des coûts : Une gestion plus efficace des ressources peut diminuer les besoins en infrastructure pour la même charge de travail, ce qui réduit les coûts d'exploitation liés aux serveurs et à la maintenance.
+* Amélioration de la réactivité : Le gain en performance peut être un argument commercial fort pour attirer et retenir les clients grâce à une meilleure réactivité des services.
 
 
-```
+
 Côté API ou service, les responsabilités liées à l'implémentation de la concurrence et du parallélisme peuvent inclure les aspects suivants :
-```
+
 
 
 
@@ -942,24 +942,24 @@ Côté API ou service, les responsabilités liées à l'implémentation de la co
 
 
 
-* `Contrôle de la montée en charge : Les services doivent gérer l'augmentation de la charge de travail en conséquence, en ajustant dynamiquement le nombre de processus ou de threads pour maintenir une performance optimale sans gaspiller de ressources.`
-* `Gestion des états : Assurer une gestion cohérente des états dans un environnement distribué où plusieurs processus ou threads peuvent accéder et modifier des données simultanément.`
-* `Sécurité des données : Mettre en place des mécanismes de verrouillage ou d'autres stratégies de synchronisation pour éviter les conditions de concurrence et assurer l'intégrité des données.`
-* `Tolérance aux pannes : Concevoir des systèmes qui peuvent se remettre d'un processus ou d'un thread défaillant sans perdre de données critiques et en minimisant l'interruption du service.`
-* `Surveillance et logging : Mettre en place un système de surveillance robuste pour suivre la santé du système et les performances en temps réel, ainsi que pour enregistrer les incidents pour une analyse ultérieure.`
-* `Rétrocompatibilité et mises à jour : Garantir que les mises à jour du système prennent en compte les modèles de concurrence existants et ne compromettent pas la stabilité des opérations en cours.`
-* `Scalabilité : Concevoir l'architecture de manière à ce qu'elle puisse s'adapter facilement à une augmentation de la demande, par exemple en utilisant des services cloud qui peuvent allouer dynamiquement des ressources supplémentaires.`
-* `Rate Limiting et Quotas : Établir des politiques claires pour limiter le taux de requêtes et la consommation de ressources par les clients pour éviter l'abus et garantir un service équitable pour tous les utilisateurs.`
+* Contrôle de la montée en charge : Les services doivent gérer l'augmentation de la charge de travail en conséquence, en ajustant dynamiquement le nombre de processus ou de threads pour maintenir une performance optimale sans gaspiller de ressources.
+* Gestion des états : Assurer une gestion cohérente des états dans un environnement distribué où plusieurs processus ou threads peuvent accéder et modifier des données simultanément.
+* Sécurité des données : Mettre en place des mécanismes de verrouillage ou d'autres stratégies de synchronisation pour éviter les conditions de concurrence et assurer l'intégrité des données.
+* Tolérance aux pannes : Concevoir des systèmes qui peuvent se remettre d'un processus ou d'un thread défaillant sans perdre de données critiques et en minimisant l'interruption du service.
+* Surveillance et logging : Mettre en place un système de surveillance robuste pour suivre la santé du système et les performances en temps réel, ainsi que pour enregistrer les incidents pour une analyse ultérieure.
+* Rétrocompatibilité et mises à jour : Garantir que les mises à jour du système prennent en compte les modèles de concurrence existants et ne compromettent pas la stabilité des opérations en cours.
+* Scalabilité : Concevoir l'architecture de manière à ce qu'elle puisse s'adapter facilement à une augmentation de la demande, par exemple en utilisant des services cloud qui peuvent allouer dynamiquement des ressources supplémentaires.
+* Rate Limiting et Quotas : Établir des politiques claires pour limiter le taux de requêtes et la consommation de ressources par les clients pour éviter l'abus et garantir un service équitable pour tous les utilisateurs.
 
 
-```
+
 En résumé, les API et les services doivent non seulement tirer parti des avantages du parallélisme et de la concurrence mais aussi gérer avec prudence les complexités qui en découlent pour assurer la stabilité, la sécurité et l'efficacité de l'environnement de service.
-```
+
 
 
 
 ### f. Conclusion :
 
 
-```
+
 Que ce soit pour un usage individuel ou pour optimiser les performances d'une API, la compréhension et la mise en œuvre adéquate des modèles de parallélisme et de concurrence sont primordiales. Elles offrent une amélioration de l'efficacité et de la réactivité des applications et peuvent conduire à des économies significatives à long terme.
