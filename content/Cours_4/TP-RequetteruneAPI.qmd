@@ -11,7 +11,7 @@ categories:
   - Fondamentaux
 type: book
 description: "Asynchronie vs synchronie"
-image: .img/Untitled.png
+image: .img/fastapi2.webp
 code-links: binder
 ---
 
