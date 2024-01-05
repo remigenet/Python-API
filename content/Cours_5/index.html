@@ -9,7 +9,7 @@
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-05">
 
-<title>Introduction à Python - Bonne pratique générale</title>
+<title>Introduction à Python - Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,9 +32,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_4/8.Conclusion.html" rel="next">
-<link href="../../content/Cours_4/6-testanddocs.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -46,6 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/animate-4.1.1/animate.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,23 +74,81 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<style>:root{--animate-duration:3s;--animate-delay:2s;--animate-repeat:1}</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Bonne pratique générale">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_4/.img/restfull.webp">
+<meta property="og:title" content="Introduction à Python - Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="Bonne pratique générale">
+<meta name="citation_title" content="Déploiement d&amp;amp;#039;API - Principes Généraux et Mise en Pratique avec Heroku">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-05">
 <meta name="citation_cover_date" content="2024-01-05">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-05">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_4/7-Good Practice.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_5">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -320,300 +379,221 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_4/7-Good Practice.html">Bonne pratique générale</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/1-IntroConception.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction à la Conception d’APIs</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/2-Frameworks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Les principaux Frameworks d’APIs en Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
- <span class="menu-text">content/Cours_4//3-Falsk.qmd</span>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/4-FastAPI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Fast API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/5-DjangoRest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Django REST Framework</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/6-testanddocs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tester et documenter une API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/7-Good Practice.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bonne pratique générale</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/8.Conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Conclusion</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Travaux Pratiques</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_4/TP-RequetteruneAPI.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" id="toc-asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="nav-link active" data-scroll-target="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil">Asynchronie et Multiprocessing - comment donner le tournis au GIL</a></li>
-  <li><a href="#vii.-bonnes-pratiques-de-conception-dapis" id="toc-vii.-bonnes-pratiques-de-conception-dapis" class="nav-link" data-scroll-target="#vii.-bonnes-pratiques-de-conception-dapis">VII. Bonnes Pratiques de Conception d’APIs</a>
-  <ul class="collapse">
-  <li><a href="#conception-restful" id="toc-conception-restful" class="nav-link" data-scroll-target="#conception-restful">1. Conception RESTful</a></li>
-  <li><a href="#gestion-des-erreurs" id="toc-gestion-des-erreurs" class="nav-link" data-scroll-target="#gestion-des-erreurs">2. Gestion des erreurs</a></li>
-  <li><a href="#rate-limiting-et-caching" id="toc-rate-limiting-et-caching" class="nav-link" data-scroll-target="#rate-limiting-et-caching">4. Rate Limiting et Caching</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Bonne pratique générale</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Fondamentaux</div>
-  </div>
-  </div>
+<header id="title-block-header">
+<h1 class="title display-7">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</h1>
+<p class="author">Remi Genet</p>
 
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Remi Genet </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-05</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
+<p class="date">2024-01-05</p>
 </header>
 
 
-<section id="asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="level1">
-<h1>Asynchronie et Multiprocessing - comment donner le tournis au GIL</h1>
+<section id="section" class="level1">
+<h1><span class="animate__animated animate__backInDown" style="display: inline-block;">Les cours de cette partie sont:</span></h1>
+
+
+
+</section>
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-sample-listings">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<a href="../../content/Cours_5/6-domain.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/heroku.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Bonus - Nom de Domaine
+</h5>
+<div class="card-text listing-description">
+
+
 <hr>
-</section>
-<section id="vii.-bonnes-pratiques-de-conception-dapis" class="level1">
-<h1>VII. Bonnes Pratiques de Conception d’APIs</h1>
-<pre><code>La conception d'une API est un élément fondamental qui détermine sa facilité d'utilisation, sa performance et sa maintenabilité. Voici quelques bonnes pratiques à considérer lors de la conception d'une API.</code></pre>
-<section id="conception-restful" class="level2">
-<h2 class="anchored" data-anchor-id="conception-restful">1. Conception RESTful</h2>
-<pre><code>RESTful fait référence à une API qui suit les contraintes de l'architecture REST (Representational State Transfer). Cela signifie que l'API utilise des méthodes HTTP standard sans maintenir l'état du client entre les requêtes, ce qui la rend sans état. Les données sont représentées de manière standard (comme JSON ou XML), et les opérations sur les données sont effectuées à l'aide de méthodes HTTP (comme GET, POST, PUT, DELETE).
 
-Un exemple d'API RESTful est une API qui gère les utilisateurs. Les URIs sont structurées de manière logique, par exemple :
-</code></pre>
-<ul>
-<li><code>GET /users pour récupérer une liste d'utilisateurs.</code></li>
-<li><code>POST /users pour créer un nouvel utilisateur.</code></li>
-</ul>
-<ol type="1">
-<li><code>Utilisation correcte des méthodes HTTP : GET pour récupérer des données, POST pour créer des données, PUT/PATCH pour mettre à jour et DELETE pour supprimer.</code></li>
-<li><code>Des URIs bien structurées : Les URIs doivent être intuitives et hiérarchiques, reflétant les relations entre les ressources.</code></li>
-<li><code>Sans état : Chaque requête doit contenir toutes les informations nécessaires pour être traitée, sans dépendre d'un état stocké sur le serveur.</code></li>
-<li><code>Cacheable : Les réponses doivent être définies comme cacheables ou non, pour améliorer les performances.</code></li>
-<li><code>Système de couche : L'API doit être structurée en couches, chaque couche ayant une fonction spécifique.</code></li>
-</ol>
-</section>
-<section id="gestion-des-erreurs" class="level2">
-<h2 class="anchored" data-anchor-id="gestion-des-erreurs">2. Gestion des erreurs</h2>
-<pre><code>Une bonne gestion des erreurs est essentielle pour aider les développeurs à comprendre ce qui ne va pas lorsqu'une requête échoue. Voici quelques recommandations :
-</code></pre>
-<ol type="1">
-<li><code>Utiliser des codes d'état HTTP appropriés : Par exemple, 404 pour "Non trouvé", 400 pour "Mauvaise requête", 500 pour "Erreur interne du serveur".</code></li>
-<li><code>Fournir des messages d'erreur descriptifs : Inclure des messages d'erreur clairs et, si possible, des indications sur la façon de résoudre le problème.</code></li>
-<li><code>Standardiser les réponses d'erreur : Utiliser un format cohérent pour toutes les réponses d'erreur.</code></li>
-</ol>
-<pre><code>Voici un exemple de gestion des erreurs dans Flask :
-
-
-</code></pre>
-<p>from flask import Flask, jsonify, make_response</p>
-<p>app = Flask(<strong>name</strong>)</p>
-<p><span class="citation" data-cites="app.errorhandler">@app.errorhandler</span>(404) def not_found(error): return make_response(jsonify({‘error’: ‘Not found’}), 404)</p>
-<p><span class="citation" data-cites="app.route">@app.route</span>(‘/users/<int:user_id>’, methods=[‘GET’]) def get_user(user_id): user = find_user_by_id(user_id) if user is None: return not_found(‘Not found’) return jsonify({‘user’: user})</int:user_id></p>
-<pre><code>
-
-</code></pre>
-<p>Dans cet exemple, <span class="citation" data-cites="app.errorhandler">@app.errorhandler</span>(404) est un décorateur qui définit une fonction personnalisée pour gérer les erreurs 404, renvoyant un message JSON et le code d’état approprié.</p>
-<pre><code>
-
-
-## 3. Pagination, Filtrage et Tri des données
-
-</code></pre>
-<p>Lorsque vous travaillez avec de grandes collections de données, il est important de fournir des mécanismes pour la pagination, le filtrage et le tri :</p>
-<pre><code>
-
-
-1. `Pagination : Limiter le nombre d'éléments renvoyés dans une seule réponse et fournir des liens pour accéder aux pages suivantes.`
-2. `Filtrage : Permettre aux utilisateurs de spécifier des critères pour limiter les données renvoyées.`
-3. `Tri : Offrir la possibilité de trier les données selon différents attributs.`
-
-
-### a. Exemple de pagination dans Django Rest Framework
-
-</code></pre>
-<p>from rest_framework.pagination import PageNumberPagination from rest_framework.response import Response from rest_framework.views import APIView from .models import User from .serializers import UserSerializer</p>
-<p>class UserListView(APIView): pagination_class = PageNumberPagination</p>
-<pre><code>def get(self, request, format=None):
-    users = User.objects.all()
-    paginator = self.pagination_class()
-    page = paginator.paginate_queryset(users, request)
-    
-    if page is not None:
-        serializer = UserSerializer(page, many=True)
-        return paginator.get_paginated_response(serializer.data)
-    
-    serializer = UserSerializer(users, many=True)
-    return Response(serializer.data)</code></pre>
-<pre><code>
-
-</code></pre>
-<p>Ce code montre comment implémenter la pagination dans une vue qui renvoie une liste d’utilisateurs. Le PageNumberPagination est utilisé pour diviser les résultats en pages.</p>
-<pre><code>
-
-
-### b. Exemple de filtrage et de tri pour une API utilisant Django Rest Framework
-
-</code></pre>
-<p>Nous allons utiliser le modèle User et le serializer UserSerializer pour illustrer comment filtrer et trier les données renvoyées par une requête GET.</p>
-<pre><code>from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics
-from .models import User
-from .serializers import UserSerializer
-
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['username', 'email']  # Fields to filter by
-    ordering_fields = ['username', 'date_joined']  # Fields to order by
-
-    def get_queryset(self):
-        """
-        Optionally restricts the returned users to a given user,
-        by filtering against a `username` query parameter in the URL.
-        """
-        queryset = User.objects.all()
-        username = self.request.query_params.get('username')
-        if username is not None:
-            queryset = queryset.filter(username=username)
-        return queryset</code></pre>
-<pre><code>Dans cet exemple, DjangoFilterBackend est utilisé pour ajouter des capacités de filtrage à la vue. Les utilisateurs peuvent filtrer les résultats en ajoutant des paramètres de requête à l'URL, comme ?username=johndoe pour filtrer par nom d'utilisateur, ou ?email=johndoe@example.com pour filtrer par e-mail.
-
-Le tri est géré par ordering_fields, qui spécifie les champs sur lesquels les utilisateurs peuvent trier les résultats. Les utilisateurs peuvent ajouter un paramètre de requête ordering à l'URL, comme ?ordering=username pour trier par nom d'utilisateur ou ?ordering=-date_joined pour trier par date d'inscription en ordre décroissant (le signe moins indique un tri décroissant).
-
-Ces fonctionnalités permettent aux utilisateurs de l'API de récupérer des données de manière plus précise et organisée, améliorant ainsi l'expérience utilisateur et la performance de l'API.</code></pre>
-</section>
-<section id="rate-limiting-et-caching" class="level2">
-<h2 class="anchored" data-anchor-id="rate-limiting-et-caching">4. Rate Limiting et Caching</h2>
-<pre><code>Pour protéger votre API contre les abus et gérer les ressources serveur de manière efficace :
-</code></pre>
-<ol type="1">
-<li><code>Rate Limiting : Imposer des limites sur le nombre de requêtes qu'un utilisateur peut faire dans un certain intervalle de temps.</code></li>
-<li><code>Caching : Utiliser des caches pour stocker les réponses des requêtes fréquemment faites afin de réduire la charge sur le serveur et d'améliorer les temps de réponse.</code></li>
-</ol>
-<pre><code>Pour le rate limiting dans FastAPI, vous pourriez utiliser un middleware personnalisé :
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="309">
+<a href="../../content/Cours_5/7-end.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/heroku.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Conclusion
+</h5>
+<div class="card-text listing-description">
+``` La maîtrise du déploiement d’applications est une compétence transversale précieuse, surtout dans le domaine de la finance quantitative où elle n’est pas couramment…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2411">
+<a href="../../content/Cours_5/4-herodepl.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/heroku.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Deploiement sur Heroku
+</h5>
+<div class="card-text listing-description">
+web: gunicorn app:app –workers 3 worker: celery -A app.celery worker release: python manage.py migrate clock: python clock.py
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="987">
+<a href="../../content/Cours_5/5-moreexample.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/heroku.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Déploiement avancé
+</h5>
+<div class="card-text listing-description">
+import requests from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Float from datetime import datetime
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="428">
+<a href="../../content/Cours_5/2-heroku.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/heroku.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Heroku - Présentation du service
+</h5>
+<div class="card-text listing-description">
 
 
-</code></pre>
-<p>from fastapi import FastAPI, Request, HTTPException from slowapi import Limiter, _rate_limit_exceeded_handler from slowapi.util import get_remote_address from slowapi.errors import RateLimitExceeded</p>
-<p>limiter = Limiter(key_func=get_remote_address) app = FastAPI()</p>
-<p>app.state.limiter = limiter app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)</p>
-<p><span class="citation" data-cites="app.middleware">@app.middleware</span>(“http”) async def rate_limit_middleware(request: Request, call_next): response = await call_next(request) return response</p>
-<p><span class="citation" data-cites="app.get">@app.get</span>(“/users”) <span class="citation" data-cites="limiter.limit">@limiter.limit</span>(“5/minute”) async def get_users(): return [{“user”: “user1”}, {“user”: “user2”}]</p>
-<pre><code>
+<hr>
 
-</code></pre>
-<p>Dans cet exemple, le décorateur <span class="citation" data-cites="limiter.limit">@limiter.limit</span>(“5/minute”) est utilisé pour limiter les requêtes à 5 par minute pour l’endpoint /users.</p>
-<p>Pour le caching, vous pourriez utiliser Flask-Caching dans une application Flask :</p>
-<pre><code>from flask import Flask
-from flask_caching import Cache
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="902">
+<a href="../../content/Cours_5/1-Introdepl.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/depl101.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introduction au Déploiement d’API
+</h5>
+<div class="card-text listing-description">
 
-app = Flask(__name__)
-cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
-@app.route('/')
-@cache.cached(timeout=50)
-def index():
-    return "Ceci est une page mise en cache"</code></pre>
-<pre><code>Ici, @cache.cached(timeout=50) est utilisé pour mettre en cache la réponse de l'endpoint racine pendant 50 secondes.
+<hr>
 
-Ces bonnes pratiques sont essentielles pour créer une API robuste, performante et sécurisée. Elles contribuent également à une meilleure expérience pour les développeurs qui utilisent votre API, en leur fournissant des mécanismes clairs et des directives pour intégrer l'API dans leurs applications.</code></pre>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704409200000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1569">
+<a href="../../content/Cours_5/3-Best Practice.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/Cours_5/.img/heroku.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Meilleurs Pratiques avant un déploiement
+</h5>
+<div class="card-text listing-description">
+Le déploiement d’une API peut présenter des défis uniques qui nécessitent une attention particulière pour assurer un service ininterrompu et de haute qualité.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-05
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -996,18 +976,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_4/6-testanddocs.html" class="pagination-link  aria-label=" tester="" et="" documenter="" une="" api"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tester et documenter une API</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_4/8.Conclusion.html" class="pagination-link" aria-label="Conclusion">
-        <span class="nav-page-text">Conclusion</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
