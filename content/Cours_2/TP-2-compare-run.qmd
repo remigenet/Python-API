@@ -14,7 +14,7 @@ categories:
   - Fondamentaux
 type: book
 description: "Dans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les concepts de la POO tels que l'encapsulation, l'héritage et le polymorphisme pour créer des modèles financiers complexes. Avec une emphase sur les applications pratiques en finance de marché, ce chapitre vise à doter les étudiants d'une compréhension robuste de la POO pour le développement de solutions logicielles sophistiquées et efficaces en Python."
-image: .img/asyncthreadproc2.png
+image: .img/asyncthreadproc2.webp
 code-links: binder
 ---
 
