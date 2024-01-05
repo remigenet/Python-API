@@ -9,7 +9,7 @@
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-05">
 
-<title>Introduction à Python - API - Définition</title>
+<title>Introduction à Python - Introduction au Déploiement d’API</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,10 +38,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -74,16 +76,17 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - API - Définition">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/API101.webp">
+<meta property="og:title" content="Introduction à Python - Introduction au Déploiement d’API">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/projets/.img/depl101.webp">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="API - Définition">
+<meta name="citation_title" content="Introduction au Déploiement d&amp;amp;#039;API">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-05">
 <meta name="citation_cover_date" content="2024-01-05">
 <meta name="citation_year" content="2024">
 <meta name="citation_online_date" content="2024-01-05">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/1-Api101.html">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/projets/millesime_2324.html">
 <meta name="citation_language" content="en">
 </head>
 
@@ -118,6 +121,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
+ <span class="dropdown-text">API - Définition</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
  <span class="dropdown-text">Utiliser une API</span></a>
   </li>  
@@ -139,6 +146,10 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
+ <span class="dropdown-text">TP - Postman et requêtes API</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -154,8 +165,16 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
  <span class="dropdown-text">Authentification et sécurité des API</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-Conception-optimizations.html">
+ <span class="dropdown-text">Optimisation des ressources et de la performance des API</span></a>
+  </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/TP-2-compare-run.html">
+ <span class="dropdown-text">TP : Comparaison des performances des appels en tant qu’utilisateur</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -278,28 +297,9 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-annexes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Annexes</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-annexes">    
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/LinuxTerminal.html">
- <span class="dropdown-text">Utiliser le terminal Linux - les bases de bash</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/git_basics.html">
- <span class="dropdown-text">Git Basics</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Annexes/git_advanced.html">
- <span class="dropdown-text">Git - Pour aller plus loin</span></a>
-  </li>  
-    </ul>
-  </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -310,6 +310,7 @@ ul.task-list li input[type="checkbox"] {
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -328,28 +329,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quest-ce-quune-api" id="toc-quest-ce-quune-api" class="nav-link active" data-scroll-target="#quest-ce-quune-api">1. Qu’est-ce qu’une API?</a>
-  <ul class="collapse">
-  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition">1.1 Définition :</a></li>
-  <li><a href="#pourquoi-utiliser-une-api" id="toc-pourquoi-utiliser-une-api" class="nav-link" data-scroll-target="#pourquoi-utiliser-une-api">1.2 Pourquoi utiliser une API?</a></li>
-  <li><a href="#avantages-de-lapi-vs.-scrapping-ou-autres-méthodes" id="toc-avantages-de-lapi-vs.-scrapping-ou-autres-méthodes" class="nav-link" data-scroll-target="#avantages-de-lapi-vs.-scrapping-ou-autres-méthodes">1.3 Avantages de l’API vs.&nbsp;Scrapping ou autres méthodes :</a></li>
-  <li><a href="#technologies-sous-jacentes-des-api" id="toc-technologies-sous-jacentes-des-api" class="nav-link" data-scroll-target="#technologies-sous-jacentes-des-api">1.4 Technologies sous-jacentes des API :</a></li>
-  <li><a href="#comment-fonctionne-une-api-avec-une-analogie-simplifiée" id="toc-comment-fonctionne-une-api-avec-une-analogie-simplifiée" class="nav-link" data-scroll-target="#comment-fonctionne-une-api-avec-une-analogie-simplifiée">1.5 Comment fonctionne une API (avec une analogie simplifiée) :</a></li>
-  <li><a href="#le-rôle-des-api-dans-le-secteur-financier" id="toc-le-rôle-des-api-dans-le-secteur-financier" class="nav-link" data-scroll-target="#le-rôle-des-api-dans-le-secteur-financier">1.6 Le rôle des API dans le secteur financier :</a></li>
-  <li><a href="#api-rest-vs.-soap" id="toc-api-rest-vs.-soap" class="nav-link" data-scroll-target="#api-rest-vs.-soap">1.7 API REST vs.&nbsp;SOAP :</a></li>
-  <li><a href="#authentification-et-sécurité-avec-les-api" id="toc-authentification-et-sécurité-avec-les-api" class="nav-link" data-scroll-target="#authentification-et-sécurité-avec-les-api">1.8 Authentification et sécurité avec les API :</a></li>
-  </ul></li>
+  <li><a href="#introduction-au-déploiement-dapi" id="toc-introduction-au-déploiement-dapi" class="nav-link active" data-scroll-target="#introduction-au-déploiement-dapi">Introduction au Déploiement d’API</a></li>
   </ul>
-</nav>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">API - Définition</h1>
+<h1 class="title">Introduction au Déploiement d’API</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
   </div>
   </div>
 
@@ -379,84 +371,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="quest-ce-quune-api" class="level1">
-<h1>1. Qu’est-ce qu’une API?</h1>
+<section id="introduction-au-déploiement-dapi" class="level1">
+<h1>Introduction au Déploiement d’API</h1>
 <hr>
-<section id="définition" class="level2">
-<h2 class="anchored" data-anchor-id="définition">1.1 Définition :</h2>
-<p>Une API, ou Interface de Programmation d’Application, est un ensemble de protocoles et d’outils pour la construction de logiciels. Elle définit la manière dont différents logiciels ou composants doivent interagir entre eux.</p>
-</section>
-<section id="pourquoi-utiliser-une-api" class="level2">
-<h2 class="anchored" data-anchor-id="pourquoi-utiliser-une-api">1.2 Pourquoi utiliser une API?</h2>
-<ul>
-<li><code>Automatisation : Les API permettent aux machines d'effectuer des tâches automatisées, libérant l'homme pour des activités à plus forte valeur ajoutée.</code></li>
-<li><code>Intégration : Les API facilitent la communication entre différents logiciels ou services, leur permettant de travailler en synergie.</code></li>
-<li><code>Modularité : Les API offrent une structure où les fonctions sont isolées, facilitant le développement, la mise à jour, et la maintenance.</code></li>
-</ul>
-</section>
-<section id="avantages-de-lapi-vs.-scrapping-ou-autres-méthodes" class="level2">
-<h2 class="anchored" data-anchor-id="avantages-de-lapi-vs.-scrapping-ou-autres-méthodes">1.3 Avantages de l’API vs.&nbsp;Scrapping ou autres méthodes :</h2>
-<ul>
-<li><code>Fiabilité : Contrairement au scraping qui extrait des données en se basant sur la structure d'une page web (souvent sujette à des changements), une API fournit une manière standardisée d'accéder aux données, garantissant une plus grande fiabilité.</code></li>
-<li><code>Notifications en cas de changement : Les fournisseurs d'API annoncent généralement les changements à venir, permettant aux utilisateurs de s'adapter en avance. Avec le scraping, les changements ne sont détectés qu'après qu'ils aient eu lieu.</code></li>
-<li><code>Efficacité : Les API sont conçues pour être optimales et offrent souvent des réponses plus rapides et structurées que les autres méthodes.</code></li>
-</ul>
-</section>
-<section id="technologies-sous-jacentes-des-api" class="level2">
-<h2 class="anchored" data-anchor-id="technologies-sous-jacentes-des-api">1.4 Technologies sous-jacentes des API :</h2>
-<ul>
-<li><code>HTTP/HTTPS (Protocole de transfert hypertexte) : C'est le protocole le plus courant pour les API. Il est basé sur une architecture client-serveur où le client envoie une requête et attend une réponse du serveur.</code></li>
-<li><code>WebSocket : Contrairement à HTTP où le client doit initier la requête, WebSocket permet une communication bidirectionnelle. C'est-à-dire que le serveur peut aussi envoyer des données au client sans requête préalable. Très utilisé pour les applications nécessitant des données en temps réel.</code></li>
-<li><code>gRPC : Développé par Google, il permet une communication efficace entre applications via des procédures distantes, souvent utilisé pour les microservices.</code></li>
-<li><code>Protocoles de messagerie comme MQTT : Utile pour les appareils IoT, où la consommation d'énergie et la bande passante sont critiques.</code></li>
-</ul>
-</section>
-<section id="comment-fonctionne-une-api-avec-une-analogie-simplifiée" class="level2">
-<h2 class="anchored" data-anchor-id="comment-fonctionne-une-api-avec-une-analogie-simplifiée">1.5 Comment fonctionne une API (avec une analogie simplifiée) :</h2>
-<pre><code>Imaginons une bibliothèque. Vous souhaitez emprunter un livre (obtenir des données). Au lieu de chercher vous-même parmi des milliers de livres, vous demandez à un bibliothécaire (API) de le faire pour vous. Vous lui donnez un titre précis (requête), il consulte le système informatique pour localiser le livre (traitement de la requête), puis vous apporte le livre demandé (réponse).</code></pre>
-</section>
-<section id="le-rôle-des-api-dans-le-secteur-financier" class="level2">
-<h2 class="anchored" data-anchor-id="le-rôle-des-api-dans-le-secteur-financier">1.6 Le rôle des API dans le secteur financier :</h2>
-<ul>
-<li><code>Accès aux données de marché : Les API peuvent fournir des données en temps réel sur les cours d'actions, les taux de change, les indices, etc.</code></li>
-<li><code>Opérations automatisées : Les transactions, telles que l'achat ou la vente d'actions, peuvent être exécutées automatiquement via des API.</code></li>
-<li><code>Intégration avec d'autres systèmes : Les API permettent à différentes plateformes financières de communiquer entre elles, assurant une meilleure synergie entre les outils.</code></li>
-<li><code>Innovations et services personnalisés : Grâce aux API, les entreprises financières peuvent proposer des solutions personnalisées à leurs clients, en intégrant différentes fonctionnalités et données.</code></li>
-</ul>
-</section>
-<section id="api-rest-vs.-soap" class="level2">
-<h2 class="anchored" data-anchor-id="api-rest-vs.-soap">1.7 API REST vs.&nbsp;SOAP :</h2>
-<pre><code>Il existe plusieurs styles d'architecture pour les API, mais les plus courants dans l'industrie sont REST et SOAP.
-</code></pre>
-<ul>
-<li><code>REST (Representational State Transfer) :</code>
-<ul>
-<li><code>Basé sur le protocole HTTP.</code></li>
-<li><code>Utilise des méthodes standards comme GET, POST, PUT et DELETE.</code></li>
-<li><code>Peut utiliser JSON, XML ou d'autres formats pour les données.</code></li>
-<li><code>Généralement considéré comme plus simple et flexible que SOAP.</code></li>
-</ul></li>
-<li><code>SOAP (Simple Object Access Protocol) :</code>
-<ul>
-<li><code>Protocole plus ancien, largement adopté dans les entreprises.</code></li>
-<li><code>Utilise XML pour le format des messages.</code></li>
-<li><code>Comprend des fonctionnalités intégrées pour la sécurité et les transactions.</code></li>
-</ul></li>
-</ul>
-<pre><code>Pour choisir entre REST et SOAP, cela dépend souvent des besoins spécifiques du projet et des préférences de l'équipe de développement.</code></pre>
-</section>
-<section id="authentification-et-sécurité-avec-les-api" class="level2">
-<h2 class="anchored" data-anchor-id="authentification-et-sécurité-avec-les-api">1.8 Authentification et sécurité avec les API :</h2>
-<p>Avec la croissance des API, en particulier dans des domaines sensibles comme la finance, la sécurité est primordiale. Voici quelques méthodes courantes d’authentification :</p>
-<ul>
-<li><code>Clé API : Une clé unique est générée pour chaque utilisateur ou application. Elle doit être incluse dans chaque requête.</code></li>
-<li><code>Authentification basique : Utilise un nom d'utilisateur et un mot de passe pour accéder à l'API.</code></li>
-<li><code>OAuth : Un protocole qui permet à une application d'accéder à des ressources spécifiques d'un utilisateur sans avoir besoin de son mot de passe. Très utilisé pour les intégrations avec des plateformes sociales ou des services en ligne.</code></li>
-</ul>
-<p>Il est également crucial de surveiller et de limiter le taux de requêtes (rate limiting) pour éviter les abus et garantir un service stable.</p>
+<p>Projets Introduction Bienvenue dans votre ultime défi académique en maîtrise de l’API Python. Vous allez être répartis en équipes de 5 à 7 personnes pour travailler sur l’un des quatre projets ambitieux proposés. L’objectif est de créer une solution complète et cohésive qui mettra en valeur vos compétences techniques ainsi que votre capacité à collaborer efficacement en équipe. Cadre du Projet et Deadlines • Spécifications des Projets sur GitHub : Chaque groupe devra définir</p>
+<p>et publier les spécifications de son projet sur GitHub avant le 31 décem- bre à minuit. Cette étape initiale est essentielle pour assurer la bonne</p>
+<p>coordination entre les différents projets. • Deadline du Projet : La date limite pour la finalisation des projets est fixée au 30 avril (à confirmer avec Philippe Bernard*) Consignes Générales • Rendu sur GitHub : Le code source de votre projet doit être rendu sur GitHub. Ce choix offre une transparence sur la contribution de chaque membre de l’équipe et facilite la collaboration.</p>
+<p>• Documentation : Chaque projet doit être accompagné d’une documen- tation claire expliquant le fonctionnement global du système et le flux</p>
+<p>de données. La documentation est cruciale pour comprendre comment interagir avec votre API. • Flexibilité et Créativité : Les sujets proposés sont des trames générales. Vous avez la liberté de les interpréter et de les développer selon votre vision. Nous vous encourageons à être innovants et créatifs.</p>
+<p>• Carnet de Bord : Il est recommandé de tenir un carnet de bord détail- lant votre organisation, les rôles de chacun, qui a été force de proposition,</p>
+<p>etc. Ceci aidera à évaluer non seulement le produit final mais aussi le processus de travail en équipe. Conclusion</p>
+<p>Ce projet représente une occasion unique de démontrer vos compétences accu- mulées et votre capacité à travailler sur des projets d’envergure en collaboration.</p>
+<p>Bon courage à tous !</p>
+<p>1</p>
+<p>Sujet du Projet 1: API pour Backtesting de Stratégies de Trading Algorithmique Objectif du Projet Développer une API qui permet aux utilisateurs de soumettre leurs propres</p>
+<p>stratégies de trading algorithmique pour backtesting. Le système doit être ca- pable d’exécuter ces stratégies contre des données de marché historiques et de</p>
+<p>fournir des analyses de performance. Fonctionnalités Clés 1. Soumission de Fonctions de Trading : • Implémenter une fonctionnalité permettant aux utilisateurs de soumettre des fonctions de trading. Ceci peut être réalisé, par exemple, via une requête POST contenant le code de la stratégie. • Assurer une validation efficace des fonctions soumises pour garantir leur exécution sûre et conforme. 1. Backtesting : • Mettre en place un mécanisme de backtesting qui utilise des données de marché historiques, telles que des barres de prix OHLCV. • Fournir des statistiques et des analyses de performance pour les stratégies testées. 1. Documentation et Règles :</p>
+<p>• Rédiger une documentation détaillée sur l’utilisation de l’API, y com- pris des exemples et des directives pour la soumission des stratégies.</p>
+<p>• Établir des règles claires concernant les types de stratégies autorisées et les limitations de l’API. 4. Stockage et Exécution Programmée : • Offrir la possibilité de stocker les stratégies soumises et de planifier des backtests à des intervalles spécifiés par l’utilisateur.</p>
+<p>Sujet du Projet 2 : Création d’Analytics de Trading Per- sonnalisés via API</p>
+<p>Objectif du Projet</p>
+<p>Développer une API qui permet aux utilisateurs de créer et de recevoir des ana- lytics de trading personnalisés. Les utilisateurs pourront soumettre leurs propres</p>
+<p>fonctions d’analyse, qui seront ensuite appliquées à des données de marché en temps réel ou historiques. Fonctionnalités Clés 1. Soumission de Fonctions d’Analytics :</p>
+<p>• Permettre aux utilisateurs de soumettre leurs fonctions d’analyse per- sonnalisées. Ces fonctions pourraient être soumises via une requête</p>
+<p>2</p>
+<p>POST, avec le code de la fonction en contenu. • Les fonctions doivent être applicables sur des données historiques (bars OHLCV) et des données en temps réel (trades, order book). 2. Diffusion en Temps Réel : • Utiliser des WebSockets pour envoyer les résultats des analytics aux utilisateurs en temps réel, dès qu’un changement pertinent survient dans les données de marché. 3. Gestion des Fonctions Soumises : • Implémenter un système robuste pour la gestion et la validation des fonctions d’analyse soumises, assurant leur exécution de manière sécurisée. 4. Personnalisation et Flexibilité : • Offrir des options pour personnaliser les paramètres des fonctions d’analytics. • Assurer que l’API est adaptable pour différents types d’analyses, des indicateurs techniques simples aux modèles plus complexes. Sujet du Projet 3 : API d’Uniformisation pour Échanges de Cryptomonnaies Objectif du Projet Construire une API qui permette aux utilisateurs de standardiser et</p>
+<p>d’uniformiser l’accès à différentes plateformes d’échange de cryptomon- naies. Cette API devra permettre de configurer des routes, parser des données</p>
+<p>et établir des correspondances entre les champs de différentes APIs d’échange (comme Kucoin ou autres) et un format cible (comme l’API de Binance ou un format personnalisé). Fonctionnalités Clés 1. Configuration des Routes et Parsing :</p>
+<p>• Développer une fonctionnalité permettant aux utilisateurs de spé- cifier des routes et leurs règles de parsing pour différentes APIs</p>
+<p>d’échange. • Permettre le mapping des champs de l’API source vers ceux de l’API cible. 2. Choix de l’API Cible : • Offrir la possibilité d’utiliser l’API de Binance comme format cible standard ou de créer un format personnalisé. 3. Uniformisation des Requêtes : • Permettre, après configuration, de faire des requêtes à l’API source de la même manière qu’à l’API cible, avec transformation et renvoi des données dans le format cible. 4. Extensibilité et Flexibilité : • Concevoir l’API pour faciliter l’ajout de nouvelles plateformes</p>
+<p>3</p>
+<p>d’échange et la gestion des différentes configurations. Sujet du Projet 4 : Interface Utilisateur pour l’Intégration des Projets API Objectif du Projet</p>
+<p>Développer une interface utilisateur graphique (GUI) qui intègre les fonctionnal- ités développées dans les trois premiers projets API. Cette interface servira de</p>
+<p>point central pour accéder et utiliser les services fournis par les autres équipes, offrant ainsi une expérience utilisateur unifiée et intuitive. Fonctionnalités Clés 1. Intégration des APIs : • Concevoir une interface qui s’intègre de manière fluide avec les APIs développées dans les projets précédents. • Assurer une communication efficace et fiable entre l’interface et les différentes APIs. 2. Conception d’une Interface Utilisateur :</p>
+<p>• Créer une GUI facile à naviguer, permettant aux utilisateurs de sélec- tionner facilement les sources de données et les fonctionnalités qu’ils</p>
+<p>souhaitent utiliser. 3. Adaptabilité et Flexibilité :</p>
+<p>• Prévoir la capacité à s’adapter aux différentes fonctionnalités et for- mats de données offerts par les autres projets.</p>
+<p>• Faciliter l’intégration de fonctionnalités supplémentaires ou de mod- ifications ultérieures.</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -480,6 +433,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -846,7 +943,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Introduction à Python, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+<p>Python API, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

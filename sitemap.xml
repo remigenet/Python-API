@@ -13,12 +13,12 @@
     <lastmod>2024-01-05T02:26:51.532Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_1/TP-Postman_and_coingeko.html</loc>
-    <lastmod>2024-01-05T02:28:01.767Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_1/6-UserApi.html</loc>
+    <lastmod>2024-01-05T02:27:41.443Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_1/4-guard101.html</loc>
-    <lastmod>2024-01-05T02:27:16.411Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_1/1-API101.html</loc>
+    <lastmod>2024-01-05T03:27:08.504Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_5/2-heroku.html</loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_5/4-herodepl.html</loc>
-    <lastmod>2024-01-05T02:38:38.760Z</lastmod>
+    <lastmod>2024-01-05T03:03:21.839Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_5/7-end.html</loc>
@@ -42,103 +42,91 @@
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_2/3-Conception-optimizations.html</loc>
-    <lastmod>2024-01-05T02:28:46.610Z</lastmod>
+    <lastmod>2024-01-05T03:06:26.011Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/TP-3-1.html</loc>
-    <lastmod>2024-01-04T16:05:38.433Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/projets/millesime_2324.html</loc>
+    <lastmod>2024-01-05T03:02:50.699Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/3-Files.html</loc>
-    <lastmod>2024-01-05T02:30:35.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/TP-3-2.html</loc>
-    <lastmod>2024-01-04T16:05:51.165Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/5-Pipes.html</loc>
-    <lastmod>2024-01-05T02:30:49.860Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/4-SharedMemory.html</loc>
-    <lastmod>2024-01-05T02:30:43.196Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Annexes/LinuxTerminal.html</loc>
-    <lastmod>2024-01-04T12:05:24.368Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Annexes/git_advanced.html</loc>
-    <lastmod>2024-01-04T12:05:24.368Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/5-DjangoRest.html</loc>
-    <lastmod>2024-01-05T02:32:38.682Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/2-Frameworks.html</loc>
-    <lastmod>2024-01-05T02:32:07.703Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/index.html</loc>
-    <lastmod>2024-01-05T02:22:46.151Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/3-Flask.html</loc>
-    <lastmod>2024-01-05T02:32:21.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/1-IntroConception.html</loc>
-    <lastmod>2024-01-05T02:31:56.327Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/4-FastAPI.html</loc>
-    <lastmod>2024-01-05T02:32:31.651Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/8.Conclusion.html</loc>
-    <lastmod>2024-01-05T02:33:13.986Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/7-Good Practice.html</loc>
-    <lastmod>2024-01-05T02:33:07.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/6-testanddocs.html</loc>
-    <lastmod>2024-01-05T02:32:49.306Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_4/TP-RequetteruneAPI.html</loc>
-    <lastmod>2024-01-05T02:38:38.760Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Annexes/use_poetry.html</loc>
-    <lastmod>2024-01-04T12:05:24.372Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Annexes/git_basics.html</loc>
-    <lastmod>2024-01-04T12:05:24.368Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/1-IPC101.html</loc>
-    <lastmod>2024-01-05T02:30:03.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/2-Sockets.html</loc>
-    <lastmod>2024-01-04T16:03:54.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/7-OtherIPCend.html</loc>
-    <lastmod>2024-01-05T02:31:29.107Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/6-gRPC.html</loc>
+    <lastmod>2024-01-05T02:30:56.588Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_3/index.html</loc>
     <lastmod>2024-01-05T02:22:35.299Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_3/6-gRPC.html</loc>
-    <lastmod>2024-01-05T02:30:56.588Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/7-OtherIPCend.html</loc>
+    <lastmod>2024-01-05T02:31:29.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/2-Sockets.html</loc>
+    <lastmod>2024-01-04T16:03:54.665Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/1-IPC101.html</loc>
+    <lastmod>2024-01-05T02:30:03.189Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/TP-RequetteruneAPI.html</loc>
+    <lastmod>2024-01-05T02:38:38.760Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/6-testanddocs.html</loc>
+    <lastmod>2024-01-05T02:32:49.306Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/7-Good Practice.html</loc>
+    <lastmod>2024-01-05T02:33:07.978Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/8.Conclusion.html</loc>
+    <lastmod>2024-01-05T02:33:13.986Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/4-FastAPI.html</loc>
+    <lastmod>2024-01-05T02:32:31.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/1-IntroConception.html</loc>
+    <lastmod>2024-01-05T02:31:56.327Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/3-Flask.html</loc>
+    <lastmod>2024-01-05T02:32:21.335Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/index.html</loc>
+    <lastmod>2024-01-05T02:22:46.151Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/2-Frameworks.html</loc>
+    <lastmod>2024-01-05T02:32:07.703Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_4/5-DjangoRest.html</loc>
+    <lastmod>2024-01-05T02:32:38.682Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/4-SharedMemory.html</loc>
+    <lastmod>2024-01-05T02:30:43.196Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/5-Pipes.html</loc>
+    <lastmod>2024-01-05T02:30:49.860Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/TP-3-2.html</loc>
+    <lastmod>2024-01-04T16:05:51.165Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/3-Files.html</loc>
+    <lastmod>2024-01-05T02:30:35.100Z</lastmod>
+  </url>
+  <url>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_3/TP-3-1.html</loc>
+    <lastmod>2024-01-04T16:05:38.433Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_2/TP-2-compare-run.html</loc>
@@ -169,12 +157,12 @@
     <lastmod>2024-01-05T02:38:38.760Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_1/6-UserApi.html</loc>
-    <lastmod>2024-01-05T02:27:41.443Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_1/4-guard101.html</loc>
+    <lastmod>2024-01-05T02:27:16.411Z</lastmod>
   </url>
   <url>
-    <loc>https://remigenet.github.io/Python-API/content/Cours_1/1-Api101.html</loc>
-    <lastmod>2024-01-05T02:26:40.888Z</lastmod>
+    <loc>https://remigenet.github.io/Python-API/content/Cours_1/TP-Postman_and_coingeko.html</loc>
+    <lastmod>2024-01-05T02:28:01.767Z</lastmod>
   </url>
   <url>
     <loc>https://remigenet.github.io/Python-API/content/Cours_1/3-Concepteur101.html</loc>
