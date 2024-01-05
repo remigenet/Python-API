@@ -23,53 +23,53 @@ image: .img/tester102.webp
 ## 6.1 API utilisateur (ou API de bibliothèque)
 
 
-```
+
 Lorsque vous développez des bibliothèques ou des packages logiciels, vous fournissez également une interface, appelée API utilisateur ou API de bibliothèque, pour interagir avec ces outils. Cette interface, même si elle n'est pas une API au sens web du terme, est tout aussi importante. Elle doit être :
 
-```
 
 
 
-* `Clair : Les méthodes, fonctions et classes doivent avoir des noms explicites.`
-* `Documenté : Les utilisateurs doivent pouvoir comprendre rapidement comment utiliser l'API.`
-* `Flexible : Elle doit permettre différentes manières d'atteindre un même résultat, selon les besoins de l'utilisateur.`
-* `Robuste : Elle doit gérer correctement les erreurs et fournir des messages utiles.`
+
+* Clair : Les méthodes, fonctions et classes doivent avoir des noms explicites.
+* Documenté : Les utilisateurs doivent pouvoir comprendre rapidement comment utiliser l'API.
+* Flexible : Elle doit permettre différentes manières d'atteindre un même résultat, selon les besoins de l'utilisateur.
+* Robuste : Elle doit gérer correctement les erreurs et fournir des messages utiles.
 
 
-```
+
 Le design et la maintenance de telles API sont tout aussi cruciaux que pour les API web, car ils déterminent l'efficacité et la facilité d'utilisation de votre bibliothèque.
 Exemple : La bibliothèque pandas en Python
 La bibliothèque pandas est une bibliothèque logicielle populaire en Python destinée à la manipulation de données. Elle offre une API utilisateur riche pour créer, manipuler et analyser des données structurées.
 
-```
 
 
 
-* `Quand vous créez un DataFrame en pandas, vous utilisez son API.`
-* `Les fonctions comme read_csv pour lire un fichier CSV ou merge pour fusionner deux DataFrames sont des parties de son API utilisateur.`
+
+* Quand vous créez un DataFrame en pandas, vous utilisez son API.
+* Les fonctions comme read_csv pour lire un fichier CSV ou merge pour fusionner deux DataFrames sont des parties de son API utilisateur.
 
 
-```
+
 Le succès de pandas est en grande partie dû à la clarté et à la puissance de son API utilisateur.
-```
+
 
 
 
 ## 6.2 API hors du cloud
 
 
-```
+
 Tandis que beaucoup d'API sont hébergées dans le cloud et accessibles via Internet, une API peut exister n'importe où, y compris :
 
-```
 
 
 
-* `Sur un réseau local : Les entreprises peuvent avoir des API internes pour intégrer différents systèmes ou applications.`
-* `Sur un même appareil : Une application sur votre ordinateur peut exposer une API pour interagir avec d'autres logiciels localement. Par exemple, un logiciel de gestion de base de données pourrait offrir une API pour que d'autres programmes sur le même ordinateur puissent demander des données.`
+
+* Sur un réseau local : Les entreprises peuvent avoir des API internes pour intégrer différents systèmes ou applications.
+* Sur un même appareil : Une application sur votre ordinateur peut exposer une API pour interagir avec d'autres logiciels localement. Par exemple, un logiciel de gestion de base de données pourrait offrir une API pour que d'autres programmes sur le même ordinateur puissent demander des données.
 
 
-```
+
 Ces types d'API peuvent être cruciaux pour automatiser et simplifier les tâches, surtout dans des environnements où la sécurité ou la rapidité d'accès est primordiale.
 
 Exemple 1 : Serveurs de jeux en réseau local

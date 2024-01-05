@@ -29,7 +29,7 @@ code-links: binder
 **Prérequis :**
 - Python 3.x
 - Compréhension de base des requêtes HTTP, de l'asynchronisme, des threads, des processus et des WebSockets.
-- Installation des packages nécessaires (`requests`, `aiohttp`, `asyncio`, `websockets`, `threading`, `multiprocessing` si nécessaire).
+- Installation des packages nécessaires (requests, aiohttp, asyncio, websockets, threading, multiprocessing si nécessaire).
 
 ## Partie 1 : Asynchronie, Multithreading et Multiprocessing appliqués à la récupération de données de marché
 
@@ -39,19 +39,19 @@ code-links: binder
 
 3. **Méthodes d'exécution** :
     - **Séquentielle** : Utilisez des requêtes HTTP séquentielles pour récupérer les données.
-    - **Asynchrone** : Modifiez le script pour utiliser `asyncio` et `aiohttp` afin de récupérer les données de manière asynchrone.
-    - **Multithreading** : Utilisez le module `threading` pour récupérer les données à l'aide de threads.
-    - **Multiprocessing** : Expérimentez avec le module `multiprocessing` pour récupérer les données à l'aide de processus.
+    - **Asynchrone** : Modifiez le script pour utiliser asyncio et aiohttp afin de récupérer les données de manière asynchrone.
+    - **Multithreading** : Utilisez le module threading pour récupérer les données à l'aide de threads.
+    - **Multiprocessing** : Expérimentez avec le module multiprocessing pour récupérer les données à l'aide de processus.
 
 4. **Comparaison des performances** : Comparez les performances de chacune des méthodes d'exécution en termes de temps nécessaire pour récupérer toutes les données. Documentez vos observations.
 
 ## Partie 2 : Utilisation des Websockets
 
-1. **Établissement de la connexion** : Connectez-vous aux streams WebSocket pour `btcusdt` et `btceth` en utilisant le stream `<symbol>@depth1@100ms` pour recevoir les mises à jour du carnet d'ordres de niveau 1 toutes les 100 ms.
+1. **Établissement de la connexion** : Connectez-vous aux streams WebSocket pour btcusdt et btceth en utilisant le stream <symbol>@depth1@100ms pour recevoir les mises à jour du carnet d'ordres de niveau 1 toutes les 100 ms.
 
-2. **Traitement des données** : À chaque mise à jour du carnet d'ordres, affichez un bid/ask synthétique et comparez-le avec les données du WebSocket pour `ethusdt`.
+2. **Traitement des données** : À chaque mise à jour du carnet d'ordres, affichez un bid/ask synthétique et comparez-le avec les données du WebSocket pour ethusdt.
 
-3. **Analyse** : Selon les prix de vos bid-ask synthétiques et les prix de la paire `ethusdt`, des opportunités d'arbitrage triangulaire sont-elles possibles ? Si oui, expliquez les facteurs non pris en compte qui pourraient expliquer pourquoi il semble possible de réaliser un arbitrage.
+3. **Analyse** : Selon les prix de vos bid-ask synthétiques et les prix de la paire ethusdt, des opportunités d'arbitrage triangulaire sont-elles possibles ? Si oui, expliquez les facteurs non pris en compte qui pourraient expliquer pourquoi il semble possible de réaliser un arbitrage.
 
 **Ressources :**
 - Documentation de l'API Binance pour les points d'accès des données de marché : [Documentation de l'API Binance](https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints)

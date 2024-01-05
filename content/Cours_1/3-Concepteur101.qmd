@@ -27,10 +27,10 @@ image: .img/Maker101.webp
 
 
 
-* `Interopérabilité : Les API permettent à différentes applications de travailler ensemble, créant un écosystème d'applications connectées.`
-* `Évolutivité : Vous pouvez mettre à jour ou modifier votre application backend sans perturber les utilisateurs de l'API, tant que l'interface reste consistante.`
-* `Monétisation : De nombreuses entreprises offrent des API en tant que produits, soit en facturant directement pour l'accès, soit en utilisant des modèles freemium.`
-* `Automatisation : Avec les API, les processus peuvent être automatisés et intégrés dans d'autres applications ou workflows.`
+* Interopérabilité : Les API permettent à différentes applications de travailler ensemble, créant un écosystème d'applications connectées.
+* Évolutivité : Vous pouvez mettre à jour ou modifier votre application backend sans perturber les utilisateurs de l'API, tant que l'interface reste consistante.
+* Monétisation : De nombreuses entreprises offrent des API en tant que produits, soit en facturant directement pour l'accès, soit en utilisant des modèles freemium.
+* Automatisation : Avec les API, les processus peuvent être automatisés et intégrés dans d'autres applications ou workflows.
 * 
 
 
@@ -38,68 +38,68 @@ image: .img/Maker101.webp
 
 
 
-* `Simplicité : Une API doit être intuitive et facile à utiliser.`
-* `Consistance : Les méthodes, les endpoints et les réponses doivent suivre une structure cohérente.`
-* `Sécurité : Assurez-vous que seules les personnes ou applications autorisées peuvent accéder à votre API.`
-* `Fiabilité : Une API doit être stable et fiable, avec un minimum de temps d'arrêt.`
+* Simplicité : Une API doit être intuitive et facile à utiliser.
+* Consistance : Les méthodes, les endpoints et les réponses doivent suivre une structure cohérente.
+* Sécurité : Assurez-vous que seules les personnes ou applications autorisées peuvent accéder à votre API.
+* Fiabilité : Une API doit être stable et fiable, avec un minimum de temps d'arrêt.
 
 
 ## 3.3 Routes, méthodes et conventions :
 
 
-```
+
 Lors de la conception de votre API, vous devrez définir des routes (ou endpoints) qui déterminent les actions ou les données disponibles. Voici quelques conventions courantes :
 
-```
 
 
 
-* `CRUD (Create, Read, Update, Delete) : Ces opérations représentent les actions de base pour gérer les ressources. Par exemple :`
-    * `POST /items pour créer un nouvel item.`
-    * `GET /items pour lire une liste d'items.`
-    * `PUT /items/{id} pour mettre à jour un item spécifique.`
-    * `DELETE /items/{id} pour supprimer un item spécifique.`
-* `Utilisation des verbes HTTP : Utilisez les méthodes HTTP (GET, POST, PUT, DELETE) pour représenter les actions.`
-* `Nommage : Les routes doivent être nommées de manière intuitive. Par exemple, utilisez des noms au pluriel pour les collections (/items) et des noms au singulier pour une ressource spécifique (/item/{id}).`
+
+* CRUD (Create, Read, Update, Delete) : Ces opérations représentent les actions de base pour gérer les ressources. Par exemple :
+    * POST /items pour créer un nouvel item.
+    * GET /items pour lire une liste d'items.
+    * PUT /items/{id} pour mettre à jour un item spécifique.
+    * DELETE /items/{id} pour supprimer un item spécifique.
+* Utilisation des verbes HTTP : Utilisez les méthodes HTTP (GET, POST, PUT, DELETE) pour représenter les actions.
+* Nommage : Les routes doivent être nommées de manière intuitive. Par exemple, utilisez des noms au pluriel pour les collections (/items) et des noms au singulier pour une ressource spécifique (/item/{id}).
 
 
 ## 3.4 Gestion des versions :
 
 
-```
+
 Avec le temps, votre API pourrait nécessiter des modifications ou des améliorations. Gérer les versions de votre API permet aux développeurs d'adapter leurs applications aux changements sans interruption. Une pratique courante est d'inclure le numéro de version dans l'URL, comme dans /v1/items.
-```
+
 
 
 
 ## 3.5 Documentation :
 
 
-```
+
 Un élément clé de toute API réussie est une documentation complète et claire. Elle doit fournir :
 
-```
 
 
 
-* `Une liste de tous les endpoints avec des descriptions.`
-* `Des exemples de requêtes et de réponses.`
-* `Des détails sur les codes d'erreur et leur signification.`
-* `Des informations sur les limitations, les quotas ou les tarifs.`
+
+* Une liste de tous les endpoints avec des descriptions.
+* Des exemples de requêtes et de réponses.
+* Des détails sur les codes d'erreur et leur signification.
+* Des informations sur les limitations, les quotas ou les tarifs.
 
 
 ## 3.6 Étude de cas : CoinGecko et CoinMarketCap
 
 
-```
+
 Ces deux plateformes sont des exemples parfaits pour illustrer le potentiel et la valeur ajoutée d'une API bien conçue.
 
-```
 
 
 
-* `Agrégation de Données : CoinGecko et CoinMarketCap rassemblent des données de nombreux échanges de cryptomonnaie à travers le monde. Ces données peuvent inclure les prix actuels, les volumes d'échange, les données historiques, et bien d'autres informations pertinentes.`
-* `Traitement et Modélisation : Une fois les données récupérées, elles sont traitées, modélisées et souvent normalisées pour fournir des informations cohérentes aux utilisateurs. Par exemple, le calcul du prix moyen d'une cryptomonnaie sur différents échanges ou la prise en compte de la liquidité pour pondérer ces moyennes.`
-* `Accessibilité via l'API : Ces plateformes rendent ensuite ces données accessibles via leurs API. Les développeurs, les entreprises ou même les amateurs peuvent accéder à ces données pour leurs propres analyses, applications ou sites web.`
-* `Modèle Freemium : Tandis que l'accès de base à l'API peut être gratuit, avec certaines limitations (par exemple, un nombre limité de requêtes par minute ou par jour), les utilisateurs qui ont besoin de capacités supplémentaires ou d'accès à des données plus spécialisées peuvent opter pour des plans payants. Cela crée une source de revenus pour ces plateformes tout en offrant un service précieux à la communauté.`
+
+* Agrégation de Données : CoinGecko et CoinMarketCap rassemblent des données de nombreux échanges de cryptomonnaie à travers le monde. Ces données peuvent inclure les prix actuels, les volumes d'échange, les données historiques, et bien d'autres informations pertinentes.
+* Traitement et Modélisation : Une fois les données récupérées, elles sont traitées, modélisées et souvent normalisées pour fournir des informations cohérentes aux utilisateurs. Par exemple, le calcul du prix moyen d'une cryptomonnaie sur différents échanges ou la prise en compte de la liquidité pour pondérer ces moyennes.
+* Accessibilité via l'API : Ces plateformes rendent ensuite ces données accessibles via leurs API. Les développeurs, les entreprises ou même les amateurs peuvent accéder à ces données pour leurs propres analyses, applications ou sites web.
+* Modèle Freemium : Tandis que l'accès de base à l'API peut être gratuit, avec certaines limitations (par exemple, un nombre limité de requêtes par minute ou par jour), les utilisateurs qui ont besoin de capacités supplémentaires ou d'accès à des données plus spécialisées peuvent opter pour des plans payants. Cela crée une source de revenus pour ces plateformes tout en offrant un service précieux à la communauté.
 

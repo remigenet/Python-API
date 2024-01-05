@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-05">
+
+<title>Introduction à Python - TP - Postman et requêtes API</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_1/6-UserApi.html" rel="prev">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - TP - Postman et requêtes API">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/TP.webp">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="TP - Postman et requêtes API">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-05">
+<meta name="citation_cover_date" content="2024-01-05">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-05">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/TP-Postman_and_coingeko.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/website/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
+ <span class="dropdown-text">API - Définition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Créer une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Sécuriser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
+ <span class="dropdown-text">Tester une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
+ <span class="dropdown-text">La notion d’API utilisateur</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
+ <span class="dropdown-text">TP - Postman et requêtes API</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-Conception-optimizations.html">
+ <span class="dropdown-text">Optimisation des ressources et de la performance des API</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/TP-2-compare-run.html">
+ <span class="dropdown-text">TP : Comparaison des performances des appels en tant qu’utilisateur</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Sockets.html">
+ <span class="dropdown-text">Sockets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-Files.html">
+ <span class="dropdown-text">Fichiers et IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-SharedMemory.html">
+ <span class="dropdown-text">Shared Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Pipes.html">
+ <span class="dropdown-text">Pipes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-gRPC.html">
+ <span class="dropdown-text">gRPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/7-OtherIPCend.html">
+ <span class="dropdown-text">Conclusions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
+ <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-Frameworks.html">
+ <span class="dropdown-text">Les principaux Frameworks d’APIs en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/4-FastAPI.html">
+ <span class="dropdown-text">Fast API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/5-DjangoRest.html">
+ <span class="dropdown-text">Django REST Framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/6-testanddocs.html">
+ <span class="dropdown-text">Tester et documenter une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/7-Good Practice.html">
+ <span class="dropdown-text">Bonne pratique générale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/8.Conclusion.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
+ <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-heroku.html">
+ <span class="dropdown-text">Heroku - Présentation du service</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-Best Practice.html">
+ <span class="dropdown-text">Meilleurs Pratiques avant un déploiement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/4-herodepl.html">
+ <span class="dropdown-text">Deploiement sur Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/5-moreexample.html">
+ <span class="dropdown-text">Déploiement avancé</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/6-domain.html">
+ <span class="dropdown-text">Bonus - Nom de Domaine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/7-end.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-Postman_and_coingeko.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-Postman_and_coingeko.html">TP - Postman et requêtes API</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/1-API101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">API - Définition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/2-User101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Utiliser une API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/3-Concepteur101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Créer une API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/4-guard101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sécuriser une API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/5-tester101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tester une API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/6-UserApi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">La notion d’API utilisateur</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_1/TP-Postman_and_coingeko.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">TP - Postman et requêtes API</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api." id="toc-objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api." class="nav-link active" data-scroll-target="#objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api.">Objectif : Apprendre à connaître l’outil Postman, ses origines, ses différentes fonctionnalités et comment il peut être utilisé pour travailler avec des API.</a></li>
+  <li><a href="#postman-présentation" id="toc-postman-présentation" class="nav-link" data-scroll-target="#postman-présentation">1: Postman: Présentation</a>
+  <ul class="collapse">
+  <li><a href="#présentation-de-postman" id="toc-présentation-de-postman" class="nav-link" data-scroll-target="#présentation-de-postman">1.1 : Présentation de Postman</a></li>
+  <li><a href="#les-différentes-versions-de-postman" id="toc-les-différentes-versions-de-postman" class="nav-link" data-scroll-target="#les-différentes-versions-de-postman">1.2 : Les différentes versions de Postman</a></li>
+  <li><a href="#les-éléments-principaux-de-postman" id="toc-les-éléments-principaux-de-postman" class="nav-link" data-scroll-target="#les-éléments-principaux-de-postman">1.3 : Les éléments principaux de postman</a>
+  <ul class="collapse">
+  <li><a href="#a.-workspaces" id="toc-a.-workspaces" class="nav-link" data-scroll-target="#a.-workspaces">a. Workspaces:</a></li>
+  <li><a href="#b.-collections" id="toc-b.-collections" class="nav-link" data-scroll-target="#b.-collections">b. Collections:</a></li>
+  <li><a href="#c.-flows" id="toc-c.-flows" class="nav-link" data-scroll-target="#c.-flows">c.&nbsp;Flows:</a></li>
+  </ul></li>
+  <li><a href="#création-et-structuration-de-votre-premier-workspace" id="toc-création-et-structuration-de-votre-premier-workspace" class="nav-link" data-scroll-target="#création-et-structuration-de-votre-premier-workspace">2.2 Création et structuration de votre premier Workspace</a></li>
+  </ul></li>
+  <li><a href="#faire-une-requête-api-en-utilisant-python" id="toc-faire-une-requête-api-en-utilisant-python" class="nav-link" data-scroll-target="#faire-une-requête-api-en-utilisant-python">3. Faire une requête API en utilisant Python</a>
+  <ul class="collapse">
+  <li><a href="#exemple-de-base" id="toc-exemple-de-base" class="nav-link" data-scroll-target="#exemple-de-base">3.1 Exemple de base</a></li>
+  <li><a href="#exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" id="toc-exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" class="nav-link" data-scroll-target="#exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire">3.2 . Exercice pratique: Accéder à des informations via une requête intermédiaire</a></li>
+  <li><a href="#exercice-dapplication-avant-le-prochain-cours" id="toc-exercice-dapplication-avant-le-prochain-cours" class="nav-link" data-scroll-target="#exercice-dapplication-avant-le-prochain-cours">3.3 Exercice d’application avant le prochain cours :</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-Postman_and_coingeko.html">Travaux Pratiques</a></li><li class="breadcrumb-item"><a href="../../content/Cours_1/TP-Postman_and_coingeko.html">TP - Postman et requêtes API</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">TP - Postman et requêtes API</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">TP</div>
+    <div class="quarto-category">Introduction</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-05</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api." class="level2">
+<h2 class="anchored" data-anchor-id="objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api.">Objectif : Apprendre à connaître l’outil Postman, ses origines, ses différentes fonctionnalités et comment il peut être utilisé pour travailler avec des API.</h2>
+</section>
+<section id="postman-présentation" class="level1">
+<h1>1: Postman: Présentation</h1>
+<section id="présentation-de-postman" class="level2">
+<h2 class="anchored" data-anchor-id="présentation-de-postman">1.1 : Présentation de Postman</h2>
+<ul>
+<li>Historique et Contexte : Postman a été créé en 2012 par Abhinav Asthana pour simplifier le processus de création, de test et de documentation des API. À l’origine, c’était une simple extension de navigateur pour Chrome, mais devant son succès grandissant, il s’est rapidement transformé en une solution complète dédiée aux API.</li>
+<li>À propos de l’entreprise : Postman, Inc., la société derrière l’outil, a son siège à San Francisco, en Californie. Elle s’est engagée à aider les développeurs dans leurs tâches liées aux API.</li>
+<li>Licence : Postman est un produit commercial avec une version gratuite disponible. Il propose également des versions payantes offrant des fonctionnalités supplémentaires pour les équipes et les entreprises.</li>
+<li>Plateforme communautaire : Postman n’est pas seulement un outil ; c’est aussi une plateforme sur laquelle les développeurs, les entreprises et même les géants technologiques publient leurs collections. Ces collections sont des ensembles préconfigurés de requêtes API qui facilitent l’interaction avec ces services.
+<ul>
+<li><strong>Entreprises renommées :</strong></li>
+<li>Des entreprises telles que PayPal, Microsoft, Twitter et bien d’autres ont publié officiellement leurs collections sur Postman. Cela permet aux développeurs d’interagir facilement avec leurs services sans avoir à configurer manuellement chaque requête.</li>
+<li><strong>Communauté :</strong></li>
+<li>En plus des entreprises, la vaste communauté de développeurs contribue activement en partageant des collections pour diverses API, qu’il s’agisse d’API populaires ou de services moins connus. Cette approche collaborative rend l’apprentissage et le test des API plus accessibles à tous.</li>
+</ul></li>
+</ul>
+</section>
+<section id="les-différentes-versions-de-postman" class="level2">
+<h2 class="anchored" data-anchor-id="les-différentes-versions-de-postman">1.2 : Les différentes versions de Postman</h2>
+<ul>
+<li>Postman Web : Il s’agit de la version en ligne de Postman qui peut être utilisée directement dans un navigateur. Elle est idéale pour ceux qui ne souhaitent pas installer de logiciel supplémentaire sur leur machine.</li>
+<li>Postman Desktop App : Cette version est une application de bureau disponible pour Windows, macOS et Linux. Elle offre une expérience plus fluide et est généralement préférée par les développeurs qui l’utilisent fréquemment.</li>
+<li>Postman CLI (Command-Line Interface) : Connue sous le nom de “Newman”, c’est l’interface en ligne de commande de Postman. Elle permet d’exécuter des collections Postman depuis la ligne de commande, ce qui est utile pour l’intégration avec d’autres outils et pour l’automatisation.</li>
+<li>Comparaison : Alors que la version Web est pratique et accessible de partout, l’application de bureau offre une meilleure performance et une intégration plus étroite avec le système d’exploitation. Newman, quant à lui, est préféré pour les scénarios d’automatisation et d’intégration continue.</li>
+</ul>
+<p>Pour la suite du TP nous utiliserons simplement postman en version web, disponible en suivant: https://www.postman.com/ Rendez vous sur le site et créez vous un compte (gratuit évidemment).</p>
+</section>
+<section id="les-éléments-principaux-de-postman" class="level2">
+<h2 class="anchored" data-anchor-id="les-éléments-principaux-de-postman">1.3 : Les éléments principaux de postman</h2>
+<section id="a.-workspaces" class="level3">
+<h3 class="anchored" data-anchor-id="a.-workspaces">a. Workspaces:</h3>
+<p>Un Workspace dans Postman est essentiellement un espace de travail où les utilisateurs peuvent collaborer et organiser leur travail autour des API. Chaque espace de travail contient des collections, environnements, intégrations et d’autres ressources liées à un projet ou à une équipe spécifique. En explorant les workspaces, vous pourriez trouver: - Collections: Groupes de requêtes associées, souvent organisées autour d’une API ou d’une fonctionnalité spécifique. - Environnements: Des ensembles de variables qui peuvent être utilisés dans les requêtes. Par exemple, vous pourriez avoir un environnement de “production” et un autre de “développement”. - Mocks: Simulations d’API pour tester sans avoir à accéder à l’API réelle. - Monitors: Des tests automatisés pour surveiller la performance et la disponibilité d’une API. - Integrations: Liens avec d’autres outils et services, permettant par exemple de synchroniser votre collection Postman avec un dépôt GitHub. - History: Un journal des requêtes exécutées dans cet espace de travail.</p>
+</section>
+<section id="b.-collections" class="level3">
+<h3 class="anchored" data-anchor-id="b.-collections">b. Collections:</h3>
+<p>Une Collection dans Postman est un groupe organisé de requêtes individuelles. Une collection peut être considérée comme une bibliothèque d’API, où chaque requête est une fonction ou un endpoint spécifique de cette API. Les collections permettent aux développeurs de regrouper, documenter, tester et partager des requêtes. Lors de l’exploration des collections, vous pourriez trouver: - Requests: Les requêtes HTTP individuelles, comme GET, POST, PUT, DELETE, etc. - Documentation: Des descriptions et des notes sur chaque requête, expliquant comment elle fonctionne et ce qu’elle fait. - Tests: Des scripts automatisés qui peuvent être exécutés après une requête pour s’assurer qu’elle renvoie les résultats attendus. - Variables: Des variables spécifiques à la collection qui peuvent être utilisées dans les requêtes ou les tests.</p>
+</section>
+<section id="c.-flows" class="level3">
+<h3 class="anchored">c.&nbsp;Flows:</h3>
+<ul>
+<li>Flows dans Postman est une fonctionnalité récente qui permet aux utilisateurs de créer des workflows automatisés en connectant différentes API et services ensemble. C’est comme un outil d’orchestration pour vos API.</li>
+<li>Lors de l’exploration des flows, vous pourriez trouver:</li>
+<li>Triggers: Événements qui déclenchent l’exécution d’un flow.</li>
+<li>Actions: Les étapes individuelles ou les opérations exécutées dans un flow, comme l’envoi d’une requête API ou la manipulation de données.</li>
+<li>Conditions: Des tests logiques qui déterminent le déroulement du flow, permettant des décisions conditionnelles.</li>
+<li>Integrations: Connexions à d’autres services ou outils, pour permettre des actions comme l’envoi d’une notification Slack ou la mise à jour d’une base de données.</li>
+<li><h1 id="explorations">2 Explorations</h1>
+<h2 id="exploration-de-la-collection-tremendous-api" class="anchored" data-anchor-id="c.-flows">2.1 Exploration de la collection “Tremendous API”</h2>
+<strong>Objectif:</strong> Se familiariser avec l’utilisation des requêtes à travers une collection spécifique. Instructions:</li>
+<li>Accéder à la collection “Tremendous API”:
+<ul>
+<li>Rendez-vous dans la section “Explore” de Postman.</li>
+<li>Cherchez et sélectionnez la collection “Tremendous API”.</li>
+</ul></li>
+<li>Navigation dans la collection:
+<ul>
+<li>Parcourez la liste de requêtes disponibles au sein de la collection.</li>
+</ul></li>
+<li>Exécution de la requête “List Products”:
+<ul>
+<li>Sélectionnez la requête “List Products” au sein de la collection.</li>
+<li>Cliquez sur le bouton “Send” pour exécuter cette requête.</li>
+<li>Observez la réponse retournée par le serveur dans le volet inférieur.</li>
+</ul></li>
+<li>Exécution de la requête “Retrieve Product”:
+<ul>
+<li>Sélectionnez la requête “Retrieve Product”.</li>
+<li>Remplissez le paramètre nécessaire (par exemple, ID de produit) et envoyez la requête.</li>
+<li>Observez la réponse et comparez-la à la précédente.</li>
+</ul></li>
+</ul>
+<p>Questions: Quelle est la principale différence entre les réponses des deux requêtes? Quels détails pouvez-vous obtenir sur un produit en utilisant la requête “Retrieve Product”?</p>
+</section>
+</section>
+<section id="création-et-structuration-de-votre-premier-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="création-et-structuration-de-votre-premier-workspace">2.2 Création et structuration de votre premier Workspace</h2>
+<p><strong>Objectif:</strong> Apprendre à créer, structurer un workspace, effectuer des requêtes et partager vos résultats.</p>
+<p><strong>Instructions:</strong> - Création d’un nouveau Workspace: - Dans le volet de navigation à gauche, cliquez sur “+ New Workspace”. - Nommez votre workspace “Mon Premier Workspace” et ajoutez une brève description. - Ajout d’une collection: - Cliquez sur “+ New Collection” dans votre workspace. - Nommez la collection “Test API”. - Création d’une requête simple: - Dans “Test API”, cliquez sur “+ Add request”. - Créez une requête GET vers https://api.publicapis.org/entries. - Nommez cette requête “Lister toutes les APIs”. - Envoyez la requête et observez la réponse. - Analyse de la réponse: - Explorez la structure JSON de la réponse. - Identifiez quelques catégories d’API intéressantes (par exemple, santé, finance, musique). - Filtrage des résultats: - Créez une nouvelle requête GET avec des paramètres pour filtrer les résultats selon une catégorie (par exemple, “finance”). - Nommez cette requête “APIs Finance”. - Envoyez la requête et observez les résultats filtrés. - Documentation de votre collection: - Pour chaque requête, ajoutez une brève description de ce qu’elle fait et de ce qu’elle retourne. - Documentez également la structure de la réponse JSON, en notant les champs clés et leur signification. - Exportation de votre collection: - Sélectionnez votre collection “Test API”. - Cliquez sur les trois points (…) à côté du nom de la collection. - Choisissez “Export” et sauvegardez le fichier JSON sur votre machine.</p>
+</section>
+</section>
+<section id="faire-une-requête-api-en-utilisant-python" class="level1">
+<h1>3. Faire une requête API en utilisant Python</h1>
+<section id="exemple-de-base" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-de-base">3.1 Exemple de base</h2>
+<p><strong>Objectif:</strong> Utiliser Python pour effectuer des requêtes API et exploiter les données reçues.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><p><strong>Installation de <code>requests</code>:</strong> Si vous ne l’avez pas encore installé, <code>requests</code> est un module Python permettant d’envoyer des requêtes HTTP facilement. Installez-le via pip :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Effectuer une requête simple en Python:</strong> Utilisons la bibliothèque <code>requests</code> pour effectuer une requête GET, comme nous l’avons fait dans Postman.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://api.publicapis.org/entries"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimer les premiers 10 entrées</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> data[<span class="st">'entries'</span>][:<span class="dv">10</span>]:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(entry[<span class="st">'API'</span>], <span class="st">"-"</span>, entry[<span class="st">'Description'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Utilisation d’une requête précédente:</strong> Réutilisez une des requêtes que vous avez effectuées dans Postman. Par exemple, si vous avez filtré les APIs de la catégorie “finance”, faites la même chose en Python :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://api.publicapis.org/entries?category=finance"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>finance_data <span class="op">=</span> response.json()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> entry <span class="kw">in</span> finance_data[<span class="st">'entries'</span>]:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(entry[<span class="st">'API'</span>], <span class="st">"-"</span>, entry[<span class="st">'Description'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<hr>
+</section>
+<section id="exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire">3.2 . Exercice pratique: Accéder à des informations via une requête intermédiaire</h2>
+<p><strong>Objectif:</strong> Apprendre à utiliser une réponse d’API comme entrée pour une autre requête et lire une doc API</p>
+<p><strong>Contexte:</strong> Nous allons utiliser l’API CoinGecko. La première requête nous permettra de récupérer une liste d’identifiants de cryptomonnaies, puis nous utiliserons ces identifiants pour obtenir des informations détaillées sur une cryptomonnaie spécifique.</p>
+<p><strong>Instructions:</strong></p>
+<ol type="1">
+<li><p><strong>Récupération des identifiants de cryptomonnaies:</strong> Effectuez une requête pour obtenir une liste d’identifiants de cryptomonnaies.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://api.coingecko.com/api/v3/coins/list"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>coins <span class="op">=</span> response.json()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimer les premiers 10 noms de cryptomonnaies et leurs identifiants</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> coin <span class="kw">in</span> coins[:<span class="dv">10</span>]:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(coin[<span class="st">'id'</span>], <span class="st">"-"</span>, coin[<span class="st">'name'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Obtenir des informations détaillées sur une cryptomonnaie:</strong> En utilisant un identifiant précédemment obtenu, effectuez une autre requête pour obtenir des informations détaillées sur cette cryptomonnaie.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>coin_id <span class="op">=</span> <span class="st">"bitcoin"</span>  <span class="co"># Remplacez ceci par un autre identifiant si vous le souhaitez</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>detailed_url <span class="op">=</span> <span class="ss">f"https://api.coingecko.com/api/v3/coins/</span><span class="sc">{</span>coin_id<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>detailed_response <span class="op">=</span> requests.get(detailed_url)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>coin_details <span class="op">=</span> detailed_response.json()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimer des informations clés</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(coin_details[<span class="st">'name'</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valeur actuelle:"</span>, coin_details[<span class="st">'market_data'</span>][<span class="st">'current_price'</span>][<span class="st">'usd'</span>], <span class="st">"USD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="exercice-dapplication-avant-le-prochain-cours" class="level2">
+<h2 class="anchored" data-anchor-id="exercice-dapplication-avant-le-prochain-cours">3.3 Exercice d’application avant le prochain cours :</h2>
+<p>En utilisant la documentation se trouvant ici https://www.coingecko.com/api/documentation, répondez aux questions suivante :</p>
+<ol type="1">
+<li><p><strong>Volume quotidien moyen du BTC et de l’ETH en USDT, USDC, USD et EUR</strong></p>
+<p><em>Objectif</em>: Calculez et présentez le volume quotidien moyen des transactions pour le BTC et l’ETH dans les devises suivantes : USDT, USDC, USD et EUR.</p></li>
+<li><p><strong>Même donnée pour les 10 cryptomonnaies les plus liquides après BTC et ETH</strong></p>
+<p><em>Objectif</em>: Sélectionnez les 10 cryptomonnaies suivantes en importance après le BTC et l’ETH. Calculez et présentez leur volume quotidien moyen dans les devises : USDT, USDC, USD et EUR.</p></li>
+<li><p><strong>Top 3 des cryptomonnaies les plus liquides contre BTC et ETH comme devises de cotation, avec volume</strong></p>
+<p><em>Objectif</em>: Identifiez les trois cryptomonnaies qui ont le plus grand volume de transaction lorsqu’elles sont cotées en BTC ou ETH (par exemple: ADA/BTC, XRP/ETH). Présentez le volume pour chaque paire.</p></li>
+<li><p><strong>Top 3 des stablecoins les plus liquides comme devises de cotation, avec volume</strong></p>
+<p><em>Objectif</em>: Identifiez les trois stablecoins qui ont le plus grand volume de transaction lorsqu’ils sont utilisés comme devises de cotation (par exemple: xxx/USDT, xxx/USDC, xxx/TUSD). Présentez le volume pour chaque paire.</p></li>
+<li><p><strong>Période de référence pour l’analyse</strong></p>
+<p>Veuillez préciser la période sur laquelle vous basez votre analyse (par exemple, un mois, trois mois, un an, etc.) selon ce que vous jugez pertinent pour l’exercice.</p></li>
+</ol>
+<p>Aides : - La Librairie Pandas pourra grandement vous aider pour traiter les données facilement</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_1/6-UserApi.html" class="pagination-link  aria-label=" la="" notion="" d&#39;api="" utilisateur"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">La notion d’API utilisateur</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Python API, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

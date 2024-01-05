@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-05">
+
+<title>Introduction à Python - Fast API</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_4/5-DjangoRest.html" rel="next">
+<link href="../../content/Cours_4/2-Frameworks.html" rel="prev">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - Fast API">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_4/.img/fastapi.webp">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="Fast API">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-05">
+<meta name="citation_cover_date" content="2024-01-05">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-05">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_4/4-FastAPI.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/website/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
+ <span class="dropdown-text">API - Définition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Créer une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Sécuriser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
+ <span class="dropdown-text">Tester une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
+ <span class="dropdown-text">La notion d’API utilisateur</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
+ <span class="dropdown-text">TP - Postman et requêtes API</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-Conception-optimizations.html">
+ <span class="dropdown-text">Optimisation des ressources et de la performance des API</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/TP-2-compare-run.html">
+ <span class="dropdown-text">TP : Comparaison des performances des appels en tant qu’utilisateur</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Sockets.html">
+ <span class="dropdown-text">Sockets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-Files.html">
+ <span class="dropdown-text">Fichiers et IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-SharedMemory.html">
+ <span class="dropdown-text">Shared Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Pipes.html">
+ <span class="dropdown-text">Pipes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-gRPC.html">
+ <span class="dropdown-text">gRPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/7-OtherIPCend.html">
+ <span class="dropdown-text">Conclusions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
+ <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-Frameworks.html">
+ <span class="dropdown-text">Les principaux Frameworks d’APIs en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/4-FastAPI.html">
+ <span class="dropdown-text">Fast API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/5-DjangoRest.html">
+ <span class="dropdown-text">Django REST Framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/6-testanddocs.html">
+ <span class="dropdown-text">Tester et documenter une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/7-Good Practice.html">
+ <span class="dropdown-text">Bonne pratique générale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/8.Conclusion.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
+ <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-heroku.html">
+ <span class="dropdown-text">Heroku - Présentation du service</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-Best Practice.html">
+ <span class="dropdown-text">Meilleurs Pratiques avant un déploiement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/4-herodepl.html">
+ <span class="dropdown-text">Deploiement sur Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/5-moreexample.html">
+ <span class="dropdown-text">Déploiement avancé</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/6-domain.html">
+ <span class="dropdown-text">Bonus - Nom de Domaine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/7-end.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_4/4-FastAPI.html">Fast API</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/1-IntroConception.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction à la Conception d’APIs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/2-Frameworks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Les principaux Frameworks d’APIs en Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+ <span class="menu-text">content/Cours_4//3-Falsk.qmd</span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/4-FastAPI.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fast API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/5-DjangoRest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Django REST Framework</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/6-testanddocs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tester et documenter une API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/7-Good Practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonne pratique générale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/8.Conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/TP-RequetteruneAPI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" id="toc-asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="nav-link active" data-scroll-target="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil">Asynchronie et Multiprocessing - comment donner le tournis au GIL</a></li>
+  <li><a href="#iv.-conception-avancée-avec-fastapi" id="toc-iv.-conception-avancée-avec-fastapi" class="nav-link" data-scroll-target="#iv.-conception-avancée-avec-fastapi">IV. Conception Avancée avec FastAPI</a>
+  <ul class="collapse">
+  <li><a href="#avantages-de-performance-et-de-conception" id="toc-avantages-de-performance-et-de-conception" class="nav-link" data-scroll-target="#avantages-de-performance-et-de-conception">1. Avantages de Performance et de Conception</a>
+  <ul class="collapse">
+  <li><a href="#a.-starlette" id="toc-a.-starlette" class="nav-link" data-scroll-target="#a.-starlette">a. Starlette ?</a></li>
+  <li><a href="#b.-pydantic" id="toc-b.-pydantic" class="nav-link" data-scroll-target="#b.-pydantic">b. Pydantic ?</a></li>
+  </ul></li>
+  <li><a href="#typage-fort-et-validation-des-données" id="toc-typage-fort-et-validation-des-données" class="nav-link" data-scroll-target="#typage-fort-et-validation-des-données">2. Typage Fort et Validation des Données</a></li>
+  <li><a href="#dépendances" id="toc-dépendances" class="nav-link" data-scroll-target="#dépendances">4. Dépendances</a></li>
+  <li><a href="#middleware" id="toc-middleware" class="nav-link" data-scroll-target="#middleware">5. Middleware</a>
+  <ul class="collapse">
+  <li><a href="#a.-ajout-de-middleware-avec-le-décorateur-app.middleware" id="toc-a.-ajout-de-middleware-avec-le-décorateur-app.middleware" class="nav-link" data-scroll-target="#a.-ajout-de-middleware-avec-le-décorateur-app.middleware">a. Ajout de middleware avec le décorateur <span class="citation" data-cites="app.middleware">@app.middleware</span></a></li>
+  <li><a href="#c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard" id="toc-c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard" class="nav-link" data-scroll-target="#c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard">c.&nbsp;Pourquoi un middleware personnalisé plutôt que le décorateur standard ?</a></li>
+  </ul></li>
+  <li><a href="#tests-automatisés" id="toc-tests-automatisés" class="nav-link" data-scroll-target="#tests-automatisés">5. Tests Automatisés</a></li>
+  </ul></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
+  <li><a href="#simuler-une-base-de-données-dutilisateurs" id="toc-simuler-une-base-de-données-dutilisateurs" class="nav-link" data-scroll-target="#simuler-une-base-de-données-dutilisateurs">Simuler une base de données d’utilisateurs</a></li>
+  <li><a href="#utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel" id="toc-utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel" class="nav-link" data-scroll-target="#utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel">Utilisez cette fonction de dépendance pour obtenir l’utilisateur actuel</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fast API</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-05</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="level1">
+<h1>Asynchronie et Multiprocessing - comment donner le tournis au GIL</h1>
+<hr>
+</section>
+<section id="iv.-conception-avancée-avec-fastapi" class="level1">
+<h1>IV. Conception Avancée avec FastAPI</h1>
+<pre><code>FastAPI est un framework moderne et rapide (haute performance) pour la construction d'APIs avec Python 3.7+, basé sur des standards Python type hints. L'un des principaux avantages de FastAPI est qu'il est conçu pour être facile et rapide à coder et qu'il réduit les erreurs de développement.</code></pre>
+<section id="avantages-de-performance-et-de-conception" class="level2">
+<h2 class="anchored" data-anchor-id="avantages-de-performance-et-de-conception">1. Avantages de Performance et de Conception</h2>
+<pre><code>FastAPI est construit sur Starlette pour le routage web et Pydantic pour la validation des données, ce qui le rend rapide. Il est asynchrone nativement et est donc idéal pour les opérations IO-bound et les requêtes simultanées à grande échelle.</code></pre>
+<section id="a.-starlette" class="level3">
+<h3 class="anchored" data-anchor-id="a.-starlette">a. Starlette ?</h3>
+<pre><code>Starlette est un framework web léger et de haute performance pour Python, conçu pour créer des applications asynchrones. Il est souvent utilisé comme fondation pour construire des frameworks plus grands comme FastAPI, mais il peut également être utilisé seul pour créer des applications web simples et des microservices.
+
+Voici quelques points clés sur Starlette :
+</code></pre>
+<ol type="1">
+<li><code>Asynchronicité : Starlette est construit sur une base asynchrone, ce qui le rend particulièrement adapté pour les opérations I/O-bound, telles que les services qui font beaucoup d'appels de bases de données ou de requêtes HTTP externes.</code></li>
+<li><code>Flexibilité : Starlette est flexible et permet de construire des applications web avec seulement les composants nécessaires, ce qui le rend très léger et rapide.</code></li>
+<li><code>Modularité : Il est conçu pour être modulaire et facile à personnaliser. Vous pouvez utiliser les composants de Starlette avec d'autres frameworks asynchrones comme Sanic ou Quart, ou dans n'importe quelle application ASGI.</code></li>
+<li><code>Fonctionnalités : Malgré sa simplicité, Starlette offre un large éventail de fonctionnalités telles que le routage des requêtes, les middlewares, les websockets, les graphiques de dépendances, et plus encore.</code></li>
+<li><code>Compatibilité ASGI : Starlette est entièrement compatible avec l'interface de serveur web asynchrone (ASGI), qui est la norme émergente pour les applications web Python asynchrones et remplace WSGI pour les applications qui nécessitent de l'asynchronicité.</code></li>
+<li><code>Performances : Starlette est conçu pour être rapide. Il est l'un des frameworks Python les plus rapides disponibles, en partie grâce à sa nature asynchrone et à son architecture légère.</code></li>
+<li><code>Tests : Starlette facilite les tests avec un client de test qui permet de simuler des requêtes et des réponses sans avoir besoin d'un serveur en cours d'exécution.</code></li>
+</ol>
+<pre><code>En résumé, Starlette est un excellent choix pour les développeurs qui ont besoin d'un framework web asynchrone qui est à la fois rapide et facile à utiliser, tout en offrant les fonctionnalités essentielles nécessaires pour construire des applications web modernes.</code></pre>
+</section>
+<section id="b.-pydantic" class="level3">
+<h3 class="anchored" data-anchor-id="b.-pydantic">b. Pydantic ?</h3>
+<pre><code>Pydantic est une bibliothèque de validation et de gestion des données pour Python qui est fortement basée sur les annotations de type Python (Python type hints). Elle est conçue pour permettre une validation de données rapide et simple, et est particulièrement utile pour la construction d'APIs et de modèles de données.
+
+Voici quelques caractéristiques clés de Pydantic :
+</code></pre>
+<ol type="1">
+<li><code>Validation de données : Pydantic utilise les annotations de type Python pour valider que les données entrantes correspondent à un schéma attendu. Si les données ne correspondent pas, Pydantic lève des erreurs de validation explicites.</code></li>
+<li><code>Modèles de données : Avec Pydantic, vous pouvez définir des modèles de données, qui sont des classes Python avec des attributs typés. Ces modèles sont utilisés pour la validation mais peuvent également être utilisés comme une abstraction pour manipuler des données complexes.</code></li>
+<li><code>Conversion de types automatique : Pydantic tente de convertir les types de données entrants dans les types attendus, si possible. Par exemple, si un modèle attend un entier et qu'une chaîne de caractères numérique est fournie, Pydantic convertira la chaîne en entier.</code></li>
+<li><code>Annotations de type avancées : Pydantic supporte les annotations de type avancées de Python, y compris Optional, List, Dict, et les types personnalisés.</code></li>
+<li><code>Intégration avec les frameworks : Pydantic s'intègre bien avec de nombreux frameworks web modernes, notamment FastAPI, qui l'utilise pour la validation des données et la génération automatique de documentation pour les APIs.</code></li>
+<li><code>Génération de documentation : Les modèles Pydantic peuvent être utilisés pour générer automatiquement de la documentation pour une API, y compris les schémas JSON Schema.</code></li>
+<li><code>Plugins et extensions : Pydantic peut être étendu avec des plugins et est compatible avec de nombreux plugins existants qui ajoutent des fonctionnalités supplémentaires, comme la sérialisation en ORM, la validation par des expressions régulières, etc.</code></li>
+<li><code>Performances : Pydantic est conçu pour être rapide et efficace, ce qui est crucial pour les performances des applications web et des APIs.</code></li>
+</ol>
+<pre><code>En résumé, Pydantic est un outil puissant pour la validation des données et la définition de modèles de données en Python, offrant une syntaxe claire et concise et une intégration facile avec d'autres frameworks et outils.</code></pre>
+</section>
+</section>
+<section id="typage-fort-et-validation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="typage-fort-et-validation-des-données">2. Typage Fort et Validation des Données</h2>
+<pre><code>Grâce aux Python type hints, FastAPI peut valider les types de données entrantes, ce qui simplifie la validation des données et l'auto-documentation de l'API.
+
+
+</code></pre>
+<p>from fastapi import FastAPI from pydantic import BaseModel</p>
+<p>app = FastAPI()</p>
+<p>class Item(BaseModel): name: str description: str = None price: float tax: float = None</p>
+<p><span class="citation" data-cites="app.post">@app.post</span>(“/items/”) async def create_item(item: Item): return item</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, un modèle Item est défini avec Pydantic, et une route est créée où FastAPI s’attend à recevoir des données correspondant à ce modèle, les valide, et les rend directement.</p>
+<pre><code>
+
+
+## 3. Sécurité et Authentification
+
+</code></pre>
+<p>FastAPI fournit plusieurs outils pour gérer l’authentification et la sécurité, y compris le support intégré pour OAuth2 avec JWT.</p>
+<pre><code>from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.get("/users/me")
+async def read_users_me(token: str = Depends(oauth2_scheme)):
+    if token != "fake-super-secret-token":
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid authentication credentials",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    return {"token": token}</code></pre>
+<pre><code>Dans cet exemple, OAuth2PasswordBearer est utilisé pour définir un schéma de sécurité OAuth2 qui attend un token dans les en-têtes de la requête.</code></pre>
+</section>
+<section id="dépendances" class="level2">
+<h2 class="anchored" data-anchor-id="dépendances">4. Dépendances</h2>
+<pre><code>FastAPI permet d'utiliser des "dépendances" pour créer des dépendances réutilisables que vous pouvez injecter dans vos routes.
+
+
+#### Exemple basique de dépendance
+
+
+</code></pre>
+<p>from fastapi import Depends, FastAPI</p>
+<p>def common_parameters(q: str = None, skip: int = 0, limit: int = 100): return {“q”: q, “skip”: skip, “limit”: limit}</p>
+<p><span class="citation" data-cites="app.get">@app.get</span>(“/items/”) async def read_items(commons: dict = Depends(common_parameters)): return commons</p>
+<pre><code>
+
+</code></pre>
+<section id="exemple-de-dépendance-avancée" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-dépendance-avancée">Exemple de dépendance avancée</h4>
+<pre><code>from fastapi import Depends, FastAPI, HTTPException
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class User(BaseModel):
+    username: str
+    is_admin: bool = False
+
+def get_current_user():
+    # Ici, vous pourriez récupérer l'utilisateur actuel de la base de données ou d'un token
+    return User(username="johndoe", is_admin=True)
+
+def require_admin(user: User = Depends(get_current_user)):
+    if not user.is_admin:
+        raise HTTPException(status_code=403, detail="Admin access required")
+
+@app.post("/admin/")
+async def admin_dashboard(user: User = Depends(require_admin)):
+    return {"message": "Admin dashboard access granted"}</code></pre>
+<pre><code>Dans cet exemple, get_current_user est une dépendance qui récupère l'utilisateur actuel, et require_admin est une dépendance qui dépend de get_current_user et vérifie si l'utilisateur est administrateur. La route /admin/ utilise require_admin pour s'assurer que seuls les administrateurs peuvent y accéder.</code></pre>
+</section>
+</section>
+<section id="middleware" class="level2">
+<h2 class="anchored" data-anchor-id="middleware">5. Middleware</h2>
+<pre><code>Un middleware est une fonction qui est exécutée pour chaque requête avant qu'elle n'atteigne la route effective et après que la réponse a été générée par la route. Cela permet d'ajouter des fonctionnalités à votre application qui s'appliquent à toutes les requêtes, comme la gestion des erreurs, la journalisation, la gestion des CORS, etc.</code></pre>
+<section id="a.-ajout-de-middleware-avec-le-décorateur-app.middleware" class="level3">
+<h3 class="anchored" data-anchor-id="a.-ajout-de-middleware-avec-le-décorateur-app.middleware">a. Ajout de middleware avec le décorateur <span class="citation" data-cites="app.middleware">@app.middleware</span></h3>
+<pre><code>
+
+#### Exemple de middleware
+
+
+</code></pre>
+<p>from fastapi import FastAPI import time</p>
+<p>app = FastAPI()</p>
+<p><span class="citation" data-cites="app.middleware">@app.middleware</span>(“http”) async def add_process_time_header(request, call_next): start_time = time.time() response = await call_next(request) process_time = time.time() - start_time response.headers[“X-Process-Time”] = str(process_time) return response</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, le middleware mesure le temps de traitement de chaque requête et ajoute cet information dans les en-têtes de la réponse.</p>
+<section id="options-de-middleware" class="level4">
+<h4 class="anchored" data-anchor-id="options-de-middleware">Options de middleware</h4>
+<p>FastAPI vous permet d’ajouter des middlewares pour différentes couches de la requête HTTP. Par défaut, “http” est utilisé pour les middlewares qui agissent sur chaque requête HTTP. Vous pouvez également créer des middlewares personnalisés pour des tâches spécifiques, mais cela nécessite une connaissance plus approfondie de Starlette (le toolkit asynchrone sur lequel FastAPI est construit) et des ASGI (Asynchronous Server Gateway Interface), qui est le standard utilisé pour les applications Python asynchrones.</p>
+<p>Voici les types de middlewares que vous pouvez ajouter :</p>
+<pre><code>
+
+
+* `"http" : Pour les requêtes HTTP standard.`
+* `Middleware personnalisé : Vous pouvez créer des middlewares personnalisés en suivant la spécification ASGI, ce qui vous permet d'interagir avec les requêtes et les réponses à un niveau plus bas.`
+
+
+### b. Création de middleware personnalisé
+
+</code></pre>
+<p>Pour créer un middleware personnalisé, vous devez créer une classe ou une fonction qui respecte la signature ASGI et l’ajouter à votre application FastAPI avec app.add_middleware(). Cela peut être utile pour des cas d’utilisation avancés où vous avez besoin d’un contrôle plus fin sur le traitement des requêtes et des réponses.</p>
+<pre><code>from fastapi import FastAPI
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+from starlette.responses import Response
+
+app = FastAPI()
+
+class CustomHeaderMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        # Vous pouvez effectuer des actions avant la requête ici
+        response = await call_next(request)
+        # Vous pouvez effectuer des actions après la requête ici
+        response.headers['X-Custom-Header'] = 'Custom value'
+        return response
+
+# Ajout du middleware personnalisé à l'application FastAPI
+app.add_middleware(CustomHeaderMiddleware)
+
+@app.get("/")
+async def read_root():
+    return {"message": "Hello World"}</code></pre>
+<pre><code>Dans cet exemple, CustomHeaderMiddleware est une classe qui hérite de BaseHTTPMiddleware. La méthode dispatch est redéfinie pour ajouter un en-tête personnalisé X-Custom-Header à toutes les réponses.
+
+La méthode dispatch prend deux arguments :
+</code></pre>
+<ul>
+<li><code>request: l'objet de requête Starlette, qui contient toutes les informations sur la requête entrante.</code></li>
+<li><code>call_next: une fonction qui prend l'objet de requête et renvoie une réponse. C'est ce qui permet d'appeler le reste de l'application FastAPI.</code></li>
+</ul>
+<pre><code>En ajoutant CustomHeaderMiddleware avec app.add_middleware(), vous vous assurez que chaque requête passant par votre application FastAPI sera traitée par ce middleware.
+
+Ce type de middleware personnalisé peut être utilisé pour une variété de cas d'utilisation avancés, comme la journalisation personnalisée, la gestion des sessions, la modification des requêtes ou des réponses avant qu'elles n'atteignent l'application ou après qu'elles en sortent, etc.</code></pre>
+</section>
+</section>
+<section id="c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard" class="level3">
+<h3 class="anchored" data-anchor-id="c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard">c.&nbsp;Pourquoi un middleware personnalisé plutôt que le décorateur standard ?</h3>
+<pre><code>L'utilisation du décorateur @app.middleware("http") est une manière pratique et rapide d'ajouter un middleware à une application FastAPI pour des cas d'utilisation simples. Cependant, créer une classe middleware comme dans l'exemple précédent avec CustomHeaderMiddleware offre plusieurs avantages pour des cas plus complexes :
+</code></pre>
+<ol type="1">
+<li><code>Réutilisabilité : En définissant un middleware comme une classe, vous pouvez facilement le réutiliser dans différentes applications FastAPI ou même le partager en tant que package.</code></li>
+<li><code>Testabilité : Les classes middleware peuvent être plus faciles à tester car vous pouvez les instancier et les appeler indépendamment de l'application FastAPI.</code></li>
+<li><code>Extensibilité : Avec une classe, vous avez la possibilité d'étendre les fonctionnalités d'un middleware existant en utilisant l'héritage. Vous pouvez également surcharger des méthodes pour modifier leur comportement.</code></li>
+<li><code>Clarté : Pour des comportements complexes, avoir une classe dédiée peut rendre le code plus clair et plus facile à maintenir, en séparant la logique du middleware de celle des routes de l'application.</code></li>
+<li><code>Contrôle Fin : En utilisant une classe, vous avez un contrôle plus fin sur le cycle de vie de la requête et de la réponse. Vous pouvez exécuter du code avant et après que la requête ait été traitée par l'application, et même manipuler la requête avant de la passer à l'application.</code></li>
+</ol>
+<pre><code>Le décorateur @app.middleware("http") est une abstraction qui simplifie l'ajout de middleware pour la plupart des besoins courants. Cependant, si vous avez besoin de plus de contrôle ou si vous souhaitez créer un middleware qui est plus complexe ou qui doit être réutilisé à travers plusieurs projets, alors définir une classe middleware est une meilleure approche.</code></pre>
+</section>
+</section>
+<section id="tests-automatisés" class="level2">
+<h2 class="anchored" data-anchor-id="tests-automatisés">5. Tests Automatisés</h2>
+<pre><code>FastAPI est conçu pour faciliter les tests, avec une structure qui s'adapte bien aux tests unitaires et d'intégration.
+
+
+</code></pre>
+<p>from fastapi.testclient import TestClient</p>
+<p>client = TestClient(app)</p>
+<p>def test_read_main(): response = client.get(“/items/”) assert response.status_code == 200 assert response.json() == {“q”: None, “skip”: 0, “limit”: 100}</p>
+<pre><code>
+
+</code></pre>
+<p>Dans cet exemple, TestClient est utilisé pour tester la route /items/.</p>
+<pre><code>
+
+
+## 6. Exemples
+
+
+### a. Exemple de la Todo List
+
+</code></pre>
+<p>from fastapi import FastAPI, HTTPException from pydantic import BaseModel from typing import List</p>
+<p>app = FastAPI()</p>
+<p>class Task(BaseModel): id: int title: str completed: bool</p>
+<p>tasks: List[Task] = [ Task(id=1, title=“Do laundry”, completed=False), Task(id=2, title=“Write code”, completed=False),]</p>
+<p><span class="citation" data-cites="app.get">@app.get</span>(“/tasks”, response_model=List[Task]) async def get_tasks(): return tasks</p>
+<p><span class="citation" data-cites="app.post">@app.post</span>(“/tasks”, response_model=Task) async def add_task(task: Task): tasks.append(task) return task</p>
+<p><span class="citation" data-cites="app.put">@app.put</span>(“/tasks/{task_id}”, response_model=Task) async def update_task(task_id: int, task_update: Task): task = next((t for t in tasks if t.id == task_id), None) if not task: raise HTTPException(status_code=404, detail=“Task not found”) task.title = task_update.title task.completed = task_update.completed return task</p>
+<p><span class="citation" data-cites="app.delete">@app.delete</span>(“/tasks/{task_id}”, response_model=Task) async def delete_task(task_id: int): global tasks task = next((t for t in tasks if t.id == task_id), None) if not task: raise HTTPException(status_code=404, detail=“Task not found”) tasks = [t for t in tasks if t.id != task_id] return task</p>
+<pre><code>
+
+
+### b. Exemple de l'authentification
+
+</code></pre>
+<p>Côté serveur :</p>
+<p>Vous devez d’abord installer les packages nécessaires :</p>
+<pre><code>pip install fastapi[all] pyjwt</code></pre>
+<pre><code>Ensuite, vous pouvez créer un fichier main.py pour votre application FastAPI :
+
+
+</code></pre>
+<p>from fastapi import FastAPI, Depends, HTTPException, status from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm from pydantic import BaseModel from datetime import datetime, timedelta import jwt</p>
+</section>
+</section>
+<section id="configuration" class="level1">
+<h1>Configuration</h1>
+<p>SECRET_KEY = “your_secret_key” ALGORITHM = “HS256” ACCESS_TOKEN_EXPIRE_MINUTES = 30</p>
+<p>app = FastAPI()</p>
+<p>oauth2_scheme = OAuth2PasswordBearer(tokenUrl=“token”)</p>
+</section>
+<section id="simuler-une-base-de-données-dutilisateurs" class="level1">
+<h1>Simuler une base de données d’utilisateurs</h1>
+<p>fake_users_db = { “john”: { “username”: “john”, “full_name”: “John Doe”, “email”: “johndoe@example.com”, “hashed_password”: “fakehashedhello”, “disabled”: False, } }</p>
+<p>def fake_hash_password(password: str): return “fakehashed” + password</p>
+<p>class User(BaseModel): username: str email: str = None full_name: str = None disabled: bool = None</p>
+<p>class UserInDB(User): hashed_password: str</p>
+<p>def get_user(db, username: str): if username in db: user_dict = db[username] return UserInDB(**user_dict)</p>
+<p>def authenticate_user(fake_db, username: str, password: str): user = get_user(fake_db, username) if not user or not fake_hash_password(password) == user.hashed_password: return False return user</p>
+<p>def create_access_token(data: dict, expires_delta: timedelta = None): to_encode = data.copy() if expires_delta: expire = datetime.utcnow() + expires_delta else: expire = datetime.utcnow() + timedelta(minutes=15) to_encode.update({“exp”: expire}) encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM) return encoded_jwt</p>
+<p><span class="citation" data-cites="app.post">@app.post</span>(“/token”) async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()): user = authenticate_user(fake_users_db, form_data.username, form_data.password) if not user: raise HTTPException( status_code=status.HTTP_401_UNAUTHORIZED, detail=“Incorrect username or password”, headers={“WWW-Authenticate”: “Bearer”}, ) access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES) access_token = create_access_token( data={“sub”: user.username}, expires_delta=access_token_expires ) return {“access_token”: access_token, “token_type”: “bearer”}</p>
+<p><span class="citation" data-cites="app.get">@app.get</span>(“/users/me”, dependencies=[Depends(oauth2_scheme)]) async def read_users_me(current_user: User = Depends(authenticate_user)): return current_user</p>
+</section>
+<section id="utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel" class="level1">
+<h1>Utilisez cette fonction de dépendance pour obtenir l’utilisateur actuel</h1>
+<p>async def get_current_user(token: str = Depends(oauth2_scheme)): credentials_exception = HTTPException( status_code=status.HTTP_401_UNAUTHORIZED, detail=“Could not validate credentials”, headers={“WWW-Authenticate”: “Bearer”}, ) try: payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM]) username: str = payload.get(“sub”) if username is None: raise credentials_exception token_data = username except jwt.PyJWTError: raise credentials_exception user = get_user(fake_users_db, username=token_data) if user is None: raise credentials_exception return user</p>
+<pre><code>
+
+</code></pre>
+<p>Côté client :</p>
+<p>Pour le client, vous pouvez utiliser la bibliothèque httpx pour interagir avec l’API FastAPI.</p>
+<pre><code>import httpx
+
+# Remplacer par l'URL de votre API
+url = "http://127.0.0.1:8000"
+
+# Demande d'authentification
+auth_response = httpx.post(url + "/token", data={'username': 'john', 'password': 'hello'})
+
+# Si authentification réussie, utiliser le token pour accéder à une route protégée
+if auth_response.is_success:
+    access_token = auth_response.json()['access_token']
+    headers = {'Authorization': f'Bearer {access_token}'}
+    protected_response = httpx.get(url + "/users/me", headers=headers)
+    print(protected_response.json())
+else:
+    print("Failed to authenticate")</code></pre>
+<pre><code>Dans cet exemple, FastAPI utilise des dépendances pour gérer l'authentification et la sécurité. Lorsqu'un utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token d'accès est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.</code></pre>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_4/2-Frameworks.html" class="pagination-link  aria-label=" les="" principaux="" frameworks="" d&#39;apis="" en="" python"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les principaux Frameworks d’APIs en Python</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_4/5-DjangoRest.html" class="pagination-link" aria-label="Django REST Framework">
+        <span class="nav-page-text">Django REST Framework</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Python API, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

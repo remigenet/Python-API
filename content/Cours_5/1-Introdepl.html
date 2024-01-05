@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.534">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2024-01-05">
+
+<title>Introduction à Python - Introduction au Déploiement d’API</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_5/2-heroku.html" rel="next">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Introduction à Python - Introduction au Déploiement d’API">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_5/.img/depl101.webp">
+<meta property="og:site_name" content="Introduction à Python">
+<meta name="citation_title" content="Introduction au Déploiement d&amp;amp;#039;API">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2024-01-05">
+<meta name="citation_cover_date" content="2024-01-05">
+<meta name="citation_year" content="2024">
+<meta name="citation_online_date" content="2024-01-05">
+<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_5/1-Introdepl.html">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Introduction à Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/website/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
+ <span class="dropdown-text">API - Définition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Créer une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Sécuriser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
+ <span class="dropdown-text">Tester une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
+ <span class="dropdown-text">La notion d’API utilisateur</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
+ <span class="dropdown-text">TP - Postman et requêtes API</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-Conception-optimizations.html">
+ <span class="dropdown-text">Optimisation des ressources et de la performance des API</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/TP-2-compare-run.html">
+ <span class="dropdown-text">TP : Comparaison des performances des appels en tant qu’utilisateur</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Sockets.html">
+ <span class="dropdown-text">Sockets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-Files.html">
+ <span class="dropdown-text">Fichiers et IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-SharedMemory.html">
+ <span class="dropdown-text">Shared Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Pipes.html">
+ <span class="dropdown-text">Pipes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-gRPC.html">
+ <span class="dropdown-text">gRPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/7-OtherIPCend.html">
+ <span class="dropdown-text">Conclusions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
+ <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-Frameworks.html">
+ <span class="dropdown-text">Les principaux Frameworks d’APIs en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/4-FastAPI.html">
+ <span class="dropdown-text">Fast API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/5-DjangoRest.html">
+ <span class="dropdown-text">Django REST Framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/6-testanddocs.html">
+ <span class="dropdown-text">Tester et documenter une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/7-Good Practice.html">
+ <span class="dropdown-text">Bonne pratique générale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/8.Conclusion.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
+ <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-heroku.html">
+ <span class="dropdown-text">Heroku - Présentation du service</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-Best Practice.html">
+ <span class="dropdown-text">Meilleurs Pratiques avant un déploiement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/4-herodepl.html">
+ <span class="dropdown-text">Deploiement sur Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/5-moreexample.html">
+ <span class="dropdown-text">Déploiement avancé</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/6-domain.html">
+ <span class="dropdown-text">Bonus - Nom de Domaine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/7-end.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_5/1-Introdepl.html">Introduction au Déploiement d’API</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/1-Introdepl.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Introduction au Déploiement d’API</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/2-heroku.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heroku - Présentation du service</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/3-Best Practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meilleurs Pratiques avant un déploiement</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/4-herodepl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deploiement sur Heroku</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/5-moreexample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Déploiement avancé</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/6-domain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus - Nom de Domaine</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/7-end.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-au-déploiement-dapi" id="toc-introduction-au-déploiement-dapi" class="nav-link active" data-scroll-target="#introduction-au-déploiement-dapi">Introduction au Déploiement d’API</a></li>
+  <li><a href="#i.-introduction-au-déploiement-dapi" id="toc-i.-introduction-au-déploiement-dapi" class="nav-link" data-scroll-target="#i.-introduction-au-déploiement-dapi">I. Introduction au Déploiement d’API</a>
+  <ul class="collapse">
+  <li><a href="#quest-ce-que-le-déploiement-dune-api" id="toc-quest-ce-que-le-déploiement-dune-api" class="nav-link" data-scroll-target="#quest-ce-que-le-déploiement-dune-api"><strong>1. Qu’est-ce que le déploiement d’une API ?</strong></a></li>
+  <li><a href="#importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel" id="toc-importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel" class="nav-link" data-scroll-target="#importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel"><strong>2. Importance du déploiement dans le cycle de vie du développement logiciel</strong></a></li>
+  <li><a href="#vue-densemble-des-options-de-déploiement" id="toc-vue-densemble-des-options-de-déploiement" class="nav-link" data-scroll-target="#vue-densemble-des-options-de-déploiement"><strong>3. Vue d’ensemble des options de déploiement</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction au Déploiement d’API</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024-01-05</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-au-déploiement-dapi" class="level1">
+<h1>Introduction au Déploiement d’API</h1>
+<hr>
+</section>
+<section id="i.-introduction-au-déploiement-dapi" class="level1">
+<h1>I. Introduction au Déploiement d’API</h1>
+<section id="quest-ce-que-le-déploiement-dune-api" class="level2">
+<h2 class="anchored" data-anchor-id="quest-ce-que-le-déploiement-dune-api"><strong>1. Qu’est-ce que le déploiement d’une API ?</strong></h2>
+<pre><code>Le déploiement d'une API est le processus par lequel votre application est transférée de l'environnement de développement à un environnement de production, la rendant ainsi accessible aux utilisateurs finaux. C'est une étape critique qui nécessite une attention particulière pour garantir que l'API fonctionne comme prévu dans un contexte réel.
+
+
+### a. Définition et aperçu du processus de déploiement
+Le déploiement implique plusieurs étapes clés, allant de la préparation de l'environnement de production à la mise en ligne effective de l'API. Cela inclut la configuration des serveurs, la mise en place des bases de données, l'installation des dépendances nécessaires et la configuration des systèmes de surveillance et de journalisation.
+
+
+### b. Distinction entre développement, déploiement et mise en production
+Il est important de distinguer ces trois phases :
+- Développement : Phase où l'API est conçue, codée et testée.
+- Déploiement : Action de transférer l'API de l'environnement de développement vers l'environnement de production.
+- Mise en production : Phase où l'API est finalement rendue disponible pour être utilisée par les clients ou le public.
+
+Le déploiement peut être effectué manuellement ou automatiquement, ce dernier étant préférable pour des raisons de cohérence et d'efficacité. Des outils d'intégration continue et de déploiement continu (CI/CD) sont souvent utilisés pour automatiser ce processus.</code></pre>
+</section>
+<section id="importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel" class="level2">
+<h2 class="anchored" data-anchor-id="importance-du-déploiement-dans-le-cycle-de-vie-du-développement-logiciel"><strong>2. Importance du déploiement dans le cycle de vie du développement logiciel</strong></h2>
+<pre><code>Le déploiement n'est pas simplement une étape finale dans le développement de logiciels ; il s'agit d'un processus continu qui a un impact significatif sur la performance et la disponibilité de l'API. Comprendre son importance est crucial pour garantir une transition en douceur de l'API du développement à la production.
+
+
+### a. Rôle du déploiement dans la livraison de logiciels
+Le déploiement est le moment où le produit logiciel devient réellement "vivant". Sans un déploiement réussi, même le code le plus parfaitement écrit reste inutilisable. Le déploiement effectif permet de :
+- Valider la fonctionnalité de l'API dans un environnement réel.
+- Assurer que l'API peut gérer la charge attendue et se comporter de manière prévisible.
+- Identifier et corriger les problèmes qui n'étaient pas apparents dans l'environnement de développement.
+
+
+### b. Impact sur la qualité et la fiabilité
+Un déploiement bien géré contribue directement à la qualité et à la fiabilité de l'API. Il permet de :
+- Mettre en œuvre des pratiques de déploiement qui réduisent les risques d'erreurs.
+- Utiliser des stratégies de déploiement qui facilitent les mises à jour et les correctifs sans interruption de service.
+- Surveiller la performance et la santé de l'API pour détecter et résoudre rapidement les problèmes.
+
+
+### c. Considérations de sécurité
+La sécurité est une considération primordiale lors du déploiement d'une API. Les étapes du déploiement doivent inclure :
+- La mise en place de certificats SSL/TLS pour sécuriser les communications.
+- La configuration de pare-feu et d'autres mécanismes de sécurité pour protéger l'API contre les accès non autorisés.
+- La révision des politiques d'authentification et d'autorisation pour s'assurer qu'elles sont correctement implémentées.</code></pre>
+</section>
+<section id="vue-densemble-des-options-de-déploiement" class="level2">
+<h2 class="anchored" data-anchor-id="vue-densemble-des-options-de-déploiement"><strong>3. Vue d’ensemble des options de déploiement</strong></h2>
+<pre><code>Le déploiement d'une API peut être réalisé de plusieurs manières, chacune avec ses propres avantages, inconvénients et cas d'utilisation. Voici une vue d'ensemble des principales options de déploiement disponibles.
+
+
+### a. Serveurs dédiés
+Les serveurs dédiés sont des serveurs physiques qui sont entièrement consacrés à l'hébergement de votre application ou API. Ils ne sont pas partagés avec d'autres clients, ce qui vous donne un contrôle complet sur l'environnement de serveur.
+</code></pre>
+<ul>
+<li><code>Avantages : Contrôle total sur la configuration du serveur, performances constantes, isolation complète.</code></li>
+<li><code>Inconvénients : Coûts plus élevés, nécessité de gérer le matériel, moins d'élasticité pour gérer les fluctuations de trafic.</code></li>
+</ul>
+<pre><code>
+
+### b. Infrastructure en tant que service (IaaS)
+L'IaaS fournit des ressources informatiques virtualisées sur Internet. Avec l'IaaS, vous pouvez louer des serveurs, des réseaux, des systèmes de stockage et d'autres ressources de calcul.
+</code></pre>
+<ul>
+<li><code>Exemples populaires : Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP).</code></li>
+<li><code>Avantages : Flexibilité pour configurer l'environnement, échelle facilement, paiement à l'utilisation.</code></li>
+<li><code>Inconvénients : Nécessite une certaine connaissance de la configuration et de la gestion des serveurs, des coûts potentiellement imprévisibles en fonction de l'utilisation.</code></li>
+</ul>
+<pre><code>
+
+### c. Plateforme en tant que service (PaaS)
+Le PaaS fournit une plateforme et un environnement pour permettre aux développeurs de construire des applications et des services sur Internet. Les fournisseurs de PaaS gèrent l'infrastructure matérielle et logicielle, permettant aux développeurs de se concentrer sur le développement de l'application.
+</code></pre>
+<ul>
+<li><code>Exemples populaires : Heroku, OpenShift, Google App Engine.</code></li>
+<li><code>Avantages : Facilité de déploiement, gestion automatique de l'infrastructure, intégration facile avec divers services et outils de développement.</code></li>
+<li><code>Inconvénients : Moins de contrôle sur l'environnement sous-jacent, peut devenir coûteux à grande échelle.</code></li>
+</ul>
+<pre><code>
+
+### d. Fonctions en tant que service (FaaS)
+Le FaaS, également connu sous le nom de serverless computing, permet aux développeurs de déployer des morceaux de code qui s'exécutent en réponse à des événements, sans se soucier de la gestion de l'infrastructure.
+</code></pre>
+<ul>
+<li><code>Exemples populaires : AWS Lambda, Azure Functions, Google Cloud Functions.</code></li>
+<li><code>Avantages : Grande élasticité, paiement uniquement pour le temps d'exécution du code, abstraction complète de la gestion des serveurs.</code></li>
+<li><code>Inconvénients : Limitations en termes de temps d'exécution et de ressources, peut être difficile à déboguer, les coûts peuvent s'accumuler avec un grand nombre d'exécutions.</code></li>
+</ul>
+<pre><code>Chaque option de déploiement a ses propres spécificités et doit être choisie en fonction des besoins spécifiques de l'API et de l'entreprise. Par exemple, les serveurs dédiés peuvent être préférables pour les applications nécessitant une conformité réglementaire stricte, tandis que le FaaS peut être idéal pour les microservices légers avec des charges de travail variables.</code></pre>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_5/2-heroku.html" class="pagination-link" aria-label="Heroku - Présentation du service">
+        <span class="nav-page-text">Heroku - Présentation du service</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Python API, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
