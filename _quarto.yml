@@ -22,7 +22,6 @@ website:
       - sidebar:conceive
       - sidebar:deploy
       - sidebar:projects
-      - sidebar:annexes
     tools:
       - icon: github
         menu:
@@ -98,12 +97,7 @@ website:
        - content/Cours_5/7-end.qmd
     - id: projects 
       title: "Sujets de Projets possibles"
-    - id: annexes 
-      title: "Annexes"
-      contents: 
-      - content/Annexes/LinuxTerminal.qmd
-      - content/Annexes/git_basics.qmd
-      - content/Annexes/git_advanced.qmd
+
         
   repo-url: https://github.com/remigenet/Python-API
   repo-branch: main
