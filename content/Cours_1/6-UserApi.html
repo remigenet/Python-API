@@ -457,33 +457,28 @@ ul.task-list li input[type="checkbox"] {
 <h1>6. Concepts élargis et cas d’utilisation des API</h1>
 <section id="api-utilisateur-ou-api-de-bibliothèque" class="level2">
 <h2 class="anchored" data-anchor-id="api-utilisateur-ou-api-de-bibliothèque">6.1 API utilisateur (ou API de bibliothèque)</h2>
-<pre><code>Lorsque vous développez des bibliothèques ou des packages logiciels, vous fournissez également une interface, appelée API utilisateur ou API de bibliothèque, pour interagir avec ces outils. Cette interface, même si elle n'est pas une API au sens web du terme, est tout aussi importante. Elle doit être :
-</code></pre>
+<p>Lorsque vous développez des bibliothèques ou des packages logiciels, vous fournissez également une interface, appelée API utilisateur ou API de bibliothèque, pour interagir avec ces outils. Cette interface, même si elle n’est pas une API au sens web du terme, est tout aussi importante. Elle doit être :</p>
 <ul>
-<li><code>Clair : Les méthodes, fonctions et classes doivent avoir des noms explicites.</code></li>
-<li><code>Documenté : Les utilisateurs doivent pouvoir comprendre rapidement comment utiliser l'API.</code></li>
-<li><code>Flexible : Elle doit permettre différentes manières d'atteindre un même résultat, selon les besoins de l'utilisateur.</code></li>
-<li><code>Robuste : Elle doit gérer correctement les erreurs et fournir des messages utiles.</code></li>
+<li>Clair : Les méthodes, fonctions et classes doivent avoir des noms explicites.</li>
+<li>Documenté : Les utilisateurs doivent pouvoir comprendre rapidement comment utiliser l’API.</li>
+<li>Flexible : Elle doit permettre différentes manières d’atteindre un même résultat, selon les besoins de l’utilisateur.</li>
+<li>Robuste : Elle doit gérer correctement les erreurs et fournir des messages utiles.</li>
 </ul>
-<pre><code>Le design et la maintenance de telles API sont tout aussi cruciaux que pour les API web, car ils déterminent l'efficacité et la facilité d'utilisation de votre bibliothèque.
-Exemple : La bibliothèque pandas en Python
-La bibliothèque pandas est une bibliothèque logicielle populaire en Python destinée à la manipulation de données. Elle offre une API utilisateur riche pour créer, manipuler et analyser des données structurées.
-</code></pre>
+<p>Le design et la maintenance de telles API sont tout aussi cruciaux que pour les API web, car ils déterminent l’efficacité et la facilité d’utilisation de votre bibliothèque. Exemple : La bibliothèque pandas en Python La bibliothèque pandas est une bibliothèque logicielle populaire en Python destinée à la manipulation de données. Elle offre une API utilisateur riche pour créer, manipuler et analyser des données structurées.</p>
 <ul>
-<li><code>Quand vous créez un DataFrame en pandas, vous utilisez son API.</code></li>
-<li><code>Les fonctions comme read_csv pour lire un fichier CSV ou merge pour fusionner deux DataFrames sont des parties de son API utilisateur.</code></li>
+<li>Quand vous créez un DataFrame en pandas, vous utilisez son API.</li>
+<li>Les fonctions comme read_csv pour lire un fichier CSV ou merge pour fusionner deux DataFrames sont des parties de son API utilisateur.</li>
 </ul>
-<pre><code>Le succès de pandas est en grande partie dû à la clarté et à la puissance de son API utilisateur.</code></pre>
+<p>Le succès de pandas est en grande partie dû à la clarté et à la puissance de son API utilisateur.</p>
 </section>
 <section id="api-hors-du-cloud" class="level2">
 <h2 class="anchored" data-anchor-id="api-hors-du-cloud">6.2 API hors du cloud</h2>
-<pre><code>Tandis que beaucoup d'API sont hébergées dans le cloud et accessibles via Internet, une API peut exister n'importe où, y compris :
-</code></pre>
+<p>Tandis que beaucoup d’API sont hébergées dans le cloud et accessibles via Internet, une API peut exister n’importe où, y compris :</p>
 <ul>
-<li><code>Sur un réseau local : Les entreprises peuvent avoir des API internes pour intégrer différents systèmes ou applications.</code></li>
-<li><code>Sur un même appareil : Une application sur votre ordinateur peut exposer une API pour interagir avec d'autres logiciels localement. Par exemple, un logiciel de gestion de base de données pourrait offrir une API pour que d'autres programmes sur le même ordinateur puissent demander des données.</code></li>
+<li>Sur un réseau local : Les entreprises peuvent avoir des API internes pour intégrer différents systèmes ou applications.</li>
+<li>Sur un même appareil : Une application sur votre ordinateur peut exposer une API pour interagir avec d’autres logiciels localement. Par exemple, un logiciel de gestion de base de données pourrait offrir une API pour que d’autres programmes sur le même ordinateur puissent demander des données.</li>
 </ul>
-<p>``` Ces types d’API peuvent être cruciaux pour automatiser et simplifier les tâches, surtout dans des environnements où la sécurité ou la rapidité d’accès est primordiale.</p>
+<p>Ces types d’API peuvent être cruciaux pour automatiser et simplifier les tâches, surtout dans des environnements où la sécurité ou la rapidité d’accès est primordiale.</p>
 <p>Exemple 1 : Serveurs de jeux en réseau local Dans le monde du jeu vidéo, il est courant d’avoir des serveurs locaux pour des jeux multijoueurs. Un joueur peut créer un serveur sur son PC, et ses amis, connectés au même réseau local, peuvent rejoindre ce serveur via une API spécifique au jeu. Cela permet de jouer ensemble sans passer par Internet, ce qui peut améliorer la latence et la performance.</p>
 <p>Exemple 2 : Outils intégrés dans les systèmes d’exploitation Prenons l’exemple du “Gestionnaire des tâches” sur Windows ou “Moniteur d’activité” sur macOS. Ces outils fournissent une vision en temps réel des processus en cours d’exécution, de l’utilisation de la mémoire, etc. Ils interagissent avec une API locale du système d’exploitation pour obtenir ces informations. Un développeur pourrait écrire un script ou une application qui utilise cette même API pour, par exemple, surveiller un processus spécifique ou déclencher des alertes si l’utilisation de la mémoire dépasse un certain seuil.</p>
 

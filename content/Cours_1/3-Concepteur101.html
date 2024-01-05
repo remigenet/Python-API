@@ -467,62 +467,59 @@ ul.task-list li input[type="checkbox"] {
 <section id="pourquoi-créer-une-api" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-créer-une-api">3.1 Pourquoi créer une API ?</h2>
 <ul>
-<li><code>Interopérabilité : Les API permettent à différentes applications de travailler ensemble, créant un écosystème d'applications connectées.</code></li>
-<li><code>Évolutivité : Vous pouvez mettre à jour ou modifier votre application backend sans perturber les utilisateurs de l'API, tant que l'interface reste consistante.</code></li>
-<li><code>Monétisation : De nombreuses entreprises offrent des API en tant que produits, soit en facturant directement pour l'accès, soit en utilisant des modèles freemium.</code></li>
-<li><code>Automatisation : Avec les API, les processus peuvent être automatisés et intégrés dans d'autres applications ou workflows.</code></li>
+<li>Interopérabilité : Les API permettent à différentes applications de travailler ensemble, créant un écosystème d’applications connectées.</li>
+<li>Évolutivité : Vous pouvez mettre à jour ou modifier votre application backend sans perturber les utilisateurs de l’API, tant que l’interface reste consistante.</li>
+<li>Monétisation : De nombreuses entreprises offrent des API en tant que produits, soit en facturant directement pour l’accès, soit en utilisant des modèles freemium.</li>
+<li>Automatisation : Avec les API, les processus peuvent être automatisés et intégrés dans d’autres applications ou workflows.</li>
 <li></li>
 </ul>
 </section>
 <section id="principes-de-base-de-la-conception-dune-api" class="level2">
 <h2 class="anchored" data-anchor-id="principes-de-base-de-la-conception-dune-api">3.2 Principes de base de la conception d’une API :</h2>
 <ul>
-<li><code>Simplicité : Une API doit être intuitive et facile à utiliser.</code></li>
-<li><code>Consistance : Les méthodes, les endpoints et les réponses doivent suivre une structure cohérente.</code></li>
-<li><code>Sécurité : Assurez-vous que seules les personnes ou applications autorisées peuvent accéder à votre API.</code></li>
-<li><code>Fiabilité : Une API doit être stable et fiable, avec un minimum de temps d'arrêt.</code></li>
+<li>Simplicité : Une API doit être intuitive et facile à utiliser.</li>
+<li>Consistance : Les méthodes, les endpoints et les réponses doivent suivre une structure cohérente.</li>
+<li>Sécurité : Assurez-vous que seules les personnes ou applications autorisées peuvent accéder à votre API.</li>
+<li>Fiabilité : Une API doit être stable et fiable, avec un minimum de temps d’arrêt.</li>
 </ul>
 </section>
 <section id="routes-méthodes-et-conventions" class="level2">
 <h2 class="anchored" data-anchor-id="routes-méthodes-et-conventions">3.3 Routes, méthodes et conventions :</h2>
-<pre><code>Lors de la conception de votre API, vous devrez définir des routes (ou endpoints) qui déterminent les actions ou les données disponibles. Voici quelques conventions courantes :
-</code></pre>
+<p>Lors de la conception de votre API, vous devrez définir des routes (ou endpoints) qui déterminent les actions ou les données disponibles. Voici quelques conventions courantes :</p>
 <ul>
-<li><code>CRUD (Create, Read, Update, Delete) : Ces opérations représentent les actions de base pour gérer les ressources. Par exemple :</code>
+<li>CRUD (Create, Read, Update, Delete) : Ces opérations représentent les actions de base pour gérer les ressources. Par exemple :
 <ul>
-<li><code>POST /items pour créer un nouvel item.</code></li>
-<li><code>GET /items pour lire une liste d'items.</code></li>
-<li><code>PUT /items/{id} pour mettre à jour un item spécifique.</code></li>
-<li><code>DELETE /items/{id} pour supprimer un item spécifique.</code></li>
+<li>POST /items pour créer un nouvel item.</li>
+<li>GET /items pour lire une liste d’items.</li>
+<li>PUT /items/{id} pour mettre à jour un item spécifique.</li>
+<li>DELETE /items/{id} pour supprimer un item spécifique.</li>
 </ul></li>
-<li><code>Utilisation des verbes HTTP : Utilisez les méthodes HTTP (GET, POST, PUT, DELETE) pour représenter les actions.</code></li>
-<li><code>Nommage : Les routes doivent être nommées de manière intuitive. Par exemple, utilisez des noms au pluriel pour les collections (/items) et des noms au singulier pour une ressource spécifique (/item/{id}).</code></li>
+<li>Utilisation des verbes HTTP : Utilisez les méthodes HTTP (GET, POST, PUT, DELETE) pour représenter les actions.</li>
+<li>Nommage : Les routes doivent être nommées de manière intuitive. Par exemple, utilisez des noms au pluriel pour les collections (/items) et des noms au singulier pour une ressource spécifique (/item/{id}).</li>
 </ul>
 </section>
 <section id="gestion-des-versions" class="level2">
 <h2 class="anchored" data-anchor-id="gestion-des-versions">3.4 Gestion des versions :</h2>
-<pre><code>Avec le temps, votre API pourrait nécessiter des modifications ou des améliorations. Gérer les versions de votre API permet aux développeurs d'adapter leurs applications aux changements sans interruption. Une pratique courante est d'inclure le numéro de version dans l'URL, comme dans /v1/items.</code></pre>
+<p>Avec le temps, votre API pourrait nécessiter des modifications ou des améliorations. Gérer les versions de votre API permet aux développeurs d’adapter leurs applications aux changements sans interruption. Une pratique courante est d’inclure le numéro de version dans l’URL, comme dans /v1/items.</p>
 </section>
 <section id="documentation" class="level2">
 <h2 class="anchored" data-anchor-id="documentation">3.5 Documentation :</h2>
-<pre><code>Un élément clé de toute API réussie est une documentation complète et claire. Elle doit fournir :
-</code></pre>
+<p>Un élément clé de toute API réussie est une documentation complète et claire. Elle doit fournir :</p>
 <ul>
-<li><code>Une liste de tous les endpoints avec des descriptions.</code></li>
-<li><code>Des exemples de requêtes et de réponses.</code></li>
-<li><code>Des détails sur les codes d'erreur et leur signification.</code></li>
-<li><code>Des informations sur les limitations, les quotas ou les tarifs.</code></li>
+<li>Une liste de tous les endpoints avec des descriptions.</li>
+<li>Des exemples de requêtes et de réponses.</li>
+<li>Des détails sur les codes d’erreur et leur signification.</li>
+<li>Des informations sur les limitations, les quotas ou les tarifs.</li>
 </ul>
 </section>
 <section id="étude-de-cas-coingecko-et-coinmarketcap" class="level2">
 <h2 class="anchored" data-anchor-id="étude-de-cas-coingecko-et-coinmarketcap">3.6 Étude de cas : CoinGecko et CoinMarketCap</h2>
-<pre><code>Ces deux plateformes sont des exemples parfaits pour illustrer le potentiel et la valeur ajoutée d'une API bien conçue.
-</code></pre>
+<p>Ces deux plateformes sont des exemples parfaits pour illustrer le potentiel et la valeur ajoutée d’une API bien conçue.</p>
 <ul>
-<li><code>Agrégation de Données : CoinGecko et CoinMarketCap rassemblent des données de nombreux échanges de cryptomonnaie à travers le monde. Ces données peuvent inclure les prix actuels, les volumes d'échange, les données historiques, et bien d'autres informations pertinentes.</code></li>
-<li><code>Traitement et Modélisation : Une fois les données récupérées, elles sont traitées, modélisées et souvent normalisées pour fournir des informations cohérentes aux utilisateurs. Par exemple, le calcul du prix moyen d'une cryptomonnaie sur différents échanges ou la prise en compte de la liquidité pour pondérer ces moyennes.</code></li>
-<li><code>Accessibilité via l'API : Ces plateformes rendent ensuite ces données accessibles via leurs API. Les développeurs, les entreprises ou même les amateurs peuvent accéder à ces données pour leurs propres analyses, applications ou sites web.</code></li>
-<li><code>Modèle Freemium : Tandis que l'accès de base à l'API peut être gratuit, avec certaines limitations (par exemple, un nombre limité de requêtes par minute ou par jour), les utilisateurs qui ont besoin de capacités supplémentaires ou d'accès à des données plus spécialisées peuvent opter pour des plans payants. Cela crée une source de revenus pour ces plateformes tout en offrant un service précieux à la communauté.</code></li>
+<li>Agrégation de Données : CoinGecko et CoinMarketCap rassemblent des données de nombreux échanges de cryptomonnaie à travers le monde. Ces données peuvent inclure les prix actuels, les volumes d’échange, les données historiques, et bien d’autres informations pertinentes.</li>
+<li>Traitement et Modélisation : Une fois les données récupérées, elles sont traitées, modélisées et souvent normalisées pour fournir des informations cohérentes aux utilisateurs. Par exemple, le calcul du prix moyen d’une cryptomonnaie sur différents échanges ou la prise en compte de la liquidité pour pondérer ces moyennes.</li>
+<li>Accessibilité via l’API : Ces plateformes rendent ensuite ces données accessibles via leurs API. Les développeurs, les entreprises ou même les amateurs peuvent accéder à ces données pour leurs propres analyses, applications ou sites web.</li>
+<li>Modèle Freemium : Tandis que l’accès de base à l’API peut être gratuit, avec certaines limitations (par exemple, un nombre limité de requêtes par minute ou par jour), les utilisateurs qui ont besoin de capacités supplémentaires ou d’accès à des données plus spécialisées peuvent opter pour des plans payants. Cela crée une source de revenus pour ces plateformes tout en offrant un service précieux à la communauté.</li>
 </ul>
 
 

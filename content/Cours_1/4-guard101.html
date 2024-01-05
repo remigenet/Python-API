@@ -465,42 +465,40 @@ ul.task-list li input[type="checkbox"] {
 <h1>4. Sécurisation et authentification d’une API</h1>
 <section id="pourquoi-sécuriser-une-api" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-sécuriser-une-api">4.1 Pourquoi sécuriser une API ?</h2>
-<pre><code>Une API, en tant que porte d'accès à des données ou à des fonctionnalités, peut être une cible pour des acteurs malveillants. Les raisons de sécuriser une API incluent :
-</code></pre>
+<p>Une API, en tant que porte d’accès à des données ou à des fonctionnalités, peut être une cible pour des acteurs malveillants. Les raisons de sécuriser une API incluent :</p>
 <ul>
-<li><code>Protection des données : Éviter que des données sensibles ne soient exposées ou compromises.</code></li>
-<li><code>Préservation de la réputation : Une faille de sécurité peut nuire à la confiance des utilisateurs ou des clients.</code></li>
-<li><code>Éviter les abus : Prévenir les utilisations excessives ou malveillantes qui peuvent entraîner des coûts ou des surcharges.</code></li>
+<li>Protection des données : Éviter que des données sensibles ne soient exposées ou compromises.</li>
+<li>Préservation de la réputation : Une faille de sécurité peut nuire à la confiance des utilisateurs ou des clients.</li>
+<li>Éviter les abus : Prévenir les utilisations excessives ou malveillantes qui peuvent entraîner des coûts ou des surcharges.</li>
 </ul>
 </section>
 <section id="authentification-vs-autorisation" class="level2">
 <h2 class="anchored" data-anchor-id="authentification-vs-autorisation">4.2 Authentification vs Autorisation :</h2>
 <ul>
-<li><code>Authentification : Processus permettant de vérifier l'identité d'un utilisateur ou d'une application. C'est la réponse à la question : "Qui êtes-vous ?"</code></li>
-<li><code>Autorisation : Processus permettant de déterminer si l'utilisateur ou l'application authentifié(e) a le droit d'accéder à une ressource ou d'exécuter une action. C'est la réponse à la question : "Êtes-vous autorisé à le faire ?"</code></li>
+<li>Authentification : Processus permettant de vérifier l’identité d’un utilisateur ou d’une application. C’est la réponse à la question : “Qui êtes-vous ?”</li>
+<li>Autorisation : Processus permettant de déterminer si l’utilisateur ou l’application authentifié(e) a le droit d’accéder à une ressource ou d’exécuter une action. C’est la réponse à la question : “Êtes-vous autorisé à le faire ?”</li>
 </ul>
 </section>
 <section id="méthodes-dauthentification-courantes" class="level2">
 <h2 class="anchored" data-anchor-id="méthodes-dauthentification-courantes">4.3 Méthodes d’authentification courantes :</h2>
 <ul>
-<li><code>Clés API : Une clé unique fournie aux utilisateurs ou aux applications pour accéder à l'API.</code></li>
-<li><code>Authentification basique : L'utilisation d'un nom d'utilisateur et d'un mot de passe pour accéder à l'API.</code></li>
-<li><code>Token JWT (JSON Web Token) : Un standard ouvert pour représenter des revendications entre deux parties. Les tokens sont générés après une authentification réussie et peuvent être vérifiés à chaque requête pour garantir la validité de la session.</code></li>
+<li>Clés API : Une clé unique fournie aux utilisateurs ou aux applications pour accéder à l’API.</li>
+<li>Authentification basique : L’utilisation d’un nom d’utilisateur et d’un mot de passe pour accéder à l’API.</li>
+<li>Token JWT (JSON Web Token) : Un standard ouvert pour représenter des revendications entre deux parties. Les tokens sont générés après une authentification réussie et peuvent être vérifiés à chaque requête pour garantir la validité de la session.</li>
 </ul>
 </section>
 <section id="limitation-et-quotas" class="level2">
 <h2 class="anchored" data-anchor-id="limitation-et-quotas">4.4 Limitation et quotas :</h2>
-<pre><code>Afin de prévenir les abus ou la surcharge, il est courant d'appliquer des limites sur la fréquence ou le volume de requêtes qu'un utilisateur ou une application peut faire à l'API. Les limitations peuvent être basées sur :
-</code></pre>
+<p>Afin de prévenir les abus ou la surcharge, il est courant d’appliquer des limites sur la fréquence ou le volume de requêtes qu’un utilisateur ou une application peut faire à l’API. Les limitations peuvent être basées sur :</p>
 <ul>
-<li><code>Le temps : Nombre de requêtes autorisées par minute ou par heure.</code></li>
-<li><code>La ressource : Nombre de requêtes autorisées pour une ressource spécifique.</code></li>
-<li><code>Le type d'utilisateur : Les utilisateurs gratuits pourraient avoir des quotas inférieurs à ceux qui paient pour un accès premium.</code></li>
+<li>Le temps : Nombre de requêtes autorisées par minute ou par heure.</li>
+<li>La ressource : Nombre de requêtes autorisées pour une ressource spécifique.</li>
+<li>Le type d’utilisateur : Les utilisateurs gratuits pourraient avoir des quotas inférieurs à ceux qui paient pour un accès premium.</li>
 </ul>
 </section>
 <section id="gestion-des-erreurs-et-des-violations" class="level2">
 <h2 class="anchored" data-anchor-id="gestion-des-erreurs-et-des-violations">4.5 Gestion des erreurs et des violations :</h2>
-<pre><code>Il est essentiel de fournir des messages d'erreur clairs et explicites lorsque les utilisateurs ou les applications violent les politiques de sécurité ou dépassent leurs quotas. Ceci permet de guider les utilisateurs sur la manière de corriger ou d'ajuster leurs requêtes.</code></pre>
+<p>Il est essentiel de fournir des messages d’erreur clairs et explicites lorsque les utilisateurs ou les applications violent les politiques de sécurité ou dépassent leurs quotas. Ceci permet de guider les utilisateurs sur la manière de corriger ou d’ajuster leurs requêtes.</p>
 
 
 </section>

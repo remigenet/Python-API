@@ -467,46 +467,43 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="définition" class="level2">
 <h2 class="anchored" data-anchor-id="définition">1. Définition</h2>
-<pre><code>La communication interprocessus (IPC) désigne l'ensemble des mécanismes et protocoles qui permettent aux processus (instances d'exécution d'un programme) de communiquer entre eux et de coordonner leurs actions. L'IPC est fondamentale dans les systèmes d'exploitation modernes, où de multiples processus peuvent s'exécuter simultanément, nécessitant un partage efficace des ressources et des données.</code></pre>
+<p>La communication interprocessus (IPC) désigne l’ensemble des mécanismes et protocoles qui permettent aux processus (instances d’exécution d’un programme) de communiquer entre eux et de coordonner leurs actions. L’IPC est fondamentale dans les systèmes d’exploitation modernes, où de multiples processus peuvent s’exécuter simultanément, nécessitant un partage efficace des ressources et des données.</p>
 </section>
 <section id="pourquoi-étudier-lipc-dans-un-cours-sur-les-api" class="level2">
 <h2 class="anchored" data-anchor-id="pourquoi-étudier-lipc-dans-un-cours-sur-les-api">2. Pourquoi étudier l’IPC dans un cours sur les API</h2>
-<pre><code>Les API (Interfaces de Programmation d'Applications) sont des contrats définissant comment les différents composants logiciels interagissent. Dans le contexte des services web et du cloud, les API sont souvent associées à des protocoles réseau permettant la communication entre des services distribués. L'IPC est le fondement sur lequel reposent ces protocoles réseau, et comprendre l'IPC permet de mieux concevoir, implémenter et déboguer des API robustes et performantes.</code></pre>
+<p>Les API (Interfaces de Programmation d’Applications) sont des contrats définissant comment les différents composants logiciels interagissent. Dans le contexte des services web et du cloud, les API sont souvent associées à des protocoles réseau permettant la communication entre des services distribués. L’IPC est le fondement sur lequel reposent ces protocoles réseau, et comprendre l’IPC permet de mieux concevoir, implémenter et déboguer des API robustes et performantes.</p>
 </section>
 <section id="lintérêt-de-maîtriser-lipc" class="level2">
 <h2 class="anchored" data-anchor-id="lintérêt-de-maîtriser-lipc">3. L’intérêt de maîtriser l’IPC</h2>
-<pre><code>Maîtriser l'IPC est crucial pour les développeurs car cela leur permet de :
-</code></pre>
+<p>Maîtriser l’IPC est crucial pour les développeurs car cela leur permet de :</p>
 <ul>
-<li><code>Concevoir des systèmes capables de gérer plusieurs tâches en parallèle de manière efficace.</code></li>
-<li><code>Assurer la cohérence des données et éviter les conditions de concurrence lors de l'accès à des ressources partagées.</code></li>
-<li><code>Optimiser les performances en choisissant le mécanisme d'IPC le plus adapté au contexte.</code></li>
-<li><code>Améliorer la fiabilité et la maintenabilité des applications en comprenant comment les différents composants interagissent.</code></li>
+<li>Concevoir des systèmes capables de gérer plusieurs tâches en parallèle de manière efficace.</li>
+<li>Assurer la cohérence des données et éviter les conditions de concurrence lors de l’accès à des ressources partagées.</li>
+<li>Optimiser les performances en choisissant le mécanisme d’IPC le plus adapté au contexte.</li>
+<li>Améliorer la fiabilité et la maintenabilité des applications en comprenant comment les différents composants interagissent.</li>
 </ul>
 </section>
 <section id="concepts-clés-en-ipc" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-clés-en-ipc">4. Concepts Clés en IPC</h2>
-<pre><code>Pour naviguer dans le domaine de l'IPC, il est important de comprendre certains concepts clés tels que :
-</code></pre>
+<p>Pour naviguer dans le domaine de l’IPC, il est important de comprendre certains concepts clés tels que :</p>
 <ul>
-<li><code>Synchronisation : Les mécanismes qui assurent que les processus s'exécutent dans un ordre qui préserve l'intégrité des données.</code></li>
-<li><code>Communication directe vs indirecte : La différence entre les processus qui communiquent via un échange direct (comme les sockets) et ceux qui utilisent des intermédiaires (comme les files de messages).</code></li>
-<li><code>Blocage vs non-blocage : Les opérations d'IPC peuvent être bloquantes (le processus attend jusqu'à ce que l'opération soit terminée) ou non-blocantes (le processus continue son exécution sans attendre).</code></li>
+<li>Synchronisation : Les mécanismes qui assurent que les processus s’exécutent dans un ordre qui préserve l’intégrité des données.</li>
+<li>Communication directe vs indirecte : La différence entre les processus qui communiquent via un échange direct (comme les sockets) et ceux qui utilisent des intermédiaires (comme les files de messages).</li>
+<li>Blocage vs non-blocage : Les opérations d’IPC peuvent être bloquantes (le processus attend jusqu’à ce que l’opération soit terminée) ou non-blocantes (le processus continue son exécution sans attendre).</li>
 </ul>
 </section>
 <section id="applications-de-lipc" class="level2">
 <h2 class="anchored" data-anchor-id="applications-de-lipc">5. Applications de l’IPC</h2>
-<pre><code>L'IPC n'est pas seulement théorique ; elle a des applications pratiques dans de nombreux domaines tels que :
-</code></pre>
+<p>L’IPC n’est pas seulement théorique ; elle a des applications pratiques dans de nombreux domaines tels que :</p>
 <ul>
-<li><code>Développement de systèmes d'exploitation : Où l'IPC est utilisée pour gérer les processus et les threads.</code></li>
-<li><code>Développement de logiciels concurrents : Pour permettre à des applications de gérer plusieurs utilisateurs ou tâches simultanément.</code></li>
-<li><code>Architecture de microservices : Où différents services communiquent entre eux via des API en utilisant des mécanismes d'IPC sous-jacents.</code></li>
+<li>Développement de systèmes d’exploitation : Où l’IPC est utilisée pour gérer les processus et les threads.</li>
+<li>Développement de logiciels concurrents : Pour permettre à des applications de gérer plusieurs utilisateurs ou tâches simultanément.</li>
+<li>Architecture de microservices : Où différents services communiquent entre eux via des API en utilisant des mécanismes d’IPC sous-jacents.</li>
 </ul>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">6. Conclusion</h2>
-<pre><code>La communication interprocessus est une pierre angulaire de la programmation moderne, en particulier dans les environnements distribués et multi-utilisateurs. Une compréhension approfondie de l'IPC est essentielle pour tout développeur travaillant avec des systèmes complexes, que ce soit pour des applications de bureau, des services web ou des infrastructures cloud.</code></pre>
+<p>La communication interprocessus est une pierre angulaire de la programmation moderne, en particulier dans les environnements distribués et multi-utilisateurs. Une compréhension approfondie de l’IPC est essentielle pour tout développeur travaillant avec des systèmes complexes, que ce soit pour des applications de bureau, des services web ou des infrastructures cloud.</p>
 
 
 </section>

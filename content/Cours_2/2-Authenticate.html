@@ -410,7 +410,9 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   </ul></li>
   <li><a href="#cette-requête-enverra-un-en-tête-qui-ressemble-à" id="toc-cette-requête-enverra-un-en-tête-qui-ressemble-à" class="nav-link" data-scroll-target="#cette-requête-enverra-un-en-tête-qui-ressemble-à">Cette requête enverra un en-tête qui ressemble à:</a></li>
-  <li><a href="#authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq" id="toc-authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq" class="nav-link" data-scroll-target="#authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq">{“Authorization”: “Basic dXNlcm5hbWU6cGFzc3dvcmQ=”}</a>
+  <li><a href="#authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq" id="toc-authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq" class="nav-link" data-scroll-target="#authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq">{“Authorization”: “Basic dXNlcm5hbWU6cGFzc3dvcmQ=”}</a></li>
+  <li><a href="#cette-requête-enverra-un-en-tête-qui-ressemble-à-1" id="toc-cette-requête-enverra-un-en-tête-qui-ressemble-à-1" class="nav-link" data-scroll-target="#cette-requête-enverra-un-en-tête-qui-ressemble-à-1">Cette requête enverra un en-tête qui ressemble à:</a></li>
+  <li><a href="#authorization-bearer-your_access_token" id="toc-authorization-bearer-your_access_token" class="nav-link" data-scroll-target="#authorization-bearer-your_access_token">{“Authorization”: “Bearer YOUR_ACCESS_TOKEN”}</a>
   <ul class="collapse">
   <li><a href="#d.-authentification-avec-oauth" id="toc-d.-authentification-avec-oauth" class="nav-link" data-scroll-target="#d.-authentification-avec-oauth">d.&nbsp;Authentification avec OAuth :</a></li>
   </ul></li>
@@ -419,7 +421,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#étape-3-après-avoir-accordé-lautorisation-lapplication-reçoit-un-code-dautorisation." id="toc-étape-3-après-avoir-accordé-lautorisation-lapplication-reçoit-un-code-dautorisation." class="nav-link" data-scroll-target="#étape-3-après-avoir-accordé-lautorisation-lapplication-reçoit-un-code-dautorisation.">Étape 3: Après avoir accordé l’autorisation, l’application reçoit un code d’autorisation.</a></li>
   <li><a href="#disons-que-vous-lobtenez-par-une-certaine-méthode-par-exemple-un-callback-web" id="toc-disons-que-vous-lobtenez-par-une-certaine-méthode-par-exemple-un-callback-web" class="nav-link" data-scroll-target="#disons-que-vous-lobtenez-par-une-certaine-méthode-par-exemple-un-callback-web">Disons que vous l’obtenez par une certaine méthode (par exemple, un callback web)</a></li>
   <li><a href="#étape-4-échangez-le-code-dautorisation-contre-un-jeton-daccès." id="toc-étape-4-échangez-le-code-dautorisation-contre-un-jeton-daccès." class="nav-link" data-scroll-target="#étape-4-échangez-le-code-dautorisation-contre-un-jeton-daccès.">Étape 4: Échangez le code d’autorisation contre un jeton d’accès.</a></li>
-  <li><a href="#étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources." id="toc-étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources." class="nav-link" data-scroll-target="#étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources.">Étape 5: Utilisez le jeton d’accès pour accéder aux ressources.</a></li>
+  <li><a href="#étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources." id="toc-étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources." class="nav-link" data-scroll-target="#étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources.">Étape 5: Utilisez le jeton d’accès pour accéder aux ressources.</a>
+  <ul class="collapse">
+  <li><a href="#exemples-python-pour-lauthentification---coté-api" id="toc-exemples-python-pour-lauthentification---coté-api" class="nav-link" data-scroll-target="#exemples-python-pour-lauthentification---coté-api">4. Exemples Python pour l’authentification - Coté API:</a>
+  <ul class="collapse">
+  <li><a href="#a.-authentification-par-mot-de-passe-basic-auth" id="toc-a.-authentification-par-mot-de-passe-basic-auth" class="nav-link" data-scroll-target="#a.-authentification-par-mot-de-passe-basic-auth">a. Authentification par mot de passe (Basic Auth) :</a></li>
+  <li><a href="#b.-authentification-par-jeton-token-auth" id="toc-b.-authentification-par-jeton-token-auth" class="nav-link" data-scroll-target="#b.-authentification-par-jeton-token-auth">b. Authentification par jeton (Token Auth) :</a></li>
+  <li><a href="#c.-oauth-fournissant-lauthentification" id="toc-c.-oauth-fournissant-lauthentification" class="nav-link" data-scroll-target="#c.-oauth-fournissant-lauthentification">c.&nbsp;OAuth (fournissant l’authentification) :</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
@@ -476,171 +486,153 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction">1. Introduction</h2>
 <section id="a.-histoire-de-lauthentification" class="level3">
 <h3 class="anchored" data-anchor-id="a.-histoire-de-lauthentification">a. Histoire de l’authentification:</h3>
-<pre><code>L'authentification est un concept aussi ancien que la civilisation elle-même. Avant les ordinateurs, les sceaux royaux, les cachets et les signatures étaient utilisés pour authentifier des documents. Avec l'arrivée de l'ère numérique, la nécessité de protéger et de vérifier l'identité en ligne est devenue primordiale. D'où l'évolution de diverses méthodes d'authentification pour les systèmes et les applications.</code></pre>
+<p>L’authentification est un concept aussi ancien que la civilisation elle-même. Avant les ordinateurs, les sceaux royaux, les cachets et les signatures étaient utilisés pour authentifier des documents. Avec l’arrivée de l’ère numérique, la nécessité de protéger et de vérifier l’identité en ligne est devenue primordiale. D’où l’évolution de diverses méthodes d’authentification pour les systèmes et les applications.</p>
 </section>
 <section id="quest-ce-que-lauthentification-api" class="level3">
 <h3 class="anchored" data-anchor-id="quest-ce-que-lauthentification-api">Qu’est-ce que l’authentification API ?</h3>
-<pre><code>L'authentification est le processus par lequel un système vérifie l'identité de l'utilisateur ou du système qui fait une requête. Pour les API, cela signifie généralement s'assurer que l'appelant a le droit d'accéder aux données ou aux fonctionnalités qu'il demande.</code></pre>
+<p>L’authentification est le processus par lequel un système vérifie l’identité de l’utilisateur ou du système qui fait une requête. Pour les API, cela signifie généralement s’assurer que l’appelant a le droit d’accéder aux données ou aux fonctionnalités qu’il demande.</p>
 </section>
 <section id="b.-méthodes-principales-dauthentification" class="level3">
 <h3 class="anchored" data-anchor-id="b.-méthodes-principales-dauthentification">b. Méthodes principales d’authentification :</h3>
 <ol type="1">
-<li><code>Authentification basique :</code>
+<li>Authentification basique :
 <ol type="1">
-<li><code>Description: L'utilisateur fournit un nom d'utilisateur et un mot de passe qui sont envoyés à chaque requête.</code></li>
-<li><code>Utilisation: Solutions simples avec une confiance entre client et serveur.</code></li>
-<li><code>Limitation: Exposition potentielle des identifiants.</code></li>
+<li>Description: L’utilisateur fournit un nom d’utilisateur et un mot de passe qui sont envoyés à chaque requête.</li>
+<li>Utilisation: Solutions simples avec une confiance entre client et serveur.</li>
+<li>Limitation: Exposition potentielle des identifiants.</li>
 </ol></li>
-<li><code>Token d'authentification :</code>
+<li>Token d’authentification :
 <ol start="4" type="1">
-<li><code>Description: L'utilisateur s'authentifie une fois et reçoit un token, qu'il utilise ensuite pour chaque requête ultérieure. Ce token représente l'identité de l'utilisateur et élimine le besoin de renvoyer les identifiants à chaque fois.</code></li>
-<li><code>Utilisation: Pour des architectures modernes, notamment celles dites "RESTful" (basées sur des principes de design d'API pour interagir avec des ressources via HTTP).</code></li>
+<li>Description: L’utilisateur s’authentifie une fois et reçoit un token, qu’il utilise ensuite pour chaque requête ultérieure. Ce token représente l’identité de l’utilisateur et élimine le besoin de renvoyer les identifiants à chaque fois.</li>
+<li>Utilisation: Pour des architectures modernes, notamment celles dites “RESTful” (basées sur des principes de design d’API pour interagir avec des ressources via HTTP).</li>
 </ol></li>
-<li><code>OAuth :</code>
+<li>OAuth :
 <ol start="6" type="1">
-<li><code>Description: Protocole permettant à une application d'accéder à des ressources d'une autre application en le nom d'un utilisateur, sans avoir à partager les identifiants.</code></li>
-<li><code>Utilisation: Intégrations tierces et accès à des plateformes comme Google, Facebook.</code></li>
+<li>Description: Protocole permettant à une application d’accéder à des ressources d’une autre application en le nom d’un utilisateur, sans avoir à partager les identifiants.</li>
+<li>Utilisation: Intégrations tierces et accès à des plateformes comme Google, Facebook.</li>
 </ol></li>
-<li><code>API Key :</code>
+<li>API Key :
 <ol start="8" type="1">
-<li><code>Description: Une clé unique générée par le serveur donnée à l'utilisateur. Cette clé est utilisée pour chaque requête pour identifier l'appelant.</code></li>
-<li><code>Utilisation: Solutions simples où l'identité de l'appelant suffit sans avoir besoin d'identifiants utilisateur.</code></li>
+<li>Description: Une clé unique générée par le serveur donnée à l’utilisateur. Cette clé est utilisée pour chaque requête pour identifier l’appelant.</li>
+<li>Utilisation: Solutions simples où l’identité de l’appelant suffit sans avoir besoin d’identifiants utilisateur.</li>
 </ol></li>
-<li><code>JWT (JSON Web Tokens) :</code>
+<li>JWT (JSON Web Tokens) :
 <ol start="10" type="1">
-<li><code>Description: Token d'authentification qui contient des informations (comme l'identité de l'utilisateur) sous forme d'objet JSON.</code></li>
-<li><code>Utilisation: Authentification et échange d'informations entre parties en toute sécurité.</code></li>
+<li>Description: Token d’authentification qui contient des informations (comme l’identité de l’utilisateur) sous forme d’objet JSON.</li>
+<li>Utilisation: Authentification et échange d’informations entre parties en toute sécurité.</li>
 </ol></li>
 </ol>
 </section>
 <section id="c.-quand-utiliser-quelle-méthode" class="level3">
 <h3 class="anchored" data-anchor-id="c.-quand-utiliser-quelle-méthode">c.&nbsp;Quand utiliser quelle méthode :</h3>
 <ul>
-<li><code>Authentification basique : Pour des solutions simples et lorsque les données ne sont pas sensibles.</code></li>
-<li><code>Token d'authentification : Pour une sécurité renforcée sans envoyer d'identifiants à chaque fois.</code></li>
-<li><code>OAuth : Lorsqu'une application nécessite l'accès à des ressources d'une autre application.</code></li>
-<li><code>API Key : Solutions rapides où la complexité d'un système d'authentification complet n'est pas requise.</code></li>
-<li><code>JWT : Échange d'informations sécurisé entre différentes parties.</code></li>
+<li>Authentification basique : Pour des solutions simples et lorsque les données ne sont pas sensibles.</li>
+<li>Token d’authentification : Pour une sécurité renforcée sans envoyer d’identifiants à chaque fois.</li>
+<li>OAuth : Lorsqu’une application nécessite l’accès à des ressources d’une autre application.</li>
+<li>API Key : Solutions rapides où la complexité d’un système d’authentification complet n’est pas requise.</li>
+<li>JWT : Échange d’informations sécurisé entre différentes parties.</li>
 </ul>
-<pre><code>Il est crucial de comprendre ces méthodes pour garantir la sécurité des échanges de données et protéger les informations contre les accès non autorisés.</code></pre>
+<p>Il est crucial de comprendre ces méthodes pour garantir la sécurité des échanges de données et protéger les informations contre les accès non autorisés.</p>
 </section>
 <section id="d.-signature-des-messages---concept-de-base" class="level3">
 <h3 class="anchored" data-anchor-id="d.-signature-des-messages---concept-de-base">d.&nbsp;Signature des messages - Concept de base:</h3>
-<pre><code>Lorsque nous parlons de "signature" dans le contexte de la sécurité, nous ne faisons pas référence à une signature manuscrite, mais à un mécanisme cryptographique. Voici comment cela fonctionne :
-</code></pre>
+<p>Lorsque nous parlons de “signature” dans le contexte de la sécurité, nous ne faisons pas référence à une signature manuscrite, mais à un mécanisme cryptographique. Voici comment cela fonctionne :</p>
 <ol type="1">
-<li><code>Principe de base : La signature d'un message assure à son destinataire que le message vient bien de l'expéditeur prévu et qu'il n'a pas été modifié en cours de route.</code></li>
-<li><code>Mécanisme : La signature est réalisée en utilisant la clé privée de l'expéditeur. Il utilise cette clé pour créer un "résumé" du message, souvent appelé "hash", puis il crypte ce résumé. Ce résumé crypté est la "signature".</code></li>
-<li><code>Vérification : Le destinataire, ayant la clé publique de l'expéditeur, peut décrypter cette signature pour obtenir le résumé. Il peut ensuite comparer ce résumé avec le message qu'il a reçu. Si les deux correspondent, cela signifie que le message est authentique et n'a pas été altéré.</code></li>
-<li><code>Parallèle avec la blockchain : Ce mécanisme est fondamental pour les blockchains. Chaque transaction dans une blockchain est signée par l'expéditeur. C'est ainsi que les autres participants peuvent vérifier la validité des transactions.</code></li>
+<li>Principe de base : La signature d’un message assure à son destinataire que le message vient bien de l’expéditeur prévu et qu’il n’a pas été modifié en cours de route.</li>
+<li>Mécanisme : La signature est réalisée en utilisant la clé privée de l’expéditeur. Il utilise cette clé pour créer un “résumé” du message, souvent appelé “hash”, puis il crypte ce résumé. Ce résumé crypté est la “signature”.</li>
+<li>Vérification : Le destinataire, ayant la clé publique de l’expéditeur, peut décrypter cette signature pour obtenir le résumé. Il peut ensuite comparer ce résumé avec le message qu’il a reçu. Si les deux correspondent, cela signifie que le message est authentique et n’a pas été altéré.</li>
+<li>Parallèle avec la blockchain : Ce mécanisme est fondamental pour les blockchains. Chaque transaction dans une blockchain est signée par l’expéditeur. C’est ainsi que les autres participants peuvent vérifier la validité des transactions.</li>
 </ol>
 </section>
 <section id="e.-signature-des-messages---hash-et-cryptographie" class="level3">
 <h3 class="anchored" data-anchor-id="e.-signature-des-messages---hash-et-cryptographie">e. Signature des messages - Hash et cryptographie :</h3>
-<pre><code>Le hashage est un processus qui prend une entrée (ou "message") et retourne une longueur fixe de chaîne de caractères, qui est typiquement une valeur unique. Les fonctions de hashage sont conçues pour être unidirectionnelles, ce qui signifie que vous ne pouvez pas retrouver l'entrée originale à partir de sa valeur hashée. Parmi les algorithmes de hashage les plus populaires, on trouve SHA-256, SHA-3, et Blake2.
-
-La cryptographie englobe les techniques permettant de sécuriser l'information en la transformant en une forme non lisible, sauf si l'on dispose d'une clé secrète. L'une des méthodes couramment utilisées est la cryptographie à clé publique (ou asymétrique), où deux clés sont utilisées : une clé publique et une clé privée. La clé publique est utilisée pour chiffrer les données, tandis que la clé privée est utilisée pour les déchiffrer. RSA et ECC (Elliptic Curve Cryptography) sont deux des algorithmes les plus couramment utilisés.</code></pre>
+<p>Le hashage est un processus qui prend une entrée (ou “message”) et retourne une longueur fixe de chaîne de caractères, qui est typiquement une valeur unique. Les fonctions de hashage sont conçues pour être unidirectionnelles, ce qui signifie que vous ne pouvez pas retrouver l’entrée originale à partir de sa valeur hashée. Parmi les algorithmes de hashage les plus populaires, on trouve SHA-256, SHA-3, et Blake2.</p>
+<p>La cryptographie englobe les techniques permettant de sécuriser l’information en la transformant en une forme non lisible, sauf si l’on dispose d’une clé secrète. L’une des méthodes couramment utilisées est la cryptographie à clé publique (ou asymétrique), où deux clés sont utilisées : une clé publique et une clé privée. La clé publique est utilisée pour chiffrer les données, tandis que la clé privée est utilisée pour les déchiffrer. RSA et ECC (Elliptic Curve Cryptography) sont deux des algorithmes les plus couramment utilisés.</p>
 </section>
 </section>
 <section id="sécurisation-avancée-des-api" class="level2">
 <h2 class="anchored" data-anchor-id="sécurisation-avancée-des-api">2. Sécurisation avancée des API :</h2>
 <section id="a.-méthode-additionnelle-à-lauthentification" class="level3">
 <h3 class="anchored" data-anchor-id="a.-méthode-additionnelle-à-lauthentification">a. Méthode additionnelle à l’authentification</h3>
-<pre><code>Au-delà de l'authentification, plusieurs méthodes peuvent être utilisées pour renforcer la sécurité d'une API :
-</code></pre>
+<p>Au-delà de l’authentification, plusieurs méthodes peuvent être utilisées pour renforcer la sécurité d’une API :</p>
 <ol type="1">
-<li><code>Whitelisting d'IP :</code>
+<li>Whitelisting d’IP :
 <ol type="1">
-<li><code>Description : Il s'agit de définir une liste d'adresses IP autorisées à accéder à l'API. Toute requête provenant d'une IP qui n'est pas sur cette liste sera automatiquement rejetée.</code></li>
-<li><code>Utilisation : Utile lorsque l'on sait exactement quels systèmes (et où ils sont localisés) doivent accéder à l'API.</code></li>
+<li>Description : Il s’agit de définir une liste d’adresses IP autorisées à accéder à l’API. Toute requête provenant d’une IP qui n’est pas sur cette liste sera automatiquement rejetée.</li>
+<li>Utilisation : Utile lorsque l’on sait exactement quels systèmes (et où ils sont localisés) doivent accéder à l’API.</li>
 </ol></li>
-<li><code>Limitation du taux de requêtes (Rate Limiting) :</code>
+<li>Limitation du taux de requêtes (Rate Limiting) :
 <ol start="3" type="1">
-<li><code>Description : Cela limite le nombre de requêtes qu'un utilisateur ou un système peut faire à l'API dans un laps de temps donné.</code></li>
-<li><code>Utilisation : Prévenir les abus, protéger contre les attaques DDoS, et s'assurer que l'API reste disponible pour tous les utilisateurs.</code></li>
+<li>Description : Cela limite le nombre de requêtes qu’un utilisateur ou un système peut faire à l’API dans un laps de temps donné.</li>
+<li>Utilisation : Prévenir les abus, protéger contre les attaques DDoS, et s’assurer que l’API reste disponible pour tous les utilisateurs.</li>
 </ol></li>
-<li><code>Validation stricte des entrées :</code>
+<li>Validation stricte des entrées :
 <ol start="5" type="1">
-<li><code>Description : Vérifier et nettoyer toutes les données entrantes pour éviter les injections SQL, les attaques XSS et autres menaces courantes.</code></li>
-<li><code>Utilisation : Protéger l'API et les données associées contre les attaques malveillantes.</code></li>
+<li>Description : Vérifier et nettoyer toutes les données entrantes pour éviter les injections SQL, les attaques XSS et autres menaces courantes.</li>
+<li>Utilisation : Protéger l’API et les données associées contre les attaques malveillantes.</li>
 </ol></li>
-<li><code>Utilisation de VPN ou de réseaux privés :</code>
+<li>Utilisation de VPN ou de réseaux privés :
 <ol start="7" type="1">
-<li><code>Description : Accès à l'API seulement à travers un réseau privé ou un VPN.</code></li>
-<li><code>Utilisation : Pour les API très sensibles où l'accès public n'est pas souhaité.</code></li>
+<li>Description : Accès à l’API seulement à travers un réseau privé ou un VPN.</li>
+<li>Utilisation : Pour les API très sensibles où l’accès public n’est pas souhaité.</li>
 </ol></li>
 </ol>
-<pre><code>L'authentification n'est que la première étape pour sécuriser une API. Ces méthodes supplémentaires renforcent la protection contre les menaces potentielles et garantissent la sécurité des données échangées.</code></pre>
+<p>L’authentification n’est que la première étape pour sécuriser une API. Ces méthodes supplémentaires renforcent la protection contre les menaces potentielles et garantissent la sécurité des données échangées.</p>
 </section>
 <section id="b.-attaques-courantes-contre-les-api" class="level3">
 <h3 class="anchored" data-anchor-id="b.-attaques-courantes-contre-les-api">b. Attaques courantes contre les API</h3>
-<pre><code>
-
-#### 1. Injection SQL (SQLi)
-L'injection SQL est une technique où un attaquant insère ou "injecte" une requête SQL malveillante dans l'entrée prévue pour être exécutée par le serveur de base de données.
-
-Exemple :
-Imaginez une fonction qui récupère les informations d'un utilisateur basées sur son nom d'utilisateur :
-
-
-</code></pre>
+<section id="injection-sql-sqli" class="level4">
+<h4 class="anchored" data-anchor-id="injection-sql-sqli">1. Injection SQL (SQLi)</h4>
+<p>L’injection SQL est une technique où un attaquant insère ou “injecte” une requête SQL malveillante dans l’entrée prévue pour être exécutée par le serveur de base de données.</p>
+<p>Exemple : Imaginez une fonction qui récupère les informations d’un utilisateur basées sur son nom d’utilisateur :</p>
 <p>def get_user(username): query = f”SELECT * FROM users WHERE username=‘{username}’” # Exécuter la requête</p>
-<pre><code>
-
-</code></pre>
 <p>Si un attaquant saisit “admin’ OR ‘1’=‘1’; –” comme nom d’utilisateur, cela transforme la requête en :</p>
-<pre><code>SELECT * FROM users WHERE username='admin' OR '1'='1'; -- '
-</code></pre>
-<pre><code>Cette requête renverra tous les utilisateurs car '1'='1' est toujours vrai.
-
-
-#### Prévention :
-</code></pre>
+<p>SELECT * FROM users WHERE username=‘admin’ OR ‘1’=‘1’; – ’</p>
+<p>Cette requête renverra tous les utilisateurs car ‘1’=‘1’ est toujours vrai.</p>
+</section>
+<section id="prévention" class="level4">
+<h4 class="anchored" data-anchor-id="prévention">Prévention :</h4>
 <ul>
-<li><code>Utiliser des requêtes préparées ou des ORM (Object Relational Mapping).</code></li>
-<li><code>Ne jamais concaténer directement des entrées utilisateur avec des requêtes SQL.</code></li>
+<li>Utiliser des requêtes préparées ou des ORM (Object Relational Mapping).</li>
+<li>Ne jamais concaténer directement des entrées utilisateur avec des requêtes SQL.</li>
 </ul>
-<pre><code>
-
-#### 2. Cross-Site Scripting (XSS)
-XSS permet à un attaquant d'injecter du script malveillant dans des pages web vues par d'autres utilisateurs.
-
-Exemple :
-Si votre site permet à un utilisateur d'ajouter des commentaires, et que vous n'échappez pas correctement l'entrée, un attaquant pourrait ajouter quelque chose comme : &lt;script&gt;malicious_code_here&lt;/script&gt;.
-
-
-#### Prévention :
-</code></pre>
+</section>
+<section id="cross-site-scripting-xss" class="level4">
+<h4 class="anchored" data-anchor-id="cross-site-scripting-xss">2. Cross-Site Scripting (XSS)</h4>
+<p>XSS permet à un attaquant d’injecter du script malveillant dans des pages web vues par d’autres utilisateurs.</p>
+Exemple : Si votre site permet à un utilisateur d’ajouter des commentaires, et que vous n’échappez pas correctement l’entrée, un attaquant pourrait ajouter quelque chose comme :
+<script>malicious_code_here</script>
+<p>.</p>
+</section>
+<section id="prévention-1" class="level4">
+<h4 class="anchored" data-anchor-id="prévention-1">Prévention :</h4>
 <ul>
-<li><code>Échapper correctement toutes les entrées utilisateur avant de les afficher sur une page web.</code></li>
-<li><code>Utiliser des en-têtes CSP (Content Security Policy) pour restreindre l'exécution de scripts.</code></li>
+<li>Échapper correctement toutes les entrées utilisateur avant de les afficher sur une page web.</li>
+<li>Utiliser des en-têtes CSP (Content Security Policy) pour restreindre l’exécution de scripts.</li>
 </ul>
-<pre><code>
-
-#### 3. Attaque par déni de service distribué (DDoS)
-Dans une attaque DDoS, un attaquant utilise plusieurs ordinateurs et connexions Internet pour inonder la cible de paquets de demande. L'objectif est de surcharger le serveur, le rendant inutilisable.
-
-Comment cela fonctionne :
-- L'attaquant contrôle un réseau de machines zombies (appelé botnet).
-- Il ordonne à ces machines d'envoyer d'énormes quantités de requêtes vers la cible, la submergeant.
-
-
-#### Prévention :
-</code></pre>
+</section>
+<section id="attaque-par-déni-de-service-distribué-ddos" class="level4">
+<h4 class="anchored" data-anchor-id="attaque-par-déni-de-service-distribué-ddos">3. Attaque par déni de service distribué (DDoS)</h4>
+<p>Dans une attaque DDoS, un attaquant utilise plusieurs ordinateurs et connexions Internet pour inonder la cible de paquets de demande. L’objectif est de surcharger le serveur, le rendant inutilisable.</p>
+<p>Comment cela fonctionne : - L’attaquant contrôle un réseau de machines zombies (appelé botnet). - Il ordonne à ces machines d’envoyer d’énormes quantités de requêtes vers la cible, la submergeant.</p>
+</section>
+<section id="prévention-2" class="level4">
+<h4 class="anchored" data-anchor-id="prévention-2">Prévention :</h4>
 <ul>
-<li><code>Utiliser des services anti-DDoS.</code></li>
-<li><code>Mettre en place des limites de taux pour les requêtes.</code></li>
-<li><code>Avoir une infrastructure capable de gérer des pics de trafic.</code></li>
+<li>Utiliser des services anti-DDoS.</li>
+<li>Mettre en place des limites de taux pour les requêtes.</li>
+<li>Avoir une infrastructure capable de gérer des pics de trafic.</li>
 </ul>
+</section>
 </section>
 <section id="c.-meilleures-pratiques-pour-protéger-les-api" class="level3">
 <h3 class="anchored" data-anchor-id="c.-meilleures-pratiques-pour-protéger-les-api">c.&nbsp;Meilleures pratiques pour protéger les API</h3>
 <ol type="1">
-<li><code>Validation des entrées : Assurez-vous que toutes les entrées utilisateur sont validées avant d'être traitées.</code></li>
-<li><code>Mise à jour régulière : Gardez votre système et vos logiciels à jour pour bénéficier des derniers correctifs de sécurité.</code></li>
-<li><code>Utiliser HTTPS : Assurez-vous que votre API est accessible uniquement via HTTPS pour protéger les données en transit.</code></li>
-<li><code>Rate limiting : Limitez le nombre de requêtes qu'un utilisateur peut faire dans un certain laps de temps pour prévenir les abus.</code></li>
-<li><code>Journalisation et surveillance : Gardez des logs de toutes les requêtes et surveillez les activités suspectes.</code></li>
+<li>Validation des entrées : Assurez-vous que toutes les entrées utilisateur sont validées avant d’être traitées.</li>
+<li>Mise à jour régulière : Gardez votre système et vos logiciels à jour pour bénéficier des derniers correctifs de sécurité.</li>
+<li>Utiliser HTTPS : Assurez-vous que votre API est accessible uniquement via HTTPS pour protéger les données en transit.</li>
+<li>Rate limiting : Limitez le nombre de requêtes qu’un utilisateur peut faire dans un certain laps de temps pour prévenir les abus.</li>
+<li>Journalisation et surveillance : Gardez des logs de toutes les requêtes et surveillez les activités suspectes.</li>
 </ol>
 </section>
 </section>
@@ -648,26 +640,21 @@ Comment cela fonctionne :
 <h2 class="anchored" data-anchor-id="exemples-python-pour-lauthentification---coté-utilisateur">3. Exemples Python pour l’authentification - Coté utilisateur:</h2>
 <section id="a.-authentification-basique" class="level3">
 <h3 class="anchored" data-anchor-id="a.-authentification-basique">a. Authentification basique :</h3>
-<pre><code>import requests
-response = requests.get('https://api.exemple.com/data', auth=('username', 'password'))</code></pre>
+<p>import requests response = requests.get(‘https://api.exemple.com/data’, auth=(‘username’, ‘password’))</p>
 </section>
 <section id="b.-authentification-par-jeton-token" class="level3">
 <h3 class="anchored" data-anchor-id="b.-authentification-par-jeton-token">b. Authentification par jeton (Token) :</h3>
-<pre><code>headers = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
-response = requests.get('https://api.exemple.com/data', headers=headers)</code></pre>
+<p>headers = {“Authorization”: “Bearer YOUR_ACCESS_TOKEN”} response = requests.get(‘https://api.exemple.com/data’, headers=headers)</p>
 </section>
 <section id="c.-ce-que-fait-le-package-requests-derrière-la-scène" class="level3">
 <h3 class="anchored" data-anchor-id="c.-ce-que-fait-le-package-requests-derrière-la-scène">c.&nbsp;Ce que fait le package requests derrière la scène :</h3>
-<pre><code>
-
-#### 1. Authentification basique :
-Lorsque vous utilisez requests avec une authentification basique, la bibliothèque génère un en-tête HTTP avec vos identifiants encodés en base64.
-
-
-</code></pre>
+<section id="authentification-basique" class="level4">
+<h4 class="anchored" data-anchor-id="authentification-basique">1. Authentification basique :</h4>
+<p>Lorsque vous utilisez requests avec une authentification basique, la bibliothèque génère un en-tête HTTP avec vos identifiants encodés en base64.</p>
 <p>import requests import base64</p>
 <p>username = ‘username’ password = ‘password’ credentials = base64.b64encode(f”{username}:{password}“.encode()).decode()</p>
 <p>headers = {“Authorization”: f”Basic {credentials}“} response = requests.get(‘https://api.exemple.com/data’, headers=headers)</p>
+</section>
 </section>
 </section>
 </section>
@@ -676,38 +663,31 @@ Lorsque vous utilisez requests avec une authentification basique, la bibliothèq
 </section>
 <section id="authorization-basic-dxnlcm5hbwu6cgfzc3dvcmq" class="level1">
 <h1>{“Authorization”: “Basic dXNlcm5hbWU6cGFzc3dvcmQ=”}</h1>
-<pre><code>
-
-</code></pre>
 <section id="authentification-par-jeton-token" class="level4">
 <h4 class="anchored" data-anchor-id="authentification-par-jeton-token">2. Authentification par jeton (Token) :</h4>
 <p>Avec l’authentification par jeton, requests ajoute simplement votre jeton à l’en-tête HTTP “Authorization”.</p>
-<pre><code>headers = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
-response = requests.get('https://api.exemple.com/data', headers=headers)
-
-# Cette requête enverra un en-tête qui ressemble à:
-# {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}</code></pre>
-<pre><code>Le corps de la requête dépendra de la méthode HTTP utilisée (GET, POST, PUT, etc.) et de la nature des données que vous envoyez. Pour une requête GET, il est généralement vide, mais pour une requête POST, il contiendrait les données que vous voulez envoyer.
-
-En résumé, lorsqu'on utilise la bibliothèque requests, beaucoup de choses se passent en coulisse pour faciliter la construction de requêtes HTTP. Elle gère l'ajout des en-têtes appropriés, l'encodage des données et bien d'autres détails techniques pour que vous n'ayez pas à le faire manuellement.</code></pre>
+<p>headers = {“Authorization”: “Bearer YOUR_ACCESS_TOKEN”} response = requests.get(‘https://api.exemple.com/data’, headers=headers)</p>
 </section>
+</section>
+<section id="cette-requête-enverra-un-en-tête-qui-ressemble-à-1" class="level1">
+<h1>Cette requête enverra un en-tête qui ressemble à:</h1>
+</section>
+<section id="authorization-bearer-your_access_token" class="level1">
+<h1>{“Authorization”: “Bearer YOUR_ACCESS_TOKEN”}</h1>
+<p>Le corps de la requête dépendra de la méthode HTTP utilisée (GET, POST, PUT, etc.) et de la nature des données que vous envoyez. Pour une requête GET, il est généralement vide, mais pour une requête POST, il contiendrait les données que vous voulez envoyer.</p>
+<p>En résumé, lorsqu’on utilise la bibliothèque requests, beaucoup de choses se passent en coulisse pour faciliter la construction de requêtes HTTP. Elle gère l’ajout des en-têtes appropriés, l’encodage des données et bien d’autres détails techniques pour que vous n’ayez pas à le faire manuellement.</p>
 <section id="d.-authentification-avec-oauth" class="level3">
 <h3 class="anchored" data-anchor-id="d.-authentification-avec-oauth">d.&nbsp;Authentification avec OAuth :</h3>
-<pre><code>OAuth est un protocole d'autorisation couramment utilisé pour obtenir un accès limité à une application ou des données sans exposer les identifiants de l'utilisateur. Il est souvent utilisé pour autoriser des applications tierces à accéder à certaines informations d'un utilisateur sans donner à ces applications le mot de passe de l'utilisateur.
-
-Un flux typique avec OAuth 2.0 (le plus couramment utilisé) implique les étapes suivantes :
-</code></pre>
+<p>OAuth est un protocole d’autorisation couramment utilisé pour obtenir un accès limité à une application ou des données sans exposer les identifiants de l’utilisateur. Il est souvent utilisé pour autoriser des applications tierces à accéder à certaines informations d’un utilisateur sans donner à ces applications le mot de passe de l’utilisateur.</p>
+<p>Un flux typique avec OAuth 2.0 (le plus couramment utilisé) implique les étapes suivantes :</p>
 <ol type="1">
-<li><code>Demande d'autorisation : L'application tierce demande à l'utilisateur la permission d'accéder à ses données.</code></li>
-<li><code>Accord de l'utilisateur : L'utilisateur accorde la permission à l'application tierce.</code></li>
-<li><code>Obtention d'un code d'autorisation : L'application reçoit un code d'autorisation en retour.</code></li>
-<li><code>Demande de jeton d'accès : L'application échange le code d'autorisation contre un jeton d'accès.</code></li>
-<li><code>Accès aux ressources : Avec ce jeton d'accès, l'application peut maintenant accéder aux ressources de l'utilisateur.</code></li>
+<li>Demande d’autorisation : L’application tierce demande à l’utilisateur la permission d’accéder à ses données.</li>
+<li>Accord de l’utilisateur : L’utilisateur accorde la permission à l’application tierce.</li>
+<li>Obtention d’un code d’autorisation : L’application reçoit un code d’autorisation en retour.</li>
+<li>Demande de jeton d’accès : L’application échange le code d’autorisation contre un jeton d’accès.</li>
+<li>Accès aux ressources : Avec ce jeton d’accès, l’application peut maintenant accéder aux ressources de l’utilisateur.</li>
 </ol>
-<pre><code>Voici un exemple simplifié d'utilisation de OAuth 2.0 avec Python en utilisant la bibliothèque requests :
-
-
-</code></pre>
+<p>Voici un exemple simplifié d’utilisation de OAuth 2.0 avec Python en utilisant la bibliothèque requests :</p>
 <p>import requests</p>
 </section>
 </section>
@@ -731,52 +711,34 @@ Un flux typique avec OAuth 2.0 (le plus couramment utilisé) implique les étape
 <section id="étape-5-utilisez-le-jeton-daccès-pour-accéder-aux-ressources." class="level1">
 <h1>Étape 5: Utilisez le jeton d’accès pour accéder aux ressources.</h1>
 <p>headers = {“Authorization”: f”Bearer {access_token}“} response = requests.get(‘https://provider.com/user/info’, headers=headers) user_info = response.json()</p>
-<pre><code>
-
-</code></pre>
 <p>Ce n’est qu’un exemple très simplifié. En réalité, le flux OAuth peut être plus complexe et impliquer d’autres étapes ou paramètres en fonction du fournisseur d’authentification que vous utilisez (par exemple, Google, Facebook, Twitter, etc.). Il existe également des bibliothèques Python spécialisées comme OAuthLib et Flask-OAuthlib qui facilitent l’implémentation de OAuth en Python.</p>
-<pre><code>
-
-
-## 4. Exemples Python pour l'authentification - Coté API:
-
-</code></pre>
+<section id="exemples-python-pour-lauthentification---coté-api" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-python-pour-lauthentification---coté-api">4. Exemples Python pour l’authentification - Coté API:</h2>
 <p>Examinons le côté serveur (ou API) de l’authentification. Les exemples suivants sont simplifiés pour montrer la logique de base de l’authentification côté serveur, et utilisent Flask, un micro-framework Python, pour illustrer les concepts.</p>
-<pre><code>
-
-
-### a. Authentification par mot de passe (Basic Auth) :
-
-</code></pre>
+<section id="a.-authentification-par-mot-de-passe-basic-auth" class="level3">
+<h3 class="anchored" data-anchor-id="a.-authentification-par-mot-de-passe-basic-auth">a. Authentification par mot de passe (Basic Auth) :</h3>
 <p>from flask import Flask, request, jsonify from werkzeug.security import check_password_hash</p>
 <p>app = Flask(<strong>name</strong>)</p>
 <p>users = { “alice”: “hashed_password_for_alice”, “bob”: “hashed_password_for_bob” }</p>
 <p><span class="citation" data-cites="app.route">@app.route</span>(‘/resource’, methods=[‘GET’]) def get_resource(): auth = request.authorization if not auth or not auth.username or not auth.password: return jsonify({“message”: “Missing authentication credentials”}), 401 user_password_hash = users.get(auth.username) if user_password_hash and check_password_hash(user_password_hash, auth.password): return jsonify({“message”: “You are authenticated”}) return jsonify({“message”: “Unauthorized”}), 401</p>
-<pre><code>
-
-
-### b. Authentification par jeton (Token Auth) :
-
-</code></pre>
+</section>
+<section id="b.-authentification-par-jeton-token-auth" class="level3">
+<h3 class="anchored" data-anchor-id="b.-authentification-par-jeton-token-auth">b. Authentification par jeton (Token Auth) :</h3>
 <p>tokens = { “alice”: “token_for_alice”, “bob”: “token_for_bob” }</p>
 <p><span class="citation" data-cites="app.route">@app.route</span>(‘/resource’, methods=[‘GET’]) def get_resource(): token = request.headers.get(‘Authorization’) if not token: return jsonify({“message”: “Missing token”}), 401 if token in tokens.values(): return jsonify({“message”: “You are authenticated”}) return jsonify({“message”: “Unauthorized”}), 401</p>
-<pre><code>
-
-
-### c. OAuth (fournissant l'authentification) :
-
-</code></pre>
+</section>
+<section id="c.-oauth-fournissant-lauthentification" class="level3">
+<h3 class="anchored" data-anchor-id="c.-oauth-fournissant-lauthentification">c.&nbsp;OAuth (fournissant l’authentification) :</h3>
 <p>from oauthlib.oauth2 import RequestValidator, BearerToken, OAuth2Provider</p>
 <p>app = Flask(<strong>name</strong>) oauth = OAuth2Provider(app)</p>
 <p>class SimpleRequestValidator(RequestValidator): # Ici, vous implémenteriez des méthodes pour valider les clients, sauvegarder les codes d’autorisation, etc. pass</p>
 <p>validator = SimpleRequestValidator() bearer = BearerToken(validator)</p>
 <p><span class="citation" data-cites="app.route">@app.route</span>(‘/resource’, methods=[‘GET’]) <span class="citation" data-cites="oauth.require_oauth">@oauth.require_oauth</span>() def get_resource(): return jsonify({“message”: “You are authenticated”})</p>
-<pre><code>
-
-</code></pre>
-<p>Ces exemples sont vraiment élémentaires et ne doivent pas être utilisés tels quels en production. Dans un véritable environnement de production, vous voudriez intégrer une bibliothèque d’authentification complète (comme Flask-HTTPAuth ou Flask-OAuthlib), utiliser HTTPS, gérer les exceptions, etc. Ces exemples sont destinés à montrer le concept général d’authentification côté serveur avec Flask. ```</p>
+<p>Ces exemples sont vraiment élémentaires et ne doivent pas être utilisés tels quels en production. Dans un véritable environnement de production, vous voudriez intégrer une bibliothèque d’authentification complète (comme Flask-HTTPAuth ou Flask-OAuthlib), utiliser HTTPS, gérer les exceptions, etc. Ces exemples sont destinés à montrer le concept général d’authentification côté serveur avec Flask.</p>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
