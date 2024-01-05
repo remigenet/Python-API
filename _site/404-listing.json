@@ -5,7 +5,7 @@
     "/content/Annexes/git_advanced.html",
     "/content/Annexes/git_basics.html",
     "/content/Annexes/use_poetry.html",
-    "/content/Cours_1/1-Api101.html",
+    "/content/Cours_1/1-API101.html",
     "/content/Cours_1/2-User101.html",
     "/content/Cours_1/3-Concepteur101.html",
     "/content/Cours_1/4-guard101.html",
@@ -45,6 +45,7 @@
     "/content/Cours_5/5-moreexample.html",
     "/content/Cours_5/6-domain.html",
     "/content/Cours_5/7-end.html",
-    "/content/Cours_5/index.html"
+    "/content/Cours_5/index.html",
+    "/content/projets/millesime_2324.html"
   ]
 }

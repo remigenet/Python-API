@@ -10,7 +10,6 @@ website:
   back-to-top-navigation: true
   reader-mode: true
   navbar:
-    background: "white"
     search: true
     left:
       - text: Back to Main Website
@@ -45,18 +44,18 @@ website:
       - section: Travaux Pratiques
         expanded: false
         contents:
-        - content/Cours_1/7-TP-Postman_and_coingeko.qmd
+        - content/Cours_1/TP-Postman_and_coingeko.qmd
       icon: book
     - id: async 
       title: "Consommation avancée d'API"
       contents: 
        - content/Cours_2/1-Protocols.qmd
        - content/Cours_2/2-Authenticate.qmd
-       - content/Cours_2/3-Conception-optimizations.py
+       - content/Cours_2/3-Conception-optimizations.qmd
        - section: Travaux Pratiques
          expanded: false
          contents:
-         - content/Cours_2/TP-2-compare-run
+         - content/Cours_2/TP-2-compare-run.qmd
     - id: ipc 
       title: "Communication entre Processus (IPC)"
       contents: 
@@ -110,7 +109,7 @@ website:
   repo-branch: main
   page-footer:
     left: |
-      Introduction à Python, Rémi Genet.<br>
+      Python API, Rémi Genet.<br>
       Licence {{< fa brands creative-commons >}}<br>
       Code source disponible sur [`Github`](https://github.com/remigenet/Python-API)
     right: |
@@ -118,12 +117,12 @@ website:
       Inspiration pour la mise en forme du site [ici](https://github.com/linogaliana/python-datascientist)<br>
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Python-API)
 
-
+theme:
+  light: sandstone
+  dark: darkly
 
 format:
   html:
-    light: sandstone
-    dark: darkly
     css: styles.css
     toc: true
     toc-depth: 3
