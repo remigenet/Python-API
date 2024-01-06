@@ -7,10 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-05">
-<meta name="description" content="Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.">
+<meta name="dcterms.date" content="2024-01-06">
 
-<title>Introduction à Python - Créer une API</title>
+<title>Introduction à Python - Projets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,9 +32,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/4-guard101.html" rel="next">
-<link href="../../content/Cours_1/2-User101.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -49,6 +48,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/animate-4.1.1/animate.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,24 +76,80 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-sample-listings .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-sample-listings'] = new List('listing-sample-listings', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+<style>:root{--animate-duration:3s;--animate-delay:2s;--animate-repeat:1}</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Créer une API">
-<meta property="og:description" content="Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/Maker101.webp">
+<meta property="og:title" content="Introduction à Python - Projets">
 <meta property="og:site_name" content="Introduction à Python">
-<meta name="citation_title" content="Créer une API">
+<meta name="citation_title" content="Projets">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-05">
-<meta name="citation_cover_date" content="2024-01-05">
+<meta name="citation_publication_date" content="2024-01-06">
+<meta name="citation_cover_date" content="2024-01-06">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-05">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/3-Concepteur101.html">
+<meta name="citation_online_date" content="2024-01-06">
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -322,211 +378,62 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_1/3-Concepteur101.html">Créer une API</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/1-API101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">API - Définition</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/2-User101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Utiliser une API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/3-Concepteur101.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Créer une API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/4-guard101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sécuriser une API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/5-tester101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tester une API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/6-UserApi.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">La notion d’API utilisateur</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Travaux Pratiques</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/TP-Postman_and_coingeko.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP - Postman et requêtes API</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#chapitre-3---créer-une-api-en-tant-que-concepteur" id="toc-chapitre-3---créer-une-api-en-tant-que-concepteur" class="nav-link active" data-scroll-target="#chapitre-3---créer-une-api-en-tant-que-concepteur">Chapitre 3 - Créer une API en tant que concepteur</a></li>
-  <li><a href="#créer-une-api-en-tant-que-concepteur" id="toc-créer-une-api-en-tant-que-concepteur" class="nav-link" data-scroll-target="#créer-une-api-en-tant-que-concepteur">3. Créer une API en tant que concepteur</a>
-  <ul class="collapse">
-  <li><a href="#pourquoi-créer-une-api" id="toc-pourquoi-créer-une-api" class="nav-link" data-scroll-target="#pourquoi-créer-une-api">3.1 Pourquoi créer une API ?</a></li>
-  <li><a href="#principes-de-base-de-la-conception-dune-api" id="toc-principes-de-base-de-la-conception-dune-api" class="nav-link" data-scroll-target="#principes-de-base-de-la-conception-dune-api">3.2 Principes de base de la conception d’une API :</a></li>
-  <li><a href="#routes-méthodes-et-conventions" id="toc-routes-méthodes-et-conventions" class="nav-link" data-scroll-target="#routes-méthodes-et-conventions">3.3 Routes, méthodes et conventions :</a></li>
-  <li><a href="#gestion-des-versions" id="toc-gestion-des-versions" class="nav-link" data-scroll-target="#gestion-des-versions">3.4 Gestion des versions :</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">3.5 Documentation :</a></li>
-  <li><a href="#étude-de-cas-coingecko-et-coinmarketcap" id="toc-étude-de-cas-coingecko-et-coinmarketcap" class="nav-link" data-scroll-target="#étude-de-cas-coingecko-et-coinmarketcap">3.6 Étude de cas : CoinGecko et CoinMarketCap</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Créer une API</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Introduction</div>
-  </div>
-  </div>
+<header id="title-block-header">
+<h1 class="title display-7">Projets</h1>
+<p class="author">Remi Genet</p>
 
-<div>
-  <div class="description">
-    Explorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.
-  </div>
-</div>
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Remi Genet </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-05</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
+<p class="date">2024-01-06</p>
 </header>
 
 
-<section id="chapitre-3---créer-une-api-en-tant-que-concepteur" class="level1">
-<h1>Chapitre 3 - Créer une API en tant que concepteur</h1>
-<hr>
-</section>
-<section id="créer-une-api-en-tant-que-concepteur" class="level1">
-<h1>3. Créer une API en tant que concepteur</h1>
-<section id="pourquoi-créer-une-api" class="level2">
-<h2 class="anchored" data-anchor-id="pourquoi-créer-une-api">3.1 Pourquoi créer une API ?</h2>
-<ul>
-<li>Interopérabilité : Les API permettent à différentes applications de travailler ensemble, créant un écosystème d’applications connectées.</li>
-<li>Évolutivité : Vous pouvez mettre à jour ou modifier votre application backend sans perturber les utilisateurs de l’API, tant que l’interface reste consistante.</li>
-<li>Monétisation : De nombreuses entreprises offrent des API en tant que produits, soit en facturant directement pour l’accès, soit en utilisant des modèles freemium.</li>
-<li>Automatisation : Avec les API, les processus peuvent être automatisés et intégrés dans d’autres applications ou workflows.</li>
-<li></li>
-</ul>
-</section>
-<section id="principes-de-base-de-la-conception-dune-api" class="level2">
-<h2 class="anchored" data-anchor-id="principes-de-base-de-la-conception-dune-api">3.2 Principes de base de la conception d’une API :</h2>
-<ul>
-<li>Simplicité : Une API doit être intuitive et facile à utiliser.</li>
-<li>Consistance : Les méthodes, les endpoints et les réponses doivent suivre une structure cohérente.</li>
-<li>Sécurité : Assurez-vous que seules les personnes ou applications autorisées peuvent accéder à votre API.</li>
-<li>Fiabilité : Une API doit être stable et fiable, avec un minimum de temps d’arrêt.</li>
-</ul>
-</section>
-<section id="routes-méthodes-et-conventions" class="level2">
-<h2 class="anchored" data-anchor-id="routes-méthodes-et-conventions">3.3 Routes, méthodes et conventions :</h2>
-<p>Lors de la conception de votre API, vous devrez définir des routes (ou endpoints) qui déterminent les actions ou les données disponibles. Voici quelques conventions courantes :</p>
-<ul>
-<li>CRUD (Create, Read, Update, Delete) : Ces opérations représentent les actions de base pour gérer les ressources. Par exemple :
-<ul>
-<li>POST /items pour créer un nouvel item.</li>
-<li>GET /items pour lire une liste d’items.</li>
-<li>PUT /items/{id} pour mettre à jour un item spécifique.</li>
-<li>DELETE /items/{id} pour supprimer un item spécifique.</li>
-</ul></li>
-<li>Utilisation des verbes HTTP : Utilisez les méthodes HTTP (GET, POST, PUT, DELETE) pour représenter les actions.</li>
-<li>Nommage : Les routes doivent être nommées de manière intuitive. Par exemple, utilisez des noms au pluriel pour les collections (/items) et des noms au singulier pour une ressource spécifique (/item/{id}).</li>
-</ul>
-</section>
-<section id="gestion-des-versions" class="level2">
-<h2 class="anchored" data-anchor-id="gestion-des-versions">3.4 Gestion des versions :</h2>
-<p>Avec le temps, votre API pourrait nécessiter des modifications ou des améliorations. Gérer les versions de votre API permet aux développeurs d’adapter leurs applications aux changements sans interruption. Une pratique courante est d’inclure le numéro de version dans l’URL, comme dans /v1/items.</p>
-</section>
-<section id="documentation" class="level2">
-<h2 class="anchored" data-anchor-id="documentation">3.5 Documentation :</h2>
-<p>Un élément clé de toute API réussie est une documentation complète et claire. Elle doit fournir :</p>
-<ul>
-<li>Une liste de tous les endpoints avec des descriptions.</li>
-<li>Des exemples de requêtes et de réponses.</li>
-<li>Des détails sur les codes d’erreur et leur signification.</li>
-<li>Des informations sur les limitations, les quotas ou les tarifs.</li>
-</ul>
-</section>
-<section id="étude-de-cas-coingecko-et-coinmarketcap" class="level2">
-<h2 class="anchored" data-anchor-id="étude-de-cas-coingecko-et-coinmarketcap">3.6 Étude de cas : CoinGecko et CoinMarketCap</h2>
-<p>Ces deux plateformes sont des exemples parfaits pour illustrer le potentiel et la valeur ajoutée d’une API bien conçue.</p>
-<ul>
-<li>Agrégation de Données : CoinGecko et CoinMarketCap rassemblent des données de nombreux échanges de cryptomonnaie à travers le monde. Ces données peuvent inclure les prix actuels, les volumes d’échange, les données historiques, et bien d’autres informations pertinentes.</li>
-<li>Traitement et Modélisation : Une fois les données récupérées, elles sont traitées, modélisées et souvent normalisées pour fournir des informations cohérentes aux utilisateurs. Par exemple, le calcul du prix moyen d’une cryptomonnaie sur différents échanges ou la prise en compte de la liquidité pour pondérer ces moyennes.</li>
-<li>Accessibilité via l’API : Ces plateformes rendent ensuite ces données accessibles via leurs API. Les développeurs, les entreprises ou même les amateurs peuvent accéder à ces données pour leurs propres analyses, applications ou sites web.</li>
-<li>Modèle Freemium : Tandis que l’accès de base à l’API peut être gratuit, avec certaines limitations (par exemple, un nombre limité de requêtes par minute ou par jour), les utilisateurs qui ont besoin de capacités supplémentaires ou d’accès à des données plus spécialisées peuvent opter pour des plans payants. Cela crée une source de revenus pour ces plateformes tout en offrant un service précieux à la communauté.</li>
-</ul>
+<section id="section" class="level1">
+<h1><span class="animate__animated animate__backInDown" style="display: inline-block;">Les projets données dans la matière sont:</span></h1>
+
 
 
 </section>
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<div class="quarto-listing quarto-listing-container-grid" id="listing-sample-listings">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704431122170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="943">
+<a href="../../content/projets/millesime_2324.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../../content/projets/.img/zen1.webp" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Introduction au Déploiement d’API
+</h5>
+<div class="card-text listing-description">
+Projets Introduction Bienvenue dans votre ultime défi académique en maîtrise de l’API Python. Vous allez être répartis en équipes de 5 à 7 personnes pour travailler sur l’un…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Remi Genet
+</div>
+<div class="listing-date">
+2024-01-06
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1053,18 +960,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/2-User101.html" class="pagination-link  aria-label=" utiliser="" une="" api"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Utiliser une API</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_1/4-guard101.html" class="pagination-link" aria-label="Sécuriser une API">
-        <span class="nav-page-text">Sécuriser une API</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -444,7 +444,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Apprendre à interagir avec l’API Binance pour récupérer les données de marché des cryptomonnaies et à comprendre les différences entre les appels API séquentiels, asynchrones, multithreads et multiprocessus.</li>
 <li>Apprendre à utiliser un WebSocket.</li>
 </ul>
-<p><strong>Prérequis :</strong> - Python 3.x - Compréhension de base des requêtes HTTP, de l’asynchronisme, des threads, des processus et des WebSockets. - Installation des packages nécessaires (<code>requests</code>, <code>aiohttp</code>, <code>asyncio</code>, <code>websockets</code>, <code>threading</code>, <code>multiprocessing</code> si nécessaire).</p>
+<p><strong>Prérequis :</strong> - Python 3.x - Compréhension de base des requêtes HTTP, de l’asynchronisme, des threads, des processus et des WebSockets. - Installation des packages nécessaires (requests, aiohttp, asyncio, websockets, threading, multiprocessing si nécessaire).</p>
 </section>
 <section id="partie-1-asynchronie-multithreading-et-multiprocessing-appliqués-à-la-récupération-de-données-de-marché" class="level2">
 <h2 class="anchored" data-anchor-id="partie-1-asynchronie-multithreading-et-multiprocessing-appliqués-à-la-récupération-de-données-de-marché">Partie 1 : Asynchronie, Multithreading et Multiprocessing appliqués à la récupération de données de marché</h2>
@@ -454,9 +454,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Méthodes d’exécution</strong> :</p>
 <ul>
 <li><strong>Séquentielle</strong> : Utilisez des requêtes HTTP séquentielles pour récupérer les données.</li>
-<li><strong>Asynchrone</strong> : Modifiez le script pour utiliser <code>asyncio</code> et <code>aiohttp</code> afin de récupérer les données de manière asynchrone.</li>
-<li><strong>Multithreading</strong> : Utilisez le module <code>threading</code> pour récupérer les données à l’aide de threads.</li>
-<li><strong>Multiprocessing</strong> : Expérimentez avec le module <code>multiprocessing</code> pour récupérer les données à l’aide de processus.</li>
+<li><strong>Asynchrone</strong> : Modifiez le script pour utiliser asyncio et aiohttp afin de récupérer les données de manière asynchrone.</li>
+<li><strong>Multithreading</strong> : Utilisez le module threading pour récupérer les données à l’aide de threads.</li>
+<li><strong>Multiprocessing</strong> : Expérimentez avec le module multiprocessing pour récupérer les données à l’aide de processus.</li>
 </ul></li>
 <li><p><strong>Comparaison des performances</strong> : Comparez les performances de chacune des méthodes d’exécution en termes de temps nécessaire pour récupérer toutes les données. Documentez vos observations.</p></li>
 </ol>
@@ -464,9 +464,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="partie-2-utilisation-des-websockets" class="level2">
 <h2 class="anchored" data-anchor-id="partie-2-utilisation-des-websockets">Partie 2 : Utilisation des Websockets</h2>
 <ol type="1">
-<li><p><strong>Établissement de la connexion</strong> : Connectez-vous aux streams WebSocket pour <code>btcusdt</code> et <code>btceth</code> en utilisant le stream <code>&lt;symbol&gt;@depth1@100ms</code> pour recevoir les mises à jour du carnet d’ordres de niveau 1 toutes les 100 ms.</p></li>
-<li><p><strong>Traitement des données</strong> : À chaque mise à jour du carnet d’ordres, affichez un bid/ask synthétique et comparez-le avec les données du WebSocket pour <code>ethusdt</code>.</p></li>
-<li><p><strong>Analyse</strong> : Selon les prix de vos bid-ask synthétiques et les prix de la paire <code>ethusdt</code>, des opportunités d’arbitrage triangulaire sont-elles possibles ? Si oui, expliquez les facteurs non pris en compte qui pourraient expliquer pourquoi il semble possible de réaliser un arbitrage.</p></li>
+<li><p><strong>Établissement de la connexion</strong> : Connectez-vous aux streams WebSocket pour btcusdt et btceth en utilisant le stream <symbol><span class="citation" data-cites="depth1">@depth1</span><span class="citation" data-cites="100ms">@100ms</span> pour recevoir les mises à jour du carnet d’ordres de niveau 1 toutes les 100 ms.</symbol></p></li>
+<li><p><strong>Traitement des données</strong> : À chaque mise à jour du carnet d’ordres, affichez un bid/ask synthétique et comparez-le avec les données du WebSocket pour ethusdt.</p></li>
+<li><p><strong>Analyse</strong> : Selon les prix de vos bid-ask synthétiques et les prix de la paire ethusdt, des opportunités d’arbitrage triangulaire sont-elles possibles ? Si oui, expliquez les facteurs non pris en compte qui pourraient expliquer pourquoi il semble possible de réaliser un arbitrage.</p></li>
 </ol>
 <p><strong>Ressources :</strong> - Documentation de l’API Binance pour les points d’accès des données de marché : <a href="https://binance-docs.github.io/apidocs/spot/en/#market-data-endpoints">Documentation de l’API Binance</a> - Documentation de l’API Binance pour les Websockets : <a href="https://binance-docs.github.io/apidocs/spot/en/#websocket-market-streams">Documentation des Websockets Binance</a> - Toute la documentation de l’API Binance est également disponible directement sur GitHub : <a href="https://github.com/binance/binance-spot-api-docs/tree/master">Documentation de l’API Binance sur GitHub</a></p>
 

@@ -396,9 +396,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#f.-exemple-concret-dapi-http-en-python-avec-flask" id="toc-f.-exemple-concret-dapi-http-en-python-avec-flask" class="nav-link" data-scroll-target="#f.-exemple-concret-dapi-http-en-python-avec-flask">f.&nbsp;Exemple concret d’API HTTP en Python avec Flask</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#route-pour-un-get-simple" id="toc-route-pour-un-get-simple" class="nav-link" data-scroll-target="#route-pour-un-get-simple">Route pour un GET simple</a></li>
+  <li><a href="#route-pour-un-post-avec-réception-de-données-json" id="toc-route-pour-un-post-avec-réception-de-données-json" class="nav-link" data-scroll-target="#route-pour-un-post-avec-réception-de-données-json">Route pour un POST avec réception de données JSON</a></li>
   <li><a href="#exécution-dune-requête-get" id="toc-exécution-dune-requête-get" class="nav-link" data-scroll-target="#exécution-dune-requête-get">Exécution d’une requête GET</a></li>
   <li><a href="#exécution-dune-requête-post-avec-json" id="toc-exécution-dune-requête-post-avec-json" class="nav-link" data-scroll-target="#exécution-dune-requête-post-avec-json">Exécution d’une requête POST avec JSON</a>
   <ul class="collapse">
+  <li><a href="#websocket" id="toc-websocket" class="nav-link" data-scroll-target="#websocket">2. Websocket :</a>
+  <ul class="collapse">
+  <li><a href="#a.-quest-ce-quun-websocket" id="toc-a.-quest-ce-quun-websocket" class="nav-link" data-scroll-target="#a.-quest-ce-quun-websocket">a. Qu’est-ce qu’un Websocket ?</a></li>
+  <li><a href="#b.-comment-cela-se-compare-t-il-à-une-requête-http-classique" id="toc-b.-comment-cela-se-compare-t-il-à-une-requête-http-classique" class="nav-link" data-scroll-target="#b.-comment-cela-se-compare-t-il-à-une-requête-http-classique">b. Comment cela se compare-t-il à une requête HTTP classique ?</a></li>
+  <li><a href="#c.-pourquoi-utiliser-websocket" id="toc-c.-pourquoi-utiliser-websocket" class="nav-link" data-scroll-target="#c.-pourquoi-utiliser-websocket">c.&nbsp;Pourquoi utiliser Websocket ?</a></li>
+  <li><a href="#d.-fonctionnement-de-base" id="toc-d.-fonctionnement-de-base" class="nav-link" data-scroll-target="#d.-fonctionnement-de-base">d.&nbsp;Fonctionnement de base :</a></li>
+  <li><a href="#e.-limitations-et-précautions" id="toc-e.-limitations-et-précautions" class="nav-link" data-scroll-target="#e.-limitations-et-précautions">e. Limitations et précautions :</a></li>
+  <li><a href="#f.-exemple-courant-dutilisation" id="toc-f.-exemple-courant-dutilisation" class="nav-link" data-scroll-target="#f.-exemple-courant-dutilisation">f.&nbsp;Exemple courant d’utilisation :</a></li>
+  <li><a href="#g.-pratiques-courantes-avec-websockets" id="toc-g.-pratiques-courantes-avec-websockets" class="nav-link" data-scroll-target="#g.-pratiques-courantes-avec-websockets">g. Pratiques courantes avec Websockets :</a></li>
+  <li><a href="#h.-exemple-concret-de-websocket-en-python-avec-le-package-websockets" id="toc-h.-exemple-concret-de-websocket-en-python-avec-le-package-websockets" class="nav-link" data-scroll-target="#h.-exemple-concret-de-websocket-en-python-avec-le-package-websockets">h. Exemple concret de Websocket en Python avec le package websockets</a></li>
+  </ul></li>
   <li><a href="#grpc-google-remote-procedure-call" id="toc-grpc-google-remote-procedure-call" class="nav-link" data-scroll-target="#grpc-google-remote-procedure-call">3. gRPC (Google Remote Procedure Call):</a>
   <ul class="collapse">
   <li><a href="#a.-introduction" id="toc-a.-introduction" class="nav-link" data-scroll-target="#a.-introduction">a. Introduction :</a></li>
@@ -416,11 +429,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#envoie-dun-message" id="toc-envoie-dun-message" class="nav-link" data-scroll-target="#envoie-dun-message">Envoie d’un message</a></li>
   <li><a href="#sabonner-aux-messages" id="toc-sabonner-aux-messages" class="nav-link" data-scroll-target="#sabonner-aux-messages">S’abonner aux messages</a>
   <ul class="collapse">
+  <li><a href="#autres-protocoles-de-communication-en-informatique" id="toc-autres-protocoles-de-communication-en-informatique" class="nav-link" data-scroll-target="#autres-protocoles-de-communication-en-informatique">4. Autres Protocoles de Communication en Informatique</a>
+  <ul class="collapse">
+  <li><a href="#a.-soap-simple-object-access-protocol" id="toc-a.-soap-simple-object-access-protocol" class="nav-link" data-scroll-target="#a.-soap-simple-object-access-protocol">a. SOAP (Simple Object Access Protocol):</a></li>
   <li><a href="#b.-tcpip-transmission-control-protocolinternet-protocol" id="toc-b.-tcpip-transmission-control-protocolinternet-protocol" class="nav-link" data-scroll-target="#b.-tcpip-transmission-control-protocolinternet-protocol">b. TCP/IP (Transmission Control Protocol/Internet Protocol):</a></li>
   <li><a href="#c.-udp-user-datagram-protocol" id="toc-c.-udp-user-datagram-protocol" class="nav-link" data-scroll-target="#c.-udp-user-datagram-protocol">c.&nbsp;UDP (User Datagram Protocol):</a></li>
   <li><a href="#d.-mqtt-message-queuing-telemetry-transport" id="toc-d.-mqtt-message-queuing-telemetry-transport" class="nav-link" data-scroll-target="#d.-mqtt-message-queuing-telemetry-transport">d.&nbsp;MQTT (Message Queuing Telemetry Transport):</a></li>
+  <li><a href="#e.-amqp-advanced-message-queuing-protocol" id="toc-e.-amqp-advanced-message-queuing-protocol" class="nav-link" data-scroll-target="#e.-amqp-advanced-message-queuing-protocol">e. AMQP (Advanced Message Queuing Protocol):</a></li>
   <li><a href="#f.-coap-constrained-application-protocol" id="toc-f.-coap-constrained-application-protocol" class="nav-link" data-scroll-target="#f.-coap-constrained-application-protocol">f.&nbsp;CoAP (Constrained Application Protocol):</a></li>
   <li><a href="#g.-ftpsftp-file-transfer-protocolssh-file-transfer-protocol" id="toc-g.-ftpsftp-file-transfer-protocolssh-file-transfer-protocol" class="nav-link" data-scroll-target="#g.-ftpsftp-file-transfer-protocolssh-file-transfer-protocol">g. FTP/SFTP (File Transfer Protocol/SSH File Transfer Protocol):</a></li>
+  <li><a href="#h.-fix-financial-information-exchange" id="toc-h.-fix-financial-information-exchange" class="nav-link" data-scroll-target="#h.-fix-financial-information-exchange">h. FIX (Financial Information eXchange):</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
@@ -478,95 +497,79 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="requête-http">1. Requête HTTP :</h2>
 <section id="a.-introduction-au-protocole-http" class="level3">
 <h3 class="anchored" data-anchor-id="a.-introduction-au-protocole-http">a. Introduction au protocole HTTP :</h3>
-<pre><code>Le protocole HTTP (HyperText Transfer Protocol) est un protocole de communication standardisé qui permet aux clients de communiquer avec les serveurs, principalement via des navigateurs Web. Les éléments clés du protocole HTTP comprennent :
-</code></pre>
+<p>Le protocole HTTP (HyperText Transfer Protocol) est un protocole de communication standardisé qui permet aux clients de communiquer avec les serveurs, principalement via des navigateurs Web. Les éléments clés du protocole HTTP comprennent :</p>
 <ul>
-<li><code>Méthodes : Elles définissent l'action à effectuer. Les plus courantes sont GET (récupérer des données), POST (envoyer des données), PUT (mettre à jour des données) et DELETE (supprimer des données).</code></li>
-<li><code>Headers : Ce sont des métadonnées sur la requête ou la réponse. Par exemple, le type de contenu (Content-Type), le type d'authentification utilisé, etc.</code></li>
-<li><code>Body : C'est le contenu de la requête ou de la réponse. Il contient généralement des données envoyées au serveur ou reçues du serveur.</code></li>
+<li>Méthodes : Elles définissent l’action à effectuer. Les plus courantes sont GET (récupérer des données), POST (envoyer des données), PUT (mettre à jour des données) et DELETE (supprimer des données).</li>
+<li>Headers : Ce sont des métadonnées sur la requête ou la réponse. Par exemple, le type de contenu (Content-Type), le type d’authentification utilisé, etc.</li>
+<li>Body : C’est le contenu de la requête ou de la réponse. Il contient généralement des données envoyées au serveur ou reçues du serveur.</li>
 </ul>
 </section>
 <section id="b.-modèle-requête-réponse" class="level3">
 <h3 class="anchored" data-anchor-id="b.-modèle-requête-réponse">b. Modèle requête-réponse :</h3>
-<pre><code>Lorsqu'un client souhaite communiquer avec un serveur, il envoie une requête HTTP. Cette requête contient des informations sur ce que le client souhaite faire. Le serveur traite cette requête et renvoie une réponse au client. La réponse contient généralement le statut de la requête (réussie, échouée, etc.) et toute donnée demandée.</code></pre>
+<p>Lorsqu’un client souhaite communiquer avec un serveur, il envoie une requête HTTP. Cette requête contient des informations sur ce que le client souhaite faire. Le serveur traite cette requête et renvoie une réponse au client. La réponse contient généralement le statut de la requête (réussie, échouée, etc.) et toute donnée demandée.</p>
 </section>
 <section id="c.-utilisation-du-protocole-http" class="level3">
 <h3 class="anchored" data-anchor-id="c.-utilisation-du-protocole-http">c.&nbsp;Utilisation du protocole HTTP :</h3>
-<pre><code>On estime que plus de 83% du trafic Internet est basé sur HTTP/HTTPS, ce qui en fait la pierre angulaire de la plupart des communications en ligne. Un exemple d'utilisation courante du protocole HTTP est lors de la navigation sur un site web. Lorsque vous entrez une URL dans votre navigateur, une requête HTTP est envoyée au serveur qui héberge cette page. Le serveur répond alors en renvoyant le contenu de la page web demandée.</code></pre>
+<p>On estime que plus de 83% du trafic Internet est basé sur HTTP/HTTPS, ce qui en fait la pierre angulaire de la plupart des communications en ligne. Un exemple d’utilisation courante du protocole HTTP est lors de la navigation sur un site web. Lorsque vous entrez une URL dans votre navigateur, une requête HTTP est envoyée au serveur qui héberge cette page. Le serveur répond alors en renvoyant le contenu de la page web demandée.</p>
 </section>
 <section id="d.-http-vs.-https" class="level3">
 <h3 class="anchored" data-anchor-id="d.-http-vs.-https">d.&nbsp;HTTP vs.&nbsp;HTTPS :</h3>
 <ul>
-<li><code>HTTP (HyperText Transfer Protocol) est le protocole standard pour le transfert de données sur le web. Toutefois, il ne chiffre pas les données, ce qui signifie que les informations envoyées et reçues peuvent être interceptées et lues par des tiers.</code></li>
-<li><code>HTTPS (HyperText Transfer Protocol Secure) est une version sécurisée de HTTP. Il utilise un certificat SSL (Secure Socket Layer) ou TLS (Transport Layer Security) pour chiffrer les données transférées entre le client et le serveur. Cela garantit que les données restent confidentielles et intègres pendant le transfert.</code></li>
-<li><code>Pourquoi HTTPS est important :</code>
+<li>HTTP (HyperText Transfer Protocol) est le protocole standard pour le transfert de données sur le web. Toutefois, il ne chiffre pas les données, ce qui signifie que les informations envoyées et reçues peuvent être interceptées et lues par des tiers.</li>
+<li>HTTPS (HyperText Transfer Protocol Secure) est une version sécurisée de HTTP. Il utilise un certificat SSL (Secure Socket Layer) ou TLS (Transport Layer Security) pour chiffrer les données transférées entre le client et le serveur. Cela garantit que les données restent confidentielles et intègres pendant le transfert.</li>
+<li>Pourquoi HTTPS est important :
 <ul>
-<li><code>Confidentialité : Seul le client et le serveur peuvent "comprendre" les données échangées, car elles sont chiffrées.</code></li>
-<li><code>Intégrité : Les données ne peuvent pas être modifiées sans que les deux parties le sachent.</code></li>
-<li><code>Authentification : Cela confirme que les utilisateurs communiquent avec le site web prévu.</code></li>
+<li>Confidentialité : Seul le client et le serveur peuvent “comprendre” les données échangées, car elles sont chiffrées.</li>
+<li>Intégrité : Les données ne peuvent pas être modifiées sans que les deux parties le sachent.</li>
+<li>Authentification : Cela confirme que les utilisateurs communiquent avec le site web prévu.</li>
 </ul></li>
 </ul>
-<pre><code>En général, pour des raisons de sécurité, il est recommandé d'utiliser HTTPS, en particulier pour les sites web traitant des informations sensibles comme les coordonnées bancaires, les mots de passe, etc.</code></pre>
+<p>En général, pour des raisons de sécurité, il est recommandé d’utiliser HTTPS, en particulier pour les sites web traitant des informations sensibles comme les coordonnées bancaires, les mots de passe, etc.</p>
 </section>
 <section id="e.-comprendre-le-ssltls" class="level3">
 <h3 class="anchored" data-anchor-id="e.-comprendre-le-ssltls">e. Comprendre le SSL/TLS :</h3>
 <ul>
-<li><code>SSL/TLS c'est quoi ?</code>
+<li>SSL/TLS c’est quoi ?
 <ul>
-<li><code>SSL (Secure Sockets Layer) et TLS (Transport Layer Security) sont des protocoles cryptographiques qui assurent la confidentialité et l'intégrité des données échangées sur Internet.</code></li>
-<li><code>SSL est l'ancêtre de TLS, mais le terme "SSL" est souvent utilisé dans un sens générique pour se référer aux deux. Dans la pratique, TLS est plus moderne et sécurisé.</code></li>
+<li>SSL (Secure Sockets Layer) et TLS (Transport Layer Security) sont des protocoles cryptographiques qui assurent la confidentialité et l’intégrité des données échangées sur Internet.</li>
+<li>SSL est l’ancêtre de TLS, mais le terme “SSL” est souvent utilisé dans un sens générique pour se référer aux deux. Dans la pratique, TLS est plus moderne et sécurisé.</li>
 </ul></li>
-<li><code>Comment ça fonctionne ?</code>
+<li>Comment ça fonctionne ?
 <ul>
-<li><code>Établissement de la connexion : Lorsqu'un client veut établir une connexion sécurisée avec un serveur (par exemple, un navigateur web avec un site web), il commence par demander la "poignée de main" SSL/TLS.</code></li>
-<li><code>Échange de certificats : Le serveur envoie son certificat public au client. Ce certificat contient la clé publique du serveur et est signé par une autorité de certification (CA) de confiance.</code></li>
-<li><code>Validation du certificat : Le client vérifie le certificat pour s'assurer qu'il est valide, qu'il n'a pas expiré, et qu'il est signé par une CA de confiance.</code></li>
-<li><code>Création d'une clé de session : Le client génère une clé de session, la chiffre avec la clé publique du serveur et l'envoie.</code></li>
-<li><code>Établissement d'une session sécurisée : Le serveur déchiffre la clé de session avec sa clé privée, et la session sécurisée est établie. Toutes les données échangées durant cette session seront chiffrées.</code></li>
+<li>Établissement de la connexion : Lorsqu’un client veut établir une connexion sécurisée avec un serveur (par exemple, un navigateur web avec un site web), il commence par demander la “poignée de main” SSL/TLS.</li>
+<li>Échange de certificats : Le serveur envoie son certificat public au client. Ce certificat contient la clé publique du serveur et est signé par une autorité de certification (CA) de confiance.</li>
+<li>Validation du certificat : Le client vérifie le certificat pour s’assurer qu’il est valide, qu’il n’a pas expiré, et qu’il est signé par une CA de confiance.</li>
+<li>Création d’une clé de session : Le client génère une clé de session, la chiffre avec la clé publique du serveur et l’envoie.</li>
+<li>Établissement d’une session sécurisée : Le serveur déchiffre la clé de session avec sa clé privée, et la session sécurisée est établie. Toutes les données échangées durant cette session seront chiffrées.</li>
 </ul></li>
-<li><code>Authentification SSL/TLS vs Authentification client :</code>
+<li>Authentification SSL/TLS vs Authentification client :
 <ul>
-<li><code>L'authentification SSL/TLS concerne la validation du serveur par le client. Elle assure au client qu'il communique avec le bon serveur et non avec un imposteur.</code></li>
-<li><code>L'authentification client, quant à elle, est la procédure par laquelle un site web valide l'identité d'un utilisateur (généralement par un nom d'utilisateur et un mot de passe). Elle intervient après la phase SSL/TLS et est indépendante du processus de sécurisation de la connexion.</code></li>
+<li>L’authentification SSL/TLS concerne la validation du serveur par le client. Elle assure au client qu’il communique avec le bon serveur et non avec un imposteur.</li>
+<li>L’authentification client, quant à elle, est la procédure par laquelle un site web valide l’identité d’un utilisateur (généralement par un nom d’utilisateur et un mot de passe). Elle intervient après la phase SSL/TLS et est indépendante du processus de sécurisation de la connexion.</li>
 </ul></li>
 </ul>
-<pre><code>Il est crucial de comprendre cette distinction. Même si la connexion est sécurisée grâce à SSL/TLS, cela ne garantit pas que l'utilisateur est celui qu'il prétend être. D'où l'importance des mécanismes d'authentification robustes au niveau de l'application.</code></pre>
+<p>Il est crucial de comprendre cette distinction. Même si la connexion est sécurisée grâce à SSL/TLS, cela ne garantit pas que l’utilisateur est celui qu’il prétend être. D’où l’importance des mécanismes d’authentification robustes au niveau de l’application.</p>
 </section>
 <section id="f.-exemple-concret-dapi-http-en-python-avec-flask" class="level3">
 <h3 class="anchored" data-anchor-id="f.-exemple-concret-dapi-http-en-python-avec-flask">f.&nbsp;Exemple concret d’API HTTP en Python avec Flask</h3>
-<pre><code>Installation:
-
-
-</code></pre>
+<p>Installation:</p>
 <p>pip install flask</p>
-<pre><code>
-
-</code></pre>
 <p>Serveur (api.py):</p>
-<pre><code>from flask import Flask, request, jsonify
-
-app = Flask(__name__)
-
-# Route pour un GET simple
-@app.route('/hello', methods=['GET'])
-def hello_world():
-    return jsonify(message="Hello, World!")
-
-# Route pour un POST avec réception de données JSON
-@app.route('/echo', methods=['POST'])
-def echo():
-    data = request.json
-    return jsonify(data)
-
-if __name__ == '__main__':
-    app.run(debug=True)</code></pre>
-<pre><code>Client (utilisateur):
-
-
-</code></pre>
+<p>from flask import Flask, request, jsonify</p>
+<p>app = Flask(<strong>name</strong>)</p>
+</section>
+</section>
+</section>
+<section id="route-pour-un-get-simple" class="level1">
+<h1>Route pour un GET simple</h1>
+<p><span class="citation" data-cites="app.route">@app.route</span>(‘/hello’, methods=[‘GET’]) def hello_world(): return jsonify(message=“Hello, World!”)</p>
+</section>
+<section id="route-pour-un-post-avec-réception-de-données-json" class="level1">
+<h1>Route pour un POST avec réception de données JSON</h1>
+<p><span class="citation" data-cites="app.route">@app.route</span>(‘/echo’, methods=[‘POST’]) def echo(): data = request.json return jsonify(data)</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: app.run(debug=True)</p>
+<p>Client (utilisateur):</p>
 <p>import requests</p>
-</section>
-</section>
 </section>
 <section id="exécution-dune-requête-get" class="level1">
 <h1>Exécution d’une requête GET</h1>
@@ -575,179 +578,151 @@ if __name__ == '__main__':
 <section id="exécution-dune-requête-post-avec-json" class="level1">
 <h1>Exécution d’une requête POST avec JSON</h1>
 <p>data = {‘somekey’: ‘somevalue’} response = requests.post(‘http://localhost:5000/echo’, json=data) print(response.json())</p>
-<pre><code>
-
-
-## 2. Websocket :
-
-
-### a. Qu'est-ce qu'un Websocket ?
-
-
-
-* `Un Websocket est un protocole qui permet une communication bidirectionnelle entre un client (généralement un navigateur web) et un serveur sur une seule connexion ouverte de longue durée. Il est conçu pour fonctionner par-dessus le protocole HTTP et est souvent utilisé pour des applications en temps réel comme les chats, les jeux et la bourse en direct.`
-
-
-### b. Comment cela se compare-t-il à une requête HTTP classique ?
-
-
-
-* `Requête HTTP : Unidirectionnelle, le client fait une demande, et le serveur répond. Une fois la réponse envoyée, la connexion est fermée.`
-* `Websocket : Bidirectionnelle, une fois la connexion établie, le client et le serveur peuvent envoyer des données à tout moment, et la connexion reste ouverte.`
-
-
-### c. Pourquoi utiliser Websocket ?
-
-
-
-* `Temps réel : Idéal pour les situations où les données doivent être envoyées ou reçues instantanément.`
-* `Performance : Moins d'overhead par rapport à l'ouverture et à la fermeture fréquentes des connexions HTTP.`
-* `Moins de latence : Comme la connexion est déjà établie, les données peuvent être envoyées immédiatement.`
-
-
-### d. Fonctionnement de base :
-
-
-
-1. `Handshake : La connexion Websocket commence par un "handshake" HTTP qui est ensuite surclassé pour utiliser le protocole Websocket.`
-2. `Échanges de données : Une fois la connexion établie, le client et le serveur peuvent échanger des messages sous forme de "frames".`
-3. `Connexion persistante : La connexion reste ouverte jusqu'à ce que l'une des parties la ferme ou jusqu'à ce qu'une erreur se produise.`
-
-
-### e. Limitations et précautions :
-
-
-
-* `Bien que Websockets soit puissant, il n'est pas toujours nécessaire. Il est important de l'utiliser uniquement lorsque la communication en temps réel est requise.`
-* `Les serveurs Websocket peuvent rapidement être surchargés si trop de connexions sont ouvertes simultanément. Il est donc essentiel de gérer correctement les connexions et les ressources.`
-
-
-### f. Exemple courant d'utilisation :
-
-
-
-* `Jeux en ligne : Pour obtenir des mises à jour en temps réel de la position et des actions des autres joueurs.`
-* `Chat en direct : Pour envoyer et recevoir des messages en temps réel.`
-* `Bourse en direct : Pour afficher les prix des actions en temps réel.`
-
-</code></pre>
+<section id="websocket" class="level2">
+<h2 class="anchored" data-anchor-id="websocket">2. Websocket :</h2>
+<section id="a.-quest-ce-quun-websocket" class="level3">
+<h3 class="anchored" data-anchor-id="a.-quest-ce-quun-websocket">a. Qu’est-ce qu’un Websocket ?</h3>
+<ul>
+<li>Un Websocket est un protocole qui permet une communication bidirectionnelle entre un client (généralement un navigateur web) et un serveur sur une seule connexion ouverte de longue durée. Il est conçu pour fonctionner par-dessus le protocole HTTP et est souvent utilisé pour des applications en temps réel comme les chats, les jeux et la bourse en direct.</li>
+</ul>
+</section>
+<section id="b.-comment-cela-se-compare-t-il-à-une-requête-http-classique" class="level3">
+<h3 class="anchored" data-anchor-id="b.-comment-cela-se-compare-t-il-à-une-requête-http-classique">b. Comment cela se compare-t-il à une requête HTTP classique ?</h3>
+<ul>
+<li>Requête HTTP : Unidirectionnelle, le client fait une demande, et le serveur répond. Une fois la réponse envoyée, la connexion est fermée.</li>
+<li>Websocket : Bidirectionnelle, une fois la connexion établie, le client et le serveur peuvent envoyer des données à tout moment, et la connexion reste ouverte.</li>
+</ul>
+</section>
+<section id="c.-pourquoi-utiliser-websocket" class="level3">
+<h3 class="anchored" data-anchor-id="c.-pourquoi-utiliser-websocket">c.&nbsp;Pourquoi utiliser Websocket ?</h3>
+<ul>
+<li>Temps réel : Idéal pour les situations où les données doivent être envoyées ou reçues instantanément.</li>
+<li>Performance : Moins d’overhead par rapport à l’ouverture et à la fermeture fréquentes des connexions HTTP.</li>
+<li>Moins de latence : Comme la connexion est déjà établie, les données peuvent être envoyées immédiatement.</li>
+</ul>
+</section>
+<section id="d.-fonctionnement-de-base" class="level3">
+<h3 class="anchored" data-anchor-id="d.-fonctionnement-de-base">d.&nbsp;Fonctionnement de base :</h3>
+<ol type="1">
+<li>Handshake : La connexion Websocket commence par un “handshake” HTTP qui est ensuite surclassé pour utiliser le protocole Websocket.</li>
+<li>Échanges de données : Une fois la connexion établie, le client et le serveur peuvent échanger des messages sous forme de “frames”.</li>
+<li>Connexion persistante : La connexion reste ouverte jusqu’à ce que l’une des parties la ferme ou jusqu’à ce qu’une erreur se produise.</li>
+</ol>
+</section>
+<section id="e.-limitations-et-précautions" class="level3">
+<h3 class="anchored" data-anchor-id="e.-limitations-et-précautions">e. Limitations et précautions :</h3>
+<ul>
+<li>Bien que Websockets soit puissant, il n’est pas toujours nécessaire. Il est important de l’utiliser uniquement lorsque la communication en temps réel est requise.</li>
+<li>Les serveurs Websocket peuvent rapidement être surchargés si trop de connexions sont ouvertes simultanément. Il est donc essentiel de gérer correctement les connexions et les ressources.</li>
+</ul>
+</section>
+<section id="f.-exemple-courant-dutilisation" class="level3">
+<h3 class="anchored" data-anchor-id="f.-exemple-courant-dutilisation">f.&nbsp;Exemple courant d’utilisation :</h3>
+<ul>
+<li>Jeux en ligne : Pour obtenir des mises à jour en temps réel de la position et des actions des autres joueurs.</li>
+<li>Chat en direct : Pour envoyer et recevoir des messages en temps réel.</li>
+<li>Bourse en direct : Pour afficher les prix des actions en temps réel.</li>
+</ul>
 <p>Le Websocket est une évolution de la manière dont le web fonctionne, permettant des interactions plus dynamiques et en temps réel entre les utilisateurs et les serveurs.</p>
-<pre><code>
-
-
-### g. Pratiques courantes avec Websockets :
-
-</code></pre>
+</section>
+<section id="g.-pratiques-courantes-avec-websockets" class="level3">
+<h3 class="anchored" data-anchor-id="g.-pratiques-courantes-avec-websockets">g. Pratiques courantes avec Websockets :</h3>
 <p>Heartbeats (Battements de cœur) : - Un “heartbeat” est un mécanisme utilisé pour vérifier que la connexion entre le client et le serveur est toujours active. - C’est essentiellement un message “ping” envoyé à intervalles réguliers du client au serveur ou vice versa. Si un “pong” (réponse au ping) n’est pas reçu dans un certain délai, la connexion est considérée comme perdue. - Les “heartbeats” sont cruciaux pour détecter les déconnexions inattendues, comme lorsque l’utilisateur perd sa connexion internet ou lorsque le serveur tombe en panne.</p>
 <p>Gestion de la connexion : - Bien que la gestion de la connexion Websocket soit simplifiée avec des packages haut niveau comme “websockets” en Python, il est important de comprendre ce qui se passe en coulisse. - Lorsque vous travaillez à un niveau plus bas, il est essentiel de gérer correctement les connexions pour éviter les fuites de ressources. Cela comprend le traitement des erreurs, la détection des déconnexions, la gestion des “heartbeats”, et la fermeture proprement dite des connexions lorsque nécessaire. - Il est également crucial de tenir compte de la sécurité, notamment en veillant à ce que seuls les clients autorisés puissent établir des connexions Websocket et en cryptant les données sensibles.</p>
 <p>Résumé : La gestion des connexions Websocket à un niveau basique nécessite une attention particulière aux détails pour garantir une communication fiable, sécurisée et efficace. Cependant, de nombreux outils et bibliothèques, comme “websockets” pour Python, simplifient ce processus en prenant en charge la plupart des détails pour vous. Il est toujours bon de comprendre les mécanismes sous-jacents pour être mieux préparé lors de la conception d’applications robustes et performantes.</p>
-<pre><code>
-
-
-### h. Exemple concret de Websocket en Python avec le package websockets
-
-</code></pre>
+</section>
+<section id="h.-exemple-concret-de-websocket-en-python-avec-le-package-websockets" class="level3">
+<h3 class="anchored" data-anchor-id="h.-exemple-concret-de-websocket-en-python-avec-le-package-websockets">h. Exemple concret de Websocket en Python avec le package websockets</h3>
 <p>Installation:</p>
-<pre><code>pip install websockets</code></pre>
-<pre><code>Serveur (websocket_server.py):
-
-
-</code></pre>
+<p>pip install websockets</p>
+<p>Serveur (websocket_server.py):</p>
 <p>import asyncio import websockets</p>
 <p>async def echo(websocket, path): async for message in websocket: await websocket.send(f”Echo: {message}“)</p>
 <p>start_server = websockets.serve(echo, “localhost”, 6789)</p>
 <p>asyncio.get_event_loop().run_until_complete(start_server) asyncio.get_event_loop().run_forever()</p>
-<pre><code>
-
-</code></pre>
 <p>Client (utilisateur):</p>
-<pre><code>import asyncio
-import websockets
-
-async def hello():
-    uri = "ws://localhost:6789"
-    async with websockets.connect(uri) as websocket:
-        await websocket.send("Hello World!")
-        response = await websocket.recv()
-        print(response)
-
-asyncio.get_event_loop().run_until_complete(hello())</code></pre>
+<p>import asyncio import websockets</p>
+<p>async def hello(): uri = “ws://localhost:6789” async with websockets.connect(uri) as websocket: await websocket.send(“Hello World!”) response = await websocket.recv() print(response)</p>
+<p>asyncio.get_event_loop().run_until_complete(hello())</p>
+</section>
+</section>
 <section id="grpc-google-remote-procedure-call" class="level2">
 <h2 class="anchored" data-anchor-id="grpc-google-remote-procedure-call">3. gRPC (Google Remote Procedure Call):</h2>
 <section id="a.-introduction" class="level3">
 <h3 class="anchored" data-anchor-id="a.-introduction">a. Introduction :</h3>
 <ul>
-<li><code>gRPC est un système de RPC (Remote Procedure Call) moderne et de haute performance qui utilise HTTP/2 pour le transport, et Protocol Buffers comme mécanisme d'interface de description de langage (IDL). RPC permet à un programme d'exécuter une procédure (une routine de sous-programme) sur un autre ordinateur distant, qui peut être sur le même réseau ou situé à travers Internet.</code></li>
-<li><code>Conçu pour supporter une multitude de langages, cela signifie qu'un service gRPC écrit en Java pourrait être appelé par un client en Go, et vice versa.</code></li>
+<li>gRPC est un système de RPC (Remote Procedure Call) moderne et de haute performance qui utilise HTTP/2 pour le transport, et Protocol Buffers comme mécanisme d’interface de description de langage (IDL). RPC permet à un programme d’exécuter une procédure (une routine de sous-programme) sur un autre ordinateur distant, qui peut être sur le même réseau ou situé à travers Internet.</li>
+<li>Conçu pour supporter une multitude de langages, cela signifie qu’un service gRPC écrit en Java pourrait être appelé par un client en Go, et vice versa.</li>
 </ul>
 </section>
 <section id="b.-traduction-de-lacronyme-grpc" class="level3">
 <h3 class="anchored" data-anchor-id="b.-traduction-de-lacronyme-grpc">b. Traduction de l’acronyme gRPC :</h3>
 <ul>
-<li><code>g : initialement pour Google, car le framework a été développé par Google, mais il n'est pas un acronyme officiel.</code></li>
-<li><code>RPC : Remote Procedure Call, qui est un protocole permettant l'exécution d'une procédure dans un autre espace d'adresse (comme sur un autre ordinateur sur un réseau).</code></li>
+<li>g : initialement pour Google, car le framework a été développé par Google, mais il n’est pas un acronyme officiel.</li>
+<li>RPC : Remote Procedure Call, qui est un protocole permettant l’exécution d’une procédure dans un autre espace d’adresse (comme sur un autre ordinateur sur un réseau).</li>
 </ul>
 </section>
 <section id="c.-avantages-de-grpc" class="level3">
 <h3 class="anchored" data-anchor-id="c.-avantages-de-grpc">c.&nbsp;Avantages de gRPC :</h3>
 <ol type="1">
-<li><code>Communication bidirectionnelle : Grâce à HTTP/2, il prend en charge la communication bidirectionnelle en streaming.</code></li>
-<li><code>Performant : Les Protocol Buffers, souvent appelés protobufs, sont beaucoup plus efficaces que JSON pour la sérialisation et la désérialisation des données.</code></li>
-<li><code>Outils et langages : Il supporte de nombreux langages, avec des outils pour générer automatiquement des codes client et serveur dans de multiples langages.</code></li>
-<li><code>Deadline/Timeouts : gRPC vous permet de définir combien de temps un client est prêt à attendre pour une RPC à compléter. Le serveur peut vérifier cette et décider de compléter l'opération au lieu de traiter la demande.</code></li>
-<li><code>Annulation : Si un client n'a pas besoin du résultat d'un appel, il peut l'annuler. Le serveur est informé de l'annulation et peut économiser des ressources en arrêtant le traitement de l'appel.</code></li>
+<li>Communication bidirectionnelle : Grâce à HTTP/2, il prend en charge la communication bidirectionnelle en streaming.</li>
+<li>Performant : Les Protocol Buffers, souvent appelés protobufs, sont beaucoup plus efficaces que JSON pour la sérialisation et la désérialisation des données.</li>
+<li>Outils et langages : Il supporte de nombreux langages, avec des outils pour générer automatiquement des codes client et serveur dans de multiples langages.</li>
+<li>Deadline/Timeouts : gRPC vous permet de définir combien de temps un client est prêt à attendre pour une RPC à compléter. Le serveur peut vérifier cette et décider de compléter l’opération au lieu de traiter la demande.</li>
+<li>Annulation : Si un client n’a pas besoin du résultat d’un appel, il peut l’annuler. Le serveur est informé de l’annulation et peut économiser des ressources en arrêtant le traitement de l’appel.</li>
 </ol>
 </section>
 <section id="définitions-utiles" class="level3">
 <h3 class="anchored" data-anchor-id="définitions-utiles">Définitions utiles:</h3>
 <ul>
-<li><pre><code>**HTTP/2 :** HTTP/2 est la deuxième version majeure du protocole HTTP, utilisée par le World Wide Web. Par rapport à HTTP/1.x, HTTP/2:</code></pre></li>
+<li></li>
+</ul>
+<p><strong>HTTP/2 :</strong> HTTP/2 est la deuxième version majeure du protocole HTTP, utilisée par le World Wide Web. Par rapport à HTTP/1.x, HTTP/2:</p>
+<ul>
 <li><ul>
-<li><code>Est binaire, au lieu de textuel, ce qui est plus efficace et moins sujet à des erreurs.</code></li>
-<li><code>Permet une multiplexage des requêtes pour éviter le blocage de la connexion.</code></li>
-<li><code>Utilise la compression des headers pour réduire la surcharge.</code></li>
-<li><code>Permet des priorités de requêtes et des contrôles de flux.</code></li>
+<li>Est binaire, au lieu de textuel, ce qui est plus efficace et moins sujet à des erreurs.</li>
+<li>Permet une multiplexage des requêtes pour éviter le blocage de la connexion.</li>
+<li>Utilise la compression des headers pour réduire la surcharge.</li>
+<li>Permet des priorités de requêtes et des contrôles de flux.</li>
 </ul></li>
-<li><pre><code>**Sérialisation et Désérialisation :** La sérialisation est le processus de transformation d'objets en une forme qui peut être facilement stockée ou transmise, et la désérialisation est l'inverse, transformant les données sérialisées en objets utilisables par le programme. Dans le contexte de gRPC et Protocol Buffers, la sérialisation transforme les données structurées en une suite de bytes compacte et efficace, tandis que la désérialisation reconvertit cette suite de bytes en une structure de données utilisable par les applications.</code></pre></li>
+<li></li>
+</ul>
+<p><strong>Sérialisation et Désérialisation :</strong> La sérialisation est le processus de transformation d’objets en une forme qui peut être facilement stockée ou transmise, et la désérialisation est l’inverse, transformant les données sérialisées en objets utilisables par le programme. Dans le contexte de gRPC et Protocol Buffers, la sérialisation transforme les données structurées en une suite de bytes compacte et efficace, tandis que la désérialisation reconvertit cette suite de bytes en une structure de données utilisable par les applications.</p>
+<ul>
 <li></li>
 </ul>
 </section>
 <section id="d.-protocol-buffers-protobufs" class="level3">
 <h3 class="anchored" data-anchor-id="d.-protocol-buffers-protobufs">d.&nbsp;Protocol Buffers (protobufs) :</h3>
 <ul>
-<li><code>Ce sont un mécanisme de sérialisation compact et efficace, à la fois en termes d'espace et de vitesse. Ils sont plus efficaces que XML ou JSON.</code></li>
-<li><code>Ils nécessitent une étape de compilation, où l'interface de description du service est transformée en code dans le langage de votre choix.</code></li>
+<li>Ce sont un mécanisme de sérialisation compact et efficace, à la fois en termes d’espace et de vitesse. Ils sont plus efficaces que XML ou JSON.</li>
+<li>Ils nécessitent une étape de compilation, où l’interface de description du service est transformée en code dans le langage de votre choix.</li>
 </ul>
 </section>
 <section id="e.-fonctionnement" class="level3">
 <h3 class="anchored" data-anchor-id="e.-fonctionnement">e. Fonctionnement :</h3>
 <ol type="1">
-<li><code>Définir le service : Commencez par définir le service dans un fichier .proto. Cela décrit les méthodes pouvant être appelées et leurs types de messages.</code></li>
-<li><code>Générer le code : Utilisez le compilateur</code></li>
+<li>Définir le service : Commencez par définir le service dans un fichier .proto. Cela décrit les méthodes pouvant être appelées et leurs types de messages.</li>
+<li>Générer le code : Utilisez le compilateur</li>
 </ol>
-<pre><code>Protocol Buffers pour générer le code client et serveur.
-3. Implémenter le serveur : Créez un serveur qui implémente les méthodes décrites dans le fichier .proto.
-4. Appeler depuis le client : Le client peut appeler le serveur en utilisant le code généré.</code></pre>
+<p>Protocol Buffers pour générer le code client et serveur. 3. Implémenter le serveur : Créez un serveur qui implémente les méthodes décrites dans le fichier .proto. 4. Appeler depuis le client : Le client peut appeler le serveur en utilisant le code généré.</p>
 </section>
 <section id="f.-cas-dutilisation" class="level3">
 <h3 class="anchored" data-anchor-id="f.-cas-dutilisation">f.&nbsp;Cas d’utilisation :</h3>
 <ul>
-<li><code>Les microservices : grâce à sa rapidité et à sa capacité à créer des clients et des serveurs dans différents langages.</code></li>
-<li><code>Applications temps réel nécessitant une faible latence.</code></li>
-<li><code>Lorsque la taille des données est critique, car protobuf est plus efficace que JSON ou XML.</code></li>
-<li><code>Quand vous avez besoin de communication bidirectionnelle, comme les chats ou les notifications en temps réel.</code></li>
+<li>Les microservices : grâce à sa rapidité et à sa capacité à créer des clients et des serveurs dans différents langages.</li>
+<li>Applications temps réel nécessitant une faible latence.</li>
+<li>Lorsque la taille des données est critique, car protobuf est plus efficace que JSON ou XML.</li>
+<li>Quand vous avez besoin de communication bidirectionnelle, comme les chats ou les notifications en temps réel.</li>
 </ul>
 </section>
 <section id="g.-exemple-concret-de-grpc" class="level3">
 <h3 class="anchored" data-anchor-id="g.-exemple-concret-de-grpc">g. Exemple Concret de gRPC :</h3>
-<pre><code>Imaginons une application de chat où un serveur doit pouvoir recevoir des messages de multiples clients et également envoyer des notifications en temps réel à ces clients. Avec gRPC, on peut définir un service ChatService qui aura deux méthodes : SendMessage pour que les clients puissent envoyer des messages au serveur, et Subscribe pour que les clients reçoivent des notifications des nouveaux messages.
-
-Exemple de Code avec gRPC :
-
-1. Définition du service dans un fichier .proto:
-
-
-</code></pre>
+<p>Imaginons une application de chat où un serveur doit pouvoir recevoir des messages de multiples clients et également envoyer des notifications en temps réel à ces clients. Avec gRPC, on peut définir un service ChatService qui aura deux méthodes : SendMessage pour que les clients puissent envoyer des messages au serveur, et Subscribe pour que les clients reçoivent des notifications des nouveaux messages.</p>
+<p>Exemple de Code avec gRPC :</p>
+<ol type="1">
+<li>Définition du service dans un fichier .proto:</li>
+</ol>
 <p>syntax = “proto3”;</p>
 <p>package chat;</p>
 <p>// Le service de chat service ChatService { // Envoie un message au chat rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);</p>
@@ -756,9 +731,6 @@ Exemple de Code avec gRPC :
 <p>// La réponse à une demande d’envoi de message message SendMessageResponse { bool success = 1; }</p>
 <p>// La demande pour s’abonner aux messages message SubscribeRequest { string user = 1; }</p>
 <p>// Un message dans le chat message Message { string user = 1; string message = 2; int64 timestamp = 3; }</p>
-<pre><code>
-
-</code></pre>
 <ol start="2" type="1">
 <li>Génération du code :</li>
 </ol>
@@ -768,37 +740,23 @@ Exemple de Code avec gRPC :
 <ol start="3" type="1">
 <li>Implémentation du serveur :</li>
 </ol>
-<pre><code>from concurrent import futures
-import grpc
-import chat_pb2
-import chat_pb2_grpc
+<p>from concurrent import futures import grpc import chat_pb2 import chat_pb2_grpc</p>
+<p>class ChatService(chat_pb2_grpc.ChatServiceServicer):</p>
+<pre><code>def SendMessage(self, request, context):
+    # Logique pour traiter le message reçu
+    print(f"Message reçu de {request.user}: {request.message}")
+    return chat_pb2.SendMessageResponse(success=True)
 
-class ChatService(chat_pb2_grpc.ChatServiceServicer):
-
-    def SendMessage(self, request, context):
-        # Logique pour traiter le message reçu
-        print(f"Message reçu de {request.user}: {request.message}")
-        return chat_pb2.SendMessageResponse(success=True)
-
-    def Subscribe(self, request, context):
-        # Logique pour l'abonnement aux messages
-        for message in message_stream:
-            if message.user != request.user:  # Filtrer les messages propres de l'utilisateur
-                yield message
-
-def serve():
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    chat_pb2_grpc.add_ChatServiceServicer_to_server(ChatService(), server)
-    server.add_insecure_port('[::]:50051')
-    server.start()
-    server.wait_for_termination()
-
-if __name__ == '__main__':
-    serve()</code></pre>
-<pre><code>4. Appel depuis le client :
-
-
-</code></pre>
+def Subscribe(self, request, context):
+    # Logique pour l'abonnement aux messages
+    for message in message_stream:
+        if message.user != request.user:  # Filtrer les messages propres de l'utilisateur
+            yield message</code></pre>
+<p>def serve(): server = grpc.server(futures.ThreadPoolExecutor(max_workers=10)) chat_pb2_grpc.add_ChatServiceServicer_to_server(ChatService(), server) server.add_insecure_port(‘[::]:50051’) server.start() server.wait_for_termination()</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>’: serve()</p>
+<ol start="4" type="1">
+<li>Appel depuis le client :</li>
+</ol>
 <p>import grpc import chat_pb2 import chat_pb2_grpc</p>
 </section>
 </section>
@@ -818,151 +776,119 @@ if __name__ == '__main__':
 <section id="sabonner-aux-messages" class="level1">
 <h1>S’abonner aux messages</h1>
 <p>for message in stub.Subscribe(chat_pb2.SubscribeRequest(user=“Alice”)): print(f”Message reçu de {message.user}: {message.message}“)</p>
-<pre><code>
-
-</code></pre>
 <ol start="6" type="a">
 <li>Résumé : gRPC offre une manière moderne et efficace de créer des systèmes distribués. Son utilisation des Protocol Buffers et HTTP/2 le rend performant, tout en offrant également une grande flexibilité pour s’adapter à différents scénarios. Cependant, comme avec tout outil, il est crucial de déterminer si gRPC est approprié pour votre cas d’utilisation spécifique.</li>
 </ol>
-<pre><code>
-
-
-## 4. Autres Protocoles de Communication en Informatique
-
-
-### a. SOAP (Simple Object Access Protocol):
-
-
-
-* `Fonctionnement: SOAP est un protocole conçu pour échanger des informations structurées dans le cadre de la mise en œuvre de services web. Les messages SOAP sont encodés avec XML et peuvent être transmis via divers protocoles tels que HTTP, SMTP, etc.`
-* `Usage: SOAP est largement utilisé dans les systèmes d'entreprise pour les services web en raison de sa capacité à gérer des transactions complexes et sécurisées.`
-* `Exemple: Une banque peut utiliser SOAP pour la communication interne entre ses différents services, car il permet un contrôle précis et une validation des messages grâce au WSDL.`
-* `Exemple en Python: SOAP avec Zeep:`
-
-    ```
-from zeep import Client
-
-client = Client('http://www.example.com/wsdl?service=ServiceName')
-result = client.service.MethodName('param1', 'param2')</code></pre>
+<section id="autres-protocoles-de-communication-en-informatique" class="level2">
+<h2 class="anchored" data-anchor-id="autres-protocoles-de-communication-en-informatique">4. Autres Protocoles de Communication en Informatique</h2>
+<section id="a.-soap-simple-object-access-protocol" class="level3">
+<h3 class="anchored" data-anchor-id="a.-soap-simple-object-access-protocol">a. SOAP (Simple Object Access Protocol):</h3>
+<ul>
+<li>Fonctionnement: SOAP est un protocole conçu pour échanger des informations structurées dans le cadre de la mise en œuvre de services web. Les messages SOAP sont encodés avec XML et peuvent être transmis via divers protocoles tels que HTTP, SMTP, etc.</li>
+<li>Usage: SOAP est largement utilisé dans les systèmes d’entreprise pour les services web en raison de sa capacité à gérer des transactions complexes et sécurisées.</li>
+<li>Exemple: Une banque peut utiliser SOAP pour la communication interne entre ses différents services, car il permet un contrôle précis et une validation des messages grâce au WSDL.</li>
+<li>Exemple en Python: SOAP avec Zeep:</li>
+</ul>
+<p>from zeep import Client</p>
+<p>client = Client(‘http://www.example.com/wsdl?service=ServiceName’) result = client.service.MethodName(‘param1’, ‘param2’)</p>
+</section>
 <section id="b.-tcpip-transmission-control-protocolinternet-protocol" class="level3">
 <h3 class="anchored" data-anchor-id="b.-tcpip-transmission-control-protocolinternet-protocol">b. TCP/IP (Transmission Control Protocol/Internet Protocol):</h3>
 <ul>
-<li><code>Fonctionnement: TCP/IP est la combinaison de deux protocoles distincts. TCP est responsable de la division des messages en paquets, de la retransmission des paquets perdus et de la recomposition des messages du côté récepteur. IP s'occupe de l'acheminement des paquets sur le réseau.</code></li>
-<li><code>Usage: TCP/IP est le fondement d'Internet. Toutes les données envoyées en ligne utilisent ce protocole à un moment ou à un autre.</code></li>
-<li><code>Exemple: Tous les sites web que nous visitons utilisent TCP/IP pour envoyer et recevoir des données.</code></li>
+<li>Fonctionnement: TCP/IP est la combinaison de deux protocoles distincts. TCP est responsable de la division des messages en paquets, de la retransmission des paquets perdus et de la recomposition des messages du côté récepteur. IP s’occupe de l’acheminement des paquets sur le réseau.</li>
+<li>Usage: TCP/IP est le fondement d’Internet. Toutes les données envoyées en ligne utilisent ce protocole à un moment ou à un autre.</li>
+<li>Exemple: Tous les sites web que nous visitons utilisent TCP/IP pour envoyer et recevoir des données.</li>
 </ul>
 </section>
 <section id="c.-udp-user-datagram-protocol" class="level3">
 <h3 class="anchored" data-anchor-id="c.-udp-user-datagram-protocol">c.&nbsp;UDP (User Datagram Protocol):</h3>
 <ul>
-<li><code>Fonctionnement: UDP est un protocole de communication qui offre un mode de transmission non connecté et non fiable, contrairement à TCP. Les paquets UDP peuvent être perdus ou arriver dans un ordre différent.</code></li>
-<li><code>Usage: Utilisé pour les jeux en ligne, la diffusion de vidéos en direct, ou toute application où la rapidité est préférée à la fiabilité.</code></li>
-<li><code>Exemple: Un service de streaming peut utiliser UDP pour la diffusion de contenu en direct, où une légère perte de paquets est acceptable et moins critique que la latence.</code></li>
+<li>Fonctionnement: UDP est un protocole de communication qui offre un mode de transmission non connecté et non fiable, contrairement à TCP. Les paquets UDP peuvent être perdus ou arriver dans un ordre différent.</li>
+<li>Usage: Utilisé pour les jeux en ligne, la diffusion de vidéos en direct, ou toute application où la rapidité est préférée à la fiabilité.</li>
+<li>Exemple: Un service de streaming peut utiliser UDP pour la diffusion de contenu en direct, où une légère perte de paquets est acceptable et moins critique que la latence.</li>
 </ul>
 </section>
 <section id="d.-mqtt-message-queuing-telemetry-transport" class="level3">
 <h3 class="anchored" data-anchor-id="d.-mqtt-message-queuing-telemetry-transport">d.&nbsp;MQTT (Message Queuing Telemetry Transport):</h3>
 <ul>
-<li><p><code>Fonctionnement: MQTT est un protocole de messagerie léger basé sur le modèle de publication/abonnement, optimisé pour les réseaux à faible bande passante.</code></p></li>
-<li><p><code>Usage: Souvent utilisé dans le cadre de l'IoT pour la communication entre appareils à faible consommation d'énergie et/ou dans des environnements avec des connexions réseau limitées.</code></p></li>
-<li><p><code>Exemple: Un système de capteurs domestiques peut utiliser MQTT pour envoyer des données à un serveur centralisé avec un usage minimal de bande passante et d'énergie.</code></p></li>
-<li><p><code>Exemple en Python: MQTT avec paho-mqtt:</code></p>
-<p>``` import paho.mqtt.client as mqtt</p></li>
+<li>Fonctionnement: MQTT est un protocole de messagerie léger basé sur le modèle de publication/abonnement, optimisé pour les réseaux à faible bande passante.</li>
+<li>Usage: Souvent utilisé dans le cadre de l’IoT pour la communication entre appareils à faible consommation d’énergie et/ou dans des environnements avec des connexions réseau limitées.</li>
+<li>Exemple: Un système de capteurs domestiques peut utiliser MQTT pour envoyer des données à un serveur centralisé avec un usage minimal de bande passante et d’énergie.</li>
+<li>Exemple en Python: MQTT avec paho-mqtt:</li>
 </ul>
+<p>import paho.mqtt.client as mqtt</p>
 <p>def on_connect(client, userdata, flags, rc): print(f”Connected with result code {rc}“) client.subscribe(”topic/test”)</p>
 <p>def on_message(client, userdata, msg): print(f”{msg.topic} {str(msg.payload)}“)</p>
 <p>client = mqtt.Client() client.on_connect = on_connect client.on_message = on_message</p>
 <p>client.connect(“iot.eclipse.org”, 1883, 60) client.loop_forever()</p>
-<pre><code>
-
-
-
-### e. AMQP (Advanced Message Queuing Protocol):
-
-
-
-* `Fonctionnement: AMQP est un protocole orienté message qui fournit des fonctionnalités robustes pour les systèmes de files d'attente et les échanges de messages intermédiaires.`
-* `Usage: Employé pour les systèmes de messagerie d'entreprise où la fiabilité, la sécurité et l'interopérabilité sont essentielles.`
-* `Exemple: Une plateforme de trading en ligne peut utiliser AMQP pour gérer des flux de messages fiables entre les services de traitement des transactions.`
-* `Exemple en Python: AMQP avec pika:`
-
-    ```
-import pika
-
-connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
-channel = connection.channel()
-channel.queue_declare(queue='hello')
-channel.basic_publish(exchange='', routing_key='hello', body='Hello World!')
-connection.close()</code></pre>
+</section>
+<section id="e.-amqp-advanced-message-queuing-protocol" class="level3">
+<h3 class="anchored" data-anchor-id="e.-amqp-advanced-message-queuing-protocol">e. AMQP (Advanced Message Queuing Protocol):</h3>
+<ul>
+<li>Fonctionnement: AMQP est un protocole orienté message qui fournit des fonctionnalités robustes pour les systèmes de files d’attente et les échanges de messages intermédiaires.</li>
+<li>Usage: Employé pour les systèmes de messagerie d’entreprise où la fiabilité, la sécurité et l’interopérabilité sont essentielles.</li>
+<li>Exemple: Une plateforme de trading en ligne peut utiliser AMQP pour gérer des flux de messages fiables entre les services de traitement des transactions.</li>
+<li>Exemple en Python: AMQP avec pika:</li>
+</ul>
+<p>import pika</p>
+<p>connection = pika.BlockingConnection(pika.ConnectionParameters(‘localhost’)) channel = connection.channel() channel.queue_declare(queue=‘hello’) channel.basic_publish(exchange=’‘, routing_key=’hello’, body=‘Hello World!’) connection.close()</p>
 </section>
 <section id="f.-coap-constrained-application-protocol" class="level3">
 <h3 class="anchored" data-anchor-id="f.-coap-constrained-application-protocol">f.&nbsp;CoAP (Constrained Application Protocol):</h3>
 <ul>
-<li><code>Fonctionnement: CoAP est un protocole de service web spécialisé pour les environnements contraints, utilisant UDP comme transport et offrant des mécanismes similaires à ceux de HTTP.</code></li>
-<li><code>Usage: Destiné aux appareils IoT, surtout lorsque les ressources systèmes et la bande passante sont limitées.</code></li>
-<li><code>Exemple: Une entreprise de surveillance de l'environnement peut utiliser CoAP pour communiquer avec des capteurs répartis dans une grande zone géographique.</code></li>
+<li>Fonctionnement: CoAP est un protocole de service web spécialisé pour les environnements contraints, utilisant UDP comme transport et offrant des mécanismes similaires à ceux de HTTP.</li>
+<li>Usage: Destiné aux appareils IoT, surtout lorsque les ressources systèmes et la bande passante sont limitées.</li>
+<li>Exemple: Une entreprise de surveillance de l’environnement peut utiliser CoAP pour communiquer avec des capteurs répartis dans une grande zone géographique.</li>
 </ul>
 </section>
 <section id="g.-ftpsftp-file-transfer-protocolssh-file-transfer-protocol" class="level3">
 <h3 class="anchored" data-anchor-id="g.-ftpsftp-file-transfer-protocolssh-file-transfer-protocol">g. FTP/SFTP (File Transfer Protocol/SSH File Transfer Protocol):</h3>
 <ul>
-<li><p><code>Fonctionnement: FTP est un protocole standard utilisé pour transférer des fichiers d'un hôte à un autre. SFTP est une extension sécurisée de FTP qui utilise le protocole SSH pour chiffrer les transferts.</code></p></li>
-<li><p><code>Usage: Employé pour la distribution et l'échange de fichiers volumineux.</code></p></li>
-<li><p><code>Exemple: Les développeurs peuvent utiliser SFTP pour télécharger et mettre à jour des fichiers sur un serveur web.</code></p></li>
-<li><p><code>Exemple en Python: FTP/SFTP avec Paramiko:</code></p>
-<p>``` import paramiko</p></li>
+<li>Fonctionnement: FTP est un protocole standard utilisé pour transférer des fichiers d’un hôte à un autre. SFTP est une extension sécurisée de FTP qui utilise le protocole SSH pour chiffrer les transferts.</li>
+<li>Usage: Employé pour la distribution et l’échange de fichiers volumineux.</li>
+<li>Exemple: Les développeurs peuvent utiliser SFTP pour télécharger et mettre à jour des fichiers sur un serveur web.</li>
+<li>Exemple en Python: FTP/SFTP avec Paramiko:</li>
 </ul>
+<p>import paramiko</p>
 <p>transport = paramiko.Transport((‘hostname’, 22)) transport.connect(username=‘username’, password=‘password’)</p>
 <p>sftp = paramiko.SFTPClient.from_transport(transport) sftp.get(‘remote_filepath’, ‘local_filepath’) sftp.close() transport.close()</p>
-<pre><code>
-
-
-
-### h. FIX (Financial Information eXchange):
-
-
-
-* `Fonctionnement: Le protocole FIX est utilisé pour la communication en temps réel d'informations financières, particulièrement pour les transactions de marché. Il utilise une série de messages codés contenant des champs désignés par des tags numériques. Chaque champ représente une certaine information, comme le prix, la quantité ou le type d'ordre.`
-
-</code></pre>
+</section>
+<section id="h.-fix-financial-information-exchange" class="level3">
+<h3 class="anchored" data-anchor-id="h.-fix-financial-information-exchange">h. FIX (Financial Information eXchange):</h3>
+<ul>
+<li>Fonctionnement: Le protocole FIX est utilisé pour la communication en temps réel d’informations financières, particulièrement pour les transactions de marché. Il utilise une série de messages codés contenant des champs désignés par des tags numériques. Chaque champ représente une certaine information, comme le prix, la quantité ou le type d’ordre.</li>
+</ul>
 <p>Un message FIX est composé de paires de tag/valeur séparées par un SOH (Start of Header), qui est un caractère non imprimable indiquant le début d’une nouvelle donnée. Les tags sont des entiers qui représentent un élément de donnée spécifique, et les valeurs sont les informations réelles transmises.</p>
 <p>Exemple de message FIX pour un nouvel ordre :</p>
-<pre><code>8=FIX.4.2|9=176|35=D|34=4|49=BRKR|52=20050407-09:30:47.000|56=INVMGR|11=123456|21=1|40=2|54=1|38=1000|44=55.25|10=036|</code></pre>
-<pre><code>Chaque tag correspond à un élément standardisé :
-</code></pre>
+<p>8=FIX.4.2|9=176|35=D|34=4|49=BRKR|52=20050407-09:30:47.000|56=INVMGR|11=123456|21=1|40=2|54=1|38=1000|44=55.25|10=036|</p>
+<p>Chaque tag correspond à un élément standardisé :</p>
 <ul>
-<li><code>8: Version du protocole FIX.</code></li>
-<li><code>9: Longueur du message.</code></li>
-<li><code>35: Type de message (D pour New Order).</code></li>
-<li><code>11: ID de l'ordre.</code></li>
-<li><code>21: Type d'exécution.</code></li>
-<li><code>40: Type d'ordre.</code></li>
-<li><code>54: Direction de l'ordre.</code></li>
-<li><code>38: Quantité.</code></li>
-<li><code>44: Prix.</code></li>
-<li><code>10: Checksum du message.</code></li>
-<li><code>Usage: Il est le standard de facto pour les échanges entre les courtiers, les bourses, et les institutions financières.</code></li>
-<li><code>Exemple: Les firmes de trading algorithmique utilisent FIX pour placer des ordres d'achat ou de vente sur les marchés financiers avec une très faible latence.</code></li>
-<li><code>Exemple en Python: FIX avec quickfix</code></li>
+<li>8: Version du protocole FIX.</li>
+<li>9: Longueur du message.</li>
+<li>35: Type de message (D pour New Order).</li>
+<li>11: ID de l’ordre.</li>
+<li>21: Type d’exécution.</li>
+<li>40: Type d’ordre.</li>
+<li>54: Direction de l’ordre.</li>
+<li>38: Quantité.</li>
+<li>44: Prix.</li>
+<li>10: Checksum du message.</li>
+<li>Usage: Il est le standard de facto pour les échanges entre les courtiers, les bourses, et les institutions financières.</li>
+<li>Exemple: Les firmes de trading algorithmique utilisent FIX pour placer des ordres d’achat ou de vente sur les marchés financiers avec une très faible latence.</li>
+<li>Exemple en Python: FIX avec quickfix</li>
 </ul>
-<pre><code>Il n'y a pas de librairie Python standard pour interagir avec FIX. Les interactions avec le protocole FIX se font généralement via des plateformes spécialisées ou des bibliothèques propriétaires en raison de la nature hautement spécialisée et sécurisée du trading financier. Cependant, il existe des projets comme QuickFIX qui fournissent des moteurs de FIX en C++, Java et Python.
-
-Voici un exemple très basique utilisant QuickFIX en Python pour créer un ordre:
-
-
-</code></pre>
+<p>Il n’y a pas de librairie Python standard pour interagir avec FIX. Les interactions avec le protocole FIX se font généralement via des plateformes spécialisées ou des bibliothèques propriétaires en raison de la nature hautement spécialisée et sécurisée du trading financier. Cependant, il existe des projets comme QuickFIX qui fournissent des moteurs de FIX en C++, Java et Python.</p>
+<p>Voici un exemple très basique utilisant QuickFIX en Python pour créer un ordre:</p>
 <p>import quickfix as fix</p>
 <p>message = fix.Message() header = message.getHeader()</p>
 <p>header.setField(fix.BeginString(“FIX.4.2”)) header.setField(fix.MsgType(“D”)) # D for New Order</p>
 <p>message.setField(fix.ClOrdID(“123456”)) message.setField(fix.HandlInst(“1”)) message.setField(fix.Symbol(“AAPL”)) message.setField(fix.Side(fix.Side_BUY)) message.setField(fix.OrdType(fix.OrdType_LIMIT)) message.setField(fix.OrderQty(100)) message.setField(fix.Price(200))</p>
 <p>print(message.toString())</p>
-<pre><code>
-
-</code></pre>
 <p>Résumé :</p>
-<p>Pour chaque protocole mentionné, les termes techniques clés sont généralement liés aux fonctions spécifiques qu’ils remplissent dans le cadre de leurs opérations de communication. Par exemple, dans le contexte de MQTT, “publication/abonnement” se réfère à un modèle de communication où les messages sont envoyés (publiés) sans que l’expéditeur ait besoin de connaître les destinataires, qui peuvent “s’abonner” pour recevoir certains types de messages. Pour FIX, les “messages en temps réel” désignent la capacité du protocole à traiter des informations rapidement, ce qui est essentiel dans le domaine du trading haute fréquence. ```</p>
+<p>Pour chaque protocole mentionné, les termes techniques clés sont généralement liés aux fonctions spécifiques qu’ils remplissent dans le cadre de leurs opérations de communication. Par exemple, dans le contexte de MQTT, “publication/abonnement” se réfère à un modèle de communication où les messages sont envoyés (publiés) sans que l’expéditeur ait besoin de connaître les destinataires, qui peuvent “s’abonner” pour recevoir certains types de messages. Pour FIX, les “messages en temps réel” désignent la capacité du protocole à traiter des informations rapidement, ce qui est essentiel dans le domaine du trading haute fréquence.</p>
 
 
+</section>
 </section>
 </section>
 

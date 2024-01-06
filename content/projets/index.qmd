@@ -1,5 +1,5 @@
 ---
-title: "Communication entre Processus (IPC)"
+title: "Projets"
 toc: false
 sidebar: false
 title-block-style: none
@@ -12,6 +12,6 @@ lightbox: auto
 categories: [WebSiteArchitecture]
 ---
 
-# {{< animate backInDown "Les cours de cette partie sont:" >}} 
+# {{< animate backInDown "Les projets données dans la matière sont:" >}} 
 
 
