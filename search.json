@@ -2,14 +2,14 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Python-API !",
+    "title": "API avec Python ",
     "section": "",
-    "text": "Star this website on Github"
+    "text": "Cours complet sur les API avec Python, comment ca marche, comment les utiliser, comment les créer, etc.\n\n\nStar this website on Github"
   },
   {
     "objectID": "index.html#rémi-genet",
     "href": "index.html#rémi-genet",
-    "title": "Python-API !",
+    "title": "API avec Python ",
     "section": "",
     "text": "Star this website on Github"
   },
@@ -18,7 +18,7 @@
     "href": "content/Cours_1/index.html",
     "title": "Introduction aux API",
     "section": "",
-    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAPI - Définition\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer une API\n\n\nExplorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa notion d’API utilisateur\n\n\nChoisir son IDE, une question de goûts mais un impact important sur la productivité.\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSécuriser une API\n\n\nExplorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP - Postman et requêtes API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTester une API\n\n\nLes outils pour gerer plusieurs versions de python facilement, et le concept d’environnements virtuels -\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUtiliser une API\n\n\nExplorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAPI - Définition\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCréer une API\n\n\nExplorer les diverses implémentations de Python et le processus de compilation pour comprendre la diversité et la flexibilité du langage.\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLa notion d’API utilisateur\n\n\nChoisir son IDE, une question de goûts mais un impact important sur la productivité.\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSécuriser une API\n\n\nExplorer la notion de PATH, un élément essentiel dans la configuration des environnements de développement.\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP - Postman et requêtes API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTester une API\n\n\nLes outils pour gerer plusieurs versions de python facilement, et le concept d’environnements virtuels -\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUtiliser une API\n\n\nExplorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "content/Cours_1/2-User101.html#les-bases-de-linteraction-avec-une-api",
@@ -215,7 +215,7 @@
     "href": "content/Cours_5/index.html",
     "title": "Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku",
     "section": "",
-    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonus - Nom de Domaine\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDeploiement sur Heroku\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDéploiement avancé\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHeroku - Présentation du service\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction au Déploiement d’API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeilleurs Pratiques avant un déploiement\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonus - Nom de Domaine\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDeploiement sur Heroku\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDéploiement avancé\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHeroku - Présentation du service\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction au Déploiement d’API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeilleurs Pratiques avant un déploiement\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "content/Cours_5/4-herodepl.html#configuration-de-lenvironnement-heroku",
@@ -272,7 +272,7 @@
     "href": "content/Cours_2/index.html",
     "title": "Consommation avancée d’API",
     "section": "",
-    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuthentification et sécurité des API\n\n\nCe chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la…\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptimisation des ressources et de la performance des API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProtocols de communication\n\n\nCe chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant…\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP : Comparaison des performances des appels en tant qu’utilisateur\n\n\nDans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les…\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAuthentification et sécurité des API\n\n\nCe chapitre se concentre sur les fonctions et les modules en Python, deux composants clés pour écrire un code propre et réutilisable. Il aborde la création de fonctions, la…\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptimisation des ressources et de la performance des API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nProtocols de communication\n\n\nCe chapitre offre une plongée approfondie dans la syntaxe et les objets de base de Python. Il vise à fournir une compréhension solide des fondements du langage, couvrant…\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP : Comparaison des performances des appels en tant qu’utilisateur\n\n\nDans ce chapitre, nous explorons les principes fondamentaux de la Programmation Orientée Objet (POO) en Python. Les étudiants découvriront comment Python applique les…\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "content/Cours_2/3-Conception-optimizations.html#introduction-au-fonctionnement-séquentiel-du-code",
@@ -329,7 +329,7 @@
     "href": "content/projets/index.html",
     "title": "Projets",
     "section": "",
-    "text": "Les projets données dans la matière sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction au Déploiement d’API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Les projets données dans la matière sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction au Déploiement d’API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "content/Cours_3/TP-3-1.html",
@@ -650,7 +650,7 @@
     "href": "content/Cours_4/index.html",
     "title": "Conception d’APIs",
     "section": "",
-    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonne pratique générale\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDjango REST Framework\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFast API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFlask\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction à la Conception d’APIs\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes principaux Frameworks d’APIs en Python\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès\n\n\nAsynchronie vs synchronie\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTester et documenter une API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBonne pratique générale\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDjango REST Framework\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFast API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFlask\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction à la Conception d’APIs\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLes principaux Frameworks d’APIs en Python\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès\n\n\nAsynchronie vs synchronie\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTester et documenter une API\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "content/Cours_4/3-Flask.html",
@@ -1135,7 +1135,7 @@
     "href": "content/Cours_3/index.html",
     "title": "Communication entre Processus (IPC)",
     "section": "",
-    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusions\n\n\nMatplotlib, Plotly ou Seaborn ? Peut être Altair !\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFichiers et IPC\n\n\nPython, où le ML à deux cliques de souris\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction à l’IPC\n\n\nLes DataFrames\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPipes\n\n\nDjango, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShared Memory\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSockets\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP3 Option 1 Service gRPC pour indicateurs de marché\n\n\nMise en pratique simple des éléments vu aurparavant.\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée\n\n\nMise en pratique simple des éléments vu aurparavant.\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngRPC\n\n\nMatplotlib, Plotly ou Seaborn ? Peut être Altair !\n\n\n\nRemi Genet\n\n\n2024-01-06\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Les cours de cette partie sont:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusions\n\n\nMatplotlib, Plotly ou Seaborn ? Peut être Altair !\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFichiers et IPC\n\n\nPython, où le ML à deux cliques de souris\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction à l’IPC\n\n\nLes DataFrames\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPipes\n\n\nDjango, FastAPI, Flask, Bottle, Pyramid, Falcon, Sanic, Tornado, AIOHTTP, Starlette,… La liste est longue\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShared Memory\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSockets\n\n\n\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP3 Option 1 Service gRPC pour indicateurs de marché\n\n\nMise en pratique simple des éléments vu aurparavant.\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée\n\n\nMise en pratique simple des éléments vu aurparavant.\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngRPC\n\n\nMatplotlib, Plotly ou Seaborn ? Peut être Altair !\n\n\n\nRemi Genet\n\n\n2024-01-08\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "content/Cours_3/6-gRPC.html#introduction",
@@ -1808,7 +1808,7 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Introduction à Python",
+    "title": "API en Python",
     "section": "",
     "text": "Back to top"
   }

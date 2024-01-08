@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-06">
+<meta name="dcterms.date" content="2024-01-08">
 
-<title>Introduction à Python - Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</title>
+<title>API en Python - Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,14 +138,14 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Introduction à Python - Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku">
-<meta property="og:site_name" content="Introduction à Python">
+<meta property="og:title" content="API en Python - Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku">
+<meta property="og:site_name" content="API en Python">
 <meta name="citation_title" content="Déploiement d&amp;amp;#039;API - Principes Généraux et Mise en Pratique avec Heroku">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-06">
-<meta name="citation_cover_date" content="2024-01-06">
+<meta name="citation_publication_date" content="2024-01-08">
+<meta name="citation_cover_date" content="2024-01-08">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-06">
+<meta name="citation_online_date" content="2024-01-08">
 <meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_5">
 <meta name="citation_language" content="en">
 </head>
@@ -158,7 +158,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Introduction à Python</span>
+    <span class="navbar-title">API en Python</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -392,7 +392,7 @@ window.Quarto = {
 <h1 class="title display-7">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</h1>
 <p class="author">Remi Genet</p>
 
-<p class="date">2024-01-06</p>
+<p class="date">2024-01-08</p>
 </header>
 
 
@@ -405,7 +405,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-sample-listings">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704565685438" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
+<div class="g-col-1" data-index="0" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704565685438" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="466">
 <a href="../../content/Cours_5/6-domain.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -426,14 +426,14 @@ Bonus - Nom de Domaine
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704565696897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="309">
+<div class="g-col-1" data-index="1" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704565696897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="309">
 <a href="../../content/Cours_5/7-end.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -451,14 +451,14 @@ Conclusion
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704565668528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2411">
+<div class="g-col-1" data-index="2" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704565668528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2411">
 <a href="../../content/Cours_5/4-herodepl.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -476,14 +476,14 @@ web: gunicorn app:app –workers 3 worker: celery -A app.celery worker release: 
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704565705624" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="987">
+<div class="g-col-1" data-index="3" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704565705624" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="987">
 <a href="../../content/Cours_5/5-moreexample.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -501,14 +501,14 @@ import requests from sqlalchemy import create_engine, Table, Column, Integer, St
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="428">
+<div class="g-col-1" data-index="4" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="428">
 <a href="../../content/Cours_5/2-heroku.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -529,14 +529,14 @@ Heroku - Présentation du service
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="902">
+<div class="g-col-1" data-index="5" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704422318760" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="902">
 <a href="../../content/Cours_5/1-Introdepl.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -557,14 +557,14 @@ Introduction au Déploiement d’API
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704495600000" data-listing-file-modified-sort="1704565589091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1569">
+<div class="g-col-1" data-index="6" data-categories="Cours,Fondamentaux" data-listing-date-sort="1704668400000" data-listing-file-modified-sort="1704565589091" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1569">
 <a href="../../content/Cours_5/3-Best Practice.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -582,7 +582,7 @@ Le déploiement d’une API peut présenter des défis uniques qui nécessitent 
 Remi Genet
 </div>
 <div class="listing-date">
-2024-01-06
+2024-01-08
 </div>
 </div>
 </div>
