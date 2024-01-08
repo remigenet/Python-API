@@ -34,6 +34,7 @@ website:
     - id: introduction
       title: "Introduction aux API"
       contents:
+      - content/Cours_1/index.qmd
       - content/Cours_1/1-API101.qmd
       - content/Cours_1/2-User101.qmd
       - content/Cours_1/3-Concepteur101.qmd
@@ -48,6 +49,7 @@ website:
     - id: async 
       title: "Consommation avancée d'API"
       contents: 
+       - content/Cours_2/index.qmd
        - content/Cours_2/1-Protocols.qmd
        - content/Cours_2/2-Authenticate.qmd
        - content/Cours_2/3-Conception-optimizations.qmd
@@ -58,6 +60,7 @@ website:
     - id: ipc 
       title: "Communication entre Processus (IPC)"
       contents: 
+       - content/Cours_3/index.qmd
        - content/Cours_3/1-IPC101.qmd
        - content/Cours_3/2-Sockets.qmd
        - content/Cours_3/3-Files.qmd
@@ -68,11 +71,12 @@ website:
        - section: Travaux Pratiques
          expanded: false
          contents:
-         - content/Cours_3/TP-3-1-qmd
-         - content/Cours_3/TP-3-2-qmd
+         - content/Cours_3/TP-3-1.qmd
+         - content/Cours_3/TP-3-2.qmd
     - id: conceive 
       title: "Conception d'APIs"
       contents: 
+       - content/Cours_4/index.qmd
        - content/Cours_4/1-IntroConception.qmd
        - content/Cours_4/2-Frameworks.qmd
        - content/Cours_4//3-Falsk.qmd
@@ -88,6 +92,7 @@ website:
     - id: deploy 
       title: "Déploiement d'API - Principes Généraux et Mise en Pratique avec Heroku"
       contents: 
+       - content/Cours_5/index.qmd
        - content/Cours_5/1-Introdepl.qmd
        - content/Cours_5/2-heroku.qmd
        - content/Cours_5/3-Best Practice.qmd
@@ -97,6 +102,9 @@ website:
        - content/Cours_5/7-end.qmd
     - id: projects 
       title: "Sujets de Projets possibles"
+      contents:
+      - content/projets/index.qmd
+      - content/projets/millesime_2324.qmd
 
         
   repo-url: https://github.com/remigenet/Python-API
@@ -114,25 +122,21 @@ website:
 theme:
   light: flatly
   dark: vapor
-
-
 format:
   html:
     css: styles.css
     toc: true
     toc-depth: 3
     code-overflow: wrap
-
 format-links: true
 author: Remi Genet
 date: today
 date-format: iso
-page-layout: article
+page-layout: full
 google-scholar: true
 commentable: true
 validate-yaml: false
 crossref:
   chapters: true
 lightbox: auto
-
 

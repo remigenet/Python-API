@@ -1,5 +1,5 @@
 ---
-title: "Flask"
+title: "Flask "
 weight: 10
 tags:
   - Pandas
@@ -25,34 +25,35 @@ III
 Une fois Flask installé, vous pouvez créer un fichier app.py qui servira de point d'entrée à votre application. Voici un exemple de structure de base pour une application Flask :
 
 
-```
+```python
 from flask import Flask
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+```
 
 # III. Conception Pratique d'une API avec Flask
 
 
-```
+
 Flask est un micro-framework pour Python qui est particulièrement adapté pour les petits projets ou pour les situations où une grande flexibilité est nécessaire. Il est léger, facile à utiliser, et extensible, ce qui en fait un choix populaire pour le développement d'APIs.
-```
+
 
 
 
 ## 1. Installation et Configuration de Flask
 
 
-```
+
 Pour commencer à travailler avec Flask, vous devez d'abord l'installer. Cela peut être fait facilement avec pip, le gestionnaire de paquets Python :
 III
 Une fois Flask installé, vous pouvez créer un fichier app.py qui servira de point d'entrée à votre application. Voici un exemple de structure de base pour une application Flask :
 
 
 
-```
+```python
 from flask import Flask
 
 app = Flask(__name__)
@@ -67,21 +68,21 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, nous avons importé Flask, instancié une application, défini une route de base (/) qui retourne simplement une chaîne de caractères, et enfin, nous avons exécuté l'application en mode debug.
-```
+
 
 
 
 ## 2. Définition des Routes et Endpoints
 
 
-```
+
 Les routes dans Flask sont définies en utilisant le décorateur @app.route(), qui associe une URL à une fonction Python. Voici un exemple de définition de route plus complexe :
 
 
 
-```
+```python
 @app.route('/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
     # Ici, vous pourriez récupérer l'utilisateur de la base de données
@@ -90,21 +91,21 @@ def get_user(user_id):
 
 
 
-```
+
 Dans cet exemple, la route /users/<int:user_id> attend un paramètre user_id de type entier. Lorsqu'un utilisateur accède à cette URL, la fonction get_user est appelée et retourne un objet JSON avec l'ID et le nom de l'utilisateur.
-```
+
 
 
 
 ## 3. Gestion des Requêtes
 
 
-```
+
 Flask fournit un objet request qui contient toutes les informations de la requête HTTP. Vous pouvez accéder aux données de la requête, aux paramètres de l'URL, aux en-têtes, et plus encore. Voici un exemple d'utilisation de l'objet request :
 
 
 
-```
+```python
 from flask import request
 
 @app.route('/login', methods=['POST'])
@@ -117,21 +118,21 @@ def login():
 
 
 
-```
+
 Dans cet exemple, la route /login attend une requête POST avec un formulaire contenant un username et un password. La fonction login récupère ces valeurs et pourrait les utiliser pour valider l'identité de l'utilisateur.
-```
+
 
 
 
 ## 4. Réponses et Codes d'État
 
 
-```
+
 Les réponses dans Flask peuvent être personnalisées en retournant non seulement des données, mais aussi des codes d'état HTTP spécifiques et des en-têtes. Voici comment vous pourriez retourner une réponse personnalisée :
 
 
 
-```
+```python
 from flask import make_response
 
 @app.route('/not_found')
@@ -143,21 +144,21 @@ def not_found():
 
 
 
-```
+
 Dans cet exemple, la fonction not_found retourne une réponse avec un corps JSON, un code d'état 404 pour indiquer que la ressource n'a pas été trouvée, et un en-tête spécifiant le type de contenu.
-```
+
 
 
 
 ## 5. Utilisation de Templates
 
 
-```
+
 Bien que les APIs retournent généralement des données JSON, Flask peut également servir des pages HTML en utilisant le système de templates Jinja2. Voici un exemple simple :
 
 
 
-```
+```python
 from flask import render_template
 
 @app.route('/home')
@@ -167,23 +168,23 @@ def home():
 
 
 
-```
+
 Dans cet exemple, la fonction home utilise render_template pour servir un fichier HTML home.html, en passant un titre à la page.
-```
+
 
 
 
 ## 6. Fonctionnement du décorateur @app.route
 
 
-```
+
 Le décorateur @app.route est l'un des éléments fondamentaux de Flask. Il est utilisé pour associer une URL à une fonction Python, qui est appelée lorsque l'URL correspondante est demandée par un client HTTP.
 
 Quand vous décorez une fonction avec @app.route, vous informez Flask que si une requête HTTP correspondant à la règle spécifiée est reçue, alors Flask doit appeler cette fonction et renvoyer sa réponse au client.
 
 Voici ce qui se passe en détail :
 
-```
+
 
 
 
@@ -193,10 +194,10 @@ Voici ce qui se passe en détail :
 4. `Envoi de la réponse : Flask prend la réponse de la fonction et l'envoie au client, en s'occupant des en-têtes HTTP nécessaires et du code d'état.`
 
 
-```
+
 Le décorateur @app.route peut prendre plusieurs arguments pour personnaliser le comportement de la route :
 
-```
+
 
 
 
@@ -220,7 +221,7 @@ Le décorateur @app.route peut prendre plusieurs arguments pour personnaliser le
 ### a. Exemple de la Todo List
 
 
-```
+```python
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -265,12 +266,12 @@ if __name__ == '__main__':
 ### b. Exemple de l'authentification
 
 
-```
+
 Côté serveur (app.py) :
 
 
 
-```
+```python
 from flask import Flask, request, jsonify, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 import uuid
@@ -323,12 +324,12 @@ if __name__ == '__main__':
 
 
 
-```
+
 Côté client (client.py) :
 
 
 
-```
+```python
 import requests
 
 # Remplacer par l'URL de votre API
@@ -350,27 +351,27 @@ else:
 
 
 
-```
+
 Dans cet exemple, le serveur utilise JWT (JSON Web Tokens) pour l'authentification. Lorsque l'utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.
-```
+
 
 
 
 ## 8. Fonctionnalités Avancées de Flask
 
 
-```
+
 Flask est un micro-framework puissant qui offre une grande flexibilité pour le développement d'applications web et d'APIs. Au-delà des fonctionnalités de base, Flask fournit plusieurs outils et extensions qui permettent de construire des applications robustes et évolutives. Dans cette section, nous allons explorer certaines de ces fonctionnalités avancées.
 
 Bien sûr, je vais approfondir chaque fonctionnalité de Flask que vous avez mentionnée.
-```
+
 
 
 
 ### a. Blueprints
 
 
-```
+
 Les Blueprints sont une façon de décomposer une application Flask en composants distincts, chacun ayant ses propres routes, templates et ressources statiques. Cela permet de mieux organiser le code, surtout pour les grandes applications, et de réutiliser des ensembles de fonctionnalités dans d'autres applications Flask.
 
 
@@ -379,7 +380,7 @@ Vous créez d'abord un Blueprint en spécifiant un nom et le module ou le packag
 
 
 
-```
+```python
 from flask import Blueprint
 
 # Création d'un Blueprint nommé 'bp'
@@ -393,12 +394,12 @@ def hello():
 
 
 
-```
+
 Pour l'enregistrer dans votre application principale, vous utilisez la méthode register_blueprint de l'objet app :
 
 
 
-```
+```python
 from yourapplication import bp
 
 app.register_blueprint(bp, url_prefix='/my_blueprint')
@@ -406,16 +407,16 @@ app.register_blueprint(bp, url_prefix='/my_blueprint')
 
 
 
-```
+
 L'argument url_prefix est optionnel, mais il est utile pour préfixer toutes les routes du Blueprint avec un chemin commun, ce qui peut aider à organiser les routes en sections logiques.
-```
+
 
 
 
 ### b. Extensions Flask
 
 
-```
+
 Les extensions Flask étendent les fonctionnalités de base de Flask. Par exemple, Flask-SQLAlchemy est une extension qui ajoute la prise en charge d'ORM (Object-Relational Mapping) à Flask, ce qui facilite l'interaction avec les bases de données en utilisant des objets Python au lieu d'écrire des requêtes SQL brutes.
 
 
@@ -423,7 +424,7 @@ Les extensions Flask étendent les fonctionnalités de base de Flask. Par exempl
 
 
 
-```
+```python
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -437,11 +438,11 @@ class User(db.Model):
 
 # Créer les tables dans la base de données
 db.create_all()
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, SQLAlchemy est utilisé pour définir un modèle pour les utilisateurs, qui est ensuite utilisé pour créer une table dans la base de données SQLite.
 
 
@@ -452,7 +453,7 @@ Exemple
 
 
 
-```
+```python
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
@@ -476,7 +477,7 @@ def login():
 
 
 
-```
+
 Dans cet exemple, LoginForm est une classe de formulaire qui utilise FlaskForm de Flask-WTF. Elle définit un formulaire avec des champs pour le nom d'utilisateur et le mot de passe, chacun avec un validateur qui exige que le champ soit rempli.
 
 
@@ -487,7 +488,7 @@ Exemple d'utilisation
 
 
 
-```
+```python
 from flask import Flask, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 
@@ -524,20 +525,20 @@ def protected():
 
 if __name__ == '__main__':
     app.run(debug=True)
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, User est une classe qui représente un utilisateur et hérite de UserMixin, qui fournit des implémentations par défaut pour les méthodes attendues par Flask-Login. login_user et logout_user sont des fonctions qui gèrent l'état de connexion de l'utilisateur.
-```
+
 
 
 
 ### c. Gestion des Erreurs
 
 
-```
+
 Flask permet de définir des gestionnaires d'erreurs personnalisés pour différents codes d'erreur HTTP. Cela vous permet de renvoyer des réponses cohérentes et informatives lorsque des erreurs se produisent.
 
 
@@ -545,7 +546,7 @@ Flask permet de définir des gestionnaires d'erreurs personnalisés pour différ
 
 
 
-```
+```python
 @app.errorhandler(404)
 def error_404(e):
     return {"error": "Resource not found"}, 404
@@ -561,16 +562,16 @@ def error_401(e):
 
 
 
-```
+
 Dans ces exemples, des fonctions sont définies pour gérer les erreurs 404 (non trouvé), 400 (mauvaise requête) et 401 (authentification requise), renvoyant un objet JSON avec un message d'erreur.
-```
+
 
 
 
 ### d. Gestion des Sessions
 
 
-```
+
 Les sessions dans Flask sont utilisées pour stocker des informations entre les requêtes. Les données de session sont stockées côté client dans des cookies sécurisés et cryptés.
 
 
@@ -578,7 +579,7 @@ Les sessions dans Flask sont utilisées pour stocker des informations entre les 
 
 
 
-```
+```python
 from flask import Flask, session
 
 app = Flask(__name__)
@@ -592,20 +593,20 @@ def set_user(username):
 @app.route('/get_user')
 def get_user():
     return f'Current user is {session.get("username")}'
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, le nom d'utilisateur est stocké dans la session après avoir visité la route /set_user/<username>. Il peut ensuite être récupéré sur une autre route.
-```
+
 
 
 
 ### e. Contextes d'Application et de Requête
 
 
-```
+
 Les contextes d'application et de requête de Flask sont des mécanismes qui permettent aux variables de se comporter comme si elles étaient globales, mais en réalité, elles sont spécifiques à chaque thread d'exécution, ce qui les rend sûres à utiliser dans des environnements multithreadés.
 
 
@@ -613,7 +614,7 @@ Les contextes d'application et de requête de Flask sont des mécanismes qui per
 
 
 
-```
+```python
 from flask import Flask, current_app
 
 app = Flask(__name__)
@@ -621,19 +622,19 @@ app = Flask(__name__)
 with app.app_context():
     # dans ce bloc, current_app pointe vers app
     print(current_app.name)
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, current_app est un proxy qui pointe vers l'application Flask actuellement active. L'utilisation du contexte d'application est essentielle lors de l'écriture de fonctions qui fonctionnent en dehors d'une requête active, comme les commandes CLI ou les tâches en arrière-plan.
 
 
 #### Exemple de contexte de requête
 
 
+```python
 
-```
 from flask import Flask, request, g
 
 app = Flask(__name__)
@@ -645,20 +646,20 @@ def before_request():
 @app.route('/get_request_id')
 def get_request_id():
     return f"Request ID: {g.get('request_id')}"
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, g est un objet global qui est unique à chaque requête. Il est utilisé pour stocker des données qui peuvent être accessibles par différentes fonctions pendant la même requête. before_request est un décorateur qui enregistre une fonction à exécuter avant chaque requête, où nous stockons un ID de requête personnalisé dans g.
-```
+
 
 
 
 ### f. WebSockets avec Flask-SocketIO
 
 
-```
+
 Flask-SocketIO est une extension qui facilite l'ajout de fonctionnalités WebSocket à votre application Flask, permettant une communication bidirectionnelle en temps réel entre le client et le serveur.
 
 
@@ -666,7 +667,7 @@ Flask-SocketIO est une extension qui facilite l'ajout de fonctionnalités WebSoc
 
 
 
-```
+```python
 from flask import Flask
 from flask_socketio import SocketIO, send
 import random
@@ -688,7 +689,7 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, chaque fois qu'un client se connecte, le serveur commence à lui envoyer des nombres aléatoires toutes les 5 secondes à l'aide de WebSockets.
 
 
@@ -697,7 +698,7 @@ Voici un exemple de WebSocket qui reçoit des messages de l'utilisateur et renvo
 
 
 
-```
+```python
 from flask import Flask
 from flask_socketio import SocketIO, send, receive
 
@@ -722,23 +723,23 @@ if __name__ == '__main__':
 # III. Conception Pratique d'une API avec Flask
 
 
-```
+
 Flask est un micro-framework pour Python qui est particulièrement adapté pour les petits projets ou pour les situations où une grande flexibilité est nécessaire. Il est léger, facile à utiliser, et extensible, ce qui en fait un choix populaire pour le développement d'APIs.
-```
+
 
 
 
 ## 1. Installation et Configuration de Flask
 
 
-```
+
 Pour commencer à travailler avec Flask, vous devez d'abord l'installer. Cela peut être fait facilement avec pip, le gestionnaire de paquets Python :
 III
 Une fois Flask installé, vous pouvez créer un fichier app.py qui servira de point d'entrée à votre application. Voici un exemple de structure de base pour une application Flask :
 
 
 
-```
+```python
 from flask import Flask
 
 app = Flask(__name__)
@@ -753,21 +754,21 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, nous avons importé Flask, instancié une application, défini une route de base (/) qui retourne simplement une chaîne de caractères, et enfin, nous avons exécuté l'application en mode debug.
-```
+
 
 
 
 ## 2. Définition des Routes et Endpoints
 
 
-```
+
 Les routes dans Flask sont définies en utilisant le décorateur @app.route(), qui associe une URL à une fonction Python. Voici un exemple de définition de route plus complexe :
 
 
 
-```
+```python
 @app.route('/users/<int:user_id>', methods=['GET'])
 def get_user(user_id):
     # Ici, vous pourriez récupérer l'utilisateur de la base de données
@@ -776,21 +777,21 @@ def get_user(user_id):
 
 
 
-```
+
 Dans cet exemple, la route /users/<int:user_id> attend un paramètre user_id de type entier. Lorsqu'un utilisateur accède à cette URL, la fonction get_user est appelée et retourne un objet JSON avec l'ID et le nom de l'utilisateur.
-```
+
 
 
 
 ## 3. Gestion des Requêtes
 
 
-```
+
 Flask fournit un objet request qui contient toutes les informations de la requête HTTP. Vous pouvez accéder aux données de la requête, aux paramètres de l'URL, aux en-têtes, et plus encore. Voici un exemple d'utilisation de l'objet request :
 
 
 
-```
+```python
 from flask import request
 
 @app.route('/login', methods=['POST'])
@@ -799,25 +800,25 @@ def login():
     password = request.form['password']
     # Ici, vous pourriez valider les identifiants de l'utilisateur
     return {"status": "success"}
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, la route /login attend une requête POST avec un formulaire contenant un username et un password. La fonction login récupère ces valeurs et pourrait les utiliser pour valider l'identité de l'utilisateur.
-```
+
 
 
 
 ## 4. Réponses et Codes d'État
 
 
-```
+
 Les réponses dans Flask peuvent être personnalisées en retournant non seulement des données, mais aussi des codes d'état HTTP spécifiques et des en-têtes. Voici comment vous pourriez retourner une réponse personnalisée :
 
 
 
-```
+```python
 from flask import make_response
 
 @app.route('/not_found')
@@ -829,75 +830,75 @@ def not_found():
 
 
 
-```
+
 Dans cet exemple, la fonction not_found retourne une réponse avec un corps JSON, un code d'état 404 pour indiquer que la ressource n'a pas été trouvée, et un en-tête spécifiant le type de contenu.
-```
+
 
 
 
 ## 5. Utilisation de Templates
 
 
-```
+
 Bien que les APIs retournent généralement des données JSON, Flask peut également servir des pages HTML en utilisant le système de templates Jinja2. Voici un exemple simple :
 
 
 
-```
+```python
 from flask import render_template
 
 @app.route('/home')
 def home():
     return render_template('home.html', title='Welcome')
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, la fonction home utilise render_template pour servir un fichier HTML home.html, en passant un titre à la page.
-```
+
 
 
 
 ## 6. Fonctionnement du décorateur @app.route
 
 
-```
+
 Le décorateur @app.route est l'un des éléments fondamentaux de Flask. Il est utilisé pour associer une URL à une fonction Python, qui est appelée lorsque l'URL correspondante est demandée par un client HTTP.
 
 Quand vous décorez une fonction avec @app.route, vous informez Flask que si une requête HTTP correspondant à la règle spécifiée est reçue, alors Flask doit appeler cette fonction et renvoyer sa réponse au client.
 
 Voici ce qui se passe en détail :
 
-```
 
 
 
-1. `Analyse de la requête : Lorsqu'une requête arrive au serveur, Flask analyse l'URL demandée et cherche une correspondance avec les règles définies par les décorateurs @app.route.`
-2. `Appel de la fonction : Si une correspondance est trouvée, Flask exécute la fonction associée à cette règle.`
-3. `Construction de la réponse : La fonction exécutée peut retourner une variété de réponses, y compris des objets Response, des chaînes de caractères, des tuples avec des données et des codes d'état, ou même des objets JSON.`
-4. `Envoi de la réponse : Flask prend la réponse de la fonction et l'envoie au client, en s'occupant des en-têtes HTTP nécessaires et du code d'état.`
+
+1. Analyse de la requête : Lorsqu'une requête arrive au serveur, Flask analyse l'URL demandée et cherche une correspondance avec les règles définies par les décorateurs @app.route.
+2. Appel de la fonction : Si une correspondance est trouvée, Flask exécute la fonction associée à cette règle.
+3. Construction de la réponse : La fonction exécutée peut retourner une variété de réponses, y compris des objets Response, des chaînes de caractères, des tuples avec des données et des codes d'état, ou même des objets JSON.
+4. Envoi de la réponse : Flask prend la réponse de la fonction et l'envoie au client, en s'occupant des en-têtes HTTP nécessaires et du code d'état.
 
 
-```
+
 Le décorateur @app.route peut prendre plusieurs arguments pour personnaliser le comportement de la route :
 
-```
 
 
 
-* `string : pour des segments dynamiques dans l'URL.`
-* `int : pour accepter un segment d'URL comme un entier.`
-* `float : pour accepter un segment d'URL comme un nombre à virgule flottante.`
-* `path : similaire à string mais accepte aussi les slashes.`
-* `uuid : pour accepter les segments d'URL comme des UUID.`
-* `methods : une liste des méthodes HTTP autorisées pour cette route.`
-* `endpoint : le nom de l'endpoint, utilisé avec url_for.`
-* `defaults : des valeurs par défaut pour les arguments de la règle.`
-* `host : un hôte spécifique pour lequel cette route est accessible.`
-* `subdomain : un sous-domaine spécifique pour lequel cette route est accessible.`
-* `redirect_to : redirige vers une autre règle d'URL.`
-* `alias : permet à la route d'être un alias d'une autre règle.`
+
+* string : pour des segments dynamiques dans l'URL.
+* int : pour accepter un segment d'URL comme un entier.
+* float : pour accepter un segment d'URL comme un nombre à virgule flottante.
+* path : similaire à string mais accepte aussi les slashes.
+* uuid : pour accepter les segments d'URL comme des UUID.
+* methods : une liste des méthodes HTTP autorisées pour cette route.
+* endpoint : le nom de l'endpoint, utilisé avec url_for.
+* defaults : des valeurs par défaut pour les arguments de la règle.
+* host : un hôte spécifique pour lequel cette route est accessible.
+* subdomain : un sous-domaine spécifique pour lequel cette route est accessible.
+* redirect_to : redirige vers une autre règle d'URL.
+* alias : permet à la route d'être un alias d'une autre règle.
 
 
 ## 7. Exemples
@@ -906,7 +907,7 @@ Le décorateur @app.route peut prendre plusieurs arguments pour personnaliser le
 ### a. Exemple de la Todo List
 
 
-```
+```python
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -951,12 +952,12 @@ if __name__ == '__main__':
 ### b. Exemple de l'authentification
 
 
-```
+
 Côté serveur (app.py) :
 
 
 
-```
+```python
 from flask import Flask, request, jsonify, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 import uuid
@@ -1005,16 +1006,16 @@ def protected():
 
 if __name__ == '__main__':
     app.run(debug=True)
-```
-
-
 
 ```
+
+
+
 Côté client (client.py) :
 
 
 
-```
+```python
 import requests
 
 # Remplacer par l'URL de votre API
@@ -1036,27 +1037,27 @@ else:
 
 
 
-```
+
 Dans cet exemple, le serveur utilise JWT (JSON Web Tokens) pour l'authentification. Lorsque l'utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.
-```
+
 
 
 
 ## 8. Fonctionnalités Avancées de Flask
 
 
-```
+
 Flask est un micro-framework puissant qui offre une grande flexibilité pour le développement d'applications web et d'APIs. Au-delà des fonctionnalités de base, Flask fournit plusieurs outils et extensions qui permettent de construire des applications robustes et évolutives. Dans cette section, nous allons explorer certaines de ces fonctionnalités avancées.
 
 Bien sûr, je vais approfondir chaque fonctionnalité de Flask que vous avez mentionnée.
-```
+
 
 
 
 ### a. Blueprints
 
 
-```
+
 Les Blueprints sont une façon de décomposer une application Flask en composants distincts, chacun ayant ses propres routes, templates et ressources statiques. Cela permet de mieux organiser le code, surtout pour les grandes applications, et de réutiliser des ensembles de fonctionnalités dans d'autres applications Flask.
 
 
@@ -1065,7 +1066,7 @@ Vous créez d'abord un Blueprint en spécifiant un nom et le module ou le packag
 
 
 
-```
+```python
 from flask import Blueprint
 
 # Création d'un Blueprint nommé 'bp'
@@ -1079,12 +1080,12 @@ def hello():
 
 
 
-```
+
 Pour l'enregistrer dans votre application principale, vous utilisez la méthode register_blueprint de l'objet app :
 
 
 
-```
+```python
 from yourapplication import bp
 
 app.register_blueprint(bp, url_prefix='/my_blueprint')
@@ -1092,24 +1093,23 @@ app.register_blueprint(bp, url_prefix='/my_blueprint')
 
 
 
-```
+
 L'argument url_prefix est optionnel, mais il est utile pour préfixer toutes les routes du Blueprint avec un chemin commun, ce qui peut aider à organiser les routes en sections logiques.
-```
+
 
 
 
 ### b. Extensions Flask
 
 
-```
+
 Les extensions Flask étendent les fonctionnalités de base de Flask. Par exemple, Flask-SQLAlchemy est une extension qui ajoute la prise en charge d'ORM (Object-Relational Mapping) à Flask, ce qui facilite l'interaction avec les bases de données en utilisant des objets Python au lieu d'écrire des requêtes SQL brutes.
 
 
 #### Flask-SQLAlchemy
 
 
-
-```
+```python
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -1127,7 +1127,7 @@ db.create_all()
 
 
 
-```
+
 Dans cet exemple, SQLAlchemy est utilisé pour définir un modèle pour les utilisateurs, qui est ensuite utilisé pour créer une table dans la base de données SQLite.
 
 
@@ -1138,7 +1138,8 @@ Exemple
 
 
 
-```
+
+```python
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
@@ -1158,11 +1159,11 @@ def login():
         # Ici, vous pourriez vérifier les identifiants de l'utilisateur
         return 'Form successfully submitted!'
     return render_template('login.html', form=form)
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, LoginForm est une classe de formulaire qui utilise FlaskForm de Flask-WTF. Elle définit un formulaire avec des champs pour le nom d'utilisateur et le mot de passe, chacun avec un validateur qui exige que le champ soit rempli.
 
 
@@ -1173,7 +1174,7 @@ Exemple d'utilisation
 
 
 
-```
+```python
 from flask import Flask, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 
@@ -1210,20 +1211,20 @@ def protected():
 
 if __name__ == '__main__':
     app.run(debug=True)
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, User est une classe qui représente un utilisateur et hérite de UserMixin, qui fournit des implémentations par défaut pour les méthodes attendues par Flask-Login. login_user et logout_user sont des fonctions qui gèrent l'état de connexion de l'utilisateur.
-```
+
 
 
 
 ### c. Gestion des Erreurs
 
 
-```
+
 Flask permet de définir des gestionnaires d'erreurs personnalisés pour différents codes d'erreur HTTP. Cela vous permet de renvoyer des réponses cohérentes et informatives lorsque des erreurs se produisent.
 
 
@@ -1231,7 +1232,7 @@ Flask permet de définir des gestionnaires d'erreurs personnalisés pour différ
 
 
 
-```
+```python
 @app.errorhandler(404)
 def error_404(e):
     return {"error": "Resource not found"}, 404
@@ -1247,16 +1248,16 @@ def error_401(e):
 
 
 
-```
+
 Dans ces exemples, des fonctions sont définies pour gérer les erreurs 404 (non trouvé), 400 (mauvaise requête) et 401 (authentification requise), renvoyant un objet JSON avec un message d'erreur.
-```
+
 
 
 
 ### d. Gestion des Sessions
 
 
-```
+
 Les sessions dans Flask sont utilisées pour stocker des informations entre les requêtes. Les données de session sont stockées côté client dans des cookies sécurisés et cryptés.
 
 
@@ -1264,7 +1265,7 @@ Les sessions dans Flask sont utilisées pour stocker des informations entre les 
 
 
 
-```
+```python
 from flask import Flask, session
 
 app = Flask(__name__)
@@ -1282,16 +1283,16 @@ def get_user():
 
 
 
-```
+
 Dans cet exemple, le nom d'utilisateur est stocké dans la session après avoir visité la route /set_user/<username>. Il peut ensuite être récupéré sur une autre route.
-```
+
 
 
 
 ### e. Contextes d'Application et de Requête
 
 
-```
+
 Les contextes d'application et de requête de Flask sont des mécanismes qui permettent aux variables de se comporter comme si elles étaient globales, mais en réalité, elles sont spécifiques à chaque thread d'exécution, ce qui les rend sûres à utiliser dans des environnements multithreadés.
 
 
@@ -1299,7 +1300,7 @@ Les contextes d'application et de requête de Flask sont des mécanismes qui per
 
 
 
-```
+```python
 from flask import Flask, current_app
 
 app = Flask(__name__)
@@ -1307,11 +1308,11 @@ app = Flask(__name__)
 with app.app_context():
     # dans ce bloc, current_app pointe vers app
     print(current_app.name)
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, current_app est un proxy qui pointe vers l'application Flask actuellement active. L'utilisation du contexte d'application est essentielle lors de l'écriture de fonctions qui fonctionnent en dehors d'une requête active, comme les commandes CLI ou les tâches en arrière-plan.
 
 
@@ -1319,7 +1320,7 @@ Dans cet exemple, current_app est un proxy qui pointe vers l'application Flask a
 
 
 
-```
+```python
 from flask import Flask, request, g
 
 app = Flask(__name__)
@@ -1335,24 +1336,24 @@ def get_request_id():
 
 
 
-```
+
 Dans cet exemple, g est un objet global qui est unique à chaque requête. Il est utilisé pour stocker des données qui peuvent être accessibles par différentes fonctions pendant la même requête. before_request est un décorateur qui enregistre une fonction à exécuter avant chaque requête, où nous stockons un ID de requête personnalisé dans g.
-```
+
 
 
 
 ### f. WebSockets avec Flask-SocketIO
 
 
-```
+
 Flask-SocketIO est une extension qui facilite l'ajout de fonctionnalités WebSocket à votre application Flask, permettant une communication bidirectionnelle en temps réel entre le client et le serveur.
 
 
 #### Exemple d'utilisation de Flask-SocketIO
 
 
+```python
 
-```
 from flask import Flask
 from flask_socketio import SocketIO, send
 import random
@@ -1374,7 +1375,7 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, chaque fois qu'un client se connecte, le serveur commence à lui envoyer des nombres aléatoires toutes les 5 secondes à l'aide de WebSockets.
 
 
@@ -1383,7 +1384,7 @@ Voici un exemple de WebSocket qui reçoit des messages de l'utilisateur et renvo
 
 
 
-```
+```python
 from flask import Flask
 from flask_socketio import SocketIO, send, receive
 
@@ -1402,4 +1403,5 @@ def handle_message(message):
 
 if __name__ == '__main__':
     socketio.run(app)
+
 ```

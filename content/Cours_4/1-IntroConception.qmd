@@ -55,12 +55,12 @@ La conception d'une API implique plusieurs étapes clés :
 
 
 
-* Définir l'objectif de l'API et comprendre les besoins des utilisateurs.
-* Choisir le bon framework en fonction des besoins du projet.
-* Modéliser les données et définir les endpoints.
-* Mettre en place l'authentification et la sécurité.
-* Tester l'API pour s'assurer qu'elle fonctionne comme prévu.
-* Documenter l'API pour faciliter son utilisation par les développeurs.
+ - Définir l'objectif de l'API et comprendre les besoins des utilisateurs.
+ - Choisir le bon framework en fonction des besoins du projet.
+ - Modéliser les données et définir les endpoints.
+ - Mettre en place l'authentification et la sécurité.
+ - Tester l'API pour s'assurer qu'elle fonctionne comme prévu.
+ - Documenter l'API pour faciliter son utilisation par les développeurs.
 
 
 ## 4. Bonnes pratiques en conception d'APIs
@@ -73,8 +73,8 @@ Les bonnes pratiques en conception d'APIs incluent :
 
 
 
-* Utiliser des conventions de nommage cohérentes.
-* Respecter les principes RESTful pour une API HTTP.
-* Fournir des messages d'erreur clairs et utiles.
-* Utiliser l'authentification et la sécurisation des données.
-* Documenter l'API de manière exhaustive.
+ - Utiliser des conventions de nommage cohérentes.
+ - Respecter les principes RESTful pour une API HTTP.
+ - Fournir des messages d'erreur clairs et utiles.
+ - Utiliser l'authentification et la sécurisation des données.
+ - Documenter l'API de manière exhaustive.

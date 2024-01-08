@@ -39,8 +39,8 @@ Le fonctionnement séquentiel du code est le modèle de base de l'exécution d'u
 
 
 
-* Un processus est une instance d'un programme en cours d'exécution. Il s'agit de l'unité de base que le système d'exploitation utilise pour gérer l'exécution des programmes. Chaque processus dispose de son propre espace mémoire isolé.
-* Un thread, quant à lui, est le plus petit séquence d'instructions programmées qui peut être gérée par un planificateur de système d'exploitation, qui fait partie d'un processus. Un processus peut contenir plusieurs threads (multithreading), chacun pouvant exécuter différentes parties du programme en parallèle.
+- Un processus est une instance d'un programme en cours d'exécution. Il s'agit de l'unité de base que le système d'exploitation utilise pour gérer l'exécution des programmes. Chaque processus dispose de son propre espace mémoire isolé.
+- Un thread, quant à lui, est le plus petit séquence d'instructions programmées qui peut être gérée par un planificateur de système d'exploitation, qui fait partie d'un processus. Un processus peut contenir plusieurs threads (multithreading), chacun pouvant exécuter différentes parties du programme en parallèle.
 
 
 ### b. La Pile d'Exécution :
@@ -65,8 +65,8 @@ Dans un modèle séquentiel, bien que les processus puissent s'exécuter en para
 
 
 
-* Utilisation du CPU : L'inconvénient d'une exécution séquentielle est qu'elle ne tire pas toujours pleinement parti des processeurs modernes multi-cœurs. Si un thread est bloqué ou en attente d'une ressource, comme une opération d'entrée/sortie, son cœur CPU respectif peut rester inactif, ce qui peut entraîner une sous-utilisation des ressources.
-* Scalabilité : Les programmes séquentiels peuvent également être moins évolutifs car ils ne sont pas conçus pour exécuter des tâches en parallèle, ce qui limite leur capacité à traiter de grandes quantités de données ou à répondre rapidement à un grand nombre de requêtes simultanées.
+- Utilisation du CPU : L'inconvénient d'une exécution séquentielle est qu'elle ne tire pas toujours pleinement parti des processeurs modernes multi-cœurs. Si un thread est bloqué ou en attente d'une ressource, comme une opération d'entrée/sortie, son cœur CPU respectif peut rester inactif, ce qui peut entraîner une sous-utilisation des ressources.
+- Scalabilité : Les programmes séquentiels peuvent également être moins évolutifs car ils ne sont pas conçus pour exécuter des tâches en parallèle, ce qui limite leur capacité à traiter de grandes quantités de données ou à répondre rapidement à un grand nombre de requêtes simultanées.
 
 
 ### e. Exemple de Modèle Séquentiel :
@@ -75,9 +75,7 @@ Dans un modèle séquentiel, bien que les processus puissent s'exécuter en para
 
 Voici un exemple simple de code séquentiel en Python qui montre l'exécution linéaire d'une tâche :
 
-
-
-
+```python
 def task1():
     # Fait quelque chose
     pass
@@ -89,14 +87,12 @@ def task2():
 # Exécution séquentielle
 task1()
 task2()
-
+```
 
 
 
 
 Dans cet exemple, task1() doit terminer son exécution avant que task2() ne commence. Ce modèle est simple à comprendre et à déboguer, mais il peut ne pas être le plus efficace en termes d'utilisation des ressources du système, en particulier pour des tâches pouvant être exécutées en parallèle.
-
-
 
 
 ### f. Gestion Concurrente des Ressources :
@@ -146,9 +142,6 @@ L'asynchronie permet d'améliorer les performances et la réactivité, surtout d
 
 Lors de la création d'une application web, vous pourriez vouloir afficher des informations provenant de différentes sources (base de données, services externes, fichiers). Au lieu de demander ces informations séquentiellement, ce qui prendrait beaucoup de temps, vous pouvez les demander simultanément de manière asynchrone.
 
-Vous avez raison, il serait plus approprié de concentrer l'explication sur la façon dont l'asynchronie améliore l'utilisation des ressources disponibles sans nécessairement augmenter la capacité matérielle. Voici une révision qui reflète cet angle :
-
-
 
 
 ### e. Asynchronie : Maximiser l'Efficacité sans Ajouter de Ressources
@@ -176,7 +169,7 @@ Voici un exemple en Python qui utilise l'asynchronie pour interroger trois "serv
 
 
 
-
+```python
 import asyncio
 
 async def requete_serveur(numero):
@@ -195,7 +188,7 @@ async def main():
     print("Toutes les requêtes serveur sont terminées.")
 
 asyncio.run(main())
-
+```
 
 
 
@@ -239,7 +232,7 @@ Côté serveur (avec websockets et asyncio):
 
 
 
-
+```python
 import asyncio
 import websockets
 
@@ -251,7 +244,7 @@ start_server = websockets.serve(echo, "localhost", 8765)
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
-
+```
 
 
 
@@ -260,7 +253,7 @@ Côté client :
 
 
 
-
+```python
 import asyncio
 import websockets
 
@@ -271,7 +264,7 @@ async def hello():
         print(f"> {await websocket.recv()}")
 
 asyncio.run(hello())
-
+```
 
 
 
@@ -353,7 +346,7 @@ Cet exemple utilise deux fonctions qui modifient une variable globale : l'une la
 
 
 
-
+```python
 import threading
 import time
 
@@ -391,7 +384,7 @@ end_time = time.time()
 
 print(f'Valeur finale: {valeur}')
 print(f'Temps écoulé: {end_time - start_time} secondes')
-
+```
 
 
 
@@ -404,8 +397,7 @@ Sans le GIL et avec une parfaite synchronisation, la valeur devrait osciller et 
 #### Exemple pratique : Téléchargement de fichiers en parallèle
 
 
-
-
+```python
 import threading
 import requests
 
@@ -434,7 +426,7 @@ for thread in threads:
     thread.join()
 
 print("Tous les téléchargements sont terminés.")
-
+```
 
 
 
@@ -467,7 +459,7 @@ Dans cet exemple, nous simulerons une situation où plusieurs threads essayent d
 
 
 
-
+```python
 import threading
 
 # Liste partagée sans verrou.
@@ -476,7 +468,7 @@ liste_partagee = []
 def ajoute_a_la_liste(index):
     print(f'Thread {index} : ajout à la liste')
     for i in range(1000):
-        liste_partagee.append(index * 1000 + i)
+        liste_partagee.append(index - 1000 + i)
 
 threads = [threading.Thread(target=ajoute_a_la_liste, args=(i,)) for i in range(10)]
 
@@ -488,7 +480,7 @@ for thread in threads:
 
 print(f'Taille attendue de la liste: {10000}')
 print(f'Taille réelle de la liste: {len(liste_partagee)}')
-
+```
 
 
 
@@ -501,7 +493,7 @@ Si vous souhaitez voir le code avec Lock pour comparer, voici comment il pourrai
 
 
 
-
+```python
 # ... [début du code identique]
 
 lock = threading.Lock()
@@ -509,11 +501,11 @@ lock = threading.Lock()
 def ajoute_a_la_liste(index):
     for i in range(1000):
         with lock:
-            liste_partagee.append(index * 1000 + i)
+            liste_partagee.append(index - 1000 + i)
             print(f'Thread {index} : ajout à la liste')
 
 # ... [suite du code identique]
-
+```
 
 
 
@@ -533,8 +525,8 @@ En Python, à cause du Global Interpreter Lock (GIL), le multithreading et l'asy
 
 
 
-* Le multithreading crée de véritables threads au niveau du système d'exploitation. Même avec le GIL en place, il peut être utile pour les opérations IO-bound, car pendant qu'un thread attend une opération d'entrée/sortie, un autre thread peut prendre la main. Mais cela a un coût, car chaque thread nécessite des ressources système, comme de la mémoire pour sa pile d'exécution.
-* L'asynchronie, quant à elle, est gérée au niveau du langage de programmation avec une seule boucle d'événements et une seule pile d'exécution. Elle est généralement plus légère en termes de ressources système car elle ne nécessite pas de créer de multiples contextes de threads. Les coroutines asynchrones cèdent la main volontairement pour attendre les opérations IO-bound, ce qui les rend très efficaces pour ce type de tâches.
+- Le multithreading crée de véritables threads au niveau du système d'exploitation. Même avec le GIL en place, il peut être utile pour les opérations IO-bound, car pendant qu'un thread attend une opération d'entrée/sortie, un autre thread peut prendre la main. Mais cela a un coût, car chaque thread nécessite des ressources système, comme de la mémoire pour sa pile d'exécution.
+- L'asynchronie, quant à elle, est gérée au niveau du langage de programmation avec une seule boucle d'événements et une seule pile d'exécution. Elle est généralement plus légère en termes de ressources système car elle ne nécessite pas de créer de multiples contextes de threads. Les coroutines asynchrones cèdent la main volontairement pour attendre les opérations IO-bound, ce qui les rend très efficaces pour ce type de tâches.
 
 
 
@@ -615,36 +607,36 @@ Pour prévenir ces conflits, on utilise des mécanismes de synchronisation comme
 
 
 
-* Overhead de Création de Processus : Créer un processus est plus coûteux en termes de ressources système que de créer un thread. Il faut donc considérer cet overhead lors de la conception de l'application, pour ne pas pénaliser les performances avec un trop grand nombre de processus.
+- Overhead de Création de Processus : Créer un processus est plus coûteux en termes de ressources système que de créer un thread. Il faut donc considérer cet overhead lors de la conception de l'application, pour ne pas pénaliser les performances avec un trop grand nombre de processus.
 
 
 ### h. Gestion de la Mémoire :
 
 
 
-* Espace Mémoire Séparé : Le fait que chaque processus ait son propre espace mémoire protège contre les erreurs de corruption de la mémoire partagée, mais cela peut aussi compliquer le partage d'informations. Il faut gérer soigneusement les transferts de données entre les processus pour éviter la perte d'efficacité.
+- Espace Mémoire Séparé : Le fait que chaque processus ait son propre espace mémoire protège contre les erreurs de corruption de la mémoire partagée, mais cela peut aussi compliquer le partage d'informations. Il faut gérer soigneusement les transferts de données entre les processus pour éviter la perte d'efficacité.
 
 
 ### i. Communication entre les Processus :
 
 
 
-* Mécanismes IPC : Il faut choisir le bon outil IPC adapté au problème : tubes pour les échanges simples, mémoire partagée pour les grandes quantités de données, ou sockets pour la communication réseau. Chaque méthode a ses avantages et ses inconvénients.
+- Mécanismes IPC : Il faut choisir le bon outil IPC adapté au problème : tubes pour les échanges simples, mémoire partagée pour les grandes quantités de données, ou sockets pour la communication réseau. Chaque méthode a ses avantages et ses inconvénients.
 
 
 ### j. Terminaison et Contrôle des Processus :
 
 
 
-* Gestion des Processus Orphelins : Il est crucial de s'assurer que les processus sont correctement terminés pour ne pas laisser de processus orphelins qui consommeraient des ressources inutilement.
+- Gestion des Processus Orphelins : Il est crucial de s'assurer que les processus sont correctement terminés pour ne pas laisser de processus orphelins qui consommeraient des ressources inutilement.
 
 
 ### k. Exemples Concrets :
 
 
 
-* Traitement de Données Volumineux : Un script qui traite de grands ensembles de données peut utiliser le multiprocessing pour diviser la charge de travail entre plusieurs processus, réduisant ainsi le temps de traitement global.
-* Serveurs Web à Haute Performance : Des serveurs comme Apache peuvent utiliser un modèle de multiprocessing pour traiter un grand nombre de requêtes simultanément, en attribuant chaque requête à un processus distinct.
+- Traitement de Données Volumineux : Un script qui traite de grands ensembles de données peut utiliser le multiprocessing pour diviser la charge de travail entre plusieurs processus, réduisant ainsi le temps de traitement global.
+- Serveurs Web à Haute Performance : Des serveurs comme Apache peuvent utiliser un modèle de multiprocessing pour traiter un grand nombre de requêtes simultanément, en attribuant chaque requête à un processus distinct.
 
 
 ### l. Exemple Conceptuel en Python : Comparaison Séquentiel, Threading et Multiprocessing
@@ -657,7 +649,7 @@ Pour prévenir ces conflits, on utilise des mécanismes de synchronisation comme
 
 
 
-
+```python
 import time
 
 # Une fonction qui simule une tâche gourmande en ressources CPU
@@ -676,7 +668,7 @@ def run_sequentially():
 
 # Exécuter la fonction
 run_sequentially()
-
+```
 
 
 
@@ -687,7 +679,7 @@ run_sequentially()
 
 
 
-
+```python
 from multiprocessing import Pool
 import time
 
@@ -707,7 +699,7 @@ def run_with_multiprocessing():
 
 # Exécuter la fonction
 run_with_multiprocessing()
-
+```
 
 
 
@@ -719,7 +711,7 @@ Dans l'exemple avec le multiprocessing, la tâche cpu_bound_task est distribuée
 
 
 
-
+```python
 import multiprocessing
 import time
 
@@ -750,7 +742,7 @@ def run_tasks():
 
 # Exécuter la fonction
 run_tasks()
-
+```
 
 
 
@@ -774,7 +766,7 @@ Vous pouvez utiliser multiprocessing.cpu_count() pour obtenir le nombre de cœur
 5. Exemple de gestion manuelle : \
 Voici un exemple simple montrant comment vous pourriez gérer manuellement le nombre de processus simultanés:
 
-    
+    ```python
    import multiprocessing
    import time
 
@@ -800,7 +792,7 @@ Voici un exemple simple montrant comment vous pourriez gérer manuellement le no
 
        for p in processes:
            p.join()
-
+    ```
 
 
 
@@ -823,7 +815,7 @@ Pour la sérialisation en Python, vous pouvez définir comment sérialiser un ob
 
 
 
-
+```python
 import pickle
 
 class MonObjet:
@@ -846,27 +838,18 @@ serialized_obj = pickle.dumps(mon_obj)
 
 # Désérialisation
 deserialized_obj = pickle.loads(serialized_obj)
-
-
-
+```
 
 
 Ces méthodes vous permettent de contrôler précisément ce qui est sérialisé et comment l'objet est restauré par la suite. C'est particulièrement utile pour les objets qui peuvent contenir des types non sérialisables ou pour optimiser la sérialisation pour les besoins en performance.
 
-
-
-
 ### n. Exemple Concret d'Usage Réel en Python
-
-
-
 
 
 #### Traitement d'Images en Parallèle
 
 
-
-
+```python
 from multiprocessing import Pool
 import cv2  # Bibliothèque de traitement d'image
 
@@ -884,9 +867,7 @@ def run_image_processing():
         pool.map(process_image, images)
 
 run_image_processing()
-
-
-
+```
 
 
 Dans cet exemple concret, une liste d'images est traitée en parallèle en utilisant le multiprocessing. Chaque image est traitée dans un processus distinct, ce qui accélère le traitement d'un grand nombre d'images, surtout lorsqu'il est exécuté sur une machine avec plusieurs cœurs de CPU.
@@ -911,25 +892,25 @@ Dans cet exemple concret, une liste d'images est traitée en parallèle en utili
 
 
 
-* Efficacité accrue : L'adoption de méthodes de parallélisme peut entraîner des gains substantiels en termes de performance. Dans des domaines tels que le trading, où chaque milliseconde compte, ces gains peuvent avoir un impact significatif.
+- Efficacité accrue : L'adoption de méthodes de parallélisme peut entraîner des gains substantiels en termes de performance. Dans des domaines tels que le trading, où chaque milliseconde compte, ces gains peuvent avoir un impact significatif.
 
 
 ### c. Des responsabilités de l'utilisateur :
 
 
 
-* Gestion des ressources : Il est essentiel de bien comprendre les besoins en ressources de chaque méthode de parallélisme pour éviter des problèmes tels que l'épuisement de la mémoire ou un thrashing du CPU.
-* Vigilance accrue : L'utilisation de parallélisme ou de concurrence exige une grande attention aux limites des ressources système pour éviter leur surutilisation, qui pourrait nuire aux performances plutôt que de les améliorer.
-* Rate Limiting : La mise en place d'un contrôle rigoureux du nombre de tâches exécutées simultanément est nécessaire pour prévenir la surcharge du système, évitant ainsi la saturation des ressources comme la bande passante, la mémoire ou le CPU.
+- Gestion des ressources : Il est essentiel de bien comprendre les besoins en ressources de chaque méthode de parallélisme pour éviter des problèmes tels que l'épuisement de la mémoire ou un thrashing du CPU.
+- Vigilance accrue : L'utilisation de parallélisme ou de concurrence exige une grande attention aux limites des ressources système pour éviter leur surutilisation, qui pourrait nuire aux performances plutôt que de les améliorer.
+- Rate Limiting : La mise en place d'un contrôle rigoureux du nombre de tâches exécutées simultanément est nécessaire pour prévenir la surcharge du système, évitant ainsi la saturation des ressources comme la bande passante, la mémoire ou le CPU.
 
 
 ### e. Des avantages pour une API ou un service :
 
 
 
-* Optimisation des ressources : Une utilisation stratégique de la concurrence et du parallélisme peut améliorer grandement l'efficacité avec laquelle une API gère les ressources, en répartissant la charge de manière optimale.
-* Réduction des coûts : Une gestion plus efficace des ressources peut diminuer les besoins en infrastructure pour la même charge de travail, ce qui réduit les coûts d'exploitation liés aux serveurs et à la maintenance.
-* Amélioration de la réactivité : Le gain en performance peut être un argument commercial fort pour attirer et retenir les clients grâce à une meilleure réactivité des services.
+- Optimisation des ressources : Une utilisation stratégique de la concurrence et du parallélisme peut améliorer grandement l'efficacité avec laquelle une API gère les ressources, en répartissant la charge de manière optimale.
+- Réduction des coûts : Une gestion plus efficace des ressources peut diminuer les besoins en infrastructure pour la même charge de travail, ce qui réduit les coûts d'exploitation liés aux serveurs et à la maintenance.
+- Amélioration de la réactivité : Le gain en performance peut être un argument commercial fort pour attirer et retenir les clients grâce à une meilleure réactivité des services.
 
 
 
@@ -942,14 +923,14 @@ Côté API ou service, les responsabilités liées à l'implémentation de la co
 
 
 
-* Contrôle de la montée en charge : Les services doivent gérer l'augmentation de la charge de travail en conséquence, en ajustant dynamiquement le nombre de processus ou de threads pour maintenir une performance optimale sans gaspiller de ressources.
-* Gestion des états : Assurer une gestion cohérente des états dans un environnement distribué où plusieurs processus ou threads peuvent accéder et modifier des données simultanément.
-* Sécurité des données : Mettre en place des mécanismes de verrouillage ou d'autres stratégies de synchronisation pour éviter les conditions de concurrence et assurer l'intégrité des données.
-* Tolérance aux pannes : Concevoir des systèmes qui peuvent se remettre d'un processus ou d'un thread défaillant sans perdre de données critiques et en minimisant l'interruption du service.
-* Surveillance et logging : Mettre en place un système de surveillance robuste pour suivre la santé du système et les performances en temps réel, ainsi que pour enregistrer les incidents pour une analyse ultérieure.
-* Rétrocompatibilité et mises à jour : Garantir que les mises à jour du système prennent en compte les modèles de concurrence existants et ne compromettent pas la stabilité des opérations en cours.
-* Scalabilité : Concevoir l'architecture de manière à ce qu'elle puisse s'adapter facilement à une augmentation de la demande, par exemple en utilisant des services cloud qui peuvent allouer dynamiquement des ressources supplémentaires.
-* Rate Limiting et Quotas : Établir des politiques claires pour limiter le taux de requêtes et la consommation de ressources par les clients pour éviter l'abus et garantir un service équitable pour tous les utilisateurs.
+- Contrôle de la montée en charge : Les services doivent gérer l'augmentation de la charge de travail en conséquence, en ajustant dynamiquement le nombre de processus ou de threads pour maintenir une performance optimale sans gaspiller de ressources.
+- Gestion des états : Assurer une gestion cohérente des états dans un environnement distribué où plusieurs processus ou threads peuvent accéder et modifier des données simultanément.
+- Sécurité des données : Mettre en place des mécanismes de verrouillage ou d'autres stratégies de synchronisation pour éviter les conditions de concurrence et assurer l'intégrité des données.
+- Tolérance aux pannes : Concevoir des systèmes qui peuvent se remettre d'un processus ou d'un thread défaillant sans perdre de données critiques et en minimisant l'interruption du service.
+- Surveillance et logging : Mettre en place un système de surveillance robuste pour suivre la santé du système et les performances en temps réel, ainsi que pour enregistrer les incidents pour une analyse ultérieure.
+- Rétrocompatibilité et mises à jour : Garantir que les mises à jour du système prennent en compte les modèles de concurrence existants et ne compromettent pas la stabilité des opérations en cours.
+- Scalabilité : Concevoir l'architecture de manière à ce qu'elle puisse s'adapter facilement à une augmentation de la demande, par exemple en utilisant des services cloud qui peuvent allouer dynamiquement des ressources supplémentaires.
+- Rate Limiting et Quotas : Établir des politiques claires pour limiter le taux de requêtes et la consommation de ressources par les clients pour éviter l'abus et garantir un service équitable pour tous les utilisateurs.
 
 
 

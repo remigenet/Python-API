@@ -94,8 +94,8 @@ Les objets Value et Array du module multiprocessing permettent de partager des d
 
 
 
-* Value est utilisé pour partager une donnée unique de types primitifs comme un entier ou un flottant.
-* Array peut être utilisé pour partager un ensemble de données, comme une liste de nombres.
+ - Value est utilisé pour partager une donnée unique de types primitifs comme un entier ou un flottant.
+ - Array peut être utilisé pour partager un ensemble de données, comme une liste de nombres.
 
 
 
@@ -155,10 +155,10 @@ Pour maintenir l'intégrité des données, des primitives de synchronisation son
 
 
 
-* Verrous (Locks): Les verrous sont les outils de synchronisation les plus basiques. Un verrou peut être acquis par un processus, bloquant ainsi les autres processus jusqu'à ce qu'il soit libéré.
-* Sémaphores: Les sémaphores sont similaires aux verrous mais permettent à un nombre défini de processus d'accéder à une ressource simultanément.
-* Conditions (Condition Variables): Ces variables sont utilisées pour bloquer un processus jusqu'à ce qu'une certaine condition soit remplie, souvent en combinaison avec un verrou.
-* Barrières: Les barrières permettent à un groupe de processus d'attendre que tous atteignent un point donné avant de continuer.
+ - Verrous (Locks): Les verrous sont les outils de synchronisation les plus basiques. Un verrou peut être acquis par un processus, bloquant ainsi les autres processus jusqu'à ce qu'il soit libéré.
+ - Sémaphores: Les sémaphores sont similaires aux verrous mais permettent à un nombre défini de processus d'accéder à une ressource simultanément.
+ - Conditions (Condition Variables): Ces variables sont utilisées pour bloquer un processus jusqu'à ce qu'une certaine condition soit remplie, souvent en combinaison avec un verrou.
+ - Barrières: Les barrières permettent à un groupe de processus d'attendre que tous atteignent un point donné avant de continuer.
 
 
 
@@ -170,9 +170,9 @@ Pour maintenir l'intégrité des données, des primitives de synchronisation son
 
 
 
-* Verrouillage Mutuel (Mutex): Un mutex est un verrou qui est utilisé pour garantir l'exclusivité mutuelle, c'est-à-dire qu'un seul thread ou processus peut accéder à la ressource à la fois.
-* Verrouillage Optimiste vs Pessimiste: Le verrouillage optimiste suppose qu'il y a peu de chances de conflit et vérifie l'intégrité des données après l'accès. Le verrouillage pessimiste suppose qu'un conflit est probable et verrouille les ressources avant l'accès.
-* Transactions Mémoire: Certaines architectures modernes offrent des transactions mémoire qui permettent de grouper une série d'opérations en mémoire en une seule transaction atomique.
+ - Verrouillage Mutuel (Mutex): Un mutex est un verrou qui est utilisé pour garantir l'exclusivité mutuelle, c'est-à-dire qu'un seul thread ou processus peut accéder à la ressource à la fois.
+ - Verrouillage Optimiste vs Pessimiste: Le verrouillage optimiste suppose qu'il y a peu de chances de conflit et vérifie l'intégrité des données après l'accès. Le verrouillage pessimiste suppose qu'un conflit est probable et verrouille les ressources avant l'accès.
+ - Transactions Mémoire: Certaines architectures modernes offrent des transactions mémoire qui permettent de grouper une série d'opérations en mémoire en une seule transaction atomique.
 
 
 
@@ -189,9 +189,9 @@ Lors de la conception d'applications utilisant la mémoire partagée, il est cru
 
 
 
-* Déterminisme: S'assurer que l'ordre d'exécution est prévisible et que les résultats sont reproductibles.
-* Éviter les Deadlocks: Concevoir des stratégies pour éviter les situations où plusieurs processus sont bloqués indéfiniment, attendant les ressources détenues par l'autre.
-* Éviter les Starvations: S'assurer que tous les processus ont un accès équitable aux ressources.
+ - Déterminisme: S'assurer que l'ordre d'exécution est prévisible et que les résultats sont reproductibles.
+ - Éviter les Deadlocks: Concevoir des stratégies pour éviter les situations où plusieurs processus sont bloqués indéfiniment, attendant les ressources détenues par l'autre.
+ - Éviter les Starvations: S'assurer que tous les processus ont un accès équitable aux ressources.
 
 
 ## 6. Gestion des Ressources et Nettoyage
@@ -208,8 +208,8 @@ Après qu'un processus a terminé d'utiliser la mémoire partagée, il est essen
 
 
 
-* Détachement: Chaque processus qui a attaché un segment de mémoire partagée doit le détacher de son espace d'adressage une fois qu'il n'est plus nécessaire.
-* Suppression: Une fois que tous les processus ont détaché le segment de mémoire, il doit être supprimé pour libérer l'espace mémoire.
+ - Détachement: Chaque processus qui a attaché un segment de mémoire partagée doit le détacher de son espace d'adressage une fois qu'il n'est plus nécessaire.
+ - Suppression: Une fois que tous les processus ont détaché le segment de mémoire, il doit être supprimé pour libérer l'espace mémoire.
 
 
 
@@ -222,8 +222,8 @@ Les verrous, sémaphores et autres primitives de synchronisation doivent égalem
 
 
 
-* Libération de Verrous: S'assurer que tous les verrous sont libérés après l'accès aux ressources pour éviter les deadlocks.
-* Suppression de Sémaphores: Les sémaphores doivent être supprimés du système une fois qu'ils ne sont plus nécessaires pour éviter l'épuisement des ressources système.
+ - Libération de Verrous: S'assurer que tous les verrous sont libérés après l'accès aux ressources pour éviter les deadlocks.
+ - Suppression de Sémaphores: Les sémaphores doivent être supprimés du système une fois qu'ils ne sont plus nécessaires pour éviter l'épuisement des ressources système.
 
 
 
@@ -236,7 +236,7 @@ Dans certains langages de programmation, comme Python, des mécanismes tels que 
 
 
 
-* Gestionnaires de Contexte: Ils peuvent s'assurer que les ressources sont automatiquement libérées à la fin d'un bloc de code, même en cas d'exception.
+ - Gestionnaires de Contexte: Ils peuvent s'assurer que les ressources sont automatiquement libérées à la fin d'un bloc de code, même en cas d'exception.
 
 
 
@@ -249,8 +249,8 @@ Les outils de surveillance des systèmes peuvent aider à identifier les fuites 
 
 
 
-* Outils de Profilage: Utiliser des profileurs de mémoire pour suivre l'utilisation de la mémoire et identifier les fuites potentielles.
-* Journalisation: La journalisation des actions de création et de libération de ressources peut aider à diagnostiquer les problèmes de gestion des ressources.
+ - Outils de Profilage: Utiliser des profileurs de mémoire pour suivre l'utilisation de la mémoire et identifier les fuites potentielles.
+ - Journalisation: La journalisation des actions de création et de libération de ressources peut aider à diagnostiquer les problèmes de gestion des ressources.
 
 
 
@@ -263,8 +263,8 @@ Il est important de concevoir des applications de manière à ce que la mémoire
 
 
 
-* Gestionnaires de Signaux: Intercepter les signaux de terminaison pour effectuer un nettoyage avant que le processus ne se termine.
-* Destructeurs: Utiliser des destructeurs dans les classes pour nettoyer les ressources lorsqu'une instance est détruite.
+ - Gestionnaires de Signaux: Intercepter les signaux de terminaison pour effectuer un nettoyage avant que le processus ne se termine.
+ - Destructeurs: Utiliser des destructeurs dans les classes pour nettoyer les ressources lorsqu'une instance est détruite.
 
 
 
@@ -276,8 +276,8 @@ Il est important de concevoir des applications de manière à ce que la mémoire
 
 
 
-* Minimiser l'Utilisation de Ressources Partagées: Concevoir des applications pour minimiser la dépendance aux ressources partagées peut réduire la complexité de la gestion des ressources.
-* Isolation des Ressources: Autant que possible, isoler les ressources partagées dans des processus ou des services dédiés pour simplifier la gestion.
+ - Minimiser l'Utilisation de Ressources Partagées: Concevoir des applications pour minimiser la dépendance aux ressources partagées peut réduire la complexité de la gestion des ressources.
+ - Isolation des Ressources: Autant que possible, isoler les ressources partagées dans des processus ou des services dédiés pour simplifier la gestion.
 
 
 
@@ -301,7 +301,7 @@ Cet exemple est particulièrement utile lorsque les deux processus sont lancés 
 
 
 
-
+```python
 from multiprocessing import Process, Value, Array, shared_memory
 import time
 import random
@@ -311,8 +311,8 @@ def producteur(valeur_partagee, tableau_partage):
     for i in range(5):
         time.sleep(random.uniform(0.1, 0.5)) # Simuler un travail
         valeur_partagee.value = i
-        tableau_partage[i] = i * i
-        print(f'Le producteur vient de produire {i} et son carré {i * i}')
+        tableau_partage[i] = i  - i
+        print(f'Le producteur vient de produire {i} et son carré {i  - i}')
 
 # Processus consommateur qui lit la mémoire partagée
 def consommateur(valeur_partagee, tableau_partage):
@@ -328,7 +328,7 @@ if __name__ == '__main__':
     tableau_partage = Array('i', range(5))
 
     # Créer un bloc de mémoire partagée
-    shm = shared_memory.SharedMemory(create=True, size=tableau_partage.buffer_info()[1] * tableau_partage.itemsize)
+    shm = shared_memory.SharedMemory(create=True, size=tableau_partage.buffer_info()[1]  - tableau_partage.itemsize)
 
     # Créer les processus producteur et consommateur
     processus_producteur = Process(target=producteur, args=(valeur_partagee, tableau_partage))
@@ -350,7 +350,7 @@ if __name__ == '__main__':
     # Nettoyer la mémoire partagée
     shm.close()
     shm.unlink()
-
+```
 
 
 
@@ -365,7 +365,7 @@ Dans l'exemple suivant, nous allons créer un bloc de mémoire partagée qui ne 
 
 
 
-
+```python
 from multiprocessing import shared_memory
 import time
 import random
@@ -413,7 +413,7 @@ eur démarre et produise des éléments
     time.sleep(2)
     # Démarrer le consommateur
     consommateur_independant()
-
+```
 
 
 
@@ -436,7 +436,7 @@ Voici l'exemple de code :
 
 
 
-
+```python
 import sysv_ipc
 import posix_ipc
 import mmap
@@ -479,7 +479,7 @@ print(f'Lecture de la mémoire partagée POSIX : {message}')
 mm.close()
 posix_ipc.unlink_shared_memory('/mon_posix_shm')
 
-
+```
 
 
 
@@ -489,8 +489,8 @@ Dans ce code :
 
 
 
-* Pour System V, nous créons un segment de mémoire partagée avec une clé spécifique et écrivons un message dedans. Ensuite, nous lisons le message et nettoyons en détachant et en supprimant le segment de mémoire partagée.
-* Pour POSIX, nous créons un objet de mémoire partagée nommé, le mappons dans l'espace d'adressage du processus, puis écrivons et lisons un message. Enfin, nous démappons et désassocions l'objet de mémoire partagée.
+ - Pour System V, nous créons un segment de mémoire partagée avec une clé spécifique et écrivons un message dedans. Ensuite, nous lisons le message et nettoyons en détachant et en supprimant le segment de mémoire partagée.
+ - Pour POSIX, nous créons un objet de mémoire partagée nommé, le mappons dans l'espace d'adressage du processus, puis écrivons et lisons un message. Enfin, nous démappons et désassocions l'objet de mémoire partagée.
 
 
 

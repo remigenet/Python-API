@@ -13,7 +13,6 @@ categories:
 type: book
 description: "Mise  en pratique simple des éléments vu aurparavant."
 image: .img/tp32.webp
-code-links: binder
 ---
 
 # Description globale

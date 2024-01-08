@@ -23,5 +23,7 @@ listing:
 ### Cours complet sur les API avec Python, comment ca marche, comment les utiliser, comment les créer, etc.
 
 
+#### Un petit aperçu des réjouissances ci-dessous, mais pour [[commencer...](content/Cours_1/1-API101.qmd)]{.animate__animated .animate__pulse .animate__infinite style="display:inline-block;"}
+
 
 

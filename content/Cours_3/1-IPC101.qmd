@@ -48,10 +48,10 @@ Maîtriser l'IPC est crucial pour les développeurs car cela leur permet de :
 
 
 
-* Concevoir des systèmes capables de gérer plusieurs tâches en parallèle de manière efficace.
-* Assurer la cohérence des données et éviter les conditions de concurrence lors de l'accès à des ressources partagées.
-* Optimiser les performances en choisissant le mécanisme d'IPC le plus adapté au contexte.
-* Améliorer la fiabilité et la maintenabilité des applications en comprenant comment les différents composants interagissent.
+ - Concevoir des systèmes capables de gérer plusieurs tâches en parallèle de manière efficace.
+ - Assurer la cohérence des données et éviter les conditions de concurrence lors de l'accès à des ressources partagées.
+ - Optimiser les performances en choisissant le mécanisme d'IPC le plus adapté au contexte.
+ - Améliorer la fiabilité et la maintenabilité des applications en comprenant comment les différents composants interagissent.
 
 
 ## 4. Concepts Clés en IPC
@@ -64,9 +64,9 @@ Pour naviguer dans le domaine de l'IPC, il est important de comprendre certains 
 
 
 
-* Synchronisation : Les mécanismes qui assurent que les processus s'exécutent dans un ordre qui préserve l'intégrité des données.
-* Communication directe vs indirecte : La différence entre les processus qui communiquent via un échange direct (comme les sockets) et ceux qui utilisent des intermédiaires (comme les files de messages).
-* Blocage vs non-blocage : Les opérations d'IPC peuvent être bloquantes (le processus attend jusqu'à ce que l'opération soit terminée) ou non-blocantes (le processus continue son exécution sans attendre).
+ - Synchronisation : Les mécanismes qui assurent que les processus s'exécutent dans un ordre qui préserve l'intégrité des données.
+ - Communication directe vs indirecte : La différence entre les processus qui communiquent via un échange direct (comme les sockets) et ceux qui utilisent des intermédiaires (comme les files de messages).
+ - Blocage vs non-blocage : Les opérations d'IPC peuvent être bloquantes (le processus attend jusqu'à ce que l'opération soit terminée) ou non-blocantes (le processus continue son exécution sans attendre).
 
 
 ## 5. Applications de l'IPC
@@ -79,9 +79,9 @@ L'IPC n'est pas seulement théorique ; elle a des applications pratiques dans de
 
 
 
-* Développement de systèmes d'exploitation : Où l'IPC est utilisée pour gérer les processus et les threads.
-* Développement de logiciels concurrents : Pour permettre à des applications de gérer plusieurs utilisateurs ou tâches simultanément.
-* Architecture de microservices : Où différents services communiquent entre eux via des API en utilisant des mécanismes d'IPC sous-jacents.
+ - Développement de systèmes d'exploitation : Où l'IPC est utilisée pour gérer les processus et les threads.
+ - Développement de logiciels concurrents : Pour permettre à des applications de gérer plusieurs utilisateurs ou tâches simultanément.
+ - Architecture de microservices : Où différents services communiquent entre eux via des API en utilisant des mécanismes d'IPC sous-jacents.
 
 
 ## 6. Conclusion

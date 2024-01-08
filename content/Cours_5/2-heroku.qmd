@@ -15,7 +15,7 @@ image: .img/heroku.webp
 code-links: binder
 ---
 
-# POO - Python Orienté Objet"
+# POO - Python Orienté Objet
 
 ---
 
@@ -24,57 +24,57 @@ code-links: binder
 # II. Introduction à Heroku
 
 
-```
+
 Heroku est une plateforme en tant que service (PaaS) qui permet aux développeurs de construire, déployer, gérer et échelonner des applications de manière simple et rapide dans le cloud. Elle est particulièrement adaptée pour les applications web et les API.
-```
+
 
 
 
 ## **Qu'est-ce que Heroku ?**
 
 
-```
+
 Heroku est une plateforme cloud qui offre un environnement de déploiement et d'exécution pour les applications web. Elle abstrait l'infrastructure sous-jacente et la gestion des serveurs, permettant aux développeurs de se concentrer sur le code de l'application sans se soucier des détails de l'infrastructure.
-```
+
 
 
 
 ## **Avantages et inconvénients de l'utilisation de Heroku pour le déploiement d'API**
 
 
-```
+
 
 
 ### Avantages :
 
-```
 
 
 
-* `Simplicité de déploiement : Heroku simplifie le processus de déploiement avec des commandes simples et une intégration directe avec Git.`
-* `Gestion automatisée : La plateforme gère automatiquement les aspects tels que le provisionnement des serveurs, la configuration, la mise à jour des systèmes d'exploitation et la sécurité.`
-* `Scalabilité : Il est facile de mettre à l'échelle les applications en ajustant le nombre de dynos, qui sont des conteneurs légers exécutant des applications.`
-* `Richesse de l'écosystème : Heroku offre un large éventail d'add-ons pour étendre les fonctionnalités de l'application, comme les bases de données, les services de messagerie, etc.`
+
+ - Simplicité de déploiement : Heroku simplifie le processus de déploiement avec des commandes simples et une intégration directe avec Git.
+ - Gestion automatisée : La plateforme gère automatiquement les aspects tels que le provisionnement des serveurs, la configuration, la mise à jour des systèmes d'exploitation et la sécurité.
+ - Scalabilité : Il est facile de mettre à l'échelle les applications en ajustant le nombre de dynos, qui sont des conteneurs légers exécutant des applications.
+ - Richesse de l'écosystème : Heroku offre un large éventail d'add-ons pour étendre les fonctionnalités de l'application, comme les bases de données, les services de messagerie, etc.
 
 
-```
+
 
 
 ### Inconvénients :
 
-```
 
 
 
-* `Coût : Bien que Heroku offre un niveau gratuit, les applications à grande échelle ou à forte demande peuvent devenir coûteuses.`
-* `Limitations de la plateforme : Certaines opérations de bas niveau ne sont pas possibles sur Heroku, ce qui peut ne pas convenir à des applications nécessitant une personnalisation profonde de l'environnement d'exécution.`
-* `Performance : Les dynos gratuits s'endorment après 30 minutes d'inactivité, ce qui peut entraîner des délais pour les premières requêtes lorsque l'application se réveille.`
+
+ - Coût : Bien que Heroku offre un niveau gratuit, les applications à grande échelle ou à forte demande peuvent devenir coûteuses.
+ - Limitations de la plateforme : Certaines opérations de bas niveau ne sont pas possibles sur Heroku, ce qui peut ne pas convenir à des applications nécessitant une personnalisation profonde de l'environnement d'exécution.
+ - Performance : Les dynos gratuits s'endorment après 30 minutes d'inactivité, ce qui peut entraîner des délais pour les premières requêtes lorsque l'application se réveille.
 
 
 ## **Concepts clés de Heroku**
 
 
-```
+
 
 
 ### Dynos
@@ -91,5 +91,5 @@ Heroku CLI est un outil en ligne de commande qui permet de gérer les applicatio
 
 ### Heroku Dashboard
 Le tableau de bord Heroku est une interface utilisateur web qui permet de gérer les applications Heroku. Il offre une vue d'ensemble des applications, des ressources, des add-ons, des logs, et permet la configuration des variables d'environnement et des add-ons.
-```
+
 

@@ -25,20 +25,20 @@ code-links: binder
 # V. Développement d'API avec Django REST Framework
 
 
-```
+
 Django REST Framework (DRF) est une boîte à outils puissante et flexible pour construire des APIs Web avec le framework Django. Il est particulièrement adapté aux projets plus importants grâce à sa capacité à gérer des modèles de données complexes et à fournir une interface d'administration robuste.
-```
+
 
 
 
 ## 1. Introduction à Django
 
 
-```
+
 Notez que cette section vise à fournir une introduction générale au framework Django. Bien qu'elle ne soit pas centrée sur la conception d'APIs, elle établit les bases nécessaires pour comprendre le Django REST Framework. Cette partie n'est pas essentielle au programme du cours sur les APIs et peut être omise si vous êtes limité par le temps.
 
 Avant de se lancer dans l'utilisation de Django REST Framework, il est essentiel de maîtriser le framework de base sur lequel il repose : Django. Django est un framework web de haut niveau écrit en Python qui permet un développement rapide de sites web sécurisés et maintenables. Django est conçu pour aider les développeurs à prendre des applications web du concept à la réalisation aussi rapidement que possible.
-```
+
 
 
 
@@ -46,39 +46,39 @@ Avant de se lancer dans l'utilisation de Django REST Framework, il est essentiel
 
 
 
-* `Batteries incluses : Django suit la philosophie "batteries incluses" et fournit presque tout ce dont les développeurs ont besoin dans le cadre standard.`
-* `Sécurisé : Django aide les développeurs à éviter de nombreuses erreurs de sécurité courantes en fournissant un framework qui est sécurisé par défaut.`
-* `Scalable : Django utilise une architecture "partagée-rien" qui permet de gérer de gros volumes de trafic.`
-* `Polyvalent : Il est utilisé par des entreprises de toutes tailles et pour toutes sortes de sites web, des réseaux sociaux aux sites de gestion de contenu.`
+ - Batteries incluses : Django suit la philosophie "batteries incluses" et fournit presque tout ce dont les développeurs ont besoin dans le cadre standard.
+ - Sécurisé : Django aide les développeurs à éviter de nombreuses erreurs de sécurité courantes en fournissant un framework qui est sécurisé par défaut.
+ - Scalable : Django utilise une architecture "partagée-rien" qui permet de gérer de gros volumes de trafic.
+ - Polyvalent : Il est utilisé par des entreprises de toutes tailles et pour toutes sortes de sites web, des réseaux sociaux aux sites de gestion de contenu.
 
 
 ### b. Composants de Django
 
 
-```
+
 Django est composé de plusieurs composants qui facilitent le développement web :
 
-```
 
 
 
-* `Le modèle ORM (Object-Relational Mapping) : Permet de définir la structure de la base de données en Python et de faire des requêtes à la base de données sans écrire de SQL brut.`
-* `Les vues : La logique de traitement des requêtes HTTP. Les vues récupèrent les données nécessaires pour répondre à une requête et renvoient une réponse, souvent sous forme de page web.`
-* `Les templates : Système de templates qui permet de générer du HTML dynamiquement. Les templates définissent la structure d'une page web et permettent d'insérer ou de calculer des valeurs à certains endroits.`
-* `Les formulaires : Gèrent la logique de présentation et de validation des données de formulaire.`
-* `L'administration : Interface générée automatiquement pour les modèles Django qui permet une gestion facile des contenus du site.`
-* `Les URL dispatcher : Un système pour gérer les URL du site et appeler la vue correspondante.`
+
+ - Le modèle ORM (Object-Relational Mapping) : Permet de définir la structure de la base de données en Python et de faire des requêtes à la base de données sans écrire de SQL brut.
+ - Les vues : La logique de traitement des requêtes HTTP. Les vues récupèrent les données nécessaires pour répondre à une requête et renvoient une réponse, souvent sous forme de page web.
+ - Les templates : Système de templates qui permet de générer du HTML dynamiquement. Les templates définissent la structure d'une page web et permettent d'insérer ou de calculer des valeurs à certains endroits.
+ - Les formulaires : Gèrent la logique de présentation et de validation des données de formulaire.
+ - L'administration : Interface générée automatiquement pour les modèles Django qui permet une gestion facile des contenus du site.
+ - Les URL dispatcher : Un système pour gérer les URL du site et appeler la vue correspondante.
 
 
 ### c. Installation de Django
 
 
-```
+
 Pour installer Django, vous devez d'abord vous assurer que Python est installé sur votre système. Django est compatible avec Python 3.6 et les versions ultérieures. Vous pouvez installer Django en utilisant pip, le système de gestion de paquets pour Python :
 
 
 
-```
+```bash
 pip install django
 ```
 
@@ -87,60 +87,47 @@ pip install django
 ### d. Création d'un Projet Django
 
 
-```
+
 Une fois Django installé, vous pouvez créer un nouveau projet en utilisant la commande suivante :
 
 
-
-```
+```bash
 django-admin startproject monprojet
 ```
 
 
-
-```
 Cette commande crée un nouveau dossier monprojet avec la structure de base d'un projet Django.
-```
-
 
 
 ### e. Structure d'un Projet Django
 
 
-```
+
 Un projet Django est composé de plusieurs éléments clés :
 
-```
 
-
-
-* `manage.py : Un outil en ligne de commande qui vous permet d'interagir avec votre projet Django de diverses manières.`
-* `Le dossier du projet : Contient le fichier settings.py (configuration de votre projet Django), urls.py (déclarations des URL pour votre projet), et wsgi.py (point d'entrée pour les serveurs web compatibles WSGI).`
-* `Les applications : Un projet Django est divisé en applications, qui sont des modules Python qui contiennent un aspect spécifique de la fonctionnalité de votre site web (par exemple, un blog, un forum, etc.).`
+ - manage.py : Un outil en ligne de commande qui vous permet d'interagir avec votre projet Django de diverses manières.
+ - Le dossier du projet : Contient le fichier settings.py (configuration de votre projet Django), urls.py (déclarations des URL pour votre projet), et wsgi.py (point d'entrée pour les serveurs web compatibles WSGI).
+ - Les applications : Un projet Django est divisé en applications, qui sont des modules Python qui contiennent un aspect spécifique de la fonctionnalité de votre site web (par exemple, un blog, un forum, etc.).
 
 
 ### f. Développement avec Django
 
-
-```
 Le développement avec Django implique généralement les étapes suivantes :
 
-```
 
-
-
-1. `Définir les modèles : Créez des classes Python qui définissent la structure de votre base de données.`
-2. `Créer des vues : Écrivez des fonctions ou des classes qui gèrent ce qui se passe lorsqu'un utilisateur fait une requête à votre site.`
-3. `Configurer les URL : Liez vos vues à des URL spécifiques pour que Django sache quoi faire lorsqu'une URL est demandée.`
-4. `Écrire des templates : Créez des fichiers HTML qui définissent la structure de la page web que l'utilisateur verra.`
-5. `Gérer les formulaires : Utilisez les classes de formulaires de Django pour créer et traiter des formulaires HTML.`
-6. `Administrer le site : Utilisez l'interface d'administration de Django pour gérer le contenu de votre site.`
+1. Définir les modèles : Créez des classes Python qui définissent la structure de votre base de données.
+2. Créer des vues : Écrivez des fonctions ou des classes qui gèrent ce qui se passe lorsqu'un utilisateur fait une requête à votre site.
+3. Configurer les URL : Liez vos vues à des URL spécifiques pour que Django sache quoi faire lorsqu'une URL est demandée.
+4. Écrire des templates : Créez des fichiers HTML qui définissent la structure de la page web que l'utilisateur verra.
+5. Gérer les formulaires : Utilisez les classes de formulaires de Django pour créer et traiter des formulaires HTML.
+6. Administrer le site : Utilisez l'interface d'administration de Django pour gérer le contenu de votre site.
 
 
 ### g. Vue, formulaire, administration, template ?
 
 
-```
+
 
 
 #### Vue (View)
@@ -152,7 +139,7 @@ Voici un exemple simple d'une vue qui renvoie une réponse avec une chaîne de c
 
 
 
-```
+```python
 from django.http import HttpResponse
 
 def index(request):
@@ -161,7 +148,7 @@ def index(request):
 
 
 
-```
+
 Dans cet exemple, la fonction index est une vue qui renvoie simplement le texte "Hello, world!" en réponse à une requête HTTP.
 
 
@@ -172,7 +159,7 @@ Les formulaires dans Django sont représentés par des classes qui définissent 
 
 
 
-```
+```python
 from django import forms
 
 class ContactForm(forms.Form):
@@ -182,12 +169,12 @@ class ContactForm(forms.Form):
 
 
 
-```
+
 Dans cet exemple, ContactForm est une classe de formulaire qui définit un formulaire avec deux champs : name et message. Lorsque le formulaire est soumis, Django s'occupe de valider les données et de les convertir en types Python appropriés. Ensuite, vous pouvez utiliser ces données de manière sécurisée dans votre vue :
 
 
 
-```
+```python
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -200,37 +187,37 @@ def contact(request):
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
-```
-
-
 
 ```
+
+
+
 Dans cet exemple, la vue contact crée une instance de ContactForm lorsqu'elle reçoit une requête GET, ce qui affiche le formulaire à l'utilisateur. Lorsque le formulaire est soumis (requête POST), la vue crée à nouveau une instance de ContactForm, mais cette fois avec les données soumises (request.POST). Si les données sont valides, elles sont nettoyées et peuvent être utilisées en toute sécurité.
-```
+
 
 
 
 ### Administration
 
 
-```
+
 Django est réputé pour son interface d'administration générée automatiquement, un outil puissant qui facilite la gestion des contenus de votre site. Cette interface est l'une des caractéristiques les plus appréciées de Django, car elle permet aux développeurs de créer rapidement des interfaces CRUD (Create, Read, Update, Delete) pour les modèles Django sans avoir à écrire de code supplémentaire.
 
 
 #### Fonctionnalités de l'interface d'administration :
 
-```
 
 
 
-* `Interface utilisateur intuitive : L'interface d'administration de Django est conçue pour être conviviale et facile à naviguer.`
-* `Gestion des utilisateurs et des groupes : Vous pouvez ajouter et gérer des utilisateurs et des groupes, ainsi que définir leurs permissions.`
-* `Gestion des contenus : Elle permet aux administrateurs de créer, modifier et supprimer des contenus directement à partir de l'interface web.`
-* `Personnalisation : Bien que l'interface d'administration soit prête à l'emploi, elle peut être entièrement personnalisée pour répondre aux besoins spécifiques de votre projet.`
-* `Sécurité : L'accès à l'interface d'administration est sécurisé et peut être contrôlé par des permissions d'utilisateur détaillées.`
+
+ - Interface utilisateur intuitive : L'interface d'administration de Django est conçue pour être conviviale et facile à naviguer.
+ - Gestion des utilisateurs et des groupes : Vous pouvez ajouter et gérer des utilisateurs et des groupes, ainsi que définir leurs permissions.
+ - Gestion des contenus : Elle permet aux administrateurs de créer, modifier et supprimer des contenus directement à partir de l'interface web.
+ - Personnalisation : Bien que l'interface d'administration soit prête à l'emploi, elle peut être entièrement personnalisée pour répondre aux besoins spécifiques de votre projet.
+ - Sécurité : L'accès à l'interface d'administration est sécurisé et peut être contrôlé par des permissions d'utilisateur détaillées.
 
 
-```
+
 
 
 #### Comment ça fonctionne ?
@@ -244,7 +231,7 @@ Voici un exemple de la façon dont vous pourriez enregistrer un modèle dans l'i
 
 
 
-```
+```python
 from django.contrib import admin
 from .models import MyModel
 
@@ -256,34 +243,34 @@ class MyModelAdmin(admin.ModelAdmin):
 
 
 
-```
+
 Dans cet exemple, MyModel est le modèle que vous souhaitez gérer via l'interface d'administration. En utilisant le décorateur @admin.register, vous indiquez à Django d'inclure MyModel dans l'interface d'administration. La classe MyModelAdmin personnalise l'affichage en listant les champs spécifiques et en ajoutant une fonctionnalité de recherche sur certains champs.
 
 L'interface d'administration est un excellent exemple de la philosophie "batteries incluses" de Django, qui vise à fournir un ensemble complet de fonctionnalités pour le développement web, directement hors de la boîte.
-```
+
 
 
 
 ### Templates
 
 
-```
+
 Dans le développement web avec Django, les templates jouent un rôle crucial en permettant la séparation entre la logique de l'application et la présentation. Les templates sont des fichiers qui contiennent le HTML statique de votre site ainsi que des balises de template spéciales de Django qui permettent d'insérer du contenu dynamique.
 
 
 #### Fonctionnalités des templates Django :
 
-```
 
 
 
-* `Système de template puissant : Django utilise son propre langage de template, qui est à la fois simple et puissant.`
-* `Héritage de templates : Vous pouvez créer une base "squelette" pour votre site que d'autres templates peuvent étendre et surcharger, ce qui favorise la réutilisation et la cohérence du code.`
-* `Filtres et balises : Les templates Django offrent une variété de filtres et de balises pour formater des données et exécuter des tâches courantes comme des boucles ou des conditions.`
-* `Sécurité : Le système de template gère automatiquement l'échappement des données pour prévenir les injections XSS (Cross-Site Scripting).`
+
+ - Système de template puissant : Django utilise son propre langage de template, qui est à la fois simple et puissant.
+ - Héritage de templates : Vous pouvez créer une base "squelette" pour votre site que d'autres templates peuvent étendre et surcharger, ce qui favorise la réutilisation et la cohérence du code.
+ - Filtres et balises : Les templates Django offrent une variété de filtres et de balises pour formater des données et exécuter des tâches courantes comme des boucles ou des conditions.
+ - Sécurité : Le système de template gère automatiquement l'échappement des données pour prévenir les injections XSS (Cross-Site Scripting).
 
 
-```
+
 
 
 #### Comment ça fonctionne ?
@@ -297,7 +284,7 @@ Voici un exemple simple de template Django :
 
 
 
-```
+```html
 <!-- templates/my_template.html -->
 <html>
 <head>
@@ -320,12 +307,12 @@ Voici un exemple simple de template Django :
 
 
 
-```
+
 Et voici comment vous pourriez rendre ce template depuis une vue :
 
 
 
-```
+```python
 from django.shortcuts import render
 
 def my_view(request):
@@ -339,40 +326,40 @@ def my_view(request):
 
 
 
-```
+
 Dans cet exemple, my_template.html est le fichier de template qui utilise des variables comme {{ title }} et {{ heading }}, ainsi que des balises de contrôle de flux comme {% if %} et {% for %} pour afficher le contenu dynamiquement en fonction du contexte passé à la vue.
 
 L'utilisation de templates est fondamentale dans Django et permet de construire des applications web complexes avec des interfaces utilisateur riches et personnalisables.
-```
+
 
 
 
 ### h. Exécution du Serveur de Développement
 
 
-```
+
 Pour voir votre projet en action, Django fournit un serveur de développement intégré. Exécutez la commande suivante à partir du répertoire de votre projet :
 
 
 
-```
+```bash
 python manage.py runserver
 ```
 
 
 
-```
+
 Cela démarrera le serveur de développement et rendra votre projet accessible localement dans votre navigateur à l'adresse http://127.0.0.1:8000/.
 
 Créons un projet Django simple qui affiche "Hello, World!" sur la page d'accueil. Ce projet comprendra une seule application avec une vue et une URL.
-```
+
 
 
 
 ### i. Exemple Complet d'un projet Django
 
 
-```
+
 
 
 #### Étape 1: Installation de Django
@@ -380,13 +367,13 @@ Si vous ne l'avez pas déjà fait, installez Django avec pip :
 
 
 
-```
+```bash
 pip install django
 ```
 
 
 
-```
+
 
 
 #### Étape 2: Création d'un Nouveau Projet Django
@@ -394,24 +381,24 @@ Créez un nouveau projet Django en exécutant :
 
 
 
-```
+```bash
 django-admin startproject helloworld_project
 ```
 
 
 
-```
+
 Naviguez dans le dossier du projet :
 
 
 
-```
+```bash
 cd helloworld_project
 ```
 
 
 
-```
+
 
 
 #### Étape 3: Création d'une Application Django
@@ -419,13 +406,13 @@ Créez une application Django dans votre projet :
 
 
 
-```
+```bash
 python manage.py startapp hello
 ```
 
 
 
-```
+
 
 
 #### Étape 4: Écrire une Vue
@@ -433,7 +420,7 @@ Ouvrez le fichier views.py dans le dossier de l'application hello et ajoutez :
 
 
 
-```
+```python
 from django.http import HttpResponse
 
 def home(request):
@@ -442,7 +429,7 @@ def home(request):
 
 
 
-```
+
 
 
 #### Étape 5: Configurer les URL
@@ -450,7 +437,8 @@ Créez un fichier urls.py dans le dossier de l'application hello et ajoutez :
 
 
 
-```
+
+```python
 from django.urls import path
 from .views import home
 
@@ -461,12 +449,13 @@ urlpatterns = [
 
 
 
-```
+
 Ensuite, incluez les URL de l'application hello dans le fichier urls.py du projet helloworld_project :
 
 
 
-```
+
+```python
 from django.contrib import admin
 from django.urls import include, path
 
@@ -478,7 +467,7 @@ urlpatterns = [
 
 
 
-```
+
 
 
 #### Étape 6: Ajouter l'Application à votre Projet
@@ -486,7 +475,8 @@ Ouvrez le fichier settings.py dans le dossier helloworld_project et ajoutez l'ap
 
 
 
-```
+
+```python
 INSTALLED_APPS = [
     # ...
     'hello',
@@ -495,7 +485,7 @@ INSTALLED_APPS = [
 
 
 
-```
+
 
 
 #### Étape 7: Exécuter le Serveur de Développement
@@ -503,61 +493,61 @@ Lancez le serveur de développement :
 
 
 
-```
+
 python manage.py runserver
-```
 
 
 
-```
+
+
 Ouvrez votre navigateur et allez à http://127.0.0.1:8000/. Vous devriez voir "Hello, World!" affiché.
 
 
 #### Récapitulatif du Projet
 Votre projet Django minimaliste est maintenant configuré. Voici ce que vous avez fait :
 
-```
 
 
 
-* `Installé Django et créé un nouveau projet.`
-* `Ajouté une nouvelle application à ce projet.`
-* `Écrit une vue simple qui renvoie "Hello, World!".`
-* `Configuré les URL pour diriger la racine du site vers votre vue.`
-* `Inclus l'application dans les paramètres de votre projet.`
-* `Lancé le serveur de développement pour voir le résultat.`
+
+ - Installé Django et créé un nouveau projet.
+ - Ajouté une nouvelle application à ce projet.
+ - Écrit une vue simple qui renvoie "Hello, World!".
+ - Configuré les URL pour diriger la racine du site vers votre vue.
+ - Inclus l'application dans les paramètres de votre projet.
+ - Lancé le serveur de développement pour voir le résultat.
 
 
-```
+
 Ce projet de base peut être étendu avec des modèles, des templates, des formulaires, et plus encore, selon les besoins de votre application web.
-```
+
 
 
 
 ## 2. Présentation de Django REST Framework
 
 
-```
+
 Django REST Framework (DRF) est une extension puissante pour le framework web Django, qui facilite la création d'interfaces de programmation d'applications (APIs) Web. DRF est conçu pour travailler avec la structure de Django et étend ses capacités pour mieux gérer les requêtes et réponses API, tout en offrant une interface conviviale pour les développeurs et une intégration transparente avec les modèles de données de Django.
-```
+
 
 
 
 ### a. Positionnement de DRF par rapport à Django
 
 
-```
+
 Alors que Django est un framework web complet qui fournit des outils pour construire des sites web avec des bases de données, des formulaires, une authentification, etc., DRF se concentre spécifiquement sur la création d'APIs. Il complète Django en ajoutant des fonctionnalités telles que la sérialisation pour convertir les modèles de données en formats JSON ou XML, des mécanismes d'authentification adaptés aux APIs, et des vues et routeurs spécialement conçus pour le développement d'API.
-```
+
 
 
 
 ### b. Prérequis à l'utilisation de Django REST Framework
 
 
-```
+
 Pour commencer à utiliser DRF, vous devez avoir une installation fonctionnelle de Django. DRF s'installe ensuite comme une application Django supplémentaire.
-```
+
 
 
 
@@ -565,19 +555,21 @@ Pour commencer à utiliser DRF, vous devez avoir une installation fonctionnelle 
 
 
 
-1. `Installez DRF en utilisant pip : \
-`
+1. Installez DRF en utilisant pip : \
 
-    ```
+
+    
+```bash
 pip install djangorestframework
-```
+
 
 
 2. 
-3. `Ajoutez 'rest_framework' à la liste INSTALLED_APPS dans votre fichier settings.py de Django pour l'activer. \
-`
+3. Ajoutez 'rest_framework' à la liste INSTALLED_APPS dans votre fichier settings.py de Django pour l'activer. \
 
-    ```
+
+
+```python 
 INSTALLED_APPS = [
     ...
     'rest_framework',
@@ -591,13 +583,16 @@ INSTALLED_APPS = [
 ## 3. Création de Modèles et de Sérialiseurs
 
 
-```
+
 Avec DRF, vous utilisez les modèles Django standard, mais vous les exposez via l'API en utilisant des sérialiseurs. Les sérialiseurs transforment les données des modèles en formats JSON ou XML et vice versa.
 
 
 
-```
+
+
 # models.py
+
+```python
 from django.db import models
 
 class User(models.Model):
@@ -612,20 +607,22 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email']
-```
 
+```
 
 
 ## 4. Vues et Routeurs
 
 
-```
+
 DRF introduit des concepts tels que les ViewSet et les routeurs pour connecter vos modèles et sérialiseurs aux URL de manière efficace.
 
 
 
-```
+
 # views.py
+
+```python
 from rest_framework import viewsets
 from .models import User
 from .serializers import UserSerializer
@@ -648,21 +645,22 @@ urlpatterns = [
 
 
 
-```
+
 Dans cet exemple, UserViewSet gère automatiquement les opérations CRUD pour le modèle User.
-```
+
 
 
 
 ## 5. Permissions et Authentification
 
 
-```
+
 DRF offre un système de permissions sophistiqué qui vous permet de contrôler finement l'accès à l'API.
 
 
 
-```
+
+```python
 from rest_framework import permissions
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -674,21 +672,22 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 
 
-```
+
 Cette classe de permission personnalisée permet aux utilisateurs de lire n'importe quel objet mais de modifier ou de supprimer uniquement leurs propres objets.
-```
+
 
 
 
 ## 6. Tests et Documentation
 
 
-```
+
 DRF facilite les tests de vos APIs avec le APIClient et génère automatiquement une documentation pour votre API.
 
 
 
-```
+
+```python
 from rest_framework.test import APIClient
 from django.test import TestCase
 
@@ -703,9 +702,9 @@ class UserTests(TestCase):
 
 
 
-```
+
 Ce test utilise APIClient pour tester la création d'un nouvel utilisateur.
-```
+
 
 
 
@@ -715,12 +714,13 @@ Ce test utilise APIClient pour tester la création d'un nouvel utilisateur.
 ### a. Exemple de la Todo List
 
 
-```
+
 Pour DRF, nous devons d'abord configurer un projet Django, créer un modèle pour nos tâches, puis utiliser DRF pour créer les vues et les routeurs.
 
 
 
-```
+
+```python
 # models.py
 from django.db import models
 
@@ -757,33 +757,36 @@ router.register(r'tasks', TaskViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 ]
-```
 
+```
 
 
 ### b. Exemple de l'authentification
 
 
-```
+
 Côté serveur :
 
 Vous devez d'abord installer le package djangorestframework-simplejwt qui fournit une intégration JWT pour DRF.
 
 
 
-```
+
+```bash
 pip install djangorestframework-simplejwt
 ```
 
 
 
-```
+
 Ensuite, ajoutez la configuration nécessaire dans votre settings.py :
 
 
 
-```
+
+```python
 # settings.py
+
 INSTALLED_APPS = [
     ...
     'rest_framework',
@@ -807,12 +810,12 @@ SIMPLE_JWT = {
 
 
 
-```
+
 Maintenant, vous pouvez créer les vues pour l'authentification et les routes protégées :
 
 
 
-```
+```python
 # views.py
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import IsAuthenticated
@@ -842,12 +845,13 @@ def protected_route(request):
 
 
 
-```
+
 Enfin, configurez vos URL pour utiliser ces vues :
 
 
 
-```
+
+```python
 # urls.py
 from django.urls import path
 from .views import login, protected_route
@@ -860,14 +864,15 @@ urlpatterns = [
 
 
 
-```
+
 Côté client :
 
 Pour le client, vous pouvez utiliser la bibliothèque requests pour interagir avec l'API.
 
 
 
-```
+
+```python
 import requests
 
 # Remplacer par l'URL de votre API
@@ -887,7 +892,7 @@ else:
 
 
 
-```
+
 Dans cet exemple, le serveur DRF utilise djangorestframework-simplejwt pour gérer l'authentification JWT. Lorsqu'un utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token d'accès est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.
-```
+
 

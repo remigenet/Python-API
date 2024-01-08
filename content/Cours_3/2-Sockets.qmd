@@ -85,7 +85,7 @@ Serveur (serveur.py)
 
 
 import socket
-
+```python
 # Création d'un socket TCP/IP
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Associe le socket à l'adresse du serveur et écoute les connexions entrantes
@@ -103,7 +103,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break
             conn.sendall(data)
-
+```
 
 
 
@@ -112,7 +112,7 @@ Client (client.py)
 
 
 
-
+```python
 import socket
 
 # Création d'un socket TCP/IP
@@ -126,7 +126,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # Réception de la réponse
     data = s.recv(1024)
     print(f"Reçu {data!r}")
-
+```
 
 
 
@@ -139,58 +139,58 @@ Serveur (serveur.py)
 
 
 
-
+```python
 import socket
+```
 
 
 
 
+ - import socket : Importe le module Python socket qui fournit les méthodes et les classes pour la communication réseau.
 
-* import socket : Importe le module Python socket qui fournit les méthodes et les classes pour la communication réseau.
-
-    
+```python
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+```
 
 
+ - socket.socket : Crée un nouvel objet socket.
+ - socket.AF_INET : Spécifie la famille d'adresses, AF_INET pour IPv4.
+ - socket.SOCK_STREAM : Spécifie le type de socket, SOCK_STREAM pour le protocole TCP, qui est orienté connexion.
 
-* socket.socket : Crée un nouvel objet socket.
-* socket.AF_INET : Spécifie la famille d'adresses, AF_INET pour IPv4.
-* socket.SOCK_STREAM : Spécifie le type de socket, SOCK_STREAM pour le protocole TCP, qui est orienté connexion.
-
-    
+```python
 s.bind(('localhost', 6789))
+```
 
 
+ - s.bind : Associe le socket à une adresse spécifique et à un port. Ici, 'localhost' indique que le serveur écoute sur l'interface réseau locale.
 
-* s.bind : Associe le socket à une adresse spécifique et à un port. Ici, 'localhost' indique que le serveur écoute sur l'interface réseau locale.
-
-    
+```python
 s.listen()
+```
 
 
+ - s.listen : Met le socket en mode écoute pour accepter les connexions entrantes. Sans argument, il utilise une file d'attente de taille raisonnable par défaut.
 
-* s.listen : Met le socket en mode écoute pour accepter les connexions entrantes. Sans argument, il utilise une file d'attente de taille raisonnable par défaut.
-
-    
+```python    
 conn, addr = s.accept()
+```
 
 
+ - s.accept : Bloque et attend une connexion entrante. Quand un client se connecte, il retourne un nouveau socket conn représentant la connexion et l'adresse addr du client connecté.
 
-* s.accept : Bloque et attend une connexion entrante. Quand un client se connecte, il retourne un nouveau socket conn représentant la connexion et l'adresse addr du client connecté.
-
-    
+```python   
 data = conn.recv(1024)
+```
 
 
+ - conn.recv : Reçoit les données du client. Le nombre 1024 spécifie la taille maximale des données pouvant être reçues à la fois (en octets).
 
-* conn.recv : Reçoit les données du client. Le nombre 1024 spécifie la taille maximale des données pouvant être reçues à la fois (en octets).
-
-    
+```python    
 conn.sendall(data)
+```
 
 
-
-* conn.sendall : Envoie les données reçues en retour au client. Cette méthode s'assure que toutes les données sont envoyées.
+ - conn.sendall : Envoie les données reçues en retour au client. Cette méthode s'assure que toutes les données sont envoyées.
 
 
 
@@ -198,28 +198,25 @@ Client (client.py)
 
 
 
-
+```python
 s.connect(('localhost', 6789))
+```
 
+ - s.connect : Établit une connexion avec le serveur. L'argument est un tuple contenant l'adresse du serveur et le numéro de port.
 
-
-
-
-* s.connect : Établit une connexion avec le serveur. L'argument est un tuple contenant l'adresse du serveur et le numéro de port.
-
-    
+```python
 s.sendall(b'Hello, server')
+```
 
 
+ - s.sendall : Envoie des données au serveur. Les données sont préfixées par b pour indiquer qu'il s'agit d'un objet bytes, nécessaire pour l'envoi sur le réseau.
 
-* s.sendall : Envoie des données au serveur. Les données sont préfixées par b pour indiquer qu'il s'agit d'un objet bytes, nécessaire pour l'envoi sur le réseau.
-
-    
+```python 
 data = s.recv(1024)
+```
 
 
-
-* s.recv : Reçoit la réponse du serveur. Encore une fois, 1024 est la taille maximale du bloc de données à recevoir.
+ - s.recv : Reçoit la réponse du serveur. Encore une fois, 1024 est la taille maximale du bloc de données à recevoir.
 
 
 
@@ -238,7 +235,7 @@ Voici un exemple simplifié de la façon dont un serveur peut gérer plusieurs c
 
 
 
-
+```python
 import socket
 import threading
 
@@ -264,7 +261,7 @@ def server():
 
 if __name__ == '__main__':
     server()
-
+```
 
 
 
@@ -281,8 +278,8 @@ Autres Paramètres pour les Sockets
 
 
 
-* socket.AF_INET : Utilisé pour IPv4. Pour IPv6, vous utiliseriez socket.AF_INET6.
-* socket.SOCK_STREAM : Utilisé pour les protocoles orientés connexion comme TCP. Pour les protocoles sans connexion comme UDP, vous utiliseriez socket.SOCK_DGRAM.
+ - socket.AF_INET : Utilisé pour IPv4. Pour IPv6, vous utiliseriez socket.AF_INET6.
+ - socket.SOCK_STREAM : Utilisé pour les protocoles orientés connexion comme TCP. Pour les protocoles sans connexion comme UDP, vous utiliseriez socket.SOCK_DGRAM.
 
 
 
@@ -292,9 +289,9 @@ Cas d'Usage :
 
 
 
-* socket.SOCK_STREAM : Idéal pour les applications nécessitant une connexion fiable, comme les transferts de fichiers, les communications client-serveur où l'ordre et l'intégrité des données sont importants.
-* socket.SOCK_DGRAM : Utilisé pour les applications où la rapidité est plus critique que la fiabilité, comme les jeux en temps réel ou la diffusion de vidéos en streaming, où la perte de quelques paquets n'est pas critique.
-* socket.AF_INET6 : Utilisé pour les applications qui doivent communiquer sur des réseaux IPv6, qui est la dernière version du protocole Internet et supporte un plus grand nombre d'adresses IP.
+ - socket.SOCK_STREAM : Idéal pour les applications nécessitant une connexion fiable, comme les transferts de fichiers, les communications client-serveur où l'ordre et l'intégrité des données sont importants.
+ - socket.SOCK_DGRAM : Utilisé pour les applications où la rapidité est plus critique que la fiabilité, comme les jeux en temps réel ou la diffusion de vidéos en streaming, où la perte de quelques paquets n'est pas critique.
+ - socket.AF_INET6 : Utilisé pour les applications qui doivent communiquer sur des réseaux IPv6, qui est la dernière version du protocole Internet et supporte un plus grand nombre d'adresses IP.
 
 
 
@@ -346,8 +343,7 @@ Dans le contexte d'une API, les sockets peuvent être utilisés pour créer un s
 Serveur d'API (api_server.py)
 
 
-
-
+```python
 import socket
 import json
 import threading
@@ -384,7 +380,7 @@ def server():
 
 if __name__ == '__main__':
     server()
-
+```
 
 
 
@@ -393,7 +389,7 @@ Client (api_client.py)
 
 
 
-
+```python
 import socket
 import json
 
@@ -408,7 +404,7 @@ def send_request(number1, number2):
 if __name__ == '__main__':
     # Envoie une requête d'addition au serveur d'API
     send_request(10, 20)
-
+```
 
 
 
@@ -419,11 +415,11 @@ Explication de l'Exemple :
 
 
 
-* Le serveur d'API (api_server.py) écoute les connexions entrantes sur le port 6789.
-* Lorsqu'un client se connecte et envoie une requête, le serveur crée un nouveau thread pour gérer la requête.
-* La fonction process_request prend les données de la requête, les décode de JSON, effectue une opération (dans cet exemple, une addition), et renvoie le résultat encodé en JSON.
-* Le client (api_client.py) envoie une requête JSON contenant deux nombres au serveur et attend la réponse.
-* Lorsque le serveur reçoit la requête, il renvoie le résultat de l'addition sous forme de réponse JSON.
+ - Le serveur d'API (api_server.py) écoute les connexions entrantes sur le port 6789.
+ - Lorsqu'un client se connecte et envoie une requête, le serveur crée un nouveau thread pour gérer la requête.
+ - La fonction process_request prend les données de la requête, les décode de JSON, effectue une opération (dans cet exemple, une addition), et renvoie le résultat encodé en JSON.
+ - Le client (api_client.py) envoie une requête JSON contenant deux nombres au serveur et attend la réponse.
+ - Lorsque le serveur reçoit la requête, il renvoie le résultat de l'addition sous forme de réponse JSON.
 
 
 
@@ -438,7 +434,7 @@ Serveur HTTP (http_server.py)
 
 
 
-
+```python
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import socket
@@ -465,7 +461,7 @@ if __name__ == '__main__':
     server = HTTPServer(('localhost', 6789), RequestHandler)
     print('Starting server at http://localhost:6789')
     server.serve_forever()
-
+```
 
 
 
@@ -474,7 +470,7 @@ Processus de Travail (worker.py)
 
 
 
-
+```python
 import socket
 import json
 
@@ -497,8 +493,7 @@ def worker():
 
 if __name__ == '__main__':
     worker()
-
-
+```
 
 
 
@@ -508,11 +503,11 @@ Explication de l'Exemple :
 
 
 
-* Le serveur HTTP (http_server.py) écoute sur le port 6789 pour les requêtes HTTP POST.
-* Lorsqu'une requête est reçue, le serveur extrait les données et les envoie au processus de travail via un socket TCP.
-* Le processus de travail (worker.py) écoute sur le port 6790 pour les connexions du serveur HTTP.
-* Lorsque le processus de travail reçoit des données, il les traite (dans cet exemple, il calcule la somme d'une liste de nombres) et renvoie le résultat au serveur HTTP.
-* Le serveur HTTP reçoit la réponse du processus de travail et la renvoie au client HTTP.
+ - Le serveur HTTP (http_server.py) écoute sur le port 6789 pour les requêtes HTTP POST.
+ - Lorsqu'une requête est reçue, le serveur extrait les données et les envoie au processus de travail via un socket TCP.
+ - Le processus de travail (worker.py) écoute sur le port 6790 pour les connexions du serveur HTTP.
+ - Lorsque le processus de travail reçoit des données, il les traite (dans cet exemple, il calcule la somme d'une liste de nombres) et renvoie le résultat au serveur HTTP.
+ - Le serveur HTTP reçoit la réponse du processus de travail et la renvoie au client HTTP.
 
 
 

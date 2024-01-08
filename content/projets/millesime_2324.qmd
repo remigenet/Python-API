@@ -1,5 +1,5 @@
 ---
-title: "Introduction au Déploiement d'API"
+title: "M2EIF Quant 2023/2024"
 weight: 10
 tags:
   - Pandas
@@ -11,182 +11,103 @@ categories:
   - Fondamentaux
 type: book
 description: ""
-image: .img/zen1.webp
+image: .img/projets1.webp
 code-links: binder
 ---
 
-# Introduction au Déploiement d'API
+# Projets
 
 ---
 
-Projets
-Introduction
-Bienvenue dans votre ultime défi académique en maîtrise de l’API Python. Vous
-allez être répartis en équipes de 5 à 7 personnes pour travailler sur l’un des
-quatre projets ambitieux proposés. L’objectif est de créer une solution complète
-et cohésive qui mettra en valeur vos compétences techniques ainsi que votre
-capacité à collaborer efficacement en équipe.
-Cadre du Projet et Deadlines
-• Spécifications des Projets sur GitHub : Chaque groupe devra définir
+## Introduction
+Bienvenue dans votre ultime défi académique en maîtrise de l’API Python. Vous allez être répartis en équipes de 5 à 7 personnes pour travailler sur l’un des quatre projets ambitieux proposés. L’objectif est de créer une solution complète et cohésive qui mettra en valeur vos compétences techniques ainsi que votre capacité à collaborer efficacement en équipe.
 
-et publier les spécifications de son projet sur GitHub avant le 31 décem-
-bre à minuit. Cette étape initiale est essentielle pour assurer la bonne
+## Cadre du Projet et Deadlines
+- **Spécifications des Projets sur GitHub** : Chaque groupe devra définir et publier les spécifications de son projet sur GitHub avant le 31 décembre à minuit. Cette étape initiale est essentielle pour assurer la bonne coordination entre les différents projets.
+- **Deadline du Projet** : La date limite pour la finalisation des projets est fixée au 30 avril (à confirmer avec Philippe Bernard*).
 
-coordination entre les différents projets.
-• Deadline du Projet : La date limite pour la finalisation des projets est
-fixée au 30 avril (à confirmer avec Philippe Bernard*)
-Consignes Générales
-• Rendu sur GitHub : Le code source de votre projet doit être rendu sur
-GitHub. Ce choix offre une transparence sur la contribution de chaque
-membre de l’équipe et facilite la collaboration.
+## Consignes Générales
+- **Rendu sur GitHub** : Le code source de votre projet doit être rendu sur GitHub. Ce choix offre une transparence sur la contribution de chaque membre de l’équipe et facilite la collaboration.
+- **Documentation** : Chaque projet doit être accompagné d’une documentation claire expliquant le fonctionnement global du système et le flux de données. La documentation est cruciale pour comprendre comment interagir avec votre API.
+- **Flexibilité et Créativité** : Les sujets proposés sont des trames générales. Vous avez la liberté de les interpréter et de les développer selon votre vision. Nous vous encourageons à être innovants et créatifs.
+- **Carnet de Bord** : Il est recommandé de tenir un carnet de bord détaillant votre organisation, les rôles de chacun, qui a été force de proposition, etc. Ceci aidera à évaluer non seulement le produit final mais aussi le processus de travail en équipe.
 
-• Documentation : Chaque projet doit être accompagné d’une documen-
-tation claire expliquant le fonctionnement global du système et le flux
-
-de données. La documentation est cruciale pour comprendre comment
-interagir avec votre API.
-• Flexibilité et Créativité : Les sujets proposés sont des trames générales.
-Vous avez la liberté de les interpréter et de les développer selon votre vision.
-Nous vous encourageons à être innovants et créatifs.
-
-• Carnet de Bord : Il est recommandé de tenir un carnet de bord détail-
-lant votre organisation, les rôles de chacun, qui a été force de proposition,
-
-etc. Ceci aidera à évaluer non seulement le produit final mais aussi le
-processus de travail en équipe.
-Conclusion
-
-Ce projet représente une occasion unique de démontrer vos compétences accu-
-mulées et votre capacité à travailler sur des projets d’envergure en collaboration.
-
+## Conclusion
+Ce projet représente une occasion unique de démontrer vos compétences accumulées et votre capacité à travailler sur des projets d’envergure en collaboration.
 Bon courage à tous !
 
-1
+---
 
-Sujet du Projet 1: API pour Backtesting de Stratégies de
-Trading Algorithmique
-Objectif du Projet
-Développer une API qui permet aux utilisateurs de soumettre leurs propres
+### Sujet du Projet 1: API pour Backtesting de Stratégies de Trading Algorithmique
 
-stratégies de trading algorithmique pour backtesting. Le système doit être ca-
-pable d’exécuter ces stratégies contre des données de marché historiques et de
+#### Objectif du Projet
+Développer une API qui permet aux utilisateurs de soumettre leurs propres stratégies de trading algorithmique pour backtesting. Le système doit être capable d’exécuter ces stratégies contre des données de marché historiques et de fournir des analyses de performance.
 
-fournir des analyses de performance.
-Fonctionnalités Clés
-1. Soumission de Fonctions de Trading :
-• Implémenter une fonctionnalité permettant aux utilisateurs de
-soumettre des fonctions de trading. Ceci peut être réalisé, par
-exemple, via une requête POST contenant le code de la stratégie.
-• Assurer une validation efficace des fonctions soumises pour garantir
-leur exécution sûre et conforme.
-1. Backtesting :
-• Mettre en place un mécanisme de backtesting qui utilise des données
-de marché historiques, telles que des barres de prix OHLCV.
-• Fournir des statistiques et des analyses de performance pour les
-stratégies testées.
-1. Documentation et Règles :
+#### Fonctionnalités Clés
+1. **Soumission de Fonctions de Trading** :
+   - Implémenter une fonctionnalité permettant aux utilisateurs de soumettre des fonctions de trading. Ceci peut être réalisé, par exemple, via une requête POST contenant le code de la stratégie.
+   - Assurer une validation efficace des fonctions soumises pour garantir leur exécution sûre et conforme.
+2. **Backtesting** :
+   - Mettre en place un mécanisme de backtesting qui utilise des données de marché historiques, telles que des barres de prix OHLCV.
+   - Fournir des statistiques et des analyses de performance pour les stratégies testées.
+3. **Documentation et Règles** :
+   - Rédiger une documentation détaillée sur l’utilisation de l’API, y compris des exemples et des directives pour la soumission des stratégies.
+   - Établir des règles claires concernant les types de stratégies autorisées et les limitations de l’API.
+4. **Stockage et Exécution Programmée** :
+   - Offrir la possibilité de stocker les stratégies soumises et de planifier des backtests à des intervalles spécifiés par l’utilisateur.
 
-• Rédiger une documentation détaillée sur l’utilisation de l’API, y com-
-pris des exemples et des directives pour la soumission des stratégies.
+---
 
-• Établir des règles claires concernant les types de stratégies autorisées
-et les limitations de l’API.
-4. Stockage et Exécution Programmée :
-• Offrir la possibilité de stocker les stratégies soumises et de planifier
-des backtests à des intervalles spécifiés par l’utilisateur.
+### Sujet du Projet 2 : Création d’Analytics de Trading Personnalisés via API
 
-Sujet du Projet 2 : Création d’Analytics de Trading Per-
-sonnalisés via API
+#### Objectif du Projet
+Développer une API qui permet aux utilisateurs de créer et de recevoir des analytics de trading personnalisés. Les utilisateurs pourront soumettre leurs propres fonctions d’analyse, qui seront ensuite appliquées à des données de marché en temps réel ou historiques.
 
-Objectif du Projet
+#### Fonctionnalités Clés
+1. **Soumission de Fonctions d’Analytics** :
+   - Permettre aux utilisateurs de soumettre leurs fonctions d’analyse personnalisées. Ces fonctions pourraient être soumises via une requête POST, avec le code de la fonction en contenu.
+   - Les fonctions doivent être applicables sur des données historiques (bars OHLCV) et des données en temps réel (trades, order book).
+2. **Diffusion en Temps Réel** :
+   - Utiliser des WebSockets pour envoyer les résultats des analytics aux utilisateurs en temps réel, dès qu’un changement pertinent survient dans les données de marché.
+3. **Gestion des Fonctions Soumises** :
+   - Implémenter un système robuste pour la gestion et la validation des fonctions d’analyse soumises, assurant leur exécution de manière sécurisée.
+4. **Personnalisation et Flexibilité** :
+   - Offrir des options pour personnaliser les paramètres des fonctions d’analytics.
+   - Assurer que l’API est adaptable pour différents types d’analyses, des indicateurs techniques simples aux modèles plus complexes.
 
-Développer une API qui permet aux utilisateurs de créer et de recevoir des ana-
-lytics de trading personnalisés. Les utilisateurs pourront soumettre leurs propres
+---
 
-fonctions d’analyse, qui seront ensuite appliquées à des données de marché en
-temps réel ou historiques.
-Fonctionnalités Clés
-1. Soumission de Fonctions d’Analytics :
+### Sujet du Projet 3 : API d’Uniformisation pour Échanges de Cryptomonnaies
 
-• Permettre aux utilisateurs de soumettre leurs fonctions d’analyse per-
-sonnalisées. Ces fonctions pourraient être soumises via une requête
+#### Objectif du Projet
+Construire une API qui permette aux utilisateurs de standardiser et d’uniformiser l’accès à différentes plateformes d’échange de cryptomonnaies. Cette API devra permettre de configurer des routes, parser des données et établir des correspondances entre les champs de différentes APIs d’échange (comme Kucoin ou autres) et un format cible (comme l’API de Binance ou un format personnalisé).
 
-2
+#### Fonctionnalités Clés
+1. **Configuration des Routes et Parsing** :
+   - Développer une fonctionnalité permettant aux utilisateurs de spécifier des routes et leurs règles de parsing pour différentes APIs d’échange.
+   - Permettre le mapping des champs de l’API source vers ceux de l’API cible.
+2. **Choix de l’API Cible** :
+   - Offrir la possibilité d’utiliser l’API de Binance comme format cible standard ou de créer un format personnalisé.
+3. **Uniformisation des Requêtes** :
+   - Permettre, après configuration, de faire des requêtes à l’API source de la même manière qu’à l’API cible, avec transformation et renvoi des données dans le format cible.
+4. **Extensibilité et Flexibilité** :
+   - Concevoir l’API pour faciliter
 
-POST, avec le code de la fonction en contenu.
-• Les fonctions doivent être applicables sur des données historiques
-(bars OHLCV) et des données en temps réel (trades, order book).
-2. Diffusion en Temps Réel :
-• Utiliser des WebSockets pour envoyer les résultats des analytics aux
-utilisateurs en temps réel, dès qu’un changement pertinent survient
-dans les données de marché.
-3. Gestion des Fonctions Soumises :
-• Implémenter un système robuste pour la gestion et la validation
-des fonctions d’analyse soumises, assurant leur exécution de manière
-sécurisée.
-4. Personnalisation et Flexibilité :
-• Offrir des options pour personnaliser les paramètres des fonctions
-d’analytics.
-• Assurer que l’API est adaptable pour différents types d’analyses, des
-indicateurs techniques simples aux modèles plus complexes.
-Sujet du Projet 3 : API d’Uniformisation pour Échanges
-de Cryptomonnaies
-Objectif du Projet
-Construire une API qui permette aux utilisateurs de standardiser et
+ l’ajout de nouvelles plateformes d’échange et la gestion des différentes configurations.
 
-d’uniformiser l’accès à différentes plateformes d’échange de cryptomon-
-naies. Cette API devra permettre de configurer des routes, parser des données
+---
 
-et établir des correspondances entre les champs de différentes APIs d’échange
-(comme Kucoin ou autres) et un format cible (comme l’API de Binance ou un
-format personnalisé).
-Fonctionnalités Clés
-1. Configuration des Routes et Parsing :
+### Sujet du Projet 4 : Interface Utilisateur pour l’Intégration des Projets API
 
-• Développer une fonctionnalité permettant aux utilisateurs de spé-
-cifier des routes et leurs règles de parsing pour différentes APIs
+#### Objectif du Projet
+Développer une interface utilisateur graphique (GUI) qui intègre les fonctionnalités développées dans les trois premiers projets API. Cette interface servira de point central pour accéder et utiliser les services fournis par les autres équipes, offrant ainsi une expérience utilisateur unifiée et intuitive.
 
-d’échange.
-• Permettre le mapping des champs de l’API source vers ceux de l’API
-cible.
-2. Choix de l’API Cible :
-• Offrir la possibilité d’utiliser l’API de Binance comme format cible
-standard ou de créer un format personnalisé.
-3. Uniformisation des Requêtes :
-• Permettre, après configuration, de faire des requêtes à l’API source
-de la même manière qu’à l’API cible, avec transformation et renvoi
-des données dans le format cible.
-4. Extensibilité et Flexibilité :
-• Concevoir l’API pour faciliter l’ajout de nouvelles plateformes
-
-3
-
-d’échange et la gestion des différentes configurations.
-Sujet du Projet 4 : Interface Utilisateur pour l’Intégration
-des Projets API
-Objectif du Projet
-
-Développer une interface utilisateur graphique (GUI) qui intègre les fonctionnal-
-ités développées dans les trois premiers projets API. Cette interface servira de
-
-point central pour accéder et utiliser les services fournis par les autres équipes,
-offrant ainsi une expérience utilisateur unifiée et intuitive.
-Fonctionnalités Clés
-1. Intégration des APIs :
-• Concevoir une interface qui s’intègre de manière fluide avec les APIs
-développées dans les projets précédents.
-• Assurer une communication efficace et fiable entre l’interface et les
-différentes APIs.
-2. Conception d’une Interface Utilisateur :
-
-• Créer une GUI facile à naviguer, permettant aux utilisateurs de sélec-
-tionner facilement les sources de données et les fonctionnalités qu’ils
-
-souhaitent utiliser.
-3. Adaptabilité et Flexibilité :
-
-• Prévoir la capacité à s’adapter aux différentes fonctionnalités et for-
-mats de données offerts par les autres projets.
-
-• Faciliter l’intégration de fonctionnalités supplémentaires ou de mod-
-ifications ultérieures.
+#### Fonctionnalités Clés
+1. **Intégration des APIs** :
+   - Concevoir une interface qui s’intègre de manière fluide avec les APIs développées dans les projets précédents.
+   - Assurer une communication efficace et fiable entre l’interface et les différentes APIs.
+2. **Conception d’une Interface Utilisateur** :
+   - Créer une GUI facile à naviguer, permettant aux utilisateurs de sélectionner facilement les sources de données et les fonctionnalités qu’ils souhaitent utiliser.
+3. **Adaptabilité et Flexibilité** :
+   - Prévoir la capacité à s’adapter aux différentes fonctionnalités et formats de données offerts par les autres projets.
+   - Faciliter l’intégration de fonctionnalités supplémentaires ou de modifications ultérieures.

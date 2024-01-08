@@ -74,11 +74,11 @@ L'authentification est le processus par lequel un système vérifie l'identité 
 
 
 
-* Authentification basique : Pour des solutions simples et lorsque les données ne sont pas sensibles.
-* Token d'authentification : Pour une sécurité renforcée sans envoyer d'identifiants à chaque fois.
-* OAuth : Lorsqu'une application nécessite l'accès à des ressources d'une autre application.
-* API Key : Solutions rapides où la complexité d'un système d'authentification complet n'est pas requise.
-* JWT : Échange d'informations sécurisé entre différentes parties.
+- Authentification basique : Pour des solutions simples et lorsque les données ne sont pas sensibles.
+- Token d'authentification : Pour une sécurité renforcée sans envoyer d'identifiants à chaque fois.
+- OAuth : Lorsqu'une application nécessite l'accès à des ressources d'une autre application.
+- API Key : Solutions rapides où la complexité d'un système d'authentification complet n'est pas requise.
+- JWT : Échange d'informations sécurisé entre différentes parties.
 
 
 
@@ -160,27 +160,17 @@ Exemple :
 Imaginez une fonction qui récupère les informations d'un utilisateur basées sur son nom d'utilisateur :
 
 
-
-
+```python
 def get_user(username):
-    query = f"SELECT * FROM users WHERE username='{username}'"
+    query = f"SELECT - FROM users WHERE username='{username}'"
     # Exécuter la requête
-
-
-
-
+```
 
 Si un attaquant saisit "admin' OR '1'='1'; -- " comme nom d'utilisateur, cela transforme la requête en :
 
-
-
-
-SELECT * FROM users WHERE username='admin' OR '1'='1'; -- '
-
-
-
-
-
+```SQL
+SELECT - FROM users WHERE username='admin' OR '1'='1'; -- '
+```
 
 Cette requête renverra tous les utilisateurs car '1'='1' est toujours vrai.
 
@@ -188,14 +178,8 @@ Cette requête renverra tous les utilisateurs car '1'='1' est toujours vrai.
 #### Prévention :
 
 
-
-
-
-* Utiliser des requêtes préparées ou des ORM (Object Relational Mapping).
-* Ne jamais concaténer directement des entrées utilisateur avec des requêtes SQL.
-
-
-
+- Utiliser des requêtes préparées ou des ORM (Object Relational Mapping).
+- Ne jamais concaténer directement des entrées utilisateur avec des requêtes SQL.
 
 
 #### 2. Cross-Site Scripting (XSS)
@@ -208,15 +192,8 @@ Si votre site permet à un utilisateur d'ajouter des commentaires, et que vous n
 #### Prévention :
 
 
-
-
-
-* Échapper correctement toutes les entrées utilisateur avant de les afficher sur une page web.
-* Utiliser des en-têtes CSP (Content Security Policy) pour restreindre l'exécution de scripts.
-
-
-
-
+- Échapper correctement toutes les entrées utilisateur avant de les afficher sur une page web.
+- Utiliser des en-têtes CSP (Content Security Policy) pour restreindre l'exécution de scripts.
 
 #### 3. Attaque par déni de service distribué (DDoS)
 Dans une attaque DDoS, un attaquant utilise plusieurs ordinateurs et connexions Internet pour inonder la cible de paquets de demande. L'objectif est de surcharger le serveur, le rendant inutilisable.
@@ -229,12 +206,9 @@ Comment cela fonctionne :
 #### Prévention :
 
 
-
-
-
-* Utiliser des services anti-DDoS.
-* Mettre en place des limites de taux pour les requêtes.
-* Avoir une infrastructure capable de gérer des pics de trafic.
+- Utiliser des services anti-DDoS.
+- Mettre en place des limites de taux pour les requêtes.
+- Avoir une infrastructure capable de gérer des pics de trafic.
 
 
 ### c. Meilleures pratiques pour protéger les API
@@ -253,22 +227,20 @@ Comment cela fonctionne :
 
 ### a. Authentification basique :
 
-
-
+```python
 import requests
 response = requests.get('https://api.exemple.com/data', auth=('username', 'password'))
-
+```
 
 
 
 ### b. Authentification par jeton (Token) :
 
 
-
+```python
 headers = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
 response = requests.get('https://api.exemple.com/data', headers=headers)
-
-
+```
 
 
 ### c. Ce que fait le package requests derrière la scène :
@@ -282,7 +254,7 @@ Lorsque vous utilisez requests avec une authentification basique, la bibliothèq
 
 
 
-
+```python
 import requests
 import base64
 
@@ -292,37 +264,26 @@ credentials = base64.b64encode(f"{username}:{password}".encode()).decode()
 
 headers = {"Authorization": f"Basic {credentials}"}
 response = requests.get('https://api.exemple.com/data', headers=headers)
-
 # Cette requête enverra un en-tête qui ressemble à:
 # {"Authorization": "Basic dXNlcm5hbWU6cGFzc3dvcmQ="}
-
-
-
+```
 
 
 
 
 #### 2. Authentification par jeton (Token) :
 Avec l'authentification par jeton, requests ajoute simplement votre jeton à l'en-tête HTTP "Authorization".
-
-
-
-
+```python
 headers = {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
 response = requests.get('https://api.exemple.com/data', headers=headers)
-
 # Cette requête enverra un en-tête qui ressemble à:
 # {"Authorization": "Bearer YOUR_ACCESS_TOKEN"}
-
-
-
+```
 
 
 Le corps de la requête dépendra de la méthode HTTP utilisée (GET, POST, PUT, etc.) et de la nature des données que vous envoyez. Pour une requête GET, il est généralement vide, mais pour une requête POST, il contiendrait les données que vous voulez envoyer.
 
 En résumé, lorsqu'on utilise la bibliothèque requests, beaucoup de choses se passent en coulisse pour faciliter la construction de requêtes HTTP. Elle gère l'ajout des en-têtes appropriés, l'encodage des données et bien d'autres détails techniques pour que vous n'ayez pas à le faire manuellement.
-
-
 
 
 ### d. Authentification avec OAuth :
@@ -334,9 +295,6 @@ OAuth est un protocole d'autorisation couramment utilisé pour obtenir un accès
 Un flux typique avec OAuth 2.0 (le plus couramment utilisé) implique les étapes suivantes :
 
 
-
-
-
 1. Demande d'autorisation : L'application tierce demande à l'utilisateur la permission d'accéder à ses données.
 2. Accord de l'utilisateur : L'utilisateur accorde la permission à l'application tierce.
 3. Obtention d'un code d'autorisation : L'application reçoit un code d'autorisation en retour.
@@ -344,12 +302,9 @@ Un flux typique avec OAuth 2.0 (le plus couramment utilisé) implique les étape
 5. Accès aux ressources : Avec ce jeton d'accès, l'application peut maintenant accéder aux ressources de l'utilisateur.
 
 
-
 Voici un exemple simplifié d'utilisation de OAuth 2.0 avec Python en utilisant la bibliothèque requests :
 
-
-
-
+```python
 import requests
 
 # Étape 1 et 2: L'utilisateur est généralement redirigé vers une URL où il accorde l'autorisation. 
@@ -376,29 +331,20 @@ access_token = token_info['access_token']
 headers = {"Authorization": f"Bearer {access_token}"}
 response = requests.get('https://provider.com/user/info', headers=headers)
 user_info = response.json()
-
-
-
-
+```
 
 Ce n'est qu'un exemple très simplifié. En réalité, le flux OAuth peut être plus complexe et impliquer d'autres étapes ou paramètres en fonction du fournisseur d'authentification que vous utilisez (par exemple, Google, Facebook, Twitter, etc.). Il existe également des bibliothèques Python spécialisées comme OAuthLib et Flask-OAuthlib qui facilitent l'implémentation de OAuth en Python.
 
-
-
-
 ## 4. Exemples Python pour l'authentification - Coté API:
-
 
 
 Examinons le côté serveur (ou API) de l'authentification. Les exemples suivants sont simplifiés pour montrer la logique de base de l'authentification côté serveur, et utilisent Flask, un micro-framework Python, pour illustrer les concepts.
 
 
-
-
 ### a. Authentification par mot de passe (Basic Auth) :
 
 
-
+```python
 from flask import Flask, request, jsonify
 from werkzeug.security import check_password_hash
 
@@ -418,15 +364,12 @@ def get_resource():
     if user_password_hash and check_password_hash(user_password_hash, auth.password):
         return jsonify({"message": "You are authenticated"})
     return jsonify({"message": "Unauthorized"}), 401
-
-
-
-
+```
 
 ### b. Authentification par jeton (Token Auth) :
 
 
-
+```python
 tokens = {
     "alice": "token_for_alice",
     "bob": "token_for_bob"
@@ -440,14 +383,12 @@ def get_resource():
     if token in tokens.values():
         return jsonify({"message": "You are authenticated"})
     return jsonify({"message": "Unauthorized"}), 401
-
-
-
+```
 
 ### c. OAuth (fournissant l'authentification) :
 
 
-
+```python
 from oauthlib.oauth2 import RequestValidator, BearerToken, OAuth2Provider
 
 app = Flask(__name__)
@@ -464,9 +405,7 @@ bearer = BearerToken(validator)
 @oauth.require_oauth()
 def get_resource():
     return jsonify({"message": "You are authenticated"})
-
-
-
+```
 
 
 Ces exemples sont vraiment élémentaires et ne doivent pas être utilisés tels quels en production. Dans un véritable environnement de production, vous voudriez intégrer une bibliothèque d'authentification complète (comme Flask-HTTPAuth ou Flask-OAuthlib), utiliser HTTPS, gérer les exceptions, etc. Ces exemples sont destinés à montrer le concept général d'authentification côté serveur avec Flask.

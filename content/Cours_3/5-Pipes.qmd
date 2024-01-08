@@ -25,23 +25,23 @@ code-links: binder
 
 
 Les pipes sont des mécanismes essentiels en communication interprocessus (IPC), permettant le transfert de données entre processus. Ils sont particulièrement adaptés aux architectures où les données doivent être transmises séquentiellement d'un processus à un autre.
-```
+
 
 
 
 ## 1. Définition et Concepts de Base
 
 
-```
+
 Un pipe est une section de mémoire utilisée pour le stockage temporaire de données en transit entre deux processus. En termes de programmation système, un pipe est un tampon de données, généralement de taille fixe, qui est géré par le système d'exploitation. Les pipes peuvent être anonymes, c'est-à-dire utilisés pour la communication entre processus parent-enfant ou entre processus frères, ou nommés, également connus sous le nom de FIFO (First In, First Out), qui peuvent être utilisés par n'importe quel processus connaissant le nom du pipe.
-```
+
 
 
 
 ## 2. Pipes au Niveau Système
 
 
-```
+
 
 
 ### a. Pipes Anonymes
@@ -50,23 +50,23 @@ Les pipes anonymes sont des canaux de communication temporaires qui ne sont pas 
 
 ### b. Pipes Només (FIFOs)
 Les pipes només sont des canaux de communication persistants qui existent indépendamment des processus et sont représentés par un nom dans le système de fichiers. Ils sont utilisés pour la communication entre processus qui n'ont pas nécessairement de relation directe.
-```
+
 
 
 
 ## 3. Fonctionnement des Pipes
 
 
-```
+
 Lorsqu'un pipe est créé, le système d'exploitation alloue un tampon de mémoire et retourne deux descripteurs de fichiers : un pour la fin en écriture et un pour la fin en lecture. Les processus interagissent avec le pipe en utilisant ces descripteurs, tout comme ils le feraient avec des fichiers ordinaires. Les données écrites dans le pipe par un processus sont stockées dans le tampon jusqu'à ce qu'elles soient lues par un autre processus.
-```
+
 
 
 
 ## 4. Pipes en Python
 
 
-```
+
 En Python, les pipes sont accessibles via le module multiprocessing. Ce module fournit une abstraction de haut niveau pour la création et la gestion des pipes, permettant aux développeurs de se concentrer sur la logique de leur application plutôt que sur les détails de bas niveau de la communication interprocessus.
 
 
@@ -76,77 +76,77 @@ Python simplifie l'utilisation des pipes anonymes avec la classe Pipe du module 
 
 ### b. Pipes Només
 Pour les pipes només, Python offre le module os qui permet de créer des FIFOs via la fonction mkfifo. Une fois le FIFO créé, il peut être ouvert et utilisé comme un fichier ordinaire pour la lecture et l'écriture de données.
-```
+
 
 
 
 ## 5. Avantages et Limitations des Pipes
 
 
-```
+
 
 
 ### a. Avantages
 
-```
 
 
 
-* `Simplicité d'utilisation : Les pipes sont faciles à utiliser, en particulier en Python grâce aux abstractions fournies par le module multiprocessing.`
-* `Efficacité : Pour les communications séquentielles et les petites quantités de données, les pipes sont très efficaces.`
+
+ - Simplicité d'utilisation : Les pipes sont faciles à utiliser, en particulier en Python grâce aux abstractions fournies par le module multiprocessing.
+ - Efficacité : Pour les communications séquentielles et les petites quantités de données, les pipes sont très efficaces.
 
 
-```
+
 
 
 ### b. Limitations
 
-```
 
 
 
-* `Communication unidirectionnelle : Par défaut, un pipe est unidirectionnel. Pour une communication bidirectionnelle, il faut créer deux pipes.`
-* `Capacité limitée : Les pipes ont une capacité limitée, déterminée par le système d'exploitation, et ne sont pas conçus pour de grandes quantités de données.`
-* `Dépendance au système d'exploitation : Les détails d'implémentation des pipes peuvent varier selon les systèmes d'exploitation.`
+
+ - Communication unidirectionnelle : Par défaut, un pipe est unidirectionnel. Pour une communication bidirectionnelle, il faut créer deux pipes.
+ - Capacité limitée : Les pipes ont une capacité limitée, déterminée par le système d'exploitation, et ne sont pas conçus pour de grandes quantités de données.
+ - Dépendance au système d'exploitation : Les détails d'implémentation des pipes peuvent varier selon les systèmes d'exploitation.
 
 
 ## 6. Comparaison avec d'autres Méthodes d'IPC
 
 
-```
+
 Les pipes se distinguent des autres méthodes d'IPC par leur simplicité et leur efficacité pour les flux de données séquentiels. Contrairement aux sockets, ils ne sont pas conçus pour la communication réseau. Par rapport aux fichiers, ils offrent une communication en temps réel sans persistance des données. Enfin, à la différence de la mémoire partagée, ils ne nécessitent pas de mécanismes de synchronisation complexes, mais ils ne sont pas non plus adaptés pour le partage d'états ou de structures de données complexes entre processus.
-```
+
 
 
 
 ## 7. Pipes et Système de Fichiers
 
 
-```
+
 Les pipes només sont étroitement liés au système de fichiers car ils y sont représentés par un nom. Ce lien avec le système de fichiers permet aux pipes només de persister au-delà de la vie des processus et d'être accessibles par des processus qui n'ont pas de lien de parenté direct, à condition qu'ils aient les permissions nécessaires pour accéder au fichier représentant le pipe.
 
 Mécanisme de Fonctionnement :
 
-```
 
 
 
-1. `Création : Un pipe nomé est créé dans le système de fichiers avec un appel système spécifique.`
-2. `Ouverture : Les processus ouvrent le pipe nomé en utilisant les appels système standard pour l'ouverture de fichiers.`
-3. `Communication : Les données sont écrites dans le pipe et lues par un autre processus, en respectant l'ordre FIFO.`
-4. `Fermeture et Suppression : Comme pour les fichiers, les processus doivent fermer les descripteurs de fichiers lorsqu'ils ont terminé et, pour les pipes només, les supprimer du système de fichiers pour libérer l'espace de noms.`
+
+1. Création : Un pipe nomé est créé dans le système de fichiers avec un appel système spécifique.
+2. Ouverture : Les processus ouvrent le pipe nomé en utilisant les appels système standard pour l'ouverture de fichiers.
+3. Communication : Les données sont écrites dans le pipe et lues par un autre processus, en respectant l'ordre FIFO.
+4. Fermeture et Suppression : Comme pour les fichiers, les processus doivent fermer les descripteurs de fichiers lorsqu'ils ont terminé et, pour les pipes només, les supprimer du système de fichiers pour libérer l'espace de noms.
 
 
-```
+
 Ces concepts forment la base de la compréhension des pipes en IPC et sont essentiels pour les développeurs qui souhaitent implémenter une communication efficace et structurée entre processus dans leurs applications.
-```
+
 
 
 
 ## 8. Exemples d'Implémentation de Pipes en Python
 
 
-```
+
 Les exemples suivants illustrent comment utiliser les pipes pour la communication interprocessus en Python en utilisant le module multiprocessing.
 
 
@@ -155,7 +155,7 @@ Dans cet exemple, nous allons créer un pipe anonyme pour une communication unid
 
 
 
-```
+```python
 from multiprocessing import Process, Pipe
 
 def sender(conn):
@@ -186,7 +186,7 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, le processus sender envoie une série de messages au processus receiver via le pipe. Le receiver continue de lire les messages jusqu'à ce qu'il reçoive un message spécial 'END' qui signale la fin de la communication.
 
 
@@ -194,8 +194,8 @@ Dans cet exemple, le processus sender envoie une série de messages au processus
 Ici, nous allons étendre l'exemple précédent pour permettre une communication bidirectionnelle entre les processus.
 
 
+```python
 
-```
 from multiprocessing import Process, Pipe
 
 def process_one(conn):
@@ -223,7 +223,7 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, chaque processus envoie un message à l'autre et reçoit une réponse. La communication est bidirectionnelle car chaque extrémité du pipe peut être utilisée à la fois pour envoyer et recevoir des données.
 
 
@@ -231,8 +231,8 @@ Dans cet exemple, chaque processus envoie un message à l'autre et reçoit une r
 Pour cet exemple, nous utiliserons le module os pour créer un pipe nomé et communiquer entre processus indépendants.
 
 
+```python
 
-```
 import os
 import time
 
@@ -268,6 +268,6 @@ if __name__ == '__main__':
 
 
 
-```
+
 Dans cet exemple, le processus writer crée un pipe nomé (FIFO) et écrit des données dedans. Le processus reader ouvre le même FIFO pour lire les données. Le FIFO persiste dans le système de fichiers et est accessible par son chemin.
-```
+
