@@ -3,7 +3,7 @@ project:
 
 
 website:
-  title: "Introduction à Python"
+  title: "API en Python"
   open-graph: true
   favicon: content/.img/favicon.png
   page-navigation: true
@@ -112,7 +112,7 @@ website:
       [Code source disponible sur {{< fa brands github >}} `GitHub`](https://github.com/remigenet/Python-API)
 
 theme:
-  light: zephir
+  light: flatly
   dark: vapor
 
 

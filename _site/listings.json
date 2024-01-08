@@ -75,17 +75,9 @@
     ]
   },
   {
-    "listing": "/content/Cours_3/index.html",
+    "listing": "/content/projets/index.html",
     "items": [
-      "/content/Cours_3/7-OtherIPCend.html",
-      "/content/Cours_3/3-Files.html",
-      "/content/Cours_3/1-IPC101.html",
-      "/content/Cours_3/5-Pipes.html",
-      "/content/Cours_3/4-SharedMemory.html",
-      "/content/Cours_3/2-Sockets.html",
-      "/content/Cours_3/TP-3-1.html",
-      "/content/Cours_3/TP-3-2.html",
-      "/content/Cours_3/6-gRPC.html"
+      "/content/projets/millesime_2324.html"
     ]
   },
   {
@@ -103,9 +95,17 @@
     ]
   },
   {
-    "listing": "/content/projets/index.html",
+    "listing": "/content/Cours_3/index.html",
     "items": [
-      "/content/projets/millesime_2324.html"
+      "/content/Cours_3/7-OtherIPCend.html",
+      "/content/Cours_3/3-Files.html",
+      "/content/Cours_3/1-IPC101.html",
+      "/content/Cours_3/5-Pipes.html",
+      "/content/Cours_3/4-SharedMemory.html",
+      "/content/Cours_3/2-Sockets.html",
+      "/content/Cours_3/TP-3-1.html",
+      "/content/Cours_3/TP-3-2.html",
+      "/content/Cours_3/6-gRPC.html"
     ]
   }
 ]
