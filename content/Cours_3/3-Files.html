@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -124,6 +158,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -145,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -160,6 +198,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -185,6 +227,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -215,6 +261,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -222,6 +276,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -264,6 +322,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -298,6 +360,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -334,11 +404,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communication entre Processus (IPC)</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link">
@@ -391,11 +467,17 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-1-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-2-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -413,22 +495,26 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#définition-technique-dun-fichier" id="toc-définition-technique-dun-fichier" class="nav-link" data-scroll-target="#définition-technique-dun-fichier">1. Définition Technique d’un Fichier</a></li>
   <li><a href="#avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc" id="toc-avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc" class="nav-link" data-scroll-target="#avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc">2. Avantages et Inconvénients de l’Utilisation des Fichiers pour l’IPC</a></li>
-  <li><a href="#cas-dusage-standard" id="toc-cas-dusage-standard" class="nav-link" data-scroll-target="#cas-dusage-standard">3. Cas d’Usage Standard</a></li>
+  <li><a href="#cas-dusage-standard" id="toc-cas-dusage-standard" class="nav-link" data-scroll-target="#cas-dusage-standard">3. Cas d’Usage Standard</a>
+  <ul class="collapse">
+  <li><a href="#a.-synchronisation-et-conflits" id="toc-a.-synchronisation-et-conflits" class="nav-link" data-scroll-target="#a.-synchronisation-et-conflits">a. Synchronisation et Conflits</a></li>
+  <li><a href="#b.-mécanismes-de-synchronisation" id="toc-b.-mécanismes-de-synchronisation" class="nav-link" data-scroll-target="#b.-mécanismes-de-synchronisation">b. Mécanismes de Synchronisation</a></li>
+  <li><a href="#c.-utilisation-derrière-une-api" id="toc-c.-utilisation-derrière-une-api" class="nav-link" data-scroll-target="#c.-utilisation-derrière-une-api">c.&nbsp;Utilisation Derrière une API</a></li>
+  </ul></li>
   <li><a href="#exemple-1-logging" id="toc-exemple-1-logging" class="nav-link" data-scroll-target="#exemple-1-logging">4. Exemple 1: Logging</a>
   <ul class="collapse">
+  <li><a href="#a.-sans-utiliser-le-module-logging" id="toc-a.-sans-utiliser-le-module-logging" class="nav-link" data-scroll-target="#a.-sans-utiliser-le-module-logging">a. Sans utiliser le module logging</a></li>
   <li><a href="#b.-simplification-avec-le-module-logging" id="toc-b.-simplification-avec-le-module-logging" class="nav-link" data-scroll-target="#b.-simplification-avec-le-module-logging">b. Simplification avec le module logging</a></li>
   </ul></li>
   <li><a href="#exemple-2-caching" id="toc-exemple-2-caching" class="nav-link" data-scroll-target="#exemple-2-caching">5. Exemple 2: Caching</a></li>
-  </ul></li>
-  <li><a href="#exemple-dutilisation" id="toc-exemple-dutilisation" class="nav-link" data-scroll-target="#exemple-dutilisation">Exemple d’utilisation</a>
-  <ul class="collapse">
+  <li><a href="#exemple-3-queueing" id="toc-exemple-3-queueing" class="nav-link" data-scroll-target="#exemple-3-queueing">6. Exemple 3: Queueing</a></li>
   <li><a href="#exemple-4-mise-à-jour-et-lecture-de-données-financières" id="toc-exemple-4-mise-à-jour-et-lecture-de-données-financières" class="nav-link" data-scroll-target="#exemple-4-mise-à-jour-et-lecture-de-données-financières">7. Exemple 4: Mise à jour et Lecture de Données Financières</a></li>
   </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -446,7 +532,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -478,218 +564,225 @@ ul.task-list li input[type="checkbox"] {
 <h1>III. Fichiers en tant que Méthode de Communication Interprocessus (IPC)</h1>
 <section id="définition-technique-dun-fichier" class="level2">
 <h2 class="anchored" data-anchor-id="définition-technique-dun-fichier">1. Définition Technique d’un Fichier</h2>
-<pre><code>Techniquement, un fichier est une collection de données stockées sur un support de stockage persistant, comme un disque dur, un SSD, ou tout autre type de mémoire non volatile. Pour la machine, un fichier est représenté par une série de bits organisés de manière structurée, souvent dans un système de fichiers qui gère l'emplacement des données, les métadonnées (comme les permissions, les dates de création et de modification), et les relations entre les fichiers et les répertoires.
-
-Écriture et Lecture de Fichiers
-
-Lorsqu'un fichier est écrit sur un disque, le système d'exploitation traduit les données en une série de commandes pour le contrôleur de disque, qui détermine où les données doivent être physiquement stockées. Les données sont ensuite écrites sur le support de stockage en modifiant l'état magnétique ou électrique des cellules de stockage.
-
-La lecture d'un fichier implique le processus inverse, où le contrôleur de disque lit les états des cellules de stockage et les transmet au système d'exploitation, qui les reconstitue en données utilisables par les programmes.</code></pre>
+<p>Techniquement, un fichier est une collection de données stockées sur un support de stockage persistant, comme un disque dur, un SSD, ou tout autre type de mémoire non volatile. Pour la machine, un fichier est représenté par une série de bits organisés de manière structurée, souvent dans un système de fichiers qui gère l’emplacement des données, les métadonnées (comme les permissions, les dates de création et de modification), et les relations entre les fichiers et les répertoires.</p>
+<p>Écriture et Lecture de Fichiers</p>
+<p>Lorsqu’un fichier est écrit sur un disque, le système d’exploitation traduit les données en une série de commandes pour le contrôleur de disque, qui détermine où les données doivent être physiquement stockées. Les données sont ensuite écrites sur le support de stockage en modifiant l’état magnétique ou électrique des cellules de stockage.</p>
+<p>La lecture d’un fichier implique le processus inverse, où le contrôleur de disque lit les états des cellules de stockage et les transmet au système d’exploitation, qui les reconstitue en données utilisables par les programmes.</p>
 </section>
 <section id="avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc" class="level2">
 <h2 class="anchored" data-anchor-id="avantages-et-inconvénients-de-lutilisation-des-fichiers-pour-lipc">2. Avantages et Inconvénients de l’Utilisation des Fichiers pour l’IPC</h2>
-<pre><code>Avantages :
-- Persistant : Les fichiers restent sur le disque même après le redémarrage de la machine, ce qui est utile pour la récupération de données et la persistance à long terme.
-- Simplicité : Les fichiers sont une méthode d'IPC facile à comprendre et à utiliser, avec des opérations de base bien définies (ouvrir, lire, écrire, fermer).
-- Compatibilité : Les fichiers peuvent être accessibles et modifiés par différents processus, voire différents systèmes d'exploitation, si le fichier est partagé via un réseau.
-
-Inconvénients :
-- Performance : L'accès aux fichiers est généralement plus lent que les autres méthodes d'IPC, en raison de la latence du disque et du surcoût des opérations d'entrée/sortie.
-- Synchronisation : Lorsque plusieurs processus accèdent au même fichier, il faut gérer la synchronisation pour éviter les conflits et les corruptions de données.
-- Verrouillage : Les mécanismes de verrouillage de fichiers sont nécessaires pour coordonner l'accès concurrent, mais ils peuvent être complexes à implémenter correctement.</code></pre>
+<p>Avantages : - Persistant : Les fichiers restent sur le disque même après le redémarrage de la machine, ce qui est utile pour la récupération de données et la persistance à long terme. - Simplicité : Les fichiers sont une méthode d’IPC facile à comprendre et à utiliser, avec des opérations de base bien définies (ouvrir, lire, écrire, fermer). - Compatibilité : Les fichiers peuvent être accessibles et modifiés par différents processus, voire différents systèmes d’exploitation, si le fichier est partagé via un réseau.</p>
+<p>Inconvénients : - Performance : L’accès aux fichiers est généralement plus lent que les autres méthodes d’IPC, en raison de la latence du disque et du surcoût des opérations d’entrée/sortie. - Synchronisation : Lorsque plusieurs processus accèdent au même fichier, il faut gérer la synchronisation pour éviter les conflits et les corruptions de données. - Verrouillage : Les mécanismes de verrouillage de fichiers sont nécessaires pour coordonner l’accès concurrent, mais ils peuvent être complexes à implémenter correctement.</p>
 </section>
 <section id="cas-dusage-standard" class="level2">
 <h2 class="anchored" data-anchor-id="cas-dusage-standard">3. Cas d’Usage Standard</h2>
-<pre><code>Les fichiers sont couramment utilisés pour :
-- Journalisation (Logging) : Enregistrer les événements et les erreurs dans un fichier de journal.
-- Configuration : Stocker des paramètres de configuration que différents processus ou utilisateurs peuvent lire.
-- Échange de Données : Transférer des données entre processus, notamment lorsque ces processus ne sont pas exécutés simultanément.
-
-
-### a. Synchronisation et Conflits
-Imaginons deux processus qui écrivent dans le même fichier de journalisation. Si les deux processus tentent d'écrire en même temps, leurs sorties peuvent s'entremêler, rendant le fichier de journalisation difficile à lire ou corrompu.
-
-
-### b. Mécanismes de Synchronisation
-Pour éviter cela, on peut utiliser des mécanismes de verrouillage de fichiers :
-- Verrouillage Exclusif : Un processus verrouille le fichier pour l'écriture, empêchant les autres processus d'écrire jusqu'à ce que le verrou soit libéré.
-- Verrouillage Partagé : Plusieurs processus peuvent lire le fichier en même temps, mais l'écriture est exclusive.
-
-
-### c. Utilisation Derrière une API
-Dans le contexte d'une API, les fichiers peuvent être utilisés pour :
-- Caching : Stocker des réponses fréquemment demandées pour réduire la charge sur les serveurs et accélérer les temps de réponse.
-- État de Session : Conserver les informations sur l'état de la session utilisateur entre différentes requêtes.
-- Queueing : Utiliser des fichiers comme une file d'attente simple pour gérer les tâches en arrière-plan ou les requêtes asynchrones.</code></pre>
+<p>Les fichiers sont couramment utilisés pour : - Journalisation (Logging) : Enregistrer les événements et les erreurs dans un fichier de journal. - Configuration : Stocker des paramètres de configuration que différents processus ou utilisateurs peuvent lire. - Échange de Données : Transférer des données entre processus, notamment lorsque ces processus ne sont pas exécutés simultanément.</p>
+<section id="a.-synchronisation-et-conflits" class="level3">
+<h3 class="anchored" data-anchor-id="a.-synchronisation-et-conflits">a. Synchronisation et Conflits</h3>
+<p>Imaginons deux processus qui écrivent dans le même fichier de journalisation. Si les deux processus tentent d’écrire en même temps, leurs sorties peuvent s’entremêler, rendant le fichier de journalisation difficile à lire ou corrompu.</p>
+</section>
+<section id="b.-mécanismes-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-mécanismes-de-synchronisation">b. Mécanismes de Synchronisation</h3>
+<p>Pour éviter cela, on peut utiliser des mécanismes de verrouillage de fichiers : - Verrouillage Exclusif : Un processus verrouille le fichier pour l’écriture, empêchant les autres processus d’écrire jusqu’à ce que le verrou soit libéré. - Verrouillage Partagé : Plusieurs processus peuvent lire le fichier en même temps, mais l’écriture est exclusive.</p>
+</section>
+<section id="c.-utilisation-derrière-une-api" class="level3">
+<h3 class="anchored" data-anchor-id="c.-utilisation-derrière-une-api">c.&nbsp;Utilisation Derrière une API</h3>
+<p>Dans le contexte d’une API, les fichiers peuvent être utilisés pour : - Caching : Stocker des réponses fréquemment demandées pour réduire la charge sur les serveurs et accélérer les temps de réponse. - État de Session : Conserver les informations sur l’état de la session utilisateur entre différentes requêtes. - Queueing : Utiliser des fichiers comme une file d’attente simple pour gérer les tâches en arrière-plan ou les requêtes asynchrones.</p>
+</section>
 </section>
 <section id="exemple-1-logging" class="level2">
 <h2 class="anchored" data-anchor-id="exemple-1-logging">4. Exemple 1: Logging</h2>
-<pre><code>
-
-### a. Sans utiliser le module logging
-Dans cet exemple, deux processus écrivent dans le même fichier de log. Un verrou (Lock) est utilisé pour synchroniser l'accès au fichier de log pour éviter que les messages ne se mélangent.
-
-
-</code></pre>
-<p>from multiprocessing import Process, Lock</p>
-<p>def log_message(lock, file_path, message): with lock: with open(file_path, ‘a’) as log_file: log_file.write(f’{message}’)</p>
-<p>def process_function(lock, file_path, process_id): for i in range(5): log_message(lock, file_path, f”Message from process {process_id}: {i}“)</p>
-<p>if <strong>name</strong> == “<strong>main</strong>”: lock = Lock() log_file_path = ‘mylog.log’</p>
-<pre><code>processes = [Process(target=process_function, args=(lock, log_file_path, i)) for i in range(2)]
-
-for p in processes:
-    p.start()
-
-for p in processes:
-    p.join()</code></pre>
-<pre><code>
-
-</code></pre>
+<section id="a.-sans-utiliser-le-module-logging" class="level3">
+<h3 class="anchored" data-anchor-id="a.-sans-utiliser-le-module-logging">a. Sans utiliser le module logging</h3>
+<p>Dans cet exemple, deux processus écrivent dans le même fichier de log. Un verrou (Lock) est utilisé pour synchroniser l’accès au fichier de log pour éviter que les messages ne se mélangent.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> Process, Lock</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_message(lock, file_path, message):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> lock:</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(file_path, <span class="st">'a'</span>) <span class="im">as</span> log_file:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            log_file.write(<span class="ss">f'</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_function(lock, file_path, process_id):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        log_message(lock, file_path, <span class="ss">f"Message from process </span><span class="sc">{</span>process_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    lock <span class="op">=</span> Lock()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    log_file_path <span class="op">=</span> <span class="st">'mylog.log'</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    processes <span class="op">=</span> [Process(target<span class="op">=</span>process_function, args<span class="op">=</span>(lock, log_file_path, i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> processes:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        p.start()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> processes:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        p.join()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ce scénario illustre l’utilisation d’un verrou pour synchroniser l’accès à une ressource partagée - en l’occurrence, un fichier de log. Dans les applications multi-processus, il est crucial de s’assurer que les processus n’écrivent pas en même temps dans le même fichier, ce qui pourrait entraîner des données corrompues ou entremêlées. L’utilisation d’un Lock garantit que chaque processus attend son tour pour écrire dans le fichier, préservant ainsi l’intégrité des logs.</p>
+</section>
 <section id="b.-simplification-avec-le-module-logging" class="level3">
 <h3 class="anchored" data-anchor-id="b.-simplification-avec-le-module-logging">b. Simplification avec le module logging</h3>
 <p>Le module logging de Python offre une solution intégrée pour la journalisation qui gère la synchronisation des threads sous le capot. Voici comment l’Exemple 1 peut être simplifié en utilisant logging:</p>
-<pre><code>import logging
-from multiprocessing import Process, Lock
-from logging.handlers import RotatingFileHandler
-
-def setup_logger():
-    logger = logging.getLogger('MyLogger')
-    logger.setLevel(logging.INFO)
-    handler = RotatingFileHandler('mylog.log', maxBytes=2000, backupCount=5)
-    logger.addHandler(handler)
-    return logger
-
-def log_message(logger, message):
-    logger.info(message)
-
-def process_function(logger, process_id):
-    for i in range(5):
-        log_message(logger, f"Message from process {process_id}: {i}")
-
-if __name__ == "__main__":
-    logger = setup_logger()
-
-    processes = [Process(target=process_function, args=(logger, i)) for i in range(2)]
-
-    for p in processes:
-        p.start()
-
-    for p in processes:
-        p.join()</code></pre>
-<pre><code>Dans ce code, nous configurons un RotatingFileHandler qui s'occupe de la rotation des fichiers de log lorsque le fichier actuel atteint une certaine taille. Cela permet de s'assurer que les fichiers de log ne deviennent pas trop volumineux et que les données de log sont conservées sur plusieurs fichiers. Le RotatingFileHandler est également conçu pour être utilisé dans des environnements multi-processus, ce qui simplifie la gestion des logs sans avoir besoin de gérer explicitement les verrous.</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> Process, Lock</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> logging.handlers <span class="im">import</span> RotatingFileHandler</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> setup_logger():</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    logger <span class="op">=</span> logging.getLogger(<span class="st">'MyLogger'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    logger.setLevel(logging.INFO)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    handler <span class="op">=</span> RotatingFileHandler(<span class="st">'mylog.log'</span>, maxBytes<span class="op">=</span><span class="dv">2000</span>, backupCount<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    logger.addHandler(handler)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> logger</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> log_message(logger, message):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    logger.info(message)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_function(logger, process_id):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        log_message(logger, <span class="ss">f"Message from process </span><span class="sc">{</span>process_id<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    logger <span class="op">=</span> setup_logger()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    processes <span class="op">=</span> [Process(target<span class="op">=</span>process_function, args<span class="op">=</span>(logger, i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)]</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> processes:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        p.start()</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> p <span class="kw">in</span> processes:</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        p.join()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans ce code, nous configurons un RotatingFileHandler qui s’occupe de la rotation des fichiers de log lorsque le fichier actuel atteint une certaine taille. Cela permet de s’assurer que les fichiers de log ne deviennent pas trop volumineux et que les données de log sont conservées sur plusieurs fichiers. Le RotatingFileHandler est également conçu pour être utilisé dans des environnements multi-processus, ce qui simplifie la gestion des logs sans avoir besoin de gérer explicitement les verrous.</p>
 </section>
 </section>
 <section id="exemple-2-caching" class="level2">
 <h2 class="anchored" data-anchor-id="exemple-2-caching">5. Exemple 2: Caching</h2>
-<pre><code>Dans cet exemple, un processus d'API stocke des réponses dans un fichier pour éviter de recalculer des données fréquemment demandées, et plusieurs processus peuvent lire ces données mises en cache.
-
-
-</code></pre>
-<p>import json import os</p>
-<p>cache_file_path = ‘api_cache.json’</p>
-<p>def get_data_from_cache(key): if os.path.exists(cache_file_path): with open(cache_file_path, ‘r’) as cache_file: cache = json.load(cache_file) return cache.get(key, None) return None</p>
-<p>def save_data_to_cache(key, data): cache = {} if os.path.exists(cache_file_path): with open(cache_file_path, ‘r’) as cache_file: cache = json.load(cache_file) cache[key] = data with open(cache_file_path, ‘w’) as cache_file: json.dump(cache, cache_file)</p>
-</section>
-</section>
-<section id="exemple-dutilisation" class="level1">
-<h1>Exemple d’utilisation</h1>
-<p>data = get_data_from_cache(‘some_key’) if data is None: # Simule le calcul ou la récupération de données data = ‘some_new_data’ save_data_to_cache(‘some_key’, data)</p>
-<pre><code>
-
-</code></pre>
+<p>Dans cet exemple, un processus d’API stocke des réponses dans un fichier pour éviter de recalculer des données fréquemment demandées, et plusieurs processus peuvent lire ces données mises en cache.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cache_file_path <span class="op">=</span> <span class="st">'api_cache.json'</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_data_from_cache(key):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(cache_file_path):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(cache_file_path, <span class="st">'r'</span>) <span class="im">as</span> cache_file:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            cache <span class="op">=</span> json.load(cache_file)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> cache.get(key, <span class="va">None</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> save_data_to_cache(key, data):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    cache <span class="op">=</span> {}</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(cache_file_path):</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(cache_file_path, <span class="st">'r'</span>) <span class="im">as</span> cache_file:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            cache <span class="op">=</span> json.load(cache_file)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    cache[key] <span class="op">=</span> data</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(cache_file_path, <span class="st">'w'</span>) <span class="im">as</span> cache_file:</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        json.dump(cache, cache_file)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'utilisation</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> get_data_from_cache(<span class="st">'some_key'</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> data <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simule le calcul ou la récupération de données</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> <span class="st">'some_new_data'</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    save_data_to_cache(<span class="st">'some_key'</span>, data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>L’utilisation de fichiers pour le caching est un moyen simple et efficace de stocker des données qui ne changent pas fréquemment ou qui sont coûteuses à générer. Cela permet d’économiser des ressources en évitant les calculs redondants et en fournissant un accès rapide aux données pour les processus qui en ont besoin.</p>
-<pre><code>
-
-
-## 6. Exemple 3: Queueing
-
-</code></pre>
+</section>
+<section id="exemple-3-queueing" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-3-queueing">6. Exemple 3: Queueing</h2>
 <p>Les fichiers peuvent être utilisés pour implémenter une file d’attente simple pour le traitement asynchrone des tâches.</p>
-<pre><code># Ceci est un exemple très simplifié et ne doit pas être utilisé en production.
-import json
-import time
-
-queue_file_path = 'task_queue.json'
-
-def add_task_to_queue(task):
-    queue = []
-    if os.path.exists(queue_file_path):
-        with open(queue_file_path, 'r') as queue_file:
-            queue = json.load(queue_file)
-    queue.append(task)
-    with open(queue_file_path, 'w') as queue_file:
-        json.dump(queue, queue_file)
-
-def process_tasks_from_queue():
-    while True:
-        if os.path.exists(queue_file_path):
-            with open(queue_file_path, 'r') as queue_file:
-                queue = json.load(queue_file)
-            if queue:
-                task = queue.pop(0)
-                print(f"Processing task: {task}")
-                with open(queue_file_path, 'w') as queue_file:
-                    json.dump(queue, queue_file)
-            else:
-                print("No tasks in queue.")
-        time.sleep(5)
-
-# Exemple d'ajout d'une tâche à la file d'attente
-add_task_to_queue({'task_id': 1, 'details': 'Do something important'})
-
-# Ceci serait normalement exécuté dans un processus séparé
-process_tasks_from_queue()</code></pre>
-<pre><code>Les files d'attente basées sur des fichiers sont une méthode d'IPC qui permet de gérer les tâches de manière asynchrone. Les tâches peuvent être ajoutées à la file d'attente par un processus et traitées par un autre, permettant ainsi une séparation claire entre la soumission des tâches et leur traitement. Cela est particulièrement utile dans les systèmes où les tâches peuvent être lourdes et où l'on souhaite éviter de bloquer les processus principaux.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un exemple très simplifié et ne doit pas être utilisé en production.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>queue_file_path <span class="op">=</span> <span class="st">'task_queue.json'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_task_to_queue(task):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    queue <span class="op">=</span> []</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(queue_file_path):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(queue_file_path, <span class="st">'r'</span>) <span class="im">as</span> queue_file:</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            queue <span class="op">=</span> json.load(queue_file)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    queue.append(task)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(queue_file_path, <span class="st">'w'</span>) <span class="im">as</span> queue_file:</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        json.dump(queue, queue_file)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_tasks_from_queue():</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> os.path.exists(queue_file_path):</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(queue_file_path, <span class="st">'r'</span>) <span class="im">as</span> queue_file:</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                queue <span class="op">=</span> json.load(queue_file)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> queue:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                task <span class="op">=</span> queue.pop(<span class="dv">0</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"Processing task: </span><span class="sc">{</span>task<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                <span class="cf">with</span> <span class="bu">open</span>(queue_file_path, <span class="st">'w'</span>) <span class="im">as</span> queue_file:</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                    json.dump(queue, queue_file)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"No tasks in queue."</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'ajout d'une tâche à la file d'attente</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>add_task_to_queue({<span class="st">'task_id'</span>: <span class="dv">1</span>, <span class="st">'details'</span>: <span class="st">'Do something important'</span>})</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci serait normalement exécuté dans un processus séparé</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>process_tasks_from_queue()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Les files d’attente basées sur des fichiers sont une méthode d’IPC qui permet de gérer les tâches de manière asynchrone. Les tâches peuvent être ajoutées à la file d’attente par un processus et traitées par un autre, permettant ainsi une séparation claire entre la soumission des tâches et leur traitement. Cela est particulièrement utile dans les systèmes où les tâches peuvent être lourdes et où l’on souhaite éviter de bloquer les processus principaux.</p>
+</section>
 <section id="exemple-4-mise-à-jour-et-lecture-de-données-financières" class="level2">
 <h2 class="anchored" data-anchor-id="exemple-4-mise-à-jour-et-lecture-de-données-financières">7. Exemple 4: Mise à jour et Lecture de Données Financières</h2>
-<pre><code>Dans cet exemple, un processus (data_writer.py) met à jour périodiquement un fichier avec des informations financières, et plusieurs processus (data_reader.py) lisent ces données pour répondre aux requêtes d'une API HTTP.
-
-data_writer.py:
-
-
-</code></pre>
-<p>import json import time import random</p>
-<p>data_file = ‘financial_data.json’</p>
-<p>def update_financial_data(): while True: # Mise à jour des données financières data = { ‘last_price’: round(random.uniform(100, 200), 2), ‘last_volume’: random.randint(1000, 10000), ‘analytic_1’: round(random.uniform(0, 1), 2), ‘analytic_2’: round(random.uniform(0, 1), 2), } with open(data_file, ‘w’) as f: json.dump(data, f) time.sleep(10)</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: update_financial_data()</p>
-<pre><code>
-
-</code></pre>
+<p>Dans cet exemple, un processus (data_writer.py) met à jour périodiquement un fichier avec des informations financières, et plusieurs processus (data_reader.py) lisent ces données pour répondre aux requêtes d’une API HTTP.</p>
+<p>data_writer.py:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data_file <span class="op">=</span> <span class="st">'financial_data.json'</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_financial_data():</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Mise à jour des données financières</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> {</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">'last_price'</span>: <span class="bu">round</span>(random.uniform(<span class="dv">100</span>, <span class="dv">200</span>), <span class="dv">2</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">'last_volume'</span>: random.randint(<span class="dv">1000</span>, <span class="dv">10000</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">'analytic_1'</span>: <span class="bu">round</span>(random.uniform(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">2</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">'analytic_2'</span>: <span class="bu">round</span>(random.uniform(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">2</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(data_file, <span class="st">'w'</span>) <span class="im">as</span> f:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            json.dump(data, f)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">10</span>)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    update_financial_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>data_reader.py:</p>
-<pre><code>import json
-from flask import Flask, jsonify
-
-app = Flask(__name__)
-data_file = 'financial_data.json'
-
-@app.route('/last_price')
-def get_last_price():
-    with open(data_file, 'r') as f:
-        data = json.load(f)
-    return jsonify(last_price=data['last_price'])
-
-@app.route('/last_volume')
-def get_last_volume():
-    with open(data_file, 'r') as f:
-        data = json.load(f)
-    return jsonify(last_volume=data['last_volume'])
-
-@app.route('/analytic_1')
-def get_analytic_1():
-    with open(data_file, 'r') as f:
-        data = json.load(f)
-    return jsonify(analytic_1=data['analytic_1'])
-
-@app.route('/analytic_2')
-def get_analytic_2():
-    with open(data_file, 'r') as f:
-        data = json.load(f)
-    return jsonify(analytic_2=data['analytic_2'])
-
-if __name__ == '__main__':
-    app.run(debug=True)</code></pre>
-<pre><code>Dans cet exemple, data_writer.py simule la mise à jour des données financières dans un fichier JSON, et data_reader.py expose ces données via différentes routes d'une API Flask. Chaque route lit la donnée pertinente du fichier et la retourne au client. Cela illustre comment les fichiers peuvent être utilisés pour partager des données entre un processus de mise à jour et plusieurs processus de lecture dans un contexte d'API.</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, jsonify</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data_file <span class="op">=</span> <span class="st">'financial_data.json'</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/last_price'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_last_price():</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(data_file, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> json.load(f)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(last_price<span class="op">=</span>data[<span class="st">'last_price'</span>])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/last_volume'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_last_volume():</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(data_file, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> json.load(f)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(last_volume<span class="op">=</span>data[<span class="st">'last_volume'</span>])</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/analytic_1'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_analytic_1():</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(data_file, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> json.load(f)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(analytic_1<span class="op">=</span>data[<span class="st">'analytic_1'</span>])</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/analytic_2'</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_analytic_2():</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(data_file, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> json.load(f)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(analytic_2<span class="op">=</span>data[<span class="st">'analytic_2'</span>])</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, data_writer.py simule la mise à jour des données financières dans un fichier JSON, et data_reader.py expose ces données via différentes routes d’une API Flask. Chaque route lit la donnée pertinente du fichier et la retourne au client. Cela illustre comment les fichiers peuvent être utilisés pour partager des données entre un processus de mise à jour et plusieurs processus de lecture dans un contexte d’API.</p>
 
 
 </section>
@@ -1222,7 +1315,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_3/2-Sockets.html" class="pagination-link  aria-label=" sockets"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sockets</span>

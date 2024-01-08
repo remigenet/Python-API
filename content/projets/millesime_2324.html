@@ -9,7 +9,7 @@
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2024-01-08">
 
-<title>API en Python - Introduction au Déploiement d’API</title>
+<title>API en Python - M2EIF Quant 2023/2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/projets/index.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -76,11 +77,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="API en Python - Introduction au Déploiement d’API">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/projets/.img/zen1.webp">
+<meta property="og:title" content="API en Python - M2EIF Quant 2023/2024">
+<meta property="og:image" content="https://remigenet.github.io/Python-API/content/projets/.img/projets1.webp">
 <meta property="og:site_name" content="API en Python">
-<meta name="citation_title" content="Introduction au Déploiement d&amp;amp;#039;API">
+<meta name="citation_title" content="M2EIF Quant 2023/2024">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2024-01-08">
 <meta name="citation_cover_date" content="2024-01-08">
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="citation_language" content="en">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -121,6 +121,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -142,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -157,6 +161,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -182,6 +190,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -212,6 +224,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -219,6 +239,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -261,6 +285,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -295,6 +323,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -319,26 +355,67 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/projets/millesime_2324.html">M2EIF Quant 2023/2024</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/projets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/projets/millesime_2324.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">M2EIF Quant 2023/2024</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-au-déploiement-dapi" id="toc-introduction-au-déploiement-dapi" class="nav-link active" data-scroll-target="#introduction-au-déploiement-dapi">Introduction au Déploiement d’API</a></li>
+  <li><a href="#projets" id="toc-projets" class="nav-link active" data-scroll-target="#projets">Projets</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#cadre-du-projet-et-deadlines" id="toc-cadre-du-projet-et-deadlines" class="nav-link" data-scroll-target="#cadre-du-projet-et-deadlines">Cadre du Projet et Deadlines</a></li>
+  <li><a href="#consignes-générales" id="toc-consignes-générales" class="nav-link" data-scroll-target="#consignes-générales">Consignes Générales</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#sujet-du-projet-1-api-pour-backtesting-de-stratégies-de-trading-algorithmique" id="toc-sujet-du-projet-1-api-pour-backtesting-de-stratégies-de-trading-algorithmique" class="nav-link" data-scroll-target="#sujet-du-projet-1-api-pour-backtesting-de-stratégies-de-trading-algorithmique">Sujet du Projet 1: API pour Backtesting de Stratégies de Trading Algorithmique</a></li>
+  <li><a href="#sujet-du-projet-2-création-danalytics-de-trading-personnalisés-via-api" id="toc-sujet-du-projet-2-création-danalytics-de-trading-personnalisés-via-api" class="nav-link" data-scroll-target="#sujet-du-projet-2-création-danalytics-de-trading-personnalisés-via-api">Sujet du Projet 2 : Création d’Analytics de Trading Personnalisés via API</a></li>
+  <li><a href="#sujet-du-projet-3-api-duniformisation-pour-échanges-de-cryptomonnaies" id="toc-sujet-du-projet-3-api-duniformisation-pour-échanges-de-cryptomonnaies" class="nav-link" data-scroll-target="#sujet-du-projet-3-api-duniformisation-pour-échanges-de-cryptomonnaies">Sujet du Projet 3 : API d’Uniformisation pour Échanges de Cryptomonnaies</a></li>
+  <li><a href="#sujet-du-projet-4-interface-utilisateur-pour-lintégration-des-projets-api" id="toc-sujet-du-projet-4-interface-utilisateur-pour-lintégration-des-projets-api" class="nav-link" data-scroll-target="#sujet-du-projet-4-interface-utilisateur-pour-lintégration-des-projets-api">Sujet du Projet 4 : Interface Utilisateur pour l’Intégration des Projets API</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction au Déploiement d’API</h1>
+<h1 class="title">M2EIF Quant 2023/2024</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
     <div class="quarto-category">Fondamentaux</div>
@@ -347,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -371,45 +448,156 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction-au-déploiement-dapi" class="level1">
-<h1>Introduction au Déploiement d’API</h1>
+<section id="projets" class="level1">
+<h1>Projets</h1>
 <hr>
-<p>Projets Introduction Bienvenue dans votre ultime défi académique en maîtrise de l’API Python. Vous allez être répartis en équipes de 5 à 7 personnes pour travailler sur l’un des quatre projets ambitieux proposés. L’objectif est de créer une solution complète et cohésive qui mettra en valeur vos compétences techniques ainsi que votre capacité à collaborer efficacement en équipe. Cadre du Projet et Deadlines • Spécifications des Projets sur GitHub : Chaque groupe devra définir</p>
-<p>et publier les spécifications de son projet sur GitHub avant le 31 décem- bre à minuit. Cette étape initiale est essentielle pour assurer la bonne</p>
-<p>coordination entre les différents projets. • Deadline du Projet : La date limite pour la finalisation des projets est fixée au 30 avril (à confirmer avec Philippe Bernard*) Consignes Générales • Rendu sur GitHub : Le code source de votre projet doit être rendu sur GitHub. Ce choix offre une transparence sur la contribution de chaque membre de l’équipe et facilite la collaboration.</p>
-<p>• Documentation : Chaque projet doit être accompagné d’une documen- tation claire expliquant le fonctionnement global du système et le flux</p>
-<p>de données. La documentation est cruciale pour comprendre comment interagir avec votre API. • Flexibilité et Créativité : Les sujets proposés sont des trames générales. Vous avez la liberté de les interpréter et de les développer selon votre vision. Nous vous encourageons à être innovants et créatifs.</p>
-<p>• Carnet de Bord : Il est recommandé de tenir un carnet de bord détail- lant votre organisation, les rôles de chacun, qui a été force de proposition,</p>
-<p>etc. Ceci aidera à évaluer non seulement le produit final mais aussi le processus de travail en équipe. Conclusion</p>
-<p>Ce projet représente une occasion unique de démontrer vos compétences accu- mulées et votre capacité à travailler sur des projets d’envergure en collaboration.</p>
-<p>Bon courage à tous !</p>
-<p>1</p>
-<p>Sujet du Projet 1: API pour Backtesting de Stratégies de Trading Algorithmique Objectif du Projet Développer une API qui permet aux utilisateurs de soumettre leurs propres</p>
-<p>stratégies de trading algorithmique pour backtesting. Le système doit être ca- pable d’exécuter ces stratégies contre des données de marché historiques et de</p>
-<p>fournir des analyses de performance. Fonctionnalités Clés 1. Soumission de Fonctions de Trading : • Implémenter une fonctionnalité permettant aux utilisateurs de soumettre des fonctions de trading. Ceci peut être réalisé, par exemple, via une requête POST contenant le code de la stratégie. • Assurer une validation efficace des fonctions soumises pour garantir leur exécution sûre et conforme. 1. Backtesting : • Mettre en place un mécanisme de backtesting qui utilise des données de marché historiques, telles que des barres de prix OHLCV. • Fournir des statistiques et des analyses de performance pour les stratégies testées. 1. Documentation et Règles :</p>
-<p>• Rédiger une documentation détaillée sur l’utilisation de l’API, y com- pris des exemples et des directives pour la soumission des stratégies.</p>
-<p>• Établir des règles claires concernant les types de stratégies autorisées et les limitations de l’API. 4. Stockage et Exécution Programmée : • Offrir la possibilité de stocker les stratégies soumises et de planifier des backtests à des intervalles spécifiés par l’utilisateur.</p>
-<p>Sujet du Projet 2 : Création d’Analytics de Trading Per- sonnalisés via API</p>
-<p>Objectif du Projet</p>
-<p>Développer une API qui permet aux utilisateurs de créer et de recevoir des ana- lytics de trading personnalisés. Les utilisateurs pourront soumettre leurs propres</p>
-<p>fonctions d’analyse, qui seront ensuite appliquées à des données de marché en temps réel ou historiques. Fonctionnalités Clés 1. Soumission de Fonctions d’Analytics :</p>
-<p>• Permettre aux utilisateurs de soumettre leurs fonctions d’analyse per- sonnalisées. Ces fonctions pourraient être soumises via une requête</p>
-<p>2</p>
-<p>POST, avec le code de la fonction en contenu. • Les fonctions doivent être applicables sur des données historiques (bars OHLCV) et des données en temps réel (trades, order book). 2. Diffusion en Temps Réel : • Utiliser des WebSockets pour envoyer les résultats des analytics aux utilisateurs en temps réel, dès qu’un changement pertinent survient dans les données de marché. 3. Gestion des Fonctions Soumises : • Implémenter un système robuste pour la gestion et la validation des fonctions d’analyse soumises, assurant leur exécution de manière sécurisée. 4. Personnalisation et Flexibilité : • Offrir des options pour personnaliser les paramètres des fonctions d’analytics. • Assurer que l’API est adaptable pour différents types d’analyses, des indicateurs techniques simples aux modèles plus complexes. Sujet du Projet 3 : API d’Uniformisation pour Échanges de Cryptomonnaies Objectif du Projet Construire une API qui permette aux utilisateurs de standardiser et</p>
-<p>d’uniformiser l’accès à différentes plateformes d’échange de cryptomon- naies. Cette API devra permettre de configurer des routes, parser des données</p>
-<p>et établir des correspondances entre les champs de différentes APIs d’échange (comme Kucoin ou autres) et un format cible (comme l’API de Binance ou un format personnalisé). Fonctionnalités Clés 1. Configuration des Routes et Parsing :</p>
-<p>• Développer une fonctionnalité permettant aux utilisateurs de spé- cifier des routes et leurs règles de parsing pour différentes APIs</p>
-<p>d’échange. • Permettre le mapping des champs de l’API source vers ceux de l’API cible. 2. Choix de l’API Cible : • Offrir la possibilité d’utiliser l’API de Binance comme format cible standard ou de créer un format personnalisé. 3. Uniformisation des Requêtes : • Permettre, après configuration, de faire des requêtes à l’API source de la même manière qu’à l’API cible, avec transformation et renvoi des données dans le format cible. 4. Extensibilité et Flexibilité : • Concevoir l’API pour faciliter l’ajout de nouvelles plateformes</p>
-<p>3</p>
-<p>d’échange et la gestion des différentes configurations. Sujet du Projet 4 : Interface Utilisateur pour l’Intégration des Projets API Objectif du Projet</p>
-<p>Développer une interface utilisateur graphique (GUI) qui intègre les fonctionnal- ités développées dans les trois premiers projets API. Cette interface servira de</p>
-<p>point central pour accéder et utiliser les services fournis par les autres équipes, offrant ainsi une expérience utilisateur unifiée et intuitive. Fonctionnalités Clés 1. Intégration des APIs : • Concevoir une interface qui s’intègre de manière fluide avec les APIs développées dans les projets précédents. • Assurer une communication efficace et fiable entre l’interface et les différentes APIs. 2. Conception d’une Interface Utilisateur :</p>
-<p>• Créer une GUI facile à naviguer, permettant aux utilisateurs de sélec- tionner facilement les sources de données et les fonctionnalités qu’ils</p>
-<p>souhaitent utiliser. 3. Adaptabilité et Flexibilité :</p>
-<p>• Prévoir la capacité à s’adapter aux différentes fonctionnalités et for- mats de données offerts par les autres projets.</p>
-<p>• Faciliter l’intégration de fonctionnalités supplémentaires ou de mod- ifications ultérieures.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Bienvenue dans votre ultime défi académique en maîtrise de l’API Python. Vous allez être répartis en équipes de 5 à 7 personnes pour travailler sur l’un des quatre projets ambitieux proposés. L’objectif est de créer une solution complète et cohésive qui mettra en valeur vos compétences techniques ainsi que votre capacité à collaborer efficacement en équipe.</p>
+</section>
+<section id="cadre-du-projet-et-deadlines" class="level2">
+<h2 class="anchored" data-anchor-id="cadre-du-projet-et-deadlines">Cadre du Projet et Deadlines</h2>
+<ul>
+<li><strong>Spécifications des Projets sur GitHub</strong> : Chaque groupe devra définir et publier les spécifications de son projet sur GitHub avant le 31 décembre à minuit. Cette étape initiale est essentielle pour assurer la bonne coordination entre les différents projets.</li>
+<li><strong>Deadline du Projet</strong> : La date limite pour la finalisation des projets est fixée au 30 avril (à confirmer avec Philippe Bernard*).</li>
+</ul>
+</section>
+<section id="consignes-générales" class="level2">
+<h2 class="anchored" data-anchor-id="consignes-générales">Consignes Générales</h2>
+<ul>
+<li><strong>Rendu sur GitHub</strong> : Le code source de votre projet doit être rendu sur GitHub. Ce choix offre une transparence sur la contribution de chaque membre de l’équipe et facilite la collaboration.</li>
+<li><strong>Documentation</strong> : Chaque projet doit être accompagné d’une documentation claire expliquant le fonctionnement global du système et le flux de données. La documentation est cruciale pour comprendre comment interagir avec votre API.</li>
+<li><strong>Flexibilité et Créativité</strong> : Les sujets proposés sont des trames générales. Vous avez la liberté de les interpréter et de les développer selon votre vision. Nous vous encourageons à être innovants et créatifs.</li>
+<li><strong>Carnet de Bord</strong> : Il est recommandé de tenir un carnet de bord détaillant votre organisation, les rôles de chacun, qui a été force de proposition, etc. Ceci aidera à évaluer non seulement le produit final mais aussi le processus de travail en équipe.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Ce projet représente une occasion unique de démontrer vos compétences accumulées et votre capacité à travailler sur des projets d’envergure en collaboration. Bon courage à tous !</p>
+<hr>
+<section id="sujet-du-projet-1-api-pour-backtesting-de-stratégies-de-trading-algorithmique" class="level3">
+<h3 class="anchored" data-anchor-id="sujet-du-projet-1-api-pour-backtesting-de-stratégies-de-trading-algorithmique">Sujet du Projet 1: API pour Backtesting de Stratégies de Trading Algorithmique</h3>
+<section id="objectif-du-projet" class="level4">
+<h4 class="anchored" data-anchor-id="objectif-du-projet">Objectif du Projet</h4>
+<p>Développer une API qui permet aux utilisateurs de soumettre leurs propres stratégies de trading algorithmique pour backtesting. Le système doit être capable d’exécuter ces stratégies contre des données de marché historiques et de fournir des analyses de performance.</p>
+</section>
+<section id="fonctionnalités-clés" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-clés">Fonctionnalités Clés</h4>
+<ol type="1">
+<li><strong>Soumission de Fonctions de Trading</strong> :
+<ul>
+<li>Implémenter une fonctionnalité permettant aux utilisateurs de soumettre des fonctions de trading. Ceci peut être réalisé, par exemple, via une requête POST contenant le code de la stratégie.</li>
+<li>Assurer une validation efficace des fonctions soumises pour garantir leur exécution sûre et conforme.</li>
+</ul></li>
+<li><strong>Backtesting</strong> :
+<ul>
+<li>Mettre en place un mécanisme de backtesting qui utilise des données de marché historiques, telles que des barres de prix OHLCV.</li>
+<li>Fournir des statistiques et des analyses de performance pour les stratégies testées.</li>
+</ul></li>
+<li><strong>Documentation et Règles</strong> :
+<ul>
+<li>Rédiger une documentation détaillée sur l’utilisation de l’API, y compris des exemples et des directives pour la soumission des stratégies.</li>
+<li>Établir des règles claires concernant les types de stratégies autorisées et les limitations de l’API.</li>
+</ul></li>
+<li><strong>Stockage et Exécution Programmée</strong> :
+<ul>
+<li>Offrir la possibilité de stocker les stratégies soumises et de planifier des backtests à des intervalles spécifiés par l’utilisateur.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="sujet-du-projet-2-création-danalytics-de-trading-personnalisés-via-api" class="level3">
+<h3 class="anchored" data-anchor-id="sujet-du-projet-2-création-danalytics-de-trading-personnalisés-via-api">Sujet du Projet 2 : Création d’Analytics de Trading Personnalisés via API</h3>
+<section id="objectif-du-projet-1" class="level4">
+<h4 class="anchored" data-anchor-id="objectif-du-projet-1">Objectif du Projet</h4>
+<p>Développer une API qui permet aux utilisateurs de créer et de recevoir des analytics de trading personnalisés. Les utilisateurs pourront soumettre leurs propres fonctions d’analyse, qui seront ensuite appliquées à des données de marché en temps réel ou historiques.</p>
+</section>
+<section id="fonctionnalités-clés-1" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-clés-1">Fonctionnalités Clés</h4>
+<ol type="1">
+<li><strong>Soumission de Fonctions d’Analytics</strong> :
+<ul>
+<li>Permettre aux utilisateurs de soumettre leurs fonctions d’analyse personnalisées. Ces fonctions pourraient être soumises via une requête POST, avec le code de la fonction en contenu.</li>
+<li>Les fonctions doivent être applicables sur des données historiques (bars OHLCV) et des données en temps réel (trades, order book).</li>
+</ul></li>
+<li><strong>Diffusion en Temps Réel</strong> :
+<ul>
+<li>Utiliser des WebSockets pour envoyer les résultats des analytics aux utilisateurs en temps réel, dès qu’un changement pertinent survient dans les données de marché.</li>
+</ul></li>
+<li><strong>Gestion des Fonctions Soumises</strong> :
+<ul>
+<li>Implémenter un système robuste pour la gestion et la validation des fonctions d’analyse soumises, assurant leur exécution de manière sécurisée.</li>
+</ul></li>
+<li><strong>Personnalisation et Flexibilité</strong> :
+<ul>
+<li>Offrir des options pour personnaliser les paramètres des fonctions d’analytics.</li>
+<li>Assurer que l’API est adaptable pour différents types d’analyses, des indicateurs techniques simples aux modèles plus complexes.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="sujet-du-projet-3-api-duniformisation-pour-échanges-de-cryptomonnaies" class="level3">
+<h3 class="anchored" data-anchor-id="sujet-du-projet-3-api-duniformisation-pour-échanges-de-cryptomonnaies">Sujet du Projet 3 : API d’Uniformisation pour Échanges de Cryptomonnaies</h3>
+<section id="objectif-du-projet-2" class="level4">
+<h4 class="anchored" data-anchor-id="objectif-du-projet-2">Objectif du Projet</h4>
+<p>Construire une API qui permette aux utilisateurs de standardiser et d’uniformiser l’accès à différentes plateformes d’échange de cryptomonnaies. Cette API devra permettre de configurer des routes, parser des données et établir des correspondances entre les champs de différentes APIs d’échange (comme Kucoin ou autres) et un format cible (comme l’API de Binance ou un format personnalisé).</p>
+</section>
+<section id="fonctionnalités-clés-2" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-clés-2">Fonctionnalités Clés</h4>
+<ol type="1">
+<li><strong>Configuration des Routes et Parsing</strong> :
+<ul>
+<li>Développer une fonctionnalité permettant aux utilisateurs de spécifier des routes et leurs règles de parsing pour différentes APIs d’échange.</li>
+<li>Permettre le mapping des champs de l’API source vers ceux de l’API cible.</li>
+</ul></li>
+<li><strong>Choix de l’API Cible</strong> :
+<ul>
+<li>Offrir la possibilité d’utiliser l’API de Binance comme format cible standard ou de créer un format personnalisé.</li>
+</ul></li>
+<li><strong>Uniformisation des Requêtes</strong> :
+<ul>
+<li>Permettre, après configuration, de faire des requêtes à l’API source de la même manière qu’à l’API cible, avec transformation et renvoi des données dans le format cible.</li>
+</ul></li>
+<li><strong>Extensibilité et Flexibilité</strong> :
+<ul>
+<li>Concevoir l’API pour faciliter</li>
+</ul></li>
+</ol>
+<p>l’ajout de nouvelles plateformes d’échange et la gestion des différentes configurations.</p>
+<hr>
+</section>
+</section>
+<section id="sujet-du-projet-4-interface-utilisateur-pour-lintégration-des-projets-api" class="level3">
+<h3 class="anchored" data-anchor-id="sujet-du-projet-4-interface-utilisateur-pour-lintégration-des-projets-api">Sujet du Projet 4 : Interface Utilisateur pour l’Intégration des Projets API</h3>
+<section id="objectif-du-projet-3" class="level4">
+<h4 class="anchored" data-anchor-id="objectif-du-projet-3">Objectif du Projet</h4>
+<p>Développer une interface utilisateur graphique (GUI) qui intègre les fonctionnalités développées dans les trois premiers projets API. Cette interface servira de point central pour accéder et utiliser les services fournis par les autres équipes, offrant ainsi une expérience utilisateur unifiée et intuitive.</p>
+</section>
+<section id="fonctionnalités-clés-3" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-clés-3">Fonctionnalités Clés</h4>
+<ol type="1">
+<li><strong>Intégration des APIs</strong> :
+<ul>
+<li>Concevoir une interface qui s’intègre de manière fluide avec les APIs développées dans les projets précédents.</li>
+<li>Assurer une communication efficace et fiable entre l’interface et les différentes APIs.</li>
+</ul></li>
+<li><strong>Conception d’une Interface Utilisateur</strong> :
+<ul>
+<li>Créer une GUI facile à naviguer, permettant aux utilisateurs de sélectionner facilement les sources de données et les fonctionnalités qu’ils souhaitent utiliser.</li>
+</ul></li>
+<li><strong>Adaptabilité et Flexibilité</strong> :
+<ul>
+<li>Prévoir la capacité à s’adapter aux différentes fonctionnalités et formats de données offerts par les autres projets.</li>
+<li>Faciliter l’intégration de fonctionnalités supplémentaires ou de modifications ultérieures.</li>
+</ul></li>
+</ol>
 
 
+</section>
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -939,6 +1127,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/projets/index.html" class="pagination-link  aria-label=" projets"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Projets</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

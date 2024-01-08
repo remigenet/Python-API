@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -79,7 +113,6 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="API en Python - Optimisation des ressources et de la performance des API">
-<meta property="og:description" content="">
 <meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_2/.img/asyncthreadproc2.webp">
 <meta property="og:site_name" content="API en Python">
 <meta name="citation_title" content="Optimisation des ressources et de la performance des API">
@@ -123,6 +156,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -144,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -159,6 +196,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -184,6 +225,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -214,6 +259,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -221,6 +274,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -263,6 +320,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -297,6 +358,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -333,11 +402,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Consommation avancée d’API</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_2/1-Protocols.html" class="sidebar-item-text sidebar-link">
@@ -393,11 +468,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#c.-modèle-séquentiel" id="toc-c.-modèle-séquentiel" class="nav-link" data-scroll-target="#c.-modèle-séquentiel">c.&nbsp;Modèle Séquentiel :</a></li>
   <li><a href="#d.-limitations" id="toc-d.-limitations" class="nav-link" data-scroll-target="#d.-limitations">d.&nbsp;Limitations :</a></li>
   <li><a href="#e.-exemple-de-modèle-séquentiel" id="toc-e.-exemple-de-modèle-séquentiel" class="nav-link" data-scroll-target="#e.-exemple-de-modèle-séquentiel">e. Exemple de Modèle Séquentiel :</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#exécution-séquentielle" id="toc-exécution-séquentielle" class="nav-link" data-scroll-target="#exécution-séquentielle">Exécution séquentielle</a>
-  <ul class="collapse">
   <li><a href="#f.-gestion-concurrente-des-ressources" id="toc-f.-gestion-concurrente-des-ressources" class="nav-link" data-scroll-target="#f.-gestion-concurrente-des-ressources">f.&nbsp;Gestion Concurrente des Ressources :</a></li>
+  </ul></li>
   <li><a href="#asynchronie" id="toc-asynchronie" class="nav-link" data-scroll-target="#asynchronie">1. Asynchronie :</a>
   <ul class="collapse">
   <li><a href="#a.-quest-ce-que-cest" id="toc-a.-quest-ce-que-cest" class="nav-link" data-scroll-target="#a.-quest-ce-que-cest">a. Qu’est-ce que c’est ?</a></li>
@@ -416,27 +488,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#c.-lanalogie-du-petit-déjeuner" id="toc-c.-lanalogie-du-petit-déjeuner" class="nav-link" data-scroll-target="#c.-lanalogie-du-petit-déjeuner">c.&nbsp;L’analogie du petit-déjeuner</a></li>
   <li><a href="#d.-pourquoi-le-gil-est-il-conservé" id="toc-d.-pourquoi-le-gil-est-il-conservé" class="nav-link" data-scroll-target="#d.-pourquoi-le-gil-est-il-conservé">d.&nbsp;Pourquoi le GIL est-il conservé ?</a></li>
   <li><a href="#e.-exemples-de-multithreading-en-python" id="toc-e.-exemples-de-multithreading-en-python" class="nav-link" data-scroll-target="#e.-exemples-de-multithreading-en-python">e. Exemples de multithreading en Python</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#variable-globale." id="toc-variable-globale." class="nav-link" data-scroll-target="#variable-globale.">Variable globale.</a></li>
-  <li><a href="#fonctions-pour-modifier-la-variable-globale." id="toc-fonctions-pour-modifier-la-variable-globale." class="nav-link" data-scroll-target="#fonctions-pour-modifier-la-variable-globale.">Fonctions pour modifier la variable globale.</a></li>
-  <li><a href="#création-des-threads." id="toc-création-des-threads." class="nav-link" data-scroll-target="#création-des-threads.">Création des threads.</a></li>
-  <li><a href="#enregistrement-du-temps-de-départ." id="toc-enregistrement-du-temps-de-départ." class="nav-link" data-scroll-target="#enregistrement-du-temps-de-départ.">Enregistrement du temps de départ.</a></li>
-  <li><a href="#démarrage-des-threads." id="toc-démarrage-des-threads." class="nav-link" data-scroll-target="#démarrage-des-threads.">Démarrage des threads.</a></li>
-  <li><a href="#attente-de-la-fin-des-threads." id="toc-attente-de-la-fin-des-threads." class="nav-link" data-scroll-target="#attente-de-la-fin-des-threads.">Attente de la fin des threads.</a></li>
-  <li><a href="#enregistrement-du-temps-de-fin." id="toc-enregistrement-du-temps-de-fin." class="nav-link" data-scroll-target="#enregistrement-du-temps-de-fin.">Enregistrement du temps de fin.</a></li>
-  <li><a href="#fonction-pour-télécharger-une-image" id="toc-fonction-pour-télécharger-une-image" class="nav-link" data-scroll-target="#fonction-pour-télécharger-une-image">Fonction pour télécharger une image</a></li>
-  <li><a href="#urls-des-images-à-télécharger" id="toc-urls-des-images-à-télécharger" class="nav-link" data-scroll-target="#urls-des-images-à-télécharger">URLs des images à télécharger</a></li>
-  <li><a href="#attendre-que-tous-les-threads-aient-fini" id="toc-attendre-que-tous-les-threads-aient-fini" class="nav-link" data-scroll-target="#attendre-que-tous-les-threads-aient-fini">Attendre que tous les threads aient fini</a>
-  <ul class="collapse">
   <li><a href="#pourquoi-utiliser-des-locks-malgré-le-gil" id="toc-pourquoi-utiliser-des-locks-malgré-le-gil" class="nav-link" data-scroll-target="#pourquoi-utiliser-des-locks-malgré-le-gil">Pourquoi utiliser des Locks malgré le GIL :</a></li>
   <li><a href="#exemple-pratique-avec-lock---corruption-de-données" id="toc-exemple-pratique-avec-lock---corruption-de-données" class="nav-link" data-scroll-target="#exemple-pratique-avec-lock---corruption-de-données">Exemple pratique avec Lock - Corruption de données</a></li>
-  </ul></li>
-  <li><a href="#liste-partagée-sans-verrou." id="toc-liste-partagée-sans-verrou." class="nav-link" data-scroll-target="#liste-partagée-sans-verrou.">Liste partagée sans verrou.</a></li>
-  <li><a href="#début-du-code-identique" id="toc-début-du-code-identique" class="nav-link" data-scroll-target="#début-du-code-identique">… [début du code identique]</a></li>
-  <li><a href="#suite-du-code-identique" id="toc-suite-du-code-identique" class="nav-link" data-scroll-target="#suite-du-code-identique">… [suite du code identique]</a>
-  <ul class="collapse">
   <li><a href="#f.-conclusion" id="toc-f.-conclusion" class="nav-link" data-scroll-target="#f.-conclusion">f.&nbsp;Conclusion:</a></li>
+  </ul></li>
   <li><a href="#multiprocessing" id="toc-multiprocessing" class="nav-link" data-scroll-target="#multiprocessing">3. Multiprocessing :</a>
   <ul class="collapse">
   <li><a href="#a.-quest-ce-que-le-multiprocessing" id="toc-a.-quest-ce-que-le-multiprocessing" class="nav-link" data-scroll-target="#a.-quest-ce-que-le-multiprocessing">a. Qu’est-ce que le multiprocessing ?</a></li>
@@ -450,25 +505,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#j.-terminaison-et-contrôle-des-processus" id="toc-j.-terminaison-et-contrôle-des-processus" class="nav-link" data-scroll-target="#j.-terminaison-et-contrôle-des-processus">j. Terminaison et Contrôle des Processus :</a></li>
   <li><a href="#k.-exemples-concrets" id="toc-k.-exemples-concrets" class="nav-link" data-scroll-target="#k.-exemples-concrets">k. Exemples Concrets :</a></li>
   <li><a href="#l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing" id="toc-l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing" class="nav-link" data-scroll-target="#l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing">l. Exemple Conceptuel en Python : Comparaison Séquentiel, Threading et Multiprocessing</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu" id="toc-une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu" class="nav-link" data-scroll-target="#une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu">Une fonction qui simule une tâche gourmande en ressources CPU</a></li>
-  <li><a href="#fonction-principale-pour-exécuter-les-tâches-séquentiellement" id="toc-fonction-principale-pour-exécuter-les-tâches-séquentiellement" class="nav-link" data-scroll-target="#fonction-principale-pour-exécuter-les-tâches-séquentiellement">Fonction principale pour exécuter les tâches séquentiellement</a></li>
-  <li><a href="#exécuter-la-fonction" id="toc-exécuter-la-fonction" class="nav-link" data-scroll-target="#exécuter-la-fonction">Exécuter la fonction</a></li>
-  <li><a href="#la-fonction-reste-la-même" id="toc-la-fonction-reste-la-même" class="nav-link" data-scroll-target="#la-fonction-reste-la-même">La fonction reste la même</a></li>
-  <li><a href="#fonction-principale-pour-exécuter-les-tâches-en-utilisant-le-multiprocessing" id="toc-fonction-principale-pour-exécuter-les-tâches-en-utilisant-le-multiprocessing" class="nav-link" data-scroll-target="#fonction-principale-pour-exécuter-les-tâches-en-utilisant-le-multiprocessing">Fonction principale pour exécuter les tâches en utilisant le multiprocessing</a></li>
-  <li><a href="#exécuter-la-fonction-1" id="toc-exécuter-la-fonction-1" class="nav-link" data-scroll-target="#exécuter-la-fonction-1">Exécuter la fonction</a></li>
-  <li><a href="#définition-de-la-tâche-gourmande-en-cpu" id="toc-définition-de-la-tâche-gourmande-en-cpu" class="nav-link" data-scroll-target="#définition-de-la-tâche-gourmande-en-cpu">Définition de la tâche gourmande en CPU</a></li>
-  <li><a href="#fonction-pour-lancer-les-processus" id="toc-fonction-pour-lancer-les-processus" class="nav-link" data-scroll-target="#fonction-pour-lancer-les-processus">Fonction pour lancer les processus</a></li>
-  <li><a href="#exécuter-la-fonction-2" id="toc-exécuter-la-fonction-2" class="nav-link" data-scroll-target="#exécuter-la-fonction-2">Exécuter la fonction</a>
-  <ul class="collapse">
   <li><a href="#m.-sérialisation-des-objets" id="toc-m.-sérialisation-des-objets" class="nav-link" data-scroll-target="#m.-sérialisation-des-objets">m. Sérialisation des Objets</a></li>
-  </ul></li>
-  <li><a href="#exemple-dutilisation" id="toc-exemple-dutilisation" class="nav-link" data-scroll-target="#exemple-dutilisation">Exemple d’utilisation</a></li>
-  <li><a href="#sérialisation" id="toc-sérialisation" class="nav-link" data-scroll-target="#sérialisation">Sérialisation</a></li>
-  <li><a href="#désérialisation" id="toc-désérialisation" class="nav-link" data-scroll-target="#désérialisation">Désérialisation</a>
-  <ul class="collapse">
   <li><a href="#n.-exemple-concret-dusage-réel-en-python" id="toc-n.-exemple-concret-dusage-réel-en-python" class="nav-link" data-scroll-target="#n.-exemple-concret-dusage-réel-en-python">n.&nbsp;Exemple Concret d’Usage Réel en Python</a></li>
+  </ul></li>
   <li><a href="#récapitulatif" id="toc-récapitulatif" class="nav-link" data-scroll-target="#récapitulatif">5. Récapitulatif:</a>
   <ul class="collapse">
   <li><a href="#a.-quatres-façon-dont-peut-sexécuter-un-code" id="toc-a.-quatres-façon-dont-peut-sexécuter-un-code" class="nav-link" data-scroll-target="#a.-quatres-façon-dont-peut-sexécuter-un-code">a. Quatres façon dont peut s’exécuter un code</a></li>
@@ -483,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -496,7 +535,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -554,18 +593,23 @@ ul.task-list li input[type="checkbox"] {
 <section id="e.-exemple-de-modèle-séquentiel" class="level3">
 <h3 class="anchored" data-anchor-id="e.-exemple-de-modèle-séquentiel">e. Exemple de Modèle Séquentiel :</h3>
 <p>Voici un exemple simple de code séquentiel en Python qui montre l’exécution linéaire d’une tâche :</p>
-<p>def task1(): # Fait quelque chose pass</p>
-<p>def task2(): # Fait quelque chose d’autre pass</p>
-</section>
-</section>
-</section>
-<section id="exécution-séquentielle" class="level1">
-<h1>Exécution séquentielle</h1>
-<p>task1() task2()</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> task1():</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fait quelque chose</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> task2():</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Fait quelque chose d'autre</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Exécution séquentielle</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>task1()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>task2()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, task1() doit terminer son exécution avant que task2() ne commence. Ce modèle est simple à comprendre et à déboguer, mais il peut ne pas être le plus efficace en termes d’utilisation des ressources du système, en particulier pour des tâches pouvant être exécutées en parallèle.</p>
+</section>
 <section id="f.-gestion-concurrente-des-ressources" class="level3">
 <h3 class="anchored" data-anchor-id="f.-gestion-concurrente-des-ressources">f.&nbsp;Gestion Concurrente des Ressources :</h3>
 <p>Alors que le modèle séquentiel est le fondement du traitement des instructions, il ne capitalise pas toujours efficacement sur les capacités des systèmes modernes. Pour aller au-delà des limitations du séquentiel, les développeurs peuvent se tourner vers trois méthodes complémentaires : la programmation asynchrone, le multithreading et le multiprocessing. La programmation asynchrone est idéale pour améliorer la réactivité des applications en permettant la gestion efficace des opérations d’entrée/sortie sans parallélisme réel, tandis que le multithreading et le multiprocessing exploitent directement les architectures multi-cœurs pour exécuter plusieurs instructions en parallèle, augmentant ainsi la performance pour des calculs intensifs ou des tâches multiples simultanées.</p>
+</section>
 </section>
 <section id="asynchronie" class="level2">
 <h2 class="anchored" data-anchor-id="asynchronie">1. Asynchronie :</h2>
@@ -585,7 +629,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="d.-exemple" class="level3">
 <h3 class="anchored" data-anchor-id="d.-exemple">d.&nbsp;Exemple :</h3>
 <p>Lors de la création d’une application web, vous pourriez vouloir afficher des informations provenant de différentes sources (base de données, services externes, fichiers). Au lieu de demander ces informations séquentiellement, ce qui prendrait beaucoup de temps, vous pouvez les demander simultanément de manière asynchrone.</p>
-<p>Vous avez raison, il serait plus approprié de concentrer l’explication sur la façon dont l’asynchronie améliore l’utilisation des ressources disponibles sans nécessairement augmenter la capacité matérielle. Voici une révision qui reflète cet angle :</p>
 </section>
 <section id="e.-asynchronie-maximiser-lefficacité-sans-ajouter-de-ressources" class="level3">
 <h3 class="anchored" data-anchor-id="e.-asynchronie-maximiser-lefficacité-sans-ajouter-de-ressources">e. Asynchronie : Maximiser l’Efficacité sans Ajouter de Ressources</h3>
@@ -598,10 +641,24 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="f.-exemple-python-asynchrone">f.&nbsp;Exemple Python Asynchrone :</h3>
 <p>Pensez à une situation où vous devez interroger trois serveurs de données différents pour récupérer des informations. De manière séquentielle, vous attendriez que chaque requête se termine avant de démarrer la suivante. De façon asynchrone, vous pouvez lancer les trois requêtes pratiquement en même temps et faire d’autres tâches pendant que les données sont en cours de récupération.</p>
 <p>Voici un exemple en Python qui utilise l’asynchronie pour interroger trois “serveurs” simulés. Nous allons simuler un délai pour chaque requête de serveur en utilisant asyncio.sleep.</p>
-<p>import asyncio</p>
-<p>async def requete_serveur(numero): print(f”Début de la requête serveur {numero}“) # Simuler un temps de réponse du serveur avec asyncio.sleep await asyncio.sleep(numero) print(f”Réponse du serveur {numero} reçue!“)</p>
-<p>async def main(): # Lancer trois requêtes serveur en même temps await asyncio.gather( requete_serveur(1), requete_serveur(2), requete_serveur(3) ) print(“Toutes les requêtes serveur sont terminées.”)</p>
-<p>asyncio.run(main())</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> requete_serveur(numero):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Début de la requête serveur </span><span class="sc">{</span>numero<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simuler un temps de réponse du serveur avec asyncio.sleep</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.sleep(numero)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Réponse du serveur </span><span class="sc">{</span>numero<span class="sc">}</span><span class="ss"> reçue!"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Lancer trois requêtes serveur en même temps</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">await</span> asyncio.gather(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        requete_serveur(<span class="dv">1</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        requete_serveur(<span class="dv">2</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        requete_serveur(<span class="dv">3</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Toutes les requêtes serveur sont terminées."</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Les prints simuleraient ce qui se passerait lors de l’exécution :</p>
 <p>Début de la requête serveur 1 Début de la requête serveur 2 Début de la requête serveur 3 Réponse du serveur 1 reçue! Réponse du serveur 2 reçue! Réponse du serveur 3 reçue! Toutes les requêtes serveur sont terminées.</p>
 <p>Dans un contexte séquentiel, les requêtes auraient été traitées l’une après l’autre, ce qui aurait pris 6 secondes au total. Avec l’asynchronie, toutes les requêtes commencent presque simultanément, et le total ne prend que 3 secondes, car elles sont traitées en “parallèle”.</p>
@@ -613,14 +670,28 @@ ul.task-list li input[type="checkbox"] {
 <section id="h.-exemple-dapi-asynchrone-avec-websocket-en-python" class="level3">
 <h3 class="anchored" data-anchor-id="h.-exemple-dapi-asynchrone-avec-websocket-en-python">h. Exemple d’API asynchrone avec WebSocket en Python :</h3>
 <p>Côté serveur (avec websockets et asyncio):</p>
-<p>import asyncio import websockets</p>
-<p>async def echo(websocket, path): async for message in websocket: await websocket.send(f”Echo: {message}“)</p>
-<p>start_server = websockets.serve(echo, “localhost”, 8765)</p>
-<p>asyncio.get_event_loop().run_until_complete(start_server) asyncio.get_event_loop().run_forever()</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> websockets</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> echo(websocket, path):</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">for</span> message <span class="kw">in</span> websocket:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> websocket.send(<span class="ss">f"Echo: </span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>start_server <span class="op">=</span> websockets.serve(echo, <span class="st">"localhost"</span>, <span class="dv">8765</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>asyncio.get_event_loop().run_until_complete(start_server)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>asyncio.get_event_loop().run_forever()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Côté client :</p>
-<p>import asyncio import websockets</p>
-<p>async def hello(): uri = “ws://localhost:8765” async with websockets.connect(uri) as websocket: await websocket.send(“Bonjour”) print(f”&gt; {await websocket.recv()}“)</p>
-<p>asyncio.run(hello())</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> websockets</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> hello():</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    uri <span class="op">=</span> <span class="st">"ws://localhost:8765"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="cf">with</span> websockets.<span class="ex">connect</span>(uri) <span class="im">as</span> websocket:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">await</span> websocket.send(<span class="st">"Bonjour"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"&gt; </span><span class="sc">{</span><span class="cf">await</span> websocket<span class="sc">.</span>recv()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>asyncio.run(hello())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, le serveur WebSocket est capable de gérer plusieurs connexions clients simultanément de manière asynchrone. Pendant que le serveur attend que l’un des clients envoie un message, il peut toujours écouter d’autres clients et répondre dès que des messages sont reçus. Cela permet une utilisation optimisée des ressources et une réponse rapide aux clients, essentiel pour des performances élevées dans les systèmes modernes d’API.</p>
 </section>
 </section>
@@ -657,61 +728,79 @@ ul.task-list li input[type="checkbox"] {
 <section id="exemple-conceptuel-avec-gil---oscillation-dune-valeur-globale" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-conceptuel-avec-gil---oscillation-dune-valeur-globale">Exemple conceptuel avec GIL - Oscillation d’une valeur globale</h4>
 <p>Cet exemple utilise deux fonctions qui modifient une variable globale : l’une la multiplie par 2, l’autre la divise par 2. Normalement, on pourrait s’attendre à ce que la valeur oscille si les threads étaient vraiment parallèles, mais avec le GIL, les modifications devraient se produire de manière plus séquentielle.</p>
-<p>import threading import time</p>
-</section>
-</section>
-</section>
-</section>
-<section id="variable-globale." class="level1">
-<h1>Variable globale.</h1>
-<p>valeur = 1</p>
-</section>
-<section id="fonctions-pour-modifier-la-variable-globale." class="level1">
-<h1>Fonctions pour modifier la variable globale.</h1>
-<p>def double(): global valeur for _ in range(100000): valeur *= 2</p>
-<p>def divise(): global valeur for _ in range(100000): valeur /= 2</p>
-</section>
-<section id="création-des-threads." class="level1">
-<h1>Création des threads.</h1>
-<p>thread_double = threading.Thread(target=double) thread_divise = threading.Thread(target=divise)</p>
-</section>
-<section id="enregistrement-du-temps-de-départ." class="level1">
-<h1>Enregistrement du temps de départ.</h1>
-<p>start_time = time.time()</p>
-</section>
-<section id="démarrage-des-threads." class="level1">
-<h1>Démarrage des threads.</h1>
-<p>thread_double.start() thread_divise.start()</p>
-</section>
-<section id="attente-de-la-fin-des-threads." class="level1">
-<h1>Attente de la fin des threads.</h1>
-<p>thread_double.join() thread_divise.join()</p>
-</section>
-<section id="enregistrement-du-temps-de-fin." class="level1">
-<h1>Enregistrement du temps de fin.</h1>
-<p>end_time = time.time()</p>
-<p>print(f’Valeur finale: {valeur}‘) print(f’Temps écoulé: {end_time - start_time} secondes’)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable globale.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>valeur <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonctions pour modifier la variable globale.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> double():</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> valeur</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        valeur <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> divise():</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> valeur</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100000</span>):</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        valeur <span class="op">/=</span> <span class="dv">2</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Création des threads.</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>thread_double <span class="op">=</span> threading.Thread(target<span class="op">=</span>double)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>thread_divise <span class="op">=</span> threading.Thread(target<span class="op">=</span>divise)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistrement du temps de départ.</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Démarrage des threads.</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>thread_double.start()</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>thread_divise.start()</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Attente de la fin des threads.</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>thread_double.join()</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>thread_divise.join()</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Enregistrement du temps de fin.</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Valeur finale: </span><span class="sc">{</span>valeur<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Temps écoulé: </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> secondes'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Output attendu :</p>
 <p>Sans le GIL et avec une parfaite synchronisation, la valeur devrait osciller et terminer proche de 1. Cependant, à cause du GIL, vous verrez que les opérations seront effectuées de façon plus séquentielle, la valeur pourrait donc s’éloigner significativement de 1 avant de potentiellement y revenir. Le temps écoulé sera probablement proche du double de ce qui serait attendu si les opérations étaient exécutées en parallèle.</p>
+</section>
 <section id="exemple-pratique-téléchargement-de-fichiers-en-parallèle" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-pratique-téléchargement-de-fichiers-en-parallèle">Exemple pratique : Téléchargement de fichiers en parallèle</h4>
-<p>import threading import requests</p>
-</section>
-</section>
-<section id="fonction-pour-télécharger-une-image" class="level1">
-<h1>Fonction pour télécharger une image</h1>
-<p>def download_image(url, filename): response = requests.get(url) with open(filename, ‘wb’) as file: file.write(response.content) print(f”Téléchargement de {filename} terminé”)</p>
-</section>
-<section id="urls-des-images-à-télécharger" class="level1">
-<h1>URLs des images à télécharger</h1>
-<p>images_to_download = [ (“https://example.com/image1.jpg”, “image1.jpg”), (“https://example.com/image2.jpg”, “image2.jpg”), # Ajoutez plus si nécessaire]</p>
-<p>threads = [] for url, filename in images_to_download: thread = threading.Thread(target=download_image, args=(url, filename)) thread.start() threads.append(thread)</p>
-</section>
-<section id="attendre-que-tous-les-threads-aient-fini" class="level1">
-<h1>Attendre que tous les threads aient fini</h1>
-<p>for thread in threads: thread.join()</p>
-<p>print(“Tous les téléchargements sont terminés.”)</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour télécharger une image</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download_image(url, filename):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(filename, <span class="st">'wb'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span>.write(response.content)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Téléchargement de </span><span class="sc">{</span>filename<span class="sc">}</span><span class="ss"> terminé"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># URLs des images à télécharger</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>images_to_download <span class="op">=</span> [</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"https://example.com/image1.jpg"</span>, <span class="st">"image1.jpg"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"https://example.com/image2.jpg"</span>, <span class="st">"image2.jpg"</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ajoutez plus si nécessaire</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>threads <span class="op">=</span> []</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> url, filename <span class="kw">in</span> images_to_download:</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    thread <span class="op">=</span> threading.Thread(target<span class="op">=</span>download_image, args<span class="op">=</span>(url, filename))</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    thread.start()</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    threads.append(thread)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Attendre que tous les threads aient fini</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> thread <span class="kw">in</span> threads:</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    thread.join()</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tous les téléchargements sont terminés."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, le multithreading est utile car il s’agit d’une opération IO-bound. Même si le GIL limite l’exécution simultanée de certains types de tâches dans CPython, les opérations IO-bound peuvent toujours bénéficier du multithreading, car pendant qu’un thread attend une réponse IO, un autre thread peut commencer ou continuer son exécution.</p>
+</section>
+</section>
 <section id="pourquoi-utiliser-des-locks-malgré-le-gil" class="level3">
 <h3 class="anchored" data-anchor-id="pourquoi-utiliser-des-locks-malgré-le-gil">Pourquoi utiliser des Locks malgré le GIL :</h3>
 <p>Même si le GIL empêche l’exécution simultanée de threads, il ne protège pas contre les corruptions de mémoire lorsque des threads alternent rapidement sur le même cœur de processeur. Voici pourquoi :</p>
@@ -724,29 +813,42 @@ ul.task-list li input[type="checkbox"] {
 <section id="exemple-pratique-avec-lock---corruption-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="exemple-pratique-avec-lock---corruption-de-données">Exemple pratique avec Lock - Corruption de données</h3>
 <p>Dans cet exemple, nous simulerons une situation où plusieurs threads essayent d’ajouter des éléments à une liste sans synchronisation, ce qui peut causer une corruption de données.</p>
-<p>import threading</p>
-</section>
-</section>
-<section id="liste-partagée-sans-verrou." class="level1">
-<h1>Liste partagée sans verrou.</h1>
-<p>liste_partagee = []</p>
-<p>def ajoute_a_la_liste(index): print(f’Thread {index} : ajout à la liste’) for i in range(1000): liste_partagee.append(index * 1000 + i)</p>
-<p>threads = [threading.Thread(target=ajoute_a_la_liste, args=(i,)) for i in range(10)]</p>
-<p>for thread in threads: thread.start()</p>
-<p>for thread in threads: thread.join()</p>
-<p>print(f’Taille attendue de la liste: {10000}‘) print(f’Taille réelle de la liste: {len(liste_partagee)}’)</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Liste partagée sans verrou.</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>liste_partagee <span class="op">=</span> []</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ajoute_a_la_liste(index):</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Thread </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss"> : ajout à la liste'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        liste_partagee.append(index <span class="op">-</span> <span class="dv">1000</span> <span class="op">+</span> i)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>threads <span class="op">=</span> [threading.Thread(target<span class="op">=</span>ajoute_a_la_liste, args<span class="op">=</span>(i,)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> thread <span class="kw">in</span> threads:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    thread.start()</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> thread <span class="kw">in</span> threads:</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    thread.join()</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Taille attendue de la liste: </span><span class="sc">{</span><span class="dv">10000</span><span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Taille réelle de la liste: </span><span class="sc">{</span><span class="bu">len</span>(liste_partagee)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Output attendu :</p>
 <p>On s’attend à ce que la taille de la liste soit de 10 000, mais sans synchronisation, il est possible que des appels à append() se chevauchent et que certains éléments ne soient pas ajoutés correctement, résultant en une liste de taille inférieure à celle attendue. Cela montre la corruption de données due à l’accès concurrent sans verrouillage (Lock).</p>
 <p>Si vous souhaitez voir le code avec Lock pour comparer, voici comment il pourrait être modifié pour empêcher la corruption:</p>
-</section>
-<section id="début-du-code-identique" class="level1">
-<h1>… [début du code identique]</h1>
-<p>lock = threading.Lock()</p>
-<p>def ajoute_a_la_liste(index): for i in range(1000): with lock: liste_partagee.append(index * 1000 + i) print(f’Thread {index} : ajout à la liste’)</p>
-</section>
-<section id="suite-du-code-identique" class="level1">
-<h1>… [suite du code identique]</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ... [début du code identique]</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>lock <span class="op">=</span> threading.Lock()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ajoute_a_la_liste(index):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> lock:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            liste_partagee.append(index <span class="op">-</span> <span class="dv">1000</span> <span class="op">+</span> i)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'Thread </span><span class="sc">{</span>index<span class="sc">}</span><span class="ss"> : ajout à la liste'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ... [suite du code identique]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cette version avec Lock, on garantit que chaque appel à append() est effectué de manière atomique, empêchant ainsi la corruption de la liste partagée.</p>
+</section>
 <section id="f.-conclusion" class="level3">
 <h3 class="anchored" data-anchor-id="f.-conclusion">f.&nbsp;Conclusion:</h3>
 <p>En Python, à cause du Global Interpreter Lock (GIL), le multithreading et l’asynchronie peuvent parfois se ressembler en termes de performance pour les tâches IO-bound, c’est-à-dire les tâches qui sont limitées par les entrées/sorties comme les requêtes réseau ou les opérations sur disque. Cela est dû au fait que le GIL empêche les threads d’exécuter du code bytecode Python en parallèle. Cependant, les deux approches ont des utilisations et des comportements différents :</p>
@@ -762,6 +864,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Plus facile à comprendre et à déboguer : Avec une seule boucle d’événements, le flux de contrôle est généralement plus simple à suivre que dans un environnement multithread où la concurrence et les effets de bord peuvent compliquer la compréhension du programme.</li>
 </ol>
 <p>En résumé, bien que le multithreading puisse être pertinent dans certains cas, notamment pour les tâches CPU-bound ou lorsqu’on utilise des extensions qui libèrent le GIL, l’asynchronie est souvent privilégiée pour les applications IO-bound en raison de sa légèreté et de sa simplicité relative.</p>
+</section>
 </section>
 <section id="multiprocessing" class="level2">
 <h2 class="anchored" data-anchor-id="multiprocessing">3. Multiprocessing :</h2>
@@ -821,67 +924,80 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="l.-exemple-conceptuel-en-python-comparaison-séquentiel-threading-et-multiprocessing">l. Exemple Conceptuel en Python : Comparaison Séquentiel, Threading et Multiprocessing</h3>
 <section id="séquentiel" class="level4">
 <h4 class="anchored" data-anchor-id="séquentiel">Séquentiel</h4>
-<p>import time</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Une fonction qui simule une tâche gourmande en ressources CPU</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cpu_bound_task(number):</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Traitement du numéro </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">..."</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Un calcul gourmand en CPU, par exemple trouver des nombres premiers</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(i<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(number))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction principale pour exécuter les tâches séquentiellement</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_sequentially():</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    numbers <span class="op">=</span> [<span class="dv">50000</span> <span class="op">+</span> x <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>)]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> [cpu_bound_task(number) <span class="cf">for</span> number <span class="kw">in</span> numbers]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    duration <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Durée totale d'exécution en mode séquentiel : </span><span class="sc">{</span>duration<span class="sc">}</span><span class="ss"> secondes"</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Exécuter la fonction</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>run_sequentially()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-</section>
-</section>
-<section id="une-fonction-qui-simule-une-tâche-gourmande-en-ressources-cpu" class="level1">
-<h1>Une fonction qui simule une tâche gourmande en ressources CPU</h1>
-<p>def cpu_bound_task(number): print(f”Traitement du numéro {number}…“) # Un calcul gourmand en CPU, par exemple trouver des nombres premiers return sum(i*i for i in range(number))</p>
-</section>
-<section id="fonction-principale-pour-exécuter-les-tâches-séquentiellement" class="level1">
-<h1>Fonction principale pour exécuter les tâches séquentiellement</h1>
-<p>def run_sequentially(): numbers = [50000 + x for x in range(20)] start_time = time.time() results = [cpu_bound_task(number) for number in numbers] duration = time.time() - start_time print(f”Durée totale d’exécution en mode séquentiel : {duration} secondes”)</p>
-</section>
-<section id="exécuter-la-fonction" class="level1">
-<h1>Exécuter la fonction</h1>
-<p>run_sequentially()</p>
 <section id="multiprocessing-avec-pool" class="level4">
 <h4 class="anchored" data-anchor-id="multiprocessing-avec-pool">Multiprocessing avec Pool</h4>
-<p>from multiprocessing import Pool import time</p>
-</section>
-</section>
-<section id="la-fonction-reste-la-même" class="level1">
-<h1>La fonction reste la même</h1>
-<p>def cpu_bound_task(number): print(f”Traitement du numéro {number}…“) return sum(i*i for i in range(number))</p>
-</section>
-<section id="fonction-principale-pour-exécuter-les-tâches-en-utilisant-le-multiprocessing" class="level1">
-<h1>Fonction principale pour exécuter les tâches en utilisant le multiprocessing</h1>
-<p>def run_with_multiprocessing(): numbers = [50000 + x for x in range(20)] start_time = time.time() with Pool(processes=4) as pool: # Démarre un pool avec 4 processus results = pool.map(cpu_bound_task, numbers) duration = time.time() - start_time print(f”Durée totale d’exécution avec multiprocessing : {duration} secondes”)</p>
-</section>
-<section id="exécuter-la-fonction-1" class="level1">
-<h1>Exécuter la fonction</h1>
-<p>run_with_multiprocessing()</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> Pool</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># La fonction reste la même</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cpu_bound_task(number):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Traitement du numéro </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">..."</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(i<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(number))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction principale pour exécuter les tâches en utilisant le multiprocessing</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_with_multiprocessing():</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    numbers <span class="op">=</span> [<span class="dv">50000</span> <span class="op">+</span> x <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>)]</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> Pool(processes<span class="op">=</span><span class="dv">4</span>) <span class="im">as</span> pool:  <span class="co"># Démarre un pool avec 4 processus</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> pool.<span class="bu">map</span>(cpu_bound_task, numbers)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    duration <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Durée totale d'exécution avec multiprocessing : </span><span class="sc">{</span>duration<span class="sc">}</span><span class="ss"> secondes"</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Exécuter la fonction</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>run_with_multiprocessing()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans l’exemple avec le multiprocessing, la tâche cpu_bound_task est distribuée entre plusieurs processus. Cela permet de mieux utiliser les ressources multi-cœurs car chaque processus peut s’exécuter sur un cœur différent simultanément.</p>
+</section>
 <section id="exemple-classique-de-multiprocessing-sans-pool" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-classique-de-multiprocessing-sans-pool">Exemple Classique de Multiprocessing sans Pool</h4>
-<p>import multiprocessing import time</p>
-</section>
-</section>
-<section id="définition-de-la-tâche-gourmande-en-cpu" class="level1">
-<h1>Définition de la tâche gourmande en CPU</h1>
-<p>def cpu_bound_task(number): print(f”Début du traitement du numéro {number}“) result = sum(i*i for i in range(number)) print(f”Fin du traitement du numéro {number}“) return result</p>
-</section>
-<section id="fonction-pour-lancer-les-processus" class="level1">
-<h1>Fonction pour lancer les processus</h1>
-<p>def run_tasks(): numbers = [50000 + x for x in range(20)] processes = []</p>
-<pre><code>start_time = time.time()
-
-for number in numbers:
-    process = multiprocessing.Process(target=cpu_bound_task, args=(number,))
-    processes.append(process)
-    process.start()
-
-for process in processes:
-    process.join()  # Attend que tous les processus se terminent
-
-duration = time.time() - start_time
-print(f"Durée totale d'exécution sans Pool : {duration} secondes")</code></pre>
-</section>
-<section id="exécuter-la-fonction-2" class="level1">
-<h1>Exécuter la fonction</h1>
-<p>run_tasks()</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> multiprocessing</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la tâche gourmande en CPU</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cpu_bound_task(number):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Début du traitement du numéro </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="bu">sum</span>(i<span class="op">*</span>i <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(number))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Fin du traitement du numéro </span><span class="sc">{</span>number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour lancer les processus</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_tasks():</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    numbers <span class="op">=</span> [<span class="dv">50000</span> <span class="op">+</span> x <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>)]</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    processes <span class="op">=</span> []</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        process <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>cpu_bound_task, args<span class="op">=</span>(number,))</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        processes.append(process)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        process.start()</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> process <span class="kw">in</span> processes:</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        process.join()  <span class="co"># Attend que tous les processus se terminent</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    duration <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Durée totale d'exécution sans Pool : </span><span class="sc">{</span>duration<span class="sc">}</span><span class="ss"> secondes"</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Exécuter la fonction</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>run_tasks()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, au lieu d’utiliser un Pool pour gérer les processus, nous créons et démarrons manuellement chaque processus en utilisant la classe Process du module multiprocessing. Chaque processus exécute la fonction cpu_bound_task avec un nombre différent en paramètre. L’appel à join assure que le programme principal attend la fin de chaque processus avant de mesurer le temps total d’exécution.</p>
 <p>L’utilisation de start et join pour la gestion manuelle des processus offre un contrôle plus granulaire sur chaque processus mais vient aussi avec la responsabilité de gérer le nombre de processus en cours d’exécution à un instant donné. Voici quelques notes à ce sujet :</p>
 <ol type="1">
@@ -895,52 +1011,89 @@ Lancer trop de processus simultanément peut entraîner un context switching fr�
 Vous pouvez utiliser multiprocessing.cpu_count() pour obtenir le nombre de cœurs disponibles sur votre machine et utiliser cette information pour limiter le nombre de processus que vous lancez.</p></li>
 <li><p>Exemple de gestion manuelle :<br>
 Voici un exemple simple montrant comment vous pourriez gérer manuellement le nombre de processus simultanés:</p>
-<p>import multiprocessing import time</p>
-<p>def worker(num): “““thread worker function”“” print(f’Worker: {num}’) time.sleep(2)</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: max_processes = multiprocessing.cpu_count() processes = [] for i in range(10): # Supposons que nous avons 10 tâches à exécuter if len(processes) &lt; max_processes: p = multiprocessing.Process(target=worker, args=(i,)) processes.append(p) p.start() else: # Attendre la fin d’un processus avant d’en lancer un autre processes.pop(0).join() p = multiprocessing.Process(target=worker, args=(i,)) processes.append(p) p.start()</p>
-<pre><code>for p in processes:
-    p.join()</code></pre></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> multiprocessing</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> worker(num):</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>   <span class="co">"""thread worker function"""</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="ss">f'Worker: </span><span class="sc">{</span>num<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>   time.sleep(<span class="dv">2</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>   max_processes <span class="op">=</span> multiprocessing.cpu_count()</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>   processes <span class="op">=</span> []</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):  <span class="co"># Supposons que nous avons 10 tâches à exécuter</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>       <span class="cf">if</span> <span class="bu">len</span>(processes) <span class="op">&lt;</span> max_processes:</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>           p <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>worker, args<span class="op">=</span>(i,))</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>           processes.append(p)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>           p.start()</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>       <span class="cf">else</span>:</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Attendre la fin d'un processus avant d'en lancer un autre</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>           processes.pop(<span class="dv">0</span>).join()</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>           p <span class="op">=</span> multiprocessing.Process(target<span class="op">=</span>worker, args<span class="op">=</span>(i,))</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>           processes.append(p)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>           p.start()</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> p <span class="kw">in</span> processes:</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>       p.join()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 <p>Dans cet exemple, nous limitons le nombre de processus en fonction du nombre de cœurs de CPU. Nous attendons qu’un processus se termine (join) avant d’en commencer un nouveau si nous avons atteint la limite de processus simultanés. Cela assure que nous ne surchargerons pas le système avec trop de processus en même temps.</p>
+</section>
+</section>
 <section id="m.-sérialisation-des-objets" class="level3">
 <h3 class="anchored" data-anchor-id="m.-sérialisation-des-objets">m. Sérialisation des Objets</h3>
 <p>Pour le multiprocessing en Python, la sérialisation est nécessaire car il faut passer des objets entre les processus. Python utilise le module pickle pour sérialiser et désérialiser les objets. Les objets que l’on souhaite partager entre les processus doivent être “pickleable”.</p>
 <section id="rendre-sérialisable-un-objet" class="level4">
 <h4 class="anchored" data-anchor-id="rendre-sérialisable-un-objet">Rendre sérialisable un objet:</h4>
 <p>Pour la sérialisation en Python, vous pouvez définir comment sérialiser un objet personnalisé en redéfinissant les méthodes <strong>getstate</strong> et <strong>setstate</strong>, qui sont appelées respectivement lors de la sérialisation (pickle) et de la désérialisation (unpickle) de l’objet.</p>
-<p>import pickle</p>
-<p>class MonObjet: def <strong>init</strong>(self, data): self.data = data</p>
-<pre><code># Méthode appelée lors de la sérialisation
-def __getstate__(self):
-    return self.data
-
-# Méthode appelée lors de la désérialisation
-def __setstate__(self, state):
-    self.data = state</code></pre>
-</section>
-</section>
-</section>
-<section id="exemple-dutilisation" class="level1">
-<h1>Exemple d’utilisation</h1>
-<p>mon_obj = MonObjet(“des données importantes”)</p>
-</section>
-<section id="sérialisation" class="level1">
-<h1>Sérialisation</h1>
-<p>serialized_obj = pickle.dumps(mon_obj)</p>
-</section>
-<section id="désérialisation" class="level1">
-<h1>Désérialisation</h1>
-<p>deserialized_obj = pickle.loads(serialized_obj)</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MonObjet:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, data):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> data</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Méthode appelée lors de la sérialisation</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __getstate__(<span class="va">self</span>):</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.data</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Méthode appelée lors de la désérialisation</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> __setstate__(<span class="va">self</span>, state):</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.data <span class="op">=</span> state</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple d'utilisation</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>mon_obj <span class="op">=</span> MonObjet(<span class="st">"des données importantes"</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Sérialisation</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>serialized_obj <span class="op">=</span> pickle.dumps(mon_obj)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Désérialisation</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>deserialized_obj <span class="op">=</span> pickle.loads(serialized_obj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ces méthodes vous permettent de contrôler précisément ce qui est sérialisé et comment l’objet est restauré par la suite. C’est particulièrement utile pour les objets qui peuvent contenir des types non sérialisables ou pour optimiser la sérialisation pour les besoins en performance.</p>
+</section>
+</section>
 <section id="n.-exemple-concret-dusage-réel-en-python" class="level3">
 <h3 class="anchored" data-anchor-id="n.-exemple-concret-dusage-réel-en-python">n.&nbsp;Exemple Concret d’Usage Réel en Python</h3>
 <section id="traitement-dimages-en-parallèle" class="level4">
 <h4 class="anchored" data-anchor-id="traitement-dimages-en-parallèle">Traitement d’Images en Parallèle</h4>
-<p>from multiprocessing import Pool import cv2 # Bibliothèque de traitement d’image</p>
-<p>def process_image(file_path): # Charge une image img = cv2.imread(file_path) # Applique un traitement, par exemple un flou Gaussien img = cv2.GaussianBlur(img, (5, 5), 0) # Sauvegarde l’image traitée cv2.imwrite(f”processed_{file_path}“, img)</p>
-<p>def run_image_processing(): images = [‘image1.jpg’, ‘image2.jpg’, ‘image3.jpg’] # Liste des images à traiter with Pool(processes=4) as pool: pool.map(process_image, images)</p>
-<p>run_image_processing()</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> Pool</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2  <span class="co"># Bibliothèque de traitement d'image</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_image(file_path):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Charge une image</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> cv2.imread(file_path)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Applique un traitement, par exemple un flou Gaussien</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    img <span class="op">=</span> cv2.GaussianBlur(img, (<span class="dv">5</span>, <span class="dv">5</span>), <span class="dv">0</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sauvegarde l'image traitée</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    cv2.imwrite(<span class="ss">f"processed_</span><span class="sc">{</span>file_path<span class="sc">}</span><span class="ss">"</span>, img)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_image_processing():</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    images <span class="op">=</span> [<span class="st">'image1.jpg'</span>, <span class="st">'image2.jpg'</span>, <span class="st">'image3.jpg'</span>]  <span class="co"># Liste des images à traiter</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> Pool(processes<span class="op">=</span><span class="dv">4</span>) <span class="im">as</span> pool:</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        pool.<span class="bu">map</span>(process_image, images)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>run_image_processing()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple concret, une liste d’images est traitée en parallèle en utilisant le multiprocessing. Chaque image est traitée dans un processus distinct, ce qui accélère le traitement d’un grand nombre d’images, surtout lorsqu’il est exécuté sur une machine avec plusieurs cœurs de CPU.</p>
+</section>
 </section>
 </section>
 <section id="récapitulatif" class="level2">
@@ -1527,7 +1680,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_2/2-Authenticate.html" class="pagination-link  aria-label=" authentification="" et="" sécurité="" des="" api"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Authentification et sécurité des API</span>

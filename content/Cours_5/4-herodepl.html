@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -122,6 +156,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -143,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -158,6 +196,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -183,6 +225,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -213,6 +259,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -220,6 +274,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -262,6 +320,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -296,6 +358,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -332,11 +402,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/1-Introdepl.html" class="sidebar-item-text sidebar-link">
@@ -392,25 +468,39 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#poo---python-orienté-objet" id="toc-poo---python-orienté-objet" class="nav-link active" data-scroll-target="#poo---python-orienté-objet">POO - Python Orienté Objet”</a></li>
   <li><a href="#iv.-déploiement-dune-api-sur-heroku" id="toc-iv.-déploiement-dune-api-sur-heroku" class="nav-link" data-scroll-target="#iv.-déploiement-dune-api-sur-heroku">IV. Déploiement d’une API sur Heroku</a>
   <ul class="collapse">
-  <li><a href="#configuration-de-lenvironnement-heroku" id="toc-configuration-de-lenvironnement-heroku" class="nav-link" data-scroll-target="#configuration-de-lenvironnement-heroku"><strong>1. Configuration de l’environnement Heroku</strong></a></li>
+  <li><a href="#configuration-de-lenvironnement-heroku" id="toc-configuration-de-lenvironnement-heroku" class="nav-link" data-scroll-target="#configuration-de-lenvironnement-heroku"><strong>1. Configuration de l’environnement Heroku</strong></a>
+  <ul class="collapse">
+  <li><a href="#a.-création-dun-compte-heroku" id="toc-a.-création-dun-compte-heroku" class="nav-link" data-scroll-target="#a.-création-dun-compte-heroku">a. Création d’un compte Heroku</a></li>
+  <li><a href="#b.-installation-de-heroku-cli" id="toc-b.-installation-de-heroku-cli" class="nav-link" data-scroll-target="#b.-installation-de-heroku-cli">b. Installation de Heroku CLI</a></li>
+  <li><a href="#c.-avantages-pour-les-étudiants" id="toc-c.-avantages-pour-les-étudiants" class="nav-link" data-scroll-target="#c.-avantages-pour-les-étudiants">c.&nbsp;Avantages pour les étudiants</a></li>
+  </ul></li>
   <li><a href="#préparation-de-lapplication-pour-heroku" id="toc-préparation-de-lapplication-pour-heroku" class="nav-link" data-scroll-target="#préparation-de-lapplication-pour-heroku"><strong>2. Préparation de l’application pour Heroku</strong></a>
   <ul class="collapse">
+  <li><a href="#a.-adaptation-de-lapplication-aux-exigences-heroku" id="toc-a.-adaptation-de-lapplication-aux-exigences-heroku" class="nav-link" data-scroll-target="#a.-adaptation-de-lapplication-aux-exigences-heroku">a. Adaptation de l’application aux exigences Heroku</a></li>
+  <li><a href="#b.-le-procfile-spécificité-et-fonctionnalités" id="toc-b.-le-procfile-spécificité-et-fonctionnalités" class="nav-link" data-scroll-target="#b.-le-procfile-spécificité-et-fonctionnalités">b. Le Procfile: Spécificité et Fonctionnalités</a></li>
   <li><a href="#c.-requirements.txt" id="toc-c.-requirements.txt" class="nav-link" data-scroll-target="#c.-requirements.txt">c.&nbsp;requirements.txt</a></li>
+  <li><a href="#d.-runtime.txt" id="toc-d.-runtime.txt" class="nav-link" data-scroll-target="#d.-runtime.txt">d.&nbsp;runtime.txt</a></li>
   <li><a href="#e.-autres-fichiers-et-configurations" id="toc-e.-autres-fichiers-et-configurations" class="nav-link" data-scroll-target="#e.-autres-fichiers-et-configurations">e. Autres fichiers et configurations</a></li>
   <li><a href="#f.-structure-du-code-de-lapplication" id="toc-f.-structure-du-code-de-lapplication" class="nav-link" data-scroll-target="#f.-structure-du-code-de-lapplication">f.&nbsp;Structure du code de l’application</a></li>
   <li><a href="#g.-utilisation-de-bases-de-données" id="toc-g.-utilisation-de-bases-de-données" class="nav-link" data-scroll-target="#g.-utilisation-de-bases-de-données">g. Utilisation de bases de données</a></li>
   <li><a href="#h.-celery" id="toc-h.-celery" class="nav-link" data-scroll-target="#h.-celery">h. Celery ?</a></li>
+  </ul></li>
+  <li><a href="#exemple-basique-avec-fastapi" id="toc-exemple-basique-avec-fastapi" class="nav-link" data-scroll-target="#exemple-basique-avec-fastapi"><strong>3. Exemple Basique avec FastAPI</strong></a>
+  <ul class="collapse">
   <li><a href="#a.-structure-de-base-dune-application-fastapi" id="toc-a.-structure-de-base-dune-application-fastapi" class="nav-link" data-scroll-target="#a.-structure-de-base-dune-application-fastapi">a. Structure de base d’une application FastAPI</a></li>
   <li><a href="#b.-préparation-pour-heroku" id="toc-b.-préparation-pour-heroku" class="nav-link" data-scroll-target="#b.-préparation-pour-heroku">b. Préparation pour Heroku</a></li>
+  <li><a href="#c.-connexion-à-heroku-via-le-cli" id="toc-c.-connexion-à-heroku-via-le-cli" class="nav-link" data-scroll-target="#c.-connexion-à-heroku-via-le-cli">c.&nbsp;Connexion à Heroku via le CLI</a></li>
   <li><a href="#d.-création-dune-nouvelle-application-heroku" id="toc-d.-création-dune-nouvelle-application-heroku" class="nav-link" data-scroll-target="#d.-création-dune-nouvelle-application-heroku">d.&nbsp;Création d’une nouvelle application Heroku</a></li>
+  <li><a href="#e.-lier-votre-dépôt-git-à-heroku" id="toc-e.-lier-votre-dépôt-git-à-heroku" class="nav-link" data-scroll-target="#e.-lier-votre-dépôt-git-à-heroku">e. Lier votre dépôt Git à Heroku</a></li>
   <li><a href="#f.-déployez-votre-application-avec-git-push-heroku-master" id="toc-f.-déployez-votre-application-avec-git-push-heroku-master" class="nav-link" data-scroll-target="#f.-déployez-votre-application-avec-git-push-heroku-master">f.&nbsp;Déployez votre application avec git push heroku master</a></li>
+  <li><a href="#g.-tester-votre-application" id="toc-g.-tester-votre-application" class="nav-link" data-scroll-target="#g.-tester-votre-application">g. Tester votre application</a></li>
   </ul></li>
   </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -423,7 +513,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -455,116 +545,98 @@ ul.task-list li input[type="checkbox"] {
 <h1>IV. Déploiement d’une API sur Heroku</h1>
 <section id="configuration-de-lenvironnement-heroku" class="level2">
 <h2 class="anchored" data-anchor-id="configuration-de-lenvironnement-heroku"><strong>1. Configuration de l’environnement Heroku</strong></h2>
-<pre><code>Avant de déployer une API sur Heroku, il est essentiel de configurer correctement l'environnement Heroku. Cela implique la création d'un compte Heroku, l'installation de l'interface en ligne de commande Heroku (CLI), et la préparation de votre application avec les fichiers de configuration nécessaires.
-
-
-### a. Création d'un compte Heroku
-Pour commencer avec Heroku, vous devez d'abord créer un compte. Rendez-vous sur le site de Heroku et inscrivez-vous en fournissant une adresse e-mail et un mot de passe. En tant qu'étudiant, vous pouvez bénéficier d'avantages supplémentaires grâce au GitHub Student Developer Pack, qui inclut des crédits gratuits sur Heroku.
-
-
-### b. Installation de Heroku CLI
-Heroku CLI, ou Heroku Command Line Interface, est un outil en ligne de commande qui permet de gérer vos applications Heroku directement depuis le terminal. CLI signifie "Interface de Ligne de Commande", et c'est un moyen puissant pour exécuter des commandes spécifiques à Heroku, telles que la création d'applications, la gestion des processus, la consultation des logs, et le déploiement de votre code.
-
-Pour installer Heroku CLI, suivez les instructions sur le site officiel de Heroku. En général, l'installation se fait via un gestionnaire de paquets pour votre système d'exploitation ou en téléchargeant et en exécutant un programme d'installation.
-
-
-### c. Avantages pour les étudiants
-En tant qu'étudiant, vous avez accès à des ressources supplémentaires grâce au GitHub Student Developer Pack. Ce pack offre des crédits mensuels de 13 $ sur Heroku, ce qui vous permet de tester et de déployer vos applications sans frais supplémentaires. Pour en bénéficier, inscrivez-vous sur Heroku for GitHub Students avec votre compte GitHub éligible au Student Developer Pack.</code></pre>
+<p>Avant de déployer une API sur Heroku, il est essentiel de configurer correctement l’environnement Heroku. Cela implique la création d’un compte Heroku, l’installation de l’interface en ligne de commande Heroku (CLI), et la préparation de votre application avec les fichiers de configuration nécessaires.</p>
+<section id="a.-création-dun-compte-heroku" class="level3">
+<h3 class="anchored" data-anchor-id="a.-création-dun-compte-heroku">a. Création d’un compte Heroku</h3>
+<p>Pour commencer avec Heroku, vous devez d’abord créer un compte. Rendez-vous sur le site de Heroku et inscrivez-vous en fournissant une adresse e-mail et un mot de passe. En tant qu’étudiant, vous pouvez bénéficier d’avantages supplémentaires grâce au GitHub Student Developer Pack, qui inclut des crédits gratuits sur Heroku.</p>
+</section>
+<section id="b.-installation-de-heroku-cli" class="level3">
+<h3 class="anchored" data-anchor-id="b.-installation-de-heroku-cli">b. Installation de Heroku CLI</h3>
+<p>Heroku CLI, ou Heroku Command Line Interface, est un outil en ligne de commande qui permet de gérer vos applications Heroku directement depuis le terminal. CLI signifie “Interface de Ligne de Commande”, et c’est un moyen puissant pour exécuter des commandes spécifiques à Heroku, telles que la création d’applications, la gestion des processus, la consultation des logs, et le déploiement de votre code.</p>
+<p>Pour installer Heroku CLI, suivez les instructions sur le site officiel de Heroku. En général, l’installation se fait via un gestionnaire de paquets pour votre système d’exploitation ou en téléchargeant et en exécutant un programme d’installation.</p>
+</section>
+<section id="c.-avantages-pour-les-étudiants" class="level3">
+<h3 class="anchored" data-anchor-id="c.-avantages-pour-les-étudiants">c.&nbsp;Avantages pour les étudiants</h3>
+<p>En tant qu’étudiant, vous avez accès à des ressources supplémentaires grâce au GitHub Student Developer Pack. Ce pack offre des crédits mensuels de 13 $ sur Heroku, ce qui vous permet de tester et de déployer vos applications sans frais supplémentaires. Pour en bénéficier, inscrivez-vous sur Heroku for GitHub Students avec votre compte GitHub éligible au Student Developer Pack.</p>
+</section>
 </section>
 <section id="préparation-de-lapplication-pour-heroku" class="level2">
 <h2 class="anchored" data-anchor-id="préparation-de-lapplication-pour-heroku"><strong>2. Préparation de l’application pour Heroku</strong></h2>
-<pre><code>
-
-### a. Adaptation de l'application aux exigences Heroku
-Pour que votre application soit prête pour un déploiement sur Heroku, elle doit répondre à certains critères structurels et de configuration. Voici les éléments essentiels à vérifier et à mettre en place :
-</code></pre>
+<section id="a.-adaptation-de-lapplication-aux-exigences-heroku" class="level3">
+<h3 class="anchored" data-anchor-id="a.-adaptation-de-lapplication-aux-exigences-heroku">a. Adaptation de l’application aux exigences Heroku</h3>
+<p>Pour que votre application soit prête pour un déploiement sur Heroku, elle doit répondre à certains critères structurels et de configuration. Voici les éléments essentiels à vérifier et à mettre en place :</p>
 <ul>
-<li><code>requirements.txt : Ce fichier doit être présent à la racine de votre projet. Il contient la liste des dépendances Python nécessaires à votre application, permettant à Heroku de les installer automatiquement lors du déploiement.</code></li>
-<li><code>Procfile : Ce fichier, également à la racine de votre projet, indique à Heroku comment démarrer votre application. Il définit les différents types de processus et les commandes associées à votre application.</code></li>
-<li><code>runtime.txt : Si vous avez besoin d'une version spécifique de Python, ce fichier permet de l'indiquer à Heroku.</code></li>
-<li><code>Dépôt Git : Heroku utilise Git pour le déploiement. Assurez-vous que votre code source est bien versionné dans un dépôt Git.</code></li>
+<li>requirements.txt : Ce fichier doit être présent à la racine de votre projet. Il contient la liste des dépendances Python nécessaires à votre application, permettant à Heroku de les installer automatiquement lors du déploiement.</li>
+<li>Procfile : Ce fichier, également à la racine de votre projet, indique à Heroku comment démarrer votre application. Il définit les différents types de processus et les commandes associées à votre application.</li>
+<li>runtime.txt : Si vous avez besoin d’une version spécifique de Python, ce fichier permet de l’indiquer à Heroku.</li>
+<li>Dépôt Git : Heroku utilise Git pour le déploiement. Assurez-vous que votre code source est bien versionné dans un dépôt Git.</li>
 </ul>
-<pre><code>
-
-### b.  Le Procfile: Spécificité et Fonctionnalités
-
-
-#### Est-ce propre à Heroku?
-Le Procfile est une convention utilisée par Heroku, mais le concept n'est pas exclusif à cette plateforme. D'autres systèmes de déploiement et PaaS (Platform as a Service) peuvent utiliser des mécanismes similaires, bien que le terme "Procfile" soit spécifiquement associé à Heroku.
-
-
-#### Fonctionnalités du Procfile
-Le Procfile permet de déclarer différents types de processus et de commandes qui sont nécessaires pour exécuter une application. Voici une liste des fonctionnalités et des types de processus que vous pouvez définir dans un Procfile:
-</code></pre>
+</section>
+<section id="b.-le-procfile-spécificité-et-fonctionnalités" class="level3">
+<h3 class="anchored" data-anchor-id="b.-le-procfile-spécificité-et-fonctionnalités">b. Le Procfile: Spécificité et Fonctionnalités</h3>
+<section id="est-ce-propre-à-heroku" class="level4">
+<h4 class="anchored" data-anchor-id="est-ce-propre-à-heroku">Est-ce propre à Heroku?</h4>
+<p>Le Procfile est une convention utilisée par Heroku, mais le concept n’est pas exclusif à cette plateforme. D’autres systèmes de déploiement et PaaS (Platform as a Service) peuvent utiliser des mécanismes similaires, bien que le terme “Procfile” soit spécifiquement associé à Heroku.</p>
+</section>
+<section id="fonctionnalités-du-procfile" class="level4">
+<h4 class="anchored" data-anchor-id="fonctionnalités-du-procfile">Fonctionnalités du Procfile</h4>
+<p>Le Procfile permet de déclarer différents types de processus et de commandes qui sont nécessaires pour exécuter une application. Voici une liste des fonctionnalités et des types de processus que vous pouvez définir dans un Procfile:</p>
 <ol type="1">
-<li><code>Types de processus:</code>
+<li>Types de processus:
 <ol type="1">
-<li><code>web: Un processus pour exécuter le serveur web. Heroku rend ce processus accessible via HTTP et lui attribue un nom de domaine.</code></li>
-<li><code>worker: Un type de processus pour les tâches en arrière-plan. Ces processus peuvent être des tâches de file d'attente, des tâches planifiées, etc.</code></li>
-<li><code>release: Utilisé pour exécuter des tâches avant un nouveau déploiement, comme des migrations de base de données.</code></li>
-<li><code>clock: Un processus qui s'exécute à intervalles réguliers, souvent utilisé pour la planification de tâches (similaire à cron).</code></li>
+<li>web: Un processus pour exécuter le serveur web. Heroku rend ce processus accessible via HTTP et lui attribue un nom de domaine.</li>
+<li>worker: Un type de processus pour les tâches en arrière-plan. Ces processus peuvent être des tâches de file d’attente, des tâches planifiées, etc.</li>
+<li>release: Utilisé pour exécuter des tâches avant un nouveau déploiement, comme des migrations de base de données.</li>
+<li>clock: Un processus qui s’exécute à intervalles réguliers, souvent utilisé pour la planification de tâches (similaire à cron).</li>
 </ol></li>
-<li><code>Exécution de scripts:</code>
+<li>Exécution de scripts:
 <ol start="5" type="1">
-<li><code>Vous pouvez exécuter des scripts personnalisés ou des commandes shell directement dans le Procfile.</code></li>
+<li>Vous pouvez exécuter des scripts personnalisés ou des commandes shell directement dans le Procfile.</li>
 </ol></li>
-<li><code>Gestion des ressources:</code>
+<li>Gestion des ressources:
 <ol start="6" type="1">
-<li><code>Vous pouvez spécifier la quantité de ressources (comme la mémoire) que chaque processus doit utiliser, bien que cela se fasse généralement via la CLI ou le tableau de bord Heroku plutôt que dans le Procfile lui-même.</code></li>
+<li>Vous pouvez spécifier la quantité de ressources (comme la mémoire) que chaque processus doit utiliser, bien que cela se fasse généralement via la CLI ou le tableau de bord Heroku plutôt que dans le Procfile lui-même.</li>
 </ol></li>
-<li><code>Déclaration de ports:</code>
+<li>Déclaration de ports:
 <ol start="7" type="1">
-<li><code>Pour les processus web, Heroku assigne automatiquement un port que votre application doit écouter. Vous n'avez pas besoin de le déclarer dans le Procfile, mais votre application doit être configurée pour écouter sur le port spécifié par la variable d'environnement PORT.</code></li>
+<li>Pour les processus web, Heroku assigne automatiquement un port que votre application doit écouter. Vous n’avez pas besoin de le déclarer dans le Procfile, mais votre application doit être configurée pour écouter sur le port spécifié par la variable d’environnement PORT.</li>
 </ol></li>
-<li><code>Processus multiples:</code>
+<li>Processus multiples:
 <ol start="8" type="1">
-<li><code>Vous pouvez déclarer plusieurs processus du même type avec des commandes différentes si nécessaire.</code></li>
+<li>Vous pouvez déclarer plusieurs processus du même type avec des commandes différentes si nécessaire.</li>
 </ol></li>
-<li><code>Scaling:</code>
+<li>Scaling:
 <ol start="9" type="1">
-<li><code>Bien que le Procfile ne gère pas directement le scaling horizontal (l'ajout de plus de dynos), il définit les types de processus que vous pouvez ensuite scaler via la CLI ou le tableau de bord.</code></li>
+<li>Bien que le Procfile ne gère pas directement le scaling horizontal (l’ajout de plus de dynos), il définit les types de processus que vous pouvez ensuite scaler via la CLI ou le tableau de bord.</li>
 </ol></li>
 </ol>
-<pre><code>
-
-#### Exemples de Procfile
-Voici un exemple plus avancé de Procfile qui illustre certaines de ces fonctionnalités:
-
-
-</code></pre>
+</section>
+<section id="exemples-de-procfile" class="level4">
+<h4 class="anchored" data-anchor-id="exemples-de-procfile">Exemples de Procfile</h4>
+<p>Voici un exemple plus avancé de Procfile qui illustre certaines de ces fonctionnalités:</p>
 <p>web: gunicorn app:app –workers 3 worker: celery -A app.celery worker release: python manage.py migrate clock: python clock.py</p>
-<pre><code>
-
-</code></pre>
 <p>Dans cet exemple:</p>
-<pre><code>
-
-
-* `Le processus web démarre l'application avec 3 workers de gunicorn.`
-* `Le processus worker démarre un worker Celery pour les tâches en arrière-plan.`
-* `Le processus release exécute les migrations de base de données avant chaque déploiement.`
-* `Le processus clock exécute un script Python qui pourrait être utilisé pour la planification de tâches.`
-
-</code></pre>
+<ul>
+<li>Le processus web démarre l’application avec 3 workers de gunicorn.</li>
+<li>Le processus worker démarre un worker Celery pour les tâches en arrière-plan.</li>
+<li>Le processus release exécute les migrations de base de données avant chaque déploiement.</li>
+<li>Le processus clock exécute un script Python qui pourrait être utilisé pour la planification de tâches.</li>
+</ul>
 <p>Le Procfile est donc un outil puissant pour déclarer comment votre application doit être exécutée sur Heroku, et il offre une flexibilité pour définir une variété de processus nécessaires à l’exécution de votre application.</p>
+</section>
+</section>
 <section id="c.-requirements.txt" class="level3">
 <h3 class="anchored" data-anchor-id="c.-requirements.txt">c.&nbsp;requirements.txt</h3>
 <p>Le fichier requirements.txt liste toutes les bibliothèques Python dont votre application a besoin. Lorsque vous déployez votre application, Heroku utilise ce fichier pour installer automatiquement ces dépendances. Voici un exemple de ce à quoi pourrait ressembler un requirements.txt :</p>
-<pre><code>flask==1.1.2
-gunicorn==20.0.4
-requests==2.24.0</code></pre>
-<pre><code>Chaque ligne spécifie une bibliothèque et sa version. Vous pouvez générer ce fichier en exécutant pip freeze &gt; requirements.txt dans votre environnement de développement local.
-
-
-### d. runtime.txt
-Le fichier runtime.txt spécifie la version de Python que votre application utilise. Heroku supporte plusieurs versions de Python, et il est important de spécifier la version pour éviter tout problème de compatibilité. Voici un exemple de contenu pour un runtime.txt :
-
-
-</code></pre>
-<p>python-3.8.5</p>
-<pre><code>
-
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flask==1.1.2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gunicorn==20.0.4</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>requests==2.24.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Chaque ligne spécifie une bibliothèque et sa version. Vous pouvez générer ce fichier en exécutant pip freeze &gt; requirements.txt dans votre environnement de développement local.</p>
+</section>
+<section id="d.-runtime.txt" class="level3">
+<h3 class="anchored" data-anchor-id="d.-runtime.txt">d.&nbsp;runtime.txt</h3>
+<p>Le fichier runtime.txt spécifie la version de Python que votre application utilise. Heroku supporte plusieurs versions de Python, et il est important de spécifier la version pour éviter tout problème de compatibilité. Voici un exemple de contenu pour un runtime.txt :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python-3.8.5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Cela indique à Heroku d’utiliser Python 3.8.5 pour exécuter votre application.</p>
 </section>
 <section id="e.-autres-fichiers-et-configurations" class="level3">
@@ -574,26 +646,20 @@ Le fichier runtime.txt spécifie la version de Python que votre application util
 <section id="f.-structure-du-code-de-lapplication" class="level3">
 <h3 class="anchored" data-anchor-id="f.-structure-du-code-de-lapplication">f.&nbsp;Structure du code de l’application</h3>
 <p>Votre application doit être structurée de manière à ce que Heroku puisse la construire et l’exécuter sans erreurs. Cela implique :</p>
-<pre><code>
-
-
-* `Une application web doit écouter sur le port défini par la variable d'environnement PORT.`
-* `Les fichiers statiques doivent être correctement configurés pour être servis par le serveur web.`
-* `Les variables d'environnement doivent être utilisées pour les configurations sensibles, telles que les clés API ou les chaînes de connexion à la base de données.`
-
-</code></pre>
+<ul>
+<li>Une application web doit écouter sur le port défini par la variable d’environnement PORT.</li>
+<li>Les fichiers statiques doivent être correctement configurés pour être servis par le serveur web.</li>
+<li>Les variables d’environnement doivent être utilisées pour les configurations sensibles, telles que les clés API ou les chaînes de connexion à la base de données.</li>
+</ul>
 </section>
 <section id="g.-utilisation-de-bases-de-données" class="level3">
 <h3 class="anchored" data-anchor-id="g.-utilisation-de-bases-de-données">g. Utilisation de bases de données</h3>
 <p>Si votre application utilise une base de données, vous devrez configurer celle-ci pour fonctionner avec Heroku :</p>
-<pre><code>
-
-
-* `Migrations : Les migrations de base de données sont des modifications ou des mises à jour de la structure de votre base de données. Sur Heroku, ces migrations peuvent être exécutées automatiquement via le processus release dans le Procfile.`
-* `Add-ons : Heroku propose des add-ons pour les bases de données, comme Heroku Postgres, qui peuvent être ajoutés à votre application. Ces services sont gérés et maintenus par Heroku, simplifiant la configuration et la maintenance.`
-* `Variables d'environnement : Les chaînes de connexion et autres configurations de base de données doivent être stockées dans des variables d'environnement pour sécuriser les informations sensibles et permettre la portabilité de l'application.`
-
-</code></pre>
+<ul>
+<li>Migrations : Les migrations de base de données sont des modifications ou des mises à jour de la structure de votre base de données. Sur Heroku, ces migrations peuvent être exécutées automatiquement via le processus release dans le Procfile.</li>
+<li>Add-ons : Heroku propose des add-ons pour les bases de données, comme Heroku Postgres, qui peuvent être ajoutés à votre application. Ces services sont gérés et maintenus par Heroku, simplifiant la configuration et la maintenance.</li>
+<li>Variables d’environnement : Les chaînes de connexion et autres configurations de base de données doivent être stockées dans des variables d’environnement pour sécuriser les informations sensibles et permettre la portabilité de l’application.</li>
+</ul>
 <p>Dans la prochaine section, nous allons créer une API simple avec FastAPI et préparer sa structure pour le déploiement sur Heroku, en mettant en pratique les éléments abordés ci-dessus.</p>
 </section>
 <section id="h.-celery" class="level3">
@@ -601,146 +667,119 @@ Le fichier runtime.txt spécifie la version de Python que votre application util
 <p>Avant de plonger dans l’exemple avec FastAPI, clarifions d’abord ce qu’est Celery et son rôle dans le contexte d’une application déployée sur Heroku.</p>
 <p>Celery est un système de file d’attente de tâches asynchrones, basé sur la distribution de messages. Il est utilisé pour exécuter des tâches en arrière-plan de manière asynchrone. Lorsque vous avez des opérations ou des tâches qui sont longues ou qui n’ont pas besoin d’être exécutées dans le flux de traitement principal de votre application web (comme l’envoi d’emails, le traitement d’images, ou les opérations batch), Celery vous permet de les gérer en dehors de la requête HTTP principale.</p>
 <p>Dans le Procfile, le processus worker qui utilise Celery serait responsable de gérer ces tâches en arrière-plan. Cela permet à l’application web de répondre rapidement aux requêtes des utilisateurs sans être ralentie par ces opérations longues.</p>
-<pre><code>
-
-
-## **3. Exemple Basique avec FastAPI**
-
-</code></pre>
-<p>Maintenant, créons une API simple avec FastAPI et préparons-la pour le déploiement sur Heroku. FastAPI est un framework moderne et rapide (haute performance) pour la construction d’APIs avec Python 3.7+, basé sur des standards Python type hints.</p>
 </section>
+</section>
+<section id="exemple-basique-avec-fastapi" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-basique-avec-fastapi"><strong>3. Exemple Basique avec FastAPI</strong></h2>
+<p>Maintenant, créons une API simple avec FastAPI et préparons-la pour le déploiement sur Heroku. FastAPI est un framework moderne et rapide (haute performance) pour la construction d’APIs avec Python 3.7+, basé sur des standards Python type hints.</p>
 <section id="a.-structure-de-base-dune-application-fastapi" class="level3">
 <h3 class="anchored" data-anchor-id="a.-structure-de-base-dune-application-fastapi">a. Structure de base d’une application FastAPI</h3>
 <p>Voici une structure de base pour une application FastAPI :</p>
-<pre><code># main.py
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}</code></pre>
-<pre><code>Pour exécuter cette application localement, vous utiliseriez une commande comme celle-ci :
-
-
-</code></pre>
-<p>uvicorn main:app –reload</p>
-<pre><code>
-
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># main.py</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_root():</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"Hello"</span>: <span class="st">"World"</span>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/items/</span><span class="sc">{item_id}</span><span class="st">"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_item(item_id: <span class="bu">int</span>, q: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"item_id"</span>: item_id, <span class="st">"q"</span>: q}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Pour exécuter cette application localement, vous utiliseriez une commande comme celle-ci :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uvicorn</span> main:app <span class="at">--reload</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="b.-préparation-pour-heroku" class="level3">
 <h3 class="anchored" data-anchor-id="b.-préparation-pour-heroku">b. Préparation pour Heroku</h3>
 <p>Pour déployer cette application sur Heroku, vous devez effectuer les étapes suivantes :</p>
-<pre><code>
-
-
-1. `Créer un fichier Procfile : \
-`
-
-    ```
-web: uvicorn main:app --host=0.0.0.0 --port=${PORT:-5000}</code></pre>
-<ol start="2" type="1">
-<li><code>Ici, web est le processus qui sera accessible via HTTP et Heroku fournira la variable d'environnement PORT que votre application doit écouter.</code></li>
-<li><code>Créer un fichier requirements.txt : \ Vous pouvez générer ce fichier en exécutant pip freeze &gt; requirements.txt dans votre environnement de développement local. Assurez-vous d'inclure fastapi et uvicorn dans ce fichier.</code></li>
-<li><code>Optionnel : Créer un fichier runtime.txt : \ Si vous avez besoin d'une version spécifique de Python, spécifiez-la ici.</code></li>
-<li><code>Initialiser un dépôt Git et pousser votre code : \ Heroku utilise Git pour le déploiement, donc votre code doit être dans un dépôt Git.</code></li>
-</ol>
-<pre><code>
-
-### c. Connexion à Heroku via le CLI
-Après avoir installé le Heroku CLI, vous devez vous connecter à votre compte Heroku. Voici comment procéder :
-</code></pre>
 <ol type="1">
-<li><p><code>Ouvrez votre terminal ou invite de commande.</code></p></li>
-<li><p><code>Tapez la commande suivante : \</code></p>
-<p>```</p></li>
+<li>Créer un fichier Procfile :<br>
+</li>
 </ol>
-<p>heroku login</p>
-<pre><code>
-
-3. 
-4. `Appuyez sur la touche Enter. Le Heroku CLI ouvrira votre navigateur web par défaut pour se connecter.`
-5. `Dans le navigateur qui s'ouvre, connectez-vous avec vos identifiants Heroku. Si vous n'êtes pas déjà inscrit sur Heroku, vous devrez créer un compte.`
-6. `Une fois connecté dans le navigateur, vous pouvez retourner à votre terminal et vous serez connecté.`
-
-</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">web:</span> uvicorn main:app <span class="at">--host</span><span class="op">=</span>0.0.0.0 <span class="at">--port</span><span class="op">=</span><span class="va">${PORT</span><span class="op">:-</span>5000<span class="va">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Ici, web est le processus qui sera accessible via HTTP et Heroku fournira la variable d’environnement PORT que votre application doit écouter.</li>
+<li>Créer un fichier requirements.txt :<br>
+Vous pouvez générer ce fichier en exécutant pip freeze &gt; requirements.txt dans votre environnement de développement local. Assurez-vous d’inclure fastapi et uvicorn dans ce fichier.</li>
+<li>Optionnel : Créer un fichier runtime.txt :<br>
+Si vous avez besoin d’une version spécifique de Python, spécifiez-la ici.</li>
+<li>Initialiser un dépôt Git et pousser votre code :<br>
+Heroku utilise Git pour le déploiement, donc votre code doit être dans un dépôt Git.</li>
+</ol>
+</section>
+<section id="c.-connexion-à-heroku-via-le-cli" class="level3">
+<h3 class="anchored" data-anchor-id="c.-connexion-à-heroku-via-le-cli">c.&nbsp;Connexion à Heroku via le CLI</h3>
+<p>Après avoir installé le Heroku CLI, vous devez vous connecter à votre compte Heroku. Voici comment procéder :</p>
+<ol type="1">
+<li>Ouvrez votre terminal ou invite de commande.</li>
+<li>Tapez la commande suivante :<br>
+</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">heroku</span> login</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li></li>
+<li>Appuyez sur la touche Enter. Le Heroku CLI ouvrira votre navigateur web par défaut pour se connecter.</li>
+<li>Dans le navigateur qui s’ouvre, connectez-vous avec vos identifiants Heroku. Si vous n’êtes pas déjà inscrit sur Heroku, vous devrez créer un compte.</li>
+<li>Une fois connecté dans le navigateur, vous pouvez retourner à votre terminal et vous serez connecté.</li>
+</ol>
 <p>Cette étape est nécessaire pour associer les actions que vous effectuez via le CLI avec votre compte Heroku, ce qui permet de gérer vos applications et autres services Heroku.</p>
 </section>
 <section id="d.-création-dune-nouvelle-application-heroku" class="level3">
 <h3 class="anchored" data-anchor-id="d.-création-dune-nouvelle-application-heroku">d.&nbsp;Création d’une nouvelle application Heroku</h3>
 <p>Vous pouvez créer une nouvelle application Heroku soit via le CLI, soit via le tableau de bord Heroku sur le web. Voici comment faire avec le CLI :</p>
-<pre><code>
-
-
-1. `Dans votre terminal, naviguez vers le répertoire de votre projet.`
-2. `Tapez la commande suivante : \
-`
-
-    ```
-
-heroku create your-app-name</code></pre>
-<ol start="3" type="1">
-<li><code>\ Remplacez your-app-name par le nom que vous souhaitez donner à votre application. Ce nom doit être unique sur Heroku.</code></li>
-<li><code>Si le nom est disponible, Heroku créera l'application et vous donnera l'URL de celle-ci ainsi qu'un remote Git.</code></li>
-</ol>
-<pre><code>Si vous ne spécifiez pas de nom, Heroku en générera un aléatoirement pour vous. Vous pouvez également créer une application via le tableau de bord Heroku en cliquant sur "New" puis "Create new app".
-
-
-### e. Lier votre dépôt Git à Heroku
-Après avoir créé votre application sur Heroku, vous devez lier votre dépôt Git local à Heroku. Cela permettra de pousser votre code vers Heroku pour le déploiement. Voici comment faire :
-</code></pre>
 <ol type="1">
-<li><p><code>Dans le terminal, assurez-vous que vous êtes dans le répertoire de votre projet qui est également un dépôt Git.</code></p></li>
-<li><p><code>Tapez la commande suivante : \</code></p>
-<p>```</p></li>
+<li>Dans votre terminal, naviguez vers le répertoire de votre projet.</li>
+<li>Tapez la commande suivante :<br>
+</li>
 </ol>
-<p>heroku git:remote -a your-app-name</p>
-<pre><code>
-
-3. ` \
-Cela ajoutera un nouveau remote appelé heroku à votre dépôt Git local.`
-
-</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">heroku</span> create your-app-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><br>
+Remplacez your-app-name par le nom que vous souhaitez donner à votre application. Ce nom doit être unique sur Heroku.</li>
+<li>Si le nom est disponible, Heroku créera l’application et vous donnera l’URL de celle-ci ainsi qu’un remote Git.</li>
+</ol>
+<p>Si vous ne spécifiez pas de nom, Heroku en générera un aléatoirement pour vous. Vous pouvez également créer une application via le tableau de bord Heroku en cliquant sur “New” puis “Create new app”.</p>
+</section>
+<section id="e.-lier-votre-dépôt-git-à-heroku" class="level3">
+<h3 class="anchored" data-anchor-id="e.-lier-votre-dépôt-git-à-heroku">e. Lier votre dépôt Git à Heroku</h3>
+<p>Après avoir créé votre application sur Heroku, vous devez lier votre dépôt Git local à Heroku. Cela permettra de pousser votre code vers Heroku pour le déploiement. Voici comment faire :</p>
+<ol type="1">
+<li>Dans le terminal, assurez-vous que vous êtes dans le répertoire de votre projet qui est également un dépôt Git.</li>
+<li>Tapez la commande suivante :<br>
+</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">heroku</span> git:remote <span class="at">-a</span> your-app-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><br>
+Cela ajoutera un nouveau remote appelé heroku à votre dépôt Git local.</li>
+</ol>
 </section>
 <section id="f.-déployez-votre-application-avec-git-push-heroku-master" class="level3">
 <h3 class="anchored" data-anchor-id="f.-déployez-votre-application-avec-git-push-heroku-master">f.&nbsp;Déployez votre application avec git push heroku master</h3>
 <p>Pour déployer votre application, vous devez pousser votre code depuis votre dépôt Git local vers le remote Heroku. Voici les étapes :</p>
-<pre><code>
-
-
-1. `Assurez-vous que toutes vos modifications sont commitées dans Git.`
-2. `Tapez la commande suivante dans votre terminal : \
-`
-
-    ```
-git push heroku master</code></pre>
-<ol start="3" type="1">
-<li><code>Cette commande envoie votre code sur la branche master de votre dépôt local vers Heroku. Si vous utilisez une branche différente, remplacez master par le nom de votre branche.</code></li>
-<li><code>Heroku recevra le code, exécutera le build en installant les dépendances spécifiées dans requirements.txt, et exécutera les commandes dans votre Procfile.</code></li>
-<li><code>Si le déploiement est réussi, Heroku vous donnera l'URL de votre application déployée que vous pourrez visiter avec un navigateur web.</code></li>
+<ol type="1">
+<li>Assurez-vous que toutes vos modifications sont commitées dans Git.</li>
+<li>Tapez la commande suivante dans votre terminal :<br>
+</li>
 </ol>
-<pre><code>Ces étapes finalisent le processus de déploiement de votre application FastAPI sur Heroku. Vous pouvez maintenant accéder à votre application via l'URL fournie par Heroku et commencer à utiliser votre API.
-
-
-### g. Tester votre application
-Une fois déployée, votre application est accessible depuis n'importe quel ordinateur. Pour la tester, voici plusieurs outils que vous pouvez utiliser :
-
-
-#### cURL
-cURL est un outil en ligne de commande disponible sur la plupart des systèmes d'exploitation, utilisé pour envoyer des requêtes HTTP. Voici un exemple de commande cURL pour tester un point de terminaison de votre API :
-
-
-</code></pre>
-<p>curl -X GET https://your-app-name.herokuapp.com/endpoint</p>
-<pre><code>
-
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push heroku master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Cette commande envoie votre code sur la branche master de votre dépôt local vers Heroku. Si vous utilisez une branche différente, remplacez master par le nom de votre branche.</li>
+<li>Heroku recevra le code, exécutera le build en installant les dépendances spécifiées dans requirements.txt, et exécutera les commandes dans votre Procfile.</li>
+<li>Si le déploiement est réussi, Heroku vous donnera l’URL de votre application déployée que vous pourrez visiter avec un navigateur web.</li>
+</ol>
+<p>Ces étapes finalisent le processus de déploiement de votre application FastAPI sur Heroku. Vous pouvez maintenant accéder à votre application via l’URL fournie par Heroku et commencer à utiliser votre API.</p>
+</section>
+<section id="g.-tester-votre-application" class="level3">
+<h3 class="anchored" data-anchor-id="g.-tester-votre-application">g. Tester votre application</h3>
+<p>Une fois déployée, votre application est accessible depuis n’importe quel ordinateur. Pour la tester, voici plusieurs outils que vous pouvez utiliser :</p>
+<section id="curl" class="level4">
+<h4 class="anchored" data-anchor-id="curl">cURL</h4>
+<p>cURL est un outil en ligne de commande disponible sur la plupart des systèmes d’exploitation, utilisé pour envoyer des requêtes HTTP. Voici un exemple de commande cURL pour tester un point de terminaison de votre API :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-X</span> GET https://your-app-name.herokuapp.com/endpoint</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Remplacez https://your-app-name.herokuapp.com/endpoint par l’URL de votre API et le point de terminaison spécifique que vous souhaitez tester.</p>
+</section>
 <section id="postman" class="level4">
 <h4 class="anchored" data-anchor-id="postman">Postman</h4>
 <p>Comme abordé lors du TP 1, Postman est un outil GUI robuste pour tester les API. Vous pouvez configurer et envoyer des requêtes, et examiner les réponses de manière interactive.</p>
@@ -752,15 +791,9 @@ cURL est un outil en ligne de commande disponible sur la plupart des systèmes d
 <section id="httpie" class="level4">
 <h4 class="anchored" data-anchor-id="httpie">HTTPie</h4>
 <p>HTTPie est un client HTTP en ligne de commande qui offre une syntaxe intuitive, se présentant comme une alternative moderne à cURL. Installez-le avec pip :</p>
-<pre><code>pip install httpie</code></pre>
-<pre><code>Puis envoyez des requêtes comme suit :
-
-
-</code></pre>
-<p>http GET https://your-app-name.herokuapp.com/endpoint</p>
-<pre><code>
-
-</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install httpie</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Puis envoyez des requêtes comme suit :</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">http</span> GET https://your-app-name.herokuapp.com/endpoint</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="navigateur-web" class="level4">
 <h4 class="anchored" data-anchor-id="navigateur-web">Navigateur Web</h4>
@@ -768,7 +801,7 @@ cURL est un outil en ligne de commande disponible sur la plupart des systèmes d
 </section>
 <section id="requests-en-python" class="level4">
 <h4 class="anchored" data-anchor-id="requests-en-python">Requests en Python</h4>
-<p>Enfin, le package requests en Python, que nous avons utilisé tout au long de ce cours, reste une option fiable pour interagir avec votre API déployée. Vous pouvez écrire des scripts pour automatiser les tests et manipuler les réponses de l’API. ```</p>
+<p>Enfin, le package requests en Python, que nous avons utilisé tout au long de ce cours, reste une option fiable pour interagir avec votre API déployée. Vous pouvez écrire des scripts pour automatiser les tests et manipuler les réponses de l’API.</p>
 
 
 </section>
@@ -1303,7 +1336,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_5/3-Best Practice.html" class="pagination-link  aria-label=" meilleurs="" pratiques="" avant="" un="" déploiement"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Meilleurs Pratiques avant un déploiement</span>

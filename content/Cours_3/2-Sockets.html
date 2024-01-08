@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -123,6 +157,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -144,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -159,6 +197,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -184,6 +226,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -214,6 +260,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -221,6 +275,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -263,6 +321,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -297,6 +359,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -333,11 +403,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communication entre Processus (IPC)</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link">
@@ -390,11 +466,17 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-1-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-2-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -414,10 +496,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sockets-en-réseau-tcpip-et-udp" id="toc-sockets-en-réseau-tcpip-et-udp" class="nav-link" data-scroll-target="#sockets-en-réseau-tcpip-et-udp">3. Sockets en Réseau : TCP/IP et UDP</a></li>
   <li><a href="#fonctionnement-des-sockets" id="toc-fonctionnement-des-sockets" class="nav-link" data-scroll-target="#fonctionnement-des-sockets">4. Fonctionnement des Sockets</a></li>
   <li><a href="#exemple-de-communication-socket-en-python" id="toc-exemple-de-communication-socket-en-python" class="nav-link" data-scroll-target="#exemple-de-communication-socket-en-python">5. Exemple de Communication Socket en Python</a></li>
-  </ul></li>
-  <li><a href="#création-dun-socket-tcpip" id="toc-création-dun-socket-tcpip" class="nav-link" data-scroll-target="#création-dun-socket-tcpip">Création d’un socket TCP/IP</a></li>
-  <li><a href="#création-dun-socket-tcpip-1" id="toc-création-dun-socket-tcpip-1" class="nav-link" data-scroll-target="#création-dun-socket-tcpip-1">Création d’un socket TCP/IP</a>
-  <ul class="collapse">
   <li><a href="#gérer-et-différencier-plusieurs-clients-en-python" id="toc-gérer-et-différencier-plusieurs-clients-en-python" class="nav-link" data-scroll-target="#gérer-et-différencier-plusieurs-clients-en-python">6. Gérer et Différencier Plusieurs Clients en python</a></li>
   <li><a href="#différenciation-des-messages-de-plusieurs-clients-en-général" id="toc-différenciation-des-messages-de-plusieurs-clients-en-général" class="nav-link" data-scroll-target="#différenciation-des-messages-de-plusieurs-clients-en-général">7. Différenciation des Messages de Plusieurs Clients en général</a></li>
   <li><a href="#avantages-et-limitations-des-sockets" id="toc-avantages-et-limitations-des-sockets" class="nav-link" data-scroll-target="#avantages-et-limitations-des-sockets">8. Avantages et Limitations des Sockets</a>
@@ -430,7 +508,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -443,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -499,89 +577,114 @@ ul.task-list li input[type="checkbox"] {
 <p>Voici un exemple simple de communication entre un serveur et un client en utilisant les sockets TCP en Python.</p>
 <p>Serveur (serveur.py)</p>
 <p>import socket</p>
-</section>
-</section>
-<section id="création-dun-socket-tcpip" class="level1">
-<h1>Création d’un socket TCP/IP</h1>
-<p>with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: # Associe le socket à l’adresse du serveur et écoute les connexions entrantes s.bind((‘localhost’, 6789)) s.listen()</p>
-<pre><code>print("Le serveur écoute à l'adresse 'localhost' sur le port 6789")
-
-# Accepte une connexion
-conn, addr = s.accept()
-with conn:
-    print(f"Connecté à {addr}")
-    while True:
-        data = conn.recv(1024)
-        if not data:
-            break
-        conn.sendall(data)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un socket TCP/IP</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Associe le socket à l'adresse du serveur et écoute les connexions entrantes</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    s.bind((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    s.listen()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Le serveur écoute à l'adresse 'localhost' sur le port 6789"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Accepte une connexion</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    conn, addr <span class="op">=</span> s.accept()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> conn:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Connecté à </span><span class="sc">{</span>addr<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> conn.recv(<span class="dv">1024</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> data:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>            conn.sendall(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Client (client.py)</p>
-<p>import socket</p>
-</section>
-<section id="création-dun-socket-tcpip-1" class="level1">
-<h1>Création d’un socket TCP/IP</h1>
-<p>with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: # Connexion au serveur s.connect((‘localhost’, 6789))</p>
-<pre><code># Envoi de données
-s.sendall(b'Hello, server')
-
-# Réception de la réponse
-data = s.recv(1024)
-print(f"Reçu {data!r}")</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un socket TCP/IP</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Connexion au serveur</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    s.<span class="ex">connect</span>((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Envoi de données</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    s.sendall(<span class="st">b'Hello, server'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Réception de la réponse</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> s.recv(<span class="dv">1024</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Reçu </span><span class="sc">{</span>data<span class="sc">!r}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, le serveur écoute sur le port 6789 et attend une connexion. Le client se connecte au serveur et envoie un message “Hello, server”. Le serveur reçoit ce message, l’échoit (le renvoie au client), et le client imprime la réponse. C’est un exemple de base de l’échange de données en utilisant les sockets TCP en Python.</p>
 <p>Dans les exemples de code fournis pour le serveur et le client, plusieurs éléments clés définissent le fonctionnement des sockets en Python. Voici une explication détaillée de chaque partie :</p>
 <p>Serveur (serveur.py)</p>
-<p>import socket</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>import socket : Importe le module Python socket qui fournit les méthodes et les classes pour la communication réseau.</li>
 </ul>
-<p>with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>socket.socket : Crée un nouvel objet socket.</li>
 <li>socket.AF_INET : Spécifie la famille d’adresses, AF_INET pour IPv4.</li>
 <li>socket.SOCK_STREAM : Spécifie le type de socket, SOCK_STREAM pour le protocole TCP, qui est orienté connexion.</li>
 </ul>
-<p>s.bind((‘localhost’, 6789))</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s.bind((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>s.bind : Associe le socket à une adresse spécifique et à un port. Ici, ‘localhost’ indique que le serveur écoute sur l’interface réseau locale.</li>
 </ul>
-<p>s.listen()</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s.listen()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>s.listen : Met le socket en mode écoute pour accepter les connexions entrantes. Sans argument, il utilise une file d’attente de taille raisonnable par défaut.</li>
 </ul>
-<p>conn, addr = s.accept()</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>conn, addr <span class="op">=</span> s.accept()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>s.accept : Bloque et attend une connexion entrante. Quand un client se connecte, il retourne un nouveau socket conn représentant la connexion et l’adresse addr du client connecté.</li>
 </ul>
-<p>data = conn.recv(1024)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> conn.recv(<span class="dv">1024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>conn.recv : Reçoit les données du client. Le nombre 1024 spécifie la taille maximale des données pouvant être reçues à la fois (en octets).</li>
 </ul>
-<p>conn.sendall(data)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>conn.sendall(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>conn.sendall : Envoie les données reçues en retour au client. Cette méthode s’assure que toutes les données sont envoyées.</li>
 </ul>
 <p>Client (client.py)</p>
-<p>s.connect((‘localhost’, 6789))</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s.<span class="ex">connect</span>((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>s.connect : Établit une connexion avec le serveur. L’argument est un tuple contenant l’adresse du serveur et le numéro de port.</li>
 </ul>
-<p>s.sendall(b’Hello, server’)</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s.sendall(<span class="st">b'Hello, server'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>s.sendall : Envoie des données au serveur. Les données sont préfixées par b pour indiquer qu’il s’agit d’un objet bytes, nécessaire pour l’envoi sur le réseau.</li>
 </ul>
-<p>data = s.recv(1024)</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> s.recv(<span class="dv">1024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>s.recv : Reçoit la réponse du serveur. Encore une fois, 1024 est la taille maximale du bloc de données à recevoir.</li>
 </ul>
 <p>Dans ces exemples, le serveur et le client utilisent TCP, un protocole de communication fiable et orienté connexion. Le serveur attend passivement une connexion client, tandis que le client initie activement la connexion. Une fois la connexion établie, ils peuvent communiquer en envoyant et en recevant des données.</p>
+</section>
 <section id="gérer-et-différencier-plusieurs-clients-en-python" class="level2">
 <h2 class="anchored" data-anchor-id="gérer-et-différencier-plusieurs-clients-en-python">6. Gérer et Différencier Plusieurs Clients en python</h2>
 <p>Un serveur TCP peut gérer plusieurs clients simultanément en utilisant le multithreading ou l’asynchronisme. Lorsqu’un client se connecte et que le serveur accepte la connexion, il crée généralement un nouveau thread ou un processus pour gérer la communication avec ce client. Cela permet au serveur principal de continuer à écouter d’autres clients potentiels. Chaque thread gère un socket de connexion distinct, ce qui permet de différencier les clients.</p>
 <p>Voici un exemple simplifié de la façon dont un serveur peut gérer plusieurs clients en utilisant le multithreading en Python :</p>
-<p>import socket import threading</p>
-<p>def handle_client(conn, addr): print(f”Connecté à {addr}“) try: while True: data = conn.recv(1024) if not data: break conn.sendall(data) finally: conn.close()</p>
-<p>def server(): with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.bind((‘localhost’, 6789)) s.listen() while True: conn, addr = s.accept() client_thread = threading.Thread(target=handle_client, args=(conn, addr)) client_thread.start()</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: server()</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_client(conn, addr):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Connecté à </span><span class="sc">{</span>addr<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> conn.recv(<span class="dv">1024</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> data:</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            conn.sendall(data)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        conn.close()</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> server():</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        s.bind((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        s.listen()</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>            conn, addr <span class="op">=</span> s.accept()</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>            client_thread <span class="op">=</span> threading.Thread(target<span class="op">=</span>handle_client, args<span class="op">=</span>(conn, addr))</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>            client_thread.start()</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    server()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, chaque fois qu’un client se connecte, le serveur crée un nouveau thread qui exécute la fonction handle_client, qui gère la communication avec ce client.</p>
 <p>Utiliser une Socket sur un Réseau</p>
 <p>Pour utiliser une socket sur un réseau et pas uniquement en local, vous devez lier votre socket à une adresse IP publique ou à une adresse IP locale accessible sur le réseau. Au lieu de lier votre socket à ‘localhost’, vous lieriez à l’adresse IP de l’interface réseau que vous souhaitez utiliser. Assurez-vous que les pare-feu et les routeurs sont configurés pour permettre le trafic sur le port que vous utilisez.</p>
@@ -619,20 +722,57 @@ print(f"Reçu {data!r}")</code></pre>
 <h3 class="anchored" data-anchor-id="a.-exemple-plus-complet">a. Exemple plus complet</h3>
 <p>Dans le contexte d’une API, les sockets peuvent être utilisés pour créer un serveur qui écoute les requêtes des clients et y répond. Voici un exemple concret d’un serveur d’API simple utilisant les sockets en Python. Cet exemple illustre un serveur qui accepte des requêtes JSON, traite une action simple (comme une addition), et renvoie une réponse JSON.</p>
 <p>Serveur d’API (api_server.py)</p>
-<p>import socket import json import threading</p>
-<p>def process_request(request_data): # Simule le traitement d’une requête, ici une simple addition data = json.loads(request_data) result = data[‘number1’] + data[‘number2’] return json.dumps({‘result’: result})</p>
-<p>def handle_client(conn, addr): print(f”Connecté à {addr}“) try: while True: data = conn.recv(1024) if not data: break</p>
-<pre><code>        # Traite la requête et envoie la réponse
-        response = process_request(data.decode('utf-8'))
-        conn.sendall(response.encode('utf-8'))
-finally:
-    conn.close()</code></pre>
-<p>def server(): with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.bind((‘localhost’, 6789)) s.listen() print(“Serveur d’API démarré sur le port 6789…”) while True: conn, addr = s.accept() client_thread = threading.Thread(target=handle_client, args=(conn, addr)) client_thread.start()</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: server()</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> threading</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_request(request_data):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simule le traitement d'une requête, ici une simple addition</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.loads(request_data)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> data[<span class="st">'number1'</span>] <span class="op">+</span> data[<span class="st">'number2'</span>]</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> json.dumps({<span class="st">'result'</span>: result})</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_client(conn, addr):</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Connecté à </span><span class="sc">{</span>addr<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> conn.recv(<span class="dv">1024</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="kw">not</span> data:</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Traite la requête et envoie la réponse</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>            response <span class="op">=</span> process_request(data.decode(<span class="st">'utf-8'</span>))</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>            conn.sendall(response.encode(<span class="st">'utf-8'</span>))</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        conn.close()</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> server():</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>        s.bind((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        s.listen()</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Serveur d'API démarré sur le port 6789..."</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>            conn, addr <span class="op">=</span> s.accept()</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>            client_thread <span class="op">=</span> threading.Thread(target<span class="op">=</span>handle_client, args<span class="op">=</span>(conn, addr))</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>            client_thread.start()</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    server()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Client (api_client.py)</p>
-<p>import socket import json</p>
-<p>def send_request(number1, number2): request_data = json.dumps({‘number1’: number1, ‘number2’: number2}) with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.connect((‘localhost’, 6789)) s.sendall(request_data.encode(‘utf-8’)) response = s.recv(1024) print(f”Réponse reçue: {response.decode(‘utf-8’)}“)</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: # Envoie une requête d’addition au serveur d’API send_request(10, 20)</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> send_request(number1, number2):</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    request_data <span class="op">=</span> json.dumps({<span class="st">'number1'</span>: number1, <span class="st">'number2'</span>: number2})</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        s.<span class="ex">connect</span>((<span class="st">'localhost'</span>, <span class="dv">6789</span>))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        s.sendall(request_data.encode(<span class="st">'utf-8'</span>))</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> s.recv(<span class="dv">1024</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Réponse reçue: </span><span class="sc">{</span>response<span class="sc">.</span>decode(<span class="st">'utf-8'</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Envoie une requête d'addition au serveur d'API</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    send_request(<span class="dv">10</span>, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Explication de l’Exemple :</p>
 <ul>
 <li>Le serveur d’API (api_server.py) écoute les connexions entrantes sur le port 6789.</li>
@@ -647,25 +787,55 @@ finally:
 <p>Dans une architecture d’API classique, il est courant d’avoir un serveur HTTP qui reçoit des requêtes de clients et qui, pour traiter ces requêtes, doit communiquer avec d’autres services ou processus en arrière-plan. Ces services en arrière-plan peuvent être des bases de données, des services de calcul, des systèmes de files d’attente, etc. Les sockets peuvent être utilisés pour cette communication interprocessus (IPC) en arrière-plan.</p>
 <p>Voici un exemple où une API HTTP reçoit des requêtes pour effectuer des opérations, et ces opérations sont déléguées à un processus en arrière-plan via un socket. Le serveur HTTP agit comme un frontal, tandis que le processus en arrière-plan effectue le traitement réel et renvoie le résultat au serveur HTTP, qui le transmet ensuite au client.</p>
 <p>Serveur HTTP (http_server.py)</p>
-<p>from http.server import BaseHTTPRequestHandler, HTTPServer import json import socket</p>
-<p>class RequestHandler(BaseHTTPRequestHandler): def do_POST(self): content_length = int(self.headers[‘Content-Length’]) post_data = self.rfile.read(content_length) response = self.send_to_worker(post_data)</p>
-<pre><code>    self.send_response(200)
-    self.send_header('Content-type', 'application/json')
-    self.end_headers()
-    self.wfile.write(response)
-
-def send_to_worker(self, data):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect(('localhost', 6790))
-        s.sendall(data)
-        response = s.recv(1024)
-        return response</code></pre>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: server = HTTPServer((‘localhost’, 6789), RequestHandler) print(‘Starting server at http://localhost:6789’) server.serve_forever()</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> http.server <span class="im">import</span> BaseHTTPRequestHandler, HTTPServer</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RequestHandler(BaseHTTPRequestHandler):</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> do_POST(<span class="va">self</span>):</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        content_length <span class="op">=</span> <span class="bu">int</span>(<span class="va">self</span>.headers[<span class="st">'Content-Length'</span>])</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        post_data <span class="op">=</span> <span class="va">self</span>.rfile.read(content_length)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> <span class="va">self</span>.send_to_worker(post_data)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.send_response(<span class="dv">200</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.send_header(<span class="st">'Content-type'</span>, <span class="st">'application/json'</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.end_headers()</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.wfile.write(response)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> send_to_worker(<span class="va">self</span>, data):</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            s.<span class="ex">connect</span>((<span class="st">'localhost'</span>, <span class="dv">6790</span>))</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>            s.sendall(data)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>            response <span class="op">=</span> s.recv(<span class="dv">1024</span>)</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> response</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    server <span class="op">=</span> HTTPServer((<span class="st">'localhost'</span>, <span class="dv">6789</span>), RequestHandler)</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Starting server at http://localhost:6789'</span>)</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    server.serve_forever()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Processus de Travail (worker.py)</p>
-<p>import socket import json</p>
-<p>def process_data(data): # Simule un traitement de données complexe result = sum(data) return json.dumps({‘result’: result}).encode(‘utf-8’)</p>
-<p>def worker(): with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: s.bind((‘localhost’, 6790)) s.listen() print(“Worker en écoute sur le port 6790…”) while True: conn, addr = s.accept() with conn: data = conn.recv(1024) response = process_data(json.loads(data)) conn.sendall(response)</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: worker()</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> process_data(data):</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Simule un traitement de données complexe</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> <span class="bu">sum</span>(data)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> json.dumps({<span class="st">'result'</span>: result}).encode(<span class="st">'utf-8'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> worker():</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="im">as</span> s:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        s.bind((<span class="st">'localhost'</span>, <span class="dv">6790</span>))</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        s.listen()</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Worker en écoute sur le port 6790..."</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>            conn, addr <span class="op">=</span> s.accept()</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> conn:</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                data <span class="op">=</span> conn.recv(<span class="dv">1024</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                response <span class="op">=</span> process_data(json.loads(data))</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>                conn.sendall(response)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    worker()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Explication de l’Exemple :</p>
 <ul>
 <li>Le serveur HTTP (http_server.py) écoute sur le port 6789 pour les requêtes HTTP POST.</li>
@@ -1208,7 +1378,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_3/1-IPC101.html" class="pagination-link  aria-label=" introduction="" à="" l&#39;ipc"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction à l’IPC</span>

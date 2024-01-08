@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -123,6 +157,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -144,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -159,6 +197,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -184,6 +226,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -214,6 +260,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -221,6 +275,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -263,6 +321,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -297,6 +359,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -333,11 +403,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_5/1-Introdepl.html" class="sidebar-item-text sidebar-link">
@@ -393,34 +469,44 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#poo---python-orienté-objet" id="toc-poo---python-orienté-objet" class="nav-link active" data-scroll-target="#poo---python-orienté-objet">POO - Python Orienté Objet”</a></li>
   <li><a href="#v.-exemple-avancé-avec-heroku-flask-et-binance-api" id="toc-v.-exemple-avancé-avec-heroku-flask-et-binance-api" class="nav-link" data-scroll-target="#v.-exemple-avancé-avec-heroku-flask-et-binance-api">V. Exemple avancé avec Heroku, Flask et Binance API</a>
   <ul class="collapse">
-  <li><a href="#configuration-de-la-base-de-données-sur-heroku" id="toc-configuration-de-la-base-de-données-sur-heroku" class="nav-link" data-scroll-target="#configuration-de-la-base-de-données-sur-heroku"><strong>1: Configuration de la Base de Données sur Heroku</strong></a></li>
-  <li><a href="#préparation-de-lauthentification" id="toc-préparation-de-lauthentification" class="nav-link" data-scroll-target="#préparation-de-lauthentification"><strong>2: Préparation de l’Authentification</strong></a></li>
-  <li><a href="#configuration-du-processus-clock-avec-heroku-scheduler" id="toc-configuration-du-processus-clock-avec-heroku-scheduler" class="nav-link" data-scroll-target="#configuration-du-processus-clock-avec-heroku-scheduler"><strong>3: Configuration du Processus Clock avec Heroku Scheduler</strong></a></li>
-  <li><a href="#déploiement-de-lapplication" id="toc-déploiement-de-lapplication" class="nav-link" data-scroll-target="#déploiement-de-lapplication"><strong>4: Déploiement de l’Application</strong></a></li>
-  <li><a href="#initialisation-de-la-base-de-données" id="toc-initialisation-de-la-base-de-données" class="nav-link" data-scroll-target="#initialisation-de-la-base-de-données"><strong>5: Initialisation de la Base de Données</strong></a></li>
-  <li><a href="#script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance" id="toc-script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance" class="nav-link" data-scroll-target="#script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance"><strong>6. Script d’Initialisation de la Base de Données avec les Données de Binance</strong></a></li>
-  </ul></li>
-  <li><a href="#init_db.py" id="toc-init_db.py" class="nav-link" data-scroll-target="#init_db.py">init_db.py</a></li>
-  <li><a href="#configuration-de-la-connexion-à-la-base-de-données" id="toc-configuration-de-la-connexion-à-la-base-de-données" class="nav-link" data-scroll-target="#configuration-de-la-connexion-à-la-base-de-données">Configuration de la connexion à la base de données</a></li>
-  <li><a href="#définition-de-la-table-pour-les-données-de-binance" id="toc-définition-de-la-table-pour-les-données-de-binance" class="nav-link" data-scroll-target="#définition-de-la-table-pour-les-données-de-binance">Définition de la table pour les données de Binance</a></li>
-  <li><a href="#création-de-la-table-dans-la-base-de-données" id="toc-création-de-la-table-dans-la-base-de-données" class="nav-link" data-scroll-target="#création-de-la-table-dans-la-base-de-données">Création de la table dans la base de données</a></li>
-  <li><a href="#fonction-pour-récupérer-les-données-historiques-de-binance" id="toc-fonction-pour-récupérer-les-données-historiques-de-binance" class="nav-link" data-scroll-target="#fonction-pour-récupérer-les-données-historiques-de-binance">Fonction pour récupérer les données historiques de Binance</a></li>
-  <li><a href="#fonction-pour-insérer-les-données-dans-la-base-de-données" id="toc-fonction-pour-insérer-les-données-dans-la-base-de-données" class="nav-link" data-scroll-target="#fonction-pour-insérer-les-données-dans-la-base-de-données">Fonction pour insérer les données dans la base de données</a></li>
-  <li><a href="#exécution-du-script" id="toc-exécution-du-script" class="nav-link" data-scroll-target="#exécution-du-script">Exécution du script</a>
+  <li><a href="#configuration-de-la-base-de-données-sur-heroku" id="toc-configuration-de-la-base-de-données-sur-heroku" class="nav-link" data-scroll-target="#configuration-de-la-base-de-données-sur-heroku"><strong>1: Configuration de la Base de Données sur Heroku</strong></a>
   <ul class="collapse">
-  <li><a href="#update_db.py" id="toc-update_db.py" class="nav-link" data-scroll-target="#update_db.py">update_db.py</a></li>
-  <li><a href="#configuration-de-lauthentification-et-des-niveaux-daccès" id="toc-configuration-de-lauthentification-et-des-niveaux-daccès" class="nav-link" data-scroll-target="#configuration-de-lauthentification-et-des-niveaux-daccès"><strong>8. Configuration de l’Authentification et des Niveaux d’Accès</strong></a></li>
+  <li><a href="#ajouter-un-add-on-de-base-de-données" id="toc-ajouter-un-add-on-de-base-de-données" class="nav-link" data-scroll-target="#ajouter-un-add-on-de-base-de-données">Ajouter un Add-on de Base de Données</a></li>
+  <li><a href="#configurer-les-variables-denvironnement" id="toc-configurer-les-variables-denvironnement" class="nav-link" data-scroll-target="#configurer-les-variables-denvironnement">Configurer les Variables d’Environnement</a></li>
   </ul></li>
-  <li><a href="#app.py" id="toc-app.py" class="nav-link" data-scroll-target="#app.py">app.py</a></li>
-  <li><a href="#modèle-utilisateur" id="toc-modèle-utilisateur" class="nav-link" data-scroll-target="#modèle-utilisateur">Modèle utilisateur</a></li>
-  <li><a href="#routes-dauthentification-à-compléter-avec-la-logique-de-vérification-etc." id="toc-routes-dauthentification-à-compléter-avec-la-logique-de-vérification-etc." class="nav-link" data-scroll-target="#routes-dauthentification-à-compléter-avec-la-logique-de-vérification-etc.">Routes d’authentification (à compléter avec la logique de vérification, etc.)</a></li>
-  <li><a href="#route-danalytique-nécessitant-un-niveau-daccès" id="toc-route-danalytique-nécessitant-un-niveau-daccès" class="nav-link" data-scroll-target="#route-danalytique-nécessitant-un-niveau-daccès">Route d’analytique nécessitant un niveau d’accès</a></li>
-  <li><a href="#autres-routes-danalytique" id="toc-autres-routes-danalytique" class="nav-link" data-scroll-target="#autres-routes-danalytique">… Autres routes d’analytique …</a></li>
+  <li><a href="#préparation-de-lauthentification" id="toc-préparation-de-lauthentification" class="nav-link" data-scroll-target="#préparation-de-lauthentification"><strong>2: Préparation de l’Authentification</strong></a>
+  <ul class="collapse">
+  <li><a href="#installation-de-flask-jwt-extended" id="toc-installation-de-flask-jwt-extended" class="nav-link" data-scroll-target="#installation-de-flask-jwt-extended">Installation de Flask-JWT-Extended</a></li>
+  <li><a href="#configuration-de-flask-jwt-extended" id="toc-configuration-de-flask-jwt-extended" class="nav-link" data-scroll-target="#configuration-de-flask-jwt-extended">Configuration de Flask-JWT-Extended</a></li>
+  </ul></li>
+  <li><a href="#configuration-du-processus-clock-avec-heroku-scheduler" id="toc-configuration-du-processus-clock-avec-heroku-scheduler" class="nav-link" data-scroll-target="#configuration-du-processus-clock-avec-heroku-scheduler"><strong>3: Configuration du Processus Clock avec Heroku Scheduler</strong></a>
+  <ul class="collapse">
+  <li><a href="#ajouter-heroku-scheduler" id="toc-ajouter-heroku-scheduler" class="nav-link" data-scroll-target="#ajouter-heroku-scheduler">Ajouter Heroku Scheduler</a></li>
+  <li><a href="#configurer-les-tâches-planifiées" id="toc-configurer-les-tâches-planifiées" class="nav-link" data-scroll-target="#configurer-les-tâches-planifiées">Configurer les Tâches Planifiées</a></li>
+  </ul></li>
+  <li><a href="#déploiement-de-lapplication" id="toc-déploiement-de-lapplication" class="nav-link" data-scroll-target="#déploiement-de-lapplication"><strong>4: Déploiement de l’Application</strong></a>
+  <ul class="collapse">
+  <li><a href="#créer-un-procfile" id="toc-créer-un-procfile" class="nav-link" data-scroll-target="#créer-un-procfile">Créer un Procfile</a></li>
+  <li><a href="#déployer-sur-heroku" id="toc-déployer-sur-heroku" class="nav-link" data-scroll-target="#déployer-sur-heroku">Déployer sur Heroku</a></li>
+  </ul></li>
+  <li><a href="#initialisation-de-la-base-de-données" id="toc-initialisation-de-la-base-de-données" class="nav-link" data-scroll-target="#initialisation-de-la-base-de-données"><strong>5: Initialisation de la Base de Données</strong></a>
+  <ul class="collapse">
+  <li><a href="#exécuter-les-migrations" id="toc-exécuter-les-migrations" class="nav-link" data-scroll-target="#exécuter-les-migrations">Exécuter les Migrations</a></li>
+  </ul></li>
+  <li><a href="#script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance" id="toc-script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance" class="nav-link" data-scroll-target="#script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance"><strong>6. Script d’Initialisation de la Base de Données avec les Données de Binance</strong></a>
+  <ul class="collapse">
+  <li><a href="#init_db.py" id="toc-init_db.py" class="nav-link" data-scroll-target="#init_db.py">init_db.py</a></li>
+  </ul></li>
+  <li><a href="#script-de-mise-à-jour-régulière-de-la-base-de-données" id="toc-script-de-mise-à-jour-régulière-de-la-base-de-données" class="nav-link" data-scroll-target="#script-de-mise-à-jour-régulière-de-la-base-de-données"><strong>7. Script de Mise à Jour Régulière de la Base de Données</strong></a></li>
+  <li><a href="#configuration-de-lauthentification-et-des-niveaux-daccès" id="toc-configuration-de-lauthentification-et-des-niveaux-daccès" class="nav-link" data-scroll-target="#configuration-de-lauthentification-et-des-niveaux-daccès"><strong>8. Configuration de l’Authentification et des Niveaux d’Accès</strong></a></li>
+  <li><a href="#exemple-de-procfile-pour-heroku" id="toc-exemple-de-procfile-pour-heroku" class="nav-link" data-scroll-target="#exemple-de-procfile-pour-heroku"><strong>9. Exemple de Procfile pour Heroku</strong></a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><strong>10. Conclusion</strong></a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -433,7 +519,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -463,217 +549,228 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="v.-exemple-avancé-avec-heroku-flask-et-binance-api" class="level1">
 <h1>V. Exemple avancé avec Heroku, Flask et Binance API</h1>
-<pre><code>Dans cet exemple, nous allons créer une application Flask qui récupère et stocke les données de prix des cryptomonnaies de Binance dans une base de données Heroku Postgres. L'application permettra également l'authentification des utilisateurs et offrira différents niveaux d'accès pour consulter des analyses de données.</code></pre>
+<p>Dans cet exemple, nous allons créer une application Flask qui récupère et stocke les données de prix des cryptomonnaies de Binance dans une base de données Heroku Postgres. L’application permettra également l’authentification des utilisateurs et offrira différents niveaux d’accès pour consulter des analyses de données.</p>
 <section id="configuration-de-la-base-de-données-sur-heroku" class="level2">
 <h2 class="anchored" data-anchor-id="configuration-de-la-base-de-données-sur-heroku"><strong>1: Configuration de la Base de Données sur Heroku</strong></h2>
-<pre><code>
-
-### Ajouter un Add-on de Base de Données
-</code></pre>
+<section id="ajouter-un-add-on-de-base-de-données" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-un-add-on-de-base-de-données">Ajouter un Add-on de Base de Données</h3>
 <ul>
-<li><code>Connectez-vous au tableau de bord Heroku.</code></li>
-<li><code>Sélectionnez votre application.</code></li>
-<li><code>Allez dans "Resources".</code></li>
-<li><code>Ajoutez "Heroku Postgres" à votre application.</code></li>
+<li>Connectez-vous au tableau de bord Heroku.</li>
+<li>Sélectionnez votre application.</li>
+<li>Allez dans “Resources”.</li>
+<li>Ajoutez “Heroku Postgres” à votre application.</li>
 </ul>
-<pre><code>
-
-### Configurer les Variables d'Environnement
-</code></pre>
+</section>
+<section id="configurer-les-variables-denvironnement" class="level3">
+<h3 class="anchored" data-anchor-id="configurer-les-variables-denvironnement">Configurer les Variables d’Environnement</h3>
 <ul>
-<li><code>Heroku définit DATABASE_URL pour l'add-on de base de données.</code></li>
-<li><code>Gérez vos variables d'environnement dans "Settings" &gt; "Config Vars".</code></li>
+<li>Heroku définit DATABASE_URL pour l’add-on de base de données.</li>
+<li>Gérez vos variables d’environnement dans “Settings” &gt; “Config Vars”.</li>
 </ul>
+</section>
 </section>
 <section id="préparation-de-lauthentification" class="level2">
 <h2 class="anchored" data-anchor-id="préparation-de-lauthentification"><strong>2: Préparation de l’Authentification</strong></h2>
-<pre><code>
-
-### Installation de Flask-JWT-Extended
-</code></pre>
+<section id="installation-de-flask-jwt-extended" class="level3">
+<h3 class="anchored" data-anchor-id="installation-de-flask-jwt-extended">Installation de Flask-JWT-Extended</h3>
 <ul>
-<li><code>Ajoutez Flask-JWT-Extended dans requirements.txt.</code></li>
-<li><code>Heroku installera cette dépendance lors du déploiement.</code></li>
+<li>Ajoutez Flask-JWT-Extended dans requirements.txt.</li>
+<li>Heroku installera cette dépendance lors du déploiement.</li>
 </ul>
-<pre><code>
-
-### Configuration de Flask-JWT-Extended
-</code></pre>
+</section>
+<section id="configuration-de-flask-jwt-extended" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-de-flask-jwt-extended">Configuration de Flask-JWT-Extended</h3>
 <ul>
-<li><code>Configurez Flask-JWT-Extended avec une clé secrète dans votre application Flask.</code></li>
-<li><code>Utilisez une variable d'environnement pour la clé secrète JWT.</code></li>
+<li>Configurez Flask-JWT-Extended avec une clé secrète dans votre application Flask.</li>
+<li>Utilisez une variable d’environnement pour la clé secrète JWT.</li>
 </ul>
+</section>
 </section>
 <section id="configuration-du-processus-clock-avec-heroku-scheduler" class="level2">
 <h2 class="anchored" data-anchor-id="configuration-du-processus-clock-avec-heroku-scheduler"><strong>3: Configuration du Processus Clock avec Heroku Scheduler</strong></h2>
-<pre><code>
-
-### Ajouter Heroku Scheduler
-</code></pre>
+<section id="ajouter-heroku-scheduler" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-heroku-scheduler">Ajouter Heroku Scheduler</h3>
 <ul>
-<li><code>Dans "Resources", ajoutez "Heroku Scheduler".</code></li>
+<li>Dans “Resources”, ajoutez “Heroku Scheduler”.</li>
 </ul>
-<pre><code>
-
-### Configurer les Tâches Planifiées
-</code></pre>
+</section>
+<section id="configurer-les-tâches-planifiées" class="level3">
+<h3 class="anchored" data-anchor-id="configurer-les-tâches-planifiées">Configurer les Tâches Planifiées</h3>
 <ul>
-<li><code>Configurez des tâches pour exécuter python -m scripts.update_db à une fréquence définie.</code></li>
+<li>Configurez des tâches pour exécuter python -m scripts.update_db à une fréquence définie.</li>
 </ul>
+</section>
 </section>
 <section id="déploiement-de-lapplication" class="level2">
 <h2 class="anchored" data-anchor-id="déploiement-de-lapplication"><strong>4: Déploiement de l’Application</strong></h2>
-<pre><code>
-
-### Créer un Procfile
-</code></pre>
+<section id="créer-un-procfile" class="level3">
+<h3 class="anchored" data-anchor-id="créer-un-procfile">Créer un Procfile</h3>
 <ul>
-<li><code>Indiquez à Heroku de démarrer votre application avec web: gunicorn app:app.</code></li>
+<li>Indiquez à Heroku de démarrer votre application avec web: gunicorn app:app.</li>
 </ul>
-<pre><code>
-
-### Déployer sur Heroku
-</code></pre>
+</section>
+<section id="déployer-sur-heroku" class="level3">
+<h3 class="anchored" data-anchor-id="déployer-sur-heroku">Déployer sur Heroku</h3>
 <ul>
-<li><code>Poussez votre code sur Heroku avec git push heroku master.</code></li>
+<li>Poussez votre code sur Heroku avec git push heroku master.</li>
 </ul>
+</section>
 </section>
 <section id="initialisation-de-la-base-de-données" class="level2">
 <h2 class="anchored" data-anchor-id="initialisation-de-la-base-de-données"><strong>5: Initialisation de la Base de Données</strong></h2>
-<pre><code>
-
-### Exécuter les Migrations
-</code></pre>
+<section id="exécuter-les-migrations" class="level3">
+<h3 class="anchored" data-anchor-id="exécuter-les-migrations">Exécuter les Migrations</h3>
 <ul>
-<li><code>Utilisez heroku run python your_script.py pour initialiser la base de données.</code></li>
+<li>Utilisez heroku run python your_script.py pour initialiser la base de données.</li>
 </ul>
+</section>
 </section>
 <section id="script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance" class="level2">
 <h2 class="anchored" data-anchor-id="script-dinitialisation-de-la-base-de-données-avec-les-données-de-binance"><strong>6. Script d’Initialisation de la Base de Données avec les Données de Binance</strong></h2>
-<pre><code>
-
-### init_db.py
-
-
-</code></pre>
+<section id="init_db.py" class="level3">
+<h3 class="anchored" data-anchor-id="init_db.py">init_db.py</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># init_db.py</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine, Table, Column, Integer, String, MetaData, Float</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration de la connexion à la base de données</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>DATABASE_URL <span class="op">=</span> <span class="st">"postgres://user:password@localhost/dbname"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>engine <span class="op">=</span> create_engine(DATABASE_URL)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> MetaData()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition de la table pour les données de Binance</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>binance_data <span class="op">=</span> Table(<span class="st">'binance_data'</span>, metadata,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                     Column(<span class="st">'id'</span>, Integer, primary_key<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                     Column(<span class="st">'symbol'</span>, String),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                     Column(<span class="st">'price'</span>, Float),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                     Column(<span class="st">'timestamp'</span>, String)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                     )</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Création de la table dans la base de données</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>metadata.create_all(engine)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour récupérer les données historiques de Binance</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_binance_historical_data(symbol<span class="op">=</span><span class="st">'BTCUSDT'</span>, start_date<span class="op">=</span><span class="st">'2023-01-01'</span>):</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># URL de l'API Binance pour les données historiques</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="ss">f"https://api.binance.com/api/v3/klines?symbol=</span><span class="sc">{</span>symbol<span class="sc">}</span><span class="ss">&amp;interval=1h&amp;startTime=</span><span class="sc">{</span>start_date<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour insérer les données dans la base de données</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> insert_data_to_db(data, symbol):</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convertir les données en format approprié pour l'insertion dans la base de données</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    formatted_data <span class="op">=</span> [</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        {<span class="st">'symbol'</span>: symbol, <span class="st">'price'</span>: <span class="bu">float</span>(entry[<span class="dv">1</span>]), <span class="st">'timestamp'</span>: datetime.fromtimestamp(entry[<span class="dv">0</span>]<span class="op">/</span><span class="dv">1000</span>).strftime(<span class="st">'%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S'</span>)}</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> entry <span class="kw">in</span> data</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Insérer les données</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> engine.<span class="ex">connect</span>() <span class="im">as</span> conn:</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        conn.execute(binance_data.insert(), formatted_data)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Exécution du script</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    historical_data <span class="op">=</span> fetch_binance_historical_data()</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    insert_data_to_db(historical_data, <span class="st">'BTCUSDT'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="init_db.py" class="level1">
-<h1>init_db.py</h1>
-<p>import requests from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData, Float from datetime import datetime</p>
-</section>
-<section id="configuration-de-la-connexion-à-la-base-de-données" class="level1">
-<h1>Configuration de la connexion à la base de données</h1>
-<p>DATABASE_URL = “postgres://user:password@localhost/dbname” engine = create_engine(DATABASE_URL) metadata = MetaData()</p>
-</section>
-<section id="définition-de-la-table-pour-les-données-de-binance" class="level1">
-<h1>Définition de la table pour les données de Binance</h1>
-<p>binance_data = Table(‘binance_data’, metadata, Column(‘id’, Integer, primary_key=True), Column(‘symbol’, String), Column(‘price’, Float), Column(‘timestamp’, String) )</p>
-</section>
-<section id="création-de-la-table-dans-la-base-de-données" class="level1">
-<h1>Création de la table dans la base de données</h1>
-<p>metadata.create_all(engine)</p>
-</section>
-<section id="fonction-pour-récupérer-les-données-historiques-de-binance" class="level1">
-<h1>Fonction pour récupérer les données historiques de Binance</h1>
-<p>def fetch_binance_historical_data(symbol=‘BTCUSDT’, start_date=‘2023-01-01’): # URL de l’API Binance pour les données historiques url = f”https://api.binance.com/api/v3/klines?symbol={symbol}&amp;interval=1h&amp;startTime={start_date}” response = requests.get(url) data = response.json() return data</p>
-</section>
-<section id="fonction-pour-insérer-les-données-dans-la-base-de-données" class="level1">
-<h1>Fonction pour insérer les données dans la base de données</h1>
-<p>def insert_data_to_db(data, symbol): # Convertir les données en format approprié pour l’insertion dans la base de données formatted_data = [ {‘symbol’: symbol, ‘price’: float(entry[1]), ‘timestamp’: datetime.fromtimestamp(entry[0]/1000).strftime(‘%Y-%m-%d %H:%M:%S’)} for entry in data ] # Insérer les données with engine.connect() as conn: conn.execute(binance_data.insert(), formatted_data)</p>
-</section>
-<section id="exécution-du-script" class="level1">
-<h1>Exécution du script</h1>
-<p>if <strong>name</strong> == “<strong>main</strong>”: historical_data = fetch_binance_historical_data() insert_data_to_db(historical_data, ‘BTCUSDT’)</p>
-<pre><code>
-
-
-## **7. Script de Mise à Jour Régulière de la Base de Données**
-
-</code></pre>
-<section id="update_db.py" class="level3">
-<h3 class="anchored" data-anchor-id="update_db.py">update_db.py</h3>
-<pre><code># update_db.py
-import requests
-from sqlalchemy import create_engine
-from datetime import datetime
-
-# Configuration de la connexion à la base de données
-DATABASE_URL = "postgres://user:password@localhost/dbname"
-engine = create_engine(DATABASE_URL)
-
-# Fonction pour récupérer les dernières données de Binance
-def fetch_latest_binance_data(symbol='BTCUSDT'):
-    # URL de l'API Binance pour les dernières données
-    url = f"https://api.binance.com/api/v3/ticker/price?symbol={symbol}"
-    response = requests.get(url)
-    data = response.json()
-    return data
-
-# Fonction pour mettre à jour la base de données
-def update_database(data, symbol):
-    # Convertir les données en format approprié pour l'insertion dans la base de données
-    formatted_data = {
-        'symbol': symbol,
-        'price': float(data['price']),
-        'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    }
-    # Insérer les données
-    with engine.connect() as conn:
-        conn.execute(binance_data.insert(), formatted_data)
-
-# Exécution du script
-if __name__ == "__main__":
-    latest_data = fetch_latest_binance_data()
-    update_database(latest_data, 'BTCUSDT')</code></pre>
+<section id="script-de-mise-à-jour-régulière-de-la-base-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="script-de-mise-à-jour-régulière-de-la-base-de-données"><strong>7. Script de Mise à Jour Régulière de la Base de Données</strong></h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">### update_db.py</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># update_db.py</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sqlalchemy <span class="im">import</span> create_engine</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration de la connexion à la base de données</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>DATABASE_URL <span class="op">=</span> <span class="st">"postgres://user:password@localhost/dbname"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>engine <span class="op">=</span> create_engine(DATABASE_URL)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour récupérer les dernières données de Binance</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_latest_binance_data(symbol<span class="op">=</span><span class="st">'BTCUSDT'</span>):</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># URL de l'API Binance pour les dernières données</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="ss">f"https://api.binance.com/api/v3/ticker/price?symbol=</span><span class="sc">{</span>symbol<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(url)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Fonction pour mettre à jour la base de données</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_database(data, symbol):</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convertir les données en format approprié pour l'insertion dans la base de données</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    formatted_data <span class="op">=</span> {</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'symbol'</span>: symbol,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'price'</span>: <span class="bu">float</span>(data[<span class="st">'price'</span>]),</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'timestamp'</span>: datetime.now().strftime(<span class="st">'%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S'</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Insérer les données</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> engine.<span class="ex">connect</span>() <span class="im">as</span> conn:</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        conn.execute(binance_data.insert(), formatted_data)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Exécution du script</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    latest_data <span class="op">=</span> fetch_latest_binance_data()</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    update_database(latest_data, <span class="st">'BTCUSDT'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="configuration-de-lauthentification-et-des-niveaux-daccès" class="level2">
 <h2 class="anchored" data-anchor-id="configuration-de-lauthentification-et-des-niveaux-daccès"><strong>8. Configuration de l’Authentification et des Niveaux d’Accès</strong></h2>
-<pre><code>
-
-### app.py
-
-
-</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app.py</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, jsonify</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_sqlalchemy <span class="im">import</span> SQLAlchemy</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_login <span class="im">import</span> LoginManager, UserMixin, login_user, login_required, logout_user</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SQLALCHEMY_DATABASE_URI'</span>] <span class="op">=</span> DATABASE_URL</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> SQLAlchemy(app)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>login_manager <span class="op">=</span> LoginManager()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>login_manager.init_app(app)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle utilisateur</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(UserMixin, db.Model):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">=</span> db.Column(db.Integer, primary_key<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> db.Column(db.String(<span class="dv">80</span>), unique<span class="op">=</span><span class="va">True</span>, nullable<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> db.Column(db.String(<span class="dv">120</span>), nullable<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    level <span class="op">=</span> db.Column(db.Integer, default<span class="op">=</span><span class="dv">1</span>)  <span class="co"># Niveau d'accès par défaut</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Routes d'authentification (à compléter avec la logique de vérification, etc.)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Logique de connexion</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/logout'</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logout():</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    logout_user()</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">"message"</span>: <span class="st">"Logged out"</span>}), <span class="dv">200</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Route d'analytique nécessitant un niveau d'accès</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/analytics_1'</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> analytics_1():</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> ...  <span class="co"># Obtenir l'utilisateur actuel</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> user.level <span class="op">&gt;=</span> <span class="dv">1</span>:</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Logique d'analytique pour le niveau 1</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">"error"</span>: <span class="st">"Unauthorized"</span>}), <span class="dv">403</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="co"># ... Autres routes d'analytique ...</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    app.run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-</section>
-<section id="app.py" class="level1">
-<h1>app.py</h1>
-<p>from flask import Flask, request, jsonify from flask_sqlalchemy import SQLAlchemy from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user</p>
-<p>app = Flask(<strong>name</strong>) app.config[‘SQLALCHEMY_DATABASE_URI’] = DATABASE_URL db = SQLAlchemy(app) login_manager = LoginManager() login_manager.init_app(app)</p>
-</section>
-<section id="modèle-utilisateur" class="level1">
-<h1>Modèle utilisateur</h1>
-<p>class User(UserMixin, db.Model): id = db.Column(db.Integer, primary_key=True) username = db.Column(db.String(80), unique=True, nullable=False) password = db.Column(db.String(120), nullable=False) level = db.Column(db.Integer, default=1) # Niveau d’accès par défaut</p>
-</section>
-<section id="routes-dauthentification-à-compléter-avec-la-logique-de-vérification-etc." class="level1">
-<h1>Routes d’authentification (à compléter avec la logique de vérification, etc.)</h1>
-<p><span class="citation" data-cites="app.route">@app.route</span>(‘/login’, methods=[‘POST’]) def login(): # Logique de connexion pass</p>
-<p><span class="citation" data-cites="app.route">@app.route</span>(‘/logout’) <span class="citation" data-cites="login_required">@login_required</span> def logout(): logout_user() return jsonify({“message”: “Logged out”}), 200</p>
-</section>
-<section id="route-danalytique-nécessitant-un-niveau-daccès" class="level1">
-<h1>Route d’analytique nécessitant un niveau d’accès</h1>
-<p><span class="citation" data-cites="app.route">@app.route</span>(‘/analytics_1’) <span class="citation" data-cites="login_required">@login_required</span> def analytics_1(): user = … # Obtenir l’utilisateur actuel if user.level &gt;= 1: # Logique d’analytique pour le niveau 1 pass else: return jsonify({“error”: “Unauthorized”}), 403</p>
-</section>
-<section id="autres-routes-danalytique" class="level1">
-<h1>… Autres routes d’analytique …</h1>
-<p>if <strong>name</strong> == “<strong>main</strong>”: app.run()</p>
-<pre><code>
-
-
-## **9. Exemple de **Procfile** pour Heroku**
-
-</code></pre>
+<section id="exemple-de-procfile-pour-heroku" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-de-procfile-pour-heroku"><strong>9. Exemple de Procfile pour Heroku</strong></h2>
 <p>web: gunicorn app:app clock: python -m scripts.update_db</p>
-<pre><code>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion"><strong>10. Conclusion</strong></h2>
+<p>Cet exemple illustre comment déployer une application Flask sur Heroku qui interagit avec une base de données et une API externe. L’application gère l’authentification des utilisateurs et offre des services basés sur différents niveaux d’accès. Les utilisateurs authentifiés peuvent accéder à des analyses de données spécifiques en fonction de leur niveau d’accès.</p>
 
 
-## **10. Conclusion**
-
-</code></pre>
-<p>Cet exemple illustre comment déployer une application Flask sur Heroku qui interagit avec une base de données et une API externe. L’application gère l’authentification des utilisateurs et offre des services basés sur différents niveaux d’accès. Les utilisateurs authentifiés peuvent accéder à des analyses de données spécifiques en fonction de leur niveau d’accès. ```</p>
-
-
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1203,7 +1300,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_5/4-herodepl.html" class="pagination-link  aria-label=" deploiement="" sur="" heroku"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Deploiement sur Heroku</span>

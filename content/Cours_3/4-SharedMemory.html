@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -123,6 +157,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -144,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -159,6 +197,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -184,6 +226,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -214,6 +260,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -221,6 +275,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -263,6 +321,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -297,6 +359,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -333,11 +403,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communication entre Processus (IPC)</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link">
@@ -390,11 +466,17 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-1-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-2-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -454,38 +536,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">7. Exemples</a>
   <ul class="collapse">
   <li><a href="#a.-lancement-de-processus-par-un-parent-commun" id="toc-a.-lancement-de-processus-par-un-parent-commun" class="nav-link" data-scroll-target="#a.-lancement-de-processus-par-un-parent-commun">a. Lancement de processus par un parent commun</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#processus-producteur-qui-écrit-dans-la-mémoire-partagée" id="toc-processus-producteur-qui-écrit-dans-la-mémoire-partagée" class="nav-link" data-scroll-target="#processus-producteur-qui-écrit-dans-la-mémoire-partagée">Processus producteur qui écrit dans la mémoire partagée</a></li>
-  <li><a href="#processus-consommateur-qui-lit-la-mémoire-partagée" id="toc-processus-consommateur-qui-lit-la-mémoire-partagée" class="nav-link" data-scroll-target="#processus-consommateur-qui-lit-la-mémoire-partagée">Processus consommateur qui lit la mémoire partagée</a>
-  <ul class="collapse">
   <li><a href="#b.-processus-indépendants-utilisant-la-mémoire-partagée" id="toc-b.-processus-indépendants-utilisant-la-mémoire-partagée" class="nav-link" data-scroll-target="#b.-processus-indépendants-utilisant-la-mémoire-partagée">b. Processus indépendants utilisant la mémoire partagée</a></li>
-  </ul></li>
-  <li><a href="#nom-unique-pour-le-bloc-de-mémoire-partagée" id="toc-nom-unique-pour-le-bloc-de-mémoire-partagée" class="nav-link" data-scroll-target="#nom-unique-pour-le-bloc-de-mémoire-partagée">Nom unique pour le bloc de mémoire partagée</a></li>
-  <li><a href="#processus-producteur-qui-écrit-dans-la-mémoire-partagée-1" id="toc-processus-producteur-qui-écrit-dans-la-mémoire-partagée-1" class="nav-link" data-scroll-target="#processus-producteur-qui-écrit-dans-la-mémoire-partagée-1">Processus producteur qui écrit dans la mémoire partagée</a></li>
-  <li><a href="#processus-consommateur-qui-lit-la-mémoire-partagée-1" id="toc-processus-consommateur-qui-lit-la-mémoire-partagée-1" class="nav-link" data-scroll-target="#processus-consommateur-qui-lit-la-mémoire-partagée-1">Processus consommateur qui lit la mémoire partagée</a>
-  <ul class="collapse">
   <li><a href="#c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" id="toc-c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" class="nav-link" data-scroll-target="#c.-exemple-avec-la-mémoire-partagée-posix-et-system-v">c.&nbsp;Exemple avec la mémoire partagée POSIX et System V</a></li>
   </ul></li>
-  <li><a href="#exemple-de-mémoire-partagée-system-v" id="toc-exemple-de-mémoire-partagée-system-v" class="nav-link" data-scroll-target="#exemple-de-mémoire-partagée-system-v">Exemple de mémoire partagée System V</a></li>
-  <li><a href="#créer-un-objet-de-mémoire-partagée" id="toc-créer-un-objet-de-mémoire-partagée" class="nav-link" data-scroll-target="#créer-un-objet-de-mémoire-partagée">Créer un objet de mémoire partagée</a></li>
-  <li><a href="#écrire-dans-la-mémoire-partagée" id="toc-écrire-dans-la-mémoire-partagée" class="nav-link" data-scroll-target="#écrire-dans-la-mémoire-partagée">Écrire dans la mémoire partagée</a></li>
-  <li><a href="#lire-dans-la-mémoire-partagée" id="toc-lire-dans-la-mémoire-partagée" class="nav-link" data-scroll-target="#lire-dans-la-mémoire-partagée">Lire dans la mémoire partagée</a></li>
-  <li><a href="#détacher-et-supprimer-la-mémoire-partagée" id="toc-détacher-et-supprimer-la-mémoire-partagée" class="nav-link" data-scroll-target="#détacher-et-supprimer-la-mémoire-partagée">Détacher et supprimer la mémoire partagée</a></li>
-  <li><a href="#exemple-de-mémoire-partagée-posix" id="toc-exemple-de-mémoire-partagée-posix" class="nav-link" data-scroll-target="#exemple-de-mémoire-partagée-posix">Exemple de mémoire partagée POSIX</a></li>
-  <li><a href="#créer-un-objet-de-mémoire-partagée-1" id="toc-créer-un-objet-de-mémoire-partagée-1" class="nav-link" data-scroll-target="#créer-un-objet-de-mémoire-partagée-1">Créer un objet de mémoire partagée</a></li>
-  <li><a href="#mapper-la-mémoire-partagée" id="toc-mapper-la-mémoire-partagée" class="nav-link" data-scroll-target="#mapper-la-mémoire-partagée">Mapper la mémoire partagée</a></li>
-  <li><a href="#écrire-dans-la-zone-mappée-en-mémoire" id="toc-écrire-dans-la-zone-mappée-en-mémoire" class="nav-link" data-scroll-target="#écrire-dans-la-zone-mappée-en-mémoire">Écrire dans la zone mappée en mémoire</a></li>
-  <li><a href="#lire-dans-la-zone-mappée-en-mémoire" id="toc-lire-dans-la-zone-mappée-en-mémoire" class="nav-link" data-scroll-target="#lire-dans-la-zone-mappée-en-mémoire">Lire dans la zone mappée en mémoire</a></li>
-  <li><a href="#démapper-et-désassocier-la-mémoire-partagée" id="toc-démapper-et-désassocier-la-mémoire-partagée" class="nav-link" data-scroll-target="#démapper-et-désassocier-la-mémoire-partagée">Démapper et désassocier la mémoire partagée</a>
-  <ul class="collapse">
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
   </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -498,7 +558,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -702,63 +762,109 @@ ul.task-list li input[type="checkbox"] {
 <p>Dans cet exemple, nous allons explorer l’utilisation de la mémoire partagée en Python pour la communication interprocessus (IPC). La mémoire partagée est un moyen puissant d’échanger des informations entre les processus sans avoir besoin de passer des messages, ce qui peut être plus efficace, en particulier pour les transferts de données volumineux.</p>
 <p>Nous allons créer deux processus : un producteur et un consommateur. Le producteur écrira une série de nombres et leurs carrés dans la mémoire partagée, tandis que le consommateur lira ces valeurs et les imprimera. Pour coordonner les processus, nous utiliserons une valeur sentinelle. Lorsque le producteur aura terminé, il écrira cette valeur sentinelle dans la mémoire partagée pour signaler au consommateur de s’arrêter.</p>
 <p>Cet exemple est particulièrement utile lorsque les deux processus sont lancés par un processus parent commun, car ils peuvent facilement hériter de l’accès aux objets de mémoire partagée. Cependant, cette approche nécessite que les processus aient une relation prédéterminée et soient conscients de l’existence de l’autre.</p>
-<p>from multiprocessing import Process, Value, Array, shared_memory import time import random</p>
-</section>
-</section>
-</section>
-<section id="processus-producteur-qui-écrit-dans-la-mémoire-partagée" class="level1">
-<h1>Processus producteur qui écrit dans la mémoire partagée</h1>
-<p>def producteur(valeur_partagee, tableau_partage): for i in range(5): time.sleep(random.uniform(0.1, 0.5)) # Simuler un travail valeur_partagee.value = i tableau_partage[i] = i * i print(f’Le producteur vient de produire {i} et son carré {i * i}’)</p>
-</section>
-<section id="processus-consommateur-qui-lit-la-mémoire-partagée" class="level1">
-<h1>Processus consommateur qui lit la mémoire partagée</h1>
-<p>def consommateur(valeur_partagee, tableau_partage): while True: time.sleep(0.1) if valeur_partagee.value == -1: # Valeur sentinelle pour l’arrêt break print(f’Le consommateur vient de consommer {valeur_partagee.value} et son carré {tableau_partage[valeur_partagee.value]}’)</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: # Créer une valeur partagée et un tableau valeur_partagee = Value(‘i’, 0) tableau_partage = Array(‘i’, range(5))</p>
-<pre><code># Créer un bloc de mémoire partagée
-shm = shared_memory.SharedMemory(create=True, size=tableau_partage.buffer_info()[1] * tableau_partage.itemsize)
-
-# Créer les processus producteur et consommateur
-processus_producteur = Process(target=producteur, args=(valeur_partagee, tableau_partage))
-processus_consommateur = Process(target=consommateur, args=(valeur_partagee, tableau_partage))
-
-# Démarrer les processus
-processus_producteur.start()
-processus_consommateur.start()
-
-# Attendre que le producteur ait fini
-processus_producteur.join()
-
-# Signaler au consommateur de s'arrêter
-valeur_partagee.value = -1
-
-# Attendre que le consommateur ait fini
-processus_consommateur.join()
-
-# Nettoyer la mémoire partagée
-shm.close()
-shm.unlink()</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> Process, Value, Array, shared_memory</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus producteur qui écrit dans la mémoire partagée</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> producteur(valeur_partagee, tableau_partage):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        time.sleep(random.uniform(<span class="fl">0.1</span>, <span class="fl">0.5</span>)) <span class="co"># Simuler un travail</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        valeur_partagee.value <span class="op">=</span> i</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        tableau_partage[i] <span class="op">=</span> i  <span class="op">-</span> i</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Le producteur vient de produire </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> et son carré </span><span class="sc">{</span>i  <span class="op">-</span> i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus consommateur qui lit la mémoire partagée</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> consommateur(valeur_partagee, tableau_partage):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.1</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> valeur_partagee.value <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>: <span class="co"># Valeur sentinelle pour l'arrêt</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Le consommateur vient de consommer </span><span class="sc">{</span>valeur_partagee<span class="sc">.</span>value<span class="sc">}</span><span class="ss"> et son carré </span><span class="sc">{</span>tableau_partage[valeur_partagee.value]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer une valeur partagée et un tableau</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    valeur_partagee <span class="op">=</span> Value(<span class="st">'i'</span>, <span class="dv">0</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    tableau_partage <span class="op">=</span> Array(<span class="st">'i'</span>, <span class="bu">range</span>(<span class="dv">5</span>))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer un bloc de mémoire partagée</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    shm <span class="op">=</span> shared_memory.SharedMemory(create<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span>tableau_partage.buffer_info()[<span class="dv">1</span>]  <span class="op">-</span> tableau_partage.itemsize)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer les processus producteur et consommateur</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    processus_producteur <span class="op">=</span> Process(target<span class="op">=</span>producteur, args<span class="op">=</span>(valeur_partagee, tableau_partage))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    processus_consommateur <span class="op">=</span> Process(target<span class="op">=</span>consommateur, args<span class="op">=</span>(valeur_partagee, tableau_partage))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Démarrer les processus</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    processus_producteur.start()</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    processus_consommateur.start()</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Attendre que le producteur ait fini</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    processus_producteur.join()</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Signaler au consommateur de s'arrêter</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    valeur_partagee.value <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Attendre que le consommateur ait fini</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    processus_consommateur.join()</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Nettoyer la mémoire partagée</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    shm.close()</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    shm.unlink()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Comme vous pouvez le voir, le processus producteur génère des nombres et leurs carrés, les écrivant dans la mémoire partagée, tandis que le processus consommateur lit ces valeurs jusqu’à ce qu’il rencontre la valeur sentinelle signalant la fin du flux de données. Cette méthode est efficace et rapide mais présente des limitations. Par exemple, elle suppose que les processus ont un moyen de démarrer et de s’arrêter de manière coordonnée, ce qui est facilité ici par le processus parent contrôlant à la fois le producteur et le consommateur.</p>
 <p>Dans des scénarios où les processus sont entièrement indépendants et non lancés par un parent commun, nous avons besoin d’une approche différente pour établir une communication de mémoire partagée. Dans de tels cas, nous pouvons utiliser le module shared_memory directement pour créer un bloc de mémoire partagée qui peut être accédé en utilisant un nom connu à la fois du producteur et du consommateur. Examinons un exemple de la manière dont cela peut être mis en œuvre.</p>
+</section>
 <section id="b.-processus-indépendants-utilisant-la-mémoire-partagée" class="level3">
 <h3 class="anchored" data-anchor-id="b.-processus-indépendants-utilisant-la-mémoire-partagée">b. Processus indépendants utilisant la mémoire partagée</h3>
 <p>Dans l’exemple suivant, nous allons créer un bloc de mémoire partagée qui ne dépend pas d’un processus parent pour lancer le producteur et le consommateur. Au lieu de cela, le bloc de mémoire partagée sera créé avec un nom unique, auquel les processus producteur et consommateur pourront accéder indépendamment.</p>
-<p>from multiprocessing import shared_memory import time import random</p>
-</section>
-</section>
-<section id="nom-unique-pour-le-bloc-de-mémoire-partagée" class="level1">
-<h1>Nom unique pour le bloc de mémoire partagée</h1>
-<p>NOM_SHM = ‘ma_memoire_partagee’</p>
-</section>
-<section id="processus-producteur-qui-écrit-dans-la-mémoire-partagée-1" class="level1">
-<h1>Processus producteur qui écrit dans la mémoire partagée</h1>
-<p>def producteur_independant(): # Créer un nouveau bloc de mémoire partagée shm_existante = shared_memory.SharedMemory(name=NOM_SHM, create=True, size=128) try: # Simuler la production de données for i in range(5): time.sleep(random.uniform(0.1, 0.5)) # Simuler un travail # Écrire des données dans la mémoire partagée shm_existante.buf[i] = i print(f’Le producteur indépendant vient de produire {i}’) finally: # Nettoyage shm_existante.close()</p>
-</section>
-<section id="processus-consommateur-qui-lit-la-mémoire-partagée-1" class="level1">
-<h1>Processus consommateur qui lit la mémoire partagée</h1>
-<p>def consommateur_independant(): # Ouvrir le bloc de mémoire partagée existant shm_existante = shared_memory.SharedMemory(name=NOM_SHM) try: while True: time.sleep(0.1) valeur = shm_existante.buf[0] # Lire à partir du premier octet if valeur == -1: # Valeur sentinelle pour l’arrêt break print(f’Le consommateur indépendant vient de consommer {valeur}’) finally: # Nettoyage shm_existante.close() shm_existante.unlink() # Seulement désassocier dans le consommateur pour cet exemple</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: # Démarrer le producteur producteur_independant() # Donner un peu de temps pour que le product</p>
-<p>eur démarre et produise des éléments time.sleep(2) # Démarrer le consommateur consommateur_independant()</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> shared_memory</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Nom unique pour le bloc de mémoire partagée</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>NOM_SHM <span class="op">=</span> <span class="st">'ma_memoire_partagee'</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus producteur qui écrit dans la mémoire partagée</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> producteur_independant():</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer un nouveau bloc de mémoire partagée</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    shm_existante <span class="op">=</span> shared_memory.SharedMemory(name<span class="op">=</span>NOM_SHM, create<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span><span class="dv">128</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simuler la production de données</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            time.sleep(random.uniform(<span class="fl">0.1</span>, <span class="fl">0.5</span>))  <span class="co"># Simuler un travail</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Écrire des données dans la mémoire partagée</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            shm_existante.buf[i] <span class="op">=</span> i</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'Le producteur indépendant vient de produire </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Nettoyage</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        shm_existante.close()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus consommateur qui lit la mémoire partagée</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> consommateur_independant():</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ouvrir le bloc de mémoire partagée existant</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    shm_existante <span class="op">=</span> shared_memory.SharedMemory(name<span class="op">=</span>NOM_SHM)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="fl">0.1</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            valeur <span class="op">=</span> shm_existante.buf[<span class="dv">0</span>]  <span class="co"># Lire à partir du premier octet</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> valeur <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:  <span class="co"># Valeur sentinelle pour l'arrêt</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'Le consommateur indépendant vient de consommer </span><span class="sc">{</span>valeur<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Nettoyage</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        shm_existante.close()</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        shm_existante.unlink()  <span class="co"># Seulement désassocier dans le consommateur pour cet exemple</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Démarrer le producteur</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    producteur_independant()</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Donner un peu de temps pour que le product</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>eur démarre et produise des éléments</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">2</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Démarrer le consommateur</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    consommateur_independant()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, le producteur crée un bloc de mémoire partagée avec un nom prédéfini et écrit des données dedans. Le consommateur, connaissant le nom du bloc de mémoire partagée, peut y accéder indépendamment et lire les données. La valeur sentinelle (-1) est utilisée ici également pour signaler au consommateur d’arrêter la lecture et de sortir. Cette approche permet une plus grande flexibilité et convient aux situations où les processus peuvent démarrer et s’arrêter indépendamment les uns des autres.</p>
+</section>
 <section id="c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" class="level3">
 <h3 class="anchored" data-anchor-id="c.-exemple-avec-la-mémoire-partagée-posix-et-system-v">c.&nbsp;Exemple avec la mémoire partagée POSIX et System V</h3>
 <p>Voici un exemple qui montre comment utiliser les segments de mémoire partagée POSIX et System V en Python sans s’appuyer sur la fonctionnalité de mémoire partagée de la bibliothèque multiprocessing. Nous utiliserons le module sysv_ipc pour la mémoire partagée System V et le module posix_ipc pour la mémoire partagée POSIX.</p>
@@ -767,56 +873,55 @@ shm.unlink()</code></pre>
 <p>Mémoire partagée System V :</p>
 <p>La mémoire partagée System V est un mécanisme IPC plus ancien qui permet aux processus de communiquer en s’attachant à un segment de mémoire partagée identifié par une clé numérique. Contrairement à la mémoire partagée POSIX, elle n’a pas de nom dans l’espace de noms du système de fichiers.</p>
 <p>Voici l’exemple de code :</p>
-<p>import sysv_ipc import posix_ipc import mmap import os import time</p>
-</section>
-</section>
-<section id="exemple-de-mémoire-partagée-system-v" class="level1">
-<h1>Exemple de mémoire partagée System V</h1>
-</section>
-<section id="créer-un-objet-de-mémoire-partagée" class="level1">
-<h1>Créer un objet de mémoire partagée</h1>
-<p>cle_sysv = sysv_ipc.ftok(‘/tmp’, 42) shm_sysv = sysv_ipc.SharedMemory(cle_sysv, size=1024, flags=sysv_ipc.IPC_CREAT)</p>
-</section>
-<section id="écrire-dans-la-mémoire-partagée" class="level1">
-<h1>Écrire dans la mémoire partagée</h1>
-<p>shm_sysv.write(b’Bonjour de System V’)</p>
-</section>
-<section id="lire-dans-la-mémoire-partagée" class="level1">
-<h1>Lire dans la mémoire partagée</h1>
-<p>message = shm_sysv.read(1024) print(f’Lecture de la mémoire partagée System V : {message}’)</p>
-</section>
-<section id="détacher-et-supprimer-la-mémoire-partagée" class="level1">
-<h1>Détacher et supprimer la mémoire partagée</h1>
-<p>shm_sysv.detach() shm_sysv.remove()</p>
-</section>
-<section id="exemple-de-mémoire-partagée-posix" class="level1">
-<h1>Exemple de mémoire partagée POSIX</h1>
-</section>
-<section id="créer-un-objet-de-mémoire-partagée-1" class="level1">
-<h1>Créer un objet de mémoire partagée</h1>
-<p>shm_posix = posix_ipc.SharedMemory(‘/mon_posix_shm’, posix_ipc.O_CREAT, size=1024)</p>
-</section>
-<section id="mapper-la-mémoire-partagée" class="level1">
-<h1>Mapper la mémoire partagée</h1>
-<p>mm = mmap.mmap(shm_posix.fd, shm_posix.size) shm_posix.close_fd()</p>
-</section>
-<section id="écrire-dans-la-zone-mappée-en-mémoire" class="level1">
-<h1>Écrire dans la zone mappée en mémoire</h1>
-<p>mm.write(b’Bonjour de POSIX’)</p>
-</section>
-<section id="lire-dans-la-zone-mappée-en-mémoire" class="level1">
-<h1>Lire dans la zone mappée en mémoire</h1>
-<p>mm.seek(0) message = mm.read(1024) print(f’Lecture de la mémoire partagée POSIX : {message}’)</p>
-</section>
-<section id="démapper-et-désassocier-la-mémoire-partagée" class="level1">
-<h1>Démapper et désassocier la mémoire partagée</h1>
-<p>mm.close() posix_ipc.unlink_shared_memory(‘/mon_posix_shm’)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sysv_ipc</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> posix_ipc</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mmap</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de mémoire partagée System V</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet de mémoire partagée</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>cle_sysv <span class="op">=</span> sysv_ipc.ftok(<span class="st">'/tmp'</span>, <span class="dv">42</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>shm_sysv <span class="op">=</span> sysv_ipc.SharedMemory(cle_sysv, size<span class="op">=</span><span class="dv">1024</span>, flags<span class="op">=</span>sysv_ipc.IPC_CREAT)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Écrire dans la mémoire partagée</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>shm_sysv.write(<span class="st">b'Bonjour de System V'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire dans la mémoire partagée</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> shm_sysv.read(<span class="dv">1024</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Lecture de la mémoire partagée System V : </span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Détacher et supprimer la mémoire partagée</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>shm_sysv.detach()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>shm_sysv.remove()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de mémoire partagée POSIX</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet de mémoire partagée</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>shm_posix <span class="op">=</span> posix_ipc.SharedMemory(<span class="st">'/mon_posix_shm'</span>, posix_ipc.O_CREAT, size<span class="op">=</span><span class="dv">1024</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapper la mémoire partagée</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> mmap.mmap(shm_posix.fd, shm_posix.size)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>shm_posix.close_fd()</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Écrire dans la zone mappée en mémoire</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>mm.write(<span class="st">b'Bonjour de POSIX'</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire dans la zone mappée en mémoire</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>mm.seek(<span class="dv">0</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> mm.read(<span class="dv">1024</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Lecture de la mémoire partagée POSIX : </span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Démapper et désassocier la mémoire partagée</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>mm.close()</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>posix_ipc.unlink_shared_memory(<span class="st">'/mon_posix_shm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans ce code :</p>
 <ul>
 <li>Pour System V, nous créons un segment de mémoire partagée avec une clé spécifique et écrivons un message dedans. Ensuite, nous lisons le message et nettoyons en détachant et en supprimant le segment de mémoire partagée.</li>
 <li>Pour POSIX, nous créons un objet de mémoire partagée nommé, le mappons dans l’espace d’adressage du processus, puis écrivons et lisons un message. Enfin, nous démappons et désassocions l’objet de mémoire partagée.</li>
 </ul>
 <p>Cet exemple est une simple démonstration de l’utilisation de la mémoire partagée POSIX et System V en Python. Ces mécanismes sont de plus bas niveau que la mémoire partagée de la bibliothèque multiprocessing et nécessitent une gestion plus manuelle.</p>
+</section>
+</section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">8. Conclusion</h2>
 <p>En intégrant ces concepts dans la conception de systèmes IPC, les développeurs peuvent tirer parti de la vitesse de la RAM pour une communication interprocessus efficace tout en gérant soigneusement les ressources pour maintenir l’intégrité et la performance du système.</p>
@@ -1352,7 +1457,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_3/3-Files.html" class="pagination-link  aria-label=" fichiers="" et="" ipc"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Fichiers et IPC</span>

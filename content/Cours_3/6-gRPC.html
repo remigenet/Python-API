@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -124,6 +158,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -145,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -160,6 +198,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -185,6 +227,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -215,6 +261,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -222,6 +276,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -264,6 +322,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -298,6 +360,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -334,11 +404,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communication entre Processus (IPC)</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link">
@@ -391,11 +467,17 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-1-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
- <span class="menu-text">content/Cours_3/TP-3-2-qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -431,7 +513,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#exemple-de-mise-en-place-dun-service-grpc" id="toc-exemple-de-mise-en-place-dun-service-grpc" class="nav-link" data-scroll-target="#exemple-de-mise-en-place-dun-service-grpc">11. Exemple de mise en place d’un service gRPC</a>
   <ul class="collapse">
   <li><a href="#a.-fichier-.proto-pour-le-service-de-gestion-de-tâches" id="toc-a.-fichier-.proto-pour-le-service-de-gestion-de-tâches" class="nav-link" data-scroll-target="#a.-fichier-.proto-pour-le-service-de-gestion-de-tâches">a. Fichier .proto pour le service de gestion de tâches</a></li>
-  <li><a href="#b.-génération-du-code-source" id="toc-b.-génération-du-code-source" class="nav-link" data-scroll-target="#b.-génération-du-code-source">b. Génération du code source</a></li>
   <li><a href="#c.-implémentation-du-serveur-en-python" id="toc-c.-implémentation-du-serveur-en-python" class="nav-link" data-scroll-target="#c.-implémentation-du-serveur-en-python">c.&nbsp;Implémentation du serveur en Python</a></li>
   <li><a href="#d.-implémentation-du-client-en-python" id="toc-d.-implémentation-du-client-en-python" class="nav-link" data-scroll-target="#d.-implémentation-du-client-en-python">d.&nbsp;Implémentation du client en Python</a></li>
   </ul></li>
@@ -449,7 +530,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -467,7 +548,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -522,23 +603,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Annulation : Si un client n’a pas besoin du résultat d’un appel, il peut l’annuler. Le serveur est informé de l’annulation et peut économiser des ressources en arrêtant le traitement de l’appel.</li>
 </ol>
 <p>Définitions utiles:</p>
-<ul>
-<li></li>
-</ul>
-<p><strong>HTTP/2 :</strong> HTTP/2 est la deuxième version majeure du protocole HTTP, utilisée par le World Wide Web. Par rapport à HTTP/1.x, HTTP/2:</p>
-<ul>
-<li><ul>
-<li>Est binaire, au lieu de textuel, ce qui est plus efficace et moins sujet à des erreurs.</li>
-<li>Permet une multiplexage des requêtes pour éviter le blocage de la connexion.</li>
-<li>Utilise la compression des headers pour réduire la surcharge.</li>
-<li>Permet des priorités de requêtes et des contrôles de flux.</li>
-</ul></li>
-<li></li>
-</ul>
-<p><strong>Sérialisation et Désérialisation :</strong> La sérialisation est le processus de transformation d’objets en une forme qui peut être facilement stockée ou transmise, et la désérialisation est l’inverse, transformant les données sérialisées en objets utilisables par le programme. Dans le contexte de gRPC et Protocol Buffers, la sérialisation transforme les données structurées en une suite de bytes compacte et efficace, tandis que la désérialisation reconvertit cette suite de bytes en une structure de données utilisable par les applications.</p>
-<ul>
-<li></li>
-</ul>
+<p><strong>HTTP/2</strong> : - HTTP/2 est la deuxième version majeure du protocole HTTP, utilisée par le World Wide Web. Par rapport à HTTP/1.x, HTTP/2: - Est binaire, au lieu de textuel, ce qui est plus efficace et moins sujet à des erreurs. - Permet une multiplexage des requêtes pour éviter le blocage de la connexion. - Utilise la compression des headers pour réduire la surcharge. - Permet des priorités de requêtes et des contrôles de flux.</p>
+<p><strong>Sérialisation et Désérialisation</strong>: - La sérialisation est le processus de transformation d’objets en une forme qui peut être facilement stockée ou transmise, et la désérialisation est l’inverse, transformant les données sérialisées en objets utilisables par le programme. Dans le contexte de gRPC et Protocol Buffers, la sérialisation transforme les données structurées en une suite de bytes compacte et efficace, tandis que la désérialisation reconvertit cette suite de bytes en une structure de données utilisable par les applications.</p>
 </section>
 <section id="protocol-buffers-protobufs" class="level2">
 <h2 class="anchored" data-anchor-id="protocol-buffers-protobufs">4. Protocol Buffers (protobufs) :</h2>
@@ -637,55 +703,117 @@ ul.task-list li input[type="checkbox"] {
 <p>Imaginons que nous voulons créer un service gRPC simple pour un système de gestion de tâches. Le service permettra aux clients d’ajouter des tâches et de les lister.</p>
 <section id="a.-fichier-.proto-pour-le-service-de-gestion-de-tâches" class="level3">
 <h3 class="anchored" data-anchor-id="a.-fichier-.proto-pour-le-service-de-gestion-de-tâches">a. Fichier .proto pour le service de gestion de tâches</h3>
-<p>syntax = “proto3”;</p>
-<p>package taskmanager;</p>
-<p>// Le service de gestion de tâches service TaskService { // Ajoute une nouvelle tâche rpc AddTask(AddTaskRequest) returns (AddTaskResponse);</p>
-<p>// Liste toutes les tâches rpc ListTasks(ListTasksRequest) returns (ListTasksResponse); }</p>
-<p>// La demande pour ajouter une tâche message AddTaskRequest { string description = 1; }</p>
-<p>// La réponse à une demande d’ajout de tâche message AddTaskResponse { bool success = 1; string id = 2; }</p>
-<p>// La demande pour lister les tâches message ListTasksRequest {}</p>
-<p>// La réponse à une demande de liste de tâches message ListTasksResponse { repeated Task tasks = 1; }</p>
-<p>// Une tâche message Task { string id = 1; string description = 2; bool completed = 3; }</p>
-</section>
-<section id="b.-génération-du-code-source" class="level3">
-<h3 class="anchored" data-anchor-id="b.-génération-du-code-source">b. Génération du code source</h3>
-<p>Utilisez le compilateur protoc pour générer le code source à partir du fichier .proto. Par exemple, pour générer du code Python :</p>
-<p>protoc -I=. –python_out=. –grpc_python_out=. taskmanager.proto</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode proto code-with-copy"><code class="sourceCode protobuf"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>syntax = <span class="st">"proto3"</span>;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span> taskmanager;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Le service de gestion de tâches</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>service TaskService {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Ajoute une nouvelle tâche</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  rpc AddTask(AddTaskRequest) returns (AddTaskResponse);</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Liste toutes les tâches</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  rpc ListTasks(ListTasksRequest) returns (ListTasksResponse);</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">// La demande pour ajouter une tâche</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> AddTaskRequest {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> description = <span class="dv">1</span>;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">// La réponse à une demande d'ajout de tâche</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> AddTaskResponse {</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> success = <span class="dv">1</span>;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> id = <span class="dv">2</span>;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">// La demande pour lister les tâches</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> ListTasksRequest {}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">// La réponse à une demande de liste de tâches</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> ListTasksResponse {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">repeated</span> Task tasks = <span class="dv">1</span>;</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">// Une tâche</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="kw">message</span> Task {</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> id = <span class="dv">1</span>;</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="dt">string</span> description = <span class="dv">2</span>;</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> completed = <span class="dv">3</span>;</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>```python</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>### b. Génération du code source</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Utilisez le compilateur protoc pour générer le code source à partir du fichier .proto. Par exemple, pour générer du code Python :</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>```bash</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>protoc -I=. --python_out=. --grpc_python_out=. taskmanager.proto</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="c.-implémentation-du-serveur-en-python" class="level3">
 <h3 class="anchored" data-anchor-id="c.-implémentation-du-serveur-en-python">c.&nbsp;Implémentation du serveur en Python</h3>
-<p>from concurrent import futures import grpc import taskmanager_pb2 import taskmanager_pb2_grpc</p>
-<p>class TaskService(taskmanager_pb2_grpc.TaskServiceServicer):</p>
-<pre><code>def __init__(self):
-    self.tasks = {}
-
-def AddTask(self, request, context):
-    task_id = str(len(self.tasks) + 1)
-    self.tasks[task_id] = {
-        'description': request.description,
-        'completed': False
-    }
-    return taskmanager_pb2.AddTaskResponse(success=True, id=task_id)
-
-def ListTasks(self, request, context):
-    for task_id, task_info in self.tasks.items():
-        yield taskmanager_pb2.Task(
-            id=task_id,
-            description=task_info['description'],
-            completed=task_info['completed']
-        )</code></pre>
-<p>def serve(): server = grpc.server(futures.ThreadPoolExecutor(max_workers=10)) taskmanager_pb2_grpc.add_TaskServiceServicer_to_server(TaskService(), server) server.add_insecure_port(‘[::]:50051’) server.start() server.wait_for_termination()</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: serve()</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> concurrent <span class="im">import</span> futures</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> grpc</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> taskmanager_pb2</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> taskmanager_pb2_grpc</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TaskService(taskmanager_pb2_grpc.TaskServiceServicer):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.tasks <span class="op">=</span> {}</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> AddTask(<span class="va">self</span>, request, context):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        task_id <span class="op">=</span> <span class="bu">str</span>(<span class="bu">len</span>(<span class="va">self</span>.tasks) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.tasks[task_id] <span class="op">=</span> {</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">'description'</span>: request.description,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">'completed'</span>: <span class="va">False</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taskmanager_pb2.AddTaskResponse(success<span class="op">=</span><span class="va">True</span>, <span class="bu">id</span><span class="op">=</span>task_id)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> ListTasks(<span class="va">self</span>, request, context):</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> task_id, task_info <span class="kw">in</span> <span class="va">self</span>.tasks.items():</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">yield</span> taskmanager_pb2.Task(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                <span class="bu">id</span><span class="op">=</span>task_id,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                description<span class="op">=</span>task_info[<span class="st">'description'</span>],</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                completed<span class="op">=</span>task_info[<span class="st">'completed'</span>]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> serve():</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    server <span class="op">=</span> grpc.server(futures.ThreadPoolExecutor(max_workers<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    taskmanager_pb2_grpc.add_TaskServiceServicer_to_server(TaskService(), server)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    server.add_insecure_port(<span class="st">'[::]:50051'</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    server.start()</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    server.wait_for_termination()</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    serve()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="d.-implémentation-du-client-en-python" class="level3">
 <h3 class="anchored" data-anchor-id="d.-implémentation-du-client-en-python">d.&nbsp;Implémentation du client en Python</h3>
-<p>import grpc import taskmanager_pb2 import taskmanager</p>
-<p>_pb2_grpc</p>
-<p>def run(): with grpc.insecure_channel(‘localhost:50051’) as channel: stub = taskmanager_pb2_grpc.TaskServiceStub(channel) response = stub.AddTask(taskmanager_pb2.AddTaskRequest(description=“Buy milk”)) print(f”Task added with ID: {response.id}“)</p>
-<pre><code>    tasks = stub.ListTasks(taskmanager_pb2.ListTasksRequest())
-    for task in tasks:
-        print(f"Task {task.id}: {task.description} (Completed: {task.completed})")</code></pre>
-<p>if <strong>name</strong> == ‘<strong>main</strong>’: run()</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> grpc</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> taskmanager_pb2</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> taskmanager</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>_pb2_grpc</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run():</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> grpc.insecure_channel(<span class="st">'localhost:50051'</span>) <span class="im">as</span> channel:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        stub <span class="op">=</span> taskmanager_pb2_grpc.TaskServiceStub(channel)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> stub.AddTask(taskmanager_pb2.AddTaskRequest(description<span class="op">=</span><span class="st">"Buy milk"</span>))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Task added with ID: </span><span class="sc">{</span>response<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        tasks <span class="op">=</span> stub.ListTasks(taskmanager_pb2.ListTasksRequest())</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> task <span class="kw">in</span> tasks:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Task </span><span class="sc">{</span>task<span class="sc">.</span><span class="bu">id</span><span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>task<span class="sc">.</span>description<span class="sc">}</span><span class="ss"> (Completed: </span><span class="sc">{</span>task<span class="sc">.</span>completed<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, le serveur gRPC gère un dictionnaire simple de tâches et expose deux méthodes RPC : AddTask pour ajouter une nouvelle tâche et ListTasks pour lister toutes les tâches. Le client crée une connexion au serveur, ajoute une tâche et liste ensuite toutes les tâches disponibles.</p>
 </section>
 </section>
@@ -1265,7 +1393,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_3/5-Pipes.html" class="pagination-link  aria-label=" pipes"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Pipes</span>

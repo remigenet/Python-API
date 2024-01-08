@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -123,6 +157,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
  <span class="dropdown-text">API - Définition</span></a>
   </li>  
@@ -144,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
- <span class="dropdown-text">La notion d’API utilisateur</span></a>
+ <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
@@ -159,6 +197,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Consommation avancée d’API</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
  <span class="dropdown-text">Protocols de communication</span></a>
@@ -184,6 +226,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Communication entre Processus (IPC)</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
  <span class="dropdown-text">Introduction à l’IPC</span></a>
@@ -214,6 +260,14 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -221,6 +275,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conception d’APIs</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
  <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
@@ -263,6 +321,10 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
         <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
  <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
   </li>  
@@ -297,6 +359,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sujets de Projets possibles</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -333,11 +403,17 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conception d’APIs</span></a>
+  </div>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_4/1-IntroConception.html" class="sidebar-item-text sidebar-link">
@@ -419,22 +495,26 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#b.-pydantic" id="toc-b.-pydantic" class="nav-link" data-scroll-target="#b.-pydantic">b. Pydantic ?</a></li>
   </ul></li>
   <li><a href="#typage-fort-et-validation-des-données" id="toc-typage-fort-et-validation-des-données" class="nav-link" data-scroll-target="#typage-fort-et-validation-des-données">2. Typage Fort et Validation des Données</a></li>
+  <li><a href="#sécurité-et-authentification" id="toc-sécurité-et-authentification" class="nav-link" data-scroll-target="#sécurité-et-authentification">3. Sécurité et Authentification</a></li>
   <li><a href="#dépendances" id="toc-dépendances" class="nav-link" data-scroll-target="#dépendances">4. Dépendances</a></li>
   <li><a href="#middleware" id="toc-middleware" class="nav-link" data-scroll-target="#middleware">5. Middleware</a>
   <ul class="collapse">
   <li><a href="#a.-ajout-de-middleware-avec-le-décorateur-app.middleware" id="toc-a.-ajout-de-middleware-avec-le-décorateur-app.middleware" class="nav-link" data-scroll-target="#a.-ajout-de-middleware-avec-le-décorateur-app.middleware">a. Ajout de middleware avec le décorateur <span class="citation" data-cites="app.middleware">@app.middleware</span></a></li>
+  <li><a href="#b.-création-de-middleware-personnalisé" id="toc-b.-création-de-middleware-personnalisé" class="nav-link" data-scroll-target="#b.-création-de-middleware-personnalisé">b. Création de middleware personnalisé</a></li>
   <li><a href="#c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard" id="toc-c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard" class="nav-link" data-scroll-target="#c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard">c.&nbsp;Pourquoi un middleware personnalisé plutôt que le décorateur standard ?</a></li>
   </ul></li>
   <li><a href="#tests-automatisés" id="toc-tests-automatisés" class="nav-link" data-scroll-target="#tests-automatisés">5. Tests Automatisés</a></li>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">6. Exemples</a>
+  <ul class="collapse">
+  <li><a href="#a.-exemple-de-la-todo-list" id="toc-a.-exemple-de-la-todo-list" class="nav-link" data-scroll-target="#a.-exemple-de-la-todo-list">a. Exemple de la Todo List</a></li>
+  <li><a href="#b.-exemple-de-lauthentification" id="toc-b.-exemple-de-lauthentification" class="nav-link" data-scroll-target="#b.-exemple-de-lauthentification">b. Exemple de l’authentification</a></li>
   </ul></li>
-  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
-  <li><a href="#simuler-une-base-de-données-dutilisateurs" id="toc-simuler-une-base-de-données-dutilisateurs" class="nav-link" data-scroll-target="#simuler-une-base-de-données-dutilisateurs">Simuler une base de données d’utilisateurs</a></li>
-  <li><a href="#utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel" id="toc-utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel" class="nav-link" data-scroll-target="#utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel">Utilisez cette fonction de dépendance pour obtenir l’utilisateur actuel</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -447,7 +527,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-body">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -477,295 +557,382 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="iv.-conception-avancée-avec-fastapi" class="level1">
 <h1>IV. Conception Avancée avec FastAPI</h1>
-<pre><code>FastAPI est un framework moderne et rapide (haute performance) pour la construction d'APIs avec Python 3.7+, basé sur des standards Python type hints. L'un des principaux avantages de FastAPI est qu'il est conçu pour être facile et rapide à coder et qu'il réduit les erreurs de développement.</code></pre>
+<p>FastAPI est un framework moderne et rapide (haute performance) pour la construction d’APIs avec Python 3.7+, basé sur des standards Python type hints. L’un des principaux avantages de FastAPI est qu’il est conçu pour être facile et rapide à coder et qu’il réduit les erreurs de développement.</p>
 <section id="avantages-de-performance-et-de-conception" class="level2">
 <h2 class="anchored" data-anchor-id="avantages-de-performance-et-de-conception">1. Avantages de Performance et de Conception</h2>
-<pre><code>FastAPI est construit sur Starlette pour le routage web et Pydantic pour la validation des données, ce qui le rend rapide. Il est asynchrone nativement et est donc idéal pour les opérations IO-bound et les requêtes simultanées à grande échelle.</code></pre>
+<p>FastAPI est construit sur Starlette pour le routage web et Pydantic pour la validation des données, ce qui le rend rapide. Il est asynchrone nativement et est donc idéal pour les opérations IO-bound et les requêtes simultanées à grande échelle.</p>
 <section id="a.-starlette" class="level3">
 <h3 class="anchored" data-anchor-id="a.-starlette">a. Starlette ?</h3>
-<pre><code>Starlette est un framework web léger et de haute performance pour Python, conçu pour créer des applications asynchrones. Il est souvent utilisé comme fondation pour construire des frameworks plus grands comme FastAPI, mais il peut également être utilisé seul pour créer des applications web simples et des microservices.
-
-Voici quelques points clés sur Starlette :
-</code></pre>
+<p>Starlette est un framework web léger et de haute performance pour Python, conçu pour créer des applications asynchrones. Il est souvent utilisé comme fondation pour construire des frameworks plus grands comme FastAPI, mais il peut également être utilisé seul pour créer des applications web simples et des microservices.</p>
+<p>Voici quelques points clés sur Starlette :</p>
 <ol type="1">
-<li><code>Asynchronicité : Starlette est construit sur une base asynchrone, ce qui le rend particulièrement adapté pour les opérations I/O-bound, telles que les services qui font beaucoup d'appels de bases de données ou de requêtes HTTP externes.</code></li>
-<li><code>Flexibilité : Starlette est flexible et permet de construire des applications web avec seulement les composants nécessaires, ce qui le rend très léger et rapide.</code></li>
-<li><code>Modularité : Il est conçu pour être modulaire et facile à personnaliser. Vous pouvez utiliser les composants de Starlette avec d'autres frameworks asynchrones comme Sanic ou Quart, ou dans n'importe quelle application ASGI.</code></li>
-<li><code>Fonctionnalités : Malgré sa simplicité, Starlette offre un large éventail de fonctionnalités telles que le routage des requêtes, les middlewares, les websockets, les graphiques de dépendances, et plus encore.</code></li>
-<li><code>Compatibilité ASGI : Starlette est entièrement compatible avec l'interface de serveur web asynchrone (ASGI), qui est la norme émergente pour les applications web Python asynchrones et remplace WSGI pour les applications qui nécessitent de l'asynchronicité.</code></li>
-<li><code>Performances : Starlette est conçu pour être rapide. Il est l'un des frameworks Python les plus rapides disponibles, en partie grâce à sa nature asynchrone et à son architecture légère.</code></li>
-<li><code>Tests : Starlette facilite les tests avec un client de test qui permet de simuler des requêtes et des réponses sans avoir besoin d'un serveur en cours d'exécution.</code></li>
+<li>Asynchronicité : Starlette est construit sur une base asynchrone, ce qui le rend particulièrement adapté pour les opérations I/O-bound, telles que les services qui font beaucoup d’appels de bases de données ou de requêtes HTTP externes.</li>
+<li>Flexibilité : Starlette est flexible et permet de construire des applications web avec seulement les composants nécessaires, ce qui le rend très léger et rapide.</li>
+<li>Modularité : Il est conçu pour être modulaire et facile à personnaliser. Vous pouvez utiliser les composants de Starlette avec d’autres frameworks asynchrones comme Sanic ou Quart, ou dans n’importe quelle application ASGI.</li>
+<li>Fonctionnalités : Malgré sa simplicité, Starlette offre un large éventail de fonctionnalités telles que le routage des requêtes, les middlewares, les websockets, les graphiques de dépendances, et plus encore.</li>
+<li>Compatibilité ASGI : Starlette est entièrement compatible avec l’interface de serveur web asynchrone (ASGI), qui est la norme émergente pour les applications web Python asynchrones et remplace WSGI pour les applications qui nécessitent de l’asynchronicité.</li>
+<li>Performances : Starlette est conçu pour être rapide. Il est l’un des frameworks Python les plus rapides disponibles, en partie grâce à sa nature asynchrone et à son architecture légère.</li>
+<li>Tests : Starlette facilite les tests avec un client de test qui permet de simuler des requêtes et des réponses sans avoir besoin d’un serveur en cours d’exécution.</li>
 </ol>
-<pre><code>En résumé, Starlette est un excellent choix pour les développeurs qui ont besoin d'un framework web asynchrone qui est à la fois rapide et facile à utiliser, tout en offrant les fonctionnalités essentielles nécessaires pour construire des applications web modernes.</code></pre>
+<p>En résumé, Starlette est un excellent choix pour les développeurs qui ont besoin d’un framework web asynchrone qui est à la fois rapide et facile à utiliser, tout en offrant les fonctionnalités essentielles nécessaires pour construire des applications web modernes.</p>
 </section>
 <section id="b.-pydantic" class="level3">
 <h3 class="anchored" data-anchor-id="b.-pydantic">b. Pydantic ?</h3>
-<pre><code>Pydantic est une bibliothèque de validation et de gestion des données pour Python qui est fortement basée sur les annotations de type Python (Python type hints). Elle est conçue pour permettre une validation de données rapide et simple, et est particulièrement utile pour la construction d'APIs et de modèles de données.
-
-Voici quelques caractéristiques clés de Pydantic :
-</code></pre>
+<p>Pydantic est une bibliothèque de validation et de gestion des données pour Python qui est fortement basée sur les annotations de type Python (Python type hints). Elle est conçue pour permettre une validation de données rapide et simple, et est particulièrement utile pour la construction d’APIs et de modèles de données.</p>
+<p>Voici quelques caractéristiques clés de Pydantic :</p>
 <ol type="1">
-<li><code>Validation de données : Pydantic utilise les annotations de type Python pour valider que les données entrantes correspondent à un schéma attendu. Si les données ne correspondent pas, Pydantic lève des erreurs de validation explicites.</code></li>
-<li><code>Modèles de données : Avec Pydantic, vous pouvez définir des modèles de données, qui sont des classes Python avec des attributs typés. Ces modèles sont utilisés pour la validation mais peuvent également être utilisés comme une abstraction pour manipuler des données complexes.</code></li>
-<li><code>Conversion de types automatique : Pydantic tente de convertir les types de données entrants dans les types attendus, si possible. Par exemple, si un modèle attend un entier et qu'une chaîne de caractères numérique est fournie, Pydantic convertira la chaîne en entier.</code></li>
-<li><code>Annotations de type avancées : Pydantic supporte les annotations de type avancées de Python, y compris Optional, List, Dict, et les types personnalisés.</code></li>
-<li><code>Intégration avec les frameworks : Pydantic s'intègre bien avec de nombreux frameworks web modernes, notamment FastAPI, qui l'utilise pour la validation des données et la génération automatique de documentation pour les APIs.</code></li>
-<li><code>Génération de documentation : Les modèles Pydantic peuvent être utilisés pour générer automatiquement de la documentation pour une API, y compris les schémas JSON Schema.</code></li>
-<li><code>Plugins et extensions : Pydantic peut être étendu avec des plugins et est compatible avec de nombreux plugins existants qui ajoutent des fonctionnalités supplémentaires, comme la sérialisation en ORM, la validation par des expressions régulières, etc.</code></li>
-<li><code>Performances : Pydantic est conçu pour être rapide et efficace, ce qui est crucial pour les performances des applications web et des APIs.</code></li>
+<li>Validation de données : Pydantic utilise les annotations de type Python pour valider que les données entrantes correspondent à un schéma attendu. Si les données ne correspondent pas, Pydantic lève des erreurs de validation explicites.</li>
+<li>Modèles de données : Avec Pydantic, vous pouvez définir des modèles de données, qui sont des classes Python avec des attributs typés. Ces modèles sont utilisés pour la validation mais peuvent également être utilisés comme une abstraction pour manipuler des données complexes.</li>
+<li>Conversion de types automatique : Pydantic tente de convertir les types de données entrants dans les types attendus, si possible. Par exemple, si un modèle attend un entier et qu’une chaîne de caractères numérique est fournie, Pydantic convertira la chaîne en entier.</li>
+<li>Annotations de type avancées : Pydantic supporte les annotations de type avancées de Python, y compris Optional, List, Dict, et les types personnalisés.</li>
+<li>Intégration avec les frameworks : Pydantic s’intègre bien avec de nombreux frameworks web modernes, notamment FastAPI, qui l’utilise pour la validation des données et la génération automatique de documentation pour les APIs.</li>
+<li>Génération de documentation : Les modèles Pydantic peuvent être utilisés pour générer automatiquement de la documentation pour une API, y compris les schémas JSON Schema.</li>
+<li>Plugins et extensions : Pydantic peut être étendu avec des plugins et est compatible avec de nombreux plugins existants qui ajoutent des fonctionnalités supplémentaires, comme la sérialisation en ORM, la validation par des expressions régulières, etc.</li>
+<li>Performances : Pydantic est conçu pour être rapide et efficace, ce qui est crucial pour les performances des applications web et des APIs.</li>
 </ol>
-<pre><code>En résumé, Pydantic est un outil puissant pour la validation des données et la définition de modèles de données en Python, offrant une syntaxe claire et concise et une intégration facile avec d'autres frameworks et outils.</code></pre>
+<p>En résumé, Pydantic est un outil puissant pour la validation des données et la définition de modèles de données en Python, offrant une syntaxe claire et concise et une intégration facile avec d’autres frameworks et outils.</p>
 </section>
 </section>
 <section id="typage-fort-et-validation-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="typage-fort-et-validation-des-données">2. Typage Fort et Validation des Données</h2>
-<pre><code>Grâce aux Python type hints, FastAPI peut valider les types de données entrantes, ce qui simplifie la validation des données et l'auto-documentation de l'API.
-
-
-</code></pre>
-<p>from fastapi import FastAPI from pydantic import BaseModel</p>
-<p>app = FastAPI()</p>
-<p>class Item(BaseModel): name: str description: str = None price: float tax: float = None</p>
-<p><span class="citation" data-cites="app.post">@app.post</span>(“/items/”) async def create_item(item: Item): return item</p>
-<pre><code>
-
-</code></pre>
+<p>Grâce aux Python type hints, FastAPI peut valider les types de données entrantes, ce qui simplifie la validation des données et l’auto-documentation de l’API.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Item(BaseModel):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    name: <span class="bu">str</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    description: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    price: <span class="bu">float</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    tax: <span class="bu">float</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/items/"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> create_item(item: Item):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, un modèle Item est défini avec Pydantic, et une route est créée où FastAPI s’attend à recevoir des données correspondant à ce modèle, les valide, et les rend directement.</p>
-<pre><code>
-
-
-## 3. Sécurité et Authentification
-
-</code></pre>
+</section>
+<section id="sécurité-et-authentification" class="level2">
+<h2 class="anchored" data-anchor-id="sécurité-et-authentification">3. Sécurité et Authentification</h2>
 <p>FastAPI fournit plusieurs outils pour gérer l’authentification et la sécurité, y compris le support intégré pour OAuth2 avec JWT.</p>
-<pre><code>from fastapi import Depends, FastAPI, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
-
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-@app.get("/users/me")
-async def read_users_me(token: str = Depends(oauth2_scheme)):
-    if token != "fake-super-secret-token":
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid authentication credentials",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    return {"token": token}</code></pre>
-<pre><code>Dans cet exemple, OAuth2PasswordBearer est utilisé pour définir un schéma de sécurité OAuth2 qui attend un token dans les en-têtes de la requête.</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> Depends, FastAPI, HTTPException, status</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi.security <span class="im">import</span> OAuth2PasswordBearer</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>oauth2_scheme <span class="op">=</span> OAuth2PasswordBearer(tokenUrl<span class="op">=</span><span class="st">"token"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/users/me"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_users_me(token: <span class="bu">str</span> <span class="op">=</span> Depends(oauth2_scheme)):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> token <span class="op">!=</span> <span class="st">"fake-super-secret-token"</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            status_code<span class="op">=</span>status.HTTP_401_UNAUTHORIZED,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            detail<span class="op">=</span><span class="st">"Invalid authentication credentials"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            headers<span class="op">=</span>{<span class="st">"WWW-Authenticate"</span>: <span class="st">"Bearer"</span>},</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"token"</span>: token}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, OAuth2PasswordBearer est utilisé pour définir un schéma de sécurité OAuth2 qui attend un token dans les en-têtes de la requête.</p>
 </section>
 <section id="dépendances" class="level2">
 <h2 class="anchored" data-anchor-id="dépendances">4. Dépendances</h2>
-<pre><code>FastAPI permet d'utiliser des "dépendances" pour créer des dépendances réutilisables que vous pouvez injecter dans vos routes.
-
-
-#### Exemple basique de dépendance
-
-
-</code></pre>
-<p>from fastapi import Depends, FastAPI</p>
-<p>def common_parameters(q: str = None, skip: int = 0, limit: int = 100): return {“q”: q, “skip”: skip, “limit”: limit}</p>
-<p><span class="citation" data-cites="app.get">@app.get</span>(“/items/”) async def read_items(commons: dict = Depends(common_parameters)): return commons</p>
-<pre><code>
-
-</code></pre>
+<p>FastAPI permet d’utiliser des “dépendances” pour créer des dépendances réutilisables que vous pouvez injecter dans vos routes.</p>
+<section id="exemple-basique-de-dépendance" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-basique-de-dépendance">Exemple basique de dépendance</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> Depends, FastAPI</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> common_parameters(q: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span>, skip: <span class="bu">int</span> <span class="op">=</span> <span class="dv">0</span>, limit: <span class="bu">int</span> <span class="op">=</span> <span class="dv">100</span>):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"q"</span>: q, <span class="st">"skip"</span>: skip, <span class="st">"limit"</span>: limit}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/items/"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_items(commons: <span class="bu">dict</span> <span class="op">=</span> Depends(common_parameters)):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> commons</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="exemple-de-dépendance-avancée" class="level4">
 <h4 class="anchored" data-anchor-id="exemple-de-dépendance-avancée">Exemple de dépendance avancée</h4>
-<pre><code>from fastapi import Depends, FastAPI, HTTPException
-from pydantic import BaseModel
-
-app = FastAPI()
-
-class User(BaseModel):
-    username: str
-    is_admin: bool = False
-
-def get_current_user():
-    # Ici, vous pourriez récupérer l'utilisateur actuel de la base de données ou d'un token
-    return User(username="johndoe", is_admin=True)
-
-def require_admin(user: User = Depends(get_current_user)):
-    if not user.is_admin:
-        raise HTTPException(status_code=403, detail="Admin access required")
-
-@app.post("/admin/")
-async def admin_dashboard(user: User = Depends(require_admin)):
-    return {"message": "Admin dashboard access granted"}</code></pre>
-<pre><code>Dans cet exemple, get_current_user est une dépendance qui récupère l'utilisateur actuel, et require_admin est une dépendance qui dépend de get_current_user et vérifie si l'utilisateur est administrateur. La route /admin/ utilise require_admin pour s'assurer que seuls les administrateurs peuvent y accéder.</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> Depends, FastAPI, HTTPException</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(BaseModel):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    username: <span class="bu">str</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    is_admin: <span class="bu">bool</span> <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_current_user():</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ici, vous pourriez récupérer l'utilisateur actuel de la base de données ou d'un token</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> User(username<span class="op">=</span><span class="st">"johndoe"</span>, is_admin<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> require_admin(user: User <span class="op">=</span> Depends(get_current_user)):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> user.is_admin:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(status_code<span class="op">=</span><span class="dv">403</span>, detail<span class="op">=</span><span class="st">"Admin access required"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/admin/"</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> admin_dashboard(user: User <span class="op">=</span> Depends(require_admin)):</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"Admin dashboard access granted"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, get_current_user est une dépendance qui récupère l’utilisateur actuel, et require_admin est une dépendance qui dépend de get_current_user et vérifie si l’utilisateur est administrateur. La route /admin/ utilise require_admin pour s’assurer que seuls les administrateurs peuvent y accéder.</p>
 </section>
 </section>
 <section id="middleware" class="level2">
 <h2 class="anchored" data-anchor-id="middleware">5. Middleware</h2>
-<pre><code>Un middleware est une fonction qui est exécutée pour chaque requête avant qu'elle n'atteigne la route effective et après que la réponse a été générée par la route. Cela permet d'ajouter des fonctionnalités à votre application qui s'appliquent à toutes les requêtes, comme la gestion des erreurs, la journalisation, la gestion des CORS, etc.</code></pre>
+<p>Un middleware est une fonction qui est exécutée pour chaque requête avant qu’elle n’atteigne la route effective et après que la réponse a été générée par la route. Cela permet d’ajouter des fonctionnalités à votre application qui s’appliquent à toutes les requêtes, comme la gestion des erreurs, la journalisation, la gestion des CORS, etc.</p>
 <section id="a.-ajout-de-middleware-avec-le-décorateur-app.middleware" class="level3">
 <h3 class="anchored" data-anchor-id="a.-ajout-de-middleware-avec-le-décorateur-app.middleware">a. Ajout de middleware avec le décorateur <span class="citation" data-cites="app.middleware">@app.middleware</span></h3>
-<pre><code>
-
-#### Exemple de middleware
-
-
-</code></pre>
-<p>from fastapi import FastAPI import time</p>
-<p>app = FastAPI()</p>
-<p><span class="citation" data-cites="app.middleware">@app.middleware</span>(“http”) async def add_process_time_header(request, call_next): start_time = time.time() response = await call_next(request) process_time = time.time() - start_time response.headers[“X-Process-Time”] = str(process_time) return response</p>
-<pre><code>
-
-</code></pre>
+<section id="exemple-de-middleware" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-middleware">Exemple de middleware</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.middleware</span>(<span class="st">"http"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> add_process_time_header(request, call_next):</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    start_time <span class="op">=</span> time.time()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> <span class="cf">await</span> call_next(request)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    process_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    response.headers[<span class="st">"X-Process-Time"</span>] <span class="op">=</span> <span class="bu">str</span>(process_time)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, le middleware mesure le temps de traitement de chaque requête et ajoute cet information dans les en-têtes de la réponse.</p>
+</section>
 <section id="options-de-middleware" class="level4">
 <h4 class="anchored" data-anchor-id="options-de-middleware">Options de middleware</h4>
 <p>FastAPI vous permet d’ajouter des middlewares pour différentes couches de la requête HTTP. Par défaut, “http” est utilisé pour les middlewares qui agissent sur chaque requête HTTP. Vous pouvez également créer des middlewares personnalisés pour des tâches spécifiques, mais cela nécessite une connaissance plus approfondie de Starlette (le toolkit asynchrone sur lequel FastAPI est construit) et des ASGI (Asynchronous Server Gateway Interface), qui est le standard utilisé pour les applications Python asynchrones.</p>
 <p>Voici les types de middlewares que vous pouvez ajouter :</p>
-<pre><code>
-
-
-* `"http" : Pour les requêtes HTTP standard.`
-* `Middleware personnalisé : Vous pouvez créer des middlewares personnalisés en suivant la spécification ASGI, ce qui vous permet d'interagir avec les requêtes et les réponses à un niveau plus bas.`
-
-
-### b. Création de middleware personnalisé
-
-</code></pre>
-<p>Pour créer un middleware personnalisé, vous devez créer une classe ou une fonction qui respecte la signature ASGI et l’ajouter à votre application FastAPI avec app.add_middleware(). Cela peut être utile pour des cas d’utilisation avancés où vous avez besoin d’un contrôle plus fin sur le traitement des requêtes et des réponses.</p>
-<pre><code>from fastapi import FastAPI
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.requests import Request
-from starlette.responses import Response
-
-app = FastAPI()
-
-class CustomHeaderMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request: Request, call_next):
-        # Vous pouvez effectuer des actions avant la requête ici
-        response = await call_next(request)
-        # Vous pouvez effectuer des actions après la requête ici
-        response.headers['X-Custom-Header'] = 'Custom value'
-        return response
-
-# Ajout du middleware personnalisé à l'application FastAPI
-app.add_middleware(CustomHeaderMiddleware)
-
-@app.get("/")
-async def read_root():
-    return {"message": "Hello World"}</code></pre>
-<pre><code>Dans cet exemple, CustomHeaderMiddleware est une classe qui hérite de BaseHTTPMiddleware. La méthode dispatch est redéfinie pour ajouter un en-tête personnalisé X-Custom-Header à toutes les réponses.
-
-La méthode dispatch prend deux arguments :
-</code></pre>
 <ul>
-<li><code>request: l'objet de requête Starlette, qui contient toutes les informations sur la requête entrante.</code></li>
-<li><code>call_next: une fonction qui prend l'objet de requête et renvoie une réponse. C'est ce qui permet d'appeler le reste de l'application FastAPI.</code></li>
+<li>“http” : Pour les requêtes HTTP standard.</li>
+<li>Middleware personnalisé : Vous pouvez créer des middlewares personnalisés en suivant la spécification ASGI, ce qui vous permet d’interagir avec les requêtes et les réponses à un niveau plus bas.</li>
 </ul>
-<pre><code>En ajoutant CustomHeaderMiddleware avec app.add_middleware(), vous vous assurez que chaque requête passant par votre application FastAPI sera traitée par ce middleware.
-
-Ce type de middleware personnalisé peut être utilisé pour une variété de cas d'utilisation avancés, comme la journalisation personnalisée, la gestion des sessions, la modification des requêtes ou des réponses avant qu'elles n'atteignent l'application ou après qu'elles en sortent, etc.</code></pre>
 </section>
+</section>
+<section id="b.-création-de-middleware-personnalisé" class="level3">
+<h3 class="anchored" data-anchor-id="b.-création-de-middleware-personnalisé">b. Création de middleware personnalisé</h3>
+<p>Pour créer un middleware personnalisé, vous devez créer une classe ou une fonction qui respecte la signature ASGI et l’ajouter à votre application FastAPI avec app.add_middleware(). Cela peut être utile pour des cas d’utilisation avancés où vous avez besoin d’un contrôle plus fin sur le traitement des requêtes et des réponses.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> starlette.middleware.base <span class="im">import</span> BaseHTTPMiddleware</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> starlette.requests <span class="im">import</span> Request</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> starlette.responses <span class="im">import</span> Response</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CustomHeaderMiddleware(BaseHTTPMiddleware):</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">async</span> <span class="kw">def</span> dispatch(<span class="va">self</span>, request: Request, call_next):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Vous pouvez effectuer des actions avant la requête ici</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> <span class="cf">await</span> call_next(request)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Vous pouvez effectuer des actions après la requête ici</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        response.headers[<span class="st">'X-Custom-Header'</span>] <span class="op">=</span> <span class="st">'Custom value'</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> response</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajout du middleware personnalisé à l'application FastAPI</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>app.add_middleware(CustomHeaderMiddleware)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_root():</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"message"</span>: <span class="st">"Hello World"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, CustomHeaderMiddleware est une classe qui hérite de BaseHTTPMiddleware. La méthode dispatch est redéfinie pour ajouter un en-tête personnalisé X-Custom-Header à toutes les réponses.</p>
+<p>La méthode dispatch prend deux arguments :</p>
+<ul>
+<li>request: l’objet de requête Starlette, qui contient toutes les informations sur la requête entrante.</li>
+<li>call_next: une fonction qui prend l’objet de requête et renvoie une réponse. C’est ce qui permet d’appeler le reste de l’application FastAPI.</li>
+</ul>
+<p>En ajoutant CustomHeaderMiddleware avec app.add_middleware(), vous vous assurez que chaque requête passant par votre application FastAPI sera traitée par ce middleware.</p>
+<p>Ce type de middleware personnalisé peut être utilisé pour une variété de cas d’utilisation avancés, comme la journalisation personnalisée, la gestion des sessions, la modification des requêtes ou des réponses avant qu’elles n’atteignent l’application ou après qu’elles en sortent, etc.</p>
 </section>
 <section id="c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard" class="level3">
 <h3 class="anchored" data-anchor-id="c.-pourquoi-un-middleware-personnalisé-plutôt-que-le-décorateur-standard">c.&nbsp;Pourquoi un middleware personnalisé plutôt que le décorateur standard ?</h3>
-<pre><code>L'utilisation du décorateur @app.middleware("http") est une manière pratique et rapide d'ajouter un middleware à une application FastAPI pour des cas d'utilisation simples. Cependant, créer une classe middleware comme dans l'exemple précédent avec CustomHeaderMiddleware offre plusieurs avantages pour des cas plus complexes :
-</code></pre>
+<p>L’utilisation du décorateur <span class="citation" data-cites="app.middleware">@app.middleware</span>(“http”) est une manière pratique et rapide d’ajouter un middleware à une application FastAPI pour des cas d’utilisation simples. Cependant, créer une classe middleware comme dans l’exemple précédent avec CustomHeaderMiddleware offre plusieurs avantages pour des cas plus complexes :</p>
 <ol type="1">
-<li><code>Réutilisabilité : En définissant un middleware comme une classe, vous pouvez facilement le réutiliser dans différentes applications FastAPI ou même le partager en tant que package.</code></li>
-<li><code>Testabilité : Les classes middleware peuvent être plus faciles à tester car vous pouvez les instancier et les appeler indépendamment de l'application FastAPI.</code></li>
-<li><code>Extensibilité : Avec une classe, vous avez la possibilité d'étendre les fonctionnalités d'un middleware existant en utilisant l'héritage. Vous pouvez également surcharger des méthodes pour modifier leur comportement.</code></li>
-<li><code>Clarté : Pour des comportements complexes, avoir une classe dédiée peut rendre le code plus clair et plus facile à maintenir, en séparant la logique du middleware de celle des routes de l'application.</code></li>
-<li><code>Contrôle Fin : En utilisant une classe, vous avez un contrôle plus fin sur le cycle de vie de la requête et de la réponse. Vous pouvez exécuter du code avant et après que la requête ait été traitée par l'application, et même manipuler la requête avant de la passer à l'application.</code></li>
+<li>Réutilisabilité : En définissant un middleware comme une classe, vous pouvez facilement le réutiliser dans différentes applications FastAPI ou même le partager en tant que package.</li>
+<li>Testabilité : Les classes middleware peuvent être plus faciles à tester car vous pouvez les instancier et les appeler indépendamment de l’application FastAPI.</li>
+<li>Extensibilité : Avec une classe, vous avez la possibilité d’étendre les fonctionnalités d’un middleware existant en utilisant l’héritage. Vous pouvez également surcharger des méthodes pour modifier leur comportement.</li>
+<li>Clarté : Pour des comportements complexes, avoir une classe dédiée peut rendre le code plus clair et plus facile à maintenir, en séparant la logique du middleware de celle des routes de l’application.</li>
+<li>Contrôle Fin : En utilisant une classe, vous avez un contrôle plus fin sur le cycle de vie de la requête et de la réponse. Vous pouvez exécuter du code avant et après que la requête ait été traitée par l’application, et même manipuler la requête avant de la passer à l’application.</li>
 </ol>
-<pre><code>Le décorateur @app.middleware("http") est une abstraction qui simplifie l'ajout de middleware pour la plupart des besoins courants. Cependant, si vous avez besoin de plus de contrôle ou si vous souhaitez créer un middleware qui est plus complexe ou qui doit être réutilisé à travers plusieurs projets, alors définir une classe middleware est une meilleure approche.</code></pre>
+<p>Le décorateur <span class="citation" data-cites="app.middleware">@app.middleware</span>(“http”) est une abstraction qui simplifie l’ajout de middleware pour la plupart des besoins courants. Cependant, si vous avez besoin de plus de contrôle ou si vous souhaitez créer un middleware qui est plus complexe ou qui doit être réutilisé à travers plusieurs projets, alors définir une classe middleware est une meilleure approche.</p>
 </section>
 </section>
 <section id="tests-automatisés" class="level2">
 <h2 class="anchored" data-anchor-id="tests-automatisés">5. Tests Automatisés</h2>
-<pre><code>FastAPI est conçu pour faciliter les tests, avec une structure qui s'adapte bien aux tests unitaires et d'intégration.
-
-
-</code></pre>
-<p>from fastapi.testclient import TestClient</p>
-<p>client = TestClient(app)</p>
-<p>def test_read_main(): response = client.get(“/items/”) assert response.status_code == 200 assert response.json() == {“q”: None, “skip”: 0, “limit”: 100}</p>
-<pre><code>
-
-</code></pre>
+<p>FastAPI est conçu pour faciliter les tests, avec une structure qui s’adapte bien aux tests unitaires et d’intégration.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi.testclient <span class="im">import</span> TestClient</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> TestClient(app)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_read_main():</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> client.get(<span class="st">"/items/"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> response.status_code <span class="op">==</span> <span class="dv">200</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> response.json() <span class="op">==</span> {<span class="st">"q"</span>: <span class="va">None</span>, <span class="st">"skip"</span>: <span class="dv">0</span>, <span class="st">"limit"</span>: <span class="dv">100</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Dans cet exemple, TestClient est utilisé pour tester la route /items/.</p>
-<pre><code>
-
-
-## 6. Exemples
-
-
-### a. Exemple de la Todo List
-
-</code></pre>
-<p>from fastapi import FastAPI, HTTPException from pydantic import BaseModel from typing import List</p>
-<p>app = FastAPI()</p>
-<p>class Task(BaseModel): id: int title: str completed: bool</p>
-<p>tasks: List[Task] = [ Task(id=1, title=“Do laundry”, completed=False), Task(id=2, title=“Write code”, completed=False),]</p>
-<p><span class="citation" data-cites="app.get">@app.get</span>(“/tasks”, response_model=List[Task]) async def get_tasks(): return tasks</p>
-<p><span class="citation" data-cites="app.post">@app.post</span>(“/tasks”, response_model=Task) async def add_task(task: Task): tasks.append(task) return task</p>
-<p><span class="citation" data-cites="app.put">@app.put</span>(“/tasks/{task_id}”, response_model=Task) async def update_task(task_id: int, task_update: Task): task = next((t for t in tasks if t.id == task_id), None) if not task: raise HTTPException(status_code=404, detail=“Task not found”) task.title = task_update.title task.completed = task_update.completed return task</p>
-<p><span class="citation" data-cites="app.delete">@app.delete</span>(“/tasks/{task_id}”, response_model=Task) async def delete_task(task_id: int): global tasks task = next((t for t in tasks if t.id == task_id), None) if not task: raise HTTPException(status_code=404, detail=“Task not found”) tasks = [t for t in tasks if t.id != task_id] return task</p>
-<pre><code>
-
-
-### b. Exemple de l'authentification
-
-</code></pre>
+</section>
+<section id="exemples" class="level2">
+<h2 class="anchored" data-anchor-id="exemples">6. Exemples</h2>
+<section id="a.-exemple-de-la-todo-list" class="level3">
+<h3 class="anchored" data-anchor-id="a.-exemple-de-la-todo-list">a. Exemple de la Todo List</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI, HTTPException</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> List</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Task(BaseModel):</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span>: <span class="bu">int</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    title: <span class="bu">str</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    completed: <span class="bu">bool</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>tasks: List[Task] <span class="op">=</span> [</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    Task(<span class="bu">id</span><span class="op">=</span><span class="dv">1</span>, title<span class="op">=</span><span class="st">"Do laundry"</span>, completed<span class="op">=</span><span class="va">False</span>),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    Task(<span class="bu">id</span><span class="op">=</span><span class="dv">2</span>, title<span class="op">=</span><span class="st">"Write code"</span>, completed<span class="op">=</span><span class="va">False</span>),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/tasks"</span>, response_model<span class="op">=</span>List[Task])</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> get_tasks():</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> tasks</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/tasks"</span>, response_model<span class="op">=</span>Task)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> add_task(task: Task):</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    tasks.append(task)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> task</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="at">@app.put</span>(<span class="st">"/tasks/</span><span class="sc">{task_id}</span><span class="st">"</span>, response_model<span class="op">=</span>Task)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> update_task(task_id: <span class="bu">int</span>, task_update: Task):</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    task <span class="op">=</span> <span class="bu">next</span>((t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t.<span class="bu">id</span> <span class="op">==</span> task_id), <span class="va">None</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> task:</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(status_code<span class="op">=</span><span class="dv">404</span>, detail<span class="op">=</span><span class="st">"Task not found"</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    task.title <span class="op">=</span> task_update.title</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    task.completed <span class="op">=</span> task_update.completed</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> task</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="at">@app.delete</span>(<span class="st">"/tasks/</span><span class="sc">{task_id}</span><span class="st">"</span>, response_model<span class="op">=</span>Task)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> delete_task(task_id: <span class="bu">int</span>):</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> tasks</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    task <span class="op">=</span> <span class="bu">next</span>((t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t.<span class="bu">id</span> <span class="op">==</span> task_id), <span class="va">None</span>)</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> task:</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(status_code<span class="op">=</span><span class="dv">404</span>, detail<span class="op">=</span><span class="st">"Task not found"</span>)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    tasks <span class="op">=</span> [t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t.<span class="bu">id</span> <span class="op">!=</span> task_id]</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> task</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="b.-exemple-de-lauthentification" class="level3">
+<h3 class="anchored" data-anchor-id="b.-exemple-de-lauthentification">b. Exemple de l’authentification</h3>
 <p>Côté serveur :</p>
 <p>Vous devez d’abord installer les packages nécessaires :</p>
-<pre><code>pip install fastapi[all] pyjwt</code></pre>
-<pre><code>Ensuite, vous pouvez créer un fichier main.py pour votre application FastAPI :
-
-
-</code></pre>
-<p>from fastapi import FastAPI, Depends, HTTPException, status from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm from pydantic import BaseModel from datetime import datetime, timedelta import jwt</p>
-</section>
-</section>
-<section id="configuration" class="level1">
-<h1>Configuration</h1>
-<p>SECRET_KEY = “your_secret_key” ALGORITHM = “HS256” ACCESS_TOKEN_EXPIRE_MINUTES = 30</p>
-<p>app = FastAPI()</p>
-<p>oauth2_scheme = OAuth2PasswordBearer(tokenUrl=“token”)</p>
-</section>
-<section id="simuler-une-base-de-données-dutilisateurs" class="level1">
-<h1>Simuler une base de données d’utilisateurs</h1>
-<p>fake_users_db = { “john”: { “username”: “john”, “full_name”: “John Doe”, “email”: “johndoe@example.com”, “hashed_password”: “fakehashedhello”, “disabled”: False, } }</p>
-<p>def fake_hash_password(password: str): return “fakehashed” + password</p>
-<p>class User(BaseModel): username: str email: str = None full_name: str = None disabled: bool = None</p>
-<p>class UserInDB(User): hashed_password: str</p>
-<p>def get_user(db, username: str): if username in db: user_dict = db[username] return UserInDB(**user_dict)</p>
-<p>def authenticate_user(fake_db, username: str, password: str): user = get_user(fake_db, username) if not user or not fake_hash_password(password) == user.hashed_password: return False return user</p>
-<p>def create_access_token(data: dict, expires_delta: timedelta = None): to_encode = data.copy() if expires_delta: expire = datetime.utcnow() + expires_delta else: expire = datetime.utcnow() + timedelta(minutes=15) to_encode.update({“exp”: expire}) encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM) return encoded_jwt</p>
-<p><span class="citation" data-cites="app.post">@app.post</span>(“/token”) async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends()): user = authenticate_user(fake_users_db, form_data.username, form_data.password) if not user: raise HTTPException( status_code=status.HTTP_401_UNAUTHORIZED, detail=“Incorrect username or password”, headers={“WWW-Authenticate”: “Bearer”}, ) access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES) access_token = create_access_token( data={“sub”: user.username}, expires_delta=access_token_expires ) return {“access_token”: access_token, “token_type”: “bearer”}</p>
-<p><span class="citation" data-cites="app.get">@app.get</span>(“/users/me”, dependencies=[Depends(oauth2_scheme)]) async def read_users_me(current_user: User = Depends(authenticate_user)): return current_user</p>
-</section>
-<section id="utilisez-cette-fonction-de-dépendance-pour-obtenir-lutilisateur-actuel" class="level1">
-<h1>Utilisez cette fonction de dépendance pour obtenir l’utilisateur actuel</h1>
-<p>async def get_current_user(token: str = Depends(oauth2_scheme)): credentials_exception = HTTPException( status_code=status.HTTP_401_UNAUTHORIZED, detail=“Could not validate credentials”, headers={“WWW-Authenticate”: “Bearer”}, ) try: payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM]) username: str = payload.get(“sub”) if username is None: raise credentials_exception token_data = username except jwt.PyJWTError: raise credentials_exception user = get_user(fake_users_db, username=token_data) if user is None: raise credentials_exception return user</p>
-<pre><code>
-
-</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install fastapi<span class="pp">[</span><span class="ss">all</span><span class="pp">]</span> pyjwt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ensuite, vous pouvez créer un fichier main.py pour votre application FastAPI :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi <span class="im">import</span> FastAPI, Depends, HTTPException, status</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastapi.security <span class="im">import</span> OAuth2PasswordBearer, OAuth2PasswordRequestForm</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydantic <span class="im">import</span> BaseModel</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, timedelta</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jwt</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>SECRET_KEY <span class="op">=</span> <span class="st">"your_secret_key"</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>ALGORITHM <span class="op">=</span> <span class="st">"HS256"</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>ACCESS_TOKEN_EXPIRE_MINUTES <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> FastAPI()</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>oauth2_scheme <span class="op">=</span> OAuth2PasswordBearer(tokenUrl<span class="op">=</span><span class="st">"token"</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Simuler une base de données d'utilisateurs</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>fake_users_db <span class="op">=</span> {</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"john"</span>: {</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"username"</span>: <span class="st">"john"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">"full_name"</span>: <span class="st">"John Doe"</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"email"</span>: <span class="st">"johndoe@example.com"</span>,</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"hashed_password"</span>: <span class="st">"fakehashedhello"</span>,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"disabled"</span>: <span class="va">False</span>,</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fake_hash_password(password: <span class="bu">str</span>):</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"fakehashed"</span> <span class="op">+</span> password</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(BaseModel):</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    username: <span class="bu">str</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    email: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    full_name: <span class="bu">str</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    disabled: <span class="bu">bool</span> <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> UserInDB(User):</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    hashed_password: <span class="bu">str</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user(db, username: <span class="bu">str</span>):</span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> username <span class="kw">in</span> db:</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>        user_dict <span class="op">=</span> db[username]</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> UserInDB(<span class="op">**</span>user_dict)</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> authenticate_user(fake_db, username: <span class="bu">str</span>, password: <span class="bu">str</span>):</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> get_user(fake_db, username)</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> user <span class="kw">or</span> <span class="kw">not</span> fake_hash_password(password) <span class="op">==</span> user.hashed_password:</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> user</span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_access_token(data: <span class="bu">dict</span>, expires_delta: timedelta <span class="op">=</span> <span class="va">None</span>):</span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>    to_encode <span class="op">=</span> data.copy()</span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> expires_delta:</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>        expire <span class="op">=</span> datetime.utcnow() <span class="op">+</span> expires_delta</span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>        expire <span class="op">=</span> datetime.utcnow() <span class="op">+</span> timedelta(minutes<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>    to_encode.update({<span class="st">"exp"</span>: expire})</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>    encoded_jwt <span class="op">=</span> jwt.encode(to_encode, SECRET_KEY, algorithm<span class="op">=</span>ALGORITHM)</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> encoded_jwt</span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a><span class="at">@app.post</span>(<span class="st">"/token"</span>)</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> login_for_access_token(form_data: OAuth2PasswordRequestForm <span class="op">=</span> Depends()):</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> authenticate_user(fake_users_db, form_data.username, form_data.password)</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> user:</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> HTTPException(</span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>            status_code<span class="op">=</span>status.HTTP_401_UNAUTHORIZED,</span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>            detail<span class="op">=</span><span class="st">"Incorrect username or password"</span>,</span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>            headers<span class="op">=</span>{<span class="st">"WWW-Authenticate"</span>: <span class="st">"Bearer"</span>},</span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    access_token_expires <span class="op">=</span> timedelta(minutes<span class="op">=</span>ACCESS_TOKEN_EXPIRE_MINUTES)</span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>    access_token <span class="op">=</span> create_access_token(</span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>{<span class="st">"sub"</span>: user.username}, expires_delta<span class="op">=</span>access_token_expires</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"access_token"</span>: access_token, <span class="st">"token_type"</span>: <span class="st">"bearer"</span>}</span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="at">@app.get</span>(<span class="st">"/users/me"</span>, dependencies<span class="op">=</span>[Depends(oauth2_scheme)])</span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> read_users_me(current_user: User <span class="op">=</span> Depends(authenticate_user)):</span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> current_user</span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilisez cette fonction de dépendance pour obtenir l'utilisateur actuel</span></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> get_current_user(token: <span class="bu">str</span> <span class="op">=</span> Depends(oauth2_scheme)):</span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a>    credentials_exception <span class="op">=</span> HTTPException(</span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a>        status_code<span class="op">=</span>status.HTTP_401_UNAUTHORIZED,</span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a>        detail<span class="op">=</span><span class="st">"Could not validate credentials"</span>,</span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a>        headers<span class="op">=</span>{<span class="st">"WWW-Authenticate"</span>: <span class="st">"Bearer"</span>},</span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a>        payload <span class="op">=</span> jwt.decode(token, SECRET_KEY, algorithms<span class="op">=</span>[ALGORITHM])</span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a>        username: <span class="bu">str</span> <span class="op">=</span> payload.get(<span class="st">"sub"</span>)</span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> username <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> credentials_exception</span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a>        token_data <span class="op">=</span> username</span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> jwt.PyJWTError:</span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> credentials_exception</span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> get_user(fake_users_db, username<span class="op">=</span>token_data)</span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> user <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> credentials_exception</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> user</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Côté client :</p>
 <p>Pour le client, vous pouvez utiliser la bibliothèque httpx pour interagir avec l’API FastAPI.</p>
-<pre><code>import httpx
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> httpx</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer par l'URL de votre API</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://127.0.0.1:8000"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Demande d'authentification</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>auth_response <span class="op">=</span> httpx.post(url <span class="op">+</span> <span class="st">"/token"</span>, data<span class="op">=</span>{<span class="st">'username'</span>: <span class="st">'john'</span>, <span class="st">'password'</span>: <span class="st">'hello'</span>})</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Si authentification réussie, utiliser le token pour accéder à une route protégée</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> auth_response.is_success:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    access_token <span class="op">=</span> auth_response.json()[<span class="st">'access_token'</span>]</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> {<span class="st">'Authorization'</span>: <span class="ss">f'Bearer </span><span class="sc">{</span>access_token<span class="sc">}</span><span class="ss">'</span>}</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    protected_response <span class="op">=</span> httpx.get(url <span class="op">+</span> <span class="st">"/users/me"</span>, headers<span class="op">=</span>headers)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(protected_response.json())</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Failed to authenticate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, FastAPI utilise des dépendances pour gérer l’authentification et la sécurité. Lorsqu’un utilisateur se connecte avec le bon nom d’utilisateur et mot de passe, un token d’accès est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.</p>
 
-# Remplacer par l'URL de votre API
-url = "http://127.0.0.1:8000"
 
-# Demande d'authentification
-auth_response = httpx.post(url + "/token", data={'username': 'john', 'password': 'hello'})
-
-# Si authentification réussie, utiliser le token pour accéder à une route protégée
-if auth_response.is_success:
-    access_token = auth_response.json()['access_token']
-    headers = {'Authorization': f'Bearer {access_token}'}
-    protected_response = httpx.get(url + "/users/me", headers=headers)
-    print(protected_response.json())
-else:
-    print("Failed to authenticate")</code></pre>
-<pre><code>Dans cet exemple, FastAPI utilise des dépendances pour gérer l'authentification et la sécurité. Lorsqu'un utilisateur se connecte avec le bon nom d'utilisateur et mot de passe, un token d'accès est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.</code></pre>
-
-
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1295,7 +1462,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="../../content/Cours_4/2-Frameworks.html" class="pagination-link  aria-label=" les="" principaux="" frameworks="" d&#39;apis="" en="" python"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Les principaux Frameworks d’APIs en Python</span>
