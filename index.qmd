@@ -12,11 +12,16 @@ listing:
     categories: true
 ---
 
-# {{< animate backInDown "Python-API !" >}} 
-
 ## Rémi Genet
 
 ```{=html}
 <a class="github-button" href="https://github.com/remigenet/Python-API" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star this website on Github">Star this website on Github</a><script async defer src="https://buttons.github.io/buttons.js"></script>
 ```
+
+# {{< animate backInDown "API avec Python " >}} 
+
+### Cours complet sur les API avec Python, comment ca marche, comment les utiliser, comment les créer, etc.
+
+
+
 
