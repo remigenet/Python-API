@@ -6,8 +6,7 @@
       "/content/Cours_1/2-User101.html",
       "/content/Cours_1/3-Concepteur101.html",
       "/content/Cours_1/4-guard101.html",
-      "/content/Cours_1/5-tester101.html",
-      "/content/Cours_1/6-UserApi.html",
+      "/content/Cours_1/5-UserApi.html",
       "/content/Cours_1/TP-Postman_and_coingeko.html",
       "/content/Cours_2/1-Protocols.html",
       "/content/Cours_2/2-Authenticate.html",
@@ -42,42 +41,17 @@
     ]
   },
   {
-    "listing": "/content/Cours_1/index.html",
+    "listing": "/content/Cours_3/index.html",
     "items": [
-      "/content/Cours_1/1-API101.html",
-      "/content/Cours_1/6-UserApi.html",
-      "/content/Cours_1/3-Concepteur101.html",
-      "/content/Cours_1/4-guard101.html",
-      "/content/Cours_1/TP-Postman_and_coingeko.html",
-      "/content/Cours_1/5-tester101.html",
-      "/content/Cours_1/2-User101.html"
-    ]
-  },
-  {
-    "listing": "/content/Cours_5/index.html",
-    "items": [
-      "/content/Cours_5/6-domain.html",
-      "/content/Cours_5/7-end.html",
-      "/content/Cours_5/4-herodepl.html",
-      "/content/Cours_5/5-moreexample.html",
-      "/content/Cours_5/2-heroku.html",
-      "/content/Cours_5/1-Introdepl.html",
-      "/content/Cours_5/3-Best Practice.html"
-    ]
-  },
-  {
-    "listing": "/content/Cours_2/index.html",
-    "items": [
-      "/content/Cours_2/2-Authenticate.html",
-      "/content/Cours_2/3-Conception-optimizations.html",
-      "/content/Cours_2/1-Protocols.html",
-      "/content/Cours_2/TP-2-compare-run.html"
-    ]
-  },
-  {
-    "listing": "/content/projets/index.html",
-    "items": [
-      "/content/projets/millesime_2324.html"
+      "/content/Cours_3/7-OtherIPCend.html",
+      "/content/Cours_3/3-Files.html",
+      "/content/Cours_3/1-IPC101.html",
+      "/content/Cours_3/5-Pipes.html",
+      "/content/Cours_3/4-SharedMemory.html",
+      "/content/Cours_3/2-Sockets.html",
+      "/content/Cours_3/TP-3-1.html",
+      "/content/Cours_3/TP-3-2.html",
+      "/content/Cours_3/6-gRPC.html"
     ]
   },
   {
@@ -95,17 +69,41 @@
     ]
   },
   {
-    "listing": "/content/Cours_3/index.html",
+    "listing": "/content/projets/index.html",
     "items": [
-      "/content/Cours_3/7-OtherIPCend.html",
-      "/content/Cours_3/3-Files.html",
-      "/content/Cours_3/1-IPC101.html",
-      "/content/Cours_3/5-Pipes.html",
-      "/content/Cours_3/4-SharedMemory.html",
-      "/content/Cours_3/2-Sockets.html",
-      "/content/Cours_3/TP-3-1.html",
-      "/content/Cours_3/TP-3-2.html",
-      "/content/Cours_3/6-gRPC.html"
+      "/content/projets/millesime_2324.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_2/index.html",
+    "items": [
+      "/content/Cours_2/2-Authenticate.html",
+      "/content/Cours_2/3-Conception-optimizations.html",
+      "/content/Cours_2/1-Protocols.html",
+      "/content/Cours_2/TP-2-compare-run.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_5/index.html",
+    "items": [
+      "/content/Cours_5/6-domain.html",
+      "/content/Cours_5/7-end.html",
+      "/content/Cours_5/4-herodepl.html",
+      "/content/Cours_5/5-moreexample.html",
+      "/content/Cours_5/2-heroku.html",
+      "/content/Cours_5/1-Introdepl.html",
+      "/content/Cours_5/3-Best Practice.html"
+    ]
+  },
+  {
+    "listing": "/content/Cours_1/index.html",
+    "items": [
+      "/content/Cours_1/1-API101.html",
+      "/content/Cours_1/5-UserApi.html",
+      "/content/Cours_1/3-Concepteur101.html",
+      "/content/Cours_1/4-guard101.html",
+      "/content/Cours_1/TP-Postman_and_coingeko.html",
+      "/content/Cours_1/2-User101.html"
     ]
   }
 ]

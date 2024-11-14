@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.534">
+<meta name="generator" content="quarto-1.5.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-01-08">
+<meta name="dcterms.date" content="2024-11-14">
 
-<title>API en Python - TP - Postman et requêtes API</title>
+<title>API en Python – TP - Postman et requêtes API</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_1/6-UserApi.html" rel="prev">
+<link href="../../content/Cours_1/5-UserApi.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -112,15 +112,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="API en Python - TP - Postman et requêtes API">
-<meta property="og:image" content="https://remigenet.github.io/Python-API/content/Cours_1/.img/TP.webp">
+<meta property="og:image" content=".img/TP.webp">
 <meta property="og:site_name" content="API en Python">
 <meta name="citation_title" content="TP - Postman et requêtes API">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-01-08">
-<meta name="citation_cover_date" content="2024-01-08">
+<meta name="citation_publication_date" content="2024-11-14">
+<meta name="citation_cover_date" content="2024-11-14">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-01-08">
-<meta name="citation_fulltext_html_url" content="https://remigenet.github.io/Python-API//content/Cours_1/TP-Postman_and_coingeko.html">
+<meta name="citation_online_date" content="2024-11-14">
 <meta name="citation_language" content="en">
 </head>
 
@@ -175,11 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Sécuriser une API</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../content/Cours_1/5-tester101.html">
- <span class="dropdown-text">Tester une API</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../content/Cours_1/6-UserApi.html">
+    <a class="dropdown-item" href="../../content/Cours_1/5-UserApi.html">
  <span class="dropdown-text">Concepts élargis</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
@@ -369,10 +364,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools tools-wide">
+            <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
             Code source
@@ -438,13 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/5-tester101.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Tester une API</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_1/6-UserApi.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/Cours_1/5-UserApi.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Concepts élargis</span></a>
   </div>
 </li>
@@ -475,24 +464,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api." id="toc-objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api." class="nav-link active" data-scroll-target="#objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api.">Objectif : Apprendre à connaître l’outil Postman, ses origines, ses différentes fonctionnalités et comment il peut être utilisé pour travailler avec des API.</a></li>
-  <li><a href="#postman-présentation" id="toc-postman-présentation" class="nav-link" data-scroll-target="#postman-présentation">1: Postman: Présentation</a>
+  <li><a href="#faire-une-requête-api-en-utilisant-python" id="toc-faire-une-requête-api-en-utilisant-python" class="nav-link active" data-scroll-target="#faire-une-requête-api-en-utilisant-python">Faire une requête API en utilisant Python</a>
   <ul class="collapse">
-  <li><a href="#présentation-de-postman" id="toc-présentation-de-postman" class="nav-link" data-scroll-target="#présentation-de-postman">1.1 : Présentation de Postman</a></li>
-  <li><a href="#les-différentes-versions-de-postman" id="toc-les-différentes-versions-de-postman" class="nav-link" data-scroll-target="#les-différentes-versions-de-postman">1.2 : Les différentes versions de Postman</a></li>
-  <li><a href="#les-éléments-principaux-de-postman" id="toc-les-éléments-principaux-de-postman" class="nav-link" data-scroll-target="#les-éléments-principaux-de-postman">1.3 : Les éléments principaux de postman</a>
-  <ul class="collapse">
-  <li><a href="#a.-workspaces" id="toc-a.-workspaces" class="nav-link" data-scroll-target="#a.-workspaces">a. Workspaces:</a></li>
-  <li><a href="#b.-collections" id="toc-b.-collections" class="nav-link" data-scroll-target="#b.-collections">b. Collections:</a></li>
-  <li><a href="#c.-flows" id="toc-c.-flows" class="nav-link" data-scroll-target="#c.-flows">c.&nbsp;Flows:</a></li>
-  </ul></li>
-  <li><a href="#création-et-structuration-de-votre-premier-workspace" id="toc-création-et-structuration-de-votre-premier-workspace" class="nav-link" data-scroll-target="#création-et-structuration-de-votre-premier-workspace">2.2 Création et structuration de votre premier Workspace</a></li>
-  </ul></li>
-  <li><a href="#faire-une-requête-api-en-utilisant-python" id="toc-faire-une-requête-api-en-utilisant-python" class="nav-link" data-scroll-target="#faire-une-requête-api-en-utilisant-python">3. Faire une requête API en utilisant Python</a>
-  <ul class="collapse">
-  <li><a href="#exemple-de-base" id="toc-exemple-de-base" class="nav-link" data-scroll-target="#exemple-de-base">3.1 Exemple de base</a></li>
-  <li><a href="#exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" id="toc-exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" class="nav-link" data-scroll-target="#exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire">3.2 . Exercice pratique: Accéder à des informations via une requête intermédiaire</a></li>
-  <li><a href="#exercice-dapplication-avant-le-prochain-cours" id="toc-exercice-dapplication-avant-le-prochain-cours" class="nav-link" data-scroll-target="#exercice-dapplication-avant-le-prochain-cours">3.3 Exercice d’application avant le prochain cours :</a></li>
+  <li><a href="#exemple-de-base" id="toc-exemple-de-base" class="nav-link" data-scroll-target="#exemple-de-base">1 Exemple de base</a></li>
+  <li><a href="#exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" id="toc-exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" class="nav-link" data-scroll-target="#exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire">2 . Exercice pratique: Accéder à des informations via une requête intermédiaire</a></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">3 Exercice :</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -523,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-01-08</p>
+      <p class="date">2024-11-14</p>
     </div>
   </div>
   
@@ -535,93 +511,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api." class="level2">
-<h2 class="anchored" data-anchor-id="objectif-apprendre-à-connaître-loutil-postman-ses-origines-ses-différentes-fonctionnalités-et-comment-il-peut-être-utilisé-pour-travailler-avec-des-api.">Objectif : Apprendre à connaître l’outil Postman, ses origines, ses différentes fonctionnalités et comment il peut être utilisé pour travailler avec des API.</h2>
-</section>
-<section id="postman-présentation" class="level1">
-<h1>1: Postman: Présentation</h1>
-<section id="présentation-de-postman" class="level2">
-<h2 class="anchored" data-anchor-id="présentation-de-postman">1.1 : Présentation de Postman</h2>
-<ul>
-<li>Historique et Contexte : Postman a été créé en 2012 par Abhinav Asthana pour simplifier le processus de création, de test et de documentation des API. À l’origine, c’était une simple extension de navigateur pour Chrome, mais devant son succès grandissant, il s’est rapidement transformé en une solution complète dédiée aux API.</li>
-<li>À propos de l’entreprise : Postman, Inc., la société derrière l’outil, a son siège à San Francisco, en Californie. Elle s’est engagée à aider les développeurs dans leurs tâches liées aux API.</li>
-<li>Licence : Postman est un produit commercial avec une version gratuite disponible. Il propose également des versions payantes offrant des fonctionnalités supplémentaires pour les équipes et les entreprises.</li>
-<li>Plateforme communautaire : Postman n’est pas seulement un outil ; c’est aussi une plateforme sur laquelle les développeurs, les entreprises et même les géants technologiques publient leurs collections. Ces collections sont des ensembles préconfigurés de requêtes API qui facilitent l’interaction avec ces services.
-<ul>
-<li><strong>Entreprises renommées :</strong></li>
-<li>Des entreprises telles que PayPal, Microsoft, Twitter et bien d’autres ont publié officiellement leurs collections sur Postman. Cela permet aux développeurs d’interagir facilement avec leurs services sans avoir à configurer manuellement chaque requête.</li>
-<li><strong>Communauté :</strong></li>
-<li>En plus des entreprises, la vaste communauté de développeurs contribue activement en partageant des collections pour diverses API, qu’il s’agisse d’API populaires ou de services moins connus. Cette approche collaborative rend l’apprentissage et le test des API plus accessibles à tous.</li>
-</ul></li>
-</ul>
-</section>
-<section id="les-différentes-versions-de-postman" class="level2">
-<h2 class="anchored" data-anchor-id="les-différentes-versions-de-postman">1.2 : Les différentes versions de Postman</h2>
-<ul>
-<li>Postman Web : Il s’agit de la version en ligne de Postman qui peut être utilisée directement dans un navigateur. Elle est idéale pour ceux qui ne souhaitent pas installer de logiciel supplémentaire sur leur machine.</li>
-<li>Postman Desktop App : Cette version est une application de bureau disponible pour Windows, macOS et Linux. Elle offre une expérience plus fluide et est généralement préférée par les développeurs qui l’utilisent fréquemment.</li>
-<li>Postman CLI (Command-Line Interface) : Connue sous le nom de “Newman”, c’est l’interface en ligne de commande de Postman. Elle permet d’exécuter des collections Postman depuis la ligne de commande, ce qui est utile pour l’intégration avec d’autres outils et pour l’automatisation.</li>
-<li>Comparaison : Alors que la version Web est pratique et accessible de partout, l’application de bureau offre une meilleure performance et une intégration plus étroite avec le système d’exploitation. Newman, quant à lui, est préféré pour les scénarios d’automatisation et d’intégration continue.</li>
-</ul>
-<p>Pour la suite du TP nous utiliserons simplement postman en version web, disponible en suivant: https://www.postman.com/ Rendez vous sur le site et créez vous un compte (gratuit évidemment).</p>
-</section>
-<section id="les-éléments-principaux-de-postman" class="level2">
-<h2 class="anchored" data-anchor-id="les-éléments-principaux-de-postman">1.3 : Les éléments principaux de postman</h2>
-<section id="a.-workspaces" class="level3">
-<h3 class="anchored" data-anchor-id="a.-workspaces">a. Workspaces:</h3>
-<p>Un Workspace dans Postman est essentiellement un espace de travail où les utilisateurs peuvent collaborer et organiser leur travail autour des API. Chaque espace de travail contient des collections, environnements, intégrations et d’autres ressources liées à un projet ou à une équipe spécifique. En explorant les workspaces, vous pourriez trouver: - Collections: Groupes de requêtes associées, souvent organisées autour d’une API ou d’une fonctionnalité spécifique. - Environnements: Des ensembles de variables qui peuvent être utilisés dans les requêtes. Par exemple, vous pourriez avoir un environnement de “production” et un autre de “développement”. - Mocks: Simulations d’API pour tester sans avoir à accéder à l’API réelle. - Monitors: Des tests automatisés pour surveiller la performance et la disponibilité d’une API. - Integrations: Liens avec d’autres outils et services, permettant par exemple de synchroniser votre collection Postman avec un dépôt GitHub. - History: Un journal des requêtes exécutées dans cet espace de travail.</p>
-</section>
-<section id="b.-collections" class="level3">
-<h3 class="anchored" data-anchor-id="b.-collections">b. Collections:</h3>
-<p>Une Collection dans Postman est un groupe organisé de requêtes individuelles. Une collection peut être considérée comme une bibliothèque d’API, où chaque requête est une fonction ou un endpoint spécifique de cette API. Les collections permettent aux développeurs de regrouper, documenter, tester et partager des requêtes. Lors de l’exploration des collections, vous pourriez trouver: - Requests: Les requêtes HTTP individuelles, comme GET, POST, PUT, DELETE, etc. - Documentation: Des descriptions et des notes sur chaque requête, expliquant comment elle fonctionne et ce qu’elle fait. - Tests: Des scripts automatisés qui peuvent être exécutés après une requête pour s’assurer qu’elle renvoie les résultats attendus. - Variables: Des variables spécifiques à la collection qui peuvent être utilisées dans les requêtes ou les tests.</p>
-</section>
-<section id="c.-flows" class="level3">
-<h3 class="anchored">c.&nbsp;Flows:</h3>
-<ul>
-<li>Flows dans Postman est une fonctionnalité récente qui permet aux utilisateurs de créer des workflows automatisés en connectant différentes API et services ensemble. C’est comme un outil d’orchestration pour vos API.</li>
-<li>Lors de l’exploration des flows, vous pourriez trouver:</li>
-<li>Triggers: Événements qui déclenchent l’exécution d’un flow.</li>
-<li>Actions: Les étapes individuelles ou les opérations exécutées dans un flow, comme l’envoi d’une requête API ou la manipulation de données.</li>
-<li>Conditions: Des tests logiques qui déterminent le déroulement du flow, permettant des décisions conditionnelles.</li>
-<li>Integrations: Connexions à d’autres services ou outils, pour permettre des actions comme l’envoi d’une notification Slack ou la mise à jour d’une base de données.</li>
-<li><h1 id="explorations">2 Explorations</h1>
-<h2 id="exploration-de-la-collection-tremendous-api" class="anchored" data-anchor-id="c.-flows">2.1 Exploration de la collection “Tremendous API”</h2>
-<strong>Objectif:</strong> Se familiariser avec l’utilisation des requêtes à travers une collection spécifique. Instructions:</li>
-<li>Accéder à la collection “Tremendous API”:
-<ul>
-<li>Rendez-vous dans la section “Explore” de Postman.</li>
-<li>Cherchez et sélectionnez la collection “Tremendous API”.</li>
-</ul></li>
-<li>Navigation dans la collection:
-<ul>
-<li>Parcourez la liste de requêtes disponibles au sein de la collection.</li>
-</ul></li>
-<li>Exécution de la requête “List Products”:
-<ul>
-<li>Sélectionnez la requête “List Products” au sein de la collection.</li>
-<li>Cliquez sur le bouton “Send” pour exécuter cette requête.</li>
-<li>Observez la réponse retournée par le serveur dans le volet inférieur.</li>
-</ul></li>
-<li>Exécution de la requête “Retrieve Product”:
-<ul>
-<li>Sélectionnez la requête “Retrieve Product”.</li>
-<li>Remplissez le paramètre nécessaire (par exemple, ID de produit) et envoyez la requête.</li>
-<li>Observez la réponse et comparez-la à la précédente.</li>
-</ul></li>
-</ul>
-<p>Questions: Quelle est la principale différence entre les réponses des deux requêtes? Quels détails pouvez-vous obtenir sur un produit en utilisant la requête “Retrieve Product”?</p>
-</section>
-</section>
-<section id="création-et-structuration-de-votre-premier-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="création-et-structuration-de-votre-premier-workspace">2.2 Création et structuration de votre premier Workspace</h2>
-<p><strong>Objectif:</strong> Apprendre à créer, structurer un workspace, effectuer des requêtes et partager vos résultats.</p>
-<p><strong>Instructions:</strong> - Création d’un nouveau Workspace: - Dans le volet de navigation à gauche, cliquez sur “+ New Workspace”. - Nommez votre workspace “Mon Premier Workspace” et ajoutez une brève description. - Ajout d’une collection: - Cliquez sur “+ New Collection” dans votre workspace. - Nommez la collection “Test API”. - Création d’une requête simple: - Dans “Test API”, cliquez sur “+ Add request”. - Créez une requête GET vers https://api.publicapis.org/entries. - Nommez cette requête “Lister toutes les APIs”. - Envoyez la requête et observez la réponse. - Analyse de la réponse: - Explorez la structure JSON de la réponse. - Identifiez quelques catégories d’API intéressantes (par exemple, santé, finance, musique). - Filtrage des résultats: - Créez une nouvelle requête GET avec des paramètres pour filtrer les résultats selon une catégorie (par exemple, “finance”). - Nommez cette requête “APIs Finance”. - Envoyez la requête et observez les résultats filtrés. - Documentation de votre collection: - Pour chaque requête, ajoutez une brève description de ce qu’elle fait et de ce qu’elle retourne. - Documentez également la structure de la réponse JSON, en notant les champs clés et leur signification. - Exportation de votre collection: - Sélectionnez votre collection “Test API”. - Cliquez sur les trois points (…) à côté du nom de la collection. - Choisissez “Export” et sauvegardez le fichier JSON sur votre machine.</p>
-</section>
-</section>
 <section id="faire-une-requête-api-en-utilisant-python" class="level1">
-<h1>3. Faire une requête API en utilisant Python</h1>
+<h1>Faire une requête API en utilisant Python</h1>
 <section id="exemple-de-base" class="level2">
-<h2 class="anchored" data-anchor-id="exemple-de-base">3.1 Exemple de base</h2>
+<h2 class="anchored" data-anchor-id="exemple-de-base">1 Exemple de base</h2>
 <p><strong>Objectif:</strong> Utiliser Python pour effectuer des requêtes API et exploiter les données reçues.</p>
 <p><strong>Instructions:</strong></p>
 <ol type="1">
@@ -646,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 </section>
 <section id="exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire">3.2 . Exercice pratique: Accéder à des informations via une requête intermédiaire</h2>
+<h2 class="anchored" data-anchor-id="exercice-pratique-accéder-à-des-informations-via-une-requête-intermédiaire">2 . Exercice pratique: Accéder à des informations via une requête intermédiaire</h2>
 <p><strong>Objectif:</strong> Apprendre à utiliser une réponse d’API comme entrée pour une autre requête et lire une doc API</p>
 <p><strong>Contexte:</strong> Nous allons utiliser l’API CoinGecko. La première requête nous permettra de récupérer une liste d’identifiants de cryptomonnaies, puis nous utiliserons ces identifiants pour obtenir des informations détaillées sur une cryptomonnaie spécifique.</p>
 <p><strong>Instructions:</strong></p>
@@ -671,22 +564,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valeur actuelle:"</span>, coin_details[<span class="st">'market_data'</span>][<span class="st">'current_price'</span>][<span class="st">'usd'</span>], <span class="st">"USD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </section>
-<section id="exercice-dapplication-avant-le-prochain-cours" class="level2">
-<h2 class="anchored" data-anchor-id="exercice-dapplication-avant-le-prochain-cours">3.3 Exercice d’application avant le prochain cours :</h2>
+<section id="exercice" class="level2">
+<h2 class="anchored" data-anchor-id="exercice">3 Exercice :</h2>
 <p>En utilisant la documentation se trouvant ici https://www.coingecko.com/api/documentation, répondez aux questions suivante :</p>
 <ol type="1">
 <li><p><strong>Volume quotidien moyen du BTC et de l’ETH en USDT, USDC, USD et EUR</strong></p>
 <p><em>Objectif</em>: Calculez et présentez le volume quotidien moyen des transactions pour le BTC et l’ETH dans les devises suivantes : USDT, USDC, USD et EUR.</p></li>
 <li><p><strong>Même donnée pour les 10 cryptomonnaies les plus liquides après BTC et ETH</strong></p>
-<p><em>Objectif</em>: Sélectionnez les 10 cryptomonnaies suivantes en importance après le BTC et l’ETH. Calculez et présentez leur volume quotidien moyen dans les devises : USDT, USDC, USD et EUR.</p></li>
+<p><em>Objectif</em>: Sélectionnez les 10 cryptomonnaies suivantes en terme de capitalisation de marché après le BTC et l’ETH. Calculez et présentez leur volume quotidien moyen dans les devises : USDT, USDC, USD et EUR.</p></li>
 <li><p><strong>Top 3 des cryptomonnaies les plus liquides contre BTC et ETH comme devises de cotation, avec volume</strong></p>
 <p><em>Objectif</em>: Identifiez les trois cryptomonnaies qui ont le plus grand volume de transaction lorsqu’elles sont cotées en BTC ou ETH (par exemple: ADA/BTC, XRP/ETH). Présentez le volume pour chaque paire.</p></li>
 <li><p><strong>Top 3 des stablecoins les plus liquides comme devises de cotation, avec volume</strong></p>
 <p><em>Objectif</em>: Identifiez les trois stablecoins qui ont le plus grand volume de transaction lorsqu’ils sont utilisés comme devises de cotation (par exemple: xxx/USDT, xxx/USDC, xxx/TUSD). Présentez le volume pour chaque paire.</p></li>
-<li><p><strong>Période de référence pour l’analyse</strong></p>
-<p>Veuillez préciser la période sur laquelle vous basez votre analyse (par exemple, un mois, trois mois, un an, etc.) selon ce que vous jugez pertinent pour l’exercice.</p></li>
+<li><p><strong>Creer une fonction permetant pour un actif donnée de récupérer les parts de marché des différents exchange sur les 24 dernières heures</strong></p></li>
 </ol>
-<p>Aides : - La Librairie Pandas pourra grandement vous aider pour traiter les données facilement</p>
 
 
 </section>
@@ -916,6 +807,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -950,7 +859,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -998,7 +911,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -1221,7 +1139,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_1/6-UserApi.html" class="pagination-link  aria-label=" concepts="" élargis"="">
+      <a href="../../content/Cours_1/5-UserApi.html" class="pagination-link" aria-label="Concepts élargis">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Concepts élargis</span>
       </a>          
   </div>
