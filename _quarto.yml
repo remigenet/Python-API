@@ -39,8 +39,7 @@ website:
       - content/Cours_1/2-User101.qmd
       - content/Cours_1/3-Concepteur101.qmd
       - content/Cours_1/4-guard101.qmd
-      - content/Cours_1/5-tester101.qmd
-      - content/Cours_1/6-UserApi.qmd
+      - content/Cours_1/5-UserApi.qmd
       - section: Travaux Pratiques
         expanded: false
         contents:
