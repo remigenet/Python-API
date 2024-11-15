@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Remi Genet">
-<meta name="dcterms.date" content="2024-11-14">
+<meta name="dcterms.date" content="2024-11-15">
 <meta name="description" content="Explorer les mécanismes sous-jacents à l’exécution d’un programme Python pour une compréhension approfondie des processus de compilation et d’interprétation.">
 
 <title>API en Python – Utiliser une API</title>
@@ -85,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:site_name" content="API en Python">
 <meta name="citation_title" content="Utiliser une API">
 <meta name="citation_author" content="Remi Genet">
-<meta name="citation_publication_date" content="2024-11-14">
-<meta name="citation_cover_date" content="2024-11-14">
+<meta name="citation_publication_date" content="2024-11-15">
+<meta name="citation_cover_date" content="2024-11-15">
 <meta name="citation_year" content="2024">
-<meta name="citation_online_date" content="2024-11-14">
+<meta name="citation_online_date" content="2024-11-15">
 <meta name="citation_language" content="en">
 </head>
 
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="dropdown-header">Travaux Pratiques</li>
         <li>
     <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
- <span class="dropdown-text">TP - Postman et requêtes API</span></a>
+ <span class="dropdown-text">TP - Premiere requêtes</span></a>
   </li>  
     </ul>
   </li>
@@ -418,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/Cours_1/TP-Postman_and_coingeko.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP - Postman et requêtes API</span></a>
+ <span class="menu-text">TP - Premiere requêtes</span></a>
   </div>
 </li>
       </ul>
@@ -436,7 +436,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#api-coté-utilisateur" id="toc-api-coté-utilisateur" class="nav-link active" data-scroll-target="#api-coté-utilisateur">2. API : coté utilisateur</a>
   <ul class="collapse">
   <li><a href="#les-bases-de-linteraction-avec-une-api" id="toc-les-bases-de-linteraction-avec-une-api" class="nav-link" data-scroll-target="#les-bases-de-linteraction-avec-une-api">2.1 Les bases de l’interaction avec une API :</a></li>
-  <li><a href="#utiliser-les-endpoints" id="toc-utiliser-les-endpoints" class="nav-link" data-scroll-target="#utiliser-les-endpoints">2.2 Utiliser les endpoints :</a></li>
+  <li><a href="#comprendre-et-utiliser-les-endpoints" id="toc-comprendre-et-utiliser-les-endpoints" class="nav-link" data-scroll-target="#comprendre-et-utiliser-les-endpoints">2.2 Comprendre et utiliser les endpoints</a>
+  <ul class="collapse">
+  <li><a href="#structure-dune-requête-api" id="toc-structure-dune-requête-api" class="nav-link" data-scroll-target="#structure-dune-requête-api">Structure d’une requête API</a></li>
+  <li><a href="#les-paramètres" id="toc-les-paramètres" class="nav-link" data-scroll-target="#les-paramètres">Les paramètres</a></li>
+  <li><a href="#exemples-pratiques" id="toc-exemples-pratiques" class="nav-link" data-scroll-target="#exemples-pratiques">Exemples pratiques</a></li>
+  </ul></li>
   <li><a href="#gestion-des-erreurs-et-codes-de-réponse-http" id="toc-gestion-des-erreurs-et-codes-de-réponse-http" class="nav-link" data-scroll-target="#gestion-des-erreurs-et-codes-de-réponse-http">2.3 Gestion des erreurs et codes de réponse HTTP :</a></li>
   <li><a href="#limitations-courantes-des-api" id="toc-limitations-courantes-des-api" class="nav-link" data-scroll-target="#limitations-courantes-des-api">2.4 Limitations courantes des API :</a></li>
   </ul></li>
@@ -474,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-11-14</p>
+      <p class="date">2024-11-15</p>
     </div>
   </div>
   
@@ -498,15 +503,47 @@ ul.task-list li input[type="checkbox"] {
 <li>Réception et traitement de la réponse : Après avoir envoyé la requête, l’API vous renvoie une réponse. Cette réponse doit être traitée, souvent en la convertissant d’un format comme JSON en une structure utilisable dans votre programme.</li>
 </ul>
 </section>
-<section id="utiliser-les-endpoints" class="level2">
-<h2 class="anchored" data-anchor-id="utiliser-les-endpoints">2.2 Utiliser les endpoints :</h2>
-<p>Les API sont généralement structurées autour d’endpoints, qui sont des points d’accès spécifiques où l’API peut recevoir des requêtes et renvoyer des réponses. Par exemple, pour une API qui fournit des données boursières :</p>
+<section id="comprendre-et-utiliser-les-endpoints" class="level2">
+<h2 class="anchored" data-anchor-id="comprendre-et-utiliser-les-endpoints">2.2 Comprendre et utiliser les endpoints</h2>
+<p>Un endpoint est une URL spécifique où votre application peut accéder à une ressource de l’API. Pensez-y comme une “adresse” pour accéder à un service particulier.</p>
+<section id="structure-dune-requête-api" class="level3">
+<h3 class="anchored" data-anchor-id="structure-dune-requête-api">Structure d’une requête API</h3>
+<pre><code>https://api.exemple.com/stocks/AAPL?period=1d</code></pre>
+<p>Cette URL se décompose en : - Endpoint : <code>/stocks/AAPL</code> (le chemin pour accéder à la ressource) - Paramètre : <code>period=1d</code> (des options pour personnaliser la requête)</p>
+</section>
+<section id="les-paramètres" class="level3">
+<h3 class="anchored" data-anchor-id="les-paramètres">Les paramètres</h3>
+<p>Il existe deux façons principales d’envoyer des paramètres à un endpoint :</p>
+<ol type="1">
+<li><p><strong>Dans l’URL</strong> (Query Parameters)</p>
+<pre><code>/stocks?symbol=AAPL&amp;period=1d</code></pre>
 <ul>
-<li>/stocks pourrait renvoyer une liste de toutes les actions.</li>
-<li>/stocks/AAPL pourrait renvoyer des informations sur l’action Apple.</li>
-<li>/stocks/AAPL/history pourrait renvoyer l’historique des prix de l’action Apple.</li>
-<li></li>
-</ul>
+<li>Utilisés pour filtrer ou personnaliser la requête</li>
+<li>Ajoutés après le <code>?</code></li>
+<li>Séparés par des <code>&amp;</code></li>
+</ul></li>
+<li><p><strong>Dans le chemin</strong> (Path Parameters)</p>
+<pre><code>/stocks/AAPL/history</code></pre>
+<ul>
+<li>Font partie de l’URL elle-même</li>
+<li>Identifient une ressource spécifique</li>
+</ul></li>
+</ol>
+</section>
+<section id="exemples-pratiques" class="level3">
+<h3 class="anchored" data-anchor-id="exemples-pratiques">Exemples pratiques</h3>
+<ol type="1">
+<li><p><strong>Liste de toutes les actions</strong></p>
+<pre><code>GET /stocks</code></pre></li>
+<li><p><strong>Information sur une action spécifique</strong></p>
+<pre><code>GET /stocks/AAPL</code></pre></li>
+<li><p><strong>Historique filtré d’une action</strong></p>
+<pre><code>GET /stocks/AAPL/history?period=1d</code></pre></li>
+<li><p><strong>Recherche d’actions par critères</strong></p>
+<pre><code>GET /stocks?market=NYSE&amp;limit=10</code></pre></li>
+</ol>
+<p>Cette structure simple et cohérente permet d’organiser l’accès aux différentes fonctionnalités de l’API de manière logique et prévisible.</p>
+</section>
 </section>
 <section id="gestion-des-erreurs-et-codes-de-réponse-http" class="level2">
 <h2 class="anchored" data-anchor-id="gestion-des-erreurs-et-codes-de-réponse-http">2.3 Gestion des erreurs et codes de réponse HTTP :</h2>
@@ -519,6 +556,7 @@ ul.task-list li input[type="checkbox"] {
 <li>401 Unauthorized : La requête nécessite une authentification utilisateur.</li>
 <li>403 Forbidden : Le serveur a compris la requête, mais refuse de la traiter. Contrairement à l’erreur 401, s’authentifier ne résoudra pas le problème.</li>
 <li>404 Not Found : La ressource demandée n’a pas été trouvée.</li>
+<li>418 Way Too Many Requests: L’utilisateur est bloqué pendant une certaines durée après avoir de façon répété continué d’envoyer trop de requête.</li>
 <li>429 Too Many Requests : L’utilisateur a envoyé trop de requêtes dans un laps de temps donné (rate limiting).</li>
 <li>500 Internal Server Error : Une erreur générique qui indique qu’une situation inattendue a été rencontrée et qu’aucune solution plus spécifique n’est disponible.</li>
 </ul>
