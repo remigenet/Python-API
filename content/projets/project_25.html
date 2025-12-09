@@ -8,9 +8,9 @@
 
 <meta name="author" content="Remi Genet">
 <meta name="dcterms.date" content="2025-12-09">
-<meta name="description" content="Les DataFrames">
+<meta name="description" content="Simple Router Project - Real-time Market Data Aggregation &amp; Paper Trading">
 
-<title>API en Python – Introduction à l’IPC</title>
+<title>API en Python – M2EIF Quant 2025/2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +23,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/Cours_3/2-Sockets.html" rel="next">
-<link href="../../content/Cours_3/index.html" rel="prev">
+<link href="../../content/projets/projects_24.html" rel="prev">
 <link href="../../content/.img/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -79,11 +112,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="API en Python - Introduction à l’IPC">
-<meta property="og:description" content="Les DataFrames">
-<meta property="og:image" content=".img/IPC.webp">
+<meta property="og:title" content="API en Python - M2EIF Quant 2025/2026">
+<meta property="og:description" content="Simple Router Project - Real-time Market Data Aggregation &amp; Paper Trading">
+<meta property="og:image" content=".img/projets1.webp">
 <meta property="og:site_name" content="API en Python">
-<meta name="citation_title" content="Introduction à l&amp;amp;#039;IPC">
+<meta name="citation_title" content="M2EIF Quant 2025/2026">
 <meta name="citation_author" content="Remi Genet">
 <meta name="citation_publication_date" content="2025-12-09">
 <meta name="citation_cover_date" content="2025-12-09">
@@ -366,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_3/1-IPC101.html">Introduction à l’IPC</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/projets/project_25.html">M2EIF Quant 2025/2026</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -380,75 +413,28 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Communication entre Processus (IPC)</span></a>
+  <a href="../../content/projets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projets</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Introduction à l’IPC</span></a>
+  <a href="../../content/projets/millesime_2324.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">M2EIF Quant 2023/2024</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/2-Sockets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Sockets</span></a>
+  <a href="../../content/projets/projects_24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">M2EIF Quant 2024/2025</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/3-Files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Fichiers et IPC</span></a>
+  <a href="../../content/projets/project_25.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">M2EIF Quant 2025/2026</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/4-SharedMemory.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Shared Memory</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/5-Pipes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pipes</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/6-gRPC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">gRPC</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/7-OtherIPCend.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Conclusions</span></a>
-  </div>
-</li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Travaux Pratiques</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-3-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/Cours_3/TP-3-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -459,33 +445,48 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-à-la-communication-interprocessus-ipc" id="toc-introduction-à-la-communication-interprocessus-ipc" class="nav-link active" data-scroll-target="#introduction-à-la-communication-interprocessus-ipc">Introduction à la Communication Interprocessus (IPC)</a>
+  <li><a href="#project-simple-router---market-data-aggregation-paper-trading-api" id="toc-project-simple-router---market-data-aggregation-paper-trading-api" class="nav-link active" data-scroll-target="#project-simple-router---market-data-aggregation-paper-trading-api">Project: Simple Router - Market Data Aggregation &amp; Paper Trading API</a>
   <ul class="collapse">
-  <li><a href="#définition" id="toc-définition" class="nav-link" data-scroll-target="#définition">1. Définition</a></li>
-  <li><a href="#pourquoi-étudier-lipc-dans-un-cours-sur-les-api" id="toc-pourquoi-étudier-lipc-dans-un-cours-sur-les-api" class="nav-link" data-scroll-target="#pourquoi-étudier-lipc-dans-un-cours-sur-les-api">2. Pourquoi étudier l’IPC dans un cours sur les API</a></li>
-  <li><a href="#lintérêt-de-maîtriser-lipc" id="toc-lintérêt-de-maîtriser-lipc" class="nav-link" data-scroll-target="#lintérêt-de-maîtriser-lipc">3. L’intérêt de maîtriser l’IPC</a></li>
-  <li><a href="#concepts-clés-en-ipc" id="toc-concepts-clés-en-ipc" class="nav-link" data-scroll-target="#concepts-clés-en-ipc">4. Concepts Clés en IPC</a></li>
-  <li><a href="#applications-de-lipc" id="toc-applications-de-lipc" class="nav-link" data-scroll-target="#applications-de-lipc">5. Applications de l’IPC</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">6. Conclusion</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#server-component" id="toc-server-component" class="nav-link" data-scroll-target="#server-component">Server Component</a>
+  <ul class="collapse">
+  <li><a href="#market-data-collection" id="toc-market-data-collection" class="nav-link" data-scroll-target="#market-data-collection">1. Market Data Collection</a></li>
+  <li><a href="#client-market-data-subscriptions" id="toc-client-market-data-subscriptions" class="nav-link" data-scroll-target="#client-market-data-subscriptions">2. Client Market Data Subscriptions</a></li>
+  <li><a href="#authentication-user-management" id="toc-authentication-user-management" class="nav-link" data-scroll-target="#authentication-user-management">3. Authentication &amp; User Management</a></li>
+  <li><a href="#paper-trading-system" id="toc-paper-trading-system" class="nav-link" data-scroll-target="#paper-trading-system">4. Paper Trading System</a></li>
+  </ul></li>
+  <li><a href="#api-specification" id="toc-api-specification" class="nav-link" data-scroll-target="#api-specification">API Specification</a>
+  <ul class="collapse">
+  <li><a href="#rest-endpoints" id="toc-rest-endpoints" class="nav-link" data-scroll-target="#rest-endpoints">REST Endpoints</a></li>
+  <li><a href="#websocket-api" id="toc-websocket-api" class="nav-link" data-scroll-target="#websocket-api">WebSocket API</a></li>
+  </ul></li>
+  <li><a href="#implementation-guidelines" id="toc-implementation-guidelines" class="nav-link" data-scroll-target="#implementation-guidelines">Implementation Guidelines</a>
+  <ul class="collapse">
+  <li><a href="#suggested-development-order" id="toc-suggested-development-order" class="nav-link" data-scroll-target="#suggested-development-order">Suggested Development Order</a></li>
+  <li><a href="#technical-requirements" id="toc-technical-requirements" class="nav-link" data-scroll-target="#technical-requirements">Technical Requirements</a></li>
+  </ul></li>
+  <li><a href="#project-deliverables" id="toc-project-deliverables" class="nav-link" data-scroll-target="#project-deliverables">Project Deliverables</a></li>
+  <li><a href="#optional-enhancements-bonus-points" id="toc-optional-enhancements-bonus-points" class="nav-link" data-scroll-target="#optional-enhancements-bonus-points">Optional Enhancements (Bonus Points)</a></li>
+  <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization">Project Organization</a></li>
   </ul></li>
   </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction à l’IPC</h1>
+<h1 class="title">M2EIF Quant 2025/2026</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Cours</div>
-    <div class="quarto-category">Fondamentaux</div>
+    <div class="quarto-category">Projet</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Les DataFrames
+    Simple Router Project - Real-time Market Data Aggregation &amp; Paper Trading
   </div>
 </div>
 
@@ -514,48 +515,306 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction-à-la-communication-interprocessus-ipc" class="level1">
-<h1>Introduction à la Communication Interprocessus (IPC)</h1>
+<section id="project-simple-router---market-data-aggregation-paper-trading-api" class="level1">
+<h1>Project: Simple Router - Market Data Aggregation &amp; Paper Trading API</h1>
 <hr>
-<section id="définition" class="level2">
-<h2 class="anchored" data-anchor-id="définition">1. Définition</h2>
-<p>La communication interprocessus (IPC) désigne l’ensemble des mécanismes et protocoles qui permettent aux processus (instances d’exécution d’un programme) de communiquer entre eux et de coordonner leurs actions. L’IPC est fondamentale dans les systèmes d’exploitation modernes, où de multiples processus peuvent s’exécuter simultanément, nécessitant un partage efficace des ressources et des données.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Your task is to build a <strong>market data router</strong> that aggregates real-time data from multiple cryptocurrency exchanges (Binance and OKX) and exposes unified market data streams to clients. The system also implements a simple paper trading engine where clients can submit limit orders executed against the live order book.</p>
+<p>The project emphasizes real-time data processing, WebSocket management, and building a clean API architecture.</p>
+<hr>
 </section>
-<section id="pourquoi-étudier-lipc-dans-un-cours-sur-les-api" class="level2">
-<h2 class="anchored" data-anchor-id="pourquoi-étudier-lipc-dans-un-cours-sur-les-api">2. Pourquoi étudier l’IPC dans un cours sur les API</h2>
-<p>Les API (Interfaces de Programmation d’Applications) sont des contrats définissant comment les différents composants logiciels interagissent. Dans le contexte des services web et du cloud, les API sont souvent associées à des protocoles réseau permettant la communication entre des services distribués. L’IPC est le fondement sur lequel reposent ces protocoles réseau, et comprendre l’IPC permet de mieux concevoir, implémenter et déboguer des API robustes et performantes.</p>
-</section>
-<section id="lintérêt-de-maîtriser-lipc" class="level2">
-<h2 class="anchored" data-anchor-id="lintérêt-de-maîtriser-lipc">3. L’intérêt de maîtriser l’IPC</h2>
-<p>Maîtriser l’IPC est crucial pour les développeurs car cela leur permet de :</p>
+<section id="server-component" class="level2">
+<h2 class="anchored" data-anchor-id="server-component">Server Component</h2>
+<section id="market-data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="market-data-collection">1. Market Data Collection</h3>
+<p>The server must maintain <strong>persistent WebSocket connections</strong> to both Binance and OKX for:</p>
 <ul>
-<li>Concevoir des systèmes capables de gérer plusieurs tâches en parallèle de manière efficace.</li>
-<li>Assurer la cohérence des données et éviter les conditions de concurrence lors de l’accès à des ressources partagées.</li>
-<li>Optimiser les performances en choisissant le mécanisme d’IPC le plus adapté au contexte.</li>
-<li>Améliorer la fiabilité et la maintenabilité des applications en comprenant comment les différents composants interagissent.</li>
+<li><strong>Order book</strong> (top levels) for all configured symbols</li>
+<li><strong>Trades</strong> for all configured symbols</li>
 </ul>
+<p>The configuration must include <strong>at least 5 trading pairs</strong> (e.g., BTC/USDT, ETH/USDT, SOL/USDT, etc.).</p>
 </section>
-<section id="concepts-clés-en-ipc" class="level2">
-<h2 class="anchored" data-anchor-id="concepts-clés-en-ipc">4. Concepts Clés en IPC</h2>
-<p>Pour naviguer dans le domaine de l’IPC, il est important de comprendre certains concepts clés tels que :</p>
+<section id="client-market-data-subscriptions" class="level3">
+<h3 class="anchored" data-anchor-id="client-market-data-subscriptions">2. Client Market Data Subscriptions</h3>
+<p>Clients connect via WebSocket and can subscribe to the following data streams:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stream Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Best Touch</strong></td>
+<td>Best bid/ask price and volume, indicating which exchange currently has the best price</td>
+</tr>
+<tr class="even">
+<td><strong>Trades</strong></td>
+<td>Real-time trade feed</td>
+</tr>
+<tr class="odd">
+<td><strong>Live Klines</strong></td>
+<td>Candlestick data for intervals: 1s, 10s, 1m, 5m. Updated progressively every second with the current candle</td>
+</tr>
+<tr class="even">
+<td><strong>EWMA</strong></td>
+<td>Exponential Weighted Moving Average of price, starting from subscription time. Client specifies the half-life parameter</td>
+</tr>
+</tbody>
+</table>
+<p>Each subscription request must include an <strong>exchange filter</strong>:</p>
 <ul>
-<li>Synchronisation : Les mécanismes qui assurent que les processus s’exécutent dans un ordre qui préserve l’intégrité des données.</li>
-<li>Communication directe vs indirecte : La différence entre les processus qui communiquent via un échange direct (comme les sockets) et ceux qui utilisent des intermédiaires (comme les files de messages).</li>
-<li>Blocage vs non-blocage : Les opérations d’IPC peuvent être bloquantes (le processus attend jusqu’à ce que l’opération soit terminée) ou non-blocantes (le processus continue son exécution sans attendre).</li>
+<li><code>all</code> — aggregated data from both exchanges</li>
+<li><code>binance</code> — Binance data only</li>
+<li><code>okx</code> — OKX data only</li>
 </ul>
+<blockquote class="blockquote">
+<p><strong>Important</strong>: All derived metrics (klines, EWMA) must be computed exclusively from the data received through the exchange WebSocket connections. Do not use external REST APIs to fetch historical data for these computations.</p>
+</blockquote>
 </section>
-<section id="applications-de-lipc" class="level2">
-<h2 class="anchored" data-anchor-id="applications-de-lipc">5. Applications de l’IPC</h2>
-<p>L’IPC n’est pas seulement théorique ; elle a des applications pratiques dans de nombreux domaines tels que :</p>
+<section id="authentication-user-management" class="level3">
+<h3 class="anchored" data-anchor-id="authentication-user-management">3. Authentication &amp; User Management</h3>
+<p>Implement a simple authentication system (JWT recommended):</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>POST /register</code></td>
+<td>Create a new account with username and password</td>
+</tr>
+<tr class="even">
+<td><code>POST /login</code></td>
+<td>Authenticate and receive a token/session</td>
+</tr>
+</tbody>
+</table>
+<p>Passwords must be stored securely (hashed).</p>
+</section>
+<section id="paper-trading-system" class="level3">
+<h3 class="anchored" data-anchor-id="paper-trading-system">4. Paper Trading System</h3>
+<p>Authenticated users can interact with a simulated trading account.</p>
+<section id="balance-management" class="level4">
+<h4 class="anchored" data-anchor-id="balance-management">Balance Management</h4>
+<p>The server must maintain <strong>per-client balances</strong> for each asset. When processing orders, the server must verify that the client has sufficient available balance, accounting for funds already reserved by open orders.</p>
+<p>For example, if a client has 1000 USDT and places a buy order for 0.01 BTC at 50000 USDT (reserving 500 USDT), only 500 USDT remains available for subsequent orders.</p>
+</section>
+<section id="endpoints" class="level4">
+<h4 class="anchored" data-anchor-id="endpoints">Endpoints</h4>
+<table class="table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>GET /info</code></td>
+<td>Get the list of available assets and trading pairs supported by the server</td>
+</tr>
+<tr class="even">
+<td><code>POST /deposit</code></td>
+<td>Deposit funds into the paper trading account. Available assets are those present in the configured trading pairs</td>
+</tr>
+<tr class="odd">
+<td><code>POST /orders</code></td>
+<td>Submit a limit order. Client must provide a unique <code>token_id</code>. The server holds the order and executes it when the best touch price matches or crosses the limit price</td>
+</tr>
+<tr class="even">
+<td><code>GET /orders/{token_id}</code></td>
+<td>Retrieve the status of a specific order</td>
+</tr>
+<tr class="odd">
+<td><code>DELETE /orders/{token_id}</code></td>
+<td>Cancel an open order. Reserved funds are released back to available balance</td>
+</tr>
+<tr class="even">
+<td><code>GET /balance</code></td>
+<td>Retrieve current account balances (total and available)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="order-validation" class="level4">
+<h4 class="anchored" data-anchor-id="order-validation">Order Validation</h4>
+<p>The server <strong>must validate all order submissions</strong> before accepting them:</p>
 <ul>
-<li>Développement de systèmes d’exploitation : Où l’IPC est utilisée pour gérer les processus et les threads.</li>
-<li>Développement de logiciels concurrents : Pour permettre à des applications de gérer plusieurs utilisateurs ou tâches simultanément.</li>
-<li>Architecture de microservices : Où différents services communiquent entre eux via des API en utilisant des mécanismes d’IPC sous-jacents.</li>
+<li><strong>Valid symbol</strong>: The trading pair must exist in the server configuration</li>
+<li><strong>Valid side</strong>: Must be <code>buy</code> or <code>sell</code></li>
+<li><strong>Sufficient balance</strong>: The client must have enough available balance (excluding funds reserved by open orders) to cover the order</li>
+<li><strong>Positive quantities</strong>: Price and quantity must be positive numbers</li>
 </ul>
+<p>Invalid orders must be <strong>rejected with a clear error message</strong>. The server must never crash or enter an inconsistent state due to malformed client requests.</p>
+<blockquote class="blockquote">
+<p><strong>Evaluation note</strong>: During grading, we will intentionally send malformed requests, invalid parameters, and edge cases to test server robustness. Ensure proper error handling throughout your implementation.</p>
+</blockquote>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">6. Conclusion</h2>
-<p>La communication interprocessus est une pierre angulaire de la programmation moderne, en particulier dans les environnements distribués et multi-utilisateurs. Une compréhension approfondie de l’IPC est essentielle pour tout développeur travaillant avec des systèmes complexes, que ce soit pour des applications de bureau, des services web ou des infrastructures cloud.</p>
+<section id="order-execution-logic" class="level4">
+<h4 class="anchored" data-anchor-id="order-execution-logic">Order Execution Logic</h4>
+<ul>
+<li>The server continuously monitors the <strong>best touch</strong> (best price across both exchanges)</li>
+<li>When a limit order’s price condition is met:
+<ul>
+<li><strong>Buy order</strong>: executes if best ask ≤ limit price</li>
+<li><strong>Sell order</strong>: executes if best bid ≥ limit price</li>
+</ul></li>
+<li>Upon execution, the order status changes to <code>filled</code> and client balances are updated accordingly (reserved funds are released and the trade is settled)</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="api-specification" class="level2">
+<h2 class="anchored" data-anchor-id="api-specification">API Specification</h2>
+<section id="rest-endpoints" class="level3">
+<h3 class="anchored" data-anchor-id="rest-endpoints">REST Endpoints</h3>
+<p><strong>Public Routes:</strong></p>
+<pre><code>POST /register
+- Create a new user account
+- Body: { "username": "...", "password": "..." }
+
+POST /login
+- Authenticate and receive JWT token
+- Body: { "username": "...", "password": "..." }
+
+GET /info
+- Get available assets and trading pairs
+- Response: { "assets": ["BTC", "ETH", "USDT", ...], "pairs": ["BTCUSDT", "ETHUSDT", ...] }</code></pre>
+<p><strong>Authenticated Routes:</strong></p>
+<pre><code>POST /deposit
+- Deposit funds to paper trading account
+- Body: { "asset": "USDT", "amount": 10000 }
+
+POST /orders
+- Submit a limit order
+- Body: { "token_id": "unique-id", "symbol": "BTCUSDT", "side": "buy", "price": 50000, "quantity": 0.1 }
+- Returns: acceptance confirmation or rejection with error details
+
+GET /orders/{token_id}
+- Get status of a specific order
+
+DELETE /orders/{token_id}
+- Cancel an open order
+- Returns: confirmation or error if order is already filled/cancelled
+
+GET /balance
+- Get all asset balances for the authenticated user
+- Returns both total balance and available balance (excluding reserved funds)</code></pre>
+</section>
+<section id="websocket-api" class="level3">
+<h3 class="anchored" data-anchor-id="websocket-api">WebSocket API</h3>
+<p>After connecting and authenticating, clients can send subscription messages:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"action"</span><span class="fu">:</span> <span class="st">"subscribe"</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"stream"</span><span class="fu">:</span> <span class="st">"best_touch"</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"symbol"</span><span class="fu">:</span> <span class="st">"BTCUSDT"</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"exchange"</span><span class="fu">:</span> <span class="st">"all"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"action"</span><span class="fu">:</span> <span class="st">"subscribe"</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"stream"</span><span class="fu">:</span> <span class="st">"klines"</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"symbol"</span><span class="fu">:</span> <span class="st">"ETHUSDT"</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"interval"</span><span class="fu">:</span> <span class="st">"1m"</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"exchange"</span><span class="fu">:</span> <span class="st">"binance"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"action"</span><span class="fu">:</span> <span class="st">"subscribe"</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"stream"</span><span class="fu">:</span> <span class="st">"ewma"</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"symbol"</span><span class="fu">:</span> <span class="st">"SOLUSDT"</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"half_life"</span><span class="fu">:</span> <span class="dv">30</span><span class="fu">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"exchange"</span><span class="fu">:</span> <span class="st">"all"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="implementation-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-guidelines">Implementation Guidelines</h2>
+<section id="suggested-development-order" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-development-order">Suggested Development Order</h3>
+<ol type="1">
+<li><strong>Exchange connectivity</strong>: Establish WebSocket connections to Binance and OKX</li>
+<li><strong>Data normalization</strong>: Standardize order book and trade data formats</li>
+<li><strong>Client WebSocket server</strong>: Allow clients to connect and subscribe to streams</li>
+<li><strong>Kline generation</strong>: Build the candlestick aggregation logic</li>
+<li><strong>EWMA computation</strong>: Implement the exponential moving average with configurable half-life</li>
+<li><strong>Authentication</strong>: Add user registration, login, and JWT validation</li>
+<li><strong>Paper trading</strong>: Implement deposit, order submission, cancellation, and execution engine</li>
+<li><strong>Testing</strong>: Create a client to demonstrate all features</li>
+</ol>
+</section>
+<section id="technical-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="technical-requirements">Technical Requirements</h3>
+<ul>
+<li>Use <strong>FastAPI</strong> for the server</li>
+<li>Use <strong>asyncio</strong> for concurrent WebSocket management</li>
+<li>Provide <strong>Swagger documentation</strong> (auto-generated by FastAPI)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="project-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="project-deliverables">Project Deliverables</h2>
+<ol type="1">
+<li><strong>Server implementation</strong> using FastAPI with all required features</li>
+<li><strong>Client example</strong> (Python script or notebook) demonstrating:
+<ul>
+<li>Registration and authentication</li>
+<li>Subscribing to each stream type</li>
+<li>Depositing funds and placing orders</li>
+<li>Cancelling orders</li>
+<li>Checking order status and balances</li>
+</ul></li>
+<li><strong>README</strong> with:
+<ul>
+<li>Setup and installation instructions</li>
+<li>Configuration explanation (symbols, etc.)</li>
+<li>Usage examples</li>
+<li>API documentation reference</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="optional-enhancements-bonus-points" class="level2">
+<h2 class="anchored" data-anchor-id="optional-enhancements-bonus-points">Optional Enhancements (Bonus Points)</h2>
+<ul>
+<li><strong>WebSocket order management</strong>: Allow clients to submit orders and receive execution updates via WebSocket instead of REST</li>
+<li><strong>Server persistence</strong>: Save client accounts, balances, and pending orders to persistent storage (e.g., SQLite, JSON files). The server should recover its full state after restart without losing any client data.</li>
+<li><strong>Order modification</strong>: Allow clients to modify the price and/or quantity of open orders via a <code>PUT /orders/{token_id}</code> endpoint</li>
+<li><strong>Additional order types</strong>:
+<ul>
+<li><strong>Market orders</strong>: Execute immediately at the current best touch price</li>
+<li><strong>IOC (Immediate-Or-Cancel)</strong>: Execute immediately what can be filled, cancel the remaining quantity</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="project-organization" class="level2">
+<h2 class="anchored" data-anchor-id="project-organization">Project Organization</h2>
+<ul>
+<li>Work in groups of <strong>4-6 people</strong></li>
+<li>Use <strong>GitHub</strong> for version control and collaboration</li>
+<li>Submit via email:
+<ul>
+<li>Team member names</li>
+<li>GitHub repository link</li>
+<li>Any special setup instructions</li>
+</ul></li>
+</ul>
 
 
 </section>
@@ -1117,14 +1376,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/Cours_3/index.html" class="pagination-link" aria-label="Communication entre Processus (IPC)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Communication entre Processus (IPC)</span>
+      <a href="../../content/projets/projects_24.html" class="pagination-link" aria-label="M2EIF Quant 2024/2025">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">M2EIF Quant 2024/2025</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/Cours_3/2-Sockets.html" class="pagination-link" aria-label="Sockets">
-        <span class="nav-page-text">Sockets</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
