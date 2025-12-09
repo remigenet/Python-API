@@ -65,50 +65,17 @@ Imaginons une bibliothèque. Vous souhaitez emprunter un livre (obtenir des donn
 
 * Accès aux données de marché : Les API peuvent fournir des données en temps réel sur les cours d'actions, les taux de change, les indices, etc.
 * Opérations automatisées : Les transactions, telles que l'achat ou la vente d'actions, peuvent être exécutées automatiquement via des API.
-* Intégration avec d'autres systèmes : Les API permettent à différentes plateformes financières de communiquer entre elles, assurant une meilleure synergie entre les outils.
-* Innovations et services personnalisés : Grâce aux API, les entreprises financières peuvent proposer des solutions personnalisées à leurs clients, en intégrant différentes fonctionnalités et données.
+* Intégration avec d'autres systèmes : Les API permettent à différentes plateformes financières de communiquer entre elles.
 
 
-## 1.7 API REST vs. SOAP :
-
-
-
-Il existe plusieurs styles d'architecture pour les API, mais les plus courants dans l'industrie sont REST et SOAP.
-
-
-
-
-
-* REST (Representational State Transfer) :
-    * Basé sur le protocole HTTP.
-    * Utilise des méthodes standards comme GET, POST, PUT et DELETE.
-    * Peut utiliser JSON, XML ou d'autres formats pour les données.
-    * Généralement considéré comme plus simple et flexible que SOAP.
-* SOAP (Simple Object Access Protocol) :
-    * Protocole plus ancien, largement adopté dans les entreprises.
-    * Utilise XML pour le format des messages.
-    * Comprend des fonctionnalités intégrées pour la sécurité et les transactions.
-
-
-
-Pour choisir entre REST et SOAP, cela dépend souvent des besoins spécifiques du projet et des préférences de l'équipe de développement.
-
-
-
-
-## 1.8 Authentification et sécurité avec les API :
+## 1.7 Authentification et sécurité avec les API :
 
 
 Avec la croissance des API, en particulier dans des domaines sensibles comme la finance, la sécurité est primordiale. Voici quelques méthodes courantes d'authentification :
 
-
-
-
 * Clé API : Une clé unique est générée pour chaque utilisateur ou application. Elle doit être incluse dans chaque requête.
 * Authentification basique : Utilise un nom d'utilisateur et un mot de passe pour accéder à l'API.
 * OAuth : Un protocole qui permet à une application d'accéder à des ressources spécifiques d'un utilisateur sans avoir besoin de son mot de passe. Très utilisé pour les intégrations avec des plateformes sociales ou des services en ligne.
-
-
 
 Il est également crucial de surveiller et de limiter le taux de requêtes (rate limiting) pour éviter les abus et garantir un service stable.
 

@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2025-12-09">
+
+<title>API en Python – Shared Memory</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/Cours_3/5-Pipes.html" rel="next">
+<link href="../../content/Cours_3/3-Files.html" rel="prev">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="API en Python - Shared Memory">
+<meta property="og:description" content="">
+<meta property="og:image" content=".img/SharedMemory.webp">
+<meta property="og:site_name" content="API en Python">
+<meta name="citation_title" content="Shared Memory">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2025-12-09">
+<meta name="citation_cover_date" content="2025-12-09">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-12-09">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">API en Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
+ <span class="dropdown-text">API - Définition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Créer une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Sécuriser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-UserApi.html">
+ <span class="dropdown-text">Concepts élargis</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
+ <span class="dropdown-text">TP - Premiere requêtes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-Conception-optimizations.html">
+ <span class="dropdown-text">Optimisation des ressources et de la performance des API</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/TP-2-compare-run.html">
+ <span class="dropdown-text">TP : Comparaison des performances des appels en tant qu’utilisateur</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Sockets.html">
+ <span class="dropdown-text">Sockets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-Files.html">
+ <span class="dropdown-text">Fichiers et IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-SharedMemory.html">
+ <span class="dropdown-text">Shared Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Pipes.html">
+ <span class="dropdown-text">Pipes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-gRPC.html">
+ <span class="dropdown-text">gRPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/7-OtherIPCend.html">
+ <span class="dropdown-text">Conclusions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
+ <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-Frameworks.html">
+ <span class="dropdown-text">Les principaux Frameworks d’APIs en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/4-FastAPI.html">
+ <span class="dropdown-text">Fast API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/5-DjangoRest.html">
+ <span class="dropdown-text">Django REST Framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/6-testanddocs.html">
+ <span class="dropdown-text">Tester et documenter une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/7-Good Practice.html">
+ <span class="dropdown-text">Bonne pratique générale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/8.Conclusion.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
+ <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-heroku.html">
+ <span class="dropdown-text">Heroku - Présentation du service</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-Best Practice.html">
+ <span class="dropdown-text">Meilleurs Pratiques avant un déploiement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/4-herodepl.html">
+ <span class="dropdown-text">Deploiement sur Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/5-moreexample.html">
+ <span class="dropdown-text">Déploiement avancé</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/6-domain.html">
+ <span class="dropdown-text">Bonus - Nom de Domaine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/7-end.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/projects_24.html">
+ <span class="dropdown-text">M2EIF Quant 2024/2025</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/project_25.html">
+ <span class="dropdown-text">M2EIF Quant 2025/2026</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/Cours_3/4-SharedMemory.html">Shared Memory</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Communication entre Processus (IPC)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/1-IPC101.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction à l’IPC</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/2-Sockets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sockets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/3-Files.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fichiers et IPC</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/4-SharedMemory.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Shared Memory</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/5-Pipes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pipes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/6-gRPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gRPC</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/7-OtherIPCend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Travaux Pratiques</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/Cours_3/TP-3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#recupérer-des-données-du-net" id="toc-recupérer-des-données-du-net" class="nav-link active" data-scroll-target="#recupérer-des-données-du-net">Recupérer des données du net</a></li>
+  <li><a href="#iv.-mémoire-partagée-shared-memory" id="toc-iv.-mémoire-partagée-shared-memory" class="nav-link" data-scroll-target="#iv.-mémoire-partagée-shared-memory">IV. Mémoire Partagée (Shared Memory)</a>
+  <ul class="collapse">
+  <li><a href="#comprendre-la-mémoire-ram-vs-stockage-persistant" id="toc-comprendre-la-mémoire-ram-vs-stockage-persistant" class="nav-link" data-scroll-target="#comprendre-la-mémoire-ram-vs-stockage-persistant">1. Comprendre la Mémoire: RAM vs Stockage Persistant</a>
+  <ul class="collapse">
+  <li><a href="#a.-la-ram-vitesse-et-volatilité" id="toc-a.-la-ram-vitesse-et-volatilité" class="nav-link" data-scroll-target="#a.-la-ram-vitesse-et-volatilité">a. La RAM: Vitesse et Volatilité</a></li>
+  <li><a href="#b.-stockage-persistant-durabilité-et-latence" id="toc-b.-stockage-persistant-durabilité-et-latence" class="nav-link" data-scroll-target="#b.-stockage-persistant-durabilité-et-latence">b. Stockage Persistant: Durabilité et Latence</a></li>
+  </ul></li>
+  <li><a href="#espace-mémoire-des-processus" id="toc-espace-mémoire-des-processus" class="nav-link" data-scroll-target="#espace-mémoire-des-processus">2. Espace Mémoire des Processus</a>
+  <ul class="collapse">
+  <li><a href="#a.-isolation-de-lespace-dadressage" id="toc-a.-isolation-de-lespace-dadressage" class="nav-link" data-scroll-target="#a.-isolation-de-lespace-dadressage">a. Isolation de l’Espace d’Adressage</a></li>
+  <li><a href="#b.-création-dun-espace-partagé" id="toc-b.-création-dun-espace-partagé" class="nav-link" data-scroll-target="#b.-création-dun-espace-partagé">b. Création d’un Espace Partagé</a></li>
+  <li><a href="#c.-avantages-de-lespace-mémoire-partagé" id="toc-c.-avantages-de-lespace-mémoire-partagé" class="nav-link" data-scroll-target="#c.-avantages-de-lespace-mémoire-partagé">c.&nbsp;Avantages de l’Espace Mémoire Partagé</a></li>
+  <li><a href="#d.-considérations-de-sécurité-et-de-stabilité" id="toc-d.-considérations-de-sécurité-et-de-stabilité" class="nav-link" data-scroll-target="#d.-considérations-de-sécurité-et-de-stabilité">d.&nbsp;Considérations de Sécurité et de Stabilité</a></li>
+  </ul></li>
+  <li><a href="#outils-de-mémoire-partagée-en-python" id="toc-outils-de-mémoire-partagée-en-python" class="nav-link" data-scroll-target="#outils-de-mémoire-partagée-en-python">3. Outils de Mémoire Partagée en Python</a>
+  <ul class="collapse">
+  <li><a href="#a.-primitives-de-synchronisation-value-et-array" id="toc-a.-primitives-de-synchronisation-value-et-array" class="nav-link" data-scroll-target="#a.-primitives-de-synchronisation-value-et-array">a. Primitives de Synchronisation: Value et Array</a></li>
+  <li><a href="#b.-performance-avec-multiprocessing.shared_memory" id="toc-b.-performance-avec-multiprocessing.shared_memory" class="nav-link" data-scroll-target="#b.-performance-avec-multiprocessing.shared_memory">b. Performance avec multiprocessing.shared_memory</a></li>
+  <li><a href="#c.-gestion-de-la-synchronisation" id="toc-c.-gestion-de-la-synchronisation" class="nav-link" data-scroll-target="#c.-gestion-de-la-synchronisation">c.&nbsp;Gestion de la Synchronisation</a></li>
+  <li><a href="#d.-nettoyage-et-durabilité" id="toc-d.-nettoyage-et-durabilité" class="nav-link" data-scroll-target="#d.-nettoyage-et-durabilité">d.&nbsp;Nettoyage et Durabilité</a></li>
+  </ul></li>
+  <li><a href="#types-de-mémoire-partagée-système" id="toc-types-de-mémoire-partagée-système" class="nav-link" data-scroll-target="#types-de-mémoire-partagée-système">4. Types de Mémoire Partagée Système</a>
+  <ul class="collapse">
+  <li><a href="#a.-mémoire-partagée-posix" id="toc-a.-mémoire-partagée-posix" class="nav-link" data-scroll-target="#a.-mémoire-partagée-posix">a. Mémoire Partagée POSIX</a></li>
+  <li><a href="#b.-mémoire-partagée-system-v" id="toc-b.-mémoire-partagée-system-v" class="nav-link" data-scroll-target="#b.-mémoire-partagée-system-v">b. Mémoire Partagée System V</a></li>
+  <li><a href="#c.-windows-memory-mapped-files" id="toc-c.-windows-memory-mapped-files" class="nav-link" data-scroll-target="#c.-windows-memory-mapped-files">c.&nbsp;Windows Memory-Mapped Files</a></li>
+  </ul></li>
+  <li><a href="#synchronisation-et-intégrité-des-données" id="toc-synchronisation-et-intégrité-des-données" class="nav-link" data-scroll-target="#synchronisation-et-intégrité-des-données">5. Synchronisation et Intégrité des Données</a>
+  <ul class="collapse">
+  <li><a href="#a.-primitives-de-synchronisation" id="toc-a.-primitives-de-synchronisation" class="nav-link" data-scroll-target="#a.-primitives-de-synchronisation">a. Primitives de Synchronisation</a></li>
+  <li><a href="#b.-techniques-de-synchronisation" id="toc-b.-techniques-de-synchronisation" class="nav-link" data-scroll-target="#b.-techniques-de-synchronisation">b. Techniques de Synchronisation</a></li>
+  <li><a href="#c.-gestion-de-la-concurrence" id="toc-c.-gestion-de-la-concurrence" class="nav-link" data-scroll-target="#c.-gestion-de-la-concurrence">c.&nbsp;Gestion de la Concurrence</a></li>
+  <li><a href="#d.-considérations-de-conception" id="toc-d.-considérations-de-conception" class="nav-link" data-scroll-target="#d.-considérations-de-conception">d.&nbsp;Considérations de Conception</a></li>
+  </ul></li>
+  <li><a href="#gestion-des-ressources-et-nettoyage" id="toc-gestion-des-ressources-et-nettoyage" class="nav-link" data-scroll-target="#gestion-des-ressources-et-nettoyage">6. Gestion des Ressources et Nettoyage</a>
+  <ul class="collapse">
+  <li><a href="#a.-libération-de-mémoire-partagée" id="toc-a.-libération-de-mémoire-partagée" class="nav-link" data-scroll-target="#a.-libération-de-mémoire-partagée">a. Libération de Mémoire Partagée**</a></li>
+  <li><a href="#b.-libération-de-primitives-de-synchronisation" id="toc-b.-libération-de-primitives-de-synchronisation" class="nav-link" data-scroll-target="#b.-libération-de-primitives-de-synchronisation">b. Libération de Primitives de Synchronisation</a></li>
+  <li><a href="#c.-gestion-automatisée-des-ressources" id="toc-c.-gestion-automatisée-des-ressources" class="nav-link" data-scroll-target="#c.-gestion-automatisée-des-ressources">c.&nbsp;Gestion Automatisée des Ressources</a></li>
+  <li><a href="#d.-surveillance-des-ressources" id="toc-d.-surveillance-des-ressources" class="nav-link" data-scroll-target="#d.-surveillance-des-ressources">d.&nbsp;Surveillance des Ressources</a></li>
+  <li><a href="#e.-nettoyage-à-la-terminaison-du-processus" id="toc-e.-nettoyage-à-la-terminaison-du-processus" class="nav-link" data-scroll-target="#e.-nettoyage-à-la-terminaison-du-processus">e. Nettoyage à la Terminaison du Processus</a></li>
+  <li><a href="#f.-bonnes-pratiques-de-conception" id="toc-f.-bonnes-pratiques-de-conception" class="nav-link" data-scroll-target="#f.-bonnes-pratiques-de-conception">f.&nbsp;Bonnes Pratiques de Conception</a></li>
+  </ul></li>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">7. Exemples</a>
+  <ul class="collapse">
+  <li><a href="#a.-lancement-de-processus-par-un-parent-commun" id="toc-a.-lancement-de-processus-par-un-parent-commun" class="nav-link" data-scroll-target="#a.-lancement-de-processus-par-un-parent-commun">a. Lancement de processus par un parent commun</a></li>
+  <li><a href="#b.-processus-indépendants-utilisant-la-mémoire-partagée" id="toc-b.-processus-indépendants-utilisant-la-mémoire-partagée" class="nav-link" data-scroll-target="#b.-processus-indépendants-utilisant-la-mémoire-partagée">b. Processus indépendants utilisant la mémoire partagée</a></li>
+  <li><a href="#c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" id="toc-c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" class="nav-link" data-scroll-target="#c.-exemple-avec-la-mémoire-partagée-posix-et-system-v">c.&nbsp;Exemple avec la mémoire partagée POSIX et System V</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">8. Conclusion</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Shared Memory</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025-12-09</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="recupérer-des-données-du-net" class="level1">
+<h1>Recupérer des données du net</h1>
+<hr>
+</section>
+<section id="iv.-mémoire-partagée-shared-memory" class="level1">
+<h1>IV. Mémoire Partagée (Shared Memory)</h1>
+<p>La mémoire partagée est un espace de mémoire qui peut être simultanément accédé par plusieurs programmes avec l’intention de fournir une communication entre eux ou d’éviter des copies redondantes de données. Cette section explore les concepts clés et les considérations pratiques lors de l’utilisation de la mémoire partagée dans le contexte de la communication interprocessus (IPC).</p>
+<section id="comprendre-la-mémoire-ram-vs-stockage-persistant" class="level2">
+<h2 class="anchored" data-anchor-id="comprendre-la-mémoire-ram-vs-stockage-persistant">1. Comprendre la Mémoire: RAM vs Stockage Persistant</h2>
+<p>La mémoire joue un rôle crucial dans le fonctionnement des ordinateurs et, par extension, dans la communication interprocessus. Pour comprendre l’importance de la mémoire partagée, il est essentiel de distinguer deux types principaux de mémoire utilisés dans les ordinateurs : la mémoire vive (RAM) et le stockage persistant (comme les disques durs ou les SSD).</p>
+<section id="a.-la-ram-vitesse-et-volatilité" class="level3">
+<h3 class="anchored" data-anchor-id="a.-la-ram-vitesse-et-volatilité">a. La RAM: Vitesse et Volatilité</h3>
+<p>La mémoire vive, ou Random Access Memory (RAM), est le lieu où l’ordinateur stocke les données qu’il utilise activement. Cela inclut le système d’exploitation, les programmes en cours d’exécution et les données sur lesquelles ces programmes travaillent. La RAM est incroyablement rapide, permettant au processeur d’accéder presque instantanément à n’importe quelle partie des données stockées. Cette vitesse est mesurée en nanosecondes (ns), avec des temps d’accès typiques autour de 10 ns.</p>
+<p>Cependant, la RAM est volatile, ce qui signifie que toutes les données qu’elle contient sont perdues lorsque l’ordinateur est éteint ou redémarré. Cette caractéristique est à la fois un avantage et un inconvénient : elle permet un accès rapide aux données, mais ne peut pas être utilisée pour le stockage à long terme.</p>
+</section>
+<section id="b.-stockage-persistant-durabilité-et-latence" class="level3">
+<h3 class="anchored" data-anchor-id="b.-stockage-persistant-durabilité-et-latence">b. Stockage Persistant: Durabilité et Latence</h3>
+<p>En contraste, le stockage persistant, tel que les disques durs (HDD) et les disques à circuits intégrés (SSD), conserve les données même lorsque l’ordinateur est éteint. Ces formes de stockage sont beaucoup plus lentes que la RAM, avec des temps d’accès mesurés en millisecondes (ms) pour les HDD et en microsecondes (µs) pour les SSD. Par exemple, un HDD typique peut avoir un temps d’accès d’environ 5-10 ms, tandis qu’un SSD peut offrir des temps d’accès de l’ordre de 50-150 µs.</p>
+<p>La différence de vitesse entre la RAM et le stockage persistant est significative et a un impact direct sur la manière dont les données sont manipulées dans le cadre de l’IPC. Lorsque la performance est critique, il est préférable d’utiliser la RAM pour partager des informations entre les processus, car cela minimise la latence et maximise la vitesse de traitement.</p>
+<p>En résumé, la RAM est utilisée pour un accès rapide et temporaire aux données, tandis que le stockage persistant est utilisé pour conserver des données de manière durable. La compréhension de ces deux types de mémoire est fondamentale pour choisir la bonne stratégie de communication interprocessus et pour optimiser les performances des applications.</p>
+</section>
+</section>
+<section id="espace-mémoire-des-processus" class="level2">
+<h2 class="anchored" data-anchor-id="espace-mémoire-des-processus">2. Espace Mémoire des Processus</h2>
+<p>Lorsqu’un programme est exécuté sur un ordinateur, le système d’exploitation lui alloue un espace mémoire isolé, connu sous le nom d’espace d’adressage virtuel. Cette allocation de mémoire est cruciale pour la sécurité et la stabilité du système, car elle empêche les processus d’interférer les uns avec les autres.</p>
+<section id="a.-isolation-de-lespace-dadressage" class="level3">
+<h3 class="anchored" data-anchor-id="a.-isolation-de-lespace-dadressage">a. Isolation de l’Espace d’Adressage</h3>
+<p>Chaque processus reçoit son propre espace d’adressage virtuel, qui est isolé des espaces d’adressage des autres processus. Cela signifie qu’un processus ne peut pas lire ou écrire dans la mémoire allouée à un autre processus sans des mécanismes de communication interprocessus spécifiques. Cette isolation protège les processus contre les interférences accidentelles ou malveillantes et aide à prévenir les erreurs de programme qui pourraient autrement se propager d’un processus à l’autre.</p>
+</section>
+<section id="b.-création-dun-espace-partagé" class="level3">
+<h3 class="anchored" data-anchor-id="b.-création-dun-espace-partagé">b. Création d’un Espace Partagé</h3>
+<p>Bien que l’isolation soit importante, il y a des moments où les processus doivent communiquer et partager des données. Pour ce faire, ils peuvent utiliser un espace de mémoire partagée, qui est une portion de mémoire que plusieurs processus peuvent lire et écrire. Cet espace partagé est créé et géré par le système d’exploitation, qui fournit des mécanismes pour s’assurer que les processus ne se marchent pas sur les pieds en accédant à la mémoire simultanément.</p>
+<p>La mémoire partagée est particulièrement utile pour les applications où la performance est critique, car elle permet aux processus de communiquer sans avoir à copier des données d’un espace d’adressage à un autre, ce qui peut être coûteux en termes de temps et de ressources système. Cela est souvent utilisé dans des systèmes où les processus doivent travailler sur le même ensemble de données ou où les données doivent être transférées rapidement d’un processus à l’autre.</p>
+</section>
+<section id="c.-avantages-de-lespace-mémoire-partagé" class="level3">
+<h3 class="anchored" data-anchor-id="c.-avantages-de-lespace-mémoire-partagé">c.&nbsp;Avantages de l’Espace Mémoire Partagé</h3>
+<p>L’utilisation de la mémoire partagée offre plusieurs avantages par rapport à d’autres méthodes d’IPC, comme les sockets ou les fichiers. Les accès à la mémoire partagée sont extrêmement rapides car ils se produisent directement dans la RAM, et il n’y a pas de surcharge liée à la sérialisation des données, comme c’est le cas avec les sockets, ou à la latence d’écriture/lecture sur un support de stockage persistant, comme avec les fichiers.</p>
+</section>
+<section id="d.-considérations-de-sécurité-et-de-stabilité" class="level3">
+<h3 class="anchored" data-anchor-id="d.-considérations-de-sécurité-et-de-stabilité">d.&nbsp;Considérations de Sécurité et de Stabilité</h3>
+<p>Toutefois, la mémoire partagée nécessite une gestion prudente. Les erreurs dans la gestion de la mémoire partagée peuvent entraîner des conditions de concurrence, des blocages et des corruptions de données. Pour cette raison, des mécanismes de synchronisation tels que les verrous, les mutex ou les sémaphores sont souvent utilisés pour coordonner l’accès à la mémoire partagée.</p>
+<p>En conclusion, l’espace mémoire des processus est un concept fondamental dans la compréhension de l’IPC. L’isolation de l’espace d’adressage assure la sécurité et la stabilité, tandis que la mémoire partagée offre une méthode efficace pour la communication entre processus, avec des considérations importantes en matière de gestion et de synchronisation.</p>
+</section>
+</section>
+<section id="outils-de-mémoire-partagée-en-python" class="level2">
+<h2 class="anchored" data-anchor-id="outils-de-mémoire-partagée-en-python">3. Outils de Mémoire Partagée en Python</h2>
+<p>Python offre plusieurs outils dans son module multiprocessing pour gérer la mémoire partagée et la synchronisation entre processus. Ces outils sont conçus pour faciliter la communication interprocessus tout en minimisant les risques de corruption des données et les problèmes de concurrence.</p>
+<section id="a.-primitives-de-synchronisation-value-et-array" class="level3">
+<h3 class="anchored" data-anchor-id="a.-primitives-de-synchronisation-value-et-array">a. Primitives de Synchronisation: Value et Array</h3>
+<p>Les objets Value et Array du module multiprocessing permettent de partager des données entre processus. Ces objets sont conçus pour stocker des données simples comme des nombres (Value) ou des séquences de nombres (Array), et ils gèrent automatiquement la synchronisation pour éviter les accès concurrents non coordonnés.</p>
+<ul>
+<li>Value est utilisé pour partager une donnée unique de types primitifs comme un entier ou un flottant.</li>
+<li>Array peut être utilisé pour partager un ensemble de données, comme une liste de nombres.</li>
+</ul>
+<p>Ces deux objets utilisent des verrous (Lock ou RLock) pour s’assurer que seul un processus à la fois peut modifier les données. Cela empêche les conditions de course et garantit que les données ne sont pas corrompues par des écritures concurrentes.</p>
+</section>
+<section id="b.-performance-avec-multiprocessing.shared_memory" class="level3">
+<h3 class="anchored" data-anchor-id="b.-performance-avec-multiprocessing.shared_memory">b. Performance avec multiprocessing.shared_memory</h3>
+<p>Pour des besoins de performance plus élevés, Python 3.8 a introduit multiprocessing.shared_memory, qui offre un moyen plus rapide et plus flexible de partager des données entre processus. Cette fonctionnalité permet aux processus de partager des blocs de mémoire sans les contraintes de type imposées par Value et Array.</p>
+<p>shared_memory fournit un espace de mémoire qui peut être mappé dans l’espace d’adressage de plusieurs processus. Les processus peuvent alors lire et écrire directement dans cet espace comme s’il s’agissait de leur propre mémoire. Cela permet des opérations de lecture et d’écriture très rapides, mais il incombe au développeur de gérer correctement la synchronisation et l’intégrité des données.</p>
+</section>
+<section id="c.-gestion-de-la-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-de-la-synchronisation">c.&nbsp;Gestion de la Synchronisation</h3>
+<p>La gestion de la synchronisation est cruciale lors de l’utilisation de shared_memory. Bien que cette fonctionnalité offre une grande vitesse, elle ne fournit pas de mécanismes de verrouillage intrinsèques. Les développeurs doivent donc utiliser des primitives de synchronisation telles que des verrous (Lock), des sémaphores (Semaphore), ou d’autres mécanismes de verrouillage pour coordonner l’accès à la mémoire partagée.</p>
+</section>
+<section id="d.-nettoyage-et-durabilité" class="level3">
+<h3 class="anchored" data-anchor-id="d.-nettoyage-et-durabilité">d.&nbsp;Nettoyage et Durabilité</h3>
+<p>Un aspect important de l’utilisation de la mémoire partagée est le nettoyage après utilisation. Contrairement aux variables normales qui sont nettoyées automatiquement par le ramasse-miettes de Python, la mémoire partagée doit être explicitement libérée par le programme. Cela implique généralement de fermer et de désallouer la mémoire partagée une fois qu’elle n’est plus nécessaire.</p>
+<p>En résumé, les outils de mémoire partagée de Python offrent une gamme d’options pour la communication interprocessus, allant de la facilité d’utilisation avec Value et Array à la performance élevée avec shared_memory. Chaque outil a ses propres avantages et responsabilités en termes de gestion de la synchronisation et du nettoyage, permettant aux développeurs de choisir la solution la mieux adaptée à leurs besoins spécifiques.</p>
+</section>
+</section>
+<section id="types-de-mémoire-partagée-système" class="level2">
+<h2 class="anchored" data-anchor-id="types-de-mémoire-partagée-système">4. Types de Mémoire Partagée Système</h2>
+<p>Dans les systèmes d’exploitation modernes, il existe différents types de mémoire partagée système qui permettent aux processus de communiquer et de partager des données. Ces mécanismes sont souvent utilisés pour des applications à haute performance où l’accès direct à la mémoire est nécessaire.</p>
+<section id="a.-mémoire-partagée-posix" class="level3">
+<h3 class="anchored" data-anchor-id="a.-mémoire-partagée-posix">a. Mémoire Partagée POSIX</h3>
+<p>La mémoire partagée POSIX (Portable Operating System Interface) est un standard dans les systèmes de type UNIX qui permet à plusieurs processus de partager un espace mémoire. Cette mémoire est typiquement utilisée pour des échanges de données à haute vitesse et est accessible par un nom unique dans le système de fichiers virtuel, souvent sous /dev/shm dans les systèmes Linux.</p>
+</section>
+<section id="b.-mémoire-partagée-system-v" class="level3">
+<h3 class="anchored" data-anchor-id="b.-mémoire-partagée-system-v">b. Mémoire Partagée System V</h3>
+<p>La mémoire partagée System V est un autre type de mémoire partagée disponible sur les systèmes UNIX et UNIX-like. Elle diffère de la mémoire partagée POSIX par sa manière de gérer les clés et les identifiants de segment de mémoire, ainsi que par ses capacités de contrôle d’accès plus détaillées. Bien que plus ancienne, la mémoire partagée System V est toujours utilisée pour des raisons de compatibilité et de performance dans certaines applications.</p>
+</section>
+<section id="c.-windows-memory-mapped-files" class="level3">
+<h3 class="anchored" data-anchor-id="c.-windows-memory-mapped-files">c.&nbsp;Windows Memory-Mapped Files</h3>
+<p>Dans les systèmes d’exploitation Windows, les fichiers mappés en mémoire sont utilisés pour réaliser des opérations similaires à la mémoire partagée POSIX et System V. Ces fichiers mappés permettent aux processus de partager des données en mappant un fichier dans leur espace d’adressage virtuel. Les modifications apportées à la mémoire mappée sont reflétées dans le fichier sous-jacent, et vice versa.</p>
+</section>
+</section>
+<section id="synchronisation-et-intégrité-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="synchronisation-et-intégrité-des-données">5. Synchronisation et Intégrité des Données</h2>
+<p>Lorsqu’il s’agit de mémoire partagée, la synchronisation et l’intégrité des données sont des préoccupations majeures. Sans une gestion appropriée, les données peuvent facilement devenir incohérentes ou corrompues en raison d’accès concurrents. Voici comment ces problèmes sont abordés :</p>
+<section id="a.-primitives-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="a.-primitives-de-synchronisation">a. Primitives de Synchronisation</h3>
+<p>Pour maintenir l’intégrité des données, des primitives de synchronisation sont utilisées. Ces mécanismes assurent qu’un seul processus peut accéder à une portion de mémoire à un moment donné, empêchant ainsi les conflits d’écriture.</p>
+<ul>
+<li>Verrous (Locks): Les verrous sont les outils de synchronisation les plus basiques. Un verrou peut être acquis par un processus, bloquant ainsi les autres processus jusqu’à ce qu’il soit libéré.</li>
+<li>Sémaphores: Les sémaphores sont similaires aux verrous mais permettent à un nombre défini de processus d’accéder à une ressource simultanément.</li>
+<li>Conditions (Condition Variables): Ces variables sont utilisées pour bloquer un processus jusqu’à ce qu’une certaine condition soit remplie, souvent en combinaison avec un verrou.</li>
+<li>Barrières: Les barrières permettent à un groupe de processus d’attendre que tous atteignent un point donné avant de continuer.</li>
+</ul>
+</section>
+<section id="b.-techniques-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-techniques-de-synchronisation">b. Techniques de Synchronisation</h3>
+<ul>
+<li>Verrouillage Mutuel (Mutex): Un mutex est un verrou qui est utilisé pour garantir l’exclusivité mutuelle, c’est-à-dire qu’un seul thread ou processus peut accéder à la ressource à la fois.</li>
+<li>Verrouillage Optimiste vs Pessimiste: Le verrouillage optimiste suppose qu’il y a peu de chances de conflit et vérifie l’intégrité des données après l’accès. Le verrouillage pessimiste suppose qu’un conflit est probable et verrouille les ressources avant l’accès.</li>
+<li>Transactions Mémoire: Certaines architectures modernes offrent des transactions mémoire qui permettent de grouper une série d’opérations en mémoire en une seule transaction atomique.</li>
+</ul>
+</section>
+<section id="c.-gestion-de-la-concurrence" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-de-la-concurrence">c.&nbsp;Gestion de la Concurrence</h3>
+<p>La gestion de la concurrence est essentielle pour éviter les conditions de course, où plusieurs processus ou threads tentent d’accéder ou de modifier les données simultanément. Des stratégies comme le verrouillage au niveau des lignes (dans les bases de données) ou le découpage en granules fins (dans les applications) peuvent être utilisées pour minimiser les blocages et améliorer la concurrence.</p>
+</section>
+<section id="d.-considérations-de-conception" class="level3">
+<h3 class="anchored" data-anchor-id="d.-considérations-de-conception">d.&nbsp;Considérations de Conception</h3>
+<p>Lors de la conception d’applications utilisant la mémoire partagée, il est crucial de considérer les aspects suivants :</p>
+<ul>
+<li>Déterminisme: S’assurer que l’ordre d’exécution est prévisible et que les résultats sont reproductibles.</li>
+<li>Éviter les Deadlocks: Concevoir des stratégies pour éviter les situations où plusieurs processus sont bloqués indéfiniment, attendant les ressources détenues par l’autre.</li>
+<li>Éviter les Starvations: S’assurer que tous les processus ont un accès équitable aux ressources.</li>
+</ul>
+</section>
+</section>
+<section id="gestion-des-ressources-et-nettoyage" class="level2">
+<h2 class="anchored" data-anchor-id="gestion-des-ressources-et-nettoyage">6. Gestion des Ressources et Nettoyage</h2>
+<p>La gestion des ressources et le nettoyage sont des aspects critiques de l’utilisation de la mémoire partagée dans la communication interprocessus. Une gestion inadéquate peut entraîner des fuites de mémoire, des processus orphelins et des ressources système bloquées, ce qui peut affecter la stabilité et les performances du système. Voici les meilleures pratiques pour la gestion des ressources et le nettoyage dans les environnements IPC :</p>
+<section id="a.-libération-de-mémoire-partagée" class="level3">
+<h3 class="anchored" data-anchor-id="a.-libération-de-mémoire-partagée">a. Libération de Mémoire Partagée**</h3>
+<p>Après qu’un processus a terminé d’utiliser la mémoire partagée, il est essentiel de la libérer correctement. Cela implique généralement deux étapes :</p>
+<ul>
+<li>Détachement: Chaque processus qui a attaché un segment de mémoire partagée doit le détacher de son espace d’adressage une fois qu’il n’est plus nécessaire.</li>
+<li>Suppression: Une fois que tous les processus ont détaché le segment de mémoire, il doit être supprimé pour libérer l’espace mémoire.</li>
+</ul>
+</section>
+<section id="b.-libération-de-primitives-de-synchronisation" class="level3">
+<h3 class="anchored" data-anchor-id="b.-libération-de-primitives-de-synchronisation">b. Libération de Primitives de Synchronisation</h3>
+<p>Les verrous, sémaphores et autres primitives de synchronisation doivent également être libérés après utilisation :</p>
+<ul>
+<li>Libération de Verrous: S’assurer que tous les verrous sont libérés après l’accès aux ressources pour éviter les deadlocks.</li>
+<li>Suppression de Sémaphores: Les sémaphores doivent être supprimés du système une fois qu’ils ne sont plus nécessaires pour éviter l’épuisement des ressources système.</li>
+</ul>
+</section>
+<section id="c.-gestion-automatisée-des-ressources" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-automatisée-des-ressources">c.&nbsp;Gestion Automatisée des Ressources</h3>
+<p>Dans certains langages de programmation, comme Python, des mécanismes tels que les gestionnaires de contexte (with statement) peuvent être utilisés pour automatiser la gestion des ressources :</p>
+<ul>
+<li>Gestionnaires de Contexte: Ils peuvent s’assurer que les ressources sont automatiquement libérées à la fin d’un bloc de code, même en cas d’exception.</li>
+</ul>
+</section>
+<section id="d.-surveillance-des-ressources" class="level3">
+<h3 class="anchored" data-anchor-id="d.-surveillance-des-ressources">d.&nbsp;Surveillance des Ressources</h3>
+<p>Les outils de surveillance des systèmes peuvent aider à identifier les fuites de mémoire et les ressources non libérées :</p>
+<ul>
+<li>Outils de Profilage: Utiliser des profileurs de mémoire pour suivre l’utilisation de la mémoire et identifier les fuites potentielles.</li>
+<li>Journalisation: La journalisation des actions de création et de libération de ressources peut aider à diagnostiquer les problèmes de gestion des ressources.</li>
+</ul>
+</section>
+<section id="e.-nettoyage-à-la-terminaison-du-processus" class="level3">
+<h3 class="anchored" data-anchor-id="e.-nettoyage-à-la-terminaison-du-processus">e. Nettoyage à la Terminaison du Processus</h3>
+<p>Il est important de concevoir des applications de manière à ce que la mémoire partagée et les primitives de synchronisation soient nettoyées lors de la terminaison normale ou anormale du processus :</p>
+<ul>
+<li>Gestionnaires de Signaux: Intercepter les signaux de terminaison pour effectuer un nettoyage avant que le processus ne se termine.</li>
+<li>Destructeurs: Utiliser des destructeurs dans les classes pour nettoyer les ressources lorsqu’une instance est détruite.</li>
+</ul>
+</section>
+<section id="f.-bonnes-pratiques-de-conception" class="level3">
+<h3 class="anchored" data-anchor-id="f.-bonnes-pratiques-de-conception">f.&nbsp;Bonnes Pratiques de Conception</h3>
+<ul>
+<li>Minimiser l’Utilisation de Ressources Partagées: Concevoir des applications pour minimiser la dépendance aux ressources partagées peut réduire la complexité de la gestion des ressources.</li>
+<li>Isolation des Ressources: Autant que possible, isoler les ressources partagées dans des processus ou des services dédiés pour simplifier la gestion.</li>
+</ul>
+<p>En conclusion, une gestion rigoureuse des ressources et un nettoyage minutieux sont essentiels pour maintenir la santé et la performance des systèmes utilisant la mémoire partagée pour l’IPC. Les développeurs doivent intégrer des stratégies de gestion des ressources tout au long du cycle de vie de l’application pour assurer une exécution fiable et efficace.</p>
+</section>
+</section>
+<section id="exemples" class="level2">
+<h2 class="anchored" data-anchor-id="exemples">7. Exemples</h2>
+<section id="a.-lancement-de-processus-par-un-parent-commun" class="level3">
+<h3 class="anchored" data-anchor-id="a.-lancement-de-processus-par-un-parent-commun">a. Lancement de processus par un parent commun</h3>
+<p>Dans cet exemple, nous allons explorer l’utilisation de la mémoire partagée en Python pour la communication interprocessus (IPC). La mémoire partagée est un moyen puissant d’échanger des informations entre les processus sans avoir besoin de passer des messages, ce qui peut être plus efficace, en particulier pour les transferts de données volumineux.</p>
+<p>Nous allons créer deux processus : un producteur et un consommateur. Le producteur écrira une série de nombres et leurs carrés dans la mémoire partagée, tandis que le consommateur lira ces valeurs et les imprimera. Pour coordonner les processus, nous utiliserons une valeur sentinelle. Lorsque le producteur aura terminé, il écrira cette valeur sentinelle dans la mémoire partagée pour signaler au consommateur de s’arrêter.</p>
+<p>Cet exemple est particulièrement utile lorsque les deux processus sont lancés par un processus parent commun, car ils peuvent facilement hériter de l’accès aux objets de mémoire partagée. Cependant, cette approche nécessite que les processus aient une relation prédéterminée et soient conscients de l’existence de l’autre.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> Process, Value, Array, shared_memory</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus producteur qui écrit dans la mémoire partagée</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> producteur(valeur_partagee, tableau_partage):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        time.sleep(random.uniform(<span class="fl">0.1</span>, <span class="fl">0.5</span>)) <span class="co"># Simuler un travail</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        valeur_partagee.value <span class="op">=</span> i</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        tableau_partage[i] <span class="op">=</span> i  <span class="op">-</span> i</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Le producteur vient de produire </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> et son carré </span><span class="sc">{</span>i  <span class="op">-</span> i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus consommateur qui lit la mémoire partagée</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> consommateur(valeur_partagee, tableau_partage):</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="fl">0.1</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> valeur_partagee.value <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>: <span class="co"># Valeur sentinelle pour l'arrêt</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Le consommateur vient de consommer </span><span class="sc">{</span>valeur_partagee<span class="sc">.</span>value<span class="sc">}</span><span class="ss"> et son carré </span><span class="sc">{</span>tableau_partage[valeur_partagee.value]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer une valeur partagée et un tableau</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    valeur_partagee <span class="op">=</span> Value(<span class="st">'i'</span>, <span class="dv">0</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    tableau_partage <span class="op">=</span> Array(<span class="st">'i'</span>, <span class="bu">range</span>(<span class="dv">5</span>))</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer un bloc de mémoire partagée</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    shm <span class="op">=</span> shared_memory.SharedMemory(create<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span>tableau_partage.buffer_info()[<span class="dv">1</span>]  <span class="op">-</span> tableau_partage.itemsize)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer les processus producteur et consommateur</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    processus_producteur <span class="op">=</span> Process(target<span class="op">=</span>producteur, args<span class="op">=</span>(valeur_partagee, tableau_partage))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    processus_consommateur <span class="op">=</span> Process(target<span class="op">=</span>consommateur, args<span class="op">=</span>(valeur_partagee, tableau_partage))</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Démarrer les processus</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    processus_producteur.start()</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    processus_consommateur.start()</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Attendre que le producteur ait fini</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    processus_producteur.join()</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Signaler au consommateur de s'arrêter</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    valeur_partagee.value <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Attendre que le consommateur ait fini</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    processus_consommateur.join()</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Nettoyer la mémoire partagée</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    shm.close()</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    shm.unlink()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Comme vous pouvez le voir, le processus producteur génère des nombres et leurs carrés, les écrivant dans la mémoire partagée, tandis que le processus consommateur lit ces valeurs jusqu’à ce qu’il rencontre la valeur sentinelle signalant la fin du flux de données. Cette méthode est efficace et rapide mais présente des limitations. Par exemple, elle suppose que les processus ont un moyen de démarrer et de s’arrêter de manière coordonnée, ce qui est facilité ici par le processus parent contrôlant à la fois le producteur et le consommateur.</p>
+<p>Dans des scénarios où les processus sont entièrement indépendants et non lancés par un parent commun, nous avons besoin d’une approche différente pour établir une communication de mémoire partagée. Dans de tels cas, nous pouvons utiliser le module shared_memory directement pour créer un bloc de mémoire partagée qui peut être accédé en utilisant un nom connu à la fois du producteur et du consommateur. Examinons un exemple de la manière dont cela peut être mis en œuvre.</p>
+</section>
+<section id="b.-processus-indépendants-utilisant-la-mémoire-partagée" class="level3">
+<h3 class="anchored" data-anchor-id="b.-processus-indépendants-utilisant-la-mémoire-partagée">b. Processus indépendants utilisant la mémoire partagée</h3>
+<p>Dans l’exemple suivant, nous allons créer un bloc de mémoire partagée qui ne dépend pas d’un processus parent pour lancer le producteur et le consommateur. Au lieu de cela, le bloc de mémoire partagée sera créé avec un nom unique, auquel les processus producteur et consommateur pourront accéder indépendamment.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing <span class="im">import</span> shared_memory</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Nom unique pour le bloc de mémoire partagée</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>NOM_SHM <span class="op">=</span> <span class="st">'ma_memoire_partagee'</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus producteur qui écrit dans la mémoire partagée</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> producteur_independant():</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer un nouveau bloc de mémoire partagée</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    shm_existante <span class="op">=</span> shared_memory.SharedMemory(name<span class="op">=</span>NOM_SHM, create<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span><span class="dv">128</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simuler la production de données</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>            time.sleep(random.uniform(<span class="fl">0.1</span>, <span class="fl">0.5</span>))  <span class="co"># Simuler un travail</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Écrire des données dans la mémoire partagée</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            shm_existante.buf[i] <span class="op">=</span> i</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'Le producteur indépendant vient de produire </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Nettoyage</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        shm_existante.close()</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Processus consommateur qui lit la mémoire partagée</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> consommateur_independant():</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ouvrir le bloc de mémoire partagée existant</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    shm_existante <span class="op">=</span> shared_memory.SharedMemory(name<span class="op">=</span>NOM_SHM)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>            time.sleep(<span class="fl">0.1</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>            valeur <span class="op">=</span> shm_existante.buf[<span class="dv">0</span>]  <span class="co"># Lire à partir du premier octet</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> valeur <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>:  <span class="co"># Valeur sentinelle pour l'arrêt</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'Le consommateur indépendant vient de consommer </span><span class="sc">{</span>valeur<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Nettoyage</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        shm_existante.close()</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        shm_existante.unlink()  <span class="co"># Seulement désassocier dans le consommateur pour cet exemple</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Démarrer le producteur</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    producteur_independant()</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Donner un peu de temps pour que le product</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>eur démarre et produise des éléments</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">2</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Démarrer le consommateur</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    consommateur_independant()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, le producteur crée un bloc de mémoire partagée avec un nom prédéfini et écrit des données dedans. Le consommateur, connaissant le nom du bloc de mémoire partagée, peut y accéder indépendamment et lire les données. La valeur sentinelle (-1) est utilisée ici également pour signaler au consommateur d’arrêter la lecture et de sortir. Cette approche permet une plus grande flexibilité et convient aux situations où les processus peuvent démarrer et s’arrêter indépendamment les uns des autres.</p>
+</section>
+<section id="c.-exemple-avec-la-mémoire-partagée-posix-et-system-v" class="level3">
+<h3 class="anchored" data-anchor-id="c.-exemple-avec-la-mémoire-partagée-posix-et-system-v">c.&nbsp;Exemple avec la mémoire partagée POSIX et System V</h3>
+<p>Voici un exemple qui montre comment utiliser les segments de mémoire partagée POSIX et System V en Python sans s’appuyer sur la fonctionnalité de mémoire partagée de la bibliothèque multiprocessing. Nous utiliserons le module sysv_ipc pour la mémoire partagée System V et le module posix_ipc pour la mémoire partagée POSIX.</p>
+<p>Mémoire partagée POSIX :</p>
+<p>La mémoire partagée POSIX fournit un mécanisme permettant aux processus de communiquer des informations en partageant une région de mémoire. Elle est identifiée par un nom dans l’espace de noms du système de fichiers et persiste jusqu’à ce qu’elle soit explicitement supprimée.</p>
+<p>Mémoire partagée System V :</p>
+<p>La mémoire partagée System V est un mécanisme IPC plus ancien qui permet aux processus de communiquer en s’attachant à un segment de mémoire partagée identifié par une clé numérique. Contrairement à la mémoire partagée POSIX, elle n’a pas de nom dans l’espace de noms du système de fichiers.</p>
+<p>Voici l’exemple de code :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sysv_ipc</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> posix_ipc</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mmap</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de mémoire partagée System V</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet de mémoire partagée</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>cle_sysv <span class="op">=</span> sysv_ipc.ftok(<span class="st">'/tmp'</span>, <span class="dv">42</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>shm_sysv <span class="op">=</span> sysv_ipc.SharedMemory(cle_sysv, size<span class="op">=</span><span class="dv">1024</span>, flags<span class="op">=</span>sysv_ipc.IPC_CREAT)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Écrire dans la mémoire partagée</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>shm_sysv.write(<span class="st">b'Bonjour de System V'</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire dans la mémoire partagée</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> shm_sysv.read(<span class="dv">1024</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Lecture de la mémoire partagée System V : </span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Détacher et supprimer la mémoire partagée</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>shm_sysv.detach()</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>shm_sysv.remove()</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemple de mémoire partagée POSIX</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un objet de mémoire partagée</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>shm_posix <span class="op">=</span> posix_ipc.SharedMemory(<span class="st">'/mon_posix_shm'</span>, posix_ipc.O_CREAT, size<span class="op">=</span><span class="dv">1024</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapper la mémoire partagée</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span> mmap.mmap(shm_posix.fd, shm_posix.size)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>shm_posix.close_fd()</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Écrire dans la zone mappée en mémoire</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>mm.write(<span class="st">b'Bonjour de POSIX'</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Lire dans la zone mappée en mémoire</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>mm.seek(<span class="dv">0</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> mm.read(<span class="dv">1024</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Lecture de la mémoire partagée POSIX : </span><span class="sc">{</span>message<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Démapper et désassocier la mémoire partagée</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>mm.close()</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>posix_ipc.unlink_shared_memory(<span class="st">'/mon_posix_shm'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans ce code :</p>
+<ul>
+<li>Pour System V, nous créons un segment de mémoire partagée avec une clé spécifique et écrivons un message dedans. Ensuite, nous lisons le message et nettoyons en détachant et en supprimant le segment de mémoire partagée.</li>
+<li>Pour POSIX, nous créons un objet de mémoire partagée nommé, le mappons dans l’espace d’adressage du processus, puis écrivons et lisons un message. Enfin, nous démappons et désassocions l’objet de mémoire partagée.</li>
+</ul>
+<p>Cet exemple est une simple démonstration de l’utilisation de la mémoire partagée POSIX et System V en Python. Ces mécanismes sont de plus bas niveau que la mémoire partagée de la bibliothèque multiprocessing et nécessitent une gestion plus manuelle.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">8. Conclusion</h2>
+<p>En intégrant ces concepts dans la conception de systèmes IPC, les développeurs peuvent tirer parti de la vitesse de la RAM pour une communication interprocessus efficace tout en gérant soigneusement les ressources pour maintenir l’intégrité et la performance du système.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/Cours_3/3-Files.html" class="pagination-link" aria-label="Fichiers et IPC">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Fichiers et IPC</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/Cours_3/5-Pipes.html" class="pagination-link" aria-label="Pipes">
+        <span class="nav-page-text">Pipes</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Python API, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

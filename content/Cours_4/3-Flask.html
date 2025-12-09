@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.23">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Remi Genet">
+<meta name="dcterms.date" content="2025-12-09">
+
+<title>API en Python – Flask</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/.img/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="API en Python - Flask">
+<meta property="og:description" content="">
+<meta property="og:image" content=".img/flask.webp">
+<meta property="og:site_name" content="API en Python">
+<meta name="citation_title" content="Flask ">
+<meta name="citation_author" content="Remi Genet">
+<meta name="citation_publication_date" content="2025-12-09">
+<meta name="citation_cover_date" content="2025-12-09">
+<meta name="citation_year" content="2025">
+<meta name="citation_online_date" content="2025-12-09">
+<meta name="citation_language" content="en">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">API en Python</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://remigenet.github.io/"> 
+<span class="menu-text">Back to Main Website</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-introduction-aux-api" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Introduction aux API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-introduction-aux-api">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/index.html">
+ <span class="dropdown-text">Introduction aux API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/1-API101.html">
+ <span class="dropdown-text">API - Définition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/2-User101.html">
+ <span class="dropdown-text">Utiliser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/3-Concepteur101.html">
+ <span class="dropdown-text">Créer une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/4-guard101.html">
+ <span class="dropdown-text">Sécuriser une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/5-UserApi.html">
+ <span class="dropdown-text">Concepts élargis</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_1/TP-Postman_and_coingeko.html">
+ <span class="dropdown-text">TP - Premiere requêtes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-consommation-avancée-dapi" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Consommation avancée d’API</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-consommation-avancée-dapi">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/index.html">
+ <span class="dropdown-text">Consommation avancée d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/1-Protocols.html">
+ <span class="dropdown-text">Protocols de communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/2-Authenticate.html">
+ <span class="dropdown-text">Authentification et sécurité des API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/3-Conception-optimizations.html">
+ <span class="dropdown-text">Optimisation des ressources et de la performance des API</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_2/TP-2-compare-run.html">
+ <span class="dropdown-text">TP : Comparaison des performances des appels en tant qu’utilisateur</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-communication-entre-processus-(ipc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Communication entre Processus (IPC)</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-communication-entre-processus-(ipc">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/index.html">
+ <span class="dropdown-text">Communication entre Processus (IPC)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/1-IPC101.html">
+ <span class="dropdown-text">Introduction à l’IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/2-Sockets.html">
+ <span class="dropdown-text">Sockets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/3-Files.html">
+ <span class="dropdown-text">Fichiers et IPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/4-SharedMemory.html">
+ <span class="dropdown-text">Shared Memory</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/5-Pipes.html">
+ <span class="dropdown-text">Pipes</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/6-gRPC.html">
+ <span class="dropdown-text">gRPC</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/7-OtherIPCend.html">
+ <span class="dropdown-text">Conclusions</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-1.html">
+ <span class="dropdown-text">TP3 Option 1 Service gRPC pour indicateurs de marché</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_3/TP-3-2.html">
+ <span class="dropdown-text">TP3 Option 2 Serveur de Données de Marché via Socket et Mémoire Partagée</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-conception-dapis" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Conception d’APIs</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-conception-dapis">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/index.html">
+ <span class="dropdown-text">Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/1-IntroConception.html">
+ <span class="dropdown-text">Introduction à la Conception d’APIs</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/2-Frameworks.html">
+ <span class="dropdown-text">Les principaux Frameworks d’APIs en Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/4-FastAPI.html">
+ <span class="dropdown-text">Fast API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/5-DjangoRest.html">
+ <span class="dropdown-text">Django REST Framework</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/6-testanddocs.html">
+ <span class="dropdown-text">Tester et documenter une API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/7-Good Practice.html">
+ <span class="dropdown-text">Bonne pratique générale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/8.Conclusion.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Travaux Pratiques</li>
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_4/TP-RequetteruneAPI.html">
+ <span class="dropdown-text">TP 4 : API d’Indicateurs Financiers avec Gestion des Niveaux d’Accès</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-déploiement-dapi---principes-généraux-et-mise-en-pratique-avec-heroku">    
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/index.html">
+ <span class="dropdown-text">Déploiement d’API - Principes Généraux et Mise en Pratique avec Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/1-Introdepl.html">
+ <span class="dropdown-text">Introduction au Déploiement d’API</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/2-heroku.html">
+ <span class="dropdown-text">Heroku - Présentation du service</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/3-Best Practice.html">
+ <span class="dropdown-text">Meilleurs Pratiques avant un déploiement</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/4-herodepl.html">
+ <span class="dropdown-text">Deploiement sur Heroku</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/5-moreexample.html">
+ <span class="dropdown-text">Déploiement avancé</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/6-domain.html">
+ <span class="dropdown-text">Bonus - Nom de Domaine</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/Cours_5/7-end.html">
+ <span class="dropdown-text">Conclusion</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sujets-de-projets-possibles" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sujets de Projets possibles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sujets-de-projets-possibles">    
+        <li>
+    <a class="dropdown-item" href="../../content/projets/index.html">
+ <span class="dropdown-text">Projets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/millesime_2324.html">
+ <span class="dropdown-text">M2EIF Quant 2023/2024</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/projects_24.html">
+ <span class="dropdown-text">M2EIF Quant 2024/2025</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../content/projets/project_25.html">
+ <span class="dropdown-text">M2EIF Quant 2025/2026</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/remigenet/Python-API">
+            Code source
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" id="toc-asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="nav-link active" data-scroll-target="#asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil">Asynchronie et Multiprocessing - comment donner le tournis au GIL</a></li>
+  <li><a href="#iii.-conception-pratique-dune-api-avec-flask" id="toc-iii.-conception-pratique-dune-api-avec-flask" class="nav-link" data-scroll-target="#iii.-conception-pratique-dune-api-avec-flask">III. Conception Pratique d’une API avec Flask</a>
+  <ul class="collapse">
+  <li><a href="#installation-et-configuration-de-flask" id="toc-installation-et-configuration-de-flask" class="nav-link" data-scroll-target="#installation-et-configuration-de-flask">1. Installation et Configuration de Flask</a></li>
+  <li><a href="#définition-des-routes-et-endpoints" id="toc-définition-des-routes-et-endpoints" class="nav-link" data-scroll-target="#définition-des-routes-et-endpoints">2. Définition des Routes et Endpoints</a></li>
+  <li><a href="#gestion-des-requêtes" id="toc-gestion-des-requêtes" class="nav-link" data-scroll-target="#gestion-des-requêtes">3. Gestion des Requêtes</a></li>
+  <li><a href="#réponses-et-codes-détat" id="toc-réponses-et-codes-détat" class="nav-link" data-scroll-target="#réponses-et-codes-détat">4. Réponses et Codes d’État</a></li>
+  <li><a href="#utilisation-de-templates" id="toc-utilisation-de-templates" class="nav-link" data-scroll-target="#utilisation-de-templates">5. Utilisation de Templates</a></li>
+  <li><a href="#fonctionnement-du-décorateur-app.route" id="toc-fonctionnement-du-décorateur-app.route" class="nav-link" data-scroll-target="#fonctionnement-du-décorateur-app.route">6. Fonctionnement du décorateur <span class="citation" data-cites="app.route">@app.route</span></a></li>
+  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples">7. Exemples</a>
+  <ul class="collapse">
+  <li><a href="#a.-exemple-de-la-todo-list" id="toc-a.-exemple-de-la-todo-list" class="nav-link" data-scroll-target="#a.-exemple-de-la-todo-list">a. Exemple de la Todo List</a></li>
+  <li><a href="#b.-exemple-de-lauthentification" id="toc-b.-exemple-de-lauthentification" class="nav-link" data-scroll-target="#b.-exemple-de-lauthentification">b. Exemple de l’authentification</a></li>
+  </ul></li>
+  <li><a href="#fonctionnalités-avancées-de-flask" id="toc-fonctionnalités-avancées-de-flask" class="nav-link" data-scroll-target="#fonctionnalités-avancées-de-flask">8. Fonctionnalités Avancées de Flask</a>
+  <ul class="collapse">
+  <li><a href="#a.-blueprints" id="toc-a.-blueprints" class="nav-link" data-scroll-target="#a.-blueprints">a. Blueprints</a></li>
+  <li><a href="#b.-extensions-flask" id="toc-b.-extensions-flask" class="nav-link" data-scroll-target="#b.-extensions-flask">b. Extensions Flask</a></li>
+  <li><a href="#c.-gestion-des-erreurs" id="toc-c.-gestion-des-erreurs" class="nav-link" data-scroll-target="#c.-gestion-des-erreurs">c.&nbsp;Gestion des Erreurs</a></li>
+  <li><a href="#d.-gestion-des-sessions" id="toc-d.-gestion-des-sessions" class="nav-link" data-scroll-target="#d.-gestion-des-sessions">d.&nbsp;Gestion des Sessions</a></li>
+  <li><a href="#e.-contextes-dapplication-et-de-requête" id="toc-e.-contextes-dapplication-et-de-requête" class="nav-link" data-scroll-target="#e.-contextes-dapplication-et-de-requête">e. Contextes d’Application et de Requête</a></li>
+  <li><a href="#f.-websockets-avec-flask-socketio" id="toc-f.-websockets-avec-flask-socketio" class="nav-link" data-scroll-target="#f.-websockets-avec-flask-socketio">f.&nbsp;WebSockets avec Flask-SocketIO</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#iii.-conception-pratique-dune-api-avec-flask-1" id="toc-iii.-conception-pratique-dune-api-avec-flask-1" class="nav-link" data-scroll-target="#iii.-conception-pratique-dune-api-avec-flask-1">III. Conception Pratique d’une API avec Flask</a>
+  <ul class="collapse">
+  <li><a href="#installation-et-configuration-de-flask-1" id="toc-installation-et-configuration-de-flask-1" class="nav-link" data-scroll-target="#installation-et-configuration-de-flask-1">1. Installation et Configuration de Flask</a></li>
+  <li><a href="#définition-des-routes-et-endpoints-1" id="toc-définition-des-routes-et-endpoints-1" class="nav-link" data-scroll-target="#définition-des-routes-et-endpoints-1">2. Définition des Routes et Endpoints</a></li>
+  <li><a href="#gestion-des-requêtes-1" id="toc-gestion-des-requêtes-1" class="nav-link" data-scroll-target="#gestion-des-requêtes-1">3. Gestion des Requêtes</a></li>
+  <li><a href="#réponses-et-codes-détat-1" id="toc-réponses-et-codes-détat-1" class="nav-link" data-scroll-target="#réponses-et-codes-détat-1">4. Réponses et Codes d’État</a></li>
+  <li><a href="#utilisation-de-templates-1" id="toc-utilisation-de-templates-1" class="nav-link" data-scroll-target="#utilisation-de-templates-1">5. Utilisation de Templates</a></li>
+  <li><a href="#fonctionnement-du-décorateur-app.route-1" id="toc-fonctionnement-du-décorateur-app.route-1" class="nav-link" data-scroll-target="#fonctionnement-du-décorateur-app.route-1">6. Fonctionnement du décorateur <span class="citation" data-cites="app.route">@app.route</span></a></li>
+  <li><a href="#exemples-1" id="toc-exemples-1" class="nav-link" data-scroll-target="#exemples-1">7. Exemples</a>
+  <ul class="collapse">
+  <li><a href="#a.-exemple-de-la-todo-list-1" id="toc-a.-exemple-de-la-todo-list-1" class="nav-link" data-scroll-target="#a.-exemple-de-la-todo-list-1">a. Exemple de la Todo List</a></li>
+  <li><a href="#b.-exemple-de-lauthentification-1" id="toc-b.-exemple-de-lauthentification-1" class="nav-link" data-scroll-target="#b.-exemple-de-lauthentification-1">b. Exemple de l’authentification</a></li>
+  </ul></li>
+  <li><a href="#fonctionnalités-avancées-de-flask-1" id="toc-fonctionnalités-avancées-de-flask-1" class="nav-link" data-scroll-target="#fonctionnalités-avancées-de-flask-1">8. Fonctionnalités Avancées de Flask</a>
+  <ul class="collapse">
+  <li><a href="#a.-blueprints-1" id="toc-a.-blueprints-1" class="nav-link" data-scroll-target="#a.-blueprints-1">a. Blueprints</a></li>
+  <li><a href="#b.-extensions-flask-1" id="toc-b.-extensions-flask-1" class="nav-link" data-scroll-target="#b.-extensions-flask-1">b. Extensions Flask</a></li>
+  <li><a href="#c.-gestion-des-erreurs-1" id="toc-c.-gestion-des-erreurs-1" class="nav-link" data-scroll-target="#c.-gestion-des-erreurs-1">c.&nbsp;Gestion des Erreurs</a></li>
+  <li><a href="#d.-gestion-des-sessions-1" id="toc-d.-gestion-des-sessions-1" class="nav-link" data-scroll-target="#d.-gestion-des-sessions-1">d.&nbsp;Gestion des Sessions</a></li>
+  <li><a href="#e.-contextes-dapplication-et-de-requête-1" id="toc-e.-contextes-dapplication-et-de-requête-1" class="nav-link" data-scroll-target="#e.-contextes-dapplication-et-de-requête-1">e. Contextes d’Application et de Requête</a></li>
+  <li><a href="#f.-websockets-avec-flask-socketio-1" id="toc-f.-websockets-avec-flask-socketio-1" class="nav-link" data-scroll-target="#f.-websockets-avec-flask-socketio-1">f.&nbsp;WebSockets avec Flask-SocketIO</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://mybinder.org/v2/gh/remigenet/Python-API/HEAD?urlpath=vscode" target="_blank"><i class="bi bi-journals"></i>Launch Binder</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Flask</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Cours</div>
+    <div class="quarto-category">Fondamentaux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta column-page-left">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Remi Genet </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2025-12-09</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="asynchronie-et-multiprocessing---comment-donner-le-tournis-au-gil" class="level1">
+<h1>Asynchronie et Multiprocessing - comment donner le tournis au GIL</h1>
+<hr>
+<p>III</p>
+<p>Une fois Flask installé, vous pouvez créer un fichier app.py qui servira de point d’entrée à votre application. Voici un exemple de structure de base pour une application Flask :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello_world():</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="iii.-conception-pratique-dune-api-avec-flask" class="level1">
+<h1>III. Conception Pratique d’une API avec Flask</h1>
+<p>Flask est un micro-framework pour Python qui est particulièrement adapté pour les petits projets ou pour les situations où une grande flexibilité est nécessaire. Il est léger, facile à utiliser, et extensible, ce qui en fait un choix populaire pour le développement d’APIs.</p>
+<section id="installation-et-configuration-de-flask" class="level2">
+<h2 class="anchored" data-anchor-id="installation-et-configuration-de-flask">1. Installation et Configuration de Flask</h2>
+<p>Pour commencer à travailler avec Flask, vous devez d’abord l’installer. Cela peut être fait facilement avec pip, le gestionnaire de paquets Python : III Une fois Flask installé, vous pouvez créer un fichier app.py qui servira de point d’entrée à votre application. Voici un exemple de structure de base pour une application Flask :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello_world():</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'Hello, World!'</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, nous avons importé Flask, instancié une application, défini une route de base (/) qui retourne simplement une chaîne de caractères, et enfin, nous avons exécuté l’application en mode debug.</p>
+</section>
+<section id="définition-des-routes-et-endpoints" class="level2">
+<h2 class="anchored" data-anchor-id="définition-des-routes-et-endpoints">2. Définition des Routes et Endpoints</h2>
+<p>Les routes dans Flask sont définies en utilisant le décorateur <span class="citation" data-cites="app.route">@app.route</span>(), qui associe une URL à une fonction Python. Voici un exemple de définition de route plus complexe :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/users/&lt;int:user_id&gt;'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user(user_id):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ici, vous pourriez récupérer l'utilisateur de la base de données</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"user_id"</span>: user_id, <span class="st">"user_name"</span>: <span class="st">"John Doe"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la route /users/<int:user_id> attend un paramètre user_id de type entier. Lorsqu’un utilisateur accède à cette URL, la fonction get_user est appelée et retourne un objet JSON avec l’ID et le nom de l’utilisateur.</int:user_id></p>
+</section>
+<section id="gestion-des-requêtes" class="level2">
+<h2 class="anchored" data-anchor-id="gestion-des-requêtes">3. Gestion des Requêtes</h2>
+<p>Flask fournit un objet request qui contient toutes les informations de la requête HTTP. Vous pouvez accéder aux données de la requête, aux paramètres de l’URL, aux en-têtes, et plus encore. Voici un exemple d’utilisation de l’objet request :</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> request</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> request.form[<span class="st">'username'</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> request.form[<span class="st">'password'</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ici, vous pourriez valider les identifiants de l'utilisateur</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"status"</span>: <span class="st">"success"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la route /login attend une requête POST avec un formulaire contenant un username et un password. La fonction login récupère ces valeurs et pourrait les utiliser pour valider l’identité de l’utilisateur.</p>
+</section>
+<section id="réponses-et-codes-détat" class="level2">
+<h2 class="anchored" data-anchor-id="réponses-et-codes-détat">4. Réponses et Codes d’État</h2>
+<p>Les réponses dans Flask peuvent être personnalisées en retournant non seulement des données, mais aussi des codes d’état HTTP spécifiques et des en-têtes. Voici comment vous pourriez retourner une réponse personnalisée :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> make_response</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/not_found'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> not_found():</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    resp <span class="op">=</span> make_response({<span class="st">"error"</span>: <span class="st">"Not found"</span>}, <span class="dv">404</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    resp.headers[<span class="st">'Content-Type'</span>] <span class="op">=</span> <span class="st">'application/json'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la fonction not_found retourne une réponse avec un corps JSON, un code d’état 404 pour indiquer que la ressource n’a pas été trouvée, et un en-tête spécifiant le type de contenu.</p>
+</section>
+<section id="utilisation-de-templates" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-de-templates">5. Utilisation de Templates</h2>
+<p>Bien que les APIs retournent généralement des données JSON, Flask peut également servir des pages HTML en utilisant le système de templates Jinja2. Voici un exemple simple :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> render_template</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/home'</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> home():</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'home.html'</span>, title<span class="op">=</span><span class="st">'Welcome'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la fonction home utilise render_template pour servir un fichier HTML home.html, en passant un titre à la page.</p>
+</section>
+<section id="fonctionnement-du-décorateur-app.route" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnement-du-décorateur-app.route">6. Fonctionnement du décorateur <span class="citation" data-cites="app.route">@app.route</span></h2>
+<p>Le décorateur <span class="citation" data-cites="app.route">@app.route</span> est l’un des éléments fondamentaux de Flask. Il est utilisé pour associer une URL à une fonction Python, qui est appelée lorsque l’URL correspondante est demandée par un client HTTP.</p>
+<p>Quand vous décorez une fonction avec <span class="citation" data-cites="app.route">@app.route</span>, vous informez Flask que si une requête HTTP correspondant à la règle spécifiée est reçue, alors Flask doit appeler cette fonction et renvoyer sa réponse au client.</p>
+<p>Voici ce qui se passe en détail :</p>
+<ol type="1">
+<li><code>Analyse de la requête : Lorsqu'une requête arrive au serveur, Flask analyse l'URL demandée et cherche une correspondance avec les règles définies par les décorateurs @app.route.</code></li>
+<li><code>Appel de la fonction : Si une correspondance est trouvée, Flask exécute la fonction associée à cette règle.</code></li>
+<li><code>Construction de la réponse : La fonction exécutée peut retourner une variété de réponses, y compris des objets Response, des chaînes de caractères, des tuples avec des données et des codes d'état, ou même des objets JSON.</code></li>
+<li><code>Envoi de la réponse : Flask prend la réponse de la fonction et l'envoie au client, en s'occupant des en-têtes HTTP nécessaires et du code d'état.</code></li>
+</ol>
+<p>Le décorateur <span class="citation" data-cites="app.route">@app.route</span> peut prendre plusieurs arguments pour personnaliser le comportement de la route :</p>
+<ul>
+<li><code>string : pour des segments dynamiques dans l'URL.</code></li>
+<li><code>int : pour accepter un segment d'URL comme un entier.</code></li>
+<li><code>float : pour accepter un segment d'URL comme un nombre à virgule flottante.</code></li>
+<li><code>path : similaire à string mais accepte aussi les slashes.</code></li>
+<li><code>uuid : pour accepter les segments d'URL comme des UUID.</code></li>
+<li><code>methods : une liste des méthodes HTTP autorisées pour cette route.</code></li>
+<li><code>endpoint : le nom de l'endpoint, utilisé avec url_for.</code></li>
+<li><code>defaults : des valeurs par défaut pour les arguments de la règle.</code></li>
+<li><code>host : un hôte spécifique pour lequel cette route est accessible.</code></li>
+<li><code>subdomain : un sous-domaine spécifique pour lequel cette route est accessible.</code></li>
+<li><code>redirect_to : redirige vers une autre règle d'URL.</code></li>
+<li><code>alias : permet à la route d'être un alias d'une autre règle.</code></li>
+</ul>
+</section>
+<section id="exemples" class="level2">
+<h2 class="anchored" data-anchor-id="exemples">7. Exemples</h2>
+<section id="a.-exemple-de-la-todo-list" class="level3">
+<h3 class="anchored" data-anchor-id="a.-exemple-de-la-todo-list">a. Exemple de la Todo List</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, jsonify, request</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simuler une base de données avec une liste</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tasks <span class="op">=</span> [</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"title"</span>: <span class="st">"Do laundry"</span>, <span class="st">"completed"</span>: <span class="va">False</span>},</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">2</span>, <span class="st">"title"</span>: <span class="st">"Write code"</span>, <span class="st">"completed"</span>: <span class="va">False</span>},</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_tasks():</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(tasks)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_task():</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    task <span class="op">=</span> request.get_json()</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    tasks.append(task)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(task), <span class="dv">201</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks/&lt;int:task_id&gt;'</span>, methods<span class="op">=</span>[<span class="st">'PUT'</span>])</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_task(task_id):</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    task <span class="op">=</span> <span class="bu">next</span>((t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t[<span class="st">'id'</span>] <span class="op">==</span> task_id), <span class="va">None</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> task:</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Task not found'</span>}), <span class="dv">404</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> request.get_json()</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    task.update(data)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(task)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks/&lt;int:task_id&gt;'</span>, methods<span class="op">=</span>[<span class="st">'DELETE'</span>])</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delete_task(task_id):</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> tasks</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    tasks <span class="op">=</span> [t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t[<span class="st">'id'</span>] <span class="op">!=</span> task_id]</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Task deleted'</span>})</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="b.-exemple-de-lauthentification" class="level3">
+<h3 class="anchored" data-anchor-id="b.-exemple-de-lauthentification">b. Exemple de l’authentification</h3>
+<p>Côté serveur (app.py) :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, jsonify, make_response</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> werkzeug.security <span class="im">import</span> generate_password_hash, check_password_hash</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uuid</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jwt</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Simuler une base de données d'utilisateurs</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>users_db <span class="op">=</span> {</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"john"</span>: generate_password_hash(<span class="st">"hello"</span>),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"doe"</span>: generate_password_hash(<span class="st">"world"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    auth <span class="op">=</span> request.authorization</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> auth <span class="kw">or</span> <span class="kw">not</span> auth.username <span class="kw">or</span> <span class="kw">not</span> auth.password:</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> make_response(<span class="st">'Could not verify'</span>, <span class="dv">401</span>, {<span class="st">'WWW-Authenticate'</span>: <span class="st">'Basic realm="Login required!"'</span>})</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> auth.username <span class="kw">in</span> users_db <span class="kw">and</span> check_password_hash(users_db[auth.username], auth.password):</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        token <span class="op">=</span> jwt.encode({</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'user'</span>: auth.username,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'exp'</span>: datetime.datetime.utcnow() <span class="op">+</span> datetime.timedelta(minutes<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        }, app.config[<span class="st">'SECRET_KEY'</span>])</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'token'</span>: token})</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> make_response(<span class="st">'Could not verify'</span>, <span class="dv">401</span>, {<span class="st">'WWW-Authenticate'</span>: <span class="st">'Basic realm="Login required!"'</span>})</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/protected'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> protected():</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    token <span class="op">=</span> request.args.get(<span class="st">'token'</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> token:</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Token is missing!'</span>}), <span class="dv">403</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> jwt.decode(token, app.config[<span class="st">'SECRET_KEY'</span>], algorithms<span class="op">=</span>[<span class="st">"HS256"</span>])</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Token is invalid!'</span>}), <span class="dv">403</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Protected content'</span>, <span class="st">'user'</span>: data[<span class="st">'user'</span>]})</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Côté client (client.py) :</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer par l'URL de votre API</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://127.0.0.1:5000"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Demande d'authentification</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>auth_response <span class="op">=</span> requests.post(url <span class="op">+</span> <span class="st">"/login</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="er">", auth=('john', 'hello'))</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="er"># Si authentification réussie, utiliser le token pour accéder à une route protégée</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> auth_response.ok:</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    token <span class="op">=</span> auth_response.json()[<span class="st">'token'</span>]</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    protected_response <span class="op">=</span> requests.get(url <span class="op">+</span> <span class="st">"/protected"</span>, params<span class="op">=</span>{<span class="st">'token'</span>: token})</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(protected_response.json())</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Failed to authenticate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, le serveur utilise JWT (JSON Web Tokens) pour l’authentification. Lorsque l’utilisateur se connecte avec le bon nom d’utilisateur et mot de passe, un token est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.</p>
+</section>
+</section>
+<section id="fonctionnalités-avancées-de-flask" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnalités-avancées-de-flask">8. Fonctionnalités Avancées de Flask</h2>
+<p>Flask est un micro-framework puissant qui offre une grande flexibilité pour le développement d’applications web et d’APIs. Au-delà des fonctionnalités de base, Flask fournit plusieurs outils et extensions qui permettent de construire des applications robustes et évolutives. Dans cette section, nous allons explorer certaines de ces fonctionnalités avancées.</p>
+<p>Bien sûr, je vais approfondir chaque fonctionnalité de Flask que vous avez mentionnée.</p>
+<section id="a.-blueprints" class="level3">
+<h3 class="anchored" data-anchor-id="a.-blueprints">a. Blueprints</h3>
+<p>Les Blueprints sont une façon de décomposer une application Flask en composants distincts, chacun ayant ses propres routes, templates et ressources statiques. Cela permet de mieux organiser le code, surtout pour les grandes applications, et de réutiliser des ensembles de fonctionnalités dans d’autres applications Flask.</p>
+<section id="comment-utiliser-les-blueprints" class="level4">
+<h4 class="anchored" data-anchor-id="comment-utiliser-les-blueprints">Comment utiliser les Blueprints</h4>
+<p>Vous créez d’abord un Blueprint en spécifiant un nom et le module ou le package où il est situé. Ensuite, vous définissez des routes et des erreurs comme vous le feriez avec une application Flask, mais vous les enregistrez avec le Blueprint.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Blueprint</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un Blueprint nommé 'bp'</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>bp <span class="op">=</span> Blueprint(<span class="st">'bp'</span>, <span class="va">__name__</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition d'une route pour ce Blueprint</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">@bp.route</span>(<span class="st">'/hello'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello from the Blueprint!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Pour l’enregistrer dans votre application principale, vous utilisez la méthode register_blueprint de l’objet app :</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yourapplication <span class="im">import</span> bp</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>app.register_blueprint(bp, url_prefix<span class="op">=</span><span class="st">'/my_blueprint'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’argument url_prefix est optionnel, mais il est utile pour préfixer toutes les routes du Blueprint avec un chemin commun, ce qui peut aider à organiser les routes en sections logiques.</p>
+</section>
+</section>
+<section id="b.-extensions-flask" class="level3">
+<h3 class="anchored" data-anchor-id="b.-extensions-flask">b. Extensions Flask</h3>
+<p>Les extensions Flask étendent les fonctionnalités de base de Flask. Par exemple, Flask-SQLAlchemy est une extension qui ajoute la prise en charge d’ORM (Object-Relational Mapping) à Flask, ce qui facilite l’interaction avec les bases de données en utilisant des objets Python au lieu d’écrire des requêtes SQL brutes.</p>
+<section id="flask-sqlalchemy" class="level4">
+<h4 class="anchored" data-anchor-id="flask-sqlalchemy">Flask-SQLAlchemy</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_sqlalchemy <span class="im">import</span> SQLAlchemy</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SQLALCHEMY_DATABASE_URI'</span>] <span class="op">=</span> <span class="st">'sqlite:///example.db'</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> SQLAlchemy(app)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(db.Model):</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">=</span> db.Column(db.Integer, primary_key<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> db.Column(db.String(<span class="dv">80</span>), unique<span class="op">=</span><span class="va">True</span>, nullable<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer les tables dans la base de données</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>db.create_all()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, SQLAlchemy est utilisé pour définir un modèle pour les utilisateurs, qui est ensuite utilisé pour créer une table dans la base de données SQLite.</p>
+</section>
+<section id="flask-wtf" class="level4">
+<h4 class="anchored" data-anchor-id="flask-wtf">Flask-WTF</h4>
+<p>Flask-WTF est une extension qui intègre WTForms, une bibliothèque de gestion de formulaires avec Flask. Elle facilite la création, la validation et le rendu de formulaires HTML.</p>
+<p>Exemple</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, render_template</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_wtf <span class="im">import</span> FlaskForm</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wtforms <span class="im">import</span> StringField, PasswordField</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wtforms.validators <span class="im">import</span> InputRequired</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LoginForm(FlaskForm):</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> StringField(<span class="st">'Username'</span>, validators<span class="op">=</span>[InputRequired()])</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> PasswordField(<span class="st">'Password'</span>, validators<span class="op">=</span>[InputRequired()])</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>, <span class="st">'POST'</span>])</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    form <span class="op">=</span> LoginForm()</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> form.validate_on_submit():</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Ici, vous pourriez vérifier les identifiants de l'utilisateur</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Form successfully submitted!'</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'login.html'</span>, form<span class="op">=</span>form)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, LoginForm est une classe de formulaire qui utilise FlaskForm de Flask-WTF. Elle définit un formulaire avec des champs pour le nom d’utilisateur et le mot de passe, chacun avec un validateur qui exige que le champ soit rempli.</p>
+</section>
+<section id="flask-login" class="level4">
+<h4 class="anchored" data-anchor-id="flask-login">Flask-Login</h4>
+<p>Flask-Login fournit la gestion des sessions utilisateur pour Flask. Il gère le processus de connexion et de déconnexion des utilisateurs et se souvient de l’état de connexion entre les requêtes.</p>
+<p>Exemple d’utilisation</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, redirect, url_for</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_login <span class="im">import</span> LoginManager, UserMixin, login_user, login_required, logout_user</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>login_manager <span class="op">=</span> LoginManager()</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>login_manager.init_app(app)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(UserMixin):</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer une classe utilisateur qui hérite de UserMixin</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="at">@login_manager.user_loader</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_user(user_id):</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cette fonction serait normalement utilisée pour charger un utilisateur de la base de données</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> User()</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> User()</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    login_user(user)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> redirect(url_for(<span class="st">'protected'</span>))</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/logout'</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logout():</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    logout_user()</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'You have been logged out'</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/protected'</span>)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> protected():</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'Protected area'</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, User est une classe qui représente un utilisateur et hérite de UserMixin, qui fournit des implémentations par défaut pour les méthodes attendues par Flask-Login. login_user et logout_user sont des fonctions qui gèrent l’état de connexion de l’utilisateur.</p>
+</section>
+</section>
+<section id="c.-gestion-des-erreurs" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-des-erreurs">c.&nbsp;Gestion des Erreurs</h3>
+<p>Flask permet de définir des gestionnaires d’erreurs personnalisés pour différents codes d’erreur HTTP. Cela vous permet de renvoyer des réponses cohérentes et informatives lorsque des erreurs se produisent.</p>
+<section id="exemples-de-gestionnaires-derreurs" class="level4">
+<h4 class="anchored" data-anchor-id="exemples-de-gestionnaires-derreurs">Exemples de gestionnaires d’erreurs</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">404</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_404(e):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"Resource not found"</span>}, <span class="dv">404</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">400</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_400(e):</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"Bad request"</span>}, <span class="dv">400</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">401</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_401(e):</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"Authentication required"</span>}, <span class="dv">401</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans ces exemples, des fonctions sont définies pour gérer les erreurs 404 (non trouvé), 400 (mauvaise requête) et 401 (authentification requise), renvoyant un objet JSON avec un message d’erreur.</p>
+</section>
+</section>
+<section id="d.-gestion-des-sessions" class="level3">
+<h3 class="anchored" data-anchor-id="d.-gestion-des-sessions">d.&nbsp;Gestion des Sessions</h3>
+<p>Les sessions dans Flask sont utilisées pour stocker des informations entre les requêtes. Les données de session sont stockées côté client dans des cookies sécurisés et cryptés.</p>
+<section id="exemple-dutilisation-des-sessions" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dutilisation-des-sessions">Exemple d’utilisation des sessions</h4>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, session</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>app.secret_key <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/set_user/&lt;username&gt;'</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> set_user(username):</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    session[<span class="st">'username'</span>] <span class="op">=</span> username</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'User set to </span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/get_user'</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user():</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'Current user is </span><span class="sc">{</span>session<span class="sc">.</span>get(<span class="st">"username"</span>)<span class="sc">}</span><span class="ss">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, le nom d’utilisateur est stocké dans la session après avoir visité la route /set_user/<username>. Il peut ensuite être récupéré sur une autre route.</username></p>
+</section>
+</section>
+<section id="e.-contextes-dapplication-et-de-requête" class="level3">
+<h3 class="anchored" data-anchor-id="e.-contextes-dapplication-et-de-requête">e. Contextes d’Application et de Requête</h3>
+<p>Les contextes d’application et de requête de Flask sont des mécanismes qui permettent aux variables de se comporter comme si elles étaient globales, mais en réalité, elles sont spécifiques à chaque thread d’exécution, ce qui les rend sûres à utiliser dans des environnements multithreadés.</p>
+<section id="exemple-de-contexte-dapplication" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-contexte-dapplication">Exemple de contexte d’application</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, current_app</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> app.app_context():</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dans ce bloc, current_app pointe vers app</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(current_app.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, current_app est un proxy qui pointe vers l’application Flask actuellement active. L’utilisation du contexte d’application est essentielle lors de l’écriture de fonctions qui fonctionnent en dehors d’une requête active, comme les commandes CLI ou les tâches en arrière-plan.</p>
+</section>
+<section id="exemple-de-contexte-de-requête" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-contexte-de-requête">Exemple de contexte de requête</h4>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, g</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.before_request</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> before_request():</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    g.request_id <span class="op">=</span> request.headers.get(<span class="st">'X-Request-ID'</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/get_request_id'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_request_id():</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Request ID: </span><span class="sc">{</span>g<span class="sc">.</span>get(<span class="st">'request_id'</span>)<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, g est un objet global qui est unique à chaque requête. Il est utilisé pour stocker des données qui peuvent être accessibles par différentes fonctions pendant la même requête. before_request est un décorateur qui enregistre une fonction à exécuter avant chaque requête, où nous stockons un ID de requête personnalisé dans g.</p>
+</section>
+</section>
+<section id="f.-websockets-avec-flask-socketio" class="level3">
+<h3 class="anchored" data-anchor-id="f.-websockets-avec-flask-socketio">f.&nbsp;WebSockets avec Flask-SocketIO</h3>
+<p>Flask-SocketIO est une extension qui facilite l’ajout de fonctionnalités WebSocket à votre application Flask, permettant une communication bidirectionnelle en temps réel entre le client et le serveur.</p>
+<section id="exemple-dutilisation-de-flask-socketio" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dutilisation-de-flask-socketio">Exemple d’utilisation de Flask-SocketIO</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_socketio <span class="im">import</span> SocketIO, send</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'secret!'</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>socketio <span class="op">=</span> SocketIO(app)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="at">@socketio.on</span>(<span class="st">'connect'</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_connect():</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        send(random.randint(<span class="dv">1</span>, <span class="dv">100</span>))</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    socketio.run(app)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, chaque fois qu’un client se connecte, le serveur commence à lui envoyer des nombres aléatoires toutes les 5 secondes à l’aide de WebSockets.</p>
+</section>
+<section id="second-exemple" class="level4">
+<h4 class="anchored" data-anchor-id="second-exemple">Second exemple</h4>
+<p>Voici un exemple de WebSocket qui reçoit des messages de l’utilisateur et renvoie le nombre multiplié par deux s’il s’agit d’un nombre, ou la chaîne à l’envers s’il s’agit d’une chaîne.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_socketio <span class="im">import</span> SocketIO, send, receive</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'secret!'</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>socketio <span class="op">=</span> SocketIO(app)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="at">@socketio.on</span>(<span class="st">'message'</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_message(message):</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> message.isdigit():</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si le message est un nombre, renvoyez le nombre * 2</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        send(<span class="bu">str</span>(<span class="bu">int</span>(message) <span class="op">*</span> <span class="dv">2</span>))</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Sinon, renvoyez le message à l'envers</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        send(message[::<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    socketio.run(app)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+</section>
+<section id="iii.-conception-pratique-dune-api-avec-flask-1" class="level1">
+<h1>III. Conception Pratique d’une API avec Flask</h1>
+<p>Flask est un micro-framework pour Python qui est particulièrement adapté pour les petits projets ou pour les situations où une grande flexibilité est nécessaire. Il est léger, facile à utiliser, et extensible, ce qui en fait un choix populaire pour le développement d’APIs.</p>
+<section id="installation-et-configuration-de-flask-1" class="level2">
+<h2 class="anchored" data-anchor-id="installation-et-configuration-de-flask-1">1. Installation et Configuration de Flask</h2>
+<p>Pour commencer à travailler avec Flask, vous devez d’abord l’installer. Cela peut être fait facilement avec pip, le gestionnaire de paquets Python : III Une fois Flask installé, vous pouvez créer un fichier app.py qui servira de point d’entrée à votre application. Voici un exemple de structure de base pour une application Flask :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello_world():</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'Hello, World!'</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, nous avons importé Flask, instancié une application, défini une route de base (/) qui retourne simplement une chaîne de caractères, et enfin, nous avons exécuté l’application en mode debug.</p>
+</section>
+<section id="définition-des-routes-et-endpoints-1" class="level2">
+<h2 class="anchored" data-anchor-id="définition-des-routes-et-endpoints-1">2. Définition des Routes et Endpoints</h2>
+<p>Les routes dans Flask sont définies en utilisant le décorateur <span class="citation" data-cites="app.route">@app.route</span>(), qui associe une URL à une fonction Python. Voici un exemple de définition de route plus complexe :</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/users/&lt;int:user_id&gt;'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user(user_id):</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ici, vous pourriez récupérer l'utilisateur de la base de données</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"user_id"</span>: user_id, <span class="st">"user_name"</span>: <span class="st">"John Doe"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la route /users/<int:user_id> attend un paramètre user_id de type entier. Lorsqu’un utilisateur accède à cette URL, la fonction get_user est appelée et retourne un objet JSON avec l’ID et le nom de l’utilisateur.</int:user_id></p>
+</section>
+<section id="gestion-des-requêtes-1" class="level2">
+<h2 class="anchored" data-anchor-id="gestion-des-requêtes-1">3. Gestion des Requêtes</h2>
+<p>Flask fournit un objet request qui contient toutes les informations de la requête HTTP. Vous pouvez accéder aux données de la requête, aux paramètres de l’URL, aux en-têtes, et plus encore. Voici un exemple d’utilisation de l’objet request :</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> request</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> request.form[<span class="st">'username'</span>]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> request.form[<span class="st">'password'</span>]</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Ici, vous pourriez valider les identifiants de l'utilisateur</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"status"</span>: <span class="st">"success"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la route /login attend une requête POST avec un formulaire contenant un username et un password. La fonction login récupère ces valeurs et pourrait les utiliser pour valider l’identité de l’utilisateur.</p>
+</section>
+<section id="réponses-et-codes-détat-1" class="level2">
+<h2 class="anchored" data-anchor-id="réponses-et-codes-détat-1">4. Réponses et Codes d’État</h2>
+<p>Les réponses dans Flask peuvent être personnalisées en retournant non seulement des données, mais aussi des codes d’état HTTP spécifiques et des en-têtes. Voici comment vous pourriez retourner une réponse personnalisée :</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> make_response</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/not_found'</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> not_found():</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    resp <span class="op">=</span> make_response({<span class="st">"error"</span>: <span class="st">"Not found"</span>}, <span class="dv">404</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    resp.headers[<span class="st">'Content-Type'</span>] <span class="op">=</span> <span class="st">'application/json'</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la fonction not_found retourne une réponse avec un corps JSON, un code d’état 404 pour indiquer que la ressource n’a pas été trouvée, et un en-tête spécifiant le type de contenu.</p>
+</section>
+<section id="utilisation-de-templates-1" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-de-templates-1">5. Utilisation de Templates</h2>
+<p>Bien que les APIs retournent généralement des données JSON, Flask peut également servir des pages HTML en utilisant le système de templates Jinja2. Voici un exemple simple :</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> render_template</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/home'</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> home():</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'home.html'</span>, title<span class="op">=</span><span class="st">'Welcome'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, la fonction home utilise render_template pour servir un fichier HTML home.html, en passant un titre à la page.</p>
+</section>
+<section id="fonctionnement-du-décorateur-app.route-1" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnement-du-décorateur-app.route-1">6. Fonctionnement du décorateur <span class="citation" data-cites="app.route">@app.route</span></h2>
+<p>Le décorateur <span class="citation" data-cites="app.route">@app.route</span> est l’un des éléments fondamentaux de Flask. Il est utilisé pour associer une URL à une fonction Python, qui est appelée lorsque l’URL correspondante est demandée par un client HTTP.</p>
+<p>Quand vous décorez une fonction avec <span class="citation" data-cites="app.route">@app.route</span>, vous informez Flask que si une requête HTTP correspondant à la règle spécifiée est reçue, alors Flask doit appeler cette fonction et renvoyer sa réponse au client.</p>
+<p>Voici ce qui se passe en détail :</p>
+<ol type="1">
+<li>Analyse de la requête : Lorsqu’une requête arrive au serveur, Flask analyse l’URL demandée et cherche une correspondance avec les règles définies par les décorateurs <span class="citation" data-cites="app.route">@app.route</span>.</li>
+<li>Appel de la fonction : Si une correspondance est trouvée, Flask exécute la fonction associée à cette règle.</li>
+<li>Construction de la réponse : La fonction exécutée peut retourner une variété de réponses, y compris des objets Response, des chaînes de caractères, des tuples avec des données et des codes d’état, ou même des objets JSON.</li>
+<li>Envoi de la réponse : Flask prend la réponse de la fonction et l’envoie au client, en s’occupant des en-têtes HTTP nécessaires et du code d’état.</li>
+</ol>
+<p>Le décorateur <span class="citation" data-cites="app.route">@app.route</span> peut prendre plusieurs arguments pour personnaliser le comportement de la route :</p>
+<ul>
+<li>string : pour des segments dynamiques dans l’URL.</li>
+<li>int : pour accepter un segment d’URL comme un entier.</li>
+<li>float : pour accepter un segment d’URL comme un nombre à virgule flottante.</li>
+<li>path : similaire à string mais accepte aussi les slashes.</li>
+<li>uuid : pour accepter les segments d’URL comme des UUID.</li>
+<li>methods : une liste des méthodes HTTP autorisées pour cette route.</li>
+<li>endpoint : le nom de l’endpoint, utilisé avec url_for.</li>
+<li>defaults : des valeurs par défaut pour les arguments de la règle.</li>
+<li>host : un hôte spécifique pour lequel cette route est accessible.</li>
+<li>subdomain : un sous-domaine spécifique pour lequel cette route est accessible.</li>
+<li>redirect_to : redirige vers une autre règle d’URL.</li>
+<li>alias : permet à la route d’être un alias d’une autre règle.</li>
+</ul>
+</section>
+<section id="exemples-1" class="level2">
+<h2 class="anchored" data-anchor-id="exemples-1">7. Exemples</h2>
+<section id="a.-exemple-de-la-todo-list-1" class="level3">
+<h3 class="anchored" data-anchor-id="a.-exemple-de-la-todo-list-1">a. Exemple de la Todo List</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, jsonify, request</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simuler une base de données avec une liste</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>tasks <span class="op">=</span> [</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"title"</span>: <span class="st">"Do laundry"</span>, <span class="st">"completed"</span>: <span class="va">False</span>},</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"id"</span>: <span class="dv">2</span>, <span class="st">"title"</span>: <span class="st">"Write code"</span>, <span class="st">"completed"</span>: <span class="va">False</span>},</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_tasks():</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(tasks)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_task():</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    task <span class="op">=</span> request.get_json()</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    tasks.append(task)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(task), <span class="dv">201</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks/&lt;int:task_id&gt;'</span>, methods<span class="op">=</span>[<span class="st">'PUT'</span>])</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_task(task_id):</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>    task <span class="op">=</span> <span class="bu">next</span>((t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t[<span class="st">'id'</span>] <span class="op">==</span> task_id), <span class="va">None</span>)</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> task:</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Task not found'</span>}), <span class="dv">404</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> request.get_json()</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    task.update(data)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify(task)</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/tasks/&lt;int:task_id&gt;'</span>, methods<span class="op">=</span>[<span class="st">'DELETE'</span>])</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> delete_task(task_id):</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> tasks</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>    tasks <span class="op">=</span> [t <span class="cf">for</span> t <span class="kw">in</span> tasks <span class="cf">if</span> t[<span class="st">'id'</span>] <span class="op">!=</span> task_id]</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Task deleted'</span>})</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="b.-exemple-de-lauthentification-1" class="level3">
+<h3 class="anchored" data-anchor-id="b.-exemple-de-lauthentification-1">b. Exemple de l’authentification</h3>
+<p>Côté serveur (app.py) :</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, jsonify, make_response</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> werkzeug.security <span class="im">import</span> generate_password_hash, check_password_hash</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uuid</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jwt</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Simuler une base de données d'utilisateurs</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>users_db <span class="op">=</span> {</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"john"</span>: generate_password_hash(<span class="st">"hello"</span>),</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"doe"</span>: generate_password_hash(<span class="st">"world"</span>)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'POST'</span>])</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    auth <span class="op">=</span> request.authorization</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> auth <span class="kw">or</span> <span class="kw">not</span> auth.username <span class="kw">or</span> <span class="kw">not</span> auth.password:</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> make_response(<span class="st">'Could not verify'</span>, <span class="dv">401</span>, {<span class="st">'WWW-Authenticate'</span>: <span class="st">'Basic realm="Login required!"'</span>})</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> auth.username <span class="kw">in</span> users_db <span class="kw">and</span> check_password_hash(users_db[auth.username], auth.password):</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>        token <span class="op">=</span> jwt.encode({</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">'user'</span>: auth.username,</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'exp'</span>: datetime.datetime.utcnow() <span class="op">+</span> datetime.timedelta(minutes<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>        }, app.config[<span class="st">'SECRET_KEY'</span>])</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'token'</span>: token})</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> make_response(<span class="st">'Could not verify'</span>, <span class="dv">401</span>, {<span class="st">'WWW-Authenticate'</span>: <span class="st">'Basic realm="Login required!"'</span>})</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/protected'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>])</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> protected():</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    token <span class="op">=</span> request.args.get(<span class="st">'token'</span>)</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> token:</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Token is missing!'</span>}), <span class="dv">403</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> jwt.decode(token, app.config[<span class="st">'SECRET_KEY'</span>], algorithms<span class="op">=</span>[<span class="st">"HS256"</span>])</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Token is invalid!'</span>}), <span class="dv">403</span></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">'message'</span>: <span class="st">'Protected content'</span>, <span class="st">'user'</span>: data[<span class="st">'user'</span>]})</span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Côté client (client.py) :</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remplacer par l'URL de votre API</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"http://127.0.0.1:5000"</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Demande d'authentification</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>auth_response <span class="op">=</span> requests.post(url <span class="op">+</span> <span class="st">"/login</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="er">", auth=('john', 'hello'))</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="er"># Si authentification réussie, utiliser le token pour accéder à une route protégée</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> auth_response.ok:</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    token <span class="op">=</span> auth_response.json()[<span class="st">'token'</span>]</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    protected_response <span class="op">=</span> requests.get(url <span class="op">+</span> <span class="st">"/protected"</span>, params<span class="op">=</span>{<span class="st">'token'</span>: token})</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(protected_response.json())</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Failed to authenticate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, le serveur utilise JWT (JSON Web Tokens) pour l’authentification. Lorsque l’utilisateur se connecte avec le bon nom d’utilisateur et mot de passe, un token est généré et renvoyé. Le client peut ensuite utiliser ce token pour accéder à des routes protégées.</p>
+</section>
+</section>
+<section id="fonctionnalités-avancées-de-flask-1" class="level2">
+<h2 class="anchored" data-anchor-id="fonctionnalités-avancées-de-flask-1">8. Fonctionnalités Avancées de Flask</h2>
+<p>Flask est un micro-framework puissant qui offre une grande flexibilité pour le développement d’applications web et d’APIs. Au-delà des fonctionnalités de base, Flask fournit plusieurs outils et extensions qui permettent de construire des applications robustes et évolutives. Dans cette section, nous allons explorer certaines de ces fonctionnalités avancées.</p>
+<p>Bien sûr, je vais approfondir chaque fonctionnalité de Flask que vous avez mentionnée.</p>
+<section id="a.-blueprints-1" class="level3">
+<h3 class="anchored" data-anchor-id="a.-blueprints-1">a. Blueprints</h3>
+<p>Les Blueprints sont une façon de décomposer une application Flask en composants distincts, chacun ayant ses propres routes, templates et ressources statiques. Cela permet de mieux organiser le code, surtout pour les grandes applications, et de réutiliser des ensembles de fonctionnalités dans d’autres applications Flask.</p>
+<section id="comment-utiliser-les-blueprints-1" class="level4">
+<h4 class="anchored" data-anchor-id="comment-utiliser-les-blueprints-1">Comment utiliser les Blueprints</h4>
+<p>Vous créez d’abord un Blueprint en spécifiant un nom et le module ou le package où il est situé. Ensuite, vous définissez des routes et des erreurs comme vous le feriez avec une application Flask, mais vous les enregistrez avec le Blueprint.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Blueprint</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'un Blueprint nommé 'bp'</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>bp <span class="op">=</span> Blueprint(<span class="st">'bp'</span>, <span class="va">__name__</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Définition d'une route pour ce Blueprint</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="at">@bp.route</span>(<span class="st">'/hello'</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello():</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Hello from the Blueprint!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Pour l’enregistrer dans votre application principale, vous utilisez la méthode register_blueprint de l’objet app :</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yourapplication <span class="im">import</span> bp</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>app.register_blueprint(bp, url_prefix<span class="op">=</span><span class="st">'/my_blueprint'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>L’argument url_prefix est optionnel, mais il est utile pour préfixer toutes les routes du Blueprint avec un chemin commun, ce qui peut aider à organiser les routes en sections logiques.</p>
+</section>
+</section>
+<section id="b.-extensions-flask-1" class="level3">
+<h3 class="anchored" data-anchor-id="b.-extensions-flask-1">b. Extensions Flask</h3>
+<p>Les extensions Flask étendent les fonctionnalités de base de Flask. Par exemple, Flask-SQLAlchemy est une extension qui ajoute la prise en charge d’ORM (Object-Relational Mapping) à Flask, ce qui facilite l’interaction avec les bases de données en utilisant des objets Python au lieu d’écrire des requêtes SQL brutes.</p>
+<section id="flask-sqlalchemy-1" class="level4">
+<h4 class="anchored" data-anchor-id="flask-sqlalchemy-1">Flask-SQLAlchemy</h4>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_sqlalchemy <span class="im">import</span> SQLAlchemy</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SQLALCHEMY_DATABASE_URI'</span>] <span class="op">=</span> <span class="st">'sqlite:///example.db'</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> SQLAlchemy(app)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(db.Model):</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">id</span> <span class="op">=</span> db.Column(db.Integer, primary_key<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> db.Column(db.String(<span class="dv">80</span>), unique<span class="op">=</span><span class="va">True</span>, nullable<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer les tables dans la base de données</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>db.create_all()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, SQLAlchemy est utilisé pour définir un modèle pour les utilisateurs, qui est ensuite utilisé pour créer une table dans la base de données SQLite.</p>
+</section>
+<section id="flask-wtf-1" class="level4">
+<h4 class="anchored" data-anchor-id="flask-wtf-1">Flask-WTF</h4>
+<p>Flask-WTF est une extension qui intègre WTForms, une bibliothèque de gestion de formulaires avec Flask. Elle facilite la création, la validation et le rendu de formulaires HTML.</p>
+<p>Exemple</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, render_template</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_wtf <span class="im">import</span> FlaskForm</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wtforms <span class="im">import</span> StringField, PasswordField</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wtforms.validators <span class="im">import</span> InputRequired</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LoginForm(FlaskForm):</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> StringField(<span class="st">'Username'</span>, validators<span class="op">=</span>[InputRequired()])</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> PasswordField(<span class="st">'Password'</span>, validators<span class="op">=</span>[InputRequired()])</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>, methods<span class="op">=</span>[<span class="st">'GET'</span>, <span class="st">'POST'</span>])</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    form <span class="op">=</span> LoginForm()</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> form.validate_on_submit():</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Ici, vous pourriez vérifier les identifiants de l'utilisateur</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'Form successfully submitted!'</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> render_template(<span class="st">'login.html'</span>, form<span class="op">=</span>form)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, LoginForm est une classe de formulaire qui utilise FlaskForm de Flask-WTF. Elle définit un formulaire avec des champs pour le nom d’utilisateur et le mot de passe, chacun avec un validateur qui exige que le champ soit rempli.</p>
+</section>
+<section id="flask-login-1" class="level4">
+<h4 class="anchored" data-anchor-id="flask-login-1">Flask-Login</h4>
+<p>Flask-Login fournit la gestion des sessions utilisateur pour Flask. Il gère le processus de connexion et de déconnexion des utilisateurs et se souvient de l’état de connexion entre les requêtes.</p>
+<p>Exemple d’utilisation</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, redirect, url_for</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_login <span class="im">import</span> LoginManager, UserMixin, login_user, login_required, logout_user</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>login_manager <span class="op">=</span> LoginManager()</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>login_manager.init_app(app)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(UserMixin):</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Créer une classe utilisateur qui hérite de UserMixin</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="at">@login_manager.user_loader</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_user(user_id):</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cette fonction serait normalement utilisée pour charger un utilisateur de la base de données</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> User()</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/login'</span>)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> User()</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    login_user(user)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> redirect(url_for(<span class="st">'protected'</span>))</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/logout'</span>)</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logout():</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>    logout_user()</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'You have been logged out'</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/protected'</span>)</span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> protected():</span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">'Protected area'</span></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, User est une classe qui représente un utilisateur et hérite de UserMixin, qui fournit des implémentations par défaut pour les méthodes attendues par Flask-Login. login_user et logout_user sont des fonctions qui gèrent l’état de connexion de l’utilisateur.</p>
+</section>
+</section>
+<section id="c.-gestion-des-erreurs-1" class="level3">
+<h3 class="anchored" data-anchor-id="c.-gestion-des-erreurs-1">c.&nbsp;Gestion des Erreurs</h3>
+<p>Flask permet de définir des gestionnaires d’erreurs personnalisés pour différents codes d’erreur HTTP. Cela vous permet de renvoyer des réponses cohérentes et informatives lorsque des erreurs se produisent.</p>
+<section id="exemples-de-gestionnaires-derreurs-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemples-de-gestionnaires-derreurs-1">Exemples de gestionnaires d’erreurs</h4>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">404</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_404(e):</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"Resource not found"</span>}, <span class="dv">404</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">400</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_400(e):</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"Bad request"</span>}, <span class="dv">400</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">401</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> error_401(e):</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">"error"</span>: <span class="st">"Authentication required"</span>}, <span class="dv">401</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans ces exemples, des fonctions sont définies pour gérer les erreurs 404 (non trouvé), 400 (mauvaise requête) et 401 (authentification requise), renvoyant un objet JSON avec un message d’erreur.</p>
+</section>
+</section>
+<section id="d.-gestion-des-sessions-1" class="level3">
+<h3 class="anchored" data-anchor-id="d.-gestion-des-sessions-1">d.&nbsp;Gestion des Sessions</h3>
+<p>Les sessions dans Flask sont utilisées pour stocker des informations entre les requêtes. Les données de session sont stockées côté client dans des cookies sécurisés et cryptés.</p>
+<section id="exemple-dutilisation-des-sessions-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dutilisation-des-sessions-1">Exemple d’utilisation des sessions</h4>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, session</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>app.secret_key <span class="op">=</span> <span class="st">'your_secret_key'</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/set_user/&lt;username&gt;'</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> set_user(username):</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    session[<span class="st">'username'</span>] <span class="op">=</span> username</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'User set to </span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/get_user'</span>)</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user():</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f'Current user is </span><span class="sc">{</span>session<span class="sc">.</span>get(<span class="st">"username"</span>)<span class="sc">}</span><span class="ss">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, le nom d’utilisateur est stocké dans la session après avoir visité la route /set_user/<username>. Il peut ensuite être récupéré sur une autre route.</username></p>
+</section>
+</section>
+<section id="e.-contextes-dapplication-et-de-requête-1" class="level3">
+<h3 class="anchored" data-anchor-id="e.-contextes-dapplication-et-de-requête-1">e. Contextes d’Application et de Requête</h3>
+<p>Les contextes d’application et de requête de Flask sont des mécanismes qui permettent aux variables de se comporter comme si elles étaient globales, mais en réalité, elles sont spécifiques à chaque thread d’exécution, ce qui les rend sûres à utiliser dans des environnements multithreadés.</p>
+<section id="exemple-de-contexte-dapplication-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-contexte-dapplication-1">Exemple de contexte d’application</h4>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, current_app</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> app.app_context():</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dans ce bloc, current_app pointe vers app</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(current_app.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, current_app est un proxy qui pointe vers l’application Flask actuellement active. L’utilisation du contexte d’application est essentielle lors de l’écriture de fonctions qui fonctionnent en dehors d’une requête active, comme les commandes CLI ou les tâches en arrière-plan.</p>
+</section>
+<section id="exemple-de-contexte-de-requête-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-de-contexte-de-requête-1">Exemple de contexte de requête</h4>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask, request, g</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.before_request</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> before_request():</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    g.request_id <span class="op">=</span> request.headers.get(<span class="st">'X-Request-ID'</span>)</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">'/get_request_id'</span>)</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_request_id():</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Request ID: </span><span class="sc">{</span>g<span class="sc">.</span>get(<span class="st">'request_id'</span>)<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, g est un objet global qui est unique à chaque requête. Il est utilisé pour stocker des données qui peuvent être accessibles par différentes fonctions pendant la même requête. before_request est un décorateur qui enregistre une fonction à exécuter avant chaque requête, où nous stockons un ID de requête personnalisé dans g.</p>
+</section>
+</section>
+<section id="f.-websockets-avec-flask-socketio-1" class="level3">
+<h3 class="anchored" data-anchor-id="f.-websockets-avec-flask-socketio-1">f.&nbsp;WebSockets avec Flask-SocketIO</h3>
+<p>Flask-SocketIO est une extension qui facilite l’ajout de fonctionnalités WebSocket à votre application Flask, permettant une communication bidirectionnelle en temps réel entre le client et le serveur.</p>
+<section id="exemple-dutilisation-de-flask-socketio-1" class="level4">
+<h4 class="anchored" data-anchor-id="exemple-dutilisation-de-flask-socketio-1">Exemple d’utilisation de Flask-SocketIO</h4>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_socketio <span class="im">import</span> SocketIO, send</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'secret!'</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>socketio <span class="op">=</span> SocketIO(app)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="at">@socketio.on</span>(<span class="st">'connect'</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_connect():</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>        send(random.randint(<span class="dv">1</span>, <span class="dv">100</span>))</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a>    socketio.run(app)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dans cet exemple, chaque fois qu’un client se connecte, le serveur commence à lui envoyer des nombres aléatoires toutes les 5 secondes à l’aide de WebSockets.</p>
+</section>
+<section id="second-exemple-1" class="level4">
+<h4 class="anchored" data-anchor-id="second-exemple-1">Second exemple</h4>
+<p>Voici un exemple de WebSocket qui reçoit des messages de l’utilisateur et renvoie le nombre multiplié par deux s’il s’agit d’un nombre, ou la chaîne à l’envers s’il s’agit d’une chaîne.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_socketio <span class="im">import</span> SocketIO, send, receive</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>app.config[<span class="st">'SECRET_KEY'</span>] <span class="op">=</span> <span class="st">'secret!'</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>socketio <span class="op">=</span> SocketIO(app)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="at">@socketio.on</span>(<span class="st">'message'</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> handle_message(message):</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> message.isdigit():</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si le message est un nombre, renvoyez le nombre * 2</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>        send(<span class="bu">str</span>(<span class="bu">int</span>(message) <span class="op">*</span> <span class="dv">2</span>))</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Sinon, renvoyez le message à l'envers</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>        send(message[::<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    socketio.run(app)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Python API, Rémi Genet.<br> Licence <i class="fa-brands fa-creative-commons" aria-label="creative-commons"></i><br> Code source disponible sur <a href="https://github.com/remigenet/Python-API"><code>Github</code></a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Site construit avec <i class="fa-brands fa-python" aria-label="python"></i> et <a href="https://quarto.org/"><code>Quarto</code></a><br> Inspiration pour la mise en forme du site <a href="https://github.com/linogaliana/python-datascientist">ici</a><br> <a href="https://github.com/remigenet/Python-API">Code source disponible sur <i class="fa-brands fa-github" aria-label="github"></i> <code>GitHub</code></a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

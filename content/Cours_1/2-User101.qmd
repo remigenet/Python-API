@@ -31,22 +31,62 @@ Chaque fois que vous interagissez avec une API, vous réalisez généralement un
 - Réception et traitement de la réponse : Après avoir envoyé la requête, l'API vous renvoie une réponse. Cette réponse doit être traitée, souvent en la convertissant d'un format comme JSON en une structure utilisable dans votre programme.
   
 
+## 2.2 Comprendre et utiliser les endpoints
 
-## 2.2 Utiliser les endpoints :
+Un endpoint est une URL spécifique où votre application peut accéder à une ressource de l'API. Pensez-y comme une "adresse" pour accéder à un service particulier.
 
+### Structure d'une requête API
 
+```
+https://api.exemple.com/stocks/AAPL?period=1d
+```
 
-Les API sont généralement structurées autour d'endpoints, qui sont des points d'accès spécifiques où l'API peut recevoir des requêtes et renvoyer des réponses.
-Par exemple, pour une API qui fournit des données boursières :
+Cette URL se décompose en :
+- Endpoint : `/stocks/AAPL` (le chemin pour accéder à la ressource)
+- Paramètre : `period=1d` (des options pour personnaliser la requête)
 
+### Les paramètres
 
+Il existe deux façons principales d'envoyer des paramètres à un endpoint :
 
+1. **Dans l'URL** (Query Parameters)
+   ```
+   /stocks?symbol=AAPL&period=1d
+   ```
+   - Utilisés pour filtrer ou personnaliser la requête
+   - Ajoutés après le `?`
+   - Séparés par des `&`
 
+2. **Dans le chemin** (Path Parameters)
+   ```
+   /stocks/AAPL/history
+   ```
+   - Font partie de l'URL elle-même
+   - Identifient une ressource spécifique
 
-- /stocks pourrait renvoyer une liste de toutes les actions.
-- /stocks/AAPL pourrait renvoyer des informations sur l'action Apple.
-- /stocks/AAPL/history pourrait renvoyer l'historique des prix de l'action Apple.
-- 
+### Exemples pratiques
+
+1. **Liste de toutes les actions**
+   ```
+   GET /stocks
+   ```
+
+2. **Information sur une action spécifique**
+   ```
+   GET /stocks/AAPL
+   ```
+
+3. **Historique filtré d'une action**
+   ```
+   GET /stocks/AAPL/history?period=1d
+   ```
+
+4. **Recherche d'actions par critères**
+   ```
+   GET /stocks?market=NYSE&limit=10
+   ```
+
+Cette structure simple et cohérente permet d'organiser l'accès aux différentes fonctionnalités de l'API de manière logique et prévisible.
 
 
 ## 2.3 Gestion des erreurs et codes de réponse HTTP :
@@ -66,6 +106,7 @@ Lorsque vous interagissez avec une API via HTTP, la réponse contient un code d'
 - 401 Unauthorized : La requête nécessite une authentification utilisateur.
 - 403 Forbidden : Le serveur a compris la requête, mais refuse de la traiter. Contrairement à l'erreur 401, s'authentifier ne résoudra pas le problème.
 - 404 Not Found : La ressource demandée n'a pas été trouvée.
+- 418 Way  Too Many Requests: L'utilisateur est bloqué pendant une certaines durée après avoir de façon répété continué d'envoyer trop de requête. 
 - 429 Too Many Requests : L'utilisateur a envoyé trop de requêtes dans un laps de temps donné (rate limiting).
 - 500 Internal Server Error : Une erreur générique qui indique qu'une situation inattendue a été rencontrée et qu'aucune solution plus spécifique n'est disponible.
 

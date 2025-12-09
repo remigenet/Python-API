@@ -1,0 +1,245 @@
+---
+title: "M2EIF Quant 2025/2026"
+weight: 10
+tags:
+  - FastAPI
+  - WebSocket
+  - Cryptocurrency
+  - API
+  - Trading
+categories:
+  - Cours
+  - Projet
+type: book
+description: "Simple Router Project - Real-time Market Data Aggregation & Paper Trading"
+image: .img/projets1.webp
+---
+
+# Project: Simple Router - Market Data Aggregation & Paper Trading API
+
+---
+
+## Overview
+
+Your task is to build a **market data router** that aggregates real-time data from multiple cryptocurrency exchanges (Binance and OKX) and exposes unified market data streams to clients. The system also implements a simple paper trading engine where clients can submit limit orders executed against the live order book.
+
+The project emphasizes real-time data processing, WebSocket management, and building a clean API architecture.
+
+---
+
+## Server Component
+
+### 1. Market Data Collection
+
+The server must maintain **persistent WebSocket connections** to both Binance and OKX for:
+
+- **Order book** (top levels) for all configured symbols
+- **Trades** for all configured symbols
+
+The configuration must include **at least 5 trading pairs** (e.g., BTC/USDT, ETH/USDT, SOL/USDT, etc.).
+
+### 2. Client Market Data Subscriptions
+
+Clients connect via WebSocket and can subscribe to the following data streams:
+
+| Stream Type | Description |
+|-------------|-------------|
+| **Best Touch** | Best bid/ask price and volume, indicating which exchange currently has the best price |
+| **Trades** | Real-time trade feed |
+| **Live Klines** | Candlestick data for intervals: 1s, 10s, 1m, 5m. Updated progressively every second with the current candle |
+| **EWMA** | Exponential Weighted Moving Average of price, starting from subscription time. Client specifies the half-life parameter |
+
+Each subscription request must include an **exchange filter**:
+
+- `all` — aggregated data from both exchanges
+- `binance` — Binance data only
+- `okx` — OKX data only
+
+> **Important**: All derived metrics (klines, EWMA) must be computed exclusively from the data received through the exchange WebSocket connections. Do not use external REST APIs to fetch historical data for these computations.
+
+### 3. Authentication & User Management
+
+Implement a simple authentication system (JWT recommended):
+
+| Endpoint | Description |
+|----------|-------------|
+| `POST /register` | Create a new account with username and password |
+| `POST /login` | Authenticate and receive a token/session |
+
+Passwords must be stored securely (hashed).
+
+### 4. Paper Trading System
+
+Authenticated users can interact with a simulated trading account.
+
+#### Balance Management
+
+The server must maintain **per-client balances** for each asset. When processing orders, the server must verify that the client has sufficient available balance, accounting for funds already reserved by open orders.
+
+For example, if a client has 1000 USDT and places a buy order for 0.01 BTC at 50000 USDT (reserving 500 USDT), only 500 USDT remains available for subsequent orders.
+
+#### Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /info` | Get the list of available assets and trading pairs supported by the server |
+| `POST /deposit` | Deposit funds into the paper trading account. Available assets are those present in the configured trading pairs |
+| `POST /orders` | Submit a limit order. Client must provide a unique `token_id`. The server holds the order and executes it when the best touch price matches or crosses the limit price |
+| `GET /orders/{token_id}` | Retrieve the status of a specific order |
+| `DELETE /orders/{token_id}` | Cancel an open order. Reserved funds are released back to available balance |
+| `GET /balance` | Retrieve current account balances (total and available) |
+
+#### Order Validation
+
+The server **must validate all order submissions** before accepting them:
+
+- **Valid symbol**: The trading pair must exist in the server configuration
+- **Valid side**: Must be `buy` or `sell`
+- **Sufficient balance**: The client must have enough available balance (excluding funds reserved by open orders) to cover the order
+- **Positive quantities**: Price and quantity must be positive numbers
+
+Invalid orders must be **rejected with a clear error message**. The server must never crash or enter an inconsistent state due to malformed client requests.
+
+> **Evaluation note**: During grading, we will intentionally send malformed requests, invalid parameters, and edge cases to test server robustness. Ensure proper error handling throughout your implementation.
+
+#### Order Execution Logic
+
+- The server continuously monitors the **best touch** (best price across both exchanges)
+- When a limit order's price condition is met:
+  - **Buy order**: executes if best ask ≤ limit price
+  - **Sell order**: executes if best bid ≥ limit price
+- Upon execution, the order status changes to `filled` and client balances are updated accordingly (reserved funds are released and the trade is settled)
+
+---
+
+## API Specification
+
+### REST Endpoints
+
+**Public Routes:**
+```
+POST /register
+- Create a new user account
+- Body: { "username": "...", "password": "..." }
+
+POST /login
+- Authenticate and receive JWT token
+- Body: { "username": "...", "password": "..." }
+
+GET /info
+- Get available assets and trading pairs
+- Response: { "assets": ["BTC", "ETH", "USDT", ...], "pairs": ["BTCUSDT", "ETHUSDT", ...] }
+```
+
+**Authenticated Routes:**
+```
+POST /deposit
+- Deposit funds to paper trading account
+- Body: { "asset": "USDT", "amount": 10000 }
+
+POST /orders
+- Submit a limit order
+- Body: { "token_id": "unique-id", "symbol": "BTCUSDT", "side": "buy", "price": 50000, "quantity": 0.1 }
+- Returns: acceptance confirmation or rejection with error details
+
+GET /orders/{token_id}
+- Get status of a specific order
+
+DELETE /orders/{token_id}
+- Cancel an open order
+- Returns: confirmation or error if order is already filled/cancelled
+
+GET /balance
+- Get all asset balances for the authenticated user
+- Returns both total balance and available balance (excluding reserved funds)
+```
+
+### WebSocket API
+
+After connecting and authenticating, clients can send subscription messages:
+```json
+{
+  "action": "subscribe",
+  "stream": "best_touch",
+  "symbol": "BTCUSDT",
+  "exchange": "all"
+}
+```
+```json
+{
+  "action": "subscribe",
+  "stream": "klines",
+  "symbol": "ETHUSDT",
+  "interval": "1m",
+  "exchange": "binance"
+}
+```
+```json
+{
+  "action": "subscribe",
+  "stream": "ewma",
+  "symbol": "SOLUSDT",
+  "half_life": 30,
+  "exchange": "all"
+}
+```
+
+---
+
+## Implementation Guidelines
+
+### Suggested Development Order
+
+1. **Exchange connectivity**: Establish WebSocket connections to Binance and OKX
+2. **Data normalization**: Standardize order book and trade data formats
+3. **Client WebSocket server**: Allow clients to connect and subscribe to streams
+4. **Kline generation**: Build the candlestick aggregation logic
+5. **EWMA computation**: Implement the exponential moving average with configurable half-life
+6. **Authentication**: Add user registration, login, and JWT validation
+7. **Paper trading**: Implement deposit, order submission, cancellation, and execution engine
+8. **Testing**: Create a client to demonstrate all features
+
+### Technical Requirements
+
+- Use **FastAPI** for the server
+- Use **asyncio** for concurrent WebSocket management
+- Provide **Swagger documentation** (auto-generated by FastAPI)
+
+---
+
+## Project Deliverables
+
+1. **Server implementation** using FastAPI with all required features
+2. **Client example** (Python script or notebook) demonstrating:
+   - Registration and authentication
+   - Subscribing to each stream type
+   - Depositing funds and placing orders
+   - Cancelling orders
+   - Checking order status and balances
+3. **README** with:
+   - Setup and installation instructions
+   - Configuration explanation (symbols, etc.)
+   - Usage examples
+   - API documentation reference
+
+---
+
+## Optional Enhancements (Bonus Points)
+
+- **WebSocket order management**: Allow clients to submit orders and receive execution updates via WebSocket instead of REST
+- **Server persistence**: Save client accounts, balances, and pending orders to persistent storage (e.g., SQLite, JSON files). The server should recover its full state after restart without losing any client data.
+- **Order modification**: Allow clients to modify the price and/or quantity of open orders via a `PUT /orders/{token_id}` endpoint
+- **Additional order types**:
+  - **Market orders**: Execute immediately at the current best touch price
+  - **IOC (Immediate-Or-Cancel)**: Execute immediately what can be filled, cancel the remaining quantity
+
+---
+
+## Project Organization
+
+- Work in groups of **4-6 people**
+- Use **GitHub** for version control and collaboration
+- Submit via email:
+  - Team member names
+  - GitHub repository link
+  - Any special setup instructions
